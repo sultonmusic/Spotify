@@ -1,5 +1,187 @@
 {
- "setup": "ad388f53861cf34231f7bfd88dffb19883cfd6fa",
+ "setup": "2c9b790219efc569f9e1505a92a4f267b1cb9f38",
  "owner": "336f31d9aeea55626bc39096ee1b59bd46aa9eef596af31dd77dc65bf06751b5",
- "pending": {}
+ "pending": {
+  "ee15cec6": {
+   "t": 1790712117,
+   "a": [
+    {
+     "name": "Ad\u00e8le",
+     "genre": "French Pop",
+     "fans": 15481707,
+     "itunes_id": 493383225,
+     "deezer_id": 75798,
+     "picture": "https://cdn-images.dzcdn.net/images/artist/e5fc443d2abc03b487234ba4de65a001/1000x1000-000000-80-0-0.jpg"
+    },
+    {
+     "name": "Adele",
+     "genre": "Pop",
+     "fans": 12415,
+     "itunes_id": 262836961,
+     "deezer_id": 5673798,
+     "picture": "https://cdn-images.dzcdn.net/images/artist/ed5666c7c1a7115190d5115d04084f80/1000x1000-000000-80-0-0.jpg"
+    },
+    {
+     "name": "Adele",
+     "genre": null,
+     "deezer_id": 7016369,
+     "fans": 638,
+     "picture": "https://cdn-images.dzcdn.net/images/artist/ebe5c9b1c2251562765baa1330bc0a18/1000x1000-000000-80-0-0.jpg"
+    },
+    {
+     "name": "Adele",
+     "genre": "Christian",
+     "fans": 326,
+     "itunes_id": 563040812,
+     "deezer_id": 61817012,
+     "picture": "https://cdn-images.dzcdn.net/images/artist/5e22b1d2569cf1ea763b09ff3c978a50/1000x1000-000000-80-0-0.jpg"
+    },
+    {
+     "name": "Ad\u00e8le & Robin",
+     "genre": null,
+     "deezer_id": 69171232,
+     "fans": 3714,
+     "picture": "https://cdn-images.dzcdn.net/images/artist/60cf720ba6f2a96820d8b69bcea61f36/1000x1000-000000-80-0-0.jpg"
+    },
+    {
+     "name": "Ad\u00e8le & Zalem",
+     "genre": null,
+     "deezer_id": 5203567,
+     "fans": 1808,
+     "picture": "https://cdn-images.dzcdn.net/images/artist/67a8bd3b465446fc8098631c85d3c8a2/1000x1000-000000-80-0-0.jpg"
+    }
+   ]
+  },
+  "1e358fba": {
+   "t": 1790712121,
+   "c": [
+    {
+     "title": "SAYKO",
+     "artist": "Los Dareyes De La Sierra",
+     "album": "SABIA",
+     "year": null,
+     "duration": 174,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/cda8f7890ff1da88f45eebb972ca4042/1000x1000-000000-80-0-0.jpg",
+     "genre": null,
+     "explicit": true,
+     "preview": null
+    },
+    {
+     "title": "Skam Koh",
+     "artist": "Azet",
+     "album": "Super Plus",
+     "year": null,
+     "duration": 186,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/e98904f6d83db2e577ace142e2b5647c/1000x1000-000000-80-0-0.jpg",
+     "genre": null,
+     "explicit": true,
+     "preview": null
+    },
+    {
+     "title": "Stay Gold",
+     "artist": "BTS",
+     "album": "Stay Gold",
+     "year": null,
+     "duration": 243,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/07153f92f2922bb2d091c2f1c72871a7/1000x1000-000000-80-0-0.jpg",
+     "genre": null,
+     "explicit": false,
+     "preview": null
+    },
+    {
+     "title": "Sway",
+     "artist": "The Kooks",
+     "album": "Konk",
+     "year": null,
+     "duration": 215,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/cd1fe91babdf5dd597515d2e0c6d6377/1000x1000-000000-80-0-0.jpg",
+     "genre": null,
+     "explicit": false,
+     "preview": null
+    },
+    {
+     "title": "Jetplane",
+     "artist": "Slayko",
+     "album": "Jetplane",
+     "year": null,
+     "duration": 192,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/0c9cc68a47c5126a7ae2dba5f491d9a1/1000x1000-000000-80-0-0.jpg",
+     "genre": null,
+     "explicit": false,
+     "preview": null
+    }
+   ]
+  },
+  "046ab76a": {
+   "t": 1790712122,
+   "c": [
+    {
+     "title": "Hello",
+     "artist": "Lionel Richie",
+     "album": "20th Century Masters - The Millennium Collection: The Best of Lionel Richie",
+     "year": 1983,
+     "duration": 249.267,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/0d/c0/a3/0dc0a301-d9e5-2980-5141-d8ddb1571398/00602498607497.rgb.jpg/600x600bb.jpg",
+     "genre": "R&B/Soul",
+     "explicit": false,
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e8/ef/83/e8ef83f5-3e60-b6b0-d1f0-d2d823b4ccad/mzaf_7369759903966574298.plus.aac.p.m4a"
+    },
+    {
+     "title": "HELLO (feat. JEY BROWNIE & Josman)",
+     "artist": "Guy2bezbar",
+     "album": "AMBITION",
+     "year": null,
+     "duration": 184,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/75a7ad72110a90c0c92a1abf90108eaf/1000x1000-000000-80-0-0.jpg",
+     "genre": null,
+     "explicit": true,
+     "preview": null
+    },
+    {
+     "title": "Hello",
+     "artist": "Evanescence",
+     "album": "Fallen (Bonus Version)",
+     "year": 2003,
+     "duration": 220.36,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/52/49/1a/52491ac9-cef8-4a6a-1a16-a1c01ad44abc/14CMGIM00930.rgb.jpg/600x600bb.jpg",
+     "genre": "Alternative",
+     "explicit": false,
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/46/42/9c/46429cf2-57d3-7e93-6500-ee8b4c225d7b/mzaf_12289354221666285777.plus.aac.p.m4a"
+    },
+    {
+     "title": "Hello",
+     "artist": "OMfG",
+     "album": "Hello",
+     "year": 2014,
+     "duration": 226.308,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/18/be/d7/18bed76c-8bd7-0633-5601-452b15e5305b/859714411653_cover.jpg/600x600bb.jpg",
+     "genre": "Electronic",
+     "explicit": false,
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/83/4b/30/834b301b-64c4-cabd-f1d7-1817330f8ffe/mzaf_9640661573819596101.plus.aac.p.m4a"
+    },
+    {
+     "title": "Hello",
+     "artist": "Adele",
+     "album": "25",
+     "year": 2015,
+     "duration": 295.502,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/08/8c/24/088c2405-2e33-801b-5c38-e967f2c01e69/191404113974.png/600x600bb.jpg",
+     "genre": "Pop",
+     "explicit": false,
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/10/7e/9d/107e9dc0-c13b-eace-2486-84a3c694b075/mzaf_6267923862748965591.plus.aac.p.m4a"
+    },
+    {
+     "title": "Hello",
+     "artist": "Aqyila",
+     "album": "Hello",
+     "year": 2023,
+     "duration": 195.004,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/f1/38/7d/f1387d13-379a-6aa7-f322-e2d75bff5b6a/196589915023.jpg/600x600bb.jpg",
+     "genre": "R&B/Soul",
+     "explicit": false,
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2d/da/6f/2dda6f4b-f3ca-dfff-06ad-7dd00a22cf91/mzaf_16049778368564008710.plus.aac.p.m4a"
+    }
+   ]
+  }
+ }
 }

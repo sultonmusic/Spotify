@@ -1,7 +1,12 @@
 {
  "version": 1,
- "updatedAt": "2026-09-29T19:19:38Z",
+ "updatedAt": "2026-09-29T20:05:38Z",
  "count": 2,
+ "site": {
+  "admins": [
+   "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
+  ]
+ },
  "artists": {
   "The Irrepressibles": {
    "image": "library/artists/the-irrepressibles.jpg",
@@ -10,64 +15,133 @@
    "verified": true,
    "deezerId": 329723,
    "deezer": "https://www.deezer.com/artist/329723",
-   "fans": 27309
+   "fans": 27309,
+   "verifiedAt": "2026-09-29T19:16:20Z",
+   "bioChecked": "2026-09-29T20:05:20Z",
+   "bio": {
+    "en": "The Irrepressibles is the creative guise of British musician Jamie McDermott.",
+    "ru": "The Irrepressibles — оркестровый ансамбль из Лондона, состоящий из 10 человек, во главе с композитором и музыкантом Джэми Макдермоттом, описанный в газете «The Sunday Times», как «очаровательно театральная поп-феерия». На данный момент группа записала альбом Mirror Mirror, вышедший 11 января 2010 года, и 7 треков EP From The Circus to the Sea — музыкального сопровождения к фильму «The Forgotten Circus», оба из которых получили признание критиков.",
+    "uz": "\"The Irrepressibles\" britaniyalik musiqachi Jeymi MakDermottning ijodiy qiyofasidir."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/The_Irrepressibles",
+    "ru": "https://ru.wikipedia.org/wiki/The_Irrepressibles"
+   },
+   "desc": {
+    "en": "British musician"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
-  "Adele": {
+  "Elissa": {
    "aliases": [],
    "verified": true,
-   "deezerId": 75798,
-   "itunesId": 262836961,
-   "deezer": "https://www.deezer.com/artist/75798",
-   "apple": "https://music.apple.com/us/artist/adele/262836961",
-   "checked": "2026-09-29T19:14:19Z",
-   "fans": 15481654,
-   "image": "library/artists/adele.jpg",
-   "color": "#2f5760"
+   "deezerId": 722,
+   "itunesId": 28117976,
+   "deezer": "https://www.deezer.com/artist/722",
+   "apple": "https://music.apple.com/us/artist/elissa/28117976",
+   "image": "library/artists/elissa.jpg",
+   "color": "#b99336",
+   "checked": "2026-09-29T20:02:10Z",
+   "verifiedAt": "2026-09-29T20:02:10Z",
+   "fans": 1359818,
+   "albums": 39,
+   "bioChecked": "2026-09-29T20:05:29Z",
+   "bio": {
+    "en": "Elissar Zakaria Khoury, commonly known as Elissa, is a Lebanese singer and television personality. Known for her romantic musical style and emotive vocal performances, she has been dubbed as the \"Queen of Emotions\". Her musical career began in 1992 when she was featured in the Lebanese talent show Studio El Fan; later being awarded the silver medal. In 1998, she released her debut studio album Baddy Doub through EMI Music Arabia. Her second album W'akherta Maak (2000) featured the single \"Betghib Betrouh\", a duet with Ragheb Alama.",
+    "ru": "Эли́сса Закария́ Хури́ — ливанская певица, известна также как Elissa. Родилась 27 октября 1972 года в ливанском городе Дейр-эль-Ахмар, в долине Бекаа.",
+    "uz": "Elissar Zakariya Xouri, odatda Elissa nomi bilan tanilgan, livanlik qo'shiqchi va televideniye yulduzi. Romantik musiqiy uslubi va hissiy vokal ijrolari bilan tanilgan u \"Tuyg'ular malikasi\" deb nomlangan. Uning musiqiy karerasi 1992-yilda Livan iste'dodlar shousi Studio El Fan’da ishtirok etganida boshlangan; keyinchalik kumush medal bilan taqdirlangan. 1998-yilda u EMI Music Arabia orqali o'zining debyut studiya albomi Baddy Doubni chiqardi. Uning ikkinchi W'akherta Maak (2000) albomida Ragheb Alama bilan duet kuylagan \"Bettghib ​​Betrouh\" singli bor edi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Elissa_(singer)",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%AD%D0%BB%D0%B8%D1%81%D1%81%D0%B0_(%D0%BF%D0%B5%D0%B2%D0%B8%D1%86%D0%B0)"
+   },
+   "desc": {
+    "en": "Lebanese singer (born 1971)",
+    "ru": "ливанская певица"
+   },
+   "bioTr": [
+    "uz"
+   ]
+  },
+  "Saad Lamjarred": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4042249,
+   "deezer": "https://www.deezer.com/artist/4042249",
+   "image": "library/artists/saad-lamjarred.jpg",
+   "color": "#6c6863",
+   "checked": "2026-09-29T20:02:10Z",
+   "verifiedAt": "2026-09-29T20:02:10Z",
+   "fans": 504619,
+   "albums": 50,
+   "bioChecked": "2026-09-29T20:05:33Z",
+   "bio": {
+    "en": "Saad Bachir Lamjarred is a Moroccan singer, songwriter, actor, multi-instrumentalist, dancer, and record producer. He is widely known for his music video \"LM3ALLEM\" which received over 1.2 billion views on YouTube, making it the most-viewed Arabic music video on YouTube. His music videos are among the most watched in the MENA region and the most viewed in Morocco.",
+    "ru": "Саад Ламджарред — марокканский певец, танцор, актёр, композитор, автор песен и продюсер.",
+    "uz": "Saad Lamjarred — marokashlik qoʻshiqchi, shoir, aktyor, raqqos va prodyuser. Uning „LM3ALLEM“ taronasi uchun ishlangan rasmiy klip YouTubeda 1 milliarddan ortiq tomosha qilingan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Saad_Lamjarred",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%B0%D0%B4_%D0%9B%D0%B0%D0%BC%D0%B4%D0%B6%D0%B0%D1%80%D1%80%D0%B5%D0%B4",
+    "uz": "https://uz.wikipedia.org/wiki/Saad_Lamjarred"
+   },
+   "desc": {
+    "en": "Moroccan singer and actor (born 1985)"
+   }
   }
  },
  "songs": [
   {
-   "id": "9207e44367",
-   "title": "Hello",
-   "artist": "Adele",
+   "id": "73cca60812",
+   "title": "Min Awel Dekika",
+   "artist": "Elissa, Saad Lamjarred",
    "artists": [
-    "Adele"
+    "Elissa",
+    "Saad Lamjarred"
    ],
-   "album": "25",
-   "year": 2015,
-   "genre": "Pop",
-   "subgenre": null,
+   "album": "Min Awel Dekika",
+   "year": 2022,
+   "genre": "Folk",
+   "subgenre": "Arabic",
    "moods": [
-    "sad",
-    "romantic",
-    "motivational"
+    "nostalgic",
+    "calm"
    ],
-   "language": "en",
-   "energy": 0.67,
-   "danceability": 0.72,
-   "bpm": 160,
+   "language": "ar",
+   "energy": 0.45,
+   "danceability": 0.5,
+   "bpm": null,
    "tags": [],
    "description": null,
    "explicit": false,
-   "duration": 295.5,
-   "src": null,
-   "cover": "library/covers/9207e44367.jpg",
-   "color": "#8c8373",
-   "lyrics": "synced",
+   "duration": 298.1,
+   "src": "library/audio/73cca60812.m4a",
+   "cover": "library/covers/73cca60812.jpg",
+   "color": "#724d3f",
+   "lyrics": "plain",
    "confidence": 0.95,
    "sources": [
-    "itunes"
+    "deezer",
+    "itunes",
+    "shazam"
    ],
    "tg": {
     "msgs": [
-     10
+     16,
+     22
     ]
    },
-   "addedAt": "2026-09-29T19:14:19Z",
-   "storage": "preview",
-   "via": "name",
-   "fileKey": "yt:T1tl66trXTQ",
-   "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/10/7e/9d/107e9dc0-c13b-eace-2486-84a3c694b075/mzaf_6267923862748965591.plus.aac.p.m4a"
+   "addedAt": "2026-09-29T20:02:20Z",
+   "mime": "audio/mp4",
+   "size": 4822288,
+   "storage": "pages",
+   "lufs": -10.7,
+   "gain": -3.3,
+   "via": "audio",
+   "fileKey": "73cca60812cc27c0",
+   "story": "library/stories/73cca60812.jpg"
   },
   {
    "id": "09e5ccb5e3",
@@ -115,7 +189,8 @@
      8
     ]
    },
-   "addedAt": "2026-09-29T18:44:40Z"
+   "addedAt": "2026-09-29T18:44:40Z",
+   "story": "library/stories/09e5ccb5e3.jpg"
   }
  ]
 }
