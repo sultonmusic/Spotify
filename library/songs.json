@@ -1,7 +1,61 @@
 {
  "version": 1,
- "updatedAt": null,
- "count": 0,
- "artists": {},
- "songs": []
+ "updatedAt": "2026-09-29T18:44:41Z",
+ "count": 1,
+ "artists": {
+  "The Irrepressibles": {
+   "image": "library/artists/the-irrepressibles.jpg",
+   "color": "#808080"
+  }
+ },
+ "songs": [
+  {
+   "id": "09e5ccb5e3",
+   "title": "In This Shirt",
+   "artist": "The Irrepressibles",
+   "artists": [
+    "The Irrepressibles"
+   ],
+   "album": "Mirror Mirror",
+   "year": 2008,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 160,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 334.11,
+   "src": "library/audio/09e5ccb5e3.m4a",
+   "mime": "audio/mp4",
+   "size": 5404372,
+   "storage": "pages",
+   "cover": "library/covers/09e5ccb5e3.jpg",
+   "color": "#622c31",
+   "lyrics": "synced",
+   "lufs": -13.2,
+   "gain": -0.8,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "via": "audio",
+   "fileKey": "09e5ccb5e3a6e403",
+   "tg": {
+    "msgs": [
+     6,
+     8
+    ]
+   },
+   "addedAt": "2026-09-29T18:44:40Z"
+  }
+ ]
 }
