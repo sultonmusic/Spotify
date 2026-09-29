@@ -1,0 +1,1 @@
+"""Telegram music station bot."""

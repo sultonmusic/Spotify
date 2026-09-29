@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#121212">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Sulton Music</title>
+  <meta name="description" content="Shaxsiy musiqa stansiyasi: Telegram botga yuborilgan qo'shiqlar, AI teglar, tavsiyalar, qidiruv va sevimlilar.">
+  <meta property="og:title" content="Sulton Music">
+  <meta property="og:description" content="Shaxsiy musiqa stansiyasi">
+  <meta property="og:image" content="icons/icon-512.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/app.css?v=__BUILD__">
+  <script src="https://telegram.org/js/telegram-web-app.js?59"></script>
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar" class="sidebar" aria-label="Menyu"></aside>
+    <main id="main" class="main">
+      <div id="view"></div>
+    </main>
+    <div id="playerbar" class="playerbar" hidden></div>
+    <nav id="tabbar" class="tabbar" aria-label="Asosiy menyu"></nav>
+  </div>
+  <div id="nowplaying" class="np" hidden></div>
+  <div id="sheet-root"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript>Bu sayt JavaScript bilan ishlaydi.</noscript>
+  <script type="module" src="js/app.js?v=__BUILD__"></script>
+</body>
+</html>
