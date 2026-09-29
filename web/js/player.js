@@ -1,6 +1,5 @@
 // Player: queue, shuffle/repeat, autoplay radio, lock-screen controls, loudness
 // normalisation and Spotify-style play counting (>= 30 s listened).
-// Songs with an audio file use the audio engine; songs added by name use the official YouTube player.
 import { CONFIG } from "./config.js";
 import { lib, song as getSong, recordPlay, recordSkip, addListenTime, coverUrl, emit, user } from "./store.js";
 import { radio } from "./reco.js";
@@ -55,9 +54,22 @@ function trackTime() {
 }
 
 // ------------------------------------------------------------------ helpers
+const volumeFor = (s) => Math.max(0, Math.min(1, player.volume * Math.pow(10, (s?.gain || 0) / 20))); // gain: dB, <= 0 (-14 LUFS)
+let fading = null;
 function applyVolume() {
-  const gain = player.current?.gain || 0; // dB, <= 0 (loud files are turned down to -14 LUFS)
-  engine.setVolume(Math.max(0, Math.min(1, player.volume * Math.pow(10, gain / 20))));
+  if (fading) return; // the fade-in ends at the right volume by itself
+  engine.setVolume(volumeFor(player.current));
+}
+/** Soft start after a reload instead of an abrupt jump in. */
+function fadeIn(ms = 600) {
+  clearInterval(fading);
+  const t0 = performance.now();
+  engine.setVolume(0);
+  fading = setInterval(() => {
+    const k = Math.min(1, (performance.now() - t0) / ms);
+    engine.setVolume(volumeFor(player.current || early?.song) * k * k);
+    if (k >= 1) { clearInterval(fading); fading = null; }
+  }, 30);
 }
 
 function setMediaSession(s) {
@@ -248,6 +260,9 @@ export function upcoming(limit = 50) {
 
 // ------------------------------------------------------------------ persistence
 let saveTimer = null;
+/** Just enough of the song to start it again before the library has loaded (see earlyResume). */
+const songSnap = (s) => (s ? { id: s.id, src: s.src, duration: s.duration, gain: s.gain, title: s.title, artist: s.artist,
+  album: s.album, cover: s.cover, coverV: s.coverV } : null);
 function saveStateNow() {
   clearTimeout(saveTimer);
   try {
@@ -263,6 +278,7 @@ function saveStateNow() {
       volume: player.volume,
       time: engine.time || 0,
       playing: isPlaying(), // after a reload the music continues from the same moment
+      song: songSnap(player.current),
       savedAt: Date.now(),
     }));
   } catch { /* ignore */ }
@@ -272,10 +288,44 @@ function saveState() {
   saveTimer = setTimeout(saveStateNow, 400);
 }
 
+function readState() {
+  try { return JSON.parse(localStorage.getItem(STATE_KEY) || "null"); } catch { return null; }
+}
+const RESUME_WINDOW = 30 * 60_000;
+
+/**
+ * A page reload stops the sound. To keep the gap as short as possible the song starts again right away,
+ * before songs.json has even loaded, at the moment it would have reached (the reload time is added back).
+ */
+let early = null;
+(function earlyResume() {
+  const st = readState();
+  const snap = st?.song;
+  if (!st?.playing || !snap?.src || Date.now() - (st.savedAt || 0) > RESUME_WINDOW) return;
+  const away = (Date.now() - st.savedAt) / 1000;
+  const at = Math.max(0, Math.min((st.time || 0) + (away < 12 ? away : 0), (snap.duration || 1e9) - 1));
+  player.volume = typeof st.volume === "number" ? st.volume : 1;
+  early = { id: snap.id, song: snap };
+  setMediaSession(snap);
+  audioEngine.load(snap, { autoplay: true, at });
+  fadeIn();
+})();
+
+/** Asks for one tap when the browser didn't allow sound to start by itself after the reload. */
+function resumeOnFirstTap() {
+  setTimeout(() => {
+    if (isPlaying()) return;
+    const go = () => { if (!isPlaying()) { fadeIn(); play(); } off(); };
+    const off = () => ["pointerdown", "keydown", "touchend"].forEach((ev) => document.removeEventListener(ev, go, true));
+    ["pointerdown", "keydown", "touchend"].forEach((ev) => document.addEventListener(ev, go, { capture: true, once: true }));
+  }, 700);
+}
+
 export function restore() {
-  let st;
-  try { st = JSON.parse(localStorage.getItem(STATE_KEY) || "null"); } catch { st = null; }
-  if (!st) return;
+  const st = readState();
+  const started = early;
+  early = null;
+  if (!st) { if (started) audioEngine.stop(); return; }
   player.shuffle = !!st.shuffle;
   player.repeat = st.repeat || "off";
   player.volume = typeof st.volume === "number" ? st.volume : 1;
@@ -285,19 +335,27 @@ export function restore() {
   player.context = st.context || player.context;
   player.index = Math.max(0, Math.min(st.index || 0, player.queue.length - 1));
   const s = getSong(player.queue[player.index]);
-  if (!s) { emit("modes"); emit("queue"); return; }
-  // Continue exactly where it was; keep playing if it was playing (within the last 30 minutes).
-  const resume = !!st.playing && Date.now() - (st.savedAt || 0) < 30 * 60_000;
-  load(s, { autoplay: false, at: Math.max(0, (st.time || 0) - 0.5) });
-  if (resume) {
-    engine.play();
-    // Browsers may block sound until the first tap after a reload: resume on that tap.
-    setTimeout(() => {
-      if (isPlaying()) return;
-      const go = () => { if (!isPlaying()) play(); off(); };
-      const off = () => ["pointerdown", "keydown", "touchend"].forEach((ev) => document.removeEventListener(ev, go, true));
-      ["pointerdown", "keydown", "touchend"].forEach((ev) => document.addEventListener(ev, go, { capture: true, once: true }));
-    }, 700);
+  if (!s) { if (started) audioEngine.stop(); emit("modes"); emit("queue"); return; }
+  if (started && started.id === s.id) {
+    // Already playing since the page opened: just attach it to the library's song.
+    player.current = s;
+    startSession(s);
+    if (session) session.last = engine.time;
+    applyVolume();
+    setMediaSession(s);
+    emit("track", s);
+    emit("state", { playing: isPlaying() });
+    if (!isPlaying()) resumeOnFirstTap();
+  } else {
+    if (started) audioEngine.stop();
+    // Continue exactly where it was; keep playing if it was playing (within the last 30 minutes).
+    const resume = !!st.playing && Date.now() - (st.savedAt || 0) < RESUME_WINDOW;
+    load(s, { autoplay: false, at: Math.max(0, st.time || 0) });
+    if (resume) {
+      fadeIn();
+      engine.play();
+      resumeOnFirstTap();
+    }
   }
   emit("modes");
   emit("queue");
@@ -306,6 +364,7 @@ export function restore() {
 // ------------------------------------------------------------------ engine events
 function onEngine(src, ev) {
   if (src !== engine) return; // a stopped engine may still report
+  if (!player.current) return; // the early resume before the library loaded: restore() takes over
   switch (ev) {
     case "time":
       trackTime();

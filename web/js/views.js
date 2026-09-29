@@ -1,14 +1,14 @@
 // Page views. Each returns a DOM node for #view.
 import { CONFIG } from "./config.js";
 import {
-  lib, song as getSong, songsOf, artistNames, favSongs, recentlyPlayed, plays, user, totalPlays, artistColor, loadLibrary,
+  lib, song as getSong, songsOf, artistNames, favSongs, setFavOrder, recentlyPlayed, plays, user, totalPlays, artistColor, loadLibrary,
 } from "./store.js";
 import * as reco from "./reco.js";
 import { player, playList, playRadio, playSong, isPlaying, setShuffle, toggle } from "./player.js";
 import {
   h, icon, art, artistArt, collage, likedArt, songRow, card, section, lazyList, heartButton, go, link, toast,
   fmtTime, fmtLong, timeAgo, num, shareSong, downloadSong, songMenu, placeholder, back as goBack, verifiedBadge,
-  openSheet, sheetItem, openArtistInfo,
+  openSheet, sheetItem, openArtistInfo, openPlayer, isCurrent,
 } from "./ui.js";
 import { searchSongs, searchArtists, matchCategories } from "./search.js";
 import { MOODS, genre, mood, lang, t, describe, LANG, LANGS_UI, setLang } from "./i18n.js";
@@ -91,7 +91,7 @@ function topbar(title, { back = false } = {}) {
 function songCard(s, list, context) {
   return card({
     artEl: art(s), title: s.title, sub: s.artist, playing: player.current?.id === s.id,
-    onClick: () => go(`song/${s.id}`),
+    onClick: () => (isCurrent(s) ? openPlayer() : go(`song/${s.id}`)),
     onPlay: () => playSong(s, list, context),
   });
 }
@@ -167,7 +167,7 @@ export function viewHome() {
   if (mx[0] && lib.songs.length >= 8) quick.append(link(`mix/${mx[0].id}`, { class: "quick-item" }, collage(mx[0].songs), h("span", null, mixTitle(mx[0], 0))));
   for (const s of reco.quickPicks(8 - quick.childElementCount)) {
     const item = h("div", { class: `quick-item${player.current?.id === s.id ? " playing" : ""}`, role: "button", dataset: { qid: s.id } }, art(s), h("span", null, s.title));
-    item.addEventListener("click", () => playSong(s, null, { type: "radio", id: s.id, title: t("ctx.radioOf", { t: s.title }) }));
+    item.addEventListener("click", () => (isCurrent(s) ? openPlayer() : playSong(s, null, { type: "radio", id: s.id, title: t("ctx.radioOf", { t: s.title }) })));
     quick.append(item);
   }
   v.append(quick);
@@ -258,7 +258,7 @@ export function viewSearch(param) {
       results.append(section(t("search.top"), el));
     } else if (songs[0]) {
       const s = songs[0];
-      const el = h("div", { class: "top-result", role: "button", onclick: () => go(`song/${s.id}`) },
+      const el = h("div", { class: "top-result", role: "button", onclick: () => (isCurrent(s) ? openPlayer() : go(`song/${s.id}`)) },
         h("div", { class: "art" }, art(s)), h("div", null, h("h3", null, s.title), h("div", { class: "muted" }, `${t("common.song")} • ${s.artist}`)),
         h("button", { class: "play-fab", html: icon("play", 22), onclick: (e) => { e.stopPropagation(); playSong(s, songs, ctx); } }));
       results.append(section(t("search.top"), el));
@@ -331,7 +331,10 @@ export function viewLibrary(tab = "favs") {
       h("div", null, h("b", null, t("home.liked")), h("span", null, t("common.songs", { n: favs.length })))));
     if (!favs.length) v.append(h("div", { class: "empty" }, h("div", { class: "big-ico", html: icon("heart", 64) }),
       h("h3", null, t("lib.noFavs")), h("p", null, t("lib.noFavsDesc"))));
-    else v.append(trackList(favs, { type: "liked", id: "liked", title: t("home.liked") }));
+    else {
+      if (favs.length > 1) v.append(h("div", { class: "lib-toolbar" }, h("span", null, metaLine(favs)), reorderButton()));
+      v.append(trackList(favs, { type: "liked", id: "liked", title: t("home.liked") }));
+    }
   } else if (tab === "songs") {
     if (!lib.songs.length) { v.append(emptyLibrary()); return v; }
     const sorted = lib.songs.slice().sort(SORTS[sortKey]);
@@ -416,8 +419,83 @@ function collectionView({ kicker, title, songs, artEl, desc, color, context, rou
 }
 
 export function viewLiked() {
-  return collectionView({ kicker: t("common.playlist"), title: t("home.liked"), songs: favSongs(), artEl: likedArt(), color: "#5038a0",
-    context: { type: "liked", id: "liked", title: t("home.liked") } });
+  const songs = favSongs();
+  return collectionView({ kicker: t("common.playlist"), title: t("home.liked"), songs, artEl: likedArt(), color: "#5038a0",
+    context: { type: "liked", id: "liked", title: t("home.liked") }, extraActions: songs.length > 1 ? [reorderButton()] : [] });
+}
+
+// ------------------------------------------------------------------ Liked Songs: your own order
+function reorderButton() {
+  return h("button", { class: "reorder-btn", html: `${icon("sort", 18)}<span>${t("lib.reorder")}</span>`,
+    onclick: (e) => editFavOrder(e.currentTarget.closest(".view").querySelector(".tracks")) });
+}
+
+/** Swaps the track list for a drag-to-reorder editor (drag rows by ≡) until Done / Cancel. */
+function editFavOrder(list) {
+  if (!list) return;
+  haptic("light");
+  const box = h("div", { class: "tracks reorder" });
+  for (const s of favSongs()) {
+    box.append(h("div", { class: "row", dataset: { id: s.id } },
+      h("div", { class: "cov-wrap" }, art(s, "cov")),
+      h("div", { class: "meta" }, h("div", { class: "t" }, h("span", null, s.title)), h("div", { class: "s" }, s.artist)),
+      h("div", { class: "drag", html: icon("grip", 22) })));
+  }
+  const save = () => { setFavOrder([...box.children].map((r) => r.dataset.id)); haptic("success"); toast(t("toast.orderSaved")); };
+  const bar = h("div", { class: "reorder-bar" },
+    h("span", null, t("lib.reorderHint")),
+    h("button", { class: "btn ghost", onclick: rerender }, t("common.cancel")),
+    h("button", { class: "btn accent", onclick: save }, t("common.done")));
+  list.closest(".view")?.querySelectorAll(".reorder-btn").forEach((b) => { b.hidden = true; });
+  list.replaceWith(h("div", { class: "reorder-wrap" }, bar, box));
+  dragToReorder(box);
+}
+
+function dragToReorder(box) {
+  const main = document.getElementById("main");
+  let d = null;
+  box.addEventListener("pointerdown", (e) => {
+    const handle = e.target.closest(".drag");
+    if (!handle) return;
+    e.preventDefault();
+    handle.setPointerCapture(e.pointerId);
+    const row = handle.closest(".row");
+    d = { row, y: e.clientY, h: row.getBoundingClientRect().height };
+    row.classList.add("dragging");
+    haptic("light");
+  });
+  box.addEventListener("pointermove", (e) => {
+    if (!d) return;
+    // near the top/bottom edge the page scrolls with the finger
+    const r = main.getBoundingClientRect();
+    const step = e.clientY < r.top + 80 ? -14 : e.clientY > r.bottom - 160 ? 14 : 0;
+    if (step) { const before = main.scrollTop; main.scrollBy(0, step); d.y -= main.scrollTop - before; }
+    let off = e.clientY - d.y;
+    // the dragged row trades places with a neighbour once it passes that neighbour's middle
+    while (off > d.h / 2 && d.row.nextElementSibling) {
+      const n = d.row.nextElementSibling;
+      box.insertBefore(n, d.row);
+      d.y += n.getBoundingClientRect().height;
+      off = e.clientY - d.y;
+      haptic("select");
+    }
+    while (off < -d.h / 2 && d.row.previousElementSibling) {
+      const p = d.row.previousElementSibling;
+      box.insertBefore(d.row, p);
+      d.y -= p.getBoundingClientRect().height;
+      off = e.clientY - d.y;
+      haptic("select");
+    }
+    d.row.style.transform = `translateY(${off}px)`;
+  });
+  const drop = () => {
+    if (!d) return;
+    d.row.style.transform = "";
+    d.row.classList.remove("dragging");
+    d = null;
+  };
+  box.addEventListener("pointerup", drop);
+  box.addEventListener("pointercancel", drop);
 }
 
 export function viewMix(id) {

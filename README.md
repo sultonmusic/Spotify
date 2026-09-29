@@ -87,7 +87,12 @@ huquqini buzadi. Saytda video ham, YouTube pleyeri ham yo'q — faqat audio.
   Instagram rasm/video ichidagi yozuvni bosiladigan qilmaydi: ulashganda qo'shiq havolasi avtomatik nusxalanadi,
   uni Instagram'dagi **«Ссылка/Link» stikeri**ga joylaysiz. Havola qo'shiqni aynan kerakli soniyadan ochadi
   (`#/song/<id>/<soniya>`).
-- **Sahifa yangilansa** ijro etilayotgan qo'shiq to'xtamaydi va boshidan boshlanmaydi — o'sha joydan davom etadi.
+- **Sahifa yangilansa** ijro etilayotgan qo'shiq kutubxona yuklanishini kutmay darhol, o'sha joyidan
+  (yangilanish vaqti ham hisobga olinib) ohista davom etadi.
+- Ijro etilayotgan qo'shiqni istalgan joyda (bosh sahifa, qidiruv, ro'yxatlar) bossangiz — pauza emas,
+  **to'liq ekranli pleyer** ochiladi. Pleyerni yuqoridan **pastga tortsangiz** — yopiladi.
+- **Sevimlilar tartibi:** *Любимые треки* → *Изменить порядок* → qo'shiqlarni ≡ dan ushlab suring → *Готово*.
+  Tartib saqlanadi (Telegram ichida barcha qurilmalaringizda ham); yangi sevimlilar tepada chiqadi.
 - **Qidiruv** tugmasini ikkinchi marta bossangiz — qidiruv maydoni faollashib, klaviatura ochiladi.
 - Nusxa olish va bosib turganda chiqadigan menyular o'chirilgan.
 - **Bosh sahifa:** salomlashish, tezkor tanlovlar, *Siz uchun*, *Kunlik mikslar*, yangi qo'shilganlar,

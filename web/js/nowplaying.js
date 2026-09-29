@@ -116,6 +116,46 @@ export function openNowPlaying() {
   });
 }
 
+/** Pull the full player down (from its top) to close it. */
+(function swipeToClose() {
+  const el = root();
+  let y0 = null, x0 = 0, t0 = 0, dy = 0, dragging = false;
+  el.addEventListener("touchstart", (e) => {
+    y0 = null;
+    if (!isOpen || e.touches.length !== 1 || el.scrollTop > 0 || e.target.closest("input, .np-lyrics")) return;
+    y0 = e.touches[0].clientY; x0 = e.touches[0].clientX; t0 = performance.now(); dy = 0; dragging = false;
+  }, { passive: true });
+  el.addEventListener("touchmove", (e) => {
+    if (y0 == null) return;
+    const d = e.touches[0].clientY - y0, dx = Math.abs(e.touches[0].clientX - x0);
+    if (!dragging) {
+      if (d > 8 && d > dx && el.scrollTop <= 0) { dragging = true; el.style.transition = "none"; }
+      else { if (d < -4 || dx > 12) y0 = null; return; }
+    }
+    e.preventDefault();
+    dy = Math.max(0, d);
+    el.style.transform = `translateY(${dy}px)`;
+  }, { passive: false });
+  const end = () => {
+    if (y0 == null) return;
+    y0 = null;
+    if (!dragging) return;
+    dragging = false;
+    const speed = dy / Math.max(1, performance.now() - t0); // px per ms
+    el.style.transition = "";
+    if (dy > 140 || (dy > 60 && speed > 0.6)) {
+      haptic("light");
+      el.style.transform = "translateY(100%)";
+      popOverlay();
+      setTimeout(() => { el.style.transform = ""; }, 420);
+    } else {
+      el.style.transform = "";
+    }
+  };
+  el.addEventListener("touchend", end);
+  el.addEventListener("touchcancel", end);
+})();
+
 /** Redraw (e.g. after the language changed). */
 export function refreshNowPlaying() { if (isOpen) render(); }
 

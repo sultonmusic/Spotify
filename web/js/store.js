@@ -73,7 +73,7 @@ export function artistColor(name) {
 const LS_KEY = "ms.user.v1";
 
 function blankUser() {
-  return { plays: {}, last: {}, skips: {}, favs: {}, favTs: 0, history: [], listen: 0, since: Date.now() };
+  return { plays: {}, last: {}, skips: {}, favs: {}, favOrder: [], favTs: 0, history: [], listen: 0, since: Date.now() };
 }
 
 function loadUser() {
@@ -101,18 +101,37 @@ export const plays = (id) => user.plays[id] || 0;
 export function toggleFav(id) {
   const fav = !user.favs[id];
   if (fav) user.favs[id] = Date.now();
-  else delete user.favs[id];
+  else {
+    delete user.favs[id];
+    user.favOrder = (user.favOrder || []).filter((x) => x !== id);
+  }
   user.favTs = Date.now();
   saveUser();
   emit("favs", { id, fav });
   return fav;
 }
 
+/** Liked songs in the listener's own order; songs liked after the last rearrangement come first (newest on top). */
 export function favSongs() {
+  const pos = new Map((user.favOrder || []).map((id, i) => [id, i]));
   return Object.entries(user.favs)
-    .sort((a, b) => b[1] - a[1])
+    .sort((a, b) => {
+      const pa = pos.get(a[0]), pb = pos.get(b[0]);
+      if (pa == null && pb == null) return b[1] - a[1];
+      if (pa == null) return -1;
+      if (pb == null) return 1;
+      return pa - pb;
+    })
     .map(([id]) => lib.byId.get(id))
     .filter(Boolean);
+}
+
+/** Saves a new order of the liked songs (kept on this device and synced through Telegram). */
+export function setFavOrder(ids) {
+  user.favOrder = ids.filter((id) => user.favs[id]);
+  user.favTs = Date.now();
+  saveUser();
+  emit("favs", { order: true });
 }
 
 export function recordPlay(id) {
@@ -175,6 +194,7 @@ function snapshot() {
   chunk("p", Object.entries(user.plays).map(([id, n]) => `${id}:${b36(n)}:${b36((user.last[id] || 0) / 1000)}`), out);
   chunk("s", Object.entries(user.skips).map(([id, n]) => `${id}:${b36(n)}`), out);
   chunk("f", Object.entries(user.favs).map(([id, t]) => `${id}:${b36(t / 1000)}`), out);
+  chunk("o", (user.favOrder || []).filter((id) => user.favs[id]), out);
   chunk("h", user.history.slice(0, 120).map((h) => `${h.id}:${b36(h.t / 1000)}`), out);
   return out;
 }
@@ -188,7 +208,7 @@ function entries(data, prefix) {
 async function pull() {
   if (!cloudAvailable()) return;
   try {
-    const keys = (await cloud.keys()).filter((k) => /^(m|[psfh]\d+)$/.test(k));
+    const keys = (await cloud.keys()).filter((k) => /^(m|[psfho]\d+)$/.test(k));
     const data = await cloud.getMany(keys);
     const meta = data.m ? JSON.parse(data.m) : {};
     for (const [id, n, t] of entries(data, "p")) {
@@ -199,6 +219,7 @@ async function pull() {
     if ((meta.ft || 0) > (user.favTs || 0)) {
       user.favs = {};
       for (const [id, t] of entries(data, "f")) user.favs[id] = unb36(t) * 1000;
+      user.favOrder = entries(data, "o").map(([id]) => id);
       user.favTs = meta.ft;
     }
     const seen = new Set(user.history.map((h) => `${h.id}:${Math.floor(h.t / 1000)}`));

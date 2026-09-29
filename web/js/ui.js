@@ -40,6 +40,7 @@ const STROKE = {
   sort: '<path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="M11 4h10"/><path d="M11 8h7"/><path d="M11 12h4"/>',
   check: '<path d="M20 6 9 17l-5-5"/>',
   plus: '<path d="M5 12h14"/><path d="M12 5v14"/>',
+  grip: '<path d="M4 8h16"/><path d="M4 12h16"/><path d="M4 16h16"/>',
   upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/>',
   globe: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
 };
@@ -290,6 +291,7 @@ export function songRow(s, opts = {}) {
   row.addEventListener("click", () => {
     haptic("light");
     if (opts.onClick) opts.onClick(s);
+    else if (isCurrent(s)) openPlayer();
     else playSong(s, opts.list, opts.context);
   });
   return row;
@@ -431,6 +433,13 @@ export function sheetItem(iconName, label, onClick, cls = "") {
 export function siteUrl() {
   return location.href.split("#")[0].split("?")[0];
 }
+
+let openPlayerImpl = () => {};
+/** Opens the full-screen player (plugged in by the app, avoids an import cycle with nowplaying.js). */
+export function setOpenPlayerImpl(fn) { openPlayerImpl = fn; }
+export function openPlayer() { openPlayerImpl(); }
+/** Tapping the song that's already playing opens the full-screen player instead of pausing it. */
+export const isCurrent = (s) => !!s && player.current?.id === s.id;
 
 let shareImpl = null;
 /** The app plugs in the full share sheet (story cards etc.); this is the plain fallback. */

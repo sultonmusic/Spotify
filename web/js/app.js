@@ -2,7 +2,7 @@
 import { CONFIG } from "./config.js";
 import { loadLibrary, on, initSync, favSongs, songsOf, toggleFav } from "./store.js";
 import { player, restore, toggle, next, prev, seek, setVolume, isPlaying, pruneMissing, setShuffle, cycleRepeat, currentTime, duration } from "./player.js";
-import { h, icon, art, artistArt, likedArt, collage, fmtTime, refreshMarks, toast, go, link, overlayOpen, popOverlay, heartButton, nav, back, verifiedBadge, setShareImpl } from "./ui.js";
+import { h, icon, art, artistArt, likedArt, collage, fmtTime, refreshMarks, toast, go, link, overlayOpen, popOverlay, heartButton, nav, back, verifiedBadge, setShareImpl, setOpenPlayerImpl } from "./ui.js";
 import { t, LANG } from "./i18n.js";
 import * as V from "./views.js";
 import { openNowPlaying, openQueue, openFullLyrics, refreshNowPlaying } from "./nowplaying.js";
@@ -242,6 +242,7 @@ function buildTabbar() {
   }
 }
 
+setOpenPlayerImpl(openNowPlaying);
 setShareImpl((s) => openShare(s, {
   at: player.current?.id === s.id ? currentTime() : 0,
   onLyrics: () => openFullLyrics(s, true),
