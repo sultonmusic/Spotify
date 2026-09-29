@@ -83,7 +83,10 @@ huquqini buzadi. Saytda video ham, YouTube pleyeri ham yo'q — faqat audio.
   (yoki **C** doirasi) orqali Русский / English / O'zbekcha ga o'zgartiriladi — musiqa to'xtamaydi.
 - **Qo'shiq matni tarjimasi:** 🌐 tugmasi bilan har bir sinxron qator ostida kichikroq qilib tanlangan tildagi tarjima.
 - **Stories:** ⤴ → *Stories kartasi* yoki matndan **4 tagacha qatorni tanlab** — muqova va shu qatorlar bilan
-  9:16 rasm (Instagram, Telegram, WhatsApp…). Havola qo'shiqni aynan kerakli soniyadan ochadi (`#/song/<id>/<soniya>`).
+  9:16 rasm yoki **ovozli video** (15 soniyagacha, qatorlar karaoke kabi yonadi) — Instagram, Telegram, WhatsApp…
+  Instagram rasm/video ichidagi yozuvni bosiladigan qilmaydi: ulashganda qo'shiq havolasi avtomatik nusxalanadi,
+  uni Instagram'dagi **«Ссылка/Link» stikeri**ga joylaysiz. Havola qo'shiqni aynan kerakli soniyadan ochadi
+  (`#/song/<id>/<soniya>`).
 - **Sahifa yangilansa** ijro etilayotgan qo'shiq to'xtamaydi va boshidan boshlanmaydi — o'sha joydan davom etadi.
 - **Qidiruv** tugmasini ikkinchi marta bossangiz — qidiruv maydoni faollashib, klaviatura ochiladi.
 - Nusxa olish va bosib turganda chiqadigan menyular o'chirilgan.

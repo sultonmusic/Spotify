@@ -52,6 +52,8 @@ export function lyricsView(container, data, { big = false, song = null, select =
   const lines = synced
     ? data.synced.map(([at, text], i) => ({ at, text: text || "", tr: tr?.[i] }))
     : (data.plain || "").split("\n").map((text, i) => ({ at: 0, text, tr: tr?.[i] }));
+  // When each synced line ends (the next line's start) — story videos highlight lines karaoke-style.
+  if (synced) lines.forEach((l, i) => { l.end = lines[i + 1]?.at ?? l.at + 5; l.timed = true; });
   const picked = new Set();
   const els = lines.map((l, i) => {
     const el = h("div", { class: `lyric${synced ? "" : " plain-line"}` },

@@ -504,7 +504,8 @@ button.avatar { border: 0; cursor: pointer; }
 .chip-btn.on { background: #fff; color: #111; }
 .lyrics-full .np-head .chip-btn { flex: none; }
 .story-preview { display: flex; justify-content: center; padding: 4px 16px 10px; }
-.story-preview img { height: min(46vh, 420px); aspect-ratio: 9 / 16; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.5); object-fit: cover; }
+.story-frame { position: relative; height: min(46vh, 420px); aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.5); background: #000; }
+.story-frame img, .story-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ---------- owner: Add page ---------- */
 .add-btn { flex: none; width: 34px; height: 34px; border-radius: 50%; background: rgba(0,0,0,.45); color: #fff; }
@@ -556,3 +557,8 @@ button.verified-kicker { padding: 0; background: none; border: 0; color: inherit
 .about-body { position: relative; padding: 18px; }
 .about-body b { display: block; font-size: 15px; margin-bottom: 6px; }
 .about-body p { margin: 0; font-size: 14px; line-height: 1.45; color: #e6e6e6; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.story-progress { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 16px; background: linear-gradient(transparent, rgba(0,0,0,.85)); display: grid; gap: 8px; font-size: 14px; font-weight: 700; }
+.story-progress small { font-weight: 500; font-size: 11px; color: var(--muted); }
+.story-bar { height: 4px; border-radius: 2px; background: rgba(255,255,255,.25); overflow: hidden; }
+.story-bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s linear; }
+.story-note { margin: 4px 20px 6px; font-size: 12px; line-height: 1.45; color: var(--muted); }
