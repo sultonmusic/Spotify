@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-09-29T19:16:21Z",
+ "updatedAt": "2026-09-29T19:19:38Z",
  "count": 2,
  "artists": {
   "The Irrepressibles": {
@@ -15,31 +15,23 @@
   "Adele": {
    "aliases": [],
    "verified": true,
-   "deezerId": 171453,
+   "deezerId": 75798,
    "itunesId": 262836961,
-   "deezer": "https://www.deezer.com/artist/171453",
+   "deezer": "https://www.deezer.com/artist/75798",
    "apple": "https://music.apple.com/us/artist/adele/262836961",
-   "image": "library/artists/adele.jpg",
-   "color": "#6b36c9",
    "checked": "2026-09-29T19:14:19Z",
-   "fans": 638
-  },
-  "Adele Harley": {
-   "aliases": [],
-   "verified": true,
-   "checked": "2026-09-29T19:16:21Z",
-   "itunesId": 269278740,
-   "apple": "https://music.apple.com/us/artist/adele-harley/269278740"
+   "fans": 15481654,
+   "image": "library/artists/adele.jpg",
+   "color": "#2f5760"
   }
  },
  "songs": [
   {
    "id": "9207e44367",
    "title": "Hello",
-   "artist": "Adele, Adele Harley",
+   "artist": "Adele",
    "artists": [
-    "Adele",
-    "Adele Harley"
+    "Adele"
    ],
    "album": "25",
    "year": 2015,
@@ -64,7 +56,6 @@
    "lyrics": "synced",
    "confidence": 0.95,
    "sources": [
-    "deezer",
     "itunes",
     "youtube"
    ],

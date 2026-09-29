@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import asyncio
+from difflib import SequenceMatcher
 import re
 from pathlib import Path
 from typing import Any
@@ -75,9 +76,24 @@ def shazam(clip: Path) -> dict | None:
 
 # --------------------------------------------------------------------------- catalogues
 
+_VERSION_WORDS = re.compile(
+    r"\b(?:remix|mix|rmx|dub|live|cover|karaoke|instrumental|acoustic|version|edit|remaster(?:ed)?|sped|slowed|"
+    r"reprise|demo|club|extended|radio|tribute|minus)\b", re.I)
+
+
 def _score(cand_title: str, cand_artist: str, cand_duration: float, title: str, artist: str, duration: float) -> float:
     t = similarity(cand_title, title) if title else 0.0
-    a = similarity(cand_artist, artist) if artist else 0.5
+    # A remix/cover/live version is a different recording than the one asked for.
+    extra = {w.lower() for w in _VERSION_WORDS.findall(cand_title)} - {w.lower() for w in _VERSION_WORDS.findall(title or "")}
+    if extra:
+        t -= 0.3
+    if artist:
+        main_cand = split_artists(cand_artist)[0] if cand_artist else ""
+        exact = phon(main_cand) == phon(split_artists(artist)[0]) or phon(cand_artist) == phon(artist)
+        # "Adele Harley" must not pass for "Adele": only an exact name gets full marks.
+        a = 1.0 if exact else similarity(cand_artist, artist) * 0.8
+    else:
+        a = 0.5
     # Artist sometimes ends up in the title field ("Artist - Title" as title).
     if not artist and title:
         t = max(t, similarity(f"{cand_artist} {cand_title}", title))
@@ -326,7 +342,17 @@ def download_image(url: str) -> bytes | None:
 
 
 def same_song(a_title: str, a_artist: str, b_title: str, b_artist: str) -> bool:
-    return similarity(a_title, b_title) >= 0.85 and (
-        not a_artist or not b_artist or similarity(a_artist, b_artist) >= 0.6
-        or bool({norm(x) for x in split_artists(a_artist)} & {norm(x) for x in split_artists(b_artist)})
-    )
+    """Same recording? A remix/live/cover version or a different performer ("Adele Harley" vs "Adele") is not."""
+    versions = lambda t: {w.lower() for w in _VERSION_WORDS.findall(t or "")}  # noqa: E731
+    if versions(a_title) != versions(b_title):
+        return False
+    if similarity(strip_feat(a_title)[0], strip_feat(b_title)[0]) < 0.85:
+        return False
+    if not a_artist or not b_artist:
+        return True
+    a_set = {phon(x) for x in split_artists(a_artist)}
+    b_set = {phon(x) for x in split_artists(b_artist)}
+    if a_set & b_set:
+        return True
+    a_main, b_main = phon(split_artists(a_artist)[0]), phon(split_artists(b_artist)[0])
+    return SequenceMatcher(None, a_main, b_main).ratio() >= 0.88
