@@ -1,14 +1,89 @@
 {
  "version": 1,
- "updatedAt": "2026-09-29T18:44:41Z",
- "count": 1,
+ "updatedAt": "2026-09-29T19:16:21Z",
+ "count": 2,
  "artists": {
   "The Irrepressibles": {
    "image": "library/artists/the-irrepressibles.jpg",
-   "color": "#808080"
+   "color": "#808080",
+   "checked": "2026-09-29T19:16:20Z",
+   "verified": true,
+   "deezerId": 329723,
+   "deezer": "https://www.deezer.com/artist/329723",
+   "fans": 27309
+  },
+  "Adele": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 171453,
+   "itunesId": 262836961,
+   "deezer": "https://www.deezer.com/artist/171453",
+   "apple": "https://music.apple.com/us/artist/adele/262836961",
+   "image": "library/artists/adele.jpg",
+   "color": "#6b36c9",
+   "checked": "2026-09-29T19:14:19Z",
+   "fans": 638
+  },
+  "Adele Harley": {
+   "aliases": [],
+   "verified": true,
+   "checked": "2026-09-29T19:16:21Z",
+   "itunesId": 269278740,
+   "apple": "https://music.apple.com/us/artist/adele-harley/269278740"
   }
  },
  "songs": [
+  {
+   "id": "9207e44367",
+   "title": "Hello",
+   "artist": "Adele, Adele Harley",
+   "artists": [
+    "Adele",
+    "Adele Harley"
+   ],
+   "album": "25",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "romantic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.67,
+   "danceability": 0.72,
+   "bpm": 160,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 295.5,
+   "src": null,
+   "cover": "library/covers/9207e44367.jpg",
+   "color": "#8c8373",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "youtube"
+   ],
+   "tg": {
+    "msgs": [
+     10
+    ]
+   },
+   "addedAt": "2026-09-29T19:14:19Z",
+   "yt": [
+    "T1tl66trXTQ",
+    "4qNRgzHTQsk",
+    "TvijgPEe9YU",
+    "3wabyYtxRdg"
+   ],
+   "storage": "youtube",
+   "via": "name",
+   "fileKey": "yt:T1tl66trXTQ"
+  },
   {
    "id": "09e5ccb5e3",
    "title": "In This Shirt",
