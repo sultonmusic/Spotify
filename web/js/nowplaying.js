@@ -2,12 +2,12 @@
 import { on, plays, coverUrl, lib } from "./store.js";
 import {
   player, toggle, next, prev, seek, setShuffle, cycleRepeat, isPlaying, upcoming, jumpTo, removeUpNext,
-  currentTime, duration, isVideo,
+  currentTime, duration, isPreview,
 } from "./player.js";
-import { h, icon, art, fmtTime, heartButton, songMenu, shareSong, link, pushOverlay, popOverlay, openSheet, songRow, timeAgo, verifiedBadge } from "./ui.js";
-import { genre, mood, lang, t, describe } from "./i18n.js";
+import { h, icon, art, fmtTime, heartButton, songMenu, link, pushOverlay, popOverlay, openSheet, songRow, timeAgo, verifiedBadge, toast } from "./ui.js";
+import { genre, mood, lang, t, describe, LANG } from "./i18n.js";
+import { openShare, openStory } from "./share.js";
 import { haptic } from "./tg.js";
-import { placeVideo, onVideoExpand } from "./engines.js";
 
 const lyricsCache = new Map();
 export async function getLyrics(s) {
@@ -28,23 +28,59 @@ export function rgba(hex, a) {
 }
 
 // ------------------------------------------------------------------ synced lyrics widget
-export function lyricsView(container, data, { big = false } = {}) {
+const TR_KEY = "ms.tr";
+export const trEnabled = () => { try { return localStorage.getItem(TR_KEY) !== "0"; } catch { return true; } };
+export function setTrEnabled(on) { try { localStorage.setItem(TR_KEY, on ? "1" : "0"); } catch { /* ignore */ } }
+
+/** Translation lines for the site language (null when the song is already in it or none exist). */
+export function translationFor(song, data) {
+  if (!data?.tr || !song || song.language === LANG) return null;
+  return data.tr[LANG] || null;
+}
+
+/**
+ * Renders lyrics into `container`. Each line shows the original and, below it in smaller type,
+ * the translation into the site language. Returns an update(time) function for synced lyrics.
+ * opts.select: { max, onChange(selected) } turns tapping into choosing lines (for story cards).
+ */
+export function lyricsView(container, data, { big = false, song = null, select = null } = {}) {
   container.innerHTML = "";
   if (!data) { container.append(h("div", { class: "muted" }, t("np.noLyrics"))); return () => {}; }
-  if (!data.synced) {
-    container.append(h("div", { class: "lyrics-plain" }, data.plain || ""));
-    return () => {};
-  }
-  const lines = data.synced.filter((l) => l[1] !== undefined);
-  const els = lines.map(([at, text]) => h("div", { class: "lyric", onclick: () => { seek(at); haptic("select"); } }, text || "♪"));
+  const tr = translationFor(song, data);
+  container.classList.toggle("show-tr", !!tr && trEnabled());
+  const synced = !!data.synced;
+  const lines = synced
+    ? data.synced.map(([at, text], i) => ({ at, text: text || "", tr: tr?.[i] }))
+    : (data.plain || "").split("\n").map((text, i) => ({ at: 0, text, tr: tr?.[i] }));
+  const picked = new Set();
+  const els = lines.map((l, i) => {
+    const el = h("div", { class: `lyric${synced ? "" : " plain-line"}` },
+      h("div", { class: "lx" }, l.text || (synced ? "♪" : "\u00a0")),
+      l.tr ? h("div", { class: "lt" }, l.tr) : null);
+    el.addEventListener("click", () => {
+      if (select) {
+        if (!l.text) return;
+        if (picked.has(i)) picked.delete(i);
+        else if (picked.size >= (select.max || 4)) { toast(t("lyrics.max")); return; }
+        else picked.add(i);
+        el.classList.toggle("picked", picked.has(i));
+        haptic("select");
+        select.onChange([...picked].sort((a, b) => a - b).map((k) => lines[k]));
+      } else if (synced && player.current?.id === song?.id) { seek(l.at); haptic("select"); }
+    });
+    return el;
+  });
   container.append(...els);
+  container.classList.toggle("selecting", !!select);
+  if (!synced || select) return () => {};
   let current = -1, userScrollUntil = 0;
   const pauseAuto = () => { userScrollUntil = Date.now() + 3500; };
   container.addEventListener("wheel", pauseAuto, { passive: true });
   container.addEventListener("touchmove", pauseAuto, { passive: true });
   const update = (time) => {
+    if (player.current?.id !== song?.id) return;
     let lo = 0, hi = lines.length - 1, idx = -1;
-    while (lo <= hi) { const mid = (lo + hi) >> 1; if (lines[mid][0] <= time + 0.25) { idx = mid; lo = mid + 1; } else hi = mid - 1; }
+    while (lo <= hi) { const mid = (lo + hi) >> 1; if (lines[mid].at <= time + 0.25) { idx = mid; lo = mid + 1; } else hi = mid - 1; }
     if (idx === current) return;
     current = idx;
     els.forEach((el, i) => { el.classList.toggle("active", i === idx); el.classList.toggle("past", i < idx); });
@@ -64,28 +100,22 @@ let lyricsUpdate = () => {};
 let fullLyricsUpdate = null;
 let seeking = false;
 
-/** Keep the YouTube video glued to its slot while the panel animates or scrolls. */
-function followVideo(ms = 450) {
-  const end = performance.now() + ms;
-  const step = () => { placeVideo(); if (performance.now() < end) requestAnimationFrame(step); };
-  requestAnimationFrame(step);
-}
-
 export function openNowPlaying() {
   if (isOpen || !player.current) return;
   isOpen = true;
   render();
   const el = root();
   el.hidden = false;
-  requestAnimationFrame(() => { el.classList.add("open"); followVideo(); });
+  requestAnimationFrame(() => el.classList.add("open"));
   pushOverlay(() => {
     isOpen = false;
     el.classList.remove("open");
-    followVideo();
     setTimeout(() => { if (!isOpen) el.hidden = true; }, 350);
   });
 }
-onVideoExpand(openNowPlaying);
+
+/** Redraw (e.g. after the language changed). */
+export function refreshNowPlaying() { if (isOpen) render(); }
 
 function render() {
   const s = player.current;
@@ -93,7 +123,7 @@ function render() {
   el.innerHTML = "";
   if (!s) return;
   const color = s.color || "#535353";
-  const video = isVideo(s);
+  const preview = isPreview(s);
   const playBtn = h("button", { class: "np-play", "aria-label": t("common.play"), html: icon(isPlaying() ? "pause" : "play"), onclick: () => { haptic("medium"); toggle(); } });
   const range = h("input", { class: "range", type: "range", min: 0, max: 1000, value: 0, "aria-label": "Time" });
   const tCur = h("span", null, "0:00"), tDur = h("span", null, fmtTime(s.duration));
@@ -108,11 +138,24 @@ function render() {
   const repeatBtn = h("button", { class: `icon-btn${player.repeat !== "off" ? " on" : " muted"}`, "aria-label": t("common.repeat"), html: icon(player.repeat === "one" ? "repeat1" : "repeat"), onclick: () => { haptic("select"); cycleRepeat(); } });
 
   const lyricsBox = h("div", { class: "np-lyrics" }, h("div", { class: "spinner" }));
+  const trBtn = h("button", { class: "chip-btn", hidden: true }, `🌐 ${t("lyrics.translate")}`);
   const lyricsCard = s.lyrics ? h("div", { class: "np-card", style: { background: rgba(color, 0.9) } },
-    h("h4", null, t("common.lyrics"), h("button", { class: "link-btn", onclick: openFullLyrics }, t("np.expand"))),
+    h("h4", null, t("common.lyrics"), h("span", { class: "card-tools" },
+      trBtn,
+      h("button", { class: "chip-btn", "aria-label": t("lyrics.share"), html: icon("share", 16), onclick: () => openFullLyrics(s, true) }),
+      h("button", { class: "link-btn", onclick: () => openFullLyrics(s) }, t("np.expand")))),
     lyricsBox) : null;
-  if (s.lyrics) getLyrics(s).then((data) => { if (player.current?.id === s.id) lyricsUpdate = lyricsView(lyricsBox, data); });
-  else lyricsUpdate = () => {};
+  if (s.lyrics) {
+    getLyrics(s).then((data) => {
+      if (player.current?.id !== s.id) return;
+      lyricsUpdate = lyricsView(lyricsBox, data, { song: s });
+      if (translationFor(s, data)) {
+        trBtn.hidden = false;
+        trBtn.classList.toggle("on", trEnabled());
+        trBtn.onclick = () => { setTrEnabled(!trEnabled()); trBtn.classList.toggle("on", trEnabled()); lyricsBox.classList.toggle("show-tr", trEnabled()); };
+      }
+    });
+  } else lyricsUpdate = () => {};
 
   const pills = [
     link(`genre/${encodeURIComponent(s.genre)}`, { class: "pill" }, genre(s.genre).emoji, " ", genre(s.genre).label),
@@ -127,7 +170,7 @@ function render() {
     h("div", { class: "np-about" },
       desc ? h("div", null, desc) : null,
       s.album ? h("div", { class: "muted" }, `💿 ${s.album}${s.year ? ` · ${s.year}` : ""}`) : null,
-      video ? h("div", { class: "muted" }, `🎬 ${t("common.youtube")}`) : null,
+      preview ? h("div", { class: "muted" }, `🎧 ${t("preview.note")}`) : null,
       h("div", { class: "pills" }, pills)));
 
   const queueCard = h("div", { class: "np-card np-queue" });
@@ -147,9 +190,7 @@ function render() {
   renderQueue();
 
   const added = Date.parse(s.addedAt || 0);
-  const artBox = video
-    ? h("div", { class: "np-art video", id: "np-video-slot" }, art(s))
-    : h("div", { class: `np-art${isPlaying() ? "" : " paused"}` }, art(s));
+  const artBox = h("div", { class: `np-art${isPlaying() ? "" : " paused"}` }, art(s), preview ? h("span", { class: "np-preview" }, t("preview.badge")) : null);
   el.append(
     h("div", { class: "np-bg", style: { background: `linear-gradient(180deg, ${rgba(color, 0.95)} 0%, ${rgba(color, 0.55)} 40%, #121212 85%)` } }),
     h("div", { class: "np-inner" },
@@ -171,20 +212,17 @@ function render() {
         h("button", { class: "icon-btn skip", "aria-label": t("common.next"), html: icon("next"), onclick: () => { haptic("light"); next(); } }),
         repeatBtn),
       h("div", { class: "np-bottom" },
-        h("button", { class: "icon-btn", "aria-label": t("common.lyrics"), html: icon("mic"), onclick: () => (s.lyrics ? openFullLyrics() : null), style: { opacity: s.lyrics ? 1 : 0.35 } }),
-        h("button", { class: "icon-btn", "aria-label": t("common.share"), html: icon("share"), onclick: () => shareSong(s) }),
+        h("button", { class: "icon-btn", "aria-label": t("common.lyrics"), html: icon("mic"), onclick: () => (s.lyrics ? openFullLyrics(s) : null), style: { opacity: s.lyrics ? 1 : 0.35 } }),
+        h("button", { class: "icon-btn", "aria-label": t("common.share"), html: icon("share"), onclick: () => openShare(s, { at: currentTime(), onLyrics: () => openFullLyrics(s, true) }) }),
         h("button", { class: "icon-btn", "aria-label": t("common.queue"), html: icon("queue"), onclick: openQueue })),
       h("div", { class: "np-stats" },
         h("span", null, `▶ ${t("common.plays", { n: plays(s.id) })}`),
         added ? h("span", null, `➕ ${t("np.addedAgo", { when: timeAgo(added) })}`) : null),
       lyricsCard, about, queueCard));
 
-  el._update = { playBtn, range, tCur, tDur, shuffleBtn, repeatBtn, renderQueue, art: el.querySelector(".np-art:not(.video)") };
+  el._update = { playBtn, range, tCur, tDur, shuffleBtn, repeatBtn, renderQueue, art: el.querySelector(".np-art") };
   updateTime();
-  if (video) followVideo(50);
 }
-
-root().addEventListener("scroll", () => { if (isOpen && isVideo(player.current)) placeVideo(); }, { passive: true });
 
 function contextKicker() {
   const map = { radio: "ctx.radio", mix: "ctx.mix", artist: "ctx.artist", genre: "ctx.genre", mood: "ctx.mood",
@@ -205,18 +243,46 @@ function updateTime() {
 }
 
 // ------------------------------------------------------------------ full-screen lyrics
-function openFullLyrics() {
-  const s = player.current;
+/** Full-screen lyrics. select=true: pick up to 4 lines for a story card. */
+export function openFullLyrics(s = player.current, select = false) {
   if (!s?.lyrics) return;
   const box = h("div", { class: "np-lyrics" }, h("div", { class: "spinner" }));
+  let chosen = [];
+  const count = h("span", null, t("lyrics.pick"));
+  const go = h("button", { class: "btn accent", disabled: true, onclick: () => openStory(s, chosen) }, h("span", { html: icon("share", 18) }), t("share.title"));
+  const bar = h("div", { class: "pick-bar", hidden: !select }, count, go);
+  const trBtn = h("button", { class: "chip-btn", hidden: true }, `🌐 ${t("lyrics.translate")}`);
+  const shareBtn = h("button", { class: "icon-btn", "aria-label": t("lyrics.share"), html: icon("share", 24) });
   const panel = h("div", { class: "lyrics-full", style: { background: rgba(s.color || "#535353", 1) } },
     h("div", { class: "np-head" },
       h("button", { class: "icon-btn", html: icon("down", 28), onclick: popOverlay }),
       h("div", { class: "ctx" }, h("b", null, s.title), h("small", { style: { textTransform: "none", letterSpacing: 0 } }, s.artist)),
-      h("div", { style: { width: "40px" } })),
-    box);
+      trBtn, shareBtn),
+    box, bar);
   document.body.append(panel);
-  getLyrics(s).then((data) => { fullLyricsUpdate = lyricsView(box, data, { big: true }); });
+  let data = null;
+  const draw = (selecting) => {
+    bar.hidden = !selecting;
+    chosen = [];
+    count.textContent = selecting ? t("lyrics.pick") : "";
+    go.disabled = true;
+    const view = lyricsView(box, data, { big: true, song: s, select: selecting ? { max: 4, onChange: (sel) => {
+      chosen = sel;
+      count.textContent = sel.length ? t("lyrics.picked", { n: sel.length }) : t("lyrics.pick");
+      go.disabled = !sel.length;
+    } } : null });
+    fullLyricsUpdate = selecting ? null : view;
+  };
+  shareBtn.onclick = () => draw(bar.hidden);
+  getLyrics(s).then((d) => {
+    data = d;
+    draw(select);
+    if (translationFor(s, d)) {
+      trBtn.hidden = false;
+      trBtn.classList.toggle("on", trEnabled());
+      trBtn.onclick = () => { setTrEnabled(!trEnabled()); trBtn.classList.toggle("on", trEnabled()); box.classList.toggle("show-tr", trEnabled()); };
+    }
+  });
   pushOverlay(() => { fullLyricsUpdate = null; panel.remove(); });
 }
 

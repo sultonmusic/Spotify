@@ -4,15 +4,15 @@ import {
   lib, song as getSong, songsOf, artistNames, favSongs, recentlyPlayed, plays, user, totalPlays, artistColor, loadLibrary,
 } from "./store.js";
 import * as reco from "./reco.js";
-import { player, playList, playRadio, playSong, isPlaying, setShuffle, toggle, isVideo } from "./player.js";
+import { player, playList, playRadio, playSong, isPlaying, setShuffle, toggle, isPreview } from "./player.js";
 import {
   h, icon, art, artistArt, collage, likedArt, songRow, card, section, lazyList, heartButton, go, link, toast,
   fmtTime, fmtLong, timeAgo, num, shareSong, downloadSong, songMenu, placeholder, back as goBack, verifiedBadge,
-  openSheet, sheetItem,
+  openSheet, sheetItem, openArtistInfo,
 } from "./ui.js";
 import { searchSongs, searchArtists, matchCategories } from "./search.js";
 import { MOODS, genre, mood, lang, t, describe, LANG, LANGS_UI, setLang } from "./i18n.js";
-import { user as tgUser, canDownload, inTelegram } from "./tg.js";
+import { canDownload, inTelegram, tg, isAdmin, haptic } from "./tg.js";
 import { rgba, getLyrics } from "./nowplaying.js";
 
 // ------------------------------------------------------------------ shared bits
@@ -48,7 +48,7 @@ export function openSettings() {
   openSheet((sheet, dismiss) => {
     sheet.append(h("div", { class: "sheet-head" }, h("div", null, h("b", null, t("settings.title")), h("span", null, t("settings.language")))));
     for (const [code, label] of Object.entries(LANGS_UI)) {
-      sheet.append(sheetItem(code === LANG ? "check" : "globe", label, () => { dismiss(); if (code !== LANG) setTimeout(() => setLang(code), 150); },
+      sheet.append(sheetItem(code === LANG ? "check" : "globe", label, () => { dismiss(); if (code !== LANG) setTimeout(() => setLang(code), 250); },
         code === LANG ? "accent" : ""));
     }
     sheet.append(h("p", { class: "muted", style: { padding: "8px 20px 4px", fontSize: "12px", margin: 0 } }, `🔒 ${t("settings.about")}`));
@@ -56,19 +56,35 @@ export function openSettings() {
 }
 
 function avatar() {
-  const u = tgUser();
-  const inner = u?.photo_url ? h("img", { src: u.photo_url, alt: "" }) : (u?.first_name || CONFIG.appName || "M").trim()[0].toUpperCase();
-  return h("button", { class: "avatar", "aria-label": t("settings.title"), onclick: openSettings }, inner);
+  // The platform's mark (C for Cavi Music), not the visitor's own name or photo.
+  return h("button", { class: "avatar", "aria-label": t("settings.title"), onclick: openSettings }, (CONFIG.appName || "C").trim()[0].toUpperCase());
 }
 
 function langButton() {
   return h("button", { class: "lang-btn", "aria-label": t("settings.language"), onclick: openSettings }, `🌐 ${LANG.toUpperCase()}`);
 }
 
+// ------------------------------------------------------------------ owner tools
+const OWNER_KEY = "ms.owner";
+const ownerFlag = () => { try { return localStorage.getItem(OWNER_KEY) === "1"; } catch { return false; } };
+
+/** Resolves true for the station owner: in Telegram by id, in a browser once the owner opened the Add page. */
+export function ownerMode() {
+  if (inTelegram) return isAdmin(lib.site?.admins || []);
+  return Promise.resolve(ownerFlag());
+}
+
+function addButton() {
+  const b = h("button", { class: "icon-btn add-btn", hidden: true, "aria-label": t("add.title"), html: icon("plus", 22), onclick: () => { haptic("light"); go("add"); } });
+  ownerMode().then((ok) => { b.hidden = !ok; });
+  return b;
+}
+
 function topbar(title, { back = false } = {}) {
   return h("div", { class: "topbar" },
     back ? h("button", { class: "back-btn", "aria-label": t("common.back"), html: icon("back", 20), onclick: goBack }) : avatar(),
     back ? h("div", { class: "ttl" }, title) : h("h1", null, title),
+    back ? null : addButton(),
     back ? null : langButton());
 }
 
@@ -468,7 +484,7 @@ export function viewArtist(name) {
   const v = h("div", { class: "view" });
   v.append(topbar(name, { back: true }));
   const kicker = profile.verified
-    ? h("span", { class: "verified-kicker" }, verifiedBadge(name, 20), t("common.verified"))
+    ? h("button", { class: "verified-kicker", onclick: () => openArtistInfo(name) }, verifiedBadge(name, 20), t("common.verified"))
     : t("common.artist");
   const meta = [
     t("common.songs", { n: songs.length }),
@@ -494,6 +510,15 @@ export function viewArtist(name) {
       onClick: () => playList(list, 0, { type: "album", id: al, title: al }), onPlay: () => playList(list, 0, { type: "album", id: al, title: al }),
     })))));
   }
+  const bio = profile.bio ? profile.bio[LANG] || profile.bio.en || profile.bio.ru || Object.values(profile.bio)[0] : "";
+  if (bio) {
+    // Spotify-style "About" card; opens the full info sheet
+    v.append(section(t("vi.about"), h("div", { class: "about-card", role: "button", onclick: () => openArtistInfo(name) },
+      h("div", { class: "about-bg" }, artistArt(name)),
+      h("div", { class: "about-body" },
+        profile.fans ? h("b", null, `${t("common.fans", { n: profile.fans })} ${t("artist.onDeezer")}`) : null,
+        h("p", null, bio)))));
+  }
   const links = [["deezer", "Deezer"], ["apple", "Apple Music"]].filter(([k]) => profile[k]);
   if (links.length) {
     v.append(section(t("artist.links"), h("div", { class: "chips", style: { flexWrap: "wrap" } },
@@ -505,7 +530,7 @@ export function viewArtist(name) {
 }
 
 // ------------------------------------------------------------------ SONG
-export function viewSong(id) {
+export function viewSong(id, at = 0) {
   const s = getSong(id);
   if (!s) return viewPending(id);
   const v = h("div", { class: "view" });
@@ -525,9 +550,12 @@ export function viewSong(id) {
   const playing = player.current?.id === s.id;
   const fab = h("button", { class: "play-fab lg", "aria-label": t("common.play"), html: icon(playing && isPlaying() ? "pause" : "play", 26), dataset: { songfab: s.id },
     onclick: () => (player.current?.id === s.id ? toggle() : playRadio(s)) });
-  v.append(h("div", { class: "actions" }, fab, heartButton(s, 28),
+  // Shared "from this moment" links: #/song/<id>/<seconds>
+  const fromBtn = at > 0 ? h("button", { class: "btn accent from-btn", onclick: () => playRadio(s, undefined, at) },
+    h("span", { html: icon("play", 16) }), t("song.playFrom", { t: fmtTime(at) })) : null;
+  v.append(h("div", { class: "actions" }, fab, fromBtn, heartButton(s, 28),
     h("button", { class: "icon-btn", "aria-label": t("common.share"), html: icon("share", 24), onclick: () => shareSong(s) }),
-    canDownload() && s.src ? h("button", { class: "icon-btn", "aria-label": t("common.download"), html: icon("download", 24), onclick: () => downloadSong(s) }) : null,
+    canDownload() && s.src && !isPreview(s) ? h("button", { class: "icon-btn", "aria-label": t("common.download"), html: icon("download", 24), onclick: () => downloadSong(s) }) : null,
     h("button", { class: "icon-btn", "aria-label": t("common.more"), html: icon("more", 24), onclick: () => songMenu(s) }),
     h("div", { class: "grow" })));
 
@@ -539,7 +567,7 @@ export function viewSong(id) {
     s.bpm ? h("span", { class: "pill" }, `🥁 ${s.bpm} BPM`) : null,
     h("span", { class: "pill" }, `⚡ ${t("song.energy")} `, h("span", { class: "meter" }, h("i", { style: { width: `${Math.round((s.energy ?? 0.5) * 100)}%` } }))),
     s.explicit ? h("span", { class: "pill" }, "🔞 Explicit") : null,
-    isVideo(s) ? h("span", { class: "pill" }, `🎬 ${t("common.youtube")}`) : null,
+    isPreview(s) ? h("span", { class: "pill" }, `🎧 ${t("preview.note")}`) : null,
   ];
   v.append(h("div", { class: "info-grid" }, pills));
   const desc = describe(s);
@@ -550,7 +578,7 @@ export function viewSong(id) {
   }
   if (s.tags?.length) v.append(h("div", { class: "chips", style: { marginTop: "12px", flexWrap: "wrap" } }, s.tags.map((tag) => link(`search/${encodeURIComponent(tag)}`, { class: "chip outline" }, `#${tag}`))));
 
-  const names = { shazam: "Shazam", itunes: "iTunes", deezer: "Deezer", ai: "AI", youtube: "YouTube" };
+  const names = { shazam: "Shazam", itunes: "iTunes", deezer: "Deezer", ai: "AI" };
   const found = (s.sources || []).map((x) => names[x]).filter(Boolean).join(" + ");
   v.append(h("p", { class: "pad muted", style: { fontSize: "12px", marginTop: "14px" } },
     [t("song.added", { when: timeAgo(Date.parse(s.addedAt || 0)) }), found ? t("song.found", { src: found }) : null,
@@ -591,6 +619,66 @@ function viewPending(id) {
     try { await loadLibrary(); } catch { /* retry */ }
     if (getSong(id)) { clearInterval(timer); rerender(); }
   }, 15000);
+  return v;
+}
+
+// ------------------------------------------------------------------ ADD (owner)
+const b64url = (text) => btoa(String.fromCharCode(...new TextEncoder().encode(text))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+
+/** Opens the bot with the request: t.me/<bot>?start=add_<base64url> (or /add … copied when too long). */
+function sendToBot(kind, query) {
+  const base = `https://t.me/${CONFIG.botUsername}`;
+  let url = base;
+  if (query) {
+    const payload = `${kind}_${b64url(query)}`;
+    if (payload.length <= 64) url = `${base}?start=${payload}`;
+    else {
+      const cmd = `/${kind} ${query}`;
+      (navigator.clipboard?.writeText(cmd) || Promise.reject()).then(() => toast(t("add.copied"), 4000), () => toast(cmd, 6000));
+    }
+  }
+  haptic("medium");
+  if (tg) tg.openTelegramLink(url);
+  else window.open(url, "_blank", "noopener");
+}
+
+function addCard({ ico, title, desc, placeholder: ph, action, kind }) {
+  const input = kind ? h("input", { type: "text", placeholder: ph, enterkeyhint: "go", autocomplete: "off", autocapitalize: "words", spellcheck: "false" }) : null;
+  const submit = () => {
+    const q = input ? input.value.trim().replace(/\s+/g, " ") : "";
+    if (input && !q) { input.focus(); return; }
+    sendToBot(kind, q);
+  };
+  input?.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); submit(); } });
+  return h("div", { class: "add-card" },
+    h("div", { class: "add-ico", html: icon(ico, 22) }),
+    h("div", { class: "add-body" },
+      h("h3", null, title),
+      h("p", null, desc),
+      input ? h("div", { class: "add-field" }, input) : null,
+      h("button", { class: "btn accent", onclick: submit }, action)));
+}
+
+export function viewAdd() {
+  const v = h("div", { class: "view" });
+  v.append(topbar(t("add.title"), { back: true }));
+  const body = h("div", { class: "pad add-page" }, h("div", { class: "spinner" }));
+  v.append(body);
+  if (!inTelegram) { try { localStorage.setItem(OWNER_KEY, "1"); } catch { /* ignore */ } }
+  ownerMode().then((ok) => {
+    if (!ok && inTelegram) {
+      body.replaceChildren(h("div", { class: "empty" }, h("div", { class: "big-ico", html: icon("user", 56) }),
+        h("h3", null, t("add.ownerOnly")), h("p", null, t("add.ownerOnlyDesc")), h("a", { class: "btn", href: "#/" }, t("common.homeBtn"))));
+      return;
+    }
+    body.replaceChildren(
+      h("h1", { class: "add-title" }, t("add.title")),
+      h("p", { class: "muted add-sub" }, t("add.sub", { bot: CONFIG.botUsername })),
+      addCard({ ico: "search", title: t("add.byName"), desc: t("add.byNameDesc"), placeholder: t("add.byNamePh"), action: t("add.find"), kind: "add" }),
+      addCard({ ico: "userPlus", title: t("add.artist"), desc: t("add.artistDesc"), placeholder: t("add.artistPh"), action: t("add.all"), kind: "all" }),
+      addCard({ ico: "upload", title: t("add.file"), desc: t("add.fileDesc"), action: t("add.openBot") }),
+      h("p", { class: "muted add-tip" }, t("add.tip")));
+  });
   return v;
 }
 

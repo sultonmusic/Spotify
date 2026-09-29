@@ -1,7 +1,7 @@
 // Small DOM toolkit + shared components (icons, rows, cards, sheets, toast).
-import { coverUrl, isFav, toggleFav, plays, emit, artistImage, lib } from "./store.js";
-import { player, playSong, playRadio, playNext, addToQueue, isPlaying, isVideo } from "./player.js";
-import { t, fmtNum, LANG } from "./i18n.js";
+import { coverUrl, isFav, toggleFav, plays, emit, artistImage, lib, songsOf } from "./store.js";
+import { player, playSong, playRadio, playNext, addToQueue, isPlaying, isPreview } from "./player.js";
+import { t, fmtNum, fmtCompact, fmtDate, fmtDateShort, LANG } from "./i18n.js";
 import { haptic, shareLink, canDownload, download } from "./tg.js";
 import { CONFIG } from "./config.js";
 
@@ -39,6 +39,9 @@ const STROKE = {
   refresh: '<path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/>',
   sort: '<path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="M11 4h10"/><path d="M11 8h7"/><path d="M11 12h4"/>',
   check: '<path d="M20 6 9 17l-5-5"/>',
+  plus: '<path d="M5 12h14"/><path d="M12 5v14"/>',
+  userPlus: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6"/><path d="M22 11h-6"/>',
+  upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/>',
   globe: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
 };
 const FILL = {
@@ -113,16 +116,93 @@ export function timeAgo(ts) {
   if (d < 3600) return t("time.min", { n: Math.floor(d / 60) });
   if (d < 86400) return t("time.hour", { n: Math.floor(d / 3600) });
   if (d < 86400 * 7) return t("time.day", { n: Math.floor(d / 86400) });
-  return new Date(ts).toLocaleDateString(LANG === "ru" ? "ru-RU" : LANG === "uz" ? "uz-UZ" : "en-US", { day: "numeric", month: "short" });
+  return fmtDateShort(new Date(ts));
 }
 
 export const num = fmtNum;
 
-/** Blue check next to officially verified artists. */
+// ------------------------------------------------------------------ verified badge
+/** A symmetric scalloped seal: n round lobes on a circle, computed so every lobe is identical. */
+function sealPath(n = 8, r0 = 9.2, ra = 4, c = 12) {
+  let d = "";
+  for (let i = 0; i <= n; i++) {
+    const a = (i / n) * Math.PI * 2 - Math.PI / 2;
+    const x = (c + r0 * Math.cos(a)).toFixed(3), y = (c + r0 * Math.sin(a)).toFixed(3);
+    d += i ? ` A${ra} ${ra} 0 0 1 ${x} ${y}` : `M${x} ${y}`;
+  }
+  return `${d} Z`;
+}
+const SEAL = sealPath();
+const sealSvg = (size) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" aria-hidden="true"><path fill="var(--verified)" d="${SEAL}"/><path d="M8.2 12.3l2.6 2.6 5-5.3" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+/** Blue seal next to officially verified artists. Tapping it explains why the artist is verified. */
 export function verifiedBadge(name, size = 16) {
   if (!lib.artists[name]?.verified) return null;
-  return h("span", { class: "verified", title: t("common.verified"), "aria-label": t("common.verified"),
-    html: `<svg width="${size}" height="${size}" viewBox="0 0 24 24" aria-hidden="true"><path fill="#3d91f4" d="M12 1.5l2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3 3.2.1z"/><path fill="#fff" d="M10.6 15.6l-3.2-3.2 1.4-1.4 1.8 1.8 4.6-4.6 1.4 1.4z"/></svg>` });
+  const el = h("span", { class: "verified", role: "button", tabindex: "0", title: t("common.verified"), "aria-label": t("common.verified"), html: sealSvg(size) });
+  const open = (e) => { e.preventDefault(); e.stopPropagation(); haptic("light"); openArtistInfo(name); };
+  el.addEventListener("click", open);
+  el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") open(e); });
+  return el;
+}
+
+const pick = (obj) => (obj ? obj[LANG] || obj.en || obj.ru || Object.values(obj)[0] || "" : "");
+
+/** Half-screen sheet: who the artist is, why they're verified on the station, numbers, official pages. */
+export function openArtistInfo(name) {
+  const p = lib.artists[name] || {};
+  const songs = songsOf(name);
+  const myPlays = songs.reduce((a, s) => a + plays(s.id), 0);
+  const here = decodeURIComponent(location.hash) === `#/artist/${name}`;
+  openSheet((sheet) => {
+    // Opens at half the screen; scrolling inside it pulls it up to full height.
+    sheet.classList.add("info-sheet");
+    sheet.addEventListener("scroll", () => { if (sheet.scrollTop > 8) sheet.classList.add("full"); }, { passive: true });
+    const stat = (value, label) => h("div", { class: "vi-stat" }, h("b", null, value), h("span", null, label));
+    const check = (text, href) => h("li", null, h("span", { class: "vi-tick", html: icon("check", 14) }),
+      href ? h("a", { href, target: "_blank", rel: "noopener" }, text, " ↗") : h("span", null, text));
+    const desc = pick(p.desc);
+    const body = [
+      h("div", { class: "vi-head" },
+        artistArt(name, "vi-photo"),
+        h("div", { class: "vi-name" },
+          h("h2", null, h("span", null, name), p.verified ? h("span", { class: "verified", html: sealSvg(22) }) : null),
+          h("div", { class: p.verified ? "vi-kicker" : "vi-kicker plain" }, p.verified ? t("common.verified") : t("common.artist")),
+          desc ? h("div", { class: "vi-desc" }, desc) : null)),
+      h("div", { class: "vi-stats" },
+        stat(fmtNum(songs.length), t("vi.songs", { app: CONFIG.appName })),
+        myPlays ? stat(fmtNum(myPlays), t("vi.plays")) : null,
+        p.fans ? stat(fmtCompact(p.fans), t("vi.fans")) : null,
+        p.albums ? stat(fmtNum(p.albums), t("vi.albums")) : null),
+    ];
+    if (p.verified) {
+      const checks = [];
+      if (p.deezer) checks.push(check(t("vi.deezer"), p.deezer));
+      if (p.apple) checks.push(check(t("vi.apple"), p.apple));
+      if ((p.deezer || p.apple) && !p.manual) checks.push(check(t("vi.match")));
+      if (p.manual) checks.push(check(t("vi.owner")));
+      const since = p.verifiedAt ? new Date(p.verifiedAt) : null;
+      body.push(
+        h("h3", { class: "vi-h" }, t("vi.why")),
+        h("p", { class: "vi-p" }, t("vi.intro", { app: CONFIG.appName })),
+        h("ul", { class: "vi-checks" }, checks),
+        since && !isNaN(since) ? h("p", { class: "vi-since" }, t("vi.since", { date: fmtDate(since) })) : null);
+    }
+    const bio = pick(p.bio);
+    if (bio) {
+      const wiki = pick(p.wiki);
+      body.push(
+        h("h3", { class: "vi-h" }, t("vi.about")),
+        h("p", { class: "vi-bio" }, bio),
+        h("p", { class: "vi-src" }, wiki ? h("a", { href: wiki, target: "_blank", rel: "noopener" }, t("vi.source")) : t("vi.source"),
+          (p.bioTr || []).includes(LANG) ? ` · ${t("vi.translated")}` : ""));
+    }
+    const links = [["deezer", "Deezer"], ["apple", "Apple Music"]].filter(([k]) => p[k]);
+    if (links.length && !p.verified) {
+      body.push(h("div", { class: "chips vi-links" }, links.map(([k, label]) => h("a", { class: "chip", href: p[k], target: "_blank", rel: "noopener" }, `↗ ${label}`))));
+    }
+    if (!here && songs.length) body.push(h("button", { class: "btn vi-open", onclick: () => go(`artist/${encodeURIComponent(name)}`) }, t("vi.open")));
+    append(sheet, [h("div", { class: "vi" }, body)]);
+  });
 }
 
 // ------------------------------------------------------------------ art
@@ -201,7 +281,7 @@ export function songRow(s, opts = {}) {
       h("div", { class: "t" }, h("span", null, s.title)),
       h("div", { class: "s" },
         s.explicit ? h("span", { class: "badge" }, "E") : null,
-        isVideo(s) ? h("span", { class: "badge yt", title: t("common.youtube") }, "▶") : null,
+        isPreview(s) ? h("span", { class: "badge pv", title: t("preview.note") }, t("preview.badge")) : null,
         opts.sub ?? [s.artist, verifiedBadge(s.artists?.[0], 13)])),
     opts.showPlays !== false ? h("div", { class: "extra plays" }, n ? `${num(n)} ▶` : "") : null,
     heartButton(s, 20),
@@ -214,7 +294,6 @@ export function songRow(s, opts = {}) {
     if (opts.onClick) opts.onClick(s);
     else playSong(s, opts.list, opts.context);
   });
-  row.addEventListener("contextmenu", (e) => { e.preventDefault(); songMenu(s, opts); });
   return row;
 }
 
@@ -355,7 +434,12 @@ export function siteUrl() {
   return location.href.split("#")[0].split("?")[0];
 }
 
+let shareImpl = null;
+/** The app plugs in the full share sheet (story cards etc.); this is the plain fallback. */
+export function setShareImpl(fn) { shareImpl = fn; }
+
 export function shareSong(s) {
+  if (shareImpl) { shareImpl(s); return; }
   const url = `${siteUrl()}#/song/${s.id}`;
   const text = `🎵 ${s.artist} — ${s.title}`;
   if (!shareLink(url, text)) {
@@ -383,7 +467,7 @@ export function songMenu(s, opts = {}) {
       ...s.artists.map((a) => sheetItem("user", t("menu.artist", { a }), act(() => go(`artist/${encodeURIComponent(a)}`)))),
       sheetItem("info", t("menu.about"), act(() => go(`song/${s.id}`))),
       sheetItem("share", t("common.share"), act(() => shareSong(s))),
-      canDownload() && s.src ? sheetItem("download", t("common.download"), act(() => downloadSong(s))) : null,
+      canDownload() && s.src && !isPreview(s) ? sheetItem("download", t("common.download"), act(() => downloadSong(s))) : null,
     ]);
   });
 }

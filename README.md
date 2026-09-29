@@ -1,10 +1,10 @@
-# 🎧 Sulton Music — shaxsiy musiqa stansiyasi
+# 🎧 Cavi Music — shaxsiy musiqa stansiyasi
 
 Telegram botga yuborgan har bir qo'shiq — **fayl** yoki shunchaki **qo'shiq nomi** — avtomatik aniqlanib
 (nomi, ijrochisi, albom, janr, kayfiyat, til, muqova, qo'shiq matni) **GitHub Pages** saytiga va
 **Telegram Mini App**ga joylanadi. Spotify uslubidagi interfeys (🇷🇺 rus — standart, 🇬🇧 ingliz, 🇺🇿 o'zbek):
 bosh sahifa, shaxsiy tavsiyalar, kunlik mikslar, qidiruv, sevimlilar, tinglashlar soni, statistika,
-tasdiqlangan (☑️) ijrochi profillari.
+tasdiqlangan (☑️) ijrochi profillari, 3 tilda tarjimali sinxron matn va stories kartalari.
 
 - 🤖 Bot: [@CaviSpotifybot](https://t.me/CaviSpotifybot)
 - 🌐 Sayt: https://sultonmusic.github.io/Spotify/
@@ -14,10 +14,10 @@ tasdiqlangan (☑️) ijrochi profillari.
 ```
 Siz ──(fayl yoki nom)──▶ Telegram bot ──▶ GitHub Actions (har 5 daqiqada)
                                      ├─ nom yozilsa: iTunes + Deezer'dan qidiradi, bir nechta bo'lsa tanlatadi,
-                                     │   rasmiy YouTube videosini topadi (embed, yuklab olinmaydi)
+                                     │   rasmiy 30 soniyalik parchani oladi (fayl yuborilsa — to'liq qo'shiq)
                                      ├─ Shazam: qo'shiqni ovozidan aniqlaydi
                                      ├─ iTunes + Deezer: albom, yil, janr, muqova, BPM
-                                     ├─ LRCLIB: qo'shiq matni (sinxron karaoke)
+                                     ├─ LRCLIB: qo'shiq matni (sinxron karaoke) + uz/ru/en tarjima
                                      ├─ Claude AI: yakuniy nom/ijrochi, janr, kayfiyat, til, teglar, tavsif
                                      ├─ ffmpeg: toza teglar, ovoz balandligi (-14 LUFS)
                                      └─ library/ ga saqlaydi ──▶ GitHub Pages (sayt + mini ilova)
@@ -45,6 +45,7 @@ Bot menyusidagi **🎧 Musiqa** tugmasi saytni Telegram ichida mini ilova sifati
 |---|---|
 | audio / fayl / video klip yuborish | Qo'shiqni aniqlab stansiyaga qo'shadi (20 MB gacha) |
 | qo'shiq nomini yozish (yoki `/add nomi`) | Rasmiy qo'shiqni topadi; bir xil nomli bir nechtasi bo'lsa — tugmalar bilan tanlaysiz |
+| `/all Ijrochi` (masalan `/all Sulton`) | Ijrochining barcha qo'shiqlarini qo'shadi: avval ijrochini tanlaysiz, sonini ko'rib tasdiqlaysiz |
 | `/artists` | Ijrochilar ro'yxati (☑️ = tasdiqlangan) |
 | `/verify Ijrochi`, `/unverify Ijrochi` | Tasdiqlash belgisini qo'lda qo'yish / olish |
 | `/merge Eski nom > To'g'ri nom` | Bir ijrochining ikki profilini birlashtirish |
@@ -59,13 +60,14 @@ Bot menyusidagi **🎧 Musiqa** tugmasi saytni Telegram ichida mini ilova sifati
 
 ## Nom bo'yicha qo'shilgan qo'shiqlar
 
-Bot audioni internetdan yuklab olmaydi (mualliflik huquqi, ustiga-ustak YouTube GitHub serverlarini bloklaydi).
-Buning o'rniga rasmiy YouTube videosini topib, sayt uni **YouTube'ning rasmiy pleyeri** orqali ijro etadi:
-video "Hozir ijroda" oynasida yoki kichik oynachada ko'rinadi. Keyinroq shu qo'shiqning faylini botga
-yuborsangiz, u avtomatik ravishda yuqori sifatli audio bilan almashtiriladi (fon rejimida, qulf ekranida ham ijro).
+Bot qo'shiqlarni internetdan yuklab olmaydi: sayt ochiq, boshqalarning qo'shiqlarini ruxsatsiz tarqatish mualliflik
+huquqini buzadi (YouTube'dan audio ajratib olish uning qoidalariga ham zid). Shuning uchun nom bo'yicha qo'shilgan
+qo'shiq saytda **Apple Music'ning rasmiy 30 soniyalik parchasi** bilan chiqadi ("30 son" belgisi bilan, video ham,
+qo'shimcha oyna ham yo'q). Tinglashlar soniga parchalar qo'shilmaydi.
 
-Ayrim yorliqlar (label) o'z videolarini boshqa saytlarga joylashni taqiqlaydi. Bunday qo'shiq ochilmasa,
-sayt keyingisiga o'tadi — bunday holda qo'shiq faylini yuboring.
+**To'liq qo'shiq uchun** — qo'shiq faylini botga yuboring yoki istalgan chatdan **forward** qiling: bot uni o'sha
+qo'shiq bilan moslab, avtomatik ravishda to'liq, yuqori sifatli audioga almashtiradi (fon rejimida, qulf ekranida ham
+ijro). Rasmiy parchasi topilmagan qo'shiqlar uchun bot darhol faylni so'raydi.
 
 ## Ijrochilar va ☑️ tasdiqlangan belgisi
 
@@ -73,16 +75,27 @@ sayt keyingisiga o'tadi — bunday holda qo'shiq faylini yuboring.
 - Bir ijrochining yangi qo'shig'i avtomatik o'sha profilga qo'shiladi — nomi boshqacha yozilgan bo'lsa ham
   (masalan *Shakhzoda* / *Shahzoda*): avval Deezer/Apple Music ID bo'yicha, keyin nom bo'yicha solishtiriladi.
 - Ijrochi Deezer yoki Apple Music'da rasmiy sahifaga ega bo'lsa va qo'shig'i o'sha yerda bo'lsa — ☑️ tasdiqlangan.
+- Saytda ko'k belgini bossangiz, yarim ekranli oyna ochiladi: ijrochi kimligi (Vikipediya, uz/ru/en),
+  **Cavi Music qaysi asosda tasdiqlagani** (Deezer/Apple Music rasmiy sahifalari, relizlar mosligi yoki egasi
+  tomonidan), qachondan beri, muxlislar va relizlar soni, stansiyadagi qo'shiqlar.
 
 ## Kim nima qila oladi
 
-- **Qo'shiq qo'shish, tahrirlash, o'chirish — faqat siz (stansiya egasi)**, bot orqali. Saytda qo'shish tugmasi yo'q.
+- **Qo'shiq qo'shish, tahrirlash, o'chirish — faqat siz (stansiya egasi)**, bot orqali.
+- Saytdagi **➕ Qo'shish sahifasi** faqat sizga ko'rinadi (Telegram ID'ingiz bo'yicha; saytga faqat uning sekin
+  xeshi yoziladi). U yerdan qo'shiqni nomi bo'yicha, ijrochining barcha qo'shiqlarini yoki faylni botga yuborasiz.
 - **Saytni hamma ko'ra va tinglay oladi.** Har bir tashrif buyuruvchining sevimlilari va tinglashlari o'ziga tegishli.
 
 ## Sayt imkoniyatlari
 
 - **Til:** avtomatik — ingliz tilidagi qurilmada inglizcha, qolganlarida ruscha. Yuqoridagi 🌐 tugmasi
-  (yoki avatar) orqali Русский / English / O'zbekcha ga o'zgartiriladi.
+  (yoki **C** doirasi) orqali Русский / English / O'zbekcha ga o'zgartiriladi — musiqa to'xtamaydi.
+- **Qo'shiq matni tarjimasi:** 🌐 tugmasi bilan har bir sinxron qator ostida kichikroq qilib tanlangan tildagi tarjima.
+- **Stories:** ⤴ → *Stories kartasi* yoki matndan **4 tagacha qatorni tanlab** — muqova va shu qatorlar bilan
+  9:16 rasm (Instagram, Telegram, WhatsApp…). Havola qo'shiqni aynan kerakli soniyadan ochadi (`#/song/<id>/<soniya>`).
+- **Sahifa yangilansa** ijro etilayotgan qo'shiq to'xtamaydi va boshidan boshlanmaydi — o'sha joydan davom etadi.
+- **Qidiruv** tugmasini ikkinchi marta bossangiz — qidiruv maydoni faollashib, klaviatura ochiladi.
+- Nusxa olish va bosib turganda chiqadigan menyular o'chirilgan.
 - **Bosh sahifa:** salomlashish, tezkor tanlovlar, *Siz uchun*, *Kunlik mikslar*, yangi qo'shilganlar,
   yaqinda tinglangan, *Takror-takror*, ijrochilar, *Kashf eting*, *Unutilgan sevimlilar*, janrlar.
 - **Tavsiya algoritmi:** tinglash soni, yaqinligi, sevimlilar va o'tkazib yuborishlardan did-profili tuziladi;
@@ -126,9 +139,9 @@ sayt keyingisiga o'tadi — bunday holda qo'shiq faylini yuboring.
 ## Loyiha tuzilishi
 
 ```
-bot/        Telegram bot + aniqlash (Shazam, iTunes, Deezer, LRCLIB, Claude AI, ffmpeg)
+bot/        Telegram bot + aniqlash (Shazam, iTunes, Deezer, LRCLIB, Claude AI, ffmpeg), tarjima, Vikipediya, stories
 web/        Sayt / mini ilova (build'siz vanilla JS)
-library/    songs.json, audio, muqovalar, qo'shiq matnlari (bot avtomatik to'ldiradi)
+library/    songs.json, audio, muqovalar, qo'shiq matnlari, stories rasmlari (bot avtomatik to'ldiradi)
 scripts/    build-site.sh — saytni yig'ish
 .github/workflows/station.yml — har 5 daqiqada bot + deploy
 ```

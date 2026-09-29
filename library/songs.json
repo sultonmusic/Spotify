@@ -56,8 +56,7 @@
    "lyrics": "synced",
    "confidence": 0.95,
    "sources": [
-    "itunes",
-    "youtube"
+    "itunes"
    ],
    "tg": {
     "msgs": [
@@ -65,15 +64,10 @@
     ]
    },
    "addedAt": "2026-09-29T19:14:19Z",
-   "yt": [
-    "T1tl66trXTQ",
-    "4qNRgzHTQsk",
-    "TvijgPEe9YU",
-    "3wabyYtxRdg"
-   ],
-   "storage": "youtube",
+   "storage": "preview",
    "via": "name",
-   "fileKey": "yt:T1tl66trXTQ"
+   "fileKey": "yt:T1tl66trXTQ",
+   "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/10/7e/9d/107e9dc0-c13b-eace-2486-84a3c694b075/mzaf_6267923862748965591.plus.aac.p.m4a"
   },
   {
    "id": "09e5ccb5e3",

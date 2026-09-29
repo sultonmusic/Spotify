@@ -26,6 +26,22 @@ export function user() {
   return tg?.initDataUnsafe?.user || null;
 }
 
+let adminCheck = null;
+/** True for the station owner (the bot publishes a PBKDF2 hash of the owner's Telegram id). */
+export function isAdmin(keys = []) {
+  const id = user()?.id;
+  if (!id || !keys.length || !crypto?.subtle) return Promise.resolve(false);
+  if (!adminCheck || adminCheck.keys !== keys.join()) {
+    const enc = new TextEncoder();
+    const run = crypto.subtle.importKey("raw", enc.encode(String(id)), "PBKDF2", false, ["deriveBits"])
+      .then((key) => crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt: enc.encode("cavi-music:admin"), iterations: 150000 }, key, 256))
+      .then((bits) => keys.includes([...new Uint8Array(bits)].map((b) => b.toString(16).padStart(2, "0")).join("")))
+      .catch(() => false);
+    adminCheck = { keys: keys.join(), run };
+  }
+  return adminCheck.run;
+}
+
 export function startParam() {
   return tg?.initDataUnsafe?.start_param || new URLSearchParams(location.search).get("tgWebAppStartParam") || "";
 }

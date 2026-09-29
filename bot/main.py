@@ -18,7 +18,7 @@ import traceback
 from pathlib import Path
 from typing import Any
 
-from . import ai, audio, config, lookup, youtube
+from . import ai, audio, config, lookup, story
 from .artists import Artists
 from .covers import save_cover
 from .identify import Clues, identify, lyrics_payload
@@ -26,9 +26,10 @@ from .library import Library, now_iso, store_audio
 from .lookup import lyrics as fetch_lyrics
 from .taxonomy import GENRE_UZ, GENRES, LANG_UZ, LANGUAGES, MOOD_UZ, MOODS, canonical_genre
 from .telegram_api import Bot, TelegramError
+from .translate import translate_lyrics_file
 from .textutil import norm, similarity, split_artist_title, split_artists, strip_feat
 
-SETUP_VERSION = "4"
+SETUP_VERSION = "5"
 PENDING_TTL = 2 * 86400  # song-choice buttons stay valid for 2 days
 AUDIO_EXT = {".mp3", ".m4a", ".aac", ".flac", ".ogg", ".oga", ".opus", ".wav", ".wma", ".aif", ".aiff",
              ".ape", ".alac", ".amr", ".mka", ".weba"}
@@ -97,6 +98,7 @@ class Station:
             {"command": "start", "description": "Boshlash"},
             {"command": "app", "description": "Stansiyani ochish"},
             {"command": "add", "description": "Qo'shiqni nomi bo'yicha qo'shish"},
+            {"command": "all", "description": "Ijrochining barcha qo'shiqlarini qo'shish"},
             {"command": "list", "description": "Oxirgi qo'shilgan qo'shiqlar"},
             {"command": "stats", "description": "Kutubxona statistikasi"},
             {"command": "artists", "description": "Ijrochilar va tasdiqlanganlar"},
@@ -104,6 +106,7 @@ class Station:
             {"command": "delete", "description": "Qo'shiqni o'chirish (javob tariqasida)"},
             {"command": "help", "description": "Yordam"},
         ])
+        self.bot.safe("setMyName", name=config.APP_NAME)
         if self.site.startswith("https://"):
             self.bot.safe("setChatMenuButton", menu_button={
                 "type": "web_app", "text": "🎧 Musiqa", "web_app": {"url": self.site}})
@@ -118,6 +121,12 @@ class Station:
 
     # ================================================================== access
     def authorized(self, user_id: int) -> bool:
+        ok = self._is_owner(user_id)
+        if ok and not config.PUBLIC_UPLOADS:
+            self.lib.mark_admin(user_id)
+        return ok
+
+    def _is_owner(self, user_id: int) -> bool:
         if config.PUBLIC_UPLOADS:
             return True
         if config.OWNER_IDS:
@@ -148,6 +157,15 @@ class Station:
             command = command[1:].split("@")[0].lower()
             if command in ("start", "help", "app"):
                 is_owner = self.authorized(user_id)
+                payload = arg.strip()
+                if command == "start" and is_owner and payload[:4] in ("add_", "all_"):
+                    query = self.decode_payload(payload[4:])
+                    if query:
+                        if payload.startswith("add_"):
+                            self.find_and_add(chat_id, query, msg["message_id"])
+                        else:
+                            self.cmd_all(msg, query)
+                        return
                 self.cmd_start(chat_id, command, is_owner)
                 return
             if not self.authorized(user_id):
@@ -314,7 +332,7 @@ class Station:
             if dup and dup.get("src"):
                 self.remember_message(dup, msg_id)
                 return dup, True
-            # A song added by name (YouTube) gets upgraded with the real audio file.
+            # A song added by name (30-second preview) gets upgraded with the real audio file.
             upgrade = dup or next((s for s in self.lib.songs if not s.get("src") and lookup.same_song(
                 s["title"], s["artist"], meta["title"], meta["artist"])), None)
 
@@ -333,7 +351,8 @@ class Station:
                 "via": "video" if kind == "video" else kind, "fileKey": file_key,
             }
             if upgrade:
-                upgrade.pop("yt", None)
+                for field in ("yt", "preview", "previewDuration"):
+                    upgrade.pop(field, None)
                 self.lib.update(upgrade, duration=round(info.duration, 2), **file_fields)
                 self.remember_message(upgrade, msg_id)
                 self.save()
@@ -357,7 +376,12 @@ class Station:
         lyrics_kind, lyrics_data = lyrics_payload(result.lyrics)
         if lyrics_data:
             config.LYRICS_DIR.mkdir(parents=True, exist_ok=True)
-            (config.LYRICS_DIR / f"{song_id}.json").write_text(json.dumps(lyrics_data, ensure_ascii=False))
+            lyrics_file = config.LYRICS_DIR / f"{song_id}.json"
+            lyrics_file.write_text(json.dumps(lyrics_data, ensure_ascii=False))
+            try:
+                translate_lyrics_file(lyrics_file, meta.get("language", "other"))
+            except Exception:
+                traceback.print_exc()
         song = {
             "id": song_id,
             "title": meta["title"],
@@ -386,6 +410,7 @@ class Station:
             "addedAt": now_iso(),
             **extra,
         }
+        song["story"] = story.ensure(song)
         self.lib.add(song)
         self.save()  # persist right away, so a crash later can't lose it
         print(f"[station] added {song_id}: {song['artist']} - {song['title']} ({', '.join(song['sources'])})")
@@ -411,7 +436,7 @@ class Station:
             self.add_by_name(chat_id, (status or {}).get("message_id"), cands[0])
             return
         token = hashlib.sha1(f"{query}{time.time()}".encode()).hexdigest()[:8]
-        keep = ("title", "artist", "album", "year", "duration", "cover", "genre", "explicit")
+        keep = ("title", "artist", "album", "year", "duration", "cover", "genre", "explicit", "preview")
         self.state.setdefault("pending", {})[token] = {
             "t": int(time.time()), "c": [{k: c.get(k) for k in keep} for c in cands[:6]]}
         self.state_dirty = True
@@ -430,49 +455,176 @@ class Station:
                 f"<b>{esc(s['artist'])} — {esc(s['title'])}</b>" for s in in_lib[:3]))
         self.send(chat_id, "\n".join(text), reply_to=reply_to, markup={"inline_keyboard": rows})
 
+    def existing_song(self, cand: dict) -> dict | None:
+        return next((s for s in self.lib.songs
+                     if lookup.same_song(s["title"], s["artist"], cand["title"], cand["artist"])), None)
+
+    def add_catalog(self, cand: dict, msg_id: int | None = None, progress=lambda _: None) -> tuple[str, dict | None]:
+        """Adds a catalogue song (no file). Returns (status, song): added | exists | notfound."""
+        existing = self.existing_song(cand)
+        if existing:
+            return "exists", existing
+        progress("🎧 Rasmiy parcha qidirilmoqda…")
+        preview = cand.get("preview") or self.find_preview(cand["title"], cand["artist"], cand.get("duration") or 0)
+        if not preview:
+            return "notfound", None
+        with tempfile.TemporaryDirectory() as tmp_name:
+            info = audio.AudioInfo(duration=float(cand.get("duration") or 0), has_audio=True)
+            result = identify(None, info, Clues(), Path(tmp_name), progress, known=cand)
+        self.canonical_artists(result)
+        song_id = hashlib.sha1(f"pv:{preview}".encode()).hexdigest()[:10]
+        if self.lib.get(song_id):
+            return "exists", self.lib.get(song_id)
+        song = self.build_song(song_id, result, info.duration, msg_id, {
+            "preview": preview, "storage": "preview", "via": "name", "fileKey": f"pv:{song_id}"})
+        return "added", song
+
+    def migrate_youtube(self) -> None:
+        """Songs once added with a YouTube player now play the official 30-second preview instead."""
+        for s in self.lib.songs:
+            if s.get("src") or not s.get("yt"):
+                continue
+            preview = self.find_preview(s["title"], s["artist"], s.get("duration") or 0)
+            s.pop("yt", None)
+            s["sources"] = [x for x in s.get("sources", []) if x != "youtube"]
+            if preview:
+                s.update(preview=preview, storage="preview")
+            else:
+                s["storage"] = "none"  # hidden on the site until the file is sent
+            self.lib.dirty = True
+
+    @staticmethod
+    def find_preview(title: str, artist: str, duration: float = 0) -> str | None:
+        """The official 30-second clip of the song on Apple Music (no audio is downloaded or stored)."""
+        main_artist = split_artists(artist)[0] if artist else ""
+        hit = lookup.itunes(strip_feat(title)[0], main_artist, duration)
+        return hit.get("preview") if hit and hit["score"] >= 0.8 else None
+
     def add_by_name(self, chat_id: int, status_id: int | None, cand: dict) -> None:
         def progress(text: str) -> None:
             if status_id:
                 self.edit(chat_id, status_id, f"🎵 {esc(cand['artist'])} — {esc(cand['title'])}\n\n{text}")
 
-        existing = next((s for s in self.lib.songs
-                         if lookup.same_song(s["title"], s["artist"], cand["title"], cand["artist"])), None)
-        if existing:
-            text = "ℹ️ Bu qo'shiq stansiyada allaqachon bor:\n\n" + self.card(existing)
+        def reply(text: str, markup: dict | None = None) -> None:
             if status_id:
-                self.edit(chat_id, status_id, text, self.song_markup(existing))
+                self.edit(chat_id, status_id, text, markup)
             else:
-                self.send(chat_id, text, markup=self.song_markup(existing))
-            return
+                self.send(chat_id, text, markup=markup)
+
         try:
-            progress("🎬 Rasmiy YouTube videosi qidirilmoqda…")
-            main_artist = split_artists(cand["artist"])[0] if cand["artist"] else ""
-            ids = youtube.find_videos(main_artist, strip_feat(cand["title"])[0], cand.get("duration") or 0)
-            if not ids:
-                raise RuntimeError("YouTube'da rasmiy versiyasi topilmadi — qo'shiq faylini yuboring, men uni qo'shaman")
-            with tempfile.TemporaryDirectory() as tmp_name:
-                info = audio.AudioInfo(duration=float(cand.get("duration") or 0), has_audio=True)
-                result = identify(None, info, Clues(), Path(tmp_name), progress, known=cand)
-            self.canonical_artists(result)
-            song_id = hashlib.sha1(f"yt:{ids[0]}".encode()).hexdigest()[:10]
-            result.sources = sorted(set(result.sources) | {"youtube"})
-            song = self.build_song(song_id, result, info.duration, status_id, {
-                "yt": ids, "storage": "youtube", "via": "name", "fileKey": f"yt:{ids[0]}"})
+            status, song = self.add_catalog(cand, status_id, progress)
         except Exception as exc:
             traceback.print_exc()
-            text = f"❌ Qo'shib bo'lmadi: {esc(str(exc)[:300])}"
-            if status_id:
-                self.edit(chat_id, status_id, text)
-            else:
-                self.send(chat_id, text)
+            reply(f"❌ Qo'shib bo'lmadi: {esc(str(exc)[:300])}")
             return
-        text = ("✅ <b>Stansiyaga qo'shildi!</b> (rasmiy YouTube orqali ijro etiladi)\n\n" + self.card(song)
-                + "\n\n<i>Sayt va mini ilovada 1–3 daqiqada paydo bo'ladi. Qo'shiq faylini yuborsangiz, "
-                  "u yuqori sifatli audio bilan almashtiriladi.</i>")
-        if status_id:
-            self.edit(chat_id, status_id, text, self.song_markup(song))
+        if status == "exists":
+            reply("ℹ️ Bu qo'shiq stansiyada allaqachon bor:\n\n" + self.card(song), self.song_markup(song))
+        elif status == "notfound":
+            reply(f"😕 <b>{esc(cand['artist'])} — {esc(cand['title'])}</b>\n\nBu qo'shiqning rasmiy parchasi "
+                  "topilmadi. Qo'shiq faylini yuboring (yoki istalgan chatdan forward qiling) — men uni qo'shaman.")
         else:
-            self.send(chat_id, text, markup=self.song_markup(song))
+            reply("✅ <b>Stansiyaga qo'shildi!</b>\n\n" + self.card(song)
+                  + "\n\n<i>Sayt va mini ilovada 1–3 daqiqada paydo bo'ladi. Hozircha rasmiy 30 soniyalik parcha "
+                    "ijro etiladi — qo'shiq faylini yuborsangiz (yoki forward qilsangiz), to'liq qo'shiqqa "
+                    "almashadi.</i>", self.song_markup(song))
+
+    # ================================================================== /all: every song of an artist
+    def cmd_all(self, msg: dict, arg: str) -> None:
+        chat_id = msg["chat"]["id"]
+        if not arg:
+            self.send(chat_id, "Ijrochi nomini yozing, masalan: <code>/all Shahzoda</code>")
+            return
+        self.bot.safe("sendChatAction", chat_id=chat_id, action="typing")
+        artists = lookup.find_artists(arg)
+        if not artists:
+            self.send(chat_id, f"🔎 «{esc(arg)}» ismli ijrochi topilmadi.", reply_to=msg["message_id"])
+            return
+        exact = [a for a in artists if norm(a["name"]) == norm(arg)]
+        if len(exact) == 1 and len(artists) == 1:
+            self.offer_artist(chat_id, None, exact[0])
+            return
+        token = hashlib.sha1(f"all{arg}{time.time()}".encode()).hexdigest()[:8]
+        self.state.setdefault("pending", {})[token] = {"t": int(time.time()), "a": artists[:6]}
+        self.state_dirty = True
+        rows = []
+        for i, a in enumerate(artists[:6]):
+            songs = lookup.artist_songs(a, limit=3)
+            sample = ", ".join(x["title"] for x in songs[:2])
+            bits = [a["name"], a.get("genre") or "", f"{a['fans']:,} muxlis".replace(",", " ") if a.get("fans") else "", sample]
+            label = " · ".join(b for b in bits if b)
+            rows.append([{"text": (label[:60] + "…") if len(label) > 61 else label, "callback_data": f"art:{token}:{i}"}])
+        rows.append([{"text": "❌ Bekor qilish", "callback_data": f"cancel:{token}"}])
+        self.send(chat_id, f"👤 «{esc(arg)}» — bir nechta ijrochi topildi. Qaysi biri?", reply_to=msg["message_id"],
+                  markup={"inline_keyboard": rows})
+
+    def offer_artist(self, chat_id: int, message_id: int | None, artist: dict) -> None:
+        songs = lookup.artist_songs(artist)
+        new = [c for c in songs if not self.existing_song(c)]
+        if not songs:
+            text = f"😕 <b>{esc(artist['name'])}</b> qo'shiqlari katalogda topilmadi."
+            self.edit(chat_id, message_id, text) if message_id else self.send(chat_id, text)
+            return
+        token = hashlib.sha1(f"bulk{artist['name']}{time.time()}".encode()).hexdigest()[:8]
+        keep = ("title", "artist", "album", "year", "duration", "cover", "genre", "explicit", "preview")
+        self.state.setdefault("pending", {})[token] = {
+            "t": int(time.time()), "artist": artist["name"], "c": [{k: c.get(k) for k in keep} for c in new]}
+        self.state_dirty = True
+        preview = "\n".join(f"• {esc(c['title'])}" for c in new[:12]) + (f"\n… va yana {len(new) - 12} ta" if len(new) > 12 else "")
+        text = (f"👤 <b>{esc(artist['name'])}</b>: katalogda {len(songs)} ta qo'shiq, shundan <b>{len(new)}</b> tasi "
+                f"stansiyada yo'q.\n\n{preview}\n\nHammasini qo'shaymi? Har bir qo'shiq aniqlanib, muqova va matni "
+                f"bilan qo'shiladi (bir necha daqiqa).")
+        markup = {"inline_keyboard": [[{"text": f"✅ Hammasini qo'shish ({len(new)})", "callback_data": f"bulkok:{token}"}],
+                                      [{"text": "❌ Bekor qilish", "callback_data": f"cancel:{token}"}]]} if new else None
+        if not new:
+            text = f"✅ <b>{esc(artist['name'])}</b> ning barcha {len(songs)} ta qo'shig'i stansiyada allaqachon bor."
+        if message_id:
+            self.edit(chat_id, message_id, text, markup)
+        else:
+            self.send(chat_id, text, markup=markup)
+
+    def start_bulk(self, chat_id: int, message_id: int, pending: dict) -> None:
+        job = {"chat": chat_id, "msg": message_id, "artist": pending.get("artist", ""), "items": pending.get("c", []),
+               "total": len(pending.get("c", [])), "added": 0, "skipped": 0, "failed": 0, "t": int(time.time())}
+        self.state.setdefault("bulk", []).append(job)
+        self.state_dirty = True
+        self.edit(chat_id, message_id, f"⏳ <b>{esc(job['artist'])}</b>: {job['total']} ta qo'shiq navbatga qo'yildi. "
+                                       "Qo'shilishi bilan shu xabar yangilanib boradi.")
+
+    def process_bulk(self, seconds: float) -> None:
+        """Works through queued /all jobs for up to `seconds` (the rest continues next run)."""
+        until = time.monotonic() + seconds
+        jobs = self.state.get("bulk") or []
+        for job in list(jobs):
+            last_edit = 0.0
+            while job["items"] and time.monotonic() < until:
+                cand = job["items"].pop(0)
+                try:
+                    status, _ = self.add_catalog(cand)
+                except Exception:
+                    traceback.print_exc()
+                    status = "error"
+                job["added" if status == "added" else "skipped" if status == "exists" else "failed"] += 1
+                self.state_dirty = True
+                self.save()
+                if time.monotonic() - last_edit > 20:
+                    last_edit = time.monotonic()
+                    done = job["total"] - len(job["items"])
+                    self.edit(job["chat"], job["msg"], f"⏳ <b>{esc(job['artist'])}</b>: {done}/{job['total']} — "
+                                                       f"qo'shildi {job['added']}, bor edi {job['skipped']}, "
+                                                       f"topilmadi {job['failed']}")
+            if not job["items"]:
+                jobs.remove(job)
+                self.state_dirty = True
+                self.edit(job["chat"], job["msg"], f"✅ <b>{esc(job['artist'])}</b> tayyor!\n\n"
+                                                   f"➕ Qo'shildi: {job['added']}\n♻️ Oldin bor edi: {job['skipped']}\n"
+                                                   f"😕 Rasmiy parchasi topilmadi: {job['failed']}\n\n"
+                                                   "<i>Hozircha rasmiy 30 soniyalik parchalar ijro etiladi. Qo'shiq "
+                                                   "fayllarini yuborsangiz (yoki forward qilsangiz), har biri to'liq "
+                                                   "qo'shiqqa almashadi.</i>",
+                          self.keyboard([self.app_button("🎧 Stansiyani ochish")]))
+            if time.monotonic() >= until:
+                break
+        self.save()
 
     def remember_message(self, song: dict, message_id: int) -> None:
         msgs = song.setdefault("tg", {}).setdefault("msgs", [])
@@ -503,12 +655,13 @@ class Station:
         if s.get("tags"):
             hashtags = [re.sub(r"[^\w]+", "_", t).strip("_") for t in s["tags"][:6]]
             lines.append("🏷 " + " ".join(f"#{esc(t)}" for t in hashtags if t))
-        src = {"shazam": "Shazam", "itunes": "iTunes", "deezer": "Deezer", "ai": "AI", "youtube": "YouTube"}
+        src = {"shazam": "Shazam", "itunes": "iTunes", "deezer": "Deezer", "ai": "AI"}
         found = " + ".join(src[x] for x in s.get("sources", []) if x in src) or "fayl ma'lumotlari"
         conf = s.get("confidence")
         lines.append(f"🤖 Aniqlandi: {found}" + (f" (ishonch {round(conf * 100)}%)" if conf is not None else ""))
-        if not s.get("src") and s.get("yt"):
-            lines.append("🎬 Ijro: rasmiy YouTube pleyeri")
+        if not s.get("src"):
+            lines.append("🎧 Hozircha: rasmiy 30 soniyalik parcha")
+            lines.append("📁 <i>To'liq qo'shiq uchun faylini yuboring yoki forward qiling</i>")
         desc = s.get("description")
         if isinstance(desc, dict):
             desc = desc.get("uz") or desc.get("ru") or desc.get("en")
@@ -556,7 +709,10 @@ class Station:
                 "bitta profilga yig'iladi.",
                 "",
                 "<b>Buyruqlar</b>",
+                "➕ Saytdagi <b>+</b> tugmasi ham shu yerga olib keladi (faqat sizga ko'rinadi)",
+                "",
                 "/add nomi — qo'shiqni nomi bo'yicha qo'shish",
+                "/all Ijrochi — ijrochining barcha qo'shiqlarini qo'shish",
                 "/list — oxirgi qo'shiqlar",
                 "/stats — statistika",
                 "/artists — ijrochilar (☑️ = tasdiqlangan)",
@@ -575,7 +731,19 @@ class Station:
         else:
             text += ["Bu shaxsiy stansiya. Qo'shiqlarni tinglash uchun tugmani bosing."]
         text += ["", f"📚 Kutubxonada: <b>{count}</b> ta qo'shiq"]
-        self.send(chat_id, "\n".join(text), markup=self.keyboard([self.app_button()]))
+        rows = [[self.app_button()]]
+        if is_owner:
+            rows.append([self.app_button("➕ Qo'shish sahifasi", "add")])
+        self.send(chat_id, "\n".join(text), markup=self.keyboard(*rows))
+
+    @staticmethod
+    def decode_payload(value: str) -> str:
+        """Site 'Add' page -> t.me/<bot>?start=add_<base64url(query)>"""
+        import base64
+        try:
+            return base64.urlsafe_b64decode(value + "=" * (-len(value) % 4)).decode("utf-8").strip()[:120]
+        except (ValueError, UnicodeDecodeError):
+            return ""
 
     def cmd_add(self, msg: dict, arg: str) -> None:
         if not arg:
@@ -740,6 +908,8 @@ class Station:
             self.send(msg["chat"]["id"], "Rasmni o'qib bo'lmadi.")
             return
         self.lib.update(song, cover=f"library/covers/{song['id']}.jpg", color=color, coverV=int(time.time()))
+        (config.ROOT / f"library/stories/{song['id']}.jpg").unlink(missing_ok=True)
+        song["story"] = story.ensure(song)
         self.save()
         self.send(msg["chat"]["id"], f"🖼 Muqova yangilandi: <b>{esc(song['title'])}</b>")
 
@@ -772,6 +942,17 @@ class Station:
         if action == "cancel":
             self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"])
             self.edit(chat_id, message_id, "❌ Bekor qilindi.")
+        elif action == "art":
+            artists = pending.get("a") or []
+            i = int(index) if index.isdigit() else -1
+            if not 0 <= i < len(artists):
+                self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Topilmadi")
+                return
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Qo'shiqlar qidirilmoqda…")
+            self.offer_artist(chat_id, message_id, artists[i])
+        elif action == "bulkok":
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Boshlandi")
+            self.start_bulk(chat_id, message_id, pending)
         else:
             cands = pending.get("c") or []
             i = int(index) if index.isdigit() else -1
@@ -793,7 +974,7 @@ class Station:
             self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="🔒 Faqat egasi uchun")
             return
         action, _, song_id = data.partition(":")
-        if action in ("pick", "cancel"):
+        if action in ("pick", "cancel", "art", "bulkok"):
             self.handle_pick(cq, action, song_id, chat_id, message_id)
             return
         song = self.lib.get(song_id)
@@ -828,6 +1009,22 @@ class Station:
                 return []
             raise
 
+    def backfill_translations(self, budget: int) -> None:
+        """Older songs get their lyrics translated a few at a time."""
+        for s in self.lib.songs:
+            if budget <= 0:
+                break
+            path = config.LYRICS_DIR / f"{s['id']}.json"
+            if not s.get("lyrics") or not path.exists():
+                continue
+            try:
+                if json.loads(path.read_text(encoding="utf-8")).get("tr"):
+                    continue
+                budget -= 1
+                translate_lyrics_file(path, s.get("language", "other"))
+            except Exception:
+                traceback.print_exc()
+
     def run(self) -> None:
         started = time.monotonic()
         deadline = started + config.MAX_RUNTIME_SECONDS
@@ -860,12 +1057,21 @@ class Station:
             listen_until = min(deadline, time.monotonic() + config.LISTEN_SECONDS)
         if offset is not None:
             self.bot.safe("getUpdates", offset=offset, timeout=0, limit=1)  # confirm processed updates
+        if self.state.get("bulk"):
+            self.process_bulk(seconds=max(60.0, deadline - time.monotonic() + 300))
         # Artist profiles: make sure every performer has one, and look up official status for a few.
         try:
             self.artists.sync_with_songs()
             self.artists.backfill(budget=6)
+            self.artists.backfill_bios(budget=3)
         except Exception:
             traceback.print_exc()
+        self.backfill_translations(budget=4)
+        self.migrate_youtube()
+        for s in self.lib.songs:  # story images for songs added before this feature
+            if not s.get("story"):
+                s["story"] = story.ensure(s)
+                self.lib.dirty = True
         self.save()
         print(f"[station] handled {handled} update(s); library has {len(self.lib.songs)} song(s)")
 

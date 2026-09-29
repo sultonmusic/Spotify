@@ -16,10 +16,13 @@ function detect() {
 export let LANG = detect();
 document.documentElement.lang = LANG;
 
+/** Switches the language in place (no reload, so the music keeps playing). */
 export function setLang(code) {
-  if (!LANGS_UI[code]) return;
+  if (!LANGS_UI[code] || code === LANG) return;
   try { localStorage.setItem(LS_KEY, code); } catch { /* ignore */ }
-  location.reload();
+  LANG = code;
+  document.documentElement.lang = code;
+  window.dispatchEvent(new Event("app:lang"));
 }
 
 // ------------------------------------------------------------------ UI strings
@@ -66,7 +69,8 @@ const S = {
   "common.retry": { ru: "Повторить", en: "Retry", uz: "Qayta urinish" },
   "common.homeBtn": { ru: "На главную", en: "Go home", uz: "Bosh sahifa" },
   "common.verified": { ru: "Подтверждённый исполнитель", en: "Verified artist", uz: "Tasdiqlangan ijrochi" },
-  "common.youtube": { ru: "Воспроизводится через официальный YouTube", en: "Plays via official YouTube", uz: "Rasmiy YouTube orqali ijro etiladi" },
+  "preview.badge": { ru: "30 сек", en: "30 sec", uz: "30 son" },
+  "preview.note": { ru: "Официальный 30-секундный фрагмент — полная версия появится, когда владелец загрузит файл", en: "Official 30-second preview — the full song arrives once the owner uploads the file", uz: "Rasmiy 30 soniyalik parcha — to'liq qo'shiq egasi faylni yuklaganda paydo bo'ladi" },
   "common.and": { ru: "и другие", en: "and more", uz: "va boshqalar" },
 
   "empty.lib.title": { ru: "Медиатека пока пуста", en: "The library is empty", uz: "Kutubxona hozircha bo'sh" },
@@ -172,7 +176,6 @@ const S = {
   "np.queueEmpty": { ru: "Очередь пуста — дальше зазвучат похожие песни", en: "Queue is empty — similar songs will keep playing", uz: "Navbat bo'sh — o'xshash qo'shiqlar avtomatik davom etadi" },
   "np.addedAgo": { ru: "добавлено {when}", en: "added {when}", uz: "{when} qo'shilgan" },
   "np.noLyrics": { ru: "Текст не найден", en: "No lyrics found", uz: "Qo'shiq matni topilmadi" },
-  "np.tapVideo": { ru: "Нажмите на видео, чтобы начать воспроизведение", en: "Tap the video to start playback", uz: "Ijroni boshlash uchun videoni bosing" },
   "queue.now": { ru: "Сейчас играет", en: "Now playing", uz: "Hozir ijroda" },
   "queue.yours": { ru: "Ваша очередь", en: "Your queue", uz: "Navbatingiz" },
   "queue.next": { ru: "Далее: {t}", en: "Next from: {t}", uz: "Keyingisi: {t}" },
@@ -216,6 +219,58 @@ const S = {
   "dur.m": { ru: "{m} мин", en: "{m} min", uz: "{m} daq" },
   "dur.s": { ru: "{s} сек", en: "{s} sec", uz: "{s} soniya" },
 
+  "lyrics.translate": { ru: "Перевод", en: "Translation", uz: "Tarjima" },
+  "lyrics.share": { ru: "Поделиться строками", en: "Share lyrics", uz: "Qatorlarni ulashish" },
+  "lyrics.pick": { ru: "Выберите до 4 строк", en: "Pick up to 4 lines", uz: "4 tagacha qator tanlang" },
+  "lyrics.picked": { ru: "Выбрано: {n} из 4", en: "{n} of 4 selected", uz: "Tanlandi: {n} / 4" },
+  "lyrics.max": { ru: "Можно выбрать не больше 4 строк", en: "You can pick up to 4 lines", uz: "Ko'pi bilan 4 ta qator tanlash mumkin" },
+  "share.title": { ru: "Поделиться", en: "Share", uz: "Ulashish" },
+  "share.story": { ru: "В сторис (Instagram, Telegram, WhatsApp…)", en: "To stories (Instagram, Telegram, WhatsApp…)", uz: "Stories'ga (Instagram, Telegram, WhatsApp…)" },
+  "share.tgStory": { ru: "История в Telegram", en: "Telegram story", uz: "Telegram hikoyasi" },
+  "share.save": { ru: "Сохранить картинку", en: "Save image", uz: "Rasmni saqlash" },
+  "share.link": { ru: "Скопировать ссылку", en: "Copy link", uz: "Havolani nusxalash" },
+  "share.linkAt": { ru: "Ссылка с {t}", en: "Link from {t}", uz: "{t} dan havola" },
+  "share.telegram": { ru: "Отправить в Telegram", en: "Send via Telegram", uz: "Telegram'da yuborish" },
+  "share.card": { ru: "Карточка для сторис", en: "Story card", uz: "Stories kartasi" },
+  "share.lyricsCard": { ru: "Карточка с текстом", en: "Lyrics card", uz: "Matnli karta" },
+  "share.making": { ru: "Готовим картинку…", en: "Making the image…", uz: "Rasm tayyorlanmoqda…" },
+  "share.openBrowser": { ru: "Открыть в браузере (для Instagram)", en: "Open in browser (for Instagram)", uz: "Brauzerda ochish (Instagram uchun)" },
+  "song.playFrom": { ru: "Слушать с {t}", en: "Play from {t}", uz: "{t} dan tinglash" },
+
+  "add.title": { ru: "Добавить музыку", en: "Add music", uz: "Musiqa qo'shish" },
+  "add.sub": { ru: "Всё добавляется через бота @{bot}. Он отвечает в течение ~5 минут, а песня сама появится на сайте.", en: "Everything is added via @{bot}. It replies within ~5 minutes and the song shows up here by itself.", uz: "Hammasi @{bot} orqali qo'shiladi. Bot ~5 daqiqa ichida javob beradi, qo'shiq saytda o'zi paydo bo'ladi." },
+  "add.byName": { ru: "Песня по названию", en: "Song by name", uz: "Nomi bo'yicha qo'shiq" },
+  "add.byNameDesc": { ru: "Бот найдёт оригинал. Если песен с таким названием несколько — предложит выбрать.", en: "The bot finds the original. If several songs share the name, it lets you choose.", uz: "Bot originalini topadi. Bir xil nomli bir nechta qo'shiq bo'lsa — tanlashni taklif qiladi." },
+  "add.byNamePh": { ru: "Название и исполнитель", en: "Title and artist", uz: "Qo'shiq nomi va ijrochi" },
+  "add.find": { ru: "Найти и добавить", en: "Find & add", uz: "Topib qo'shish" },
+  "add.artist": { ru: "Все песни исполнителя", en: "All songs by an artist", uz: "Ijrochining barcha qo'shiqlari" },
+  "add.artistDesc": { ru: "Бот найдёт исполнителя, покажет, сколько у него песен, и после подтверждения добавит все.", en: "The bot finds the artist, shows how many songs there are and adds them all once you confirm.", uz: "Bot ijrochini topadi, nechta qo'shig'i borligini ko'rsatadi va tasdiqlasangiz hammasini qo'shadi." },
+  "add.artistPh": { ru: "Имя исполнителя", en: "Artist name", uz: "Ijrochi ismi" },
+  "add.all": { ru: "Добавить все", en: "Add all", uz: "Hammasini qo'shish" },
+  "add.file": { ru: "Отправить аудиофайл", en: "Send an audio file", uz: "Audio fayl yuborish" },
+  "add.fileDesc": { ru: "Лучшее качество: чистый звук без видео. Бот сам определит название, исполнителя, обложку и текст.", en: "Best quality: pure audio, no video. The bot detects the title, artist, cover and lyrics.", uz: "Eng yaxshi sifat: videosiz toza ovoz. Bot nomi, ijrochisi, muqovasi va matnini o'zi aniqlaydi." },
+  "add.openBot": { ru: "Открыть бота", en: "Open the bot", uz: "Botni ochish" },
+  "add.copied": { ru: "Команда скопирована — вставьте её в чат с ботом", en: "Command copied — paste it in the bot chat", uz: "Buyruq nusxalandi — uni bot chatiga joylang" },
+  "add.tip": { ru: "В боте можно писать и так: /add название · /all исполнитель", en: "In the bot you can also type: /add title · /all artist", uz: "Botga shunday ham yozish mumkin: /add nomi · /all ijrochi" },
+  "add.ownerOnly": { ru: "Добавлять музыку может только владелец станции", en: "Only the station owner can add music", uz: "Musiqani faqat stansiya egasi qo'sha oladi" },
+  "add.ownerOnlyDesc": { ru: "А слушать можно всё — без ограничений.", en: "Listening is open to everyone.", uz: "Tinglash esa hamma uchun ochiq." },
+
+  "vi.why": { ru: "Почему есть отметка", en: "Why this badge", uz: "Belgi nega berilgan" },
+  "vi.intro": { ru: "{app} ставит синюю отметку, только когда исполнителя подтверждают официальные музыкальные сервисы. Значит, это настоящий артист, а не однофамилец или фейк.", en: "{app} shows the blue badge only when official music services confirm the artist. It means this is the real artist, not a namesake or a fake.", uz: "{app} ko'k belgini faqat rasmiy musiqa servislari ijrochini tasdiqlagandagina beradi. Demak, bu haqiqiy ijrochi — adash yoki soxta emas." },
+  "vi.deezer": { ru: "Официальная страница артиста на Deezer", en: "Official artist page on Deezer", uz: "Deezer'dagi rasmiy ijrochi sahifasi" },
+  "vi.apple": { ru: "Официальная страница артиста в Apple Music", en: "Official artist page on Apple Music", uz: "Apple Music'dagi rasmiy ijrochi sahifasi" },
+  "vi.match": { ru: "Песни на станции совпадают с его официальными релизами", en: "Songs on the station match the artist's official releases", uz: "Stansiyadagi qo'shiqlar uning rasmiy relizlari bilan mos keladi" },
+  "vi.owner": { ru: "Подтверждено владельцем станции", en: "Confirmed by the station owner", uz: "Stansiya egasi tomonidan tasdiqlangan" },
+  "vi.since": { ru: "Отметка получена: {date}", en: "Verified on {date}", uz: "Tasdiqlangan sana: {date}" },
+  "vi.songs": { ru: "песен на {app}", en: "songs on {app}", uz: "{app}'dagi qo'shiqlar" },
+  "vi.plays": { ru: "ваших прослушиваний", en: "your plays", uz: "sizning tinglashlaringiz" },
+  "vi.fans": { ru: "подписчиков в Deezer", en: "fans on Deezer", uz: "Deezer'dagi muxlislar" },
+  "vi.albums": { ru: "релизов в Deezer", en: "releases on Deezer", uz: "Deezer'dagi relizlar" },
+  "vi.about": { ru: "Об исполнителе", en: "About", uz: "Ijrochi haqida" },
+  "vi.source": { ru: "Источник: Википедия", en: "Source: Wikipedia", uz: "Manba: Vikipediya" },
+  "vi.translated": { ru: "автоматический перевод", en: "machine-translated", uz: "avtomatik tarjima" },
+  "vi.open": { ru: "Открыть профиль", en: "Open profile", uz: "Profilni ochish" },
+
   "settings.title": { ru: "Настройки", en: "Settings", uz: "Sozlamalar" },
   "settings.language": { ru: "Язык сайта", en: "Site language", uz: "Sayt tili" },
   "settings.about": { ru: "Музыку добавляет владелец станции через бота", en: "Music is added by the station owner via the bot", uz: "Musiqani stansiya egasi bot orqali qo'shadi" },
@@ -240,6 +295,26 @@ export function t(key, vars = {}) {
   let s = entry[LANG] ?? entry.en ?? entry.ru;
   if (Array.isArray(s)) s = s[Math.min(s.length - 1, pluralIndex(vars.n ?? 0))];
   return s.replace(/\{(\w+)\}/g, (_, k) => (vars[k] !== undefined ? (k === "n" ? fmtNum(vars[k]) : vars[k]) : ""));
+}
+
+export let LOCALE = LANG === "uz" ? "uz-UZ" : LANG === "ru" ? "ru-RU" : "en-US";
+window.addEventListener("app:lang", () => { LOCALE = LANG === "uz" ? "uz-UZ" : LANG === "ru" ? "ru-RU" : "en-US"; });
+
+const UZ_MONTHS = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
+/** "29 сентября 2026 г." / "September 29, 2026" / "2026-yil 29-sentabr" (browsers lack Uzbek month names). */
+export function fmtDate(d) {
+  if (LANG === "uz") return `${d.getFullYear()}-yil ${d.getDate()}-${UZ_MONTHS[d.getMonth()]}`;
+  return d.toLocaleDateString(LOCALE, { day: "numeric", month: "long", year: "numeric" });
+}
+
+export function fmtDateShort(d) {
+  if (LANG === "uz") return `${d.getDate()}-${UZ_MONTHS[d.getMonth()]}`;
+  return d.toLocaleDateString(LOCALE, { day: "numeric", month: "short" });
+}
+
+/** 15 481 654 -> "15 млн" / "15M" */
+export function fmtCompact(n) {
+  return new Intl.NumberFormat(LOCALE, { notation: "compact", maximumFractionDigits: 1 }).format(n || 0);
 }
 
 export function fmtNum(n) {

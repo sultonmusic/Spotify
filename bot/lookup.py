@@ -138,6 +138,7 @@ def _itunes_track(r: dict) -> dict:
         "artist_id": r.get("artistId"),
         "artist_url": (r.get("artistViewUrl") or "").split("?")[0] or None,
         "track_url": (r.get("trackViewUrl") or "").split("?")[0] or None,
+        "preview": r.get("previewUrl") or None,  # official 30-second clip (Apple Music)
     }
 
 
@@ -207,7 +208,7 @@ def deezer_artist(artist_id: int) -> dict | None:
     if not data or data.get("error"):
         return None
     return {"id": data.get("id"), "name": data.get("name"), "fans": data.get("nb_fan") or 0,
-            "picture": data.get("picture_xl"), "link": data.get("link")}
+            "albums": data.get("nb_album") or 0, "picture": data.get("picture_xl"), "link": data.get("link")}
 
 
 def deezer_find_artist(name: str) -> dict | None:
@@ -356,3 +357,50 @@ def same_song(a_title: str, a_artist: str, b_title: str, b_artist: str) -> bool:
         return True
     a_main, b_main = phon(split_artists(a_artist)[0]), phon(split_artists(b_artist)[0])
     return SequenceMatcher(None, a_main, b_main).ratio() >= 0.88
+
+
+# --------------------------------------------------------------------------- whole artist catalogue
+
+def find_artists(name: str, limit: int = 6) -> list[dict]:
+    """Artists matching a name on Apple Music and Deezer (merged), best first."""
+    found: list[dict] = []
+    data = _get("https://itunes.apple.com/search", {"term": name, "entity": "musicArtist", "limit": 10}) or {}
+    for r in data.get("results", []):
+        found.append({"name": r.get("artistName", ""), "genre": r.get("primaryGenreName"), "fans": 0,
+                      "itunes_id": r.get("artistId")})
+    data = _get("https://api.deezer.com/search/artist", {"q": name, "limit": 10}) or {}
+    for a in data.get("data", []):
+        # Attach to the Apple Music artist with the same name (one Deezer page each), else list separately
+        entry = next((e for e in found if phon(e["name"]) == phon(a.get("name", "")) and not e.get("deezer_id")), None)
+        if entry is None:
+            entry = {"name": a.get("name", ""), "genre": None}
+            found.append(entry)
+        entry.update(deezer_id=a.get("id"), fans=a.get("nb_fan") or 0, picture=a.get("picture_xl"))
+    q = phon(name)
+    ranked = sorted(found, key=lambda a: (phon(a["name"]) != q, -(a.get("fans") or 0), -similarity(a["name"], name)))
+    return [a for a in ranked if similarity(a["name"], name) >= 0.55][:limit]
+
+
+def artist_songs(artist: dict, limit: int = 100) -> list[dict]:
+    """Every distinct song of an artist (Apple Music catalogue + Deezer top tracks), most popular first."""
+    out: dict[str, dict] = {}
+    if artist.get("itunes_id"):
+        data = _get("https://itunes.apple.com/lookup", {"id": artist["itunes_id"], "entity": "song", "limit": 200}) or {}
+        for r in data.get("results", []):
+            if r.get("wrapperType") != "track":
+                continue
+            c = _itunes_track(r)
+            c["itunes_artist_id"] = c.pop("artist_id")
+            key = phon(strip_feat(c["title"])[0])
+            if key and key not in out and not _JUNK_ARTIST.search(c["artist"]):
+                out[key] = c
+    if artist.get("deezer_id"):
+        data = _get(f"https://api.deezer.com/artist/{artist['deezer_id']}/top", {"limit": 100}) or {}
+        for r in data.get("data", []):
+            c = _deezer_track(r)
+            c["deezer_id"] = c.pop("id")
+            c["deezer_artist_id"] = c.pop("artist_id")
+            key = phon(strip_feat(c["title"])[0])
+            if key and key not in out:
+                out[key] = c
+    return list(out.values())[:limit]

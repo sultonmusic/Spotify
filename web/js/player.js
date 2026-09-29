@@ -5,7 +5,7 @@ import { CONFIG } from "./config.js";
 import { lib, song as getSong, recordPlay, recordSkip, addListenTime, coverUrl, emit, user } from "./store.js";
 import { radio } from "./reco.js";
 import { setClosingGuard } from "./tg.js";
-import { AudioEngine, YTEngine, placeVideo } from "./engines.js";
+import { AudioEngine } from "./engines.js";
 import { t } from "./i18n.js";
 
 const STATE_KEY = "ms.player.v1";
@@ -23,10 +23,10 @@ export const player = {
 };
 
 const audioEngine = new AudioEngine((ev) => onEngine(audioEngine, ev));
-const ytEngine = new YTEngine((ev) => onEngine(ytEngine, ev));
 let engine = audioEngine;
 
-export const isVideo = (s) => !!s && !s.src && Array.isArray(s.yt) && s.yt.length > 0;
+/** Songs added by name play the official 30-second preview until their file is sent. */
+export const isPreview = (s) => !!s?.isPreview;
 export const currentTime = () => engine.time;
 export const duration = () => engine.duration || player.current?.duration || 0;
 export const isPlaying = () => !!player.current && !engine.paused;
@@ -50,7 +50,7 @@ function trackTime() {
   if (delta > 0 && delta < 1.6) session.listened += delta;
   session.last = now;
   const threshold = Math.min(CONFIG.playThreshold, (player.current?.duration || engine.duration || 60) * 0.9);
-  if (!session.counted && session.listened >= threshold) {
+  if (!session.counted && !isPreview(player.current) && session.listened >= threshold) {
     session.counted = true;
     recordPlay(session.id);
   }
@@ -90,9 +90,6 @@ let errorStreak = 0;
 
 // ------------------------------------------------------------------ loading
 function load(s, { autoplay = true, at = 0 } = {}) {
-  const next = isVideo(s) ? ytEngine : audioEngine;
-  if (next !== engine) engine.stop();
-  engine = next;
   player.current = s;
   startSession(s);
   if (at > 0 && session) session.last = at;
@@ -100,7 +97,6 @@ function load(s, { autoplay = true, at = 0 } = {}) {
   engine.load(s, { autoplay, at });
   setMediaSession(s);
   emit("track", s);
-  placeVideo();
   saveState();
 }
 
@@ -112,7 +108,7 @@ export function pause() { engine.pause(); }
 export function toggle() { if (engine.paused) play(); else pause(); }
 
 /** Play a list of songs (ids or objects) starting at `start`. */
-export function playList(items, start = 0, context = {}) {
+export function playList(items, start = 0, context = {}, at = 0) {
   const startId = typeof items[start] === "string" ? items[start] : items[start]?.id;
   const ids = items.map((x) => (typeof x === "string" ? x : x.id)).filter((id) => getSong(id));
   if (!ids.length) return;
@@ -126,14 +122,14 @@ export function playList(items, start = 0, context = {}) {
     player.queue = ids;
     player.index = first;
   }
-  load(getSong(player.queue[player.index]));
+  load(getSong(player.queue[player.index]), { at });
   emit("queue");
 }
 
-/** Play one song and continue with a personalised radio of similar songs. */
-export function playRadio(s, context) {
+/** Play one song (optionally from a moment) and continue with a personalised radio of similar songs. */
+export function playRadio(s, context, at = 0) {
   const rest = radio(s, 40);
-  playList([s, ...rest], 0, context || { type: "radio", id: s.id, title: t("ctx.radioOf", { t: s.title }) });
+  playList([s, ...rest], 0, context || { type: "radio", id: s.id, title: t("ctx.radioOf", { t: s.title }) }, at);
 }
 
 export function playSong(s, list, context) {
@@ -254,23 +250,28 @@ export function upcoming(limit = 50) {
 
 // ------------------------------------------------------------------ persistence
 let saveTimer = null;
+function saveStateNow() {
+  clearTimeout(saveTimer);
+  try {
+    const from = Math.max(0, player.index - 50);
+    localStorage.setItem(STATE_KEY, JSON.stringify({
+      queue: player.queue.slice(from, player.index + 200),
+      index: player.index - from,
+      order: player.order.slice(0, 400),
+      upNext: player.upNext,
+      context: player.context,
+      shuffle: player.shuffle,
+      repeat: player.repeat,
+      volume: player.volume,
+      time: engine.time || 0,
+      playing: isPlaying(), // after a reload the music continues from the same moment
+      savedAt: Date.now(),
+    }));
+  } catch { /* ignore */ }
+}
 function saveState() {
   clearTimeout(saveTimer);
-  saveTimer = setTimeout(() => {
-    try {
-      localStorage.setItem(STATE_KEY, JSON.stringify({
-        queue: player.queue.slice(Math.max(0, player.index - 50), player.index + 200),
-        index: Math.min(player.index, 50),
-        order: player.order.slice(0, 400),
-        upNext: player.upNext,
-        context: player.context,
-        shuffle: player.shuffle,
-        repeat: player.repeat,
-        volume: player.volume,
-        time: engine.time || 0,
-      }));
-    } catch { /* ignore */ }
-  }, 400);
+  saveTimer = setTimeout(saveStateNow, 400);
 }
 
 export function restore() {
@@ -284,10 +285,22 @@ export function restore() {
   player.order = (st.order || []).filter((id) => getSong(id));
   player.upNext = (st.upNext || []).filter((id) => getSong(id));
   player.context = st.context || player.context;
-  player.index = Math.min(st.index || 0, player.queue.length - 1);
+  player.index = Math.max(0, Math.min(st.index || 0, player.queue.length - 1));
   const s = getSong(player.queue[player.index]);
-  // Video songs are not restored into the page (the YouTube player would appear unasked).
-  if (s && !isVideo(s)) load(s, { autoplay: false, at: st.time > 5 ? st.time - 2 : 0 });
+  if (!s) { emit("modes"); emit("queue"); return; }
+  // Continue exactly where it was; keep playing if it was playing (within the last 30 minutes).
+  const resume = !!st.playing && Date.now() - (st.savedAt || 0) < 30 * 60_000;
+  load(s, { autoplay: false, at: Math.max(0, (st.time || 0) - 0.5) });
+  if (resume) {
+    engine.play();
+    // Browsers may block sound until the first tap after a reload: resume on that tap.
+    setTimeout(() => {
+      if (isPlaying()) return;
+      const go = () => { if (!isPlaying()) play(); off(); };
+      const off = () => ["pointerdown", "keydown", "touchend"].forEach((ev) => document.removeEventListener(ev, go, true));
+      ["pointerdown", "keydown", "touchend"].forEach((ev) => document.addEventListener(ev, go, { capture: true, once: true }));
+    }, 700);
+  }
   emit("modes");
   emit("queue");
 }
@@ -328,9 +341,6 @@ function onEngine(src, ev) {
       updatePositionState();
       emit("time", { t: engine.time, d: duration() });
       break;
-    case "blocked":
-      emit("blocked", { song: player.current });
-      break;
     case "ended":
       trackTime();
       if (player.repeat === "one") {
@@ -352,8 +362,9 @@ function onEngine(src, ev) {
   }
 }
 
-setInterval(() => { if (isPlaying()) saveState(); }, 5000);
-window.addEventListener("pagehide", () => { trackTime(); saveState(); endSession(false); });
+setInterval(() => { if (isPlaying()) saveStateNow(); }, 3000);
+window.addEventListener("pagehide", () => { trackTime(); saveStateNow(); endSession(false); });
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") saveStateNow(); });
 
 if ("mediaSession" in navigator) {
   const ms = navigator.mediaSession;

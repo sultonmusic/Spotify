@@ -39,7 +39,7 @@ def patch(path, old, new):
         f.write(text.replace(old, new))
 if name:
     for path in ("index.html", "manifest.webmanifest", "js/config.js"):
-        patch(path, "Sulton Music", name.replace("<", "").replace(">", "").replace('"', ""))
+        patch(path, "Cavi Music", name.replace("<", "").replace(">", "").replace('"', ""))
 if bot:
     patch("js/config.js", 'botUsername: "CaviSpotifybot"', f'botUsername: "{bot}"')
 print(f"site: name={name or 'default'} bot=@{bot or 'default'}")

@@ -12,10 +12,11 @@ from __future__ import annotations
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
-from . import lookup
+from . import bio, lookup
 from .textutil import phon, similarity, split_artists
 
 RECHECK_DAYS = 30
+BIO_RECHECK_DAYS = 60
 
 
 def _key(name: str) -> str:
@@ -70,12 +71,14 @@ class Artists:
             self.lib.set_artist_image(canon, info["picture"])
         if info.get("verified") and not p.get("verified") and not p.get("manual"):
             p["verified"] = True
-            p["checked"] = _now()
+            p["checked"] = p["verifiedAt"] = _now()
             self.lib.dirty = True
         if p.get("deezerId") and "fans" not in p:
             official = lookup.deezer_artist(p["deezerId"])
             if official:
                 p["fans"] = official.get("fans") or 0
+                if official.get("albums"):
+                    p["albums"] = official["albums"]
                 p.setdefault("deezer", official.get("link"))
                 if official.get("picture") and not p.get("image"):
                     self.lib.set_artist_image(canon, official["picture"])
@@ -121,6 +124,10 @@ class Artists:
         if canon:
             self.profiles[canon]["verified"] = value
             self.profiles[canon]["manual"] = True
+            if value:
+                self.profiles[canon]["verifiedAt"] = _now()
+            else:
+                self.profiles[canon].pop("verifiedAt", None)
             self.lib.dirty = True
         return canon
 
@@ -139,6 +146,10 @@ class Artists:
                 for other in names:
                     if other != keep:
                         self._merge(other, keep)
+        for p in self.profiles.values():
+            if p.get("verified") and not p.get("verifiedAt"):
+                p["verifiedAt"] = p.get("checked") or _now()
+                self.lib.dirty = True
         for s in self.lib.songs:
             artists = s.get("artists") or [s.get("artist", "")]
             if all(a in self.profiles for a in artists):
@@ -172,7 +183,10 @@ class Artists:
             if found:
                 titles = lookup.deezer_top_titles(found["id"])
                 if any(similarity(s["title"], t) >= 0.85 for s in mine for t in titles):
-                    p.update(verified=True, deezerId=found["id"], deezer=found.get("link"), fans=found.get("fans"))
+                    p.update(verified=True, verifiedAt=_now(), deezerId=found["id"], deezer=found.get("link"),
+                             fans=found.get("fans"))
+                    if found.get("albums"):
+                        p["albums"] = found["albums"]
                     if found.get("picture") and not p.get("image"):
                         self.lib.set_artist_image(name, found["picture"])
                     continue
@@ -181,5 +195,35 @@ class Artists:
                 hit = lookup.itunes(s["title"], name, s.get("duration") or 0)
                 if hit and hit["score"] >= 0.85 and hit.get("artist_id") and similarity(
                         split_artists(hit["artist"])[0], name) >= 0.85:
-                    p.update(verified=True, itunesId=hit["artist_id"], apple=hit.get("artist_url"))
+                    p.update(verified=True, verifiedAt=_now(), itunesId=hit["artist_id"], apple=hit.get("artist_url"))
                     break
+
+    def backfill_bios(self, budget: int = 2) -> None:
+        """Who the artist is (Wikipedia, uz/ru/en) for the artist info sheet. Verified artists first."""
+        now = datetime.now(timezone.utc)
+        order = sorted(self.profiles.items(), key=lambda kv: not kv[1].get("verified"))
+        for name, p in order:
+            if budget <= 0:
+                break
+            if p.get("bio"):
+                continue
+            checked = p.get("bioChecked")
+            if checked and now - datetime.fromisoformat(checked.replace("Z", "+00:00")) < timedelta(days=BIO_RECHECK_DAYS):
+                continue
+            budget -= 1
+            try:
+                found = bio.find(name, p.get("aliases"))
+            except bio.RateLimited:
+                print("[bio] Wikipedia rate limit, later")
+                return
+            except Exception as exc:  # never break a bot run over a bio
+                print(f"[bio] {name}: {exc}")
+                found = None
+            p["bioChecked"] = _now()
+            if found:
+                p["bio"], p["wiki"] = found["bio"], found["wiki"]
+                if found.get("desc"):
+                    p["desc"] = found["desc"]
+                if found.get("translated"):
+                    p["bioTr"] = found["translated"]
+            self.lib.dirty = True

@@ -2,10 +2,11 @@
 import { CONFIG } from "./config.js";
 import { loadLibrary, on, initSync, favSongs, songsOf, toggleFav } from "./store.js";
 import { player, restore, toggle, next, prev, seek, setVolume, isPlaying, pruneMissing, setShuffle, cycleRepeat, currentTime, duration } from "./player.js";
-import { h, icon, art, artistArt, likedArt, collage, fmtTime, refreshMarks, toast, go, link, overlayOpen, popOverlay, heartButton, nav, back, verifiedBadge } from "./ui.js";
+import { h, icon, art, artistArt, likedArt, collage, fmtTime, refreshMarks, toast, go, link, overlayOpen, popOverlay, heartButton, nav, back, verifiedBadge, setShareImpl } from "./ui.js";
 import { t, LANG } from "./i18n.js";
 import * as V from "./views.js";
-import { openNowPlaying, openQueue } from "./nowplaying.js";
+import { openNowPlaying, openQueue, openFullLyrics, refreshNowPlaying } from "./nowplaying.js";
+import { openShare } from "./share.js";
 import { initTelegram, setBackButton, startParam, haptic, inTelegram } from "./tg.js";
 import { artistsRanked } from "./reco.js";
 
@@ -23,7 +24,8 @@ const ROUTES = [
   [/^\/mood\/(.+)$/, (m) => V.viewMood(m)],
   [/^\/lang\/(.+)$/, (l) => V.viewLang(l)],
   [/^\/mix\/(.+)$/, (id) => V.viewMix(id)],
-  [/^\/song\/(.+)$/, (id) => V.viewSong(id)],
+  [/^\/song\/([^/]+)(?:\/(\d+))?$/, (id, at) => V.viewSong(id, Number(at) || 0)],
+  [/^\/add$/, () => V.viewAdd()],
 ];
 const ROOT_TABS = new Set(["home", "search", "library"]);
 const scrollMemo = new Map();
@@ -41,8 +43,7 @@ function render(path, { keepScroll = false } = {}) {
   for (const [re, fn, t] of ROUTES) {
     const m = re.exec(path);
     if (m) {
-      const arg = m[1] !== undefined ? decodeURIComponent(m[1]) : undefined;
-      node = fn(arg);
+      node = fn(...m.slice(1).map((x) => (x !== undefined ? decodeURIComponent(x) : undefined)));
       tab = t || null;
       break;
     }
@@ -94,6 +95,13 @@ main.addEventListener("scroll", updateTopbar, { passive: true });
 
 window.addEventListener("hashchange", route);
 window.addEventListener("app:rerender", () => render(parsePath(), { keepScroll: true }));
+window.addEventListener("app:lang", () => {
+  buildTabbar();
+  buildSidebar();
+  V.invalidateMixes();
+  render(parsePath(), { keepScroll: true });
+  refreshNowPlaying();
+});
 on("overlay", updateBack);
 
 // ------------------------------------------------------------------ player bar
@@ -161,7 +169,6 @@ function buildPlayerBar() {
     if (!seeking) { range.value = p * 10; range.style.setProperty("--p", `${p}%`); tCur.textContent = fmtTime(time); tDur.textContent = fmtTime(d); }
   });
   on("error", ({ song }) => toast(t("toast.failed", { t: song?.title || "" })));
-  on("blocked", () => { toast(t("np.tapVideo"), 4000); openNowPlaying(); });
   setTrack(player.current);
   setPlaying();
   setModes();
@@ -181,16 +188,21 @@ function syncFabs() {
 on("track", syncFabs);
 
 // ------------------------------------------------------------------ sidebar (desktop)
+let sidebarBuilt = false;
 function buildSidebar() {
   const side = document.getElementById("sidebar");
+  side.replaceChildren();
   const libBox = h("div", { class: "side-box grow" });
+  const addLink = h("a", { href: "#/add", hidden: true, html: `${icon("plus")}<span>${t("add.title")}</span>` });
+  V.ownerMode().then((ok) => { addLink.hidden = !ok; });
   side.append(
     h("div", { class: "side-box" },
       h("div", { class: "brand" }, h("img", { src: "icons/icon-192.png", alt: "" }), CONFIG.appName),
       h("nav", { class: "side-nav" },
         h("a", { href: "#/", dataset: { tab: "home" }, html: `${icon("home")}<span>${t("nav.home")}</span>` }),
         h("a", { href: "#/search", dataset: { tab: "search" }, html: `${icon("search")}<span>${t("nav.search")}</span>` }),
-        h("a", { href: "#", onclick: (e) => { e.preventDefault(); V.openSettings(); }, html: `<span style="width:24px;text-align:center">🌐</span><span>${t("settings.language")}: ${LANG.toUpperCase()}</span>` }))),
+        h("a", { href: "#", onclick: (e) => { e.preventDefault(); V.openSettings(); }, html: `<span style="width:24px;text-align:center">🌐</span><span>${t("settings.language")}: ${LANG.toUpperCase()}</span>` }),
+        addLink)),
     libBox);
   const fill = () => {
     libBox.replaceChildren(
@@ -203,19 +215,42 @@ function buildSidebar() {
     document.querySelectorAll("[data-tab]").forEach((a) => a.classList.toggle("active", a.dataset.tab === currentTab));
   };
   fill();
-  on("library", fill);
-  on("favs", () => { const s = libBox.querySelector(".side-item .s"); if (s) s.textContent = `${t("common.playlist")} • ${t("common.songs", { n: favSongs().length })}`; });
+  sidebarFill = fill;
+  if (sidebarBuilt) return;
+  sidebarBuilt = true;
+  on("library", () => sidebarFill());
+  on("favs", () => sidebarFill());
 }
+let sidebarFill = () => {};
 
 function buildTabbar() {
   const bar = document.getElementById("tabbar");
+  bar.replaceChildren();
   for (const [tab, ico, label, href] of [["home", "home", t("nav.home"), "#/"], ["search", "search", t("nav.search"), "#/search"], ["library", "library", t("nav.library"), "#/library"]]) {
     bar.append(h("a", { href, dataset: { tab, icon: ico }, onclick: (e) => {
       const here = parsePath();
+      if (tab === "search" && currentTab === "search") {
+        // Pressing Search again: start typing (focus opens the keyboard)
+        e.preventDefault();
+        const input = document.querySelector(".search-input input");
+        if (input) { main.scrollTo({ top: 0 }); input.focus(); input.select(); }
+        return;
+      }
       const atRoot = tab === "home" ? /^\/?(home)?$/.test(here) : here === href.slice(1);
       if (atRoot) { e.preventDefault(); main.scrollTo({ top: 0, behavior: "smooth" }); }
     } }, h("span", { class: "ico", html: icon(ico, 24) }), label));
   }
+}
+
+setShareImpl((s) => openShare(s, {
+  at: player.current?.id === s.id ? currentTime() : 0,
+  onLyrics: () => openFullLyrics(s, true),
+}));
+
+// ------------------------------------------------------------------ no copying, no long-press menus
+const inField = (el) => !!(el && (el.nodeType === 1 ? el : el.parentElement)?.closest?.("input, textarea"));
+for (const ev of ["contextmenu", "copy", "cut", "selectstart", "dragstart"]) {
+  document.addEventListener(ev, (e) => { if (!inField(e.target)) e.preventDefault(); }, { capture: true });
 }
 
 // ------------------------------------------------------------------ keyboard (desktop)

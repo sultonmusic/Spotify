@@ -1,6 +1,7 @@
 """The song library (library/songs.json) and where the audio files are stored."""
 from __future__ import annotations
 
+import functools
 import hashlib
 import json
 import mimetypes
@@ -25,11 +26,13 @@ class Library:
     def __init__(self) -> None:
         self.songs: list[dict[str, Any]] = []
         self.artists: dict[str, dict[str, Any]] = {}
+        self.site: dict[str, Any] = {}
         self.dirty = False
         if config.SONGS_FILE.exists():
             data = json.loads(config.SONGS_FILE.read_text(encoding="utf-8") or "{}")
             self.songs = data.get("songs", [])
             self.artists = data.get("artists", {})
+            self.site = data.get("site", {})
 
     # ------------------------------------------------------------------ queries
     def get(self, song_id: str) -> dict | None:
@@ -60,7 +63,7 @@ class Library:
 
     def remove(self, song: dict) -> None:
         delete_audio(song)
-        for rel in (song.get("cover"), f"library/lyrics/{song['id']}.json"):
+        for rel in (song.get("cover"), song.get("story"), f"library/lyrics/{song['id']}.json"):
             if rel and not rel.startswith("http"):
                 (config.ROOT / rel).unlink(missing_ok=True)
         self.songs = [s for s in self.songs if s["id"] != song["id"]]
@@ -75,12 +78,20 @@ class Library:
             image = self.artists.pop(name).get("image")
             if image:
                 (config.ROOT / image).unlink(missing_ok=True)
-        payload = {"version": 1, "updatedAt": now_iso(), "count": len(self.songs),
+        payload = {"version": 1, "updatedAt": now_iso(), "count": len(self.songs), "site": self.site,
                    "artists": self.artists, "songs": self.songs}
         tmp = config.SONGS_FILE.with_suffix(".tmp")
         tmp.write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
         tmp.replace(config.SONGS_FILE)
         self.dirty = False
+
+    def mark_admin(self, user_id: int) -> None:
+        """Lets the site show the owner's tools (Add page). Only a slow hash of the Telegram id is published."""
+        digest = admin_key(user_id)
+        admins = self.site.setdefault("admins", [])
+        if digest not in admins:
+            admins.append(digest)
+            self.dirty = True
 
     def set_artist_image(self, name: str, url: str | None) -> None:
         """Downloads the official artist photo once and stores it with the artist profile."""
@@ -140,6 +151,12 @@ def choose_storage(lib: Library, size: int) -> str:
     if lib.pages_audio_bytes() + size <= limit or not (config.GITHUB_TOKEN and config.GITHUB_REPOSITORY):
         return "pages"
     return "release"
+
+
+@functools.lru_cache(maxsize=8)
+def admin_key(user_id: int) -> str:
+    """PBKDF2 (the site computes the same in the browser), so the owner's id can't be read back easily."""
+    return hashlib.pbkdf2_hmac("sha256", str(user_id).encode(), b"cavi-music:admin", 150_000).hex()
 
 
 def store_audio(lib: Library, path: Path, song_id: str, mime: str) -> tuple[str, str]:

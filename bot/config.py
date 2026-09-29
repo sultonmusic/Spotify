@@ -57,7 +57,7 @@ RELEASE_TAG = env("RELEASE_TAG", "audio-library")
 
 GITHUB_REPOSITORY = env("GITHUB_REPOSITORY")
 GITHUB_TOKEN = env("GITHUB_TOKEN")
-APP_NAME = env("APP_NAME", "Sulton Music")
+APP_NAME = env("APP_NAME", "Cavi Music")
 
 TELEGRAM_MAX_DOWNLOAD = 20 * 1024 * 1024  # Bot API getFile limit
 
