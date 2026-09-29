@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-09-29T20:19:40Z",
- "count": 3,
+ "updatedAt": "2026-09-29T20:39:38Z",
+ "count": 9,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -119,9 +119,465 @@
     "en": "English singer-songwriter (born 1988)",
     "ru": "британская певица и автор песен"
    }
+  },
+  "Ahmed Bukhatir": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 2480901,
+   "itunesId": 457677737,
+   "deezer": "https://www.deezer.com/artist/2480901",
+   "apple": "https://music.apple.com/us/artist/ahmed-bukhatir/457677737",
+   "image": "library/artists/ahmed-buxatir.jpg",
+   "color": "#247ddb",
+   "checked": "2026-09-29T20:36:14Z",
+   "verifiedAt": "2026-09-29T20:36:14Z",
+   "fans": 53988,
+   "albums": 33,
+   "bioChecked": "2026-09-29T20:39:32Z",
+   "bio": {
+    "en": "Ahmed Bukhatir is an Emirati singer and songwriter.",
+    "uz": "Ahmad Buxotir – amirlik Nashid qoʻshiqchisi.",
+    "ru": "Ахмед Бухатир - эмиратский певец и автор песен."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Ahmed_Bukhatir",
+    "uz": "https://uz.wikipedia.org/wiki/Ahmed_Bukhatir"
+   },
+   "desc": {
+    "en": "Emirati singer-songwriter"
+   },
+   "bioTr": [
+    "ru"
+   ]
+  },
+  "Indila": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4437965,
+   "itunesId": 365001429,
+   "deezer": "https://www.deezer.com/artist/4437965",
+   "apple": "https://music.apple.com/us/artist/indila/365001429",
+   "image": "library/artists/indila.jpg",
+   "color": "#2b3764",
+   "checked": "2026-09-29T20:36:28Z",
+   "verifiedAt": "2026-09-29T20:36:28Z",
+   "fans": 1584666,
+   "albums": 4,
+   "bioChecked": "2026-09-29T20:39:34Z",
+   "bio": {
+    "en": "Adila Sedraïa, known professionally as Indila, is a French singer, songwriter and record producer. She collaborated with many musicians on vocals and lyrics prior to releasing her debut single, \"Dernière danse\", in December 2013, which peaked at number two on the SNEP chart in France. Her studio album, Mini World, followed in February 2014 and was met with commercial success.",
+    "ru": "Адила́ Седрая, сценическое имя Indila — французская певица и автор песен. Её музыкальный стиль представляет собой смесь поп-музыки, хип-хопа и R&B. Наиболее известна песнями «Dernière danse», «Tourner Dans Le Vide», «Ainsi bas la vida».",
+    "uz": "Adila Sedraia, Indila, fransuz qoʻshiqchisi va qoʻshiq muallifi. 2013-yil noyabr oyida oʻzining birinchi \" Dernière danse \" chiqishidan oldin u koʻplab musiqachilar bilan vokal va qoʻshiq yozish boʻyicha hamkorlik qilgan va u Fransiyada SNEP Top 2-ga kirgan. U oʻzining birinchi „Mini World“ albomini 2014-yil fevral oyida chiqardi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Indila",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D0%B4%D0%B8%D0%BB%D0%B0",
+    "uz": "https://uz.wikipedia.org/wiki/Indila"
+   },
+   "desc": {
+    "en": "French singer-songwriter (born 1984)",
+    "ru": "французская певица",
+    "uz": "Fransuz xonandasi"
+   }
+  },
+  "Keane": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 106,
+   "itunesId": 1187178,
+   "deezer": "https://www.deezer.com/artist/106",
+   "apple": "https://music.apple.com/us/artist/keane/1187178",
+   "image": "library/artists/keane.jpg",
+   "color": "#803512",
+   "checked": "2026-09-29T20:36:42Z",
+   "verifiedAt": "2026-09-29T20:36:42Z",
+   "fans": 2138253,
+   "albums": 58,
+   "bioChecked": "2026-09-29T20:39:38Z",
+   "bio": {
+    "en": "Dolores Keane was an Irish folk singer. She was a founding member of the group De Dannan and later pursued a solo recording and touring career.",
+    "uz": "Dolores Kin irland xalq qo'shiqchisi edi. U De Dannan guruhining asoschilaridan biri bo'lgan va keyinchalik yakkaxon yozuv va gastrol safarlarida bo'lgan.",
+    "ru": "Долорес Кин была ирландской народной певицей. Она была одним из основателей группы De Dannan, а затем занималась сольной записью и гастрольной карьерой."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Dolores_Keane"
+   },
+   "desc": {
+    "en": "Irish folk singer (1953–2026)"
+   },
+   "bioTr": [
+    "uz",
+    "ru"
+   ]
+  },
+  "Alan Walker": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4999707,
+   "itunesId": 1062085272,
+   "deezer": "https://www.deezer.com/artist/4999707",
+   "apple": "https://music.apple.com/us/artist/alan-walker/1062085272",
+   "image": "library/artists/alan-walker.jpg",
+   "color": "#1c5773",
+   "checked": "2026-09-29T20:36:54Z",
+   "verifiedAt": "2026-09-29T20:36:54Z",
+   "fans": 4055020,
+   "albums": 160
+  },
+  "Ava Max": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 12948083,
+   "deezer": "https://www.deezer.com/artist/12948083",
+   "image": "library/artists/ava-max.jpg",
+   "color": "#cfb230",
+   "checked": "2026-09-29T20:36:54Z",
+   "verifiedAt": "2026-09-29T20:36:54Z",
+   "fans": 1229867,
+   "albums": 111
+  },
+  "Tom Odell": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4044787,
+   "itunesId": 524929515,
+   "deezer": "https://www.deezer.com/artist/4044787",
+   "apple": "https://music.apple.com/ru/artist/tom-odell/524929515",
+   "image": "library/artists/tom-odell.jpg",
+   "color": "#ba7945",
+   "checked": "2026-09-29T20:37:07Z",
+   "verifiedAt": "2026-09-29T20:37:07Z",
+   "fans": 782951,
+   "albums": 70
+  },
+  "Billie Eilish": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 9635624,
+   "itunesId": 1065981054,
+   "deezer": "https://www.deezer.com/artist/9635624",
+   "apple": "https://music.apple.com/us/artist/billie-eilish/1065981054",
+   "image": "library/artists/billie-eilish.jpg",
+   "color": "#10447f",
+   "checked": "2026-09-29T20:37:17Z",
+   "verifiedAt": "2026-09-29T20:37:17Z",
+   "fans": 9263235,
+   "albums": 32
+  },
+  "Khalid": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 362326,
+   "deezer": "https://www.deezer.com/artist/362326",
+   "image": "library/artists/xalid.jpg",
+   "color": "#5b5755",
+   "checked": "2026-09-29T20:37:18Z",
+   "verifiedAt": "2026-09-29T20:37:18Z",
+   "fans": 1761171,
+   "albums": 106
   }
  },
  "songs": [
+  {
+   "id": "a8b67a07e5",
+   "title": "lovely",
+   "artist": "Billie Eilish, Khalid",
+   "artists": [
+    "Billie Eilish",
+    "Khalid"
+   ],
+   "album": "lovely - Single",
+   "year": 2018,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 115,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 202.76,
+   "src": "library/audio/a8b67a07e5.m4a",
+   "cover": "library/covers/a8b67a07e5.jpg",
+   "color": "#bbaa44",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     38,
+     44
+    ]
+   },
+   "addedAt": "2026-09-29T20:37:24Z",
+   "mime": "audio/mp4",
+   "size": 3280049,
+   "storage": "pages",
+   "lufs": -10.1,
+   "gain": -3.9,
+   "via": "audio",
+   "fileKey": "a8b67a07e51c3f69",
+   "story": "library/stories/a8b67a07e5.jpg"
+  },
+  {
+   "id": "d6d28e2ead",
+   "title": "Another Love",
+   "artist": "Tom Odell",
+   "artists": [
+    "Tom Odell"
+   ],
+   "album": "Long Way Down",
+   "year": 2012,
+   "genre": "Pop",
+   "subgenre": "Singer/Songwriter",
+   "moods": [
+    "romantic",
+    "sad",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 117,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 247.62,
+   "src": "library/audio/d6d28e2ead.m4a",
+   "cover": "library/covers/d6d28e2ead.jpg",
+   "color": "#24576b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     37,
+     43
+    ]
+   },
+   "addedAt": "2026-09-29T20:37:13Z",
+   "mime": "audio/mp4",
+   "size": 4005544,
+   "storage": "pages",
+   "lufs": -11.1,
+   "gain": -2.9,
+   "via": "audio",
+   "fileKey": "d6d28e2ead34193f",
+   "story": "library/stories/d6d28e2ead.jpg"
+  },
+  {
+   "id": "02d31e00d3",
+   "title": "Alone, Pt. II",
+   "artist": "Alan Walker, Ava Max",
+   "artists": [
+    "Alan Walker",
+    "Ava Max"
+   ],
+   "album": "Alone, Pt. II - Single",
+   "year": 2019,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 176,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 245.25,
+   "src": "library/audio/02d31e00d3.m4a",
+   "cover": "library/covers/02d31e00d3.jpg",
+   "color": "#4a6248",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     36,
+     42
+    ]
+   },
+   "addedAt": "2026-09-29T20:37:01Z",
+   "mime": "audio/mp4",
+   "size": 3967264,
+   "storage": "pages",
+   "lufs": -7.6,
+   "gain": -6.4,
+   "via": "audio",
+   "fileKey": "02d31e00d39b8cf6",
+   "story": "library/stories/02d31e00d3.jpg"
+  },
+  {
+   "id": "a7f64d45b9",
+   "title": "Somewhere Only We Know",
+   "artist": "Keane",
+   "artists": [
+    "Keane"
+   ],
+   "album": "Hopes and Fears",
+   "year": 2004,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "nostalgic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 172,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 233.59,
+   "src": "library/audio/a7f64d45b9.m4a",
+   "cover": "library/covers/a7f64d45b9.jpg",
+   "color": "#5d5732",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     35,
+     41
+    ]
+   },
+   "addedAt": "2026-09-29T20:36:49Z",
+   "mime": "audio/mp4",
+   "size": 3778739,
+   "storage": "pages",
+   "lufs": -7.3,
+   "gain": -6.7,
+   "via": "audio",
+   "fileKey": "a7f64d45b987a561",
+   "story": "library/stories/a7f64d45b9.jpg"
+  },
+  {
+   "id": "9bfdbf1474",
+   "title": "Mini World",
+   "artist": "Indila",
+   "artists": [
+    "Indila"
+   ],
+   "album": "Mini World",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": "French Pop",
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "tr",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 132,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 309.95,
+   "src": "library/audio/9bfdbf1474.m4a",
+   "cover": "library/covers/9bfdbf1474.jpg",
+   "color": "#7b7a85",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     34,
+     40
+    ]
+   },
+   "addedAt": "2026-09-29T20:36:37Z",
+   "mime": "audio/mp4",
+   "size": 5014209,
+   "storage": "pages",
+   "lufs": -11.3,
+   "gain": -2.7,
+   "via": "audio",
+   "fileKey": "9bfdbf14749af27a",
+   "story": "library/stories/9bfdbf1474.jpg"
+  },
+  {
+   "id": "41aad3e95d",
+   "title": "Waqafa Al Telfo",
+   "artist": "Ahmed Bukhatir",
+   "artists": [
+    "Ahmed Bukhatir"
+   ],
+   "album": "Al Quds Tunadeena - EP",
+   "year": 2000,
+   "genre": "Folk",
+   "subgenre": "World",
+   "moods": [
+    "nostalgic",
+    "calm"
+   ],
+   "language": "ar",
+   "energy": 0.45,
+   "danceability": 0.5,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 165.48,
+   "src": "library/audio/41aad3e95d.m4a",
+   "cover": "library/covers/41aad3e95d.jpg",
+   "color": "#bba344",
+   "lyrics": "plain",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     33,
+     39
+    ]
+   },
+   "addedAt": "2026-09-29T20:36:23Z",
+   "mime": "audio/mp4",
+   "size": 2678032,
+   "storage": "pages",
+   "lufs": -19.4,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "41aad3e95dd5d9ef",
+   "story": "library/stories/41aad3e95d.jpg"
+  },
   {
    "id": "8535be2959",
    "title": "Skyfall",
