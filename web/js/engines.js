@@ -1,5 +1,4 @@
-// Playback engine: HTML5 audio (background play, lock screen). Plays uploaded files and, for songs
-// added by name until their file is sent, the official 30-second preview.
+// Playback engine: HTML5 audio (background play, lock screen) for the songs uploaded through the bot.
 // Events passed to the listener: play, pause, time, ended, error, waiting, playing, meta, seeked.
 
 export class AudioEngine {

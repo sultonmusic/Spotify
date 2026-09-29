@@ -27,7 +27,7 @@ export async function loadLibrary() {
   const data = await res.json();
   if (lib.loaded && data.updatedAt === lib.updatedAt) return [];
   const known = new Set(lib.byId.keys());
-  lib.songs = (data.songs || []).filter((s) => s && s.id && (s.src || s.preview));
+  lib.songs = (data.songs || []).filter((s) => s && s.id && s.src);
   lib.artists = data.artists || {};
   lib.site = data.site || {};
   lib.updatedAt = data.updatedAt;
@@ -35,10 +35,6 @@ export async function loadLibrary() {
   lib.byArtist = new Map();
   for (const s of lib.songs) {
     if (!s.artists || !s.artists.length) s.artists = [s.artist];
-    if (!s.src) {
-      // Added by name, file not sent yet: the official 30-second preview (Apple Music).
-      Object.assign(s, { src: s.preview, isPreview: true, fullDuration: s.duration, duration: s.previewDuration || 30 });
-    }
     indexSong(s);
     s._plays = user.plays[s.id] || 0;
     lib.byId.set(s.id, s);

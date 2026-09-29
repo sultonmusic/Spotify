@@ -2,7 +2,7 @@
 import { on, plays, coverUrl, lib } from "./store.js";
 import {
   player, toggle, next, prev, seek, setShuffle, cycleRepeat, isPlaying, upcoming, jumpTo, removeUpNext,
-  currentTime, duration, isPreview,
+  currentTime, duration,
 } from "./player.js";
 import { h, icon, art, fmtTime, heartButton, songMenu, link, pushOverlay, popOverlay, openSheet, songRow, timeAgo, verifiedBadge, toast } from "./ui.js";
 import { genre, mood, lang, t, describe, LANG } from "./i18n.js";
@@ -123,7 +123,6 @@ function render() {
   el.innerHTML = "";
   if (!s) return;
   const color = s.color || "#535353";
-  const preview = isPreview(s);
   const playBtn = h("button", { class: "np-play", "aria-label": t("common.play"), html: icon(isPlaying() ? "pause" : "play"), onclick: () => { haptic("medium"); toggle(); } });
   const range = h("input", { class: "range", type: "range", min: 0, max: 1000, value: 0, "aria-label": "Time" });
   const tCur = h("span", null, "0:00"), tDur = h("span", null, fmtTime(s.duration));
@@ -170,7 +169,6 @@ function render() {
     h("div", { class: "np-about" },
       desc ? h("div", null, desc) : null,
       s.album ? h("div", { class: "muted" }, `💿 ${s.album}${s.year ? ` · ${s.year}` : ""}`) : null,
-      preview ? h("div", { class: "muted" }, `🎧 ${t("preview.note")}`) : null,
       h("div", { class: "pills" }, pills)));
 
   const queueCard = h("div", { class: "np-card np-queue" });
@@ -190,7 +188,7 @@ function render() {
   renderQueue();
 
   const added = Date.parse(s.addedAt || 0);
-  const artBox = h("div", { class: `np-art${isPlaying() ? "" : " paused"}` }, art(s), preview ? h("span", { class: "np-preview" }, t("preview.badge")) : null);
+  const artBox = h("div", { class: `np-art${isPlaying() ? "" : " paused"}` }, art(s));
   el.append(
     h("div", { class: "np-bg", style: { background: `linear-gradient(180deg, ${rgba(color, 0.95)} 0%, ${rgba(color, 0.55)} 40%, #121212 85%)` } }),
     h("div", { class: "np-inner" },

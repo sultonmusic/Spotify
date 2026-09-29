@@ -1,6 +1,6 @@
 # 🎧 Cavi Music — shaxsiy musiqa stansiyasi
 
-Telegram botga yuborgan har bir qo'shiq — **fayl** yoki shunchaki **qo'shiq nomi** — avtomatik aniqlanib
+Telegram botga yuborgan (yoki forward qilgan) har bir qo'shiq fayli avtomatik aniqlanib
 (nomi, ijrochisi, albom, janr, kayfiyat, til, muqova, qo'shiq matni) **GitHub Pages** saytiga va
 **Telegram Mini App**ga joylanadi. Spotify uslubidagi interfeys (🇷🇺 rus — standart, 🇬🇧 ingliz, 🇺🇿 o'zbek):
 bosh sahifa, shaxsiy tavsiyalar, kunlik mikslar, qidiruv, sevimlilar, tinglashlar soni, statistika,
@@ -12,9 +12,7 @@ tasdiqlangan (☑️) ijrochi profillari, 3 tilda tarjimali sinxron matn va stor
 ## Qanday ishlaydi
 
 ```
-Siz ──(fayl yoki nom)──▶ Telegram bot ──▶ GitHub Actions (har 5 daqiqada)
-                                     ├─ nom yozilsa: iTunes + Deezer'dan qidiradi, bir nechta bo'lsa tanlatadi,
-                                     │   rasmiy 30 soniyalik parchani oladi (fayl yuborilsa — to'liq qo'shiq)
+Siz ──(fayl / forward)──▶ Telegram bot ──▶ GitHub Actions (har 5 daqiqada)
                                      ├─ Shazam: qo'shiqni ovozidan aniqlaydi
                                      ├─ iTunes + Deezer: albom, yil, janr, muqova, BPM
                                      ├─ LRCLIB: qo'shiq matni (sinxron karaoke) + uz/ru/en tarjima
@@ -44,8 +42,6 @@ Bot menyusidagi **🎧 Musiqa** tugmasi saytni Telegram ichida mini ilova sifati
 | Buyruq | Vazifasi |
 |---|---|
 | audio / fayl / video klip yuborish | Qo'shiqni aniqlab stansiyaga qo'shadi (20 MB gacha) |
-| qo'shiq nomini yozish (yoki `/add nomi`) | Rasmiy qo'shiqni topadi; bir xil nomli bir nechtasi bo'lsa — tugmalar bilan tanlaysiz |
-| `/all Ijrochi` (masalan `/all Sulton`) | Ijrochining barcha qo'shiqlarini qo'shadi: avval ijrochini tanlaysiz, sonini ko'rib tasdiqlaysiz |
 | `/artists` | Ijrochilar ro'yxati (☑️ = tasdiqlangan) |
 | `/verify Ijrochi`, `/unverify Ijrochi` | Tasdiqlash belgisini qo'lda qo'yish / olish |
 | `/merge Eski nom > To'g'ri nom` | Bir ijrochining ikki profilini birlashtirish |
@@ -56,18 +52,13 @@ Bot menyusidagi **🎧 Musiqa** tugmasi saytni Telegram ichida mini ilova sifati
 | `/edit genre=Pop mood=romantic,sad lang=uz year=2020 album=...` | Alohida maydonlarni tuzatish |
 | `/delete` | Qo'shiq xabariga javob qilib — o'chiradi (yoki `/delete ID`) |
 | Rasm bilan javob | Qo'shiq xabariga rasm bilan javob bersangiz, muqova almashadi |
-| Oddiy matn | Kutubxonadan qidiradi |
+| Oddiy matn | Stansiyadan qidiradi |
 
-## Nom bo'yicha qo'shilgan qo'shiqlar
+## Qo'shiqlar faqat fayl orqali
 
-Bot qo'shiqlarni internetdan yuklab olmaydi: sayt ochiq, boshqalarning qo'shiqlarini ruxsatsiz tarqatish mualliflik
-huquqini buzadi (YouTube'dan audio ajratib olish uning qoidalariga ham zid). Shuning uchun nom bo'yicha qo'shilgan
-qo'shiq saytda **Apple Music'ning rasmiy 30 soniyalik parchasi** bilan chiqadi ("30 son" belgisi bilan, video ham,
-qo'shimcha oyna ham yo'q). Tinglashlar soniga parchalar qo'shilmaydi.
-
-**To'liq qo'shiq uchun** — qo'shiq faylini botga yuboring yoki istalgan chatdan **forward** qiling: bot uni o'sha
-qo'shiq bilan moslab, avtomatik ravishda to'liq, yuqori sifatli audioga almashtiradi (fon rejimida, qulf ekranida ham
-ijro). Rasmiy parchasi topilmagan qo'shiqlar uchun bot darhol faylni so'raydi.
+Qo'shiq faylini botga yuboring yoki istalgan chat/kanaldan forward qiling — shu. Bot qo'shiqlarni internetdan
+(jumladan YouTube'dan) o'zi yuklab olmaydi: sayt ochiq, boshqalarning qo'shiqlarini ruxsatsiz tarqatish mualliflik
+huquqini buzadi. Saytda video ham, YouTube pleyeri ham yo'q — faqat audio.
 
 ## Ijrochilar va ☑️ tasdiqlangan belgisi
 
@@ -83,7 +74,7 @@ ijro). Rasmiy parchasi topilmagan qo'shiqlar uchun bot darhol faylni so'raydi.
 
 - **Qo'shiq qo'shish, tahrirlash, o'chirish — faqat siz (stansiya egasi)**, bot orqali.
 - Saytdagi **➕ Qo'shish sahifasi** faqat sizga ko'rinadi (Telegram ID'ingiz bo'yicha; saytga faqat uning sekin
-  xeshi yoziladi). U yerdan qo'shiqni nomi bo'yicha, ijrochining barcha qo'shiqlarini yoki faylni botga yuborasiz.
+  xeshi yoziladi): qanday qo'shishni ko'rsatadi va botni ochadi.
 - **Saytni hamma ko'ra va tinglay oladi.** Har bir tashrif buyuruvchining sevimlilari va tinglashlari o'ziga tegishli.
 
 ## Sayt imkoniyatlari

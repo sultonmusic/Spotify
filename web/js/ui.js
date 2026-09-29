@@ -1,6 +1,6 @@
 // Small DOM toolkit + shared components (icons, rows, cards, sheets, toast).
 import { coverUrl, isFav, toggleFav, plays, emit, artistImage, lib, songsOf } from "./store.js";
-import { player, playSong, playRadio, playNext, addToQueue, isPlaying, isPreview } from "./player.js";
+import { player, playSong, playRadio, playNext, addToQueue, isPlaying } from "./player.js";
 import { t, fmtNum, fmtCompact, fmtDate, fmtDateShort, LANG } from "./i18n.js";
 import { haptic, shareLink, canDownload, download } from "./tg.js";
 import { CONFIG } from "./config.js";
@@ -40,7 +40,6 @@ const STROKE = {
   sort: '<path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="M11 4h10"/><path d="M11 8h7"/><path d="M11 12h4"/>',
   check: '<path d="M20 6 9 17l-5-5"/>',
   plus: '<path d="M5 12h14"/><path d="M12 5v14"/>',
-  userPlus: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6"/><path d="M22 11h-6"/>',
   upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/>',
   globe: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
 };
@@ -281,7 +280,6 @@ export function songRow(s, opts = {}) {
       h("div", { class: "t" }, h("span", null, s.title)),
       h("div", { class: "s" },
         s.explicit ? h("span", { class: "badge" }, "E") : null,
-        isPreview(s) ? h("span", { class: "badge pv", title: t("preview.note") }, t("preview.badge")) : null,
         opts.sub ?? [s.artist, verifiedBadge(s.artists?.[0], 13)])),
     opts.showPlays !== false ? h("div", { class: "extra plays" }, n ? `${num(n)} ▶` : "") : null,
     heartButton(s, 20),
@@ -467,7 +465,7 @@ export function songMenu(s, opts = {}) {
       ...s.artists.map((a) => sheetItem("user", t("menu.artist", { a }), act(() => go(`artist/${encodeURIComponent(a)}`)))),
       sheetItem("info", t("menu.about"), act(() => go(`song/${s.id}`))),
       sheetItem("share", t("common.share"), act(() => shareSong(s))),
-      canDownload() && s.src && !isPreview(s) ? sheetItem("download", t("common.download"), act(() => downloadSong(s))) : null,
+      canDownload() ? sheetItem("download", t("common.download"), act(() => downloadSong(s))) : null,
     ]);
   });
 }

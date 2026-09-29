@@ -25,8 +25,6 @@ export const player = {
 const audioEngine = new AudioEngine((ev) => onEngine(audioEngine, ev));
 let engine = audioEngine;
 
-/** Songs added by name play the official 30-second preview until their file is sent. */
-export const isPreview = (s) => !!s?.isPreview;
 export const currentTime = () => engine.time;
 export const duration = () => engine.duration || player.current?.duration || 0;
 export const isPlaying = () => !!player.current && !engine.paused;
@@ -50,7 +48,7 @@ function trackTime() {
   if (delta > 0 && delta < 1.6) session.listened += delta;
   session.last = now;
   const threshold = Math.min(CONFIG.playThreshold, (player.current?.duration || engine.duration || 60) * 0.9);
-  if (!session.counted && !isPreview(player.current) && session.listened >= threshold) {
+  if (!session.counted && session.listened >= threshold) {
     session.counted = true;
     recordPlay(session.id);
   }

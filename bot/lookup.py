@@ -138,7 +138,6 @@ def _itunes_track(r: dict) -> dict:
         "artist_id": r.get("artistId"),
         "artist_url": (r.get("artistViewUrl") or "").split("?")[0] or None,
         "track_url": (r.get("trackViewUrl") or "").split("?")[0] or None,
-        "preview": r.get("previewUrl") or None,  # official 30-second clip (Apple Music)
     }
 
 
@@ -227,68 +226,6 @@ def deezer_top_titles(artist_id: int) -> list[str]:
     return [t.get("title", "") for t in data.get("data", [])]
 
 
-# --------------------------------------------------------------------------- search by name
-
-_JUNK_ARTIST = re.compile(r"karaoke|tribute|made famous|in the style of|cover band|backing track|originally performed", re.I)
-
-
-def search_songs(query: str, limit: int = 8) -> list[dict]:
-    """Songs matching a free-text query ("Shahzoda Hayot ayt", "hello"), best first.
-
-    Both catalogues are searched; the same song from both is merged into one candidate.
-    """
-    query = query.strip()
-    found: dict[tuple[str, str], dict] = {}
-
-    q_tokens = phon(query).split()
-
-    def relevance(c: dict) -> float:
-        """How well a catalogue song answers the query. Artist words in the query are matched separately,
-        so "Sevara Nazarkhan Yol bolsin" prefers "Yol Bolsin" over her other songs."""
-        base, _ = strip_feat(c["title"])
-        artist_tokens = set(phon(c["artist"]).split())
-        rest = [t for t in q_tokens if t not in artist_tokens]
-        if len(rest) < len(q_tokens):  # the query names this artist
-            return 0.3 + 0.7 * similarity(" ".join(rest), base) if rest else 0.55
-        return max(similarity(query, base), similarity(query, f"{c['artist']} {base}") * 0.9)
-
-    def add(c: dict, source: str, order: int) -> None:
-        if _JUNK_ARTIST.search(c["artist"]) and not _JUNK_ARTIST.search(query):
-            return
-        base, _ = strip_feat(c["title"])
-        key = (phon(split_artists(c["artist"])[0] if c["artist"] else ""), phon(base))
-        score = relevance(c) - order * 0.004
-        cur = found.get(key)
-        if cur is None:
-            found[key] = {**c, "score": score, "sources": [source]}
-        else:
-            cur["score"] = max(cur["score"], score) + (0.03 if source not in cur["sources"] else 0)
-            if source not in cur["sources"]:
-                cur["sources"].append(source)
-            for k, v in c.items():
-                if v and not cur.get(k):
-                    cur[k] = v
-
-    for country in ("US", "RU"):
-        data = _get("https://itunes.apple.com/search",
-                    {"term": query, "entity": "song", "media": "music", "limit": 15, "country": country}) or {}
-        for i, r in enumerate(data.get("results", [])):
-            c = _itunes_track(r)
-            c["itunes_artist_id"] = c.pop("artist_id")
-            add(c, "itunes", i)
-        if len(found) >= 6:
-            break
-    data = _get("https://api.deezer.com/search", {"q": query, "limit": 15}) or {}
-    for i, r in enumerate(data.get("data", [])):
-        c = _deezer_track(r)
-        c["deezer_id"] = c.pop("id")
-        c["deezer_artist_id"] = c.pop("artist_id")
-        add(c, "deezer", i)
-
-    ranked = sorted(found.values(), key=lambda c: (-round(c["score"], 2), -(c.get("rank") or 0)))
-    return [c for c in ranked if c["score"] >= 0.45][:limit]
-
-
 # --------------------------------------------------------------------------- lyrics
 
 def lyrics(title: str, artist: str, album: str, duration: float) -> dict | None:
@@ -357,50 +294,3 @@ def same_song(a_title: str, a_artist: str, b_title: str, b_artist: str) -> bool:
         return True
     a_main, b_main = phon(split_artists(a_artist)[0]), phon(split_artists(b_artist)[0])
     return SequenceMatcher(None, a_main, b_main).ratio() >= 0.88
-
-
-# --------------------------------------------------------------------------- whole artist catalogue
-
-def find_artists(name: str, limit: int = 6) -> list[dict]:
-    """Artists matching a name on Apple Music and Deezer (merged), best first."""
-    found: list[dict] = []
-    data = _get("https://itunes.apple.com/search", {"term": name, "entity": "musicArtist", "limit": 10}) or {}
-    for r in data.get("results", []):
-        found.append({"name": r.get("artistName", ""), "genre": r.get("primaryGenreName"), "fans": 0,
-                      "itunes_id": r.get("artistId")})
-    data = _get("https://api.deezer.com/search/artist", {"q": name, "limit": 10}) or {}
-    for a in data.get("data", []):
-        # Attach to the Apple Music artist with the same name (one Deezer page each), else list separately
-        entry = next((e for e in found if phon(e["name"]) == phon(a.get("name", "")) and not e.get("deezer_id")), None)
-        if entry is None:
-            entry = {"name": a.get("name", ""), "genre": None}
-            found.append(entry)
-        entry.update(deezer_id=a.get("id"), fans=a.get("nb_fan") or 0, picture=a.get("picture_xl"))
-    q = phon(name)
-    ranked = sorted(found, key=lambda a: (phon(a["name"]) != q, -(a.get("fans") or 0), -similarity(a["name"], name)))
-    return [a for a in ranked if similarity(a["name"], name) >= 0.55][:limit]
-
-
-def artist_songs(artist: dict, limit: int = 100) -> list[dict]:
-    """Every distinct song of an artist (Apple Music catalogue + Deezer top tracks), most popular first."""
-    out: dict[str, dict] = {}
-    if artist.get("itunes_id"):
-        data = _get("https://itunes.apple.com/lookup", {"id": artist["itunes_id"], "entity": "song", "limit": 200}) or {}
-        for r in data.get("results", []):
-            if r.get("wrapperType") != "track":
-                continue
-            c = _itunes_track(r)
-            c["itunes_artist_id"] = c.pop("artist_id")
-            key = phon(strip_feat(c["title"])[0])
-            if key and key not in out and not _JUNK_ARTIST.search(c["artist"]):
-                out[key] = c
-    if artist.get("deezer_id"):
-        data = _get(f"https://api.deezer.com/artist/{artist['deezer_id']}/top", {"limit": 100}) or {}
-        for r in data.get("data", []):
-            c = _deezer_track(r)
-            c["deezer_id"] = c.pop("id")
-            c["deezer_artist_id"] = c.pop("artist_id")
-            key = phon(strip_feat(c["title"])[0])
-            if key and key not in out:
-                out[key] = c
-    return list(out.values())[:limit]

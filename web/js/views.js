@@ -4,7 +4,7 @@ import {
   lib, song as getSong, songsOf, artistNames, favSongs, recentlyPlayed, plays, user, totalPlays, artistColor, loadLibrary,
 } from "./store.js";
 import * as reco from "./reco.js";
-import { player, playList, playRadio, playSong, isPlaying, setShuffle, toggle, isPreview } from "./player.js";
+import { player, playList, playRadio, playSong, isPlaying, setShuffle, toggle } from "./player.js";
 import {
   h, icon, art, artistArt, collage, likedArt, songRow, card, section, lazyList, heartButton, go, link, toast,
   fmtTime, fmtLong, timeAgo, num, shareSong, downloadSong, songMenu, placeholder, back as goBack, verifiedBadge,
@@ -555,7 +555,7 @@ export function viewSong(id, at = 0) {
     h("span", { html: icon("play", 16) }), t("song.playFrom", { t: fmtTime(at) })) : null;
   v.append(h("div", { class: "actions" }, fab, fromBtn, heartButton(s, 28),
     h("button", { class: "icon-btn", "aria-label": t("common.share"), html: icon("share", 24), onclick: () => shareSong(s) }),
-    canDownload() && s.src && !isPreview(s) ? h("button", { class: "icon-btn", "aria-label": t("common.download"), html: icon("download", 24), onclick: () => downloadSong(s) }) : null,
+    canDownload() ? h("button", { class: "icon-btn", "aria-label": t("common.download"), html: icon("download", 24), onclick: () => downloadSong(s) }) : null,
     h("button", { class: "icon-btn", "aria-label": t("common.more"), html: icon("more", 24), onclick: () => songMenu(s) }),
     h("div", { class: "grow" })));
 
@@ -567,7 +567,6 @@ export function viewSong(id, at = 0) {
     s.bpm ? h("span", { class: "pill" }, `🥁 ${s.bpm} BPM`) : null,
     h("span", { class: "pill" }, `⚡ ${t("song.energy")} `, h("span", { class: "meter" }, h("i", { style: { width: `${Math.round((s.energy ?? 0.5) * 100)}%` } }))),
     s.explicit ? h("span", { class: "pill" }, "🔞 Explicit") : null,
-    isPreview(s) ? h("span", { class: "pill" }, `🎧 ${t("preview.note")}`) : null,
   ];
   v.append(h("div", { class: "info-grid" }, pills));
   const desc = describe(s);
@@ -623,40 +622,11 @@ function viewPending(id) {
 }
 
 // ------------------------------------------------------------------ ADD (owner)
-const b64url = (text) => btoa(String.fromCharCode(...new TextEncoder().encode(text))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-
-/** Opens the bot with the request: t.me/<bot>?start=add_<base64url> (or /add … copied when too long). */
-function sendToBot(kind, query) {
-  const base = `https://t.me/${CONFIG.botUsername}`;
-  let url = base;
-  if (query) {
-    const payload = `${kind}_${b64url(query)}`;
-    if (payload.length <= 64) url = `${base}?start=${payload}`;
-    else {
-      const cmd = `/${kind} ${query}`;
-      (navigator.clipboard?.writeText(cmd) || Promise.reject()).then(() => toast(t("add.copied"), 4000), () => toast(cmd, 6000));
-    }
-  }
+function openBot() {
+  const url = `https://t.me/${CONFIG.botUsername}`;
   haptic("medium");
   if (tg) tg.openTelegramLink(url);
   else window.open(url, "_blank", "noopener");
-}
-
-function addCard({ ico, title, desc, placeholder: ph, action, kind }) {
-  const input = kind ? h("input", { type: "text", placeholder: ph, enterkeyhint: "go", autocomplete: "off", autocapitalize: "words", spellcheck: "false" }) : null;
-  const submit = () => {
-    const q = input ? input.value.trim().replace(/\s+/g, " ") : "";
-    if (input && !q) { input.focus(); return; }
-    sendToBot(kind, q);
-  };
-  input?.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); submit(); } });
-  return h("div", { class: "add-card" },
-    h("div", { class: "add-ico", html: icon(ico, 22) }),
-    h("div", { class: "add-body" },
-      h("h3", null, title),
-      h("p", null, desc),
-      input ? h("div", { class: "add-field" }, input) : null,
-      h("button", { class: "btn accent", onclick: submit }, action)));
 }
 
 export function viewAdd() {
@@ -674,10 +644,11 @@ export function viewAdd() {
     body.replaceChildren(
       h("h1", { class: "add-title" }, t("add.title")),
       h("p", { class: "muted add-sub" }, t("add.sub", { bot: CONFIG.botUsername })),
-      addCard({ ico: "search", title: t("add.byName"), desc: t("add.byNameDesc"), placeholder: t("add.byNamePh"), action: t("add.find"), kind: "add" }),
-      addCard({ ico: "userPlus", title: t("add.artist"), desc: t("add.artistDesc"), placeholder: t("add.artistPh"), action: t("add.all"), kind: "all" }),
-      addCard({ ico: "upload", title: t("add.file"), desc: t("add.fileDesc"), action: t("add.openBot") }),
-      h("p", { class: "muted add-tip" }, t("add.tip")));
+      h("ol", { class: "add-steps" },
+        [["upload", "add.step1"], ["sparkles", "add.step2"], ["note", "add.step3"]].map(([ico, key]) =>
+          h("li", null, h("span", { class: "add-ico", html: icon(ico, 20) }), h("span", null, t(key))))),
+      h("button", { class: "btn accent add-open", onclick: openBot, html: `${icon("send", 18)}<span>${t("add.openBot")}</span>` }),
+      h("p", { class: "muted add-tip" }, t("add.formats")));
   });
   return v;
 }
