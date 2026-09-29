@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-09-29T20:05:38Z",
- "count": 2,
+ "updatedAt": "2026-09-29T20:19:40Z",
+ "count": 3,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -90,9 +90,87 @@
    "desc": {
     "en": "Moroccan singer and actor (born 1985)"
    }
+  },
+  "Adele": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 75798,
+   "itunesId": 262836961,
+   "deezer": "https://www.deezer.com/artist/75798",
+   "apple": "https://music.apple.com/us/artist/adele/262836961",
+   "image": "library/artists/adele.jpg",
+   "color": "#2f5760",
+   "checked": "2026-09-29T20:17:29Z",
+   "verifiedAt": "2026-09-29T20:17:29Z",
+   "fans": 15481731,
+   "albums": 15,
+   "bioChecked": "2026-09-29T20:19:40Z",
+   "bio": {
+    "en": "Adele Laurie Blue Adkins is an English singer and songwriter. Regarded as a British cultural icon, she is known for her mezzo-soprano vocals and sentimental songwriting. Her accolades include 16 Grammy Awards, 12 Brit Awards, an Academy Award, a Primetime Emmy Award, and a Golden Globe Award.",
+    "ru": "Аде́ль Ло́ри Блу Э́дкинс, более известная под мононимом Аде́ль, — британская певица и автор песен, ставшая одной из самых влиятельных фигур в современной музыке. Обладая меццо-сопрано и уникальным даром создавать глубоко эмоциональные композиции, она завоевала мировое признание как икона британской культуры. Её творчество отмечено множеством престижных наград, включая 16 премий «Грэмми», 12 наград Brit Awards, а также «Оскар», «Эмми» и «Золотой глобус». Обладательница ордена Британской империи (MBE) за вклад в развитие музыки.",
+    "uz": "Adele Laurie Blue Adkins Adele mononimi bilan tanilgan ingliz qoʻshiqchisi va qoʻshiqnavisidir. 2006-yili doʻsti MySpacega uning demosini ortganidan keyin Adelega XL Recordings studiyasidan shartnoma taklif etildi. 2007-yili u Brit Awards taʼsis etgan „Munaqqidlar Tanlovi“ va BBC 2008 Ovozi mukofotlarini qoʻlga kiritdi. Uning 19 deb nomlangan ilk albomi 2008-yili chiqarilib, tijoriy va tanqidiy muvaffaqiyat keltirdi. Bu albom Birlashgan Qirollikda toʻrt, AQShda ikki karra platina sertifikatini oldi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Adele",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%90%D0%B4%D0%B5%D0%BB%D1%8C_(%D0%BF%D0%B5%D0%B2%D0%B8%D1%86%D0%B0)",
+    "uz": "https://uz.wikipedia.org/wiki/Adele"
+   },
+   "desc": {
+    "en": "English singer-songwriter (born 1988)",
+    "ru": "британская певица и автор песен"
+   }
   }
  },
  "songs": [
+  {
+   "id": "8535be2959",
+   "title": "Skyfall",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "Skyfall - Single",
+   "year": 2012,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 150,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 289.37,
+   "src": "library/audio/8535be2959.m4a",
+   "cover": "library/covers/8535be2959.jpg",
+   "color": "#058a88",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     31,
+     32
+    ]
+   },
+   "addedAt": "2026-09-29T20:17:36Z",
+   "mime": "audio/mp4",
+   "size": 4680726,
+   "storage": "pages",
+   "lufs": -4.5,
+   "gain": -9.5,
+   "via": "audio",
+   "fileKey": "8535be2959d16676",
+   "story": "library/stories/8535be2959.jpg"
+  },
   {
    "id": "73cca60812",
    "title": "Min Awel Dekika",
