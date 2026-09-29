@@ -18,16 +18,18 @@ import traceback
 from pathlib import Path
 from typing import Any
 
-from . import ai, audio, config, lookup
+from . import ai, audio, config, lookup, youtube
+from .artists import Artists
 from .covers import save_cover
 from .identify import Clues, identify, lyrics_payload
 from .library import Library, now_iso, store_audio
 from .lookup import lyrics as fetch_lyrics
 from .taxonomy import GENRE_UZ, GENRES, LANG_UZ, LANGUAGES, MOOD_UZ, MOODS, canonical_genre
 from .telegram_api import Bot, TelegramError
-from .textutil import norm, similarity, split_artist_title, split_artists
+from .textutil import norm, similarity, split_artist_title, split_artists, strip_feat
 
-SETUP_VERSION = "3"
+SETUP_VERSION = "4"
+PENDING_TTL = 2 * 86400  # song-choice buttons stay valid for 2 days
 AUDIO_EXT = {".mp3", ".m4a", ".aac", ".flac", ".ogg", ".oga", ".opus", ".wav", ".wma", ".aif", ".aiff",
              ".ape", ".alac", ".amr", ".mka", ".weba"}
 VIDEO_EXT = {".mp4", ".mov", ".mkv", ".webm", ".avi", ".3gp", ".m4v"}
@@ -48,6 +50,7 @@ class Station:
     def __init__(self) -> None:
         self.bot = Bot(config.TOKEN)
         self.lib = Library()
+        self.artists = Artists(self.lib)
         self.state: dict[str, Any] = json.loads(config.STATE_FILE.read_text()) if config.STATE_FILE.exists() else {}
         self.state_dirty = False
         self.site = config.SITE_URL
@@ -55,6 +58,11 @@ class Station:
     # ================================================================== plumbing
     def save(self) -> None:
         self.lib.save()
+        pending = self.state.get("pending") or {}
+        stale = [k for k, v in pending.items() if time.time() - v.get("t", 0) > PENDING_TTL]
+        for k in stale:
+            del pending[k]
+            self.state_dirty = True
         if self.state_dirty:
             config.STATE_FILE.write_text(json.dumps(self.state, indent=1) + "\n")
             self.state_dirty = False
@@ -88,8 +96,10 @@ class Station:
         self.bot.safe("setMyCommands", commands=[
             {"command": "start", "description": "Boshlash"},
             {"command": "app", "description": "Stansiyani ochish"},
+            {"command": "add", "description": "Qo'shiqni nomi bo'yicha qo'shish"},
             {"command": "list", "description": "Oxirgi qo'shilgan qo'shiqlar"},
             {"command": "stats", "description": "Kutubxona statistikasi"},
+            {"command": "artists", "description": "Ijrochilar va tasdiqlanganlar"},
             {"command": "edit", "description": "Qo'shiq ma'lumotini tuzatish (javob tariqasida)"},
             {"command": "delete", "description": "Qo'shiqni o'chirish (javob tariqasida)"},
             {"command": "help", "description": "Yordam"},
@@ -100,9 +110,9 @@ class Station:
         self.bot.safe("setMyShortDescription", short_description=(
             f"{config.APP_NAME} — shaxsiy musiqa stansiyasi. Qo'shiq yuboring: AI uni aniqlab, saytga joylaydi."))
         self.bot.safe("setMyDescription", description=(
-            "🎧 Shaxsiy musiqa stansiyangiz.\n\nQo'shiq (mp3, m4a, flac, ogg, wav) yoki video klip yuboring — "
-            "bot nomini, ijrochisini, albomini, janrini, kayfiyatini, muqovasi va qo'shiq matnini avtomatik topadi "
-            "va uni sayt/mini ilovaga qo'shadi. Tavsiyalar, qidiruv, sevimlilar va tinglashlar soni — hammasi bor."))
+            "🎧 Shaxsiy musiqa stansiyasi.\n\nQo'shiq faylini yoki shunchaki qo'shiq nomini yuboring — bot uni "
+            "topadi, nomini, ijrochisini, albomini, janrini, kayfiyatini, muqovasi va matnini avtomatik aniqlaydi "
+            "va saytga qo'shadi.\n\n🎧 Музыкальная станция · Music station (RU / EN / UZ)."))
         self.state["setup"] = signature
         self.state_dirty = True
 
@@ -167,7 +177,10 @@ class Station:
             return
 
         if text:
-            self.search(chat_id, text, msg["message_id"])
+            if self.authorized(user_id):
+                self.find_and_add(chat_id, text, msg["message_id"])  # owner: song name -> add it
+            else:
+                self.search(chat_id, text, msg["message_id"])  # everyone else: search the station
             return
         self.send(chat_id, "🎵 Menga audio fayl yoki video klip yuboring — men uni stansiyaga qo'shaman.")
 
@@ -295,14 +308,17 @@ class Station:
                 thumb=thumb,
             )
             result = identify(src, info, clues, tmp, progress)
-            meta = result.meta
+            meta = self.canonical_artists(result)
 
             dup = self.lib.duplicate_of(meta["title"], meta["artist"], info.duration)
-            if dup:
+            if dup and dup.get("src"):
                 self.remember_message(dup, msg_id)
                 return dup, True
+            # A song added by name (YouTube) gets upgraded with the real audio file.
+            upgrade = dup or next((s for s in self.lib.songs if not s.get("src") and lookup.same_song(
+                s["title"], s["artist"], meta["title"], meta["artist"])), None)
 
-            song_id = hashlib.sha1(media["file_unique_id"].encode()).hexdigest()[:10]
+            song_id = upgrade["id"] if upgrade else hashlib.sha1(media["file_unique_id"].encode()).hexdigest()[:10]
             progress("💾 Saqlanmoqda…")
             final, mime = audio.encode(src, tmp / song_id, info, {
                 "title": meta["title"], "artist": meta["artist"], "album": meta.get("album") or "",
@@ -310,58 +326,153 @@ class Station:
             })
             lufs = audio.loudness(final)
             src_url, storage = store_audio(self.lib, final, song_id, mime)
-
-            cover_rel, color = None, None
-            if result.cover:
-                color = save_cover(result.cover, config.COVERS_DIR / f"{song_id}.jpg")
-                if color:
-                    cover_rel = f"library/covers/{song_id}.jpg"
-
-            lyrics_kind, lyrics_data = lyrics_payload(result.lyrics)
-            if lyrics_data:
-                config.LYRICS_DIR.mkdir(parents=True, exist_ok=True)
-                (config.LYRICS_DIR / f"{song_id}.json").write_text(json.dumps(lyrics_data, ensure_ascii=False))
-
-            self.lib.ensure_artist_image(meta["artists"][0], result.artist_picture)
-
-            song = {
-                "id": song_id,
-                "title": meta["title"],
-                "artist": meta["artist"],
-                "artists": meta["artists"],
-                "album": meta.get("album"),
-                "year": meta.get("year"),
-                "genre": meta.get("genre", "Other"),
-                "subgenre": meta.get("subgenre"),
-                "moods": meta.get("moods", []),
-                "language": meta.get("language", "other"),
-                "energy": meta.get("energy", 0.5),
-                "danceability": meta.get("danceability", 0.5),
-                "bpm": meta.get("bpm"),
-                "tags": meta.get("tags", []),
-                "description": meta.get("description"),
-                "explicit": meta.get("explicit", False),
-                "duration": round(info.duration, 2),
-                "src": src_url,
-                "mime": mime,
-                "size": final.stat().st_size,
-                "storage": storage,
-                "cover": cover_rel,
-                "color": color,
-                "lyrics": lyrics_kind,
+            file_fields = {
+                "src": src_url, "mime": mime, "size": final.stat().st_size, "storage": storage,
                 "lufs": round(lufs, 1) if lufs is not None else None,
                 "gain": round(max(-12.0, min(0.0, TARGET_LUFS - lufs)), 1) if lufs is not None else 0,
-                "confidence": meta.get("confidence"),
-                "sources": result.sources,
-                "via": "video" if kind == "video" else kind,
-                "fileKey": file_key,
-                "tg": {"msgs": [msg_id]},
-                "addedAt": now_iso(),
+                "via": "video" if kind == "video" else kind, "fileKey": file_key,
             }
-            self.lib.add(song)
-            self.save()  # persist right away, so a crash later can't lose it
-            print(f"[station] added {song_id}: {song['artist']} - {song['title']} ({', '.join(result.sources)})")
-            return song, False
+            if upgrade:
+                upgrade.pop("yt", None)
+                self.lib.update(upgrade, duration=round(info.duration, 2), **file_fields)
+                self.remember_message(upgrade, msg_id)
+                self.save()
+                return upgrade, False
+            return self.build_song(song_id, result, info.duration, msg_id, file_fields), False
+
+    def canonical_artists(self, result) -> dict:
+        """Attach every performer to its artist profile (same artist -> same profile, verified if official)."""
+        meta = result.meta
+        meta["artists"] = self.artists.resolve_song(meta["artists"], result.artist_facts)
+        meta["artist"] = ", ".join(meta["artists"])
+        return meta
+
+    def build_song(self, song_id: str, result, duration: float, msg_id: int | None, extra: dict) -> dict:
+        meta = result.meta
+        cover_rel, color = None, None
+        if result.cover:
+            color = save_cover(result.cover, config.COVERS_DIR / f"{song_id}.jpg")
+            if color:
+                cover_rel = f"library/covers/{song_id}.jpg"
+        lyrics_kind, lyrics_data = lyrics_payload(result.lyrics)
+        if lyrics_data:
+            config.LYRICS_DIR.mkdir(parents=True, exist_ok=True)
+            (config.LYRICS_DIR / f"{song_id}.json").write_text(json.dumps(lyrics_data, ensure_ascii=False))
+        song = {
+            "id": song_id,
+            "title": meta["title"],
+            "artist": meta["artist"],
+            "artists": meta["artists"],
+            "album": meta.get("album"),
+            "year": meta.get("year"),
+            "genre": meta.get("genre", "Other"),
+            "subgenre": meta.get("subgenre"),
+            "moods": meta.get("moods", []),
+            "language": meta.get("language", "other"),
+            "energy": meta.get("energy", 0.5),
+            "danceability": meta.get("danceability", 0.5),
+            "bpm": meta.get("bpm"),
+            "tags": meta.get("tags", []),
+            "description": meta.get("description"),
+            "explicit": meta.get("explicit", False),
+            "duration": round(duration, 2),
+            "src": None,
+            "cover": cover_rel,
+            "color": color,
+            "lyrics": lyrics_kind,
+            "confidence": meta.get("confidence"),
+            "sources": result.sources,
+            "tg": {"msgs": [msg_id] if msg_id else []},
+            "addedAt": now_iso(),
+            **extra,
+        }
+        self.lib.add(song)
+        self.save()  # persist right away, so a crash later can't lose it
+        print(f"[station] added {song_id}: {song['artist']} - {song['title']} ({', '.join(song['sources'])})")
+        return song
+
+    # ================================================================== add by name
+    def find_and_add(self, chat_id: int, query: str, reply_to: int | None) -> None:
+        """Owner typed a song name: find it in the catalogues; one clear match -> add, several -> let them choose."""
+        query = query.strip()[:120]
+        if len(query) < 2:
+            return
+        self.bot.safe("sendChatAction", chat_id=chat_id, action="typing")
+        cands = lookup.search_songs(query)
+        in_lib = [s for s in self.lib.songs if any(
+            lookup.same_song(s["title"], s["artist"], c["title"], c["artist"]) for c in cands[:3])]
+        if not cands:
+            self.send(chat_id, f"🔎 «{esc(query)}» topilmadi. Nomini boshqacha yozib ko'ring "
+                               "(masalan: <i>Ijrochi - Qo'shiq</i>) yoki qo'shiq faylini yuboring.", reply_to=reply_to)
+            return
+        top, second = cands[0]["score"], (cands[1]["score"] if len(cands) > 1 else 0)
+        if top >= 0.9 and second < top - 0.15:
+            status = self.send(chat_id, "⏳ Topildi, qo'shilmoqda…", reply_to=reply_to)
+            self.add_by_name(chat_id, (status or {}).get("message_id"), cands[0])
+            return
+        token = hashlib.sha1(f"{query}{time.time()}".encode()).hexdigest()[:8]
+        keep = ("title", "artist", "album", "year", "duration", "cover", "genre", "explicit")
+        self.state.setdefault("pending", {})[token] = {
+            "t": int(time.time()), "c": [{k: c.get(k) for k in keep} for c in cands[:6]]}
+        self.state_dirty = True
+        rows = []
+        for i, c in enumerate(cands[:6]):
+            label = f"{c['artist']} — {c['title']}"
+            extra = " · ".join(x for x in (str(c["year"]) if c.get("year") else "",
+                                          fmt_duration(c["duration"]) if c.get("duration") else "") if x)
+            label = (label[:44] + "…" if len(label) > 45 else label) + (f" ({extra})" if extra else "")
+            have = any(lookup.same_song(s["title"], s["artist"], c["title"], c["artist"]) for s in in_lib)
+            rows.append([{"text": f"{'✅' if have else f'{i + 1}.'} {label}", "callback_data": f"pick:{token}:{i}"}])
+        rows.append([{"text": "❌ Bekor qilish", "callback_data": f"cancel:{token}"}])
+        text = [f"🔎 «{esc(query)}» bo'yicha bir nechta qo'shiq topildi. Qaysi birini qo'shay?"]
+        if in_lib:
+            text.append("\nStansiyada allaqachon bor: " + ", ".join(
+                f"<b>{esc(s['artist'])} — {esc(s['title'])}</b>" for s in in_lib[:3]))
+        self.send(chat_id, "\n".join(text), reply_to=reply_to, markup={"inline_keyboard": rows})
+
+    def add_by_name(self, chat_id: int, status_id: int | None, cand: dict) -> None:
+        def progress(text: str) -> None:
+            if status_id:
+                self.edit(chat_id, status_id, f"🎵 {esc(cand['artist'])} — {esc(cand['title'])}\n\n{text}")
+
+        existing = next((s for s in self.lib.songs
+                         if lookup.same_song(s["title"], s["artist"], cand["title"], cand["artist"])), None)
+        if existing:
+            text = "ℹ️ Bu qo'shiq stansiyada allaqachon bor:\n\n" + self.card(existing)
+            if status_id:
+                self.edit(chat_id, status_id, text, self.song_markup(existing))
+            else:
+                self.send(chat_id, text, markup=self.song_markup(existing))
+            return
+        try:
+            progress("🎬 Rasmiy YouTube videosi qidirilmoqda…")
+            main_artist = split_artists(cand["artist"])[0] if cand["artist"] else ""
+            ids = youtube.find_videos(main_artist, strip_feat(cand["title"])[0], cand.get("duration") or 0)
+            if not ids:
+                raise RuntimeError("YouTube'da rasmiy versiyasi topilmadi — qo'shiq faylini yuboring, men uni qo'shaman")
+            with tempfile.TemporaryDirectory() as tmp_name:
+                info = audio.AudioInfo(duration=float(cand.get("duration") or 0), has_audio=True)
+                result = identify(None, info, Clues(), Path(tmp_name), progress, known=cand)
+            self.canonical_artists(result)
+            song_id = hashlib.sha1(f"yt:{ids[0]}".encode()).hexdigest()[:10]
+            result.sources = sorted(set(result.sources) | {"youtube"})
+            song = self.build_song(song_id, result, info.duration, status_id, {
+                "yt": ids, "storage": "youtube", "via": "name", "fileKey": f"yt:{ids[0]}"})
+        except Exception as exc:
+            traceback.print_exc()
+            text = f"❌ Qo'shib bo'lmadi: {esc(str(exc)[:300])}"
+            if status_id:
+                self.edit(chat_id, status_id, text)
+            else:
+                self.send(chat_id, text)
+            return
+        text = ("✅ <b>Stansiyaga qo'shildi!</b> (rasmiy YouTube orqali ijro etiladi)\n\n" + self.card(song)
+                + "\n\n<i>Sayt va mini ilovada 1–3 daqiqada paydo bo'ladi. Qo'shiq faylini yuborsangiz, "
+                  "u yuqori sifatli audio bilan almashtiriladi.</i>")
+        if status_id:
+            self.edit(chat_id, status_id, text, self.song_markup(song))
+        else:
+            self.send(chat_id, text, markup=self.song_markup(song))
 
     def remember_message(self, song: dict, message_id: int) -> None:
         msgs = song.setdefault("tg", {}).setdefault("msgs", [])
@@ -370,8 +481,15 @@ class Station:
             del msgs[:-20]
             self.lib.dirty = True
 
+    def artist_line(self, s: dict) -> str:
+        names = []
+        for a in s.get("artists") or [s["artist"]]:
+            verified = (self.lib.artists.get(a) or {}).get("verified")
+            names.append(esc(a) + (" ☑️" if verified else ""))
+        return ", ".join(names)
+
     def card(self, s: dict) -> str:
-        lines = [f"🎵 <b>{esc(s['title'])}</b>", f"👤 {esc(s['artist'])}"]
+        lines = [f"🎵 <b>{esc(s['title'])}</b>", f"👤 {self.artist_line(s)}"]
         album_bits = [esc(x) for x in (s.get("album"), str(s["year"]) if s.get("year") else None) if x]
         if album_bits:
             lines.append("💿 " + " · ".join(album_bits))
@@ -385,12 +503,17 @@ class Station:
         if s.get("tags"):
             hashtags = [re.sub(r"[^\w]+", "_", t).strip("_") for t in s["tags"][:6]]
             lines.append("🏷 " + " ".join(f"#{esc(t)}" for t in hashtags if t))
-        src = {"shazam": "Shazam", "itunes": "iTunes", "deezer": "Deezer", "ai": "AI"}
+        src = {"shazam": "Shazam", "itunes": "iTunes", "deezer": "Deezer", "ai": "AI", "youtube": "YouTube"}
         found = " + ".join(src[x] for x in s.get("sources", []) if x in src) or "fayl ma'lumotlari"
         conf = s.get("confidence")
         lines.append(f"🤖 Aniqlandi: {found}" + (f" (ishonch {round(conf * 100)}%)" if conf is not None else ""))
-        if s.get("description"):
-            lines.append(f"\n<i>{esc(s['description'])}</i>")
+        if not s.get("src") and s.get("yt"):
+            lines.append("🎬 Ijro: rasmiy YouTube pleyeri")
+        desc = s.get("description")
+        if isinstance(desc, dict):
+            desc = desc.get("uz") or desc.get("ru") or desc.get("en")
+        if desc:
+            lines.append(f"\n<i>{esc(desc)}</i>")
         lines.append(f"\n🆔 <code>{s['id']}</code>")
         return "\n".join(lines)
 
@@ -423,23 +546,29 @@ class Station:
         text = [f"🎧 <b>{esc(config.APP_NAME)}</b> — shaxsiy musiqa stansiyangiz!", ""]
         if is_owner:
             text += [
-                "Menga qo'shiq yuboring (mp3, m4a, flac, ogg, wav) yoki video klip — men uni avtomatik aniqlayman:",
-                "• nomi va ijrochisi (Shazam + katalog + AI)",
-                "• albom, yil, janr, kayfiyat, til",
-                "• muqova rasmi va qo'shiq matni (karaoke)",
-                "• ovoz balandligi normallashtiriladi",
+                "Qo'shiq qo'shishning 2 yo'li:",
+                "📁 <b>Fayl yuboring</b> (mp3, m4a, flac, ogg, wav yoki video klip) — eng yaxshi sifat",
+                "✍️ <b>Nomini yozing</b> (masalan: <i>Shahzoda Hayot ayt</i>) — rasmiy qo'shiqni topaman; "
+                "bir xil nomli bir nechta qo'shiq bo'lsa, tanlashingiz uchun ro'yxat chiqaraman",
                 "",
-                "Keyin qo'shiq saytda va mini ilovada paydo bo'ladi: tavsiyalar, qidiruv, sevimlilar va tinglashlar soni.",
+                "Har bir qo'shiqning nomi, ijrochisi, albomi, janri, kayfiyati, tili, muqovasi va matni "
+                "avtomatik aniqlanadi. Rasmiy ijrochilar ☑️ bilan belgilanadi va ularning barcha qo'shiqlari "
+                "bitta profilga yig'iladi.",
                 "",
                 "<b>Buyruqlar</b>",
+                "/add nomi — qo'shiqni nomi bo'yicha qo'shish",
                 "/list — oxirgi qo'shiqlar",
                 "/stats — statistika",
+                "/artists — ijrochilar (☑️ = tasdiqlangan)",
+                "/verify Ijrochi · /unverify Ijrochi — belgini qo'lda qo'yish/olish",
+                "/merge Eski nom > To'g'ri nom — ikki profilni birlashtirish",
                 "/edit Ijrochi - Nomi — ma'lumotni tuzatish (qo'shiq xabariga javob qilib)",
                 "/edit genre=Pop mood=romantic lang=uz year=2020 album=...",
                 "/delete — qo'shiqni o'chirish (javob qilib)",
                 "🖼 Qo'shiq xabariga rasm bilan javob bersangiz — muqova almashadi",
-                "🔎 Oddiy matn yozsangiz — kutubxonadan qidiraman",
                 "🎙 Ovozli xabar (musiqa yaqinida yozilgan) — qanday qo'shiqligini aniqlayman",
+                "",
+                "🔒 Qo'shiq qo'shish faqat sizga (stansiya egasiga) ruxsat etilgan. Saytni hamma ko'ra va tinglay oladi.",
             ]
             if not ai.enabled():
                 text += ["", "💡 <i>AI teglash o'chiq: ANTHROPIC_API_KEY sirini qo'shsangiz yoqiladi.</i>"]
@@ -447,6 +576,50 @@ class Station:
             text += ["Bu shaxsiy stansiya. Qo'shiqlarni tinglash uchun tugmani bosing."]
         text += ["", f"📚 Kutubxonada: <b>{count}</b> ta qo'shiq"]
         self.send(chat_id, "\n".join(text), markup=self.keyboard([self.app_button()]))
+
+    def cmd_add(self, msg: dict, arg: str) -> None:
+        if not arg:
+            self.send(msg["chat"]["id"], "Qo'shiq nomini yozing, masalan: <code>/add Shahzoda Hayot ayt</code>")
+            return
+        self.find_and_add(msg["chat"]["id"], arg, msg["message_id"])
+
+    def cmd_artists(self, msg: dict, arg: str) -> None:
+        counts: dict[str, int] = {}
+        for s in self.lib.songs:
+            for a in s.get("artists", []):
+                counts[a] = counts.get(a, 0) + 1
+        if not counts:
+            self.send(msg["chat"]["id"], "Hali ijrochilar yo'q.")
+            return
+        lines = ["👤 <b>Ijrochilar</b> (☑️ — tasdiqlangan)", ""]
+        for name, n in sorted(counts.items(), key=lambda x: (-x[1], x[0]))[:40]:
+            p = self.lib.artists.get(name) or {}
+            aka = f" <i>(={esc(', '.join(p['aliases'][:2]))})</i>" if p.get("aliases") else ""
+            lines.append(f"{'☑️' if p.get('verified') else '▫️'} {esc(name)} — {n}{aka}")
+        self.send(msg["chat"]["id"], "\n".join(lines))
+
+    def cmd_verify(self, msg: dict, arg: str, value: bool = True) -> None:
+        canon = self.artists.set_verified(arg, value) if arg else None
+        if not canon:
+            self.send(msg["chat"]["id"], "Ijrochi topilmadi. Masalan: <code>/verify Shahzoda</code> (ro'yxat: /artists)")
+            return
+        self.save()
+        self.send(msg["chat"]["id"], f"{'☑️ Tasdiqlandi' if value else '▫️ Belgi olib tashlandi'}: <b>{esc(canon)}</b>")
+
+    def cmd_unverify(self, msg: dict, arg: str) -> None:
+        self.cmd_verify(msg, arg, False)
+
+    def cmd_merge(self, msg: dict, arg: str) -> None:
+        parts = re.split(r"\s*(?:>|=|->|→)\s*", arg, maxsplit=1)
+        if len(parts) != 2 or not all(parts):
+            self.send(msg["chat"]["id"], "Masalan: <code>/merge Shakhzoda > Shahzoda</code> — birinchi profil "
+                                         "ikkinchisiga qo'shiladi.")
+            return
+        if not self.artists.merge(parts[0], parts[1]):
+            self.send(msg["chat"]["id"], "Birlashtirib bo'lmadi — nomlarni /artists ro'yxatidan tekshiring.")
+            return
+        self.save()
+        self.send(msg["chat"]["id"], f"🔗 <b>{esc(parts[0])}</b> → <b>{esc(parts[1])}</b> profiliga birlashtirildi.")
 
     def cmd_list(self, msg: dict, arg: str) -> None:
         chat_id = msg["chat"]["id"]
@@ -540,6 +713,7 @@ class Station:
             self.send(chat_id, "Hech narsa o'zgarmadi — formatni tekshiring. /help")
             return
         if "artists" in fields:
+            fields["artists"] = self.artists.resolve_song(fields["artists"], {})
             fields["artist"] = ", ".join(fields["artists"])
         renamed = ("title" in fields and similarity(fields["title"], song["title"]) < 0.9) or \
                   ("artist" in fields and similarity(fields["artist"], song["artist"]) < 0.9)
@@ -589,6 +763,27 @@ class Station:
         self.send(chat_id, "\n".join(lines), reply_to=reply_to, markup=self.keyboard(*rows))
 
     # ================================================================== callbacks
+    def handle_pick(self, cq: dict, action: str, arg: str, chat_id: int, message_id: int) -> None:
+        token, _, index = arg.partition(":")
+        pending = (self.state.get("pending") or {}).get(token)
+        if not pending:
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Bu tanlov eskirgan — nomini qayta yozing")
+            return
+        if action == "cancel":
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"])
+            self.edit(chat_id, message_id, "❌ Bekor qilindi.")
+        else:
+            cands = pending.get("c") or []
+            i = int(index) if index.isdigit() else -1
+            if not 0 <= i < len(cands):
+                self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Topilmadi")
+                return
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Qo'shilmoqda…")
+            self.edit(chat_id, message_id, f"⏳ {esc(cands[i]['artist'])} — {esc(cands[i]['title'])} qo'shilmoqda…")
+            self.add_by_name(chat_id, message_id, cands[i])
+        self.state["pending"].pop(token, None)
+        self.state_dirty = True
+
     def handle_callback(self, cq: dict) -> None:
         data = cq.get("data") or ""
         user_id = (cq.get("from") or {}).get("id", 0)
@@ -598,6 +793,9 @@ class Station:
             self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="🔒 Faqat egasi uchun")
             return
         action, _, song_id = data.partition(":")
+        if action in ("pick", "cancel"):
+            self.handle_pick(cq, action, song_id, chat_id, message_id)
+            return
         song = self.lib.get(song_id)
         if not song:
             self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Qo'shiq topilmadi")
@@ -662,6 +860,12 @@ class Station:
             listen_until = min(deadline, time.monotonic() + config.LISTEN_SECONDS)
         if offset is not None:
             self.bot.safe("getUpdates", offset=offset, timeout=0, limit=1)  # confirm processed updates
+        # Artist profiles: make sure every performer has one, and look up official status for a few.
+        try:
+            self.artists.sync_with_songs()
+            self.artists.backfill(budget=6)
+        except Exception:
+            traceback.print_exc()
         self.save()
         print(f"[station] handled {handled} update(s); library has {len(self.lib.songs)} song(s)")
 

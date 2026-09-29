@@ -1,17 +1,18 @@
 // Page views. Each returns a DOM node for #view.
 import { CONFIG } from "./config.js";
 import {
-  lib, song as getSong, songsOf, artistNames, favSongs, recentlyPlayed, plays, user, totalPlays, artistColor, loadLibrary, coverUrl,
+  lib, song as getSong, songsOf, artistNames, favSongs, recentlyPlayed, plays, user, totalPlays, artistColor, loadLibrary,
 } from "./store.js";
 import * as reco from "./reco.js";
-import { player, playList, playRadio, playSong, isPlaying, setShuffle } from "./player.js";
+import { player, playList, playRadio, playSong, isPlaying, setShuffle, toggle, isVideo } from "./player.js";
 import {
   h, icon, art, artistArt, collage, likedArt, songRow, card, section, lazyList, heartButton, go, link, toast,
-  fmtTime, fmtLong, timeAgo, num, shareSong, downloadSong, songMenu, placeholder, back as goBack,
+  fmtTime, fmtLong, timeAgo, num, shareSong, downloadSong, songMenu, placeholder, back as goBack, verifiedBadge,
+  openSheet, sheetItem,
 } from "./ui.js";
 import { searchSongs, searchArtists, matchCategories } from "./search.js";
-import { GENRES, MOODS, LANGS, genre, mood, lang } from "./i18n.js";
-import { user as tgUser, canDownload } from "./tg.js";
+import { MOODS, genre, mood, lang, t, describe, LANG, LANGS_UI, setLang } from "./i18n.js";
+import { user as tgUser, canDownload, inTelegram } from "./tg.js";
 import { rgba, getLyrics } from "./nowplaying.js";
 
 // ------------------------------------------------------------------ shared bits
@@ -27,56 +28,72 @@ export function mixes() {
 }
 export function invalidateMixes() { mixCache = null; }
 
-function mixTitle(m, i) { return `Kunlik miks ${i + 1}`; }
+const mixTitle = (m, i) => t("home.dailyMix", { n: i + 1 });
 function mixSub(songs) {
   const names = [];
   for (const s of songs) for (const a of s.artists) if (!names.includes(a)) names.push(a);
-  return names.slice(0, 3).join(", ") + (names.length > 3 ? " va boshqalar" : "");
+  return names.slice(0, 3).join(", ") + (names.length > 3 ? ` ${t("common.and")}` : "");
 }
 
 function greeting() {
   const hr = new Date().getHours();
-  if (hr >= 5 && hr < 11) return "Xayrli tong";
-  if (hr >= 11 && hr < 17) return "Xayrli kun";
-  if (hr >= 17 && hr < 22) return "Xayrli kech";
-  return "Xayrli tun";
+  if (hr >= 5 && hr < 11) return t("greet.morning");
+  if (hr >= 11 && hr < 17) return t("greet.day");
+  if (hr >= 17 && hr < 22) return t("greet.evening");
+  return t("greet.night");
+}
+
+/** Settings: site language (Russian / English / Uzbek). */
+export function openSettings() {
+  openSheet((sheet, dismiss) => {
+    sheet.append(h("div", { class: "sheet-head" }, h("div", null, h("b", null, t("settings.title")), h("span", null, t("settings.language")))));
+    for (const [code, label] of Object.entries(LANGS_UI)) {
+      sheet.append(sheetItem(code === LANG ? "check" : "globe", label, () => { dismiss(); if (code !== LANG) setTimeout(() => setLang(code), 150); },
+        code === LANG ? "accent" : ""));
+    }
+    sheet.append(h("p", { class: "muted", style: { padding: "8px 20px 4px", fontSize: "12px", margin: 0 } }, `🔒 ${t("settings.about")}`));
+  });
 }
 
 function avatar() {
   const u = tgUser();
-  if (u?.photo_url) return h("div", { class: "avatar" }, h("img", { src: u.photo_url, alt: "" }));
-  const letter = (u?.first_name || CONFIG.appName || "M").trim()[0].toUpperCase();
-  return h("div", { class: "avatar" }, letter);
+  const inner = u?.photo_url ? h("img", { src: u.photo_url, alt: "" }) : (u?.first_name || CONFIG.appName || "M").trim()[0].toUpperCase();
+  return h("button", { class: "avatar", "aria-label": t("settings.title"), onclick: openSettings }, inner);
 }
 
-function topbar(title, { back = false, solidOnScroll = true } = {}) {
-  const bar = h("div", { class: "topbar" },
-    back ? h("button", { class: "back-btn", "aria-label": "Orqaga", html: icon("back", 20), onclick: goBack }) : avatar(),
-    back ? h("div", { class: "ttl" }, title) : h("h1", null, title));
-  if (solidOnScroll) bar.dataset.solid = "1";
-  return bar;
+function langButton() {
+  return h("button", { class: "lang-btn", "aria-label": t("settings.language"), onclick: openSettings }, `🌐 ${LANG.toUpperCase()}`);
+}
+
+function topbar(title, { back = false } = {}) {
+  return h("div", { class: "topbar" },
+    back ? h("button", { class: "back-btn", "aria-label": t("common.back"), html: icon("back", 20), onclick: goBack }) : avatar(),
+    back ? h("div", { class: "ttl" }, title) : h("h1", null, title),
+    back ? null : langButton());
 }
 
 function songCard(s, list, context) {
-  const playing = player.current?.id === s.id;
   return card({
-    artEl: art(s), title: s.title, sub: s.artist, playing,
+    artEl: art(s), title: s.title, sub: s.artist, playing: player.current?.id === s.id,
     onClick: () => go(`song/${s.id}`),
     onPlay: () => playSong(s, list, context),
   });
 }
 
-function shelf(items) {
-  return h("div", { class: "shelf" }, items);
+function artistCard(a, sub) {
+  return card({
+    artEl: artistArt(a), title: h("span", null, a, verifiedBadge(a, 14)), sub: sub ?? t("common.artist"), round: true,
+    onClick: () => go(`artist/${encodeURIComponent(a)}`),
+  });
 }
+
+const shelf = (items) => h("div", { class: "shelf" }, items);
 
 function emptyLibrary() {
   return h("div", { class: "empty" },
     h("div", { class: "big-ico", html: icon("note", 64) }),
-    h("h3", null, "Kutubxona hozircha bo'sh"),
-    h("p", null, "Telegram botga qo'shiq yuboring — u avtomatik aniqlanib, shu yerda paydo bo'ladi."),
-    h("a", { class: "btn accent", href: `https://t.me/${CONFIG.botUsername}`, target: "_blank", rel: "noopener" },
-      h("span", { html: icon("send", 18) }), `@${CONFIG.botUsername}`));
+    h("h3", null, t("empty.lib.title")),
+    h("p", null, t("empty.lib.desc")));
 }
 
 function collectionHero({ kicker, title, artEl, desc, meta, color = "#535353", round = false }) {
@@ -92,27 +109,22 @@ function collectionHero({ kicker, title, artEl, desc, meta, color = "#535353", r
 
 function collectionActions(songs, context, extra = []) {
   const playingThis = () => player.context.type === context.type && player.context.id === context.id;
-  const fab = h("button", { class: "play-fab lg", "aria-label": "Ijro", html: icon(playingThis() && isPlaying() ? "pause" : "play", 26) });
-  fab.addEventListener("click", () => {
-    if (playingThis()) { player.audio.paused ? player.audio.play() : player.audio.pause(); return; }
-    playList(songs, 0, context);
-  });
+  const fab = h("button", { class: "play-fab lg", "aria-label": t("common.play"), html: icon(playingThis() && isPlaying() ? "pause" : "play", 26) });
+  fab.addEventListener("click", () => (playingThis() ? toggle() : playList(songs, 0, context)));
   fab.dataset.ctx = `${context.type}:${context.id}`;
-  const shuffleBtn = h("button", { class: "icon-btn", "aria-label": "Aralash ijro", html: icon("shuffle", 26),
-    onclick: () => { setShuffle(true); playList(songs, Math.floor(Math.random() * songs.length), context); toast("Aralash ijro 🔀"); } });
+  const shuffleBtn = h("button", { class: "icon-btn", "aria-label": t("common.shuffle"), html: icon("shuffle", 26),
+    onclick: () => { setShuffle(true); playList(songs, Math.floor(Math.random() * songs.length), context); toast(t("toast.shuffle")); } });
   return h("div", { class: "actions" }, fab, shuffleBtn, ...extra, h("div", { class: "grow" }));
 }
 
-function trackList(songs, context, { numbered = false, cover = true } = {}) {
+function trackList(songs, context, { numbered = false } = {}) {
   const box = h("div", { class: "tracks" });
-  lazyList(box, songs, (s, i) => songRow(s, { list: songs, context, index: numbered ? i : null, cover }));
+  lazyList(box, songs, (s, i) => songRow(s, { list: songs, context, index: numbered ? i : null }));
   return box;
 }
 
-function durationOf(songs) { return songs.reduce((a, s) => a + (s.duration || 0), 0); }
-function metaLine(songs, extra) {
-  return [extra, `${num(songs.length)} ta qo'shiq`, fmtLong(durationOf(songs))].filter(Boolean).join(" • ");
-}
+const durationOf = (songs) => songs.reduce((a, s) => a + (s.duration || 0), 0);
+const metaLine = (songs, extra) => [extra, t("common.songs", { n: songs.length }), fmtLong(durationOf(songs))].filter(Boolean).join(" • ");
 
 // ------------------------------------------------------------------ HOME
 export function viewHome() {
@@ -123,9 +135,8 @@ export function viewHome() {
   }
   const color = player.current?.color || reco.newest(1)[0]?.color || "#404040";
   v.append(h("div", { class: "home-bg", style: { background: `linear-gradient(${rgba(color, 0.6)}, transparent)` } }));
-  v.append(topbar(greeting(), { solidOnScroll: true }));
+  v.append(topbar(greeting()));
 
-  // mood chips
   const moodCounts = new Map();
   for (const s of lib.songs) for (const m of s.moods || []) moodCounts.set(m, (moodCounts.get(m) || 0) + 1);
   const moodsPresent = [...moodCounts.entries()].filter(([, n]) => n >= 2).sort((a, b) => b[1] - a[1]).map(([m]) => m);
@@ -134,68 +145,61 @@ export function viewHome() {
       moodsPresent.map((m) => link(`mood/${m}`, { class: "chip" }, `${mood(m).emoji} ${mood(m).label}`))));
   }
 
-  // quick grid
   const quick = h("div", { class: "quick", style: { position: "relative" } });
-  const favs = favSongs();
-  if (favs.length) quick.append(link("liked", { class: "quick-item" }, likedArt(), h("span", null, "Sevimli qo'shiqlar")));
+  if (favSongs().length) quick.append(link("liked", { class: "quick-item" }, likedArt(), h("span", null, t("home.liked"))));
   const mx = mixes();
   if (mx[0] && lib.songs.length >= 8) quick.append(link(`mix/${mx[0].id}`, { class: "quick-item" }, collage(mx[0].songs), h("span", null, mixTitle(mx[0], 0))));
   for (const s of reco.quickPicks(8 - quick.childElementCount)) {
     const item = h("div", { class: `quick-item${player.current?.id === s.id ? " playing" : ""}`, role: "button", dataset: { qid: s.id } }, art(s), h("span", null, s.title));
-    item.addEventListener("click", () => playSong(s, null, { type: "radio", id: s.id, title: `${s.title} radiosi` }));
+    item.addEventListener("click", () => playSong(s, null, { type: "radio", id: s.id, title: t("ctx.radioOf", { t: s.title }) }));
     quick.append(item);
   }
   v.append(quick);
 
   const forYou = reco.forYou(20);
-  v.append(section("Siz uchun", shelf(forYou.map((s) => songCard(s, forYou, { type: "mix", id: "foryou", title: "Siz uchun" }))),
-    { sub: "Did-profilingiz asosida tanlandi", more: "#/mix/foryou" }));
+  v.append(section(t("home.forYou"), shelf(forYou.map((s) => songCard(s, forYou, { type: "mix", id: "foryou", title: t("home.forYou") }))),
+    { sub: t("home.forYouSub"), more: "#/mix/foryou" }));
 
   if (mx.length) {
-    v.append(section("Kunlik mikslaringiz", shelf(mx.map((m, i) => card({
+    v.append(section(t("home.dailyMixes"), shelf(mx.map((m, i) => card({
       artEl: h("div", { style: { position: "relative", width: "100%", height: "100%" } }, collage(m.songs),
         h("div", { class: "mix-band", style: { background: m.genre ? genre(m.genre).color : "#22c55e" } }),
         h("div", { class: "mix-label" }, mixTitle(m, i))),
-      title: m.genre ? genre(m.genre).label : "Aralash", sub: mixSub(m.songs),
+      title: m.genre ? genre(m.genre).label : t("home.mixed"), sub: mixSub(m.songs),
       onClick: () => go(`mix/${m.id}`), onPlay: () => playList(m.songs, 0, { type: "mix", id: m.id, title: mixTitle(m, i) }),
     })))));
   }
 
   const fresh = reco.newest(20);
-  v.append(section("Yangi qo'shilganlar", shelf(fresh.map((s) => songCard(s, fresh, { type: "mix", id: "new", title: "Yangi qo'shilganlar" }))), { more: "#/mix/new" }));
+  v.append(section(t("home.new"), shelf(fresh.map((s) => songCard(s, fresh, { type: "mix", id: "new", title: t("home.new") }))), { more: "#/mix/new" }));
 
   const recent = recentlyPlayed(20);
-  if (recent.length) v.append(section("Yaqinda tinglangan", shelf(recent.map((s) => songCard(s, recent, { type: "mix", id: "recent", title: "Yaqinda tinglangan" }))), { more: "#/mix/recent" }));
+  if (recent.length) v.append(section(t("home.recent"), shelf(recent.map((s) => songCard(s, recent, { type: "mix", id: "recent", title: t("home.recent") }))), { more: "#/mix/recent" }));
 
   const rep = reco.onRepeat(20);
-  if (rep.length >= 3) v.append(section("Takror-takror", shelf(rep.map((s) => songCard(s, rep, { type: "mix", id: "repeat", title: "Takror-takror" }))), { sub: "So'nggi 30 kunda eng ko'p qaytgan qo'shiqlaringiz", more: "#/mix/repeat" }));
+  if (rep.length >= 3) v.append(section(t("home.repeat"), shelf(rep.map((s) => songCard(s, rep, { type: "mix", id: "repeat", title: t("home.repeat") }))), { sub: t("home.repeatSub"), more: "#/mix/repeat" }));
 
   const artists = reco.artistsRanked(16);
-  if (artists.length) v.append(section("Ijrochilar", shelf(artists.map((a) => card({
-    artEl: artistArt(a), title: a, sub: `${songsOf(a).length} ta qo'shiq`, round: true,
-    onClick: () => go(`artist/${encodeURIComponent(a)}`),
-  })))));
+  if (artists.length) v.append(section(t("home.artists"), shelf(artists.map((a) => artistCard(a, t("common.songs", { n: songsOf(a).length }))))));
 
   const disc = reco.discover(20);
-  if (disc.length && user.history.length) v.append(section("Kashf eting", shelf(disc.map((s) => songCard(s, disc, { type: "mix", id: "discover", title: "Kashf eting" }))), { sub: "Hali tinglamagan, lekin sizga yoqishi mumkin", more: "#/mix/discover" }));
+  if (disc.length && user.history.length) v.append(section(t("home.discover"), shelf(disc.map((s) => songCard(s, disc, { type: "mix", id: "discover", title: t("home.discover") }))), { sub: t("home.discoverSub"), more: "#/mix/discover" }));
 
   const forgot = reco.forgotten(20);
-  if (forgot.length >= 3) v.append(section("Unutilgan sevimlilar", shelf(forgot.map((s) => songCard(s, forgot, { type: "mix", id: "forgotten", title: "Unutilgan sevimlilar" }))), { more: "#/mix/forgotten" }));
+  if (forgot.length >= 3) v.append(section(t("home.forgotten"), shelf(forgot.map((s) => songCard(s, forgot, { type: "mix", id: "forgotten", title: t("home.forgotten") }))), { more: "#/mix/forgotten" }));
 
   const top = reco.topSongs(20);
-  if (top.length >= 3) v.append(section("Eng ko'p tinglanganlar", shelf(top.map((s) => songCard(s, top, { type: "mix", id: "top", title: "Eng ko'p tinglanganlar" }))), { more: "#/mix/top" }));
+  if (top.length >= 3) v.append(section(t("home.top"), shelf(top.map((s) => songCard(s, top, { type: "mix", id: "top", title: t("home.top") }))), { more: "#/mix/top" }));
 
-  v.append(section("Janrlar", genreTiles()));
-  v.append(h("div", { class: "foot" }, `${num(lib.songs.length)} ta qo'shiq • `,
-    h("a", { href: `https://t.me/${CONFIG.botUsername}`, target: "_blank", rel: "noopener" }, `@${CONFIG.botUsername}`),
-    " orqali qo'shing"));
+  v.append(section(t("home.genres"), genreTiles()));
+  v.append(h("div", { class: "foot" }, t("footer", { n: t("common.songs", { n: lib.songs.length }) })));
   return v;
 }
 
-function genreTiles(limit = 99) {
+function genreTiles() {
   const counts = new Map();
   for (const s of lib.songs) counts.set(s.genre, (counts.get(s.genre) || 0) + 1);
-  const list = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, limit);
+  const list = [...counts.entries()].sort((a, b) => b[1] - a[1]);
   return h("div", { class: "tiles" }, list.map(([g]) => tile(genre(g), `genre/${encodeURIComponent(g)}`, lib.songs.find((s) => s.genre === g && s.cover))));
 }
 
@@ -209,10 +213,10 @@ function tile(info, path, coverSong) {
 let lastQuery = "";
 export function viewSearch(param) {
   const v = h("div", { class: "view" });
-  const input = h("input", { type: "search", placeholder: "Qo'shiq, ijrochi, janr yoki kayfiyat…", value: param ?? lastQuery, enterkeyhint: "search", autocomplete: "off", "aria-label": "Qidiruv" });
-  const clear = h("button", { class: "icon-btn", style: { width: "28px", height: "28px", color: "#121212" }, html: icon("close", 20), "aria-label": "Tozalash" });
+  const input = h("input", { type: "search", placeholder: t("search.placeholder"), value: param ?? lastQuery, enterkeyhint: "search", autocomplete: "off", "aria-label": t("search.title") });
+  const clear = h("button", { class: "icon-btn", style: { width: "28px", height: "28px", color: "#121212" }, html: icon("close", 20), "aria-label": t("search.clear") });
   const results = h("div");
-  v.append(h("div", { class: "search-box" }, h("h1", null, "Qidiruv"),
+  v.append(h("div", { class: "search-box" }, h("h1", null, t("search.title")),
     h("div", { class: "search-input" }, h("span", { html: icon("search", 22) }), input, clear)), results);
 
   const render = () => {
@@ -225,33 +229,31 @@ export function viewSearch(param) {
     const artists = searchArtists(artistNames(), q);
     const cats = matchCategories(q);
     if (!songs.length && !artists.length && !cats.length) {
-      results.append(h("div", { class: "empty" }, h("h3", null, `"${q}" topilmadi`),
-        h("p", null, "Boshqacha yozib ko'ring yoki qo'shiqni botga yuboring.")));
+      results.append(h("div", { class: "empty" }, h("h3", null, t("search.none", { q })), h("p", null, t("search.noneHint"))));
       return;
     }
-    const ctx = { type: "search", id: q, title: `"${q}" qidiruvi` };
-    const topArtist = artists[0] && (!songs[0] || songs[0]._a !== songs[0]._t) &&
-      (songs.length === 0 || songs[0].artists.includes(artists[0]) || artists[0].toLowerCase().startsWith(q.toLowerCase()));
+    const ctx = { type: "search", id: q, title: t("search.ctx", { q }) };
+    const topArtist = artists[0] && (songs.length === 0 || songs[0].artists.includes(artists[0]) || artists[0].toLowerCase().startsWith(q.toLowerCase()));
     if (topArtist) {
       const a = artists[0];
       const el = h("div", { class: "top-result round", role: "button", onclick: () => go(`artist/${encodeURIComponent(a)}`) },
-        h("div", { class: "art" }, artistArt(a)), h("div", null, h("h3", null, a), h("div", { class: "muted" }, "Ijrochi")),
+        h("div", { class: "art" }, artistArt(a)), h("div", null, h("h3", null, a, verifiedBadge(a, 20)), h("div", { class: "muted" }, t("common.artist"))),
         h("button", { class: "play-fab", html: icon("play", 22), onclick: (e) => { e.stopPropagation(); playList(popularOf(a), 0, { type: "artist", id: a, title: a }); } }));
-      results.append(section("Eng mos natija", el));
+      results.append(section(t("search.top"), el));
     } else if (songs[0]) {
       const s = songs[0];
       const el = h("div", { class: "top-result", role: "button", onclick: () => go(`song/${s.id}`) },
-        h("div", { class: "art" }, art(s)), h("div", null, h("h3", null, s.title), h("div", { class: "muted" }, `Qo'shiq • ${s.artist}`)),
+        h("div", { class: "art" }, art(s)), h("div", null, h("h3", null, s.title), h("div", { class: "muted" }, `${t("common.song")} • ${s.artist}`)),
         h("button", { class: "play-fab", html: icon("play", 22), onclick: (e) => { e.stopPropagation(); playSong(s, songs, ctx); } }));
-      results.append(section("Eng mos natija", el));
+      results.append(section(t("search.top"), el));
     }
     if (songs.length) {
       const box = h("div", { class: "tracks" });
       lazyList(box, songs, (s) => songRow(s, { list: songs, context: ctx }), 30);
-      results.append(section("Qo'shiqlar", box));
+      results.append(section(t("search.songs"), box));
     }
-    if (artists.length) results.append(section("Ijrochilar", shelf(artists.slice(0, 20).map((a) => card({ artEl: artistArt(a), title: a, sub: "Ijrochi", round: true, onClick: () => go(`artist/${encodeURIComponent(a)}`) })))));
-    if (cats.length) results.append(section("Janr va kayfiyatlar", h("div", { class: "tiles" }, cats.map((c) => tile(c, `${c.type}/${encodeURIComponent(c.key)}`)))));
+    if (artists.length) results.append(section(t("search.artists"), shelf(artists.slice(0, 20).map((a) => artistCard(a)))));
+    if (cats.length) results.append(section(t("search.categories"), h("div", { class: "tiles" }, cats.map((c) => tile(c, `${c.type}/${encodeURIComponent(c.key)}`)))));
   };
 
   let timer = null;
@@ -275,18 +277,16 @@ function browse() {
   const recent = recentlyPlayed(6);
   if (recent.length) {
     const box = h("div", { class: "tracks" });
-    recent.forEach((s) => box.append(songRow(s, { list: recent, context: { type: "mix", id: "recent", title: "Yaqinda tinglangan" } })));
-    wrap.append(section("Yaqinda tinglangan", box));
+    recent.forEach((s) => box.append(songRow(s, { list: recent, context: { type: "mix", id: "recent", title: t("home.recent") } })));
+    wrap.append(section(t("home.recent"), box));
   }
-  const moodCounts = new Map();
-  for (const s of lib.songs) for (const m of s.moods || []) moodCounts.set(m, (moodCounts.get(m) || 0) + 1);
-  const moodList = [...moodCounts.keys()].filter((m) => MOODS[m]);
-  if (moodList.length) wrap.append(section("Kayfiyatlar", h("div", { class: "tiles" }, moodList.map((m) => tile(mood(m), `mood/${m}`)))));
-  wrap.append(section("Janrlar", genreTiles()));
+  const moodList = [...new Set(lib.songs.flatMap((s) => s.moods || []))].filter((m) => MOODS[m]);
+  if (moodList.length) wrap.append(section(t("search.moods"), h("div", { class: "tiles" }, moodList.map((m) => tile(mood(m), `mood/${m}`)))));
+  wrap.append(section(t("home.genres"), genreTiles()));
   const langs = new Map();
   for (const s of lib.songs) langs.set(s.language, (langs.get(s.language) || 0) + 1);
   if (langs.size > 1) {
-    wrap.append(section("Tillar", h("div", { class: "chips", style: { flexWrap: "wrap" } },
+    wrap.append(section(t("search.langs"), h("div", { class: "chips", style: { flexWrap: "wrap" } },
       [...langs.entries()].sort((a, b) => b[1] - a[1]).map(([l, n]) => link(`lang/${l}`, { class: "chip" }, `${lang(l)} · ${n}`)))));
   }
   return wrap;
@@ -294,44 +294,44 @@ function browse() {
 
 // ------------------------------------------------------------------ LIBRARY
 const SORTS = {
-  added: ["Qo'shilgan sana", (a, b) => Date.parse(b.addedAt || 0) - Date.parse(a.addedAt || 0)],
-  title: ["Nomi (A–Z)", (a, b) => a.title.localeCompare(b.title, "uz")],
-  artist: ["Ijrochi (A–Z)", (a, b) => a.artist.localeCompare(b.artist, "uz")],
-  plays: ["Ko'p tinglangan", (a, b) => plays(b.id) - plays(a.id)],
-  recent: ["Yaqinda tinglangan", (a, b) => (user.last[b.id] || 0) - (user.last[a.id] || 0)],
+  added: (a, b) => Date.parse(b.addedAt || 0) - Date.parse(a.addedAt || 0),
+  title: (a, b) => a.title.localeCompare(b.title, LANG),
+  artist: (a, b) => a.artist.localeCompare(b.artist, LANG),
+  plays: (a, b) => plays(b.id) - plays(a.id),
+  recent: (a, b) => (user.last[b.id] || 0) - (user.last[a.id] || 0),
 };
 let sortKey = "added";
 
 export function viewLibrary(tab = "favs") {
   const v = h("div", { class: "view" });
-  v.append(topbar("Kutubxonangiz"));
-  const tabs = [["favs", "Sevimlilar"], ["songs", "Qo'shiqlar"], ["artists", "Ijrochilar"], ["stats", "Statistika"]];
+  v.append(topbar(t("nav.yourLibrary")));
+  const tabs = [["favs", t("lib.favs")], ["songs", t("lib.songs")], ["artists", t("lib.artists")], ["stats", t("lib.stats")]];
   v.append(h("div", { class: "lib-tabs" }, h("div", { class: "chips" },
     tabs.map(([k, label]) => h("button", { class: `chip${k === tab ? " active" : ""}`, onclick: () => location.replace(`#/library/${k}`) }, label)))));
 
   if (tab === "favs") {
     const favs = favSongs();
     v.append(link("liked", { class: "liked-banner" }, h("div", { class: "ico", html: icon("heartFill", 28) }),
-      h("div", null, h("b", null, "Sevimli qo'shiqlar"), h("span", null, `${favs.length} ta qo'shiq`))));
+      h("div", null, h("b", null, t("home.liked")), h("span", null, t("common.songs", { n: favs.length })))));
     if (!favs.length) v.append(h("div", { class: "empty" }, h("div", { class: "big-ico", html: icon("heart", 64) }),
-      h("h3", null, "Sevimlilar hali yo'q"), h("p", null, "Qo'shiq yonidagi ♡ tugmasini bosing — u shu yerda saqlanadi.")));
-    else v.append(trackList(favs, { type: "liked", id: "liked", title: "Sevimli qo'shiqlar" }));
+      h("h3", null, t("lib.noFavs")), h("p", null, t("lib.noFavsDesc"))));
+    else v.append(trackList(favs, { type: "liked", id: "liked", title: t("home.liked") }));
   } else if (tab === "songs") {
     if (!lib.songs.length) { v.append(emptyLibrary()); return v; }
-    const sorted = lib.songs.slice().sort(SORTS[sortKey][1]);
-    const select = h("select", { "aria-label": "Saralash" }, Object.entries(SORTS).map(([k, [label]]) => h("option", { value: k, selected: k === sortKey }, label)));
+    const sorted = lib.songs.slice().sort(SORTS[sortKey]);
+    const select = h("select", { "aria-label": t("lib.sort") }, Object.keys(SORTS).map((k) => h("option", { value: k, selected: k === sortKey }, t(`sort.${k}`))));
     select.addEventListener("change", () => { sortKey = select.value; rerender(); });
     v.append(h("div", { class: "lib-toolbar" }, h("span", null, metaLine(sorted)), h("label", { style: { display: "flex", alignItems: "center", gap: "4px" } }, h("span", { html: icon("sort", 16) }), select)));
-    v.append(trackList(sorted, { type: "library", id: sortKey, title: "Barcha qo'shiqlar" }));
+    v.append(trackList(sorted, { type: "library", id: sortKey, title: t("lib.allSongs") }));
   } else if (tab === "artists") {
-    const names = artistNames().sort((a, b) => a.localeCompare(b, "uz"));
+    const names = artistNames().sort((a, b) => (Number(!!lib.artists[b]?.verified) - Number(!!lib.artists[a]?.verified)) || a.localeCompare(b, LANG));
     const box = h("div", { class: "tracks" });
     lazyList(box, names, (a) => {
-      const n = songsOf(a).length;
       const p = songsOf(a).reduce((x, s) => x + plays(s.id), 0);
       return link(`artist/${encodeURIComponent(a)}`, { class: "row round" },
         h("div", { class: "cov-wrap" }, artistArt(a, "cov")),
-        h("div", { class: "meta" }, h("div", { class: "t" }, h("span", null, a)), h("div", { class: "s" }, `Ijrochi • ${n} ta qo'shiq${p ? ` • ${num(p)} tinglash` : ""}`)));
+        h("div", { class: "meta" }, h("div", { class: "t" }, h("span", null, a), verifiedBadge(a, 15)),
+          h("div", { class: "s" }, [t("common.artist"), t("common.songs", { n: songsOf(a).length }), p ? t("common.plays", { n: p }) : null].filter(Boolean).join(" • "))));
     });
     v.append(box);
   } else {
@@ -343,25 +343,24 @@ export function viewLibrary(tab = "favs") {
 function statsView() {
   const wrap = h("div");
   const tp = totalPlays();
-  const listen = user.listen || 0;
   wrap.append(h("div", { class: "stat-cards" },
-    h("div", { class: "stat" }, h("b", null, num(tp)), h("span", null, "tinglashlar")),
-    h("div", { class: "stat" }, h("b", null, fmtLong(listen)), h("span", null, "tinglash vaqti")),
-    h("div", { class: "stat" }, h("b", null, num(lib.songs.length)), h("span", null, "qo'shiqlar")),
-    h("div", { class: "stat" }, h("b", null, num(Object.keys(user.favs).length)), h("span", null, "sevimlilar"))));
+    h("div", { class: "stat" }, h("b", null, num(tp)), h("span", null, t("stats.plays"))),
+    h("div", { class: "stat" }, h("b", null, fmtLong(user.listen || 0)), h("span", null, t("stats.time"))),
+    h("div", { class: "stat" }, h("b", null, num(lib.songs.length)), h("span", null, t("stats.songs"))),
+    h("div", { class: "stat" }, h("b", null, num(Object.keys(user.favs).length)), h("span", null, t("stats.favs")))));
   wrap.append(h("p", { class: "pad muted", style: { fontSize: "12px", marginTop: "10px" } },
-    `Tinglash hisoblanadi: qo'shiq kamida ${CONFIG.playThreshold} soniya eshitilganda (Spotify standarti). ${tgUser() ? "Telegram hisobingiz orqali barcha qurilmalarda sinxronlanadi." : ""}`));
+    `${t("stats.note", { n: CONFIG.playThreshold })} ${inTelegram ? t("stats.synced") : ""}`));
 
   const top = reco.topSongs(10);
   if (top.length) {
     const box = h("div", { class: "tracks" });
-    top.forEach((s, i) => box.append(songRow(s, { list: top, index: i, context: { type: "mix", id: "top", title: "Eng ko'p tinglanganlar" }, sub: `${s.artist} • ${num(plays(s.id))} marta` })));
-    wrap.append(section("Eng ko'p tinglangan qo'shiqlar", box, { more: "#/mix/top" }));
+    top.forEach((s, i) => box.append(songRow(s, { list: top, index: i, context: { type: "mix", id: "top", title: t("home.top") }, sub: `${s.artist} • ${t("common.times", { n: plays(s.id) })}` })));
+    wrap.append(section(t("stats.topSongs"), box, { more: "#/mix/top" }));
   }
   const ta = reco.topArtists(8);
   if (ta.length) {
     const max = ta[0][1];
-    wrap.append(section("Top ijrochilar", h("div", { class: "bars" }, ta.map(([a, n]) => link(`artist/${encodeURIComponent(a)}`, { class: "bar-row" },
+    wrap.append(section(t("stats.topArtists"), h("div", { class: "bars" }, ta.map(([a, n]) => link(`artist/${encodeURIComponent(a)}`, { class: "bar-row" },
       h("span", { style: { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" } }, a),
       h("div", { class: "track" }, h("i", { style: { width: `${(n / max) * 100}%` } })), h("span", { class: "v" }, num(n)))))));
   }
@@ -370,7 +369,7 @@ function statsView() {
   const gl = [...byGenre.entries()].filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1]).slice(0, 8);
   if (gl.length) {
     const max = gl[0][1];
-    wrap.append(section(tp ? "Sevimli janrlaringiz" : "Kutubxonadagi janrlar", h("div", { class: "bars" }, gl.map(([g, n]) => link(`genre/${encodeURIComponent(g)}`, { class: "bar-row" },
+    wrap.append(section(tp ? t("stats.genresFav") : t("stats.genresLib"), h("div", { class: "bars" }, gl.map(([g, n]) => link(`genre/${encodeURIComponent(g)}`, { class: "bar-row" },
       h("span", null, `${genre(g).emoji} ${genre(g).label}`),
       h("div", { class: "track" }, h("i", { style: { width: `${(n / max) * 100}%`, background: genre(g).color } })), h("span", { class: "v" }, num(n)))))));
   }
@@ -378,9 +377,9 @@ function statsView() {
   if (hist.length) {
     const box = h("div", { class: "tracks" });
     hist.forEach((x) => box.append(songRow(x.s, { sub: `${x.s.artist} • ${timeAgo(x.t)}`, showPlays: false })));
-    wrap.append(section("Tinglash tarixi", box));
+    wrap.append(section(t("stats.history"), box));
   }
-  if (!tp) wrap.append(h("div", { class: "empty" }, h("div", { class: "big-ico", html: icon("chart", 64) }), h("h3", null, "Hali statistika yo'q"), h("p", null, "Qo'shiq tinglang — hisob-kitoblar shu yerda paydo bo'ladi.")));
+  if (!tp) wrap.append(h("div", { class: "empty" }, h("div", { class: "big-ico", html: icon("chart", 64) }), h("h3", null, t("stats.empty")), h("p", null, t("stats.emptyDesc"))));
   return wrap;
 }
 
@@ -392,7 +391,7 @@ function collectionView({ kicker, title, songs, artEl, desc, color, context, rou
   hero.style.marginTop = "-58px";
   v.append(hero);
   if (!songs.length) {
-    v.append(h("div", { class: "empty" }, h("h3", null, "Bu yerda hali qo'shiq yo'q")));
+    v.append(h("div", { class: "empty" }, h("h3", null, t("collection.empty"))));
     return v;
   }
   v.append(collectionActions(songs, context, extraActions));
@@ -401,33 +400,33 @@ function collectionView({ kicker, title, songs, artEl, desc, color, context, rou
 }
 
 export function viewLiked() {
-  const songs = favSongs();
-  return collectionView({ kicker: "Pleylist", title: "Sevimli qo'shiqlar", songs, artEl: likedArt(), color: "#5038a0",
-    context: { type: "liked", id: "liked", title: "Sevimli qo'shiqlar" } });
+  return collectionView({ kicker: t("common.playlist"), title: t("home.liked"), songs: favSongs(), artEl: likedArt(), color: "#5038a0",
+    context: { type: "liked", id: "liked", title: t("home.liked") } });
 }
 
 export function viewMix(id) {
   const special = {
-    foryou: ["Siz uchun", "Did-profilingiz, vaqt va kayfiyatga qarab har kuni yangilanadi.", () => reco.forYou(50)],
-    new: ["Yangi qo'shilganlar", "Botga eng so'nggi yuborilgan qo'shiqlar.", () => reco.newest(100)],
-    recent: ["Yaqinda tinglangan", "Oxirgi tinglagan qo'shiqlaringiz.", () => recentlyPlayed(100)],
-    repeat: ["Takror-takror", "So'nggi 30 kunda eng ko'p qaytgan qo'shiqlaringiz.", () => reco.onRepeat(50)],
-    discover: ["Kashf eting", "Hali tinglamagan, lekin didingizga mos qo'shiqlar.", () => reco.discover(50)],
-    forgotten: ["Unutilgan sevimlilar", "Anchadan beri eshitmagan sevimli qo'shiqlaringiz.", () => reco.forgotten(50)],
-    top: ["Eng ko'p tinglanganlar", "Sizning shaxsiy chartingiz.", () => reco.topSongs(100)],
+    foryou: ["home.forYou", () => reco.forYou(50)],
+    new: ["home.new", () => reco.newest(100)],
+    recent: ["home.recent", () => recentlyPlayed(100)],
+    repeat: ["home.repeat", () => reco.onRepeat(50)],
+    discover: ["home.discover", () => reco.discover(50)],
+    forgotten: ["home.forgotten", () => reco.forgotten(50)],
+    top: ["home.top", () => reco.topSongs(100)],
   };
   if (special[id]) {
-    const [title, desc, fn] = special[id];
+    const [key, fn] = special[id];
     const songs = fn();
-    return collectionView({ kicker: "Miks", title, desc, songs, artEl: collage(songs), color: songs[0]?.color, context: { type: "mix", id, title } });
+    return collectionView({ kicker: t("common.mix"), title: t(key), desc: t(`mix.${id}.desc`), songs, artEl: collage(songs),
+      color: songs[0]?.color, context: { type: "mix", id, title: t(key) } });
   }
   const list = mixes();
   const idx = list.findIndex((m) => m.id === id);
-  if (idx < 0) return viewNotFound("Miks topilmadi");
+  if (idx < 0) return viewNotFound(t("mix.notFound"));
   const m = list[idx];
   return collectionView({
-    kicker: "Kunlik miks", title: mixTitle(m, idx), songs: m.songs,
-    desc: `${m.genre ? genre(m.genre).label + " • " : ""}${mixSub(m.songs)}. Har kuni yangilanadi.`,
+    kicker: t("common.mix"), title: mixTitle(m, idx), songs: m.songs,
+    desc: `${m.genre ? genre(m.genre).label + " • " : ""}${mixSub(m.songs)}. ${t("mix.daily.desc")}`,
     artEl: collage(m.songs), color: m.genre ? genre(m.genre).color : m.songs[0]?.color,
     context: { type: "mix", id: m.id, title: mixTitle(m, idx) },
   });
@@ -438,21 +437,21 @@ export function viewGenre(g) {
   const p = reco.profile();
   const songs = lib.songs.filter((s) => s.genre === g).map((s) => ({ s, sc: reco.score(s, p, { explore: 0.05, context: false }) }))
     .sort((a, b) => b.sc - a.sc).map((x) => x.s);
-  return collectionView({ kicker: "Janr", title: info.label, songs, artEl: songs.length ? collage(songs) : placeholder(g), color: info.color,
-    desc: "Sizga mosligi bo'yicha saralangan.", context: { type: "genre", id: g, title: info.label } });
+  return collectionView({ kicker: t("common.genre"), title: info.label, songs, artEl: songs.length ? collage(songs) : placeholder(g), color: info.color,
+    desc: t("genre.desc"), context: { type: "genre", id: g, title: info.label } });
 }
 
 export function viewMood(m) {
   const info = mood(m);
   const songs = reco.moodMix(m, 200);
-  return collectionView({ kicker: "Kayfiyat", title: `${info.emoji} ${info.label}`, songs, artEl: songs.length ? collage(songs) : placeholder(m),
-    color: info.color, desc: `${info.label} kayfiyatdagi qo'shiqlar — AI teglari asosida.`, context: { type: "mood", id: m, title: info.label } });
+  return collectionView({ kicker: t("common.mood"), title: `${info.emoji} ${info.label}`, songs, artEl: songs.length ? collage(songs) : placeholder(m),
+    color: info.color, desc: t("mood.desc", { m: info.label }), context: { type: "mood", id: m, title: info.label } });
 }
 
 export function viewLang(l) {
   const p = reco.profile();
   const songs = lib.songs.filter((s) => s.language === l).map((s) => ({ s, sc: reco.score(s, p, { context: false }) })).sort((a, b) => b.sc - a.sc).map((x) => x.s);
-  return collectionView({ kicker: "Til", title: lang(l), songs, artEl: songs.length ? collage(songs) : placeholder(l), color: songs[0]?.color,
+  return collectionView({ kicker: t("common.language"), title: lang(l), songs, artEl: songs.length ? collage(songs) : placeholder(l), color: songs[0]?.color,
     context: { type: "lang", id: l, title: lang(l) } });
 }
 
@@ -462,33 +461,46 @@ function popularOf(name) {
 
 export function viewArtist(name) {
   const songs = popularOf(name);
-  if (!songs.length) return viewNotFound("Ijrochi topilmadi");
+  if (!songs.length) return viewNotFound(t("artist.notFound"));
+  const profile = lib.artists[name] || {};
   const totalP = songs.reduce((a, s) => a + plays(s.id), 0);
   const context = { type: "artist", id: name, title: name };
   const v = h("div", { class: "view" });
   v.append(topbar(name, { back: true }));
-  const hero = collectionHero({ kicker: "Ijrochi", title: name, artEl: artistArt(name), round: true, color: artistColor(name),
-    meta: [`${songs.length} ta qo'shiq`, totalP ? `${num(totalP)} marta tinglangan` : null].filter(Boolean).join(" • ") });
+  const kicker = profile.verified
+    ? h("span", { class: "verified-kicker" }, verifiedBadge(name, 20), t("common.verified"))
+    : t("common.artist");
+  const meta = [
+    t("common.songs", { n: songs.length }),
+    totalP ? t("common.plays", { n: totalP }) : null,
+    profile.fans ? `${t("common.fans", { n: profile.fans })} ${t("artist.onDeezer")}` : null,
+  ].filter(Boolean).join(" • ");
+  const hero = collectionHero({ kicker, title: name, artEl: artistArt(name), round: true, color: artistColor(name), meta });
   hero.style.marginTop = "-58px";
   v.append(hero);
   v.append(collectionActions(songs, context, [
-    h("button", { class: "icon-btn", "aria-label": "Ijrochi radiosi", html: icon("radio", 24), onclick: () => playRadio(songs[0], { type: "radio", id: name, title: `${name} radiosi` }) }),
+    h("button", { class: "icon-btn", "aria-label": t("artist.radio"), html: icon("radio", 24), onclick: () => playRadio(songs[0], { type: "radio", id: name, title: t("ctx.radioOf", { t: name }) }) }),
   ]));
-  v.append(section("Mashhur", trackList(songs.slice(0, 10), context, { numbered: true })));
+  v.append(section(t("artist.popular"), trackList(songs.slice(0, 10), context, { numbered: true })));
   if (songs.length > 10) {
     const rest = songs.slice().sort((a, b) => (b.year || 0) - (a.year || 0));
-    v.append(section("Barcha qo'shiqlar", trackList(rest, context)));
+    v.append(section(t("artist.all"), trackList(rest, context)));
   }
   const albums = new Map();
   for (const s of songs) if (s.album && s.album !== s.title) { if (!albums.has(s.album)) albums.set(s.album, []); albums.get(s.album).push(s); }
   if (albums.size) {
-    v.append(section("Albom va singllar", shelf([...albums.entries()].map(([al, list]) => card({
-      artEl: art(list[0]), title: al, sub: [list[0].year, `${list.length} ta`].filter(Boolean).join(" • "),
+    v.append(section(t("artist.albums"), shelf([...albums.entries()].map(([al, list]) => card({
+      artEl: art(list[0]), title: al, sub: [list[0].year, t("common.songs", { n: list.length })].filter(Boolean).join(" • "),
       onClick: () => playList(list, 0, { type: "album", id: al, title: al }), onPlay: () => playList(list, 0, { type: "album", id: al, title: al }),
     })))));
   }
+  const links = [["deezer", "Deezer"], ["apple", "Apple Music"]].filter(([k]) => profile[k]);
+  if (links.length) {
+    v.append(section(t("artist.links"), h("div", { class: "chips", style: { flexWrap: "wrap" } },
+      links.map(([k, label]) => h("a", { class: "chip", href: profile[k], target: "_blank", rel: "noopener" }, `↗ ${label}`)))));
+  }
   const sim = reco.similarArtists(name, 12);
-  if (sim.length) v.append(section("O'xshash ijrochilar", shelf(sim.map((a) => card({ artEl: artistArt(a), title: a, sub: "Ijrochi", round: true, onClick: () => go(`artist/${encodeURIComponent(a)}`) })))));
+  if (sim.length) v.append(section(t("artist.similar"), shelf(sim.map((a) => artistCard(a)))));
   return v;
 }
 
@@ -500,23 +512,23 @@ export function viewSong(id) {
   v.append(topbar(s.title, { back: true }));
   const n = plays(s.id);
   const hero = collectionHero({
-    kicker: "Qo'shiq", title: s.title, artEl: art(s), color: s.color,
+    kicker: t("common.song"), title: s.title, artEl: art(s), color: s.color,
     meta: [
-      ...s.artists.map((a, i) => [i ? h("span", null, ", ") : null, link(`artist/${encodeURIComponent(a)}`, null, h("b", null, a))]),
+      ...s.artists.map((a, i) => [i ? h("span", null, ", ") : null, link(`artist/${encodeURIComponent(a)}`, null, h("b", null, a)), verifiedBadge(a, 15)]),
       s.album ? h("span", null, `• ${s.album}`) : null, s.year ? h("span", null, `• ${s.year}`) : null,
-      h("span", null, `• ${fmtTime(s.duration)}`), n ? h("span", null, `• ${num(n)} marta tinglangan`) : null,
+      h("span", null, `• ${fmtTime(s.duration)}`), n ? h("span", null, `• ${t("common.plays", { n })}`) : null,
     ],
   });
   hero.style.marginTop = "-58px";
   v.append(hero);
 
   const playing = player.current?.id === s.id;
-  const fab = h("button", { class: "play-fab lg", "aria-label": "Ijro", html: icon(playing && isPlaying() ? "pause" : "play", 26), dataset: { songfab: s.id },
-    onclick: () => (playing ? (player.audio.paused ? player.audio.play() : player.audio.pause()) : playRadio(s)) });
+  const fab = h("button", { class: "play-fab lg", "aria-label": t("common.play"), html: icon(playing && isPlaying() ? "pause" : "play", 26), dataset: { songfab: s.id },
+    onclick: () => (player.current?.id === s.id ? toggle() : playRadio(s)) });
   v.append(h("div", { class: "actions" }, fab, heartButton(s, 28),
-    h("button", { class: "icon-btn", "aria-label": "Ulashish", html: icon("share", 24), onclick: () => shareSong(s) }),
-    canDownload() ? h("button", { class: "icon-btn", "aria-label": "Yuklab olish", html: icon("download", 24), onclick: () => downloadSong(s) }) : null,
-    h("button", { class: "icon-btn", "aria-label": "Ko'proq", html: icon("more", 24), onclick: () => songMenu(s) }),
+    h("button", { class: "icon-btn", "aria-label": t("common.share"), html: icon("share", 24), onclick: () => shareSong(s) }),
+    canDownload() && s.src ? h("button", { class: "icon-btn", "aria-label": t("common.download"), html: icon("download", 24), onclick: () => downloadSong(s) }) : null,
+    h("button", { class: "icon-btn", "aria-label": t("common.more"), html: icon("more", 24), onclick: () => songMenu(s) }),
     h("div", { class: "grow" })));
 
   const pills = [
@@ -525,58 +537,65 @@ export function viewSong(id) {
     ...(s.moods || []).map((m) => link(`mood/${m}`, { class: "pill" }, `${mood(m).emoji} ${mood(m).label}`)),
     link(`lang/${s.language}`, { class: "pill" }, `🌐 ${lang(s.language)}`),
     s.bpm ? h("span", { class: "pill" }, `🥁 ${s.bpm} BPM`) : null,
-    h("span", { class: "pill" }, "⚡ Energiya ", h("span", { class: "meter" }, h("i", { style: { width: `${Math.round((s.energy ?? 0.5) * 100)}%` } }))),
+    h("span", { class: "pill" }, `⚡ ${t("song.energy")} `, h("span", { class: "meter" }, h("i", { style: { width: `${Math.round((s.energy ?? 0.5) * 100)}%` } }))),
     s.explicit ? h("span", { class: "pill" }, "🔞 Explicit") : null,
+    isVideo(s) ? h("span", { class: "pill" }, `🎬 ${t("common.youtube")}`) : null,
   ];
   v.append(h("div", { class: "info-grid" }, pills));
-  if (s.description) v.append(h("div", { class: "ai-note", html: `${icon("sparkles", 18)}<div></div>` }));
-  if (s.description) v.lastChild.lastChild.textContent = s.description;
-  if (s.tags?.length) v.append(h("div", { class: "chips", style: { marginTop: "12px", flexWrap: "wrap" } }, s.tags.map((t) => link(`search/${encodeURIComponent(t)}`, { class: "chip outline" }, `#${t}`))));
+  const desc = describe(s);
+  if (desc) {
+    const note = h("div", { class: "ai-note", html: icon("sparkles", 18) });
+    note.append(h("div", null, desc));
+    v.append(note);
+  }
+  if (s.tags?.length) v.append(h("div", { class: "chips", style: { marginTop: "12px", flexWrap: "wrap" } }, s.tags.map((tag) => link(`search/${encodeURIComponent(tag)}`, { class: "chip outline" }, `#${tag}`))));
 
-  const src = { shazam: "Shazam", itunes: "iTunes", deezer: "Deezer", ai: "AI" };
-  const found = (s.sources || []).map((x) => src[x]).filter(Boolean).join(" + ");
+  const names = { shazam: "Shazam", itunes: "iTunes", deezer: "Deezer", ai: "AI", youtube: "YouTube" };
+  const found = (s.sources || []).map((x) => names[x]).filter(Boolean).join(" + ");
   v.append(h("p", { class: "pad muted", style: { fontSize: "12px", marginTop: "14px" } },
-    `Qo'shilgan: ${timeAgo(Date.parse(s.addedAt || 0))}`, found ? ` • Aniqlandi: ${found}` : "",
-    s.confidence != null ? ` • ishonch ${Math.round(s.confidence * 100)}%` : ""));
+    [t("song.added", { when: timeAgo(Date.parse(s.addedAt || 0)) }), found ? t("song.found", { src: found }) : null,
+      s.confidence != null ? t("song.confidence", { n: Math.round(s.confidence * 100) }) : null].filter(Boolean).join(" • ")));
 
   if (s.lyrics) {
     const box = h("div", { class: "lyrics-plain", style: { fontSize: "16px" } }, "…");
-    v.append(section("Qo'shiq matni", h("div", { class: "pad" }, box)));
+    v.append(section(t("common.lyrics"), h("div", { class: "pad" }, box)));
     getLyrics(s).then((data) => {
       const text = data?.plain || (data?.synced || []).map((l) => l[1]).join("\n");
-      box.textContent = text ? text.split("\n").slice(0, 12).join("\n") + (text.split("\n").length > 12 ? "\n…" : "") : "Topilmadi";
+      const lines = (text || "").split("\n");
+      box.textContent = text ? lines.slice(0, 12).join("\n") + (lines.length > 12 ? "\n…" : "") : t("np.noLyrics");
     });
   }
   const similar = reco.radio(s, 10);
   if (similar.length) {
-    const ctx = { type: "radio", id: s.id, title: `${s.title} radiosi` };
+    const ctx = { type: "radio", id: s.id, title: t("ctx.radioOf", { t: s.title }) };
     const box = h("div", { class: "tracks" });
     similar.forEach((x) => box.append(songRow(x, { list: [s, ...similar], context: ctx })));
-    v.append(section("O'xshash qo'shiqlar", box));
+    v.append(section(t("song.similar"), box));
   }
   return v;
 }
 
 function viewPending(id) {
   const v = h("div", { class: "view" });
-  v.append(topbar("Qo'shiq", { back: true }));
-  const box = h("div", { class: "empty" }, h("div", { class: "spinner" }), h("h3", null, "Qo'shiq joylanmoqda…"),
-    h("p", null, "Bot uni hozirgina qo'shdi — sayt 1–3 daqiqada yangilanadi. Sahifa o'zi yangilanadi."));
+  v.append(topbar(t("common.song"), { back: true }));
+  const box = h("div", { class: "empty" }, h("div", { class: "spinner" }), h("h3", null, t("song.pending")), h("p", null, t("song.pendingDesc")));
   v.append(box);
   let tries = 0;
   const timer = setInterval(async () => {
     tries++;
-    if (!v.isConnected || tries > 20) { clearInterval(timer); if (v.isConnected) box.replaceWith(h("div", { class: "empty" }, h("h3", null, "Qo'shiq topilmadi"), h("p", null, "U o'chirilgan bo'lishi mumkin."))); return; }
+    if (!v.isConnected || tries > 20) {
+      clearInterval(timer);
+      if (v.isConnected) box.replaceWith(h("div", { class: "empty" }, h("h3", null, t("song.notFound")), h("p", null, t("song.notFoundDesc"))));
+      return;
+    }
     try { await loadLibrary(); } catch { /* retry */ }
     if (getSong(id)) { clearInterval(timer); rerender(); }
   }, 15000);
   return v;
 }
 
-export function viewNotFound(msg = "Sahifa topilmadi") {
+export function viewNotFound(msg = t("page.notFound")) {
   const v = h("div", { class: "view" });
-  v.append(topbar("", { back: true }), h("div", { class: "empty" }, h("h3", null, msg), h("a", { class: "btn", href: "#/" }, "Bosh sahifa")));
+  v.append(topbar("", { back: true }), h("div", { class: "empty" }, h("h3", null, msg), h("a", { class: "btn", href: "#/" }, t("common.homeBtn"))));
   return v;
 }
-
-export { coverUrl };

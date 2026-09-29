@@ -1,8 +1,9 @@
 // App shell: boot, router, player bar, sidebar, keyboard shortcuts, live refresh.
 import { CONFIG } from "./config.js";
 import { loadLibrary, on, initSync, favSongs, songsOf, toggleFav } from "./store.js";
-import { player, restore, toggle, next, prev, seek, setVolume, isPlaying, pruneMissing, setShuffle, cycleRepeat } from "./player.js";
-import { h, icon, art, artistArt, likedArt, collage, fmtTime, refreshMarks, toast, go, link, overlayOpen, popOverlay, heartButton, nav, back } from "./ui.js";
+import { player, restore, toggle, next, prev, seek, setVolume, isPlaying, pruneMissing, setShuffle, cycleRepeat, currentTime, duration } from "./player.js";
+import { h, icon, art, artistArt, likedArt, collage, fmtTime, refreshMarks, toast, go, link, overlayOpen, popOverlay, heartButton, nav, back, verifiedBadge } from "./ui.js";
+import { t, LANG } from "./i18n.js";
 import * as V from "./views.js";
 import { openNowPlaying, openQueue } from "./nowplaying.js";
 import { initTelegram, setBackButton, startParam, haptic, inTelegram } from "./tg.js";
@@ -102,18 +103,18 @@ function buildPlayerBar() {
   const title = h("div", { class: "pb-title" });
   const artist = h("div", { class: "pb-artist" });
   const heartSlot = h("span");
-  const playBtn = h("button", { class: "icon-btn", "aria-label": "Ijro/pauza", onclick: (e) => { e.stopPropagation(); haptic("light"); toggle(); } });
+  const playBtn = h("button", { class: "icon-btn", "aria-label": t("common.play"), onclick: (e) => { e.stopPropagation(); haptic("light"); toggle(); } });
   const progress = h("i");
-  const range = h("input", { class: "range", type: "range", min: 0, max: 1000, value: 0, "aria-label": "Vaqt" });
+  const range = h("input", { class: "range", type: "range", min: 0, max: 1000, value: 0, "aria-label": "Time" });
   const tCur = h("span", null, "0:00"), tDur = h("span", null, "0:00");
   let seeking = false;
-  range.addEventListener("input", () => { seeking = true; range.style.setProperty("--p", `${range.value / 10}%`); tCur.textContent = fmtTime((range.value / 1000) * (player.audio.duration || 0)); });
-  range.addEventListener("change", () => { seek((range.value / 1000) * (player.audio.duration || 0)); seeking = false; });
-  const vol = h("input", { class: "range", type: "range", min: 0, max: 100, value: Math.round(player.volume * 100), "aria-label": "Ovoz" });
+  range.addEventListener("input", () => { seeking = true; range.style.setProperty("--p", `${range.value / 10}%`); tCur.textContent = fmtTime((range.value / 1000) * duration()); });
+  range.addEventListener("change", () => { seek((range.value / 1000) * duration()); seeking = false; });
+  const vol = h("input", { class: "range", type: "range", min: 0, max: 100, value: Math.round(player.volume * 100), "aria-label": t("common.volume") });
   vol.style.setProperty("--p", `${vol.value}%`);
   vol.addEventListener("input", () => { setVolume(vol.value / 100); vol.style.setProperty("--p", `${vol.value}%`); });
-  const shuffleBtn = h("button", { class: "icon-btn muted only-desktop", html: icon("shuffle", 18), "aria-label": "Aralash", onclick: () => setShuffle(!player.shuffle) });
-  const repeatBtn = h("button", { class: "icon-btn muted only-desktop", html: icon("repeat", 18), "aria-label": "Takrorlash", onclick: cycleRepeat });
+  const shuffleBtn = h("button", { class: "icon-btn muted only-desktop", html: icon("shuffle", 18), "aria-label": t("common.shuffle"), onclick: () => setShuffle(!player.shuffle) });
+  const repeatBtn = h("button", { class: "icon-btn muted only-desktop", html: icon("repeat", 18), "aria-label": t("common.repeat"), onclick: cycleRepeat });
 
   const info = h("div", { class: "pb-info", onclick: openNowPlaying }, title, artist);
   bar.append(
@@ -121,16 +122,16 @@ function buildPlayerBar() {
     h("div", { class: "pb-center" },
       h("div", { class: "pb-controls" },
         shuffleBtn,
-        h("button", { class: "icon-btn only-desktop", html: icon("prev", 20), "aria-label": "Oldingi", onclick: prev }),
+        h("button", { class: "icon-btn only-desktop", html: icon("prev", 20), "aria-label": t("common.prev"), onclick: prev }),
         playBtn,
-        h("button", { class: "icon-btn only-desktop", html: icon("next", 20), "aria-label": "Keyingi", onclick: () => next() }),
+        h("button", { class: "icon-btn only-desktop", html: icon("next", 20), "aria-label": t("common.next"), onclick: () => next() }),
         repeatBtn),
       h("div", { class: "pb-seek" }, tCur, range, tDur)),
     h("div", { class: "pb-extra" },
-      h("button", { class: "icon-btn muted", html: icon("mic", 18), "aria-label": "Matn", onclick: openNowPlaying }),
-      h("button", { class: "icon-btn muted", html: icon("queue", 18), "aria-label": "Navbat", onclick: openQueue }),
+      h("button", { class: "icon-btn muted", html: icon("mic", 18), "aria-label": t("common.lyrics"), onclick: openNowPlaying }),
+      h("button", { class: "icon-btn muted", html: icon("queue", 18), "aria-label": t("common.queue"), onclick: openQueue }),
       h("span", { class: "muted", html: icon("volume", 18), style: { display: "flex" } }), vol,
-      h("button", { class: "icon-btn muted", html: icon("down", 18), style: { transform: "rotate(180deg)" }, "aria-label": "Ochish", onclick: openNowPlaying })),
+      h("button", { class: "icon-btn muted", html: icon("down", 18), style: { transform: "rotate(180deg)" }, "aria-label": t("np.expand"), onclick: openNowPlaying })),
     h("div", { class: "pb-progress" }, progress));
 
   const setTrack = (s) => {
@@ -154,12 +155,13 @@ function buildPlayerBar() {
   on("track", (s) => { setTrack(s); setPlaying(); refreshMarks(); });
   on("state", () => { setPlaying(); refreshMarks(); syncFabs(); });
   on("modes", setModes);
-  on("time", ({ t, d }) => {
-    const p = d ? (t / d) * 100 : 0;
+  on("time", ({ t: time, d }) => {
+    const p = d ? (time / d) * 100 : 0;
     progress.style.width = `${p}%`;
-    if (!seeking) { range.value = p * 10; range.style.setProperty("--p", `${p}%`); tCur.textContent = fmtTime(t); tDur.textContent = fmtTime(d); }
+    if (!seeking) { range.value = p * 10; range.style.setProperty("--p", `${p}%`); tCur.textContent = fmtTime(time); tDur.textContent = fmtTime(d); }
   });
-  on("error", ({ song }) => toast(`"${song.title}" ochilmadi — keyingisiga o'tildi`));
+  on("error", ({ song }) => toast(t("toast.failed", { t: song?.title || "" })));
+  on("blocked", () => { toast(t("np.tapVideo"), 4000); openNowPlaying(); });
   setTrack(player.current);
   setPlaying();
   setModes();
@@ -186,27 +188,28 @@ function buildSidebar() {
     h("div", { class: "side-box" },
       h("div", { class: "brand" }, h("img", { src: "icons/icon-192.png", alt: "" }), CONFIG.appName),
       h("nav", { class: "side-nav" },
-        h("a", { href: "#/", dataset: { tab: "home" }, html: `${icon("home")}<span>Bosh sahifa</span>` }),
-        h("a", { href: "#/search", dataset: { tab: "search" }, html: `${icon("search")}<span>Qidiruv</span>` }))),
+        h("a", { href: "#/", dataset: { tab: "home" }, html: `${icon("home")}<span>${t("nav.home")}</span>` }),
+        h("a", { href: "#/search", dataset: { tab: "search" }, html: `${icon("search")}<span>${t("nav.search")}</span>` }),
+        h("a", { href: "#", onclick: (e) => { e.preventDefault(); V.openSettings(); }, html: `<span style="width:24px;text-align:center">🌐</span><span>${t("settings.language")}: ${LANG.toUpperCase()}</span>` }))),
     libBox);
   const fill = () => {
     libBox.replaceChildren(
-      h("a", { class: "side-title", href: "#/library", dataset: { tab: "library" }, html: `${icon("library")}<span>Kutubxonangiz</span>` }),
-      link("liked", { class: "side-item" }, likedArt(), h("div", { style: { minWidth: 0 } }, h("div", { class: "t" }, "Sevimli qo'shiqlar"), h("div", { class: "s" }, `Pleylist • ${favSongs().length} ta`))),
+      h("a", { class: "side-title", href: "#/library", dataset: { tab: "library" }, html: `${icon("library")}<span>${t("nav.yourLibrary")}</span>` }),
+      link("liked", { class: "side-item" }, likedArt(), h("div", { style: { minWidth: 0 } }, h("div", { class: "t" }, t("home.liked")), h("div", { class: "s" }, `${t("common.playlist")} • ${t("common.songs", { n: favSongs().length })}`))),
       ...V.mixes().slice(0, 4).map((m, i) => link(`mix/${m.id}`, { class: "side-item" }, collage(m.songs),
-        h("div", { style: { minWidth: 0 } }, h("div", { class: "t" }, `Kunlik miks ${i + 1}`), h("div", { class: "s" }, "Miks")))),
+        h("div", { style: { minWidth: 0 } }, h("div", { class: "t" }, t("home.dailyMix", { n: i + 1 })), h("div", { class: "s" }, t("common.mix"))))),
       ...artistsRanked(12).map((a) => link(`artist/${encodeURIComponent(a)}`, { class: "side-item round" }, artistArt(a),
-        h("div", { style: { minWidth: 0 } }, h("div", { class: "t" }, a), h("div", { class: "s" }, `Ijrochi • ${songsOf(a).length}`)))));
+        h("div", { style: { minWidth: 0 } }, h("div", { class: "t" }, a, verifiedBadge(a, 13)), h("div", { class: "s" }, `${t("common.artist")} • ${songsOf(a).length}`)))));
     document.querySelectorAll("[data-tab]").forEach((a) => a.classList.toggle("active", a.dataset.tab === currentTab));
   };
   fill();
   on("library", fill);
-  on("favs", () => { const s = libBox.querySelector(".side-item .s"); if (s) s.textContent = `Pleylist • ${favSongs().length} ta`; });
+  on("favs", () => { const s = libBox.querySelector(".side-item .s"); if (s) s.textContent = `${t("common.playlist")} • ${t("common.songs", { n: favSongs().length })}`; });
 }
 
 function buildTabbar() {
   const bar = document.getElementById("tabbar");
-  for (const [tab, ico, label, href] of [["home", "home", "Bosh sahifa", "#/"], ["search", "search", "Qidiruv", "#/search"], ["library", "library", "Kutubxona", "#/library"]]) {
+  for (const [tab, ico, label, href] of [["home", "home", t("nav.home"), "#/"], ["search", "search", t("nav.search"), "#/search"], ["library", "library", t("nav.library"), "#/library"]]) {
     bar.append(h("a", { href, dataset: { tab, icon: ico }, onclick: (e) => {
       const here = parsePath();
       const atRoot = tab === "home" ? /^\/?(home)?$/.test(here) : here === href.slice(1);
@@ -221,9 +224,9 @@ document.addEventListener("keydown", (e) => {
   if (e.code === "Space") { e.preventDefault(); toggle(); }
   else if (e.code === "ArrowRight" && e.shiftKey) next();
   else if (e.code === "ArrowLeft" && e.shiftKey) prev();
-  else if (e.code === "ArrowRight") seek(player.audio.currentTime + 5);
-  else if (e.code === "ArrowLeft") seek(player.audio.currentTime - 5);
-  else if (e.key === "l" && player.current) { const f = toggleFav(player.current.id); toast(f ? "Sevimlilarga qo'shildi 💚" : "Olib tashlandi"); }
+  else if (e.code === "ArrowRight") seek(currentTime() + 5);
+  else if (e.code === "ArrowLeft") seek(currentTime() - 5);
+  else if (e.key === "l" && player.current) { const f = toggleFav(player.current.id); toast(f ? t("toast.faved") : t("toast.unfaved")); }
   else if (e.key === "/") { e.preventDefault(); go("search"); }
   else if (e.key === "Escape" && overlayOpen()) popOverlay();
 });
@@ -238,7 +241,7 @@ async function refresh() {
     if (!added.length) return;
     V.invalidateMixes();
     pruneMissing();
-    toast(added.length === 1 ? `🎵 Yangi qo'shiq: ${added[0].artist} — ${added[0].title}` : `🎵 ${added.length} ta yangi qo'shiq qo'shildi`, 3500);
+    toast(added.length === 1 ? t("toast.newSong", { s: `${added[0].artist} — ${added[0].title}` }) : t("toast.newSongs", { n: added.length }), 3500);
     if (ROOT_TABS.has(currentTab || "") && currentTab !== "search") render(currentPath, { keepScroll: true });
   } catch { /* offline */ }
 }
@@ -252,8 +255,8 @@ async function boot() {
   try {
     await loadLibrary();
   } catch (e) {
-    viewRoot.replaceChildren(h("div", { class: "empty" }, h("h3", null, "Kutubxonani yuklab bo'lmadi"),
-      h("p", null, String(e.message || e)), h("button", { class: "btn", onclick: () => location.reload() }, "Qayta urinish")));
+    viewRoot.replaceChildren(h("div", { class: "empty" }, h("h3", null, t("load.error")),
+      h("p", null, String(e.message || e)), h("button", { class: "btn", onclick: () => location.reload() }, t("common.retry"))));
     return;
   }
   buildSidebar();

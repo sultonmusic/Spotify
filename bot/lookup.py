@@ -14,7 +14,7 @@ from typing import Any
 
 import requests
 
-from .textutil import norm, similarity, split_artists
+from .textutil import norm, phon, similarity, split_artists, strip_feat
 
 UA = {"User-Agent": "MusicStation/1.0 (+https://github.com/topics/telegram-music-bot)"}
 _session = requests.Session()
@@ -105,17 +105,23 @@ def itunes(title: str, artist: str, duration: float) -> dict | None:
             break
     if not best:
         return None
-    art = best.get("artworkUrl100") or ""
+    return {"score": round(best_score, 3), **_itunes_track(best)}
+
+
+def _itunes_track(r: dict) -> dict:
+    art = r.get("artworkUrl100") or ""
     return {
-        "score": round(best_score, 3),
-        "title": best.get("trackName", ""),
-        "artist": best.get("artistName", ""),
-        "album": re.sub(r"\s*-\s*(Single|EP)$", "", best.get("collectionName", "") or ""),
-        "genre": best.get("primaryGenreName", ""),
-        "year": int(best["releaseDate"][:4]) if best.get("releaseDate") else None,
-        "duration": (best.get("trackTimeMillis") or 0) / 1000,
+        "title": r.get("trackName", ""),
+        "artist": r.get("artistName", ""),
+        "album": re.sub(r"\s*-\s*(Single|EP)$", "", r.get("collectionName", "") or ""),
+        "genre": r.get("primaryGenreName", ""),
+        "year": int(r["releaseDate"][:4]) if r.get("releaseDate") else None,
+        "duration": (r.get("trackTimeMillis") or 0) / 1000,
         "cover": art.replace("100x100bb", "600x600bb") if art else None,
-        "explicit": best.get("trackExplicitness") == "explicit",
+        "explicit": r.get("trackExplicitness") == "explicit",
+        "artist_id": r.get("artistId"),
+        "artist_url": (r.get("artistViewUrl") or "").split("?")[0] or None,
+        "track_url": (r.get("trackViewUrl") or "").split("?")[0] or None,
     }
 
 
@@ -136,32 +142,134 @@ def deezer(title: str, artist: str, duration: float) -> dict | None:
             break
     if not best:
         return None
-    result: dict[str, Any] = {
-        "score": round(best_score, 3),
-        "title": best.get("title", ""),
-        "artist": (best.get("artist") or {}).get("name", ""),
-        "album": (best.get("album") or {}).get("title", ""),
-        "duration": best.get("duration") or 0,
-        "cover": (best.get("album") or {}).get("cover_xl"),
-        "artist_picture": (best.get("artist") or {}).get("picture_xl"),
-        "explicit": bool(best.get("explicit_lyrics")),
-    }
+    result = {"score": round(best_score, 3), **_deezer_track(best)}
     if best_score >= 0.7:
-        track = _get(f"https://api.deezer.com/track/{best['id']}") or {}
-        if track.get("bpm"):
-            result["bpm"] = round(float(track["bpm"]))
-        if track.get("release_date") and track["release_date"][:4].isdigit():
-            result["year"] = int(track["release_date"][:4])
-        contributors = [c.get("name") for c in track.get("contributors") or [] if c.get("name")]
-        if contributors:
-            result["artists"] = contributors
-        album_id = (best.get("album") or {}).get("id")
-        if album_id:
-            album = _get(f"https://api.deezer.com/album/{album_id}") or {}
-            genres = [g.get("name") for g in (album.get("genres") or {}).get("data", []) if g.get("name")]
-            if genres:
-                result["genre"] = genres[0]
+        result.update(deezer_details(best["id"], (best.get("album") or {}).get("id")))
     return result
+
+
+def _deezer_track(r: dict) -> dict:
+    art = r.get("artist") or {}
+    return {
+        "id": r.get("id"),
+        "title": r.get("title", ""),
+        "artist": art.get("name", ""),
+        "album": (r.get("album") or {}).get("title", ""),
+        "album_id": (r.get("album") or {}).get("id"),
+        "duration": r.get("duration") or 0,
+        "cover": (r.get("album") or {}).get("cover_xl"),
+        "artist_picture": art.get("picture_xl"),
+        "artist_id": art.get("id"),
+        "explicit": bool(r.get("explicit_lyrics")),
+        "rank": r.get("rank") or 0,
+    }
+
+
+def deezer_details(track_id: int, album_id: int | None) -> dict:
+    """bpm, release year, every performer (with Deezer ids/pictures) and the album genre."""
+    result: dict[str, Any] = {}
+    track = _get(f"https://api.deezer.com/track/{track_id}") or {}
+    if track.get("bpm"):
+        result["bpm"] = round(float(track["bpm"]))
+    if track.get("release_date") and track["release_date"][:4].isdigit():
+        result["year"] = int(track["release_date"][:4])
+    contributors = [{"name": c["name"], "id": c.get("id"), "picture": c.get("picture_xl")}
+                    for c in track.get("contributors") or [] if c.get("name")]
+    if contributors:
+        result["artists"] = [c["name"] for c in contributors]
+        result["contributors"] = contributors
+    if album_id:
+        album = _get(f"https://api.deezer.com/album/{album_id}") or {}
+        genres = [g.get("name") for g in (album.get("genres") or {}).get("data", []) if g.get("name")]
+        if genres:
+            result["genre"] = genres[0]
+    return result
+
+
+def deezer_artist(artist_id: int) -> dict | None:
+    data = _get(f"https://api.deezer.com/artist/{artist_id}")
+    if not data or data.get("error"):
+        return None
+    return {"id": data.get("id"), "name": data.get("name"), "fans": data.get("nb_fan") or 0,
+            "picture": data.get("picture_xl"), "link": data.get("link")}
+
+
+def deezer_find_artist(name: str) -> dict | None:
+    data = _get("https://api.deezer.com/search/artist", {"q": name, "limit": 10}) or {}
+    close = [a for a in data.get("data", []) if similarity(a.get("name", ""), name) >= 0.9]
+    if not close:
+        return None
+    # Exact spelling first, then the most followed (the real artist, not a namesake)
+    a = max(close, key=lambda x: (x.get("name", "").lower() == name.lower(), x.get("nb_fan") or 0))
+    return {"id": a.get("id"), "name": a.get("name"), "fans": a.get("nb_fan") or 0,
+            "picture": a.get("picture_xl"), "link": a.get("link")}
+
+
+def deezer_top_titles(artist_id: int) -> list[str]:
+    data = _get(f"https://api.deezer.com/artist/{artist_id}/top", {"limit": 100}) or {}
+    return [t.get("title", "") for t in data.get("data", [])]
+
+
+# --------------------------------------------------------------------------- search by name
+
+_JUNK_ARTIST = re.compile(r"karaoke|tribute|made famous|in the style of|cover band|backing track|originally performed", re.I)
+
+
+def search_songs(query: str, limit: int = 8) -> list[dict]:
+    """Songs matching a free-text query ("Shahzoda Hayot ayt", "hello"), best first.
+
+    Both catalogues are searched; the same song from both is merged into one candidate.
+    """
+    query = query.strip()
+    found: dict[tuple[str, str], dict] = {}
+
+    q_tokens = phon(query).split()
+
+    def relevance(c: dict) -> float:
+        """How well a catalogue song answers the query. Artist words in the query are matched separately,
+        so "Sevara Nazarkhan Yol bolsin" prefers "Yol Bolsin" over her other songs."""
+        base, _ = strip_feat(c["title"])
+        artist_tokens = set(phon(c["artist"]).split())
+        rest = [t for t in q_tokens if t not in artist_tokens]
+        if len(rest) < len(q_tokens):  # the query names this artist
+            return 0.3 + 0.7 * similarity(" ".join(rest), base) if rest else 0.55
+        return max(similarity(query, base), similarity(query, f"{c['artist']} {base}") * 0.9)
+
+    def add(c: dict, source: str, order: int) -> None:
+        if _JUNK_ARTIST.search(c["artist"]) and not _JUNK_ARTIST.search(query):
+            return
+        base, _ = strip_feat(c["title"])
+        key = (phon(split_artists(c["artist"])[0] if c["artist"] else ""), phon(base))
+        score = relevance(c) - order * 0.004
+        cur = found.get(key)
+        if cur is None:
+            found[key] = {**c, "score": score, "sources": [source]}
+        else:
+            cur["score"] = max(cur["score"], score) + (0.03 if source not in cur["sources"] else 0)
+            if source not in cur["sources"]:
+                cur["sources"].append(source)
+            for k, v in c.items():
+                if v and not cur.get(k):
+                    cur[k] = v
+
+    for country in ("US", "RU"):
+        data = _get("https://itunes.apple.com/search",
+                    {"term": query, "entity": "song", "media": "music", "limit": 15, "country": country}) or {}
+        for i, r in enumerate(data.get("results", [])):
+            c = _itunes_track(r)
+            c["itunes_artist_id"] = c.pop("artist_id")
+            add(c, "itunes", i)
+        if len(found) >= 6:
+            break
+    data = _get("https://api.deezer.com/search", {"q": query, "limit": 15}) or {}
+    for i, r in enumerate(data.get("data", [])):
+        c = _deezer_track(r)
+        c["deezer_id"] = c.pop("id")
+        c["deezer_artist_id"] = c.pop("artist_id")
+        add(c, "deezer", i)
+
+    ranked = sorted(found.values(), key=lambda c: (-round(c["score"], 2), -(c.get("rank") or 0)))
+    return [c for c in ranked if c["score"] >= 0.45][:limit]
 
 
 # --------------------------------------------------------------------------- lyrics

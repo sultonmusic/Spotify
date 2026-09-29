@@ -27,7 +27,7 @@ export async function loadLibrary() {
   const data = await res.json();
   if (lib.loaded && data.updatedAt === lib.updatedAt) return [];
   const known = new Set(lib.byId.keys());
-  lib.songs = (data.songs || []).filter((s) => s && s.id && s.src);
+  lib.songs = (data.songs || []).filter((s) => s && s.id && (s.src || (Array.isArray(s.yt) && s.yt.length)));
   lib.artists = data.artists || {};
   lib.updatedAt = data.updatedAt;
   lib.byId = new Map();

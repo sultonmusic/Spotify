@@ -1,8 +1,10 @@
 # 🎧 Sulton Music — shaxsiy musiqa stansiyasi
 
-Telegram botga yuborgan har bir qo'shiq avtomatik aniqlanib (nomi, ijrochisi, albom, janr, kayfiyat, til,
-muqova, qo'shiq matni) **GitHub Pages** saytiga va **Telegram Mini App**ga joylanadi. Spotify uslubidagi
-interfeys: bosh sahifa, shaxsiy tavsiyalar, kunlik mikslar, qidiruv, sevimlilar, tinglashlar soni va statistika.
+Telegram botga yuborgan har bir qo'shiq — **fayl** yoki shunchaki **qo'shiq nomi** — avtomatik aniqlanib
+(nomi, ijrochisi, albom, janr, kayfiyat, til, muqova, qo'shiq matni) **GitHub Pages** saytiga va
+**Telegram Mini App**ga joylanadi. Spotify uslubidagi interfeys (🇷🇺 rus — standart, 🇬🇧 ingliz, 🇺🇿 o'zbek):
+bosh sahifa, shaxsiy tavsiyalar, kunlik mikslar, qidiruv, sevimlilar, tinglashlar soni, statistika,
+tasdiqlangan (☑️) ijrochi profillari.
 
 - 🤖 Bot: [@CaviSpotifybot](https://t.me/CaviSpotifybot)
 - 🌐 Sayt: https://sultonmusic.github.io/Spotify/
@@ -10,7 +12,9 @@ interfeys: bosh sahifa, shaxsiy tavsiyalar, kunlik mikslar, qidiruv, sevimlilar,
 ## Qanday ishlaydi
 
 ```
-Siz ──(qo'shiq)──▶ Telegram bot ──▶ GitHub Actions (har 5 daqiqada)
+Siz ──(fayl yoki nom)──▶ Telegram bot ──▶ GitHub Actions (har 5 daqiqada)
+                                     ├─ nom yozilsa: iTunes + Deezer'dan qidiradi, bir nechta bo'lsa tanlatadi,
+                                     │   rasmiy YouTube videosini topadi (embed, yuklab olinmaydi)
                                      ├─ Shazam: qo'shiqni ovozidan aniqlaydi
                                      ├─ iTunes + Deezer: albom, yil, janr, muqova, BPM
                                      ├─ LRCLIB: qo'shiq matni (sinxron karaoke)
@@ -40,6 +44,11 @@ Bot menyusidagi **🎧 Musiqa** tugmasi saytni Telegram ichida mini ilova sifati
 | Buyruq | Vazifasi |
 |---|---|
 | audio / fayl / video klip yuborish | Qo'shiqni aniqlab stansiyaga qo'shadi (20 MB gacha) |
+| qo'shiq nomini yozish (yoki `/add nomi`) | Rasmiy qo'shiqni topadi; bir xil nomli bir nechtasi bo'lsa — tugmalar bilan tanlaysiz |
+| `/artists` | Ijrochilar ro'yxati (☑️ = tasdiqlangan) |
+| `/verify Ijrochi`, `/unverify Ijrochi` | Tasdiqlash belgisini qo'lda qo'yish / olish |
+| `/merge Eski nom > To'g'ri nom` | Bir ijrochining ikki profilini birlashtirish |
+| ovozli xabar | Yaqinda chalinayotgan qo'shiqni aniqlaydi (Shazam kabi) |
 | `/list` | Oxirgi qo'shilgan qo'shiqlar |
 | `/stats` | Kutubxona statistikasi |
 | `/edit Ijrochi - Nomi` | Qo'shiq xabariga javob qilib yozing — ma'lumotni tuzatadi |
@@ -48,8 +57,32 @@ Bot menyusidagi **🎧 Musiqa** tugmasi saytni Telegram ichida mini ilova sifati
 | Rasm bilan javob | Qo'shiq xabariga rasm bilan javob bersangiz, muqova almashadi |
 | Oddiy matn | Kutubxonadan qidiradi |
 
+## Nom bo'yicha qo'shilgan qo'shiqlar
+
+Bot audioni internetdan yuklab olmaydi (mualliflik huquqi, ustiga-ustak YouTube GitHub serverlarini bloklaydi).
+Buning o'rniga rasmiy YouTube videosini topib, sayt uni **YouTube'ning rasmiy pleyeri** orqali ijro etadi:
+video "Hozir ijroda" oynasida yoki kichik oynachada ko'rinadi. Keyinroq shu qo'shiqning faylini botga
+yuborsangiz, u avtomatik ravishda yuqori sifatli audio bilan almashtiriladi (fon rejimida, qulf ekranida ham ijro).
+
+Ayrim yorliqlar (label) o'z videolarini boshqa saytlarga joylashni taqiqlaydi. Bunday qo'shiq ochilmasa,
+sayt keyingisiga o'tadi — bunday holda qo'shiq faylini yuboring.
+
+## Ijrochilar va ☑️ tasdiqlangan belgisi
+
+- Har bir ijrochi uchun bitta profil: rasm, qo'shiqlar, tinglashlar, Deezer muxlislari soni, rasmiy havolalar.
+- Bir ijrochining yangi qo'shig'i avtomatik o'sha profilga qo'shiladi — nomi boshqacha yozilgan bo'lsa ham
+  (masalan *Shakhzoda* / *Shahzoda*): avval Deezer/Apple Music ID bo'yicha, keyin nom bo'yicha solishtiriladi.
+- Ijrochi Deezer yoki Apple Music'da rasmiy sahifaga ega bo'lsa va qo'shig'i o'sha yerda bo'lsa — ☑️ tasdiqlangan.
+
+## Kim nima qila oladi
+
+- **Qo'shiq qo'shish, tahrirlash, o'chirish — faqat siz (stansiya egasi)**, bot orqali. Saytda qo'shish tugmasi yo'q.
+- **Saytni hamma ko'ra va tinglay oladi.** Har bir tashrif buyuruvchining sevimlilari va tinglashlari o'ziga tegishli.
+
 ## Sayt imkoniyatlari
 
+- **Til:** avtomatik — ingliz tilidagi qurilmada inglizcha, qolganlarida ruscha. Yuqoridagi 🌐 tugmasi
+  (yoki avatar) orqali Русский / English / O'zbekcha ga o'zgartiriladi.
 - **Bosh sahifa:** salomlashish, tezkor tanlovlar, *Siz uchun*, *Kunlik mikslar*, yangi qo'shilganlar,
   yaqinda tinglangan, *Takror-takror*, ijrochilar, *Kashf eting*, *Unutilgan sevimlilar*, janrlar.
 - **Tavsiya algoritmi:** tinglash soni, yaqinligi, sevimlilar va o'tkazib yuborishlardan did-profili tuziladi;

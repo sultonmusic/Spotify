@@ -82,8 +82,10 @@ class Library:
         tmp.replace(config.SONGS_FILE)
         self.dirty = False
 
-    def ensure_artist_image(self, name: str, url: str | None) -> None:
-        if not name or not url or name in self.artists:
+    def set_artist_image(self, name: str, url: str | None) -> None:
+        """Downloads the official artist photo once and stores it with the artist profile."""
+        profile = self.artists.setdefault(name, {"aliases": [], "verified": False})
+        if not url or profile.get("image"):
             return
         from .covers import save_cover
         from .lookup import download_image
@@ -95,7 +97,7 @@ class Library:
         dest = config.ARTISTS_DIR / f"{slug}.jpg"
         color = save_cover(data, dest)
         if color:
-            self.artists[name] = {"image": f"library/artists/{dest.name}", "color": color}
+            profile.update(image=f"library/artists/{dest.name}", color=color)
             self.dirty = True
 
     # ------------------------------------------------------------------ stats
@@ -104,7 +106,7 @@ class Library:
 
     def pages_audio_bytes(self) -> int:
         # Computed from songs.json: the bot's checkout skips library/audio to stay fast.
-        return sum(s.get("size", 0) for s in self.songs if not str(s.get("src", "")).startswith("http"))
+        return sum(s.get("size") or 0 for s in self.songs if s.get("src") and not s["src"].startswith("http"))
 
 
 # ---------------------------------------------------------------------- audio storage
@@ -175,7 +177,9 @@ def _git_rm(rel: str) -> None:
 
 
 def delete_audio(song: dict) -> None:
-    src = song.get("src", "")
+    src = song.get("src") or ""
+    if not src:
+        return  # YouTube-backed song: nothing stored
     if not src.startswith("http"):
         _git_rm(src)
         return

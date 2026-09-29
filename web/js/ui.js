@@ -1,6 +1,7 @@
 // Small DOM toolkit + shared components (icons, rows, cards, sheets, toast).
-import { coverUrl, isFav, toggleFav, plays, emit, artistImage } from "./store.js";
-import { player, playSong, playRadio, playNext, addToQueue, isPlaying } from "./player.js";
+import { coverUrl, isFav, toggleFav, plays, emit, artistImage, lib } from "./store.js";
+import { player, playSong, playRadio, playNext, addToQueue, isPlaying, isVideo } from "./player.js";
+import { t, fmtNum, LANG } from "./i18n.js";
 import { haptic, shareLink, canDownload, download } from "./tg.js";
 import { CONFIG } from "./config.js";
 
@@ -37,6 +38,8 @@ const STROKE = {
   send: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
   refresh: '<path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/>',
   sort: '<path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="M11 4h10"/><path d="M11 8h7"/><path d="M11 12h4"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  globe: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
 };
 const FILL = {
   play: '<path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/>',
@@ -99,22 +102,27 @@ export function fmtTime(sec) {
 export function fmtLong(sec) {
   sec = Math.round(sec || 0);
   const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60);
-  if (h) return `${h} soat ${m} daq`;
-  if (m) return `${m} daq`;
-  return `${sec} soniya`;
+  if (h) return t("dur.hm", { h, m });
+  if (m) return t("dur.m", { m });
+  return t("dur.s", { s: sec });
 }
 
 export function timeAgo(ts) {
   const d = (Date.now() - ts) / 1000;
-  if (d < 60) return "hozirgina";
-  if (d < 3600) return `${Math.floor(d / 60)} daqiqa oldin`;
-  if (d < 86400) return `${Math.floor(d / 3600)} soat oldin`;
-  if (d < 86400 * 7) return `${Math.floor(d / 86400)} kun oldin`;
-  return new Date(ts).toLocaleDateString("uz-UZ", { day: "numeric", month: "short" });
+  if (d < 60) return t("time.now");
+  if (d < 3600) return t("time.min", { n: Math.floor(d / 60) });
+  if (d < 86400) return t("time.hour", { n: Math.floor(d / 3600) });
+  if (d < 86400 * 7) return t("time.day", { n: Math.floor(d / 86400) });
+  return new Date(ts).toLocaleDateString(LANG === "ru" ? "ru-RU" : LANG === "uz" ? "uz-UZ" : "en-US", { day: "numeric", month: "short" });
 }
 
-export function num(n) {
-  return new Intl.NumberFormat("uz-UZ").format(n || 0);
+export const num = fmtNum;
+
+/** Blue check next to officially verified artists. */
+export function verifiedBadge(name, size = 16) {
+  if (!lib.artists[name]?.verified) return null;
+  return h("span", { class: "verified", title: t("common.verified"), "aria-label": t("common.verified"),
+    html: `<svg width="${size}" height="${size}" viewBox="0 0 24 24" aria-hidden="true"><path fill="#3d91f4" d="M12 1.5l2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3 3.2.1z"/><path fill="#fff" d="M10.6 15.6l-3.2-3.2 1.4-1.4 1.8 1.8 4.6-4.6 1.4 1.4z"/></svg>` });
 }
 
 // ------------------------------------------------------------------ art
@@ -166,13 +174,13 @@ export function likedArt(cls = "") {
 const eq = () => h("span", { class: `eq${isPlaying() ? "" : " paused"}` }, h("i"), h("i"), h("i"));
 
 export function heartButton(s, size = 22) {
-  const b = h("button", { class: `icon-btn heart${isFav(s.id) ? " liked" : ""}`, "aria-label": "Sevimli", dataset: { fav: s.id } });
+  const b = h("button", { class: `icon-btn heart${isFav(s.id) ? " liked" : ""}`, "aria-label": t("common.like"), dataset: { fav: s.id } });
   b.innerHTML = icon(isFav(s.id) ? "heartFill" : "heart", size);
   b.addEventListener("click", (e) => {
     e.stopPropagation();
     const fav = toggleFav(s.id);
     haptic(fav ? "success" : "light");
-    toast(fav ? "Sevimlilarga qo'shildi 💚" : "Sevimlilardan olib tashlandi");
+    toast(fav ? t("toast.faved") : t("toast.unfaved"));
   });
   return b;
 }
@@ -193,11 +201,12 @@ export function songRow(s, opts = {}) {
       h("div", { class: "t" }, h("span", null, s.title)),
       h("div", { class: "s" },
         s.explicit ? h("span", { class: "badge" }, "E") : null,
-        opts.sub ?? s.artist)),
+        isVideo(s) ? h("span", { class: "badge yt", title: t("common.youtube") }, "▶") : null,
+        opts.sub ?? [s.artist, verifiedBadge(s.artists?.[0], 13)])),
     opts.showPlays !== false ? h("div", { class: "extra plays" }, n ? `${num(n)} ▶` : "") : null,
     heartButton(s, 20),
     h("div", { class: "extra" }, fmtTime(s.duration)),
-    h("button", { class: "icon-btn more", "aria-label": "Ko'proq", html: icon("more", 20),
+    h("button", { class: "icon-btn more", "aria-label": t("common.more"), html: icon("more", 20),
       onclick: (e) => { e.stopPropagation(); songMenu(s, opts); } }),
   );
   row.addEventListener("click", () => {
@@ -212,7 +221,7 @@ export function songRow(s, opts = {}) {
 export function card({ artEl, title, sub, onClick, onPlay, round = false, playing = false, badge = null }) {
   const el = h("div", { class: `card${round ? " round" : ""}${playing ? " playing" : ""}`, role: "button" },
     h("div", { class: "art" }, artEl, badge,
-      onPlay ? h("button", { class: "play-fab", "aria-label": "Ijro", html: icon("play", 22),
+      onPlay ? h("button", { class: "play-fab", "aria-label": t("common.play"), html: icon("play", 22),
         onclick: (e) => { e.stopPropagation(); haptic("medium"); onPlay(); } }) : null),
     h("div", { class: "t" }, title),
     sub ? h("div", { class: "s" }, sub) : null);
@@ -224,7 +233,7 @@ export function section(title, content, { sub, more } = {}) {
   return h("section", { class: "section" },
     h("div", { class: "section-head" },
       h("div", null, h("h2", null, title), sub ? h("div", { class: "sub" }, sub) : null),
-      more ? h("a", { href: more }, "Hammasi") : null),
+      more ? h("a", { href: more }, t("common.all")) : null),
     content);
 }
 
@@ -350,7 +359,7 @@ export function shareSong(s) {
   const url = `${siteUrl()}#/song/${s.id}`;
   const text = `🎵 ${s.artist} — ${s.title}`;
   if (!shareLink(url, text)) {
-    navigator.clipboard?.writeText(url).then(() => toast("Havola nusxalandi"), () => toast(url, 4000));
+    navigator.clipboard?.writeText(url).then(() => toast(t("toast.copied")), () => toast(url, 4000));
   }
 }
 
@@ -358,7 +367,7 @@ export function downloadSong(s) {
   const ext = (s.src.split("?")[0].match(/\.\w+$/) || [".mp3"])[0];
   const name = `${s.artist} - ${s.title}${ext}`.replace(/[\\/:*?"<>|]+/g, " ");
   download(new URL(s.src, location.href).href, name);
-  toast("Yuklab olinmoqda…");
+  toast(t("toast.downloading"));
 }
 
 export function songMenu(s, opts = {}) {
@@ -366,15 +375,15 @@ export function songMenu(s, opts = {}) {
     const act = (fn) => () => { dismiss(); setTimeout(fn, 120); };
     append(sheet, [
       h("div", { class: "sheet-head" }, art(s), h("div", { style: { minWidth: 0 } }, h("b", null, s.title), h("span", null, s.artist))),
-      sheetItem(isFav(s.id) ? "heartFill" : "heart", isFav(s.id) ? "Sevimlilardan olib tashlash" : "Sevimlilarga qo'shish",
-        act(() => { const f = toggleFav(s.id); toast(f ? "Sevimlilarga qo'shildi 💚" : "Olib tashlandi"); }), isFav(s.id) ? "accent" : ""),
-      sheetItem("playNext", "Keyingisi bo'lib ijro etish", act(() => { playNext(s); toast("Keyingi bo'lib qo'yildi"); })),
-      sheetItem("addQueue", "Navbatga qo'shish", act(() => { addToQueue(s); toast("Navbatga qo'shildi"); })),
-      sheetItem("radio", "Qo'shiq radiosi", act(() => playRadio(s))),
-      ...s.artists.map((a) => sheetItem("user", `Ijrochi: ${a}`, act(() => go(`artist/${encodeURIComponent(a)}`)))),
-      sheetItem("info", "Qo'shiq haqida", act(() => go(`song/${s.id}`))),
-      sheetItem("share", "Ulashish", act(() => shareSong(s))),
-      canDownload() ? sheetItem("download", "Yuklab olish", act(() => downloadSong(s))) : null,
+      sheetItem(isFav(s.id) ? "heartFill" : "heart", isFav(s.id) ? t("menu.removeFav") : t("menu.addFav"),
+        act(() => { const f = toggleFav(s.id); toast(f ? t("toast.faved") : t("toast.unfaved")); }), isFav(s.id) ? "accent" : ""),
+      sheetItem("playNext", t("menu.playNext"), act(() => { playNext(s); toast(t("toast.playNext")); })),
+      sheetItem("addQueue", t("menu.addQueue"), act(() => { addToQueue(s); toast(t("toast.queued")); })),
+      sheetItem("radio", t("menu.radio"), act(() => playRadio(s))),
+      ...s.artists.map((a) => sheetItem("user", t("menu.artist", { a }), act(() => go(`artist/${encodeURIComponent(a)}`)))),
+      sheetItem("info", t("menu.about"), act(() => go(`song/${s.id}`))),
+      sheetItem("share", t("common.share"), act(() => shareSong(s))),
+      canDownload() && s.src ? sheetItem("download", t("common.download"), act(() => downloadSong(s))) : null,
     ]);
   });
 }

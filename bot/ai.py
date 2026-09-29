@@ -18,6 +18,7 @@ SYSTEM = f"""You are the music librarian of a personal streaming service. For ea
 receive every clue that was collected and you must decide the song's real metadata.
 
 How to weigh the clues:
+- "chosen" (when present) is the exact catalogue entry the station owner picked: treat its title and artist as correct.
 - "shazam" comes from an audio fingerprint of the actual sound and is very reliable when present.
 - "itunes"/"deezer" are catalogue search results with a match score; a match below ~0.75 may be a different song.
 - "file_tags", "telegram" and "filename" are written by whoever shared the file. They often contain junk such as \
@@ -38,7 +39,8 @@ maqom and folk-pop; use "Other" only as a last resort. subgenre: a short free-te
 - language: the sung language, one of {LANGUAGES}.
 - energy: 0.0 (very calm) to 1.0 (very intense). danceability: 0.0 to 1.0.
 - tags: 3-8 short lowercase search tags (styles, themes, occasions, e.g. "wedding", "summer", "workout", "breakup").
-- description: one short sentence in Uzbek (Latin script) describing the song for listeners.
+- description: one short sentence describing the song for listeners, written three times: "uz" in Uzbek \
+(Latin script), "ru" in Russian, "en" in English.
 - confidence: 0.0-1.0, how sure you are about title+artists.
 """
 
@@ -57,7 +59,12 @@ SCHEMA: dict[str, Any] = {
         "energy": {"type": "number"},
         "danceability": {"type": "number"},
         "tags": {"type": "array", "items": {"type": "string"}},
-        "description": {"type": "string"},
+        "description": {
+            "type": "object",
+            "properties": {"uz": {"type": "string"}, "ru": {"type": "string"}, "en": {"type": "string"}},
+            "required": ["uz", "ru", "en"],
+            "additionalProperties": False,
+        },
         "confidence": {"type": "number"},
     },
     "required": ["title", "artists", "album", "year", "genre", "subgenre", "moods", "language",

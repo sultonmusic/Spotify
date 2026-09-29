@@ -1,4 +1,4 @@
-"""Turns a raw audio file + Telegram clues into a fully tagged song record."""
+"""Turns a song (an uploaded file, or a catalogue entry picked by name) into a fully tagged record."""
 from __future__ import annotations
 
 import re
@@ -24,9 +24,10 @@ class Clues:
 class Result:
     meta: dict[str, Any]
     cover: bytes | None = None
-    artist_picture: str | None = None
     lyrics: dict | None = None
     sources: list[str] = field(default_factory=list)
+    # Catalogue facts per performer name: deezerId, itunesId, picture, links, verified
+    artist_facts: dict[str, dict] = field(default_factory=dict)
 
 
 def _hint(clues: Clues, tags: dict[str, str]) -> tuple[str, str]:
@@ -67,30 +68,44 @@ def _clip(value: Any, lo: float = 0.0, hi: float = 1.0, default: float = 0.5) ->
         return default
 
 
-def identify(src: Path, info: audio.AudioInfo, clues: Clues, workdir: Path,
-             progress: Callable[[str], None] = lambda _: None) -> Result:
-    tags = audio.read_tags(src, info)
-    hint_artist, hint_title = _hint(clues, tags)
+def _descriptions(value: Any) -> dict | None:
+    if isinstance(value, dict):
+        out = {k: str(v).strip()[:240] for k, v in value.items() if k in ("uz", "ru", "en") and str(v).strip()}
+        return out or None
+    if isinstance(value, str) and value.strip():
+        return {"uz": value.strip()[:240]}
+    return None
+
+
+def identify(src: Path | None, info: audio.AudioInfo, clues: Clues, workdir: Path,
+             progress: Callable[[str], None] = lambda _: None, known: dict | None = None) -> Result:
+    """src=None + known=catalogue entry: a song added by name (no audio file)."""
+    tags = audio.read_tags(src, info) if src else {}
+    hint_artist, hint_title = (known["artist"], known["title"]) if known else _hint(clues, tags)
     sources: list[str] = []
 
-    shazam = None
-    if config.SHAZAM_ENABLED and info.duration >= 8:
+    # `authority` = the most trustworthy identification: the owner's pick, or Shazam's fingerprint.
+    authority = None
+    if known:
+        authority = known
+    elif src and config.SHAZAM_ENABLED and info.duration >= 8:
         progress("🔎 Qo'shiq ovozidan aniqlanmoqda (Shazam)…")
         clip = audio.excerpt(src, workdir / "clip.wav", info)
         if clip:
-            shazam = lookup.shazam(clip)
-            if shazam:
+            authority = lookup.shazam(clip)
+            if authority:
                 sources.append("shazam")
 
-    q_title, q_artist = (shazam["title"], shazam["artist"]) if shazam else (hint_title, hint_artist)
+    q_title, q_artist = (authority["title"], authority["artist"]) if authority else (hint_title, hint_artist)
     q_title_nofeat, _ = strip_feat(q_title)
+    main_q = split_artists(q_artist)[0] if q_artist else ""
     progress("🌐 Katalogdan ma'lumot qidirilmoqda…")
-    itunes = lookup.itunes(q_title_nofeat, split_artists(q_artist)[0] if q_artist else "", info.duration) if q_title else None
-    deezer = lookup.deezer(q_title_nofeat, split_artists(q_artist)[0] if q_artist else "", info.duration) if q_title else None
+    itunes = lookup.itunes(q_title_nofeat, main_q, info.duration) if q_title else None
+    deezer = lookup.deezer(q_title_nofeat, main_q, info.duration) if q_title else None
 
     # Best non-AI guess (also used to fetch lyrics before the AI step).
-    if shazam:
-        title, artist = shazam["title"], shazam["artist"]
+    if authority:
+        title, artist = authority["title"], authority["artist"]
     elif itunes and itunes["score"] >= 0.82:
         title, artist = itunes["title"], itunes["artist"]
     elif deezer and deezer["score"] >= 0.82:
@@ -107,13 +122,14 @@ def identify(src: Path, info: audio.AudioInfo, clues: Clues, workdir: Path,
         progress("🤖 AI qo'shiqni tahlil qilmoqda…")
         evidence = {
             "duration_seconds": round(info.duration),
-            "telegram": {"performer": clues.tg_performer, "title": clues.tg_title, "file_name": clues.file_name,
-                         "caption": clues.caption[:300]},
-            "file_tags": tags,
-            "filename_guess": {"artist": hint_artist, "title": hint_title},
-            "shazam": shazam,
+            "chosen": {k: known.get(k) for k in ("title", "artist", "album", "year", "genre")} if known else None,
+            "telegram": None if known else {"performer": clues.tg_performer, "title": clues.tg_title,
+                                            "file_name": clues.file_name, "caption": clues.caption[:300]},
+            "file_tags": tags or None,
+            "filename_guess": None if known else {"artist": hint_artist, "title": hint_title},
+            "shazam": None if known else authority,
             "itunes": itunes,
-            "deezer": {k: v for k, v in (deezer or {}).items() if k != "artist_picture"} or None,
+            "deezer": {k: v for k, v in (deezer or {}).items() if k not in ("artist_picture", "contributors")} or None,
             "lyrics_excerpt": ((lyr or {}).get("plain") or "")[:700] or None,
         }
         decision = ai.tag(evidence)
@@ -135,14 +151,16 @@ def identify(src: Path, info: audio.AudioInfo, clues: Clues, workdir: Path,
             energy=_clip(decision.get("energy")),
             danceability=_clip(decision.get("danceability")),
             tags=[str(t).lower().strip()[:32] for t in decision.get("tags") or [] if str(t).strip()][:8],
-            description=(decision.get("description") or "").strip()[:240] or None,
+            description=_descriptions(decision.get("description")),
             confidence=_clip(decision.get("confidence"), default=0.7),
         )
     else:
         base_title, feats = strip_feat(title)
         artists = split_artists(artist) + [f for f in feats if f not in split_artists(artist)]
+        if deezer and deezer.get("artists") and _matches(deezer, base_title, artist):
+            artists = list(dict.fromkeys(artists + [a for a in deezer["artists"] if a not in artists]))
         cat = next((c for c in (itunes, deezer) if _matches(c, base_title, artist)), None)
-        raw_genre = ((shazam or {}).get("genre")
+        raw_genre = ((authority or {}).get("genre")
                      or (_matches(itunes, base_title, artist) and itunes.get("genre"))
                      or (_matches(deezer, base_title, artist) and deezer.get("genre"))
                      or tags.get("genre") or "")
@@ -153,8 +171,8 @@ def identify(src: Path, info: audio.AudioInfo, clues: Clues, workdir: Path,
         meta.update(
             title=base_title,
             artists=artists or [],
-            album=(shazam or {}).get("album") or (cat or {}).get("album") or tags.get("album") or None,
-            year=(shazam or {}).get("year") or (cat or {}).get("year") or None,
+            album=(authority or {}).get("album") or (cat or {}).get("album") or tags.get("album") or None,
+            year=(authority or {}).get("year") or (cat or {}).get("year") or None,
             genre=genre,
             subgenre=raw_genre if raw_genre and raw_genre != genre else None,
             moods=list(moods),
@@ -163,7 +181,7 @@ def identify(src: Path, info: audio.AudioInfo, clues: Clues, workdir: Path,
             danceability=round(min(1.0, energy + 0.05), 2),
             tags=[],
             description=None,
-            confidence=0.95 if shazam else 0.8 if cat else 0.4,
+            confidence=0.95 if authority else 0.8 if cat else 0.4,
         )
     if not meta["artists"]:
         meta["artists"] = ["Noma'lum ijrochi"]
@@ -172,7 +190,7 @@ def identify(src: Path, info: audio.AudioInfo, clues: Clues, workdir: Path,
     # Catalogue extras that match the final decision
     final_title, main_artist = meta["title"], meta["artists"][0]
     it_ok, dz_ok = _matches(itunes, final_title, main_artist), _matches(deezer, final_title, main_artist)
-    sz_ok = _matches(shazam, final_title, main_artist)
+    au_ok = _matches(authority, final_title, main_artist)
     for flag, name in ((it_ok, "itunes"), (dz_ok, "deezer")):
         if flag:
             sources.append(name)
@@ -189,19 +207,37 @@ def identify(src: Path, info: audio.AudioInfo, clues: Clues, workdir: Path,
     # Cover art: first usable candidate wins
     progress("🎨 Muqova tayyorlanmoqda…")
     cover: bytes | None = None
-    urls = [(sz_ok and shazam.get("cover")), (it_ok and itunes.get("cover")), (dz_ok and deezer.get("cover"))]
+    urls = [(au_ok and authority.get("cover")), (it_ok and itunes.get("cover")), (dz_ok and deezer.get("cover"))]
     for url in urls:
         if url and not cover:
             cover = lookup.download_image(url)
-    if not cover:
+    if not cover and src:
         pic = audio.extract_picture(src, workdir / "embedded.png", info)
         if pic:
             cover = pic.read_bytes()
     if not cover and clues.thumb and clues.thumb.exists():
         cover = clues.thumb.read_bytes()
 
-    artist_picture = deezer.get("artist_picture") if deezer and similarity(deezer.get("artist", ""), main_artist) >= 0.85 else None
-    return Result(meta=meta, cover=cover, artist_picture=artist_picture, lyrics=lyr, sources=sorted(set(sources)))
+    return Result(meta=meta, cover=cover, lyrics=lyr, sources=sorted(set(sources)),
+                  artist_facts=_artist_facts(meta["artists"], itunes if it_ok else None, deezer if dz_ok else None))
+
+
+def _artist_facts(artists: list[str], itunes: dict | None, deezer: dict | None) -> dict[str, dict]:
+    """Official catalogue ids/pictures for the performers. Found in a matching catalogue entry => verified."""
+    facts: dict[str, dict] = {}
+    main = artists[0] if artists else ""
+    if itunes and itunes.get("artist_id") and similarity(split_artists(itunes["artist"])[0], main) >= 0.85:
+        facts.setdefault(main, {}).update(itunesId=itunes["artist_id"], apple=itunes.get("artist_url"), verified=True)
+    if deezer:
+        people = deezer.get("contributors") or [
+            {"name": deezer.get("artist"), "id": deezer.get("artist_id"), "picture": deezer.get("artist_picture")}]
+        for c in people:
+            name = next((a for a in artists if similarity(a, c.get("name") or "") >= 0.85), None)
+            if name and c.get("id"):
+                facts.setdefault(name, {}).update(
+                    deezerId=c["id"], picture=c.get("picture"), deezer=f"https://www.deezer.com/artist/{c['id']}",
+                    verified=True)
+    return facts
 
 
 def lyrics_payload(lyr: dict | None) -> tuple[str | None, dict | None]:

@@ -1,5 +1,5 @@
 // Search that understands Uzbek Latin/Cyrillic, Russian, typos and partial words.
-import { GENRES, MOODS, LANGS } from "./i18n.js";
+import { GENRES, MOODS, LANGS, genre, mood } from "./i18n.js";
 
 const CYR = {
   а: "a", б: "b", в: "v", г: "g", д: "d", е: "e", ё: "yo", ж: "j", з: "z", и: "i", й: "y", к: "k", л: "l",
@@ -41,9 +41,11 @@ export function indexSong(s) {
   s._t = norm(s.title);
   s._a = norm(s.artist);
   s._al = norm(s.album || "");
+  // Genre / mood / language names in every site language, so "грустные" or "sad" both work.
+  const all = (x) => (x ? Object.values(x) : []);
   const labels = [
-    GENRES[s.genre]?.label, s.genre, s.subgenre, LANGS[s.language],
-    ...(s.moods || []).map((m) => MOODS[m]?.label), ...(s.tags || []),
+    ...all(GENRES[s.genre]?.l), s.genre, s.subgenre, ...all(LANGS[s.language]),
+    ...(s.moods || []).flatMap((m) => all(MOODS[m]?.l)), ...(s.tags || []),
   ];
   s._x = norm(labels.filter(Boolean).join(" "));
   s._all = `${s._t} ${s._a} ${s._al}`;
@@ -102,7 +104,8 @@ export function matchCategories(query) {
   const q = norm(query);
   if (!q) return [];
   const out = [];
-  for (const [key, g] of Object.entries(GENRES)) if (norm(g.label).startsWith(q) || norm(key).startsWith(q)) out.push({ type: "genre", key, ...g });
-  for (const [key, m] of Object.entries(MOODS)) if (norm(m.label).startsWith(q) || key.startsWith(q)) out.push({ type: "mood", key, ...m });
+  const hit = (x, key) => norm(key).startsWith(q) || Object.values(x.l).some((v) => norm(v).startsWith(q));
+  for (const [key, g] of Object.entries(GENRES)) if (hit(g, key)) out.push({ type: "genre", key, ...genre(key) });
+  for (const [key, m] of Object.entries(MOODS)) if (hit(m, key)) out.push({ type: "mood", key, ...mood(key) });
   return out.slice(0, 6);
 }

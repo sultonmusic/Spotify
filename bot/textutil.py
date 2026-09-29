@@ -63,6 +63,12 @@ def norm(text: str) -> str:
     return text
 
 
+def phon(text: str) -> str:
+    """Spelling-insensitive form: Shakhzoda / Shahzoda / Шахзода -> 'shahzoda'."""
+    k = norm(text).replace("kh", "h").replace("x", "h").replace("q", "k").replace("w", "v")
+    return re.sub(r"(.)\1+", r"\1", k)
+
+
 def clean(text: str) -> str:
     """Strip channel names, links, 'official video' junk etc. from a title."""
     if not text:
