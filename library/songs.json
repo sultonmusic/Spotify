@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-09-29T20:39:38Z",
+ "updatedAt": "2026-09-29T22:35:24Z",
  "count": 9,
  "site": {
   "admins": [
@@ -222,7 +222,22 @@
    "checked": "2026-09-29T20:36:54Z",
    "verifiedAt": "2026-09-29T20:36:54Z",
    "fans": 4055020,
-   "albums": 160
+   "albums": 160,
+   "bioChecked": "2026-09-29T22:35:16Z",
+   "bio": {
+    "en": "Alan Olav Walker is a Norwegian DJ and record producer. His songs \"Faded\", \"Sing Me to Sleep\", \"Alone\", \"All Falls Down\", \"Ignite\", and \"Darkside\" have each been multi-platinum-certified and reached number 1 on the VG-lista chart in Norway. Walker values his anonymity and is known to wear a hoodie and mask to remain inconspicuous. His musical style is primarily described as house music, and is characterized by emotionally rich and grandiose melodies.",
+    "ru": "Алан Олав Уокер — англо-норвежский музыкальный продюсер и диджей.",
+    "uz": "Alan Olav Walker – britaniyalik-norvegiyalik DJ, YouTuber va ovoz yozish prodyuseri, 14 mamlakatda platina sertifikatiga ega boʻlgan, ommaboplashib ketgan „Faded“ (2015) qoʻshigʻi bilan tanilgan. Shuningdek uning YouTubeʼda „Sing Me to Sleep“, „Alone“, „Darkside“ va „On My Way“ kabi bir qancha qoʻshiqlari millionlab koʻrishlarni qoʻlga kiritgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Alan_Walker",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A3%D0%BE%D0%BA%D0%B5%D1%80%2C_%D0%90%D0%BB%D0%B0%D0%BD",
+    "uz": "https://uz.wikipedia.org/wiki/Alan_Walker"
+   },
+   "desc": {
+    "en": "Norwegian DJ and music producer (born 1997)",
+    "ru": "норвежский музыкальный продюсер и диджей"
+   }
   },
   "Ava Max": {
    "aliases": [],
@@ -234,7 +249,24 @@
    "checked": "2026-09-29T20:36:54Z",
    "verifiedAt": "2026-09-29T20:36:54Z",
    "fans": 1229867,
-   "albums": 111
+   "albums": 111,
+   "bioChecked": "2026-09-29T22:35:20Z",
+   "bio": {
+    "en": "Amanda Ava Koci, known professionally as Ava Max, is an American singer and songwriter. She rose to prominence in 2018 with the release of her breakthrough single \"Sweet but Psycho\". The song peaked at number one in 22 countries and reached number two and number ten on the Australian ARIA Charts and US Billboard Hot 100, respectively.",
+    "ru": "Э́йва (А́ва) Макс — американская певица и автор-исполнитель албанского происхождения. Её сингл «Sweet but Psycho» достиг первого места в британском хит-параде UK Singles Chart в конце 2018 — начале 2019 года.",
+    "uz": "Amanda Ava Koci, professional ravishda Ava Maks nomi bilan tanilgan, amerikalik qo'shiqchi va qo'shiq muallifi. U 2018-yilda o'zining \"Sweet but Psycho\" nomli yangi singlini chiqarishi bilan mashhurlikka erishdi. Qo'shiq 22 mamlakatda birinchi o'rinni egalladi va Avstraliyaning ARIA chartlarida ikkinchi va AQShning Billboard Hot 100 chartlarida mos ravishda o'ninchi o'rinlarga ko'tarildi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Ava_Max",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%AD%D0%B9%D0%B2%D0%B0_%D0%9C%D0%B0%D0%BA%D1%81"
+   },
+   "desc": {
+    "en": "American singer and songwriter (born 1994)",
+    "ru": "американская певица и автор песен"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Tom Odell": {
    "aliases": [],
@@ -248,7 +280,22 @@
    "checked": "2026-09-29T20:37:07Z",
    "verifiedAt": "2026-09-29T20:37:07Z",
    "fans": 782951,
-   "albums": 70
+   "albums": 70,
+   "bioChecked": "2026-09-29T22:35:24Z",
+   "bio": {
+    "en": "Thomas Peter Odell is an English singer-songwriter. His debut EP, Songs from Another Love, was released in 2012, earning him a BRITs Critics' Choice Award. He won an Ivor Novello Award for Songwriter of the Year in 2014. His first full-length album, Long Way Down, came out in 2013 and was followed by Wrong Crowd in 2016. Odell went on to release Jubilee Road (2018) and Monsters (2021), both through Columbia Records.",
+    "ru": "Том Питер Оделл — британский певец, музыкант и композитор. Его дебютный альбом Long Way Down вышел 24 июня 2013 года. Второй студийный альбом Wrong Crowd вышел 10 июня 2016 года. В октябре 2018 года вышел его третий студийный альбом Jubilee Road. Monsters, его четвёртый альбом был выпущен 9 июля 2021 года, а пятый — Best Day Of My Life — 28 октября 2022 года.",
+    "uz": "Thomas Peter Odell — ingliz qoʻshiqchisi. U 2012-yilda oʻzining „Another love“ debyut kengaytirilgan pyesasini chiqargan va 2013-yil boshida Choice Award mukofotiga sazovor boʻlgan. Uning debyut studiya albomi „Long Way Down“ 2013-yil 24-iyunda chiqarilgan. Uning ikkinchi studiyaviy albomi „Wrong Crowd“ 2016-yil 10-iyunda chiqdi. 2018-yil oktyabr oyida uning uchinchi studiyaviy albomi \"Jubilee Road\" chiqdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Tom_Odell",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9E%D0%B4%D0%B5%D0%BB%D0%BB%2C_%D0%A2%D0%BE%D0%BC",
+    "uz": "https://uz.wikipedia.org/wiki/Tom_Odell"
+   },
+   "desc": {
+    "en": "English singer-songwriter (born 1990)",
+    "ru": "британский певец, музыкант и композитор"
+   }
   },
   "Billie Eilish": {
    "aliases": [],
