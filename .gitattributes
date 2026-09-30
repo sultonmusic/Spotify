@@ -1,0 +1,3 @@
+library/songs.json merge=library
+library/ads.json merge=library
+bot/state.json merge=library

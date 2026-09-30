@@ -35,6 +35,7 @@ jobs:
       # Audio files are not needed here: sparse + partial checkout keeps every run fast.
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.ref_name }} # the latest library, not the (possibly older) commit that triggered the run
           filter: blob:none
           sparse-checkout: |
             /*
@@ -81,6 +82,9 @@ jobs:
         run: |
           git config user.name "music-station[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # songs.json / ads.json are merged item by item if another run committed meanwhile (.gitattributes)
+          git config merge.library.name "library JSON merge"
+          git config merge.library.driver "python3 scripts/merge_json.py %O %A %B"
           git add -A --sparse library bot/state.json 2>/dev/null || git add -A --sparse library
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
