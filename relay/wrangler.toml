@@ -1,0 +1,13 @@
+# Cloudflare Worker that wakes the GitHub Actions bot (see worker.js). Deployed by .github/workflows/relay.yml.
+name = "cavi-music-relay"
+main = "worker.js"
+compatibility_date = "2025-09-01"
+workers_dev = false
+
+[triggers]
+crons = ["* * * * *"]
+
+[vars]
+REPO = "sultonmusic/Spotify"
+BRANCH = "ccr-804fe7ec-qgezod"
+WORKFLOW = "station.yml"

@@ -1,6 +1,8 @@
 name: Music Station
 
-# Every 5 minutes: read new Telegram messages -> identify & tag songs -> commit library -> redeploy site.
+# Read new Telegram messages -> identify & tag songs -> commit library -> redeploy site.
+# Started by the relay (relay/, within a minute of a message) and, as a fallback, by the schedule
+# (GitHub often runs "every 5 minutes" schedules only every few hours).
 on:
   schedule:
     - cron: "*/5 * * * *"

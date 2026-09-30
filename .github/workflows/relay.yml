@@ -1,0 +1,42 @@
+name: Relay (24/7)
+
+# Deploys relay/ to Cloudflare Workers: every minute it checks Telegram and starts "Music Station"
+# right away when messages are waiting. Needs the secrets described in README ("24/7 rejim").
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "relay/**"
+      - ".github/workflows/relay.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: relay
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Deploy the Cloudflare Worker
+        working-directory: relay
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ] || [ -z "$DISPATCH_TOKEN" ]; then
+            echo "::warning::Relay is not set up yet: add CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID and DISPATCH_TOKEN secrets (README, '24/7 rejim')."
+            exit 0
+          fi
+          npx -y wrangler@4 deploy --var "REPO:${{ github.repository }}" --var "BRANCH:${{ github.ref_name }}"
+          printf %s "$TELEGRAM_BOT_TOKEN" | npx -y wrangler@4 secret put TELEGRAM_BOT_TOKEN
+          printf %s "$DISPATCH_TOKEN" | npx -y wrangler@4 secret put DISPATCH_TOKEN
+          echo "Relay deployed: the station now wakes up within a minute of every message."

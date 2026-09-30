@@ -707,8 +707,11 @@ class Station:
             return self.bot.call("getUpdates", timeout=timeout, offset=offset,
                                  allowed_updates=["message", "callback_query"])
         except TelegramError as exc:
-            if exc.code == 409:  # a webhook is set -> switch to polling
-                self.bot.safe("deleteWebhook")
+            if exc.code == 409:
+                if "webhook" in str(exc).lower():  # a webhook is set -> switch to polling
+                    self.bot.safe("deleteWebhook")
+                else:  # another reader (the relay's quick check) for a moment -> just ask again
+                    time.sleep(2)
                 return []
             raise
 

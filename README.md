@@ -109,6 +109,24 @@ huquqini buzadi. Saytda video ham, YouTube pleyeri ham yo'q — faqat audio.
 - To'liq ekran pleyer, **sinxron qo'shiq matni**, navbat, aralash/takror, qulf ekranidan boshqarish,
   ovoz balandligini tenglash, yuklab olish, ulashish, klaviatura (Space, ←/→, Shift+←/→, L, /), PWA (telefonga o'rnatish).
 
+## 24/7 rejim (bot darhol javob berishi uchun)
+
+GitHub "har 5 daqiqada" jadvalini ko'pincha kechiktiradi — bot ba'zan soatlab javob bermay qoladi. Buni
+**Cloudflare Workers** (bepul) tuzatadi: `relay/` har daqiqada Telegram'ni tekshiradi, xabar kelgan bo'lsa unga 👀
+qo'yadi va botni darhol ishga tushiradi (javob ~1–3 daqiqada). Qo'shiqlarni u qayta ishlamaydi — faqat uyg'otadi.
+
+Bir marta sozlanadi (~5 daqiqa):
+
+1. **Cloudflare:** https://dash.cloudflare.com/sign-up da bepul ro'yxatdan o'ting.
+   - *Profil → API Tokens → Create Token → «Edit Cloudflare Workers»* shabloni → *Continue → Create Token* — tokenni nusxalang.
+   - *Account ID*: bosh sahifadagi *Workers & Pages* bo'limida o'ng tomonda.
+2. **GitHub token:** https://github.com/settings/personal-access-tokens/new
+   - *Repository access → Only select repositories → Spotify*
+   - *Permissions → Actions → Read and write* → *Generate token* — nusxalang.
+3. Repo → *Settings → Secrets and variables → Actions → New repository secret* — uchtasini qo'shing:
+   `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `DISPATCH_TOKEN` (2-qadamdagi GitHub token).
+4. *Actions → Relay (24/7) → Run workflow.* Tayyor — shundan keyin har bir xabarga bir daqiqa ichida 👀 chiqadi.
+
 ## Sozlamalar (ixtiyoriy)
 
 *Settings → Secrets and variables → Actions*:
