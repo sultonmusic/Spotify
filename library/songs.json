@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-09-30T16:58:56Z",
+ "updatedAt": "2026-09-30T17:02:49Z",
  "count": 49,
  "site": {
   "admins": [
@@ -540,7 +540,20 @@
    "checked": "2026-09-30T16:56:21Z",
    "verifiedAt": "2026-09-30T16:56:21Z",
    "fans": 328202,
-   "albums": 22
+   "albums": 22,
+   "bioChecked": "2026-09-30T17:02:43Z",
+   "bio": {
+    "en": "Mike Lévy, known professionally as Gesaffelstein, is a French DJ, songwriter, and record producer from Lyon. Often called the \"Dark Prince of Techno\", he has worked alongside artists such as the Weeknd, Lady Gaga, Daft Punk, Kanye West, A$AP Rocky, the Hacker, Lil Nas X, Charli XCX and Pharrell Williams.",
+    "ru": "Майк Ле́ви, более известен под псевдонимом Gesaffelstein — французский техно-музыкант, диджей и продюсер. Он работал вместе с такими музыкантами, как Леди Гага, The Weeknd, Miss Kittin, Daft Punk, HAIM, A$AP Rocky, Phoenix, Канье Уэст, Жан-Мишель Жарр и Фаррелл Уильямс."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Gesaffelstein",
+    "ru": "https://ru.wikipedia.org/wiki/Gesaffelstein"
+   },
+   "desc": {
+    "en": "French music producer (born 1985)",
+    "ru": "французский техно-музыкант, диджей и продюсер"
+   }
   },
   "Egzod": {
    "aliases": [],
@@ -554,7 +567,8 @@
    "checked": "2026-09-30T16:56:37Z",
    "verifiedAt": "2026-09-30T16:56:37Z",
    "fans": 18088,
-   "albums": 92
+   "albums": 92,
+   "bioChecked": "2026-09-30T17:02:46Z"
   },
   "Maestro Chives": {
    "aliases": [],
@@ -566,7 +580,8 @@
    "checked": "2026-09-30T16:56:39Z",
    "verifiedAt": "2026-09-30T16:56:39Z",
    "fans": 8193,
-   "albums": 17
+   "albums": 17,
+   "bioChecked": "2026-09-30T17:02:49Z"
   },
   "Neoni": {
    "aliases": [],
