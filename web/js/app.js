@@ -7,6 +7,7 @@ import { t, LANG } from "./i18n.js";
 import * as V from "./views.js";
 import { openNowPlaying, openQueue, openFullLyrics, refreshNowPlaying } from "./nowplaying.js";
 import { openShare } from "./share.js";
+import { initAds } from "./ads.js";
 import { initTelegram, setBackButton, startParam, haptic, inTelegram } from "./tg.js";
 import { artistsRanked } from "./reco.js";
 
@@ -299,6 +300,7 @@ async function boot() {
   buildSidebar();
   restore();
   buildPlayerBar();
+  initAds();
   initSync();
 
   const sp = startParam();

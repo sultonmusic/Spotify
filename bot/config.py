@@ -76,3 +76,6 @@ def site_url() -> str:
 
 
 SITE_URL = site_url()
+
+# Cloudflare Worker (relay/): wakes the bot and keeps ad statistics for /ads.
+RELAY_URL = env("RELAY_URL", "https://cavi-music-relay.sales-infarmatik-tj.workers.dev").rstrip("/")

@@ -1,9 +1,11 @@
-// Cavi Music relay — wakes the station up as soon as someone writes to the bot.
+// Cavi Music relay — wakes the station up as soon as someone writes to the bot, and keeps ad statistics.
 //
 // The bot itself runs on GitHub Actions (Shazam, ffmpeg, AI tagging, commit, site deploy), but GitHub starts
 // scheduled runs late (sometimes hours apart). This tiny Cloudflare Worker runs every minute for free: when
 // messages are waiting in Telegram and the bot isn't already running, it marks them with 👀 and starts the
 // GitHub workflow right away. It never processes songs and never consumes the messages (the bot does).
+
+import { DurableObject } from "cloudflare:workers";
 
 const API = "https://api.github.com";
 
@@ -59,11 +61,61 @@ export async function check(env) {
   return run.ok ? `started the station for ${updates.length} message(s)` : `GitHub dispatch: HTTP ${run.status}`;
 }
 
+// ------------------------------------------------------------------ ad statistics
+// The site reports ad views/skips/clicks here (one row per ad, day, event and anonymous listener, so
+// reloading a page doesn't inflate the numbers); the bot's /ads command reads the totals.
+export class AdStats extends DurableObject {
+  constructor(ctx, env) {
+    super(ctx, env);
+    this.sql = ctx.storage.sql;
+    this.sql.exec("CREATE TABLE IF NOT EXISTS ev (ad TEXT, day TEXT, ev TEXT, uid TEXT, PRIMARY KEY (ad, day, ev, uid))");
+  }
+  record(ad, day, ev, uid) {
+    this.sql.exec("INSERT OR IGNORE INTO ev VALUES (?, ?, ?, ?)", ad, day, ev, uid);
+  }
+  totals(day) {
+    const all = this.sql.exec("SELECT ad, ev, COUNT(*) AS n, COUNT(DISTINCT uid) AS people FROM ev GROUP BY ad, ev").toArray();
+    const today = this.sql.exec("SELECT ad, ev, COUNT(DISTINCT uid) AS people FROM ev WHERE day = ? GROUP BY ad, ev", day).toArray();
+    return { all, today };
+  }
+}
+
+const EVENTS = new Set(["view", "iview", "skip", "complete", "click"]);
+const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" };
+const stats = (env) => env.ADSTATS.get(env.ADSTATS.idFromName("all"));
+
+async function sha256(text) {
+  const bytes = new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)));
+  return [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function handle(request, env) {
+  const url = new URL(request.url);
+  if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
+  if (url.pathname === "/ad-event" && request.method === "POST") {
+    let body;
+    try { body = JSON.parse(await request.text()); } catch { return new Response("bad json", { status: 400, headers: CORS }); }
+    const { ad, ev, uid } = body || {};
+    if (!/^[a-z0-9]{6,16}$/.test(ad || "") || !EVENTS.has(ev) || !/^[a-z0-9]{8,32}$/.test(uid || "")) {
+      return new Response("bad event", { status: 400, headers: CORS });
+    }
+    await stats(env).record(ad, new Date().toISOString().slice(0, 10), ev, uid);
+    return new Response(null, { status: 204, headers: CORS });
+  }
+  if (url.pathname === "/ad-stats") {
+    // Only the bot: it proves it knows the bot token without sending it.
+    if (request.headers.get("X-Key") !== await sha256(`cavi-stats:${env.TELEGRAM_BOT_TOKEN}`)) {
+      return new Response("forbidden", { status: 403 });
+    }
+    const data = await stats(env).totals(new Date().toISOString().slice(0, 10));
+    return Response.json(data);
+  }
+  return new Response("Cavi Music relay is running.\n", { headers: { "content-type": "text/plain; charset=utf-8", ...CORS } });
+}
+
 export default {
   async scheduled(_event, env, ctx) {
     ctx.waitUntil(check(env).then((s) => console.log(s), (e) => console.error(String(e))));
   },
-  async fetch() {
-    return new Response("Cavi Music relay is running.\n", { headers: { "content-type": "text/plain; charset=utf-8" } });
-  },
+  fetch: handle,
 };

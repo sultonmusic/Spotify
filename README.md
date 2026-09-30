@@ -42,6 +42,8 @@ Bot menyusidagi **🎧 Musiqa** tugmasi saytni Telegram ichida mini ilova sifati
 | Buyruq | Vazifasi |
 |---|---|
 | audio / fayl / video klip yuborish | Qo'shiqni aniqlab stansiyaga qo'shadi (20 MB gacha) |
+| `/add` | Reklama qo'shish: keyin rasm yoki video yuborasiz (izohda matn va havola) |
+| `/ads` | Reklamalar: statistika (necha kishi ko'rdi, o'tkazib yubordi, bosdi), to'xtatish, o'chirish |
 | `/artists` | Ijrochilar ro'yxati (☑️ = tasdiqlangan) |
 | `/verify Ijrochi`, `/unverify Ijrochi` | Tasdiqlash belgisini qo'lda qo'yish / olish |
 | `/merge Eski nom > To'g'ri nom` | Bir ijrochining ikki profilini birlashtirish |
@@ -59,6 +61,32 @@ Bot menyusidagi **🎧 Musiqa** tugmasi saytni Telegram ichida mini ilova sifati
 Qo'shiq faylini botga yuboring yoki istalgan chat/kanaldan forward qiling — shu. Bot qo'shiqlarni internetdan
 (jumladan YouTube'dan) o'zi yuklab olmaydi: sayt ochiq, boshqalarning qo'shiqlarini ruxsatsiz tarqatish mualliflik
 huquqini buzadi. Saytda video ham, YouTube pleyeri ham yo'q — faqat audio.
+
+## Cover, remix, takroriy qo'shiqlar va videolar
+
+- Bir nechta fayl yuborsangiz, avval oddiy qo'shiqlar qo'shiladi. **Cover / remix / live / karaoke** versiyalar
+  (nomi yoki fayl nomidan aniqlanadi) va **takroriy** qo'shiqlar haqida bot oxirida so'raydi: «qo'shaymi?».
+  Original stansiyada bo'lmasa — «📤 Avval originalni yuboraman» tugmasi: original kelgach bot yana so'raydi.
+- **Qo'shiq videosi (mp4):** botga yuborsangiz, ovozidan qaysi qo'shiq ekani aniqlanadi va o'sha qo'shiqqa biriktiriladi
+  (videoning kirish qismi ham hisobga olinib, ovoz bilan sinxronlanadi). Saytda video faqat to'liq ekranli pleyerda
+  muqova o'rnida ovozsiz ko'rinadi (ovoz — qo'shiq faylidan); «Muqova / Video» tanlovi saqlanib qoladi.
+  Telegram botlarga 20 MB gacha fayl beradi — videoni 480p/360p sifatda yuboring.
+
+## Reklama
+
+`/add` → rasm yoki video (izohda matn va havola). Saytda:
+- kuniga har bir tinglovchiga **1 marta** — musiqa pauza bo'lib, to'liq ekranda; **10 soniyadan keyin «o'tkazib yuborish»**;
+- keyin — **ovozsiz, musiqa to'xtamay**, muqova o'rnida (pleyer yopiq bo'lsa — pleyer ustida kichik kartochka):
+  har qo'shiqning **50-soniyasida** va **tugashiga 50 soniya qolganda**.
+
+`/ads` — statistika: ko'rdi (to'liq ekranda / muqova o'rnida), oxirigacha ko'rdi, o'tkazib yubordi, havolani bosdi, bugun.
+Hisob anonim (har bir brauzer — bitta tinglovchi, kuniga bir marta), relay (`relay/`) Durable Object'ida saqlanadi.
+
+## DJ
+
+Bosh sahifadagi **DJ** — o'zbek, rus yoki ingliz tilida yozing (yoki ovoz bilan ayting): «quvnoq o'zbekcha qo'shiqlar»,
+«грустные песни», «something calm to relax», «Billie Eilish kabi», «10 ta yangi qo'shiq». DJ kayfiyat, janr, til,
+ijrochi, temp, yil, «yangi / sevimli / mashhur» va sonni tushunadi, didingizga qarab tanlab, darhol qo'yadi.
 
 ## Ijrochilar va ☑️ tasdiqlangan belgisi
 

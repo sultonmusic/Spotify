@@ -19,12 +19,22 @@ export function emit(evt, data) {
 }
 
 // ------------------------------------------------------------------ library
-export const lib = { songs: [], byId: new Map(), byArtist: new Map(), artists: {}, site: {}, updatedAt: null, loaded: false };
+export const lib = { songs: [], byId: new Map(), byArtist: new Map(), artists: {}, site: {}, ads: [], updatedAt: null, loaded: false };
+
+/** Ads (library/ads.json, managed with /add in the bot); a missing file just means no ads. */
+async function loadAds() {
+  try {
+    const res = await fetch(`library/ads.json?t=${Date.now()}`, { cache: "no-store" });
+    lib.ads = res.ok ? ((await res.json()).ads || []) : [];
+  } catch { /* keep the previous list */ }
+}
 
 export async function loadLibrary() {
+  const adsLoaded = loadAds();
   const res = await fetch(`${CONFIG.library}?t=${Date.now()}`, { cache: "no-store" });
   if (!res.ok) throw new Error(`songs.json: HTTP ${res.status}`);
   const data = await res.json();
+  await adsLoaded;
   if (lib.loaded && data.updatedAt === lib.updatedAt) return [];
   const known = new Set(lib.byId.keys());
   lib.songs = (data.songs || []).filter((s) => s && s.id && s.src);

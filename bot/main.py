@@ -18,7 +18,7 @@ import traceback
 from pathlib import Path
 from typing import Any
 
-from . import ai, audio, config, lookup, story
+from . import ads, ai, audio, config, lookup, story
 from .artists import Artists
 from .covers import save_cover
 from .identify import Clues, identify, lyrics_payload
@@ -29,11 +29,12 @@ from .telegram_api import Bot, TelegramError
 from .translate import translate_lyrics_file
 from .textutil import norm, similarity, split_artist_title, split_artists
 
-SETUP_VERSION = "6"
+SETUP_VERSION = "7"
 AUDIO_EXT = {".mp3", ".m4a", ".aac", ".flac", ".ogg", ".oga", ".opus", ".wav", ".wma", ".aif", ".aiff",
              ".ape", ".alac", ".amr", ".mka", ".weba"}
 VIDEO_EXT = {".mp4", ".mov", ".mkv", ".webm", ".avi", ".3gp", ".m4v"}
 ASK_TTL = 7 * 86400  # "add this cover?" buttons stay valid for a week
+AD_DRAFT_TTL = 30 * 60  # after /add, the next photo/video within 30 minutes becomes the ad
 
 # Another version of a song (asked about before it is added): cover, remix, live, karaoke…
 _VARIANT = re.compile(
@@ -133,6 +134,8 @@ class Station:
         self.bot.safe("setMyCommands", commands=[
             {"command": "start", "description": "Boshlash"},
             {"command": "app", "description": "Stansiyani ochish"},
+            {"command": "add", "description": "Reklama qo'shish"},
+            {"command": "ads", "description": "Reklamalar va statistika"},
             {"command": "list", "description": "Oxirgi qo'shilgan qo'shiqlar"},
             {"command": "stats", "description": "Kutubxona statistikasi"},
             {"command": "artists", "description": "Ijrochilar va tasdiqlanganlar"},
@@ -200,6 +203,11 @@ class Station:
                 handler(msg, arg.strip())
             else:
                 self.send(chat_id, "Bunday buyruq yo'q. /help")
+            return
+
+        draft = self.state.get("ad_draft")
+        if draft and time.time() - draft.get("t", 0) < AD_DRAFT_TTL and self.authorized(user_id) and self.ad_media(msg):
+            self.create_ad(msg)
             return
 
         media = self.pick_media(msg)
@@ -675,6 +683,7 @@ class Station:
                 "",
                 "<b>Buyruqlar</b>",
                 "Matn yozsangiz — stansiyadan qidiraman",
+                "/add — reklama qo'shish · /ads — reklamalar va statistika",
                 "/list — oxirgi qo'shiqlar",
                 "/stats — statistika",
                 "/artists — ijrochilar (☑️ = tasdiqlangan)",
@@ -694,6 +703,141 @@ class Station:
             text += ["Bu shaxsiy stansiya. Qo'shiqlarni tinglash uchun tugmani bosing."]
         text += ["", f"📚 Kutubxonada: <b>{count}</b> ta qo'shiq"]
         self.send(chat_id, "\n".join(text), markup=self.keyboard([self.app_button()]))
+
+    # ================================================================== ads (/add, /ads)
+    def cmd_add(self, msg: dict, arg: str) -> None:
+        self.state["ad_draft"] = {"t": int(time.time()), "chat": msg["chat"]["id"]}
+        self.state_dirty = True
+        self.send(msg["chat"]["id"], "\n".join([
+            "📢 <b>Yangi reklama</b>",
+            "",
+            "Reklama uchun <b>rasm</b> yoki <b>video</b> yuboring (video 20 MB gacha, 60 soniyagacha).",
+            "Izohga (caption) reklama matnini va havolani yozing, masalan:",
+            "<code>Yangi do'konimiz ochildi! https://example.com</code>",
+            "",
+            "Saytda qanday ko'rsatiladi:",
+            "• kuniga har bir tinglovchiga 1 marta — musiqa pauza bo'lib, to'liq ekranda; 10 soniyadan keyin «o'tkazib yuborish»",
+            "• qolgan vaqtda — ovozsiz, musiqa to'xtamay, muqova o'rnida: har qo'shiqning 50-soniyasida va tugashiga 50 soniya qolganda",
+            "",
+            "Bekor qilish: /cancel",
+        ]), reply_to=msg["message_id"])
+
+    def cmd_cancel(self, msg: dict, arg: str) -> None:
+        had = self.state.pop("ad_draft", None) is not None
+        self.state_dirty = True
+        self.send(msg["chat"]["id"], "❌ Reklama qo'shish bekor qilindi." if had else "Bekor qiladigan narsa yo'q.")
+
+    @staticmethod
+    def ad_media(msg: dict) -> tuple[str, dict] | None:
+        if msg.get("photo"):
+            return "image", msg["photo"][-1]
+        for key in ("video", "animation"):
+            if msg.get(key):
+                return "video", msg[key]
+        doc = msg.get("document") or {}
+        mime = (doc.get("mime_type") or "").lower()
+        if mime.startswith("image/"):
+            return "image", doc
+        if mime.startswith("video/"):
+            return "video", doc
+        return None
+
+    @staticmethod
+    def ad_link(msg: dict) -> tuple[str, str]:
+        """(text without the link, link) from the caption; a hidden link (text_link) counts too."""
+        caption = msg.get("caption") or ""
+        link = next((e.get("url") for e in msg.get("caption_entities") or [] if e.get("type") == "text_link"), "")
+        found = re.search(r"https?://\S+", caption)
+        if found and not link:
+            link = found.group(0).rstrip(".,)")
+        text = re.sub(r"https?://\S+", "", caption).strip()
+        return text, link or ""
+
+    def create_ad(self, msg: dict) -> None:
+        chat_id, msg_id = msg["chat"]["id"], msg["message_id"]
+        kind, media = self.ad_media(msg)
+        if (media.get("file_size") or 0) > config.TELEGRAM_MAX_DOWNLOAD:
+            self.send(chat_id, "⚠️ Fayl 20 MB dan katta — kichikroq rasm yoki video yuboring.", reply_to=msg_id)
+            return
+        status = self.send(chat_id, "⏳ Reklama tayyorlanmoqda…", reply_to=msg_id)
+        text, link = self.ad_link(msg)
+        try:
+            with tempfile.TemporaryDirectory() as tmp_name:
+                ext = ".jpg" if kind == "image" else ".mp4"
+                src = self.bot.download(media["file_id"], Path(tmp_name) / f"ad{ext}")
+                ad = ads.create(src, kind, text, link)
+        except Exception as exc:
+            traceback.print_exc()
+            self.edit(chat_id, status["message_id"], f"❌ Reklamani tayyorlab bo'lmadi: {esc(str(exc)[:300])}")
+            return
+        self.state.pop("ad_draft", None)
+        self.state_dirty = True
+        self.edit(chat_id, status["message_id"], "✅ <b>Reklama qo'shildi!</b> Saytda 1–3 daqiqada ko'rinadi.\n\n"
+                  + self.ad_card(ad), self.ad_markup(ad))
+
+    def ad_card(self, ad: dict, st: dict | None = None) -> str:
+        kind = "🖼 rasm" if ad["type"] == "image" else f"🎬 video ({ad.get('duration', 0):.0f} s)"
+        state = "✅ faol" if ad.get("active", True) else "⏸ to'xtatilgan"
+        lines = [f"📢 <b>Reklama</b> <code>{ad['id']}</code> · {kind} · {state}"]
+        if ad.get("text"):
+            lines.append(f"📝 {esc(ad['text'])}")
+        if ad.get("link"):
+            lines.append(f"🔗 {esc(ad['link'])}")
+        if st is not None:
+            ev = lambda k, f="people": (st.get(k) or {}).get(f, 0)  # noqa: E731
+            seen = ev("view") + ev("iview")
+            lines += [
+                f"👁 Ko'rdi: <b>{ev('view', 'n') + ev('iview', 'n')}</b> marta · to'liq ekranda <b>{ev('view')}</b> kishi, "
+                f"muqova o'rnida <b>{ev('iview')}</b> kishi",
+                f"✔️ Oxirigacha ko'rdi: <b>{ev('complete')}</b> kishi · ⏭ O'tkazib yubordi: <b>{ev('skip')}</b> kishi",
+                f"👆 Havolani bosdi: <b>{ev('click')}</b> kishi · 📅 Bugun ko'rdi: <b>{ev('view', 'today') + ev('iview', 'today')}</b>",
+            ]
+            if not seen:
+                lines.append("<i>Hali hech kim ko'rmadi.</i>")
+        return "\n".join(lines)
+
+    def ad_markup(self, ad: dict) -> dict:
+        toggle = {"text": "⏸ To'xtatish", "callback_data": f"adoff:{ad['id']}"} if ad.get("active", True) \
+            else {"text": "▶️ Yoqish", "callback_data": f"adon:{ad['id']}"}
+        return {"inline_keyboard": [[toggle, {"text": "🗑 O'chirish", "callback_data": f"addel:{ad['id']}"}],
+                                    [{"text": "📊 Statistika", "callback_data": f"adst:{ad['id']}"}]]}
+
+    def cmd_ads(self, msg: dict, arg: str) -> None:
+        chat_id = msg["chat"]["id"]
+        items = ads.load()
+        if not items:
+            self.send(chat_id, "📢 Hali reklama yo'q. Qo'shish uchun: /add")
+            return
+        st = ads.stats()
+        if st is None:
+            self.send(chat_id, "⚠️ Statistikani olib bo'lmadi (relay javob bermadi) — ro'yxat statistikasiz.")
+        for ad in items[:10]:
+            self.send(chat_id, self.ad_card(ad, (st or {}).get(ad["id"], {}) if st is not None else None), markup=self.ad_markup(ad))
+
+    def handle_ad_action(self, cq: dict, action: str, ad_id: str, chat_id: int, message_id: int) -> None:
+        answer = lambda text="": self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text=text)  # noqa: E731
+        ad = next((a for a in ads.load() if a["id"] == ad_id), None)
+        if not ad:
+            answer("Reklama topilmadi")
+            return
+        if action in ("adon", "adoff"):
+            ad = ads.set_active(ad_id, action == "adon")
+            answer("Yoqildi" if action == "adon" else "To'xtatildi")
+            self.edit(chat_id, message_id, self.ad_card(ad), self.ad_markup(ad))
+        elif action == "addel":
+            answer()
+            self.edit(chat_id, message_id, self.ad_card(ad) + "\n\n🗑 Rostdan ham o'chirilsinmi?", {"inline_keyboard": [[
+                {"text": "✅ Ha, o'chirish", "callback_data": f"addelok:{ad_id}"},
+                {"text": "↩️ Yo'q", "callback_data": f"adst:{ad_id}"}]]})
+        elif action == "addelok":
+            ads.remove(ad_id)
+            answer("O'chirildi")
+            self.edit(chat_id, message_id, f"🗑 Reklama o'chirildi: <code>{ad_id}</code>")
+        else:  # adst: refresh with statistics
+            st = ads.stats()
+            answer()
+            self.edit(chat_id, message_id, self.ad_card(ad, (st or {}).get(ad_id, {}) if st is not None else None),
+                      self.ad_markup(ad))
 
     def cmd_artists(self, msg: dict, arg: str) -> None:
         counts: dict[str, int] = {}
@@ -889,6 +1033,9 @@ class Station:
         action, _, song_id = data.partition(":")
         if action in ("vok", "vno", "vwait"):
             self.handle_variant_choice(cq, action, song_id, chat_id, message_id)
+            return
+        if action in ("adon", "adoff", "addel", "addelok", "adst"):
+            self.handle_ad_action(cq, action, song_id, chat_id, message_id)
             return
         song = self.lib.get(song_id)
         if not song:

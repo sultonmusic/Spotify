@@ -2,7 +2,8 @@
 name = "cavi-music-relay"
 main = "worker.js"
 compatibility_date = "2025-09-01"
-workers_dev = false
+workers_dev = true  # public URL for the site's ad statistics
+preview_urls = false
 
 [triggers]
 crons = ["* * * * *"]
@@ -11,3 +12,11 @@ crons = ["* * * * *"]
 REPO = "sultonmusic/Spotify"
 BRANCH = "ccr-804fe7ec-qgezod"
 WORKFLOW = "station.yml"
+
+[[durable_objects.bindings]]
+name = "ADSTATS"
+class_name = "AdStats"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["AdStats"]

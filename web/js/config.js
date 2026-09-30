@@ -7,4 +7,6 @@ export const CONFIG = {
   playThreshold: 30,
   // How often to look for newly added songs while the app is open (ms).
   refreshEvery: 90_000,
+  // Cloudflare Worker (relay/) that counts ad views, skips and clicks for the bot's /ads command.
+  statsUrl: "https://cavi-music-relay.sales-infarmatik-tj.workers.dev",
 };

@@ -171,6 +171,10 @@ const S = {
   "page.notFound": { ru: "Страница не найдена", en: "Page not found", uz: "Sahifa topilmadi" },
   "load.error": { ru: "Не удалось загрузить медиатеку", en: "Couldn't load the library", uz: "Kutubxonani yuklab bo'lmadi" },
 
+  "ad.label": { ru: "Реклама", en: "Ad", uz: "Reklama" },
+  "ad.skip": { ru: "Пропустить", en: "Skip", uz: "O'tkazib yuborish" },
+  "ad.skipIn": { ru: "Пропустить через {n}", en: "Skip in {n}", uz: "{n} soniyadan keyin o'tkazish" },
+  "ad.open": { ru: "Подробнее", en: "Learn more", uz: "Batafsil" },
   "dj.banner": { ru: "DJ — музыка по вашим словам", en: "DJ — music in your own words", uz: "DJ — o'z so'zlaringiz bilan musiqa" },
   "dj.bannerSub": { ru: "Напишите, что хотите послушать", en: "Say what you'd like to hear", uz: "Nima eshitmoqchi ekaningizni yozing" },
   "dj.hello": { ru: "Привет! Я DJ станции. Напишите по-узбекски, по-русски или по-английски, что хотите послушать — настроение, жанр, язык, исполнителя — и я подберу и включу.", en: "Hi! I'm the station's DJ. Tell me in Uzbek, Russian or English what you'd like — a mood, genre, language or artist — and I'll pick and play it.", uz: "Salom! Men stansiya DJ'iman. O'zbek, rus yoki ingliz tilida nima eshitmoqchi ekaningizni yozing — kayfiyat, janr, til yoki ijrochi — men tanlab, qo'yib beraman." },
