@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-09-30T15:31:03Z",
- "count": 44,
+ "updatedAt": "2026-09-30T16:58:56Z",
+ "count": 49,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -442,9 +442,401 @@
     "ru": "американская певица, композитор, автор",
     "uz": "Lana del Rey"
    }
+  },
+  "The Weeknd": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4050205,
+   "itunesId": 479756766,
+   "deezer": "https://www.deezer.com/artist/4050205",
+   "apple": "https://music.apple.com/us/artist/the-weeknd/479756766",
+   "image": "library/artists/the-weeknd.jpg",
+   "color": "#99603e",
+   "checked": "2026-09-30T16:55:37Z",
+   "verifiedAt": "2026-09-30T16:55:37Z",
+   "fans": 14711196,
+   "albums": 90,
+   "bioChecked": "2026-09-30T16:58:50Z",
+   "bio": {
+    "en": "Abel Tesfaye, known professionally as the Weeknd, is a Canadian singer, songwriter, record producer, and actor. Regarded as an influential figure in popular music, he is known for his light-lyric tenor vocal range and falsetto, alternative R&B sound, and dark aesthetics, as well as the cinematic visuals and storytelling of his music videos. His accolades include 4 Grammy Awards, 20 Billboard Music Awards, 22 Juno Awards, 6 American Music Awards, 3 MTV Video Music Awards, and a Latin Grammy Award.",
+    "ru": "Э́йбел Макко́нен Те́сфайе, также известный как The Weeknd, — канадский певец, автор песен и актёр. Известен своим нетрадиционным музыкальным производством, мрачным лиризмом и частой сменой образов. Его музыка исследует эскапизм, романтику и меланхолию. Обладатель множества музыкальных наград, в том числе четырёх премий «Грэмми», двадцати музыкальных премий Billboard Music Awards, шести премий American Music Awards и трёх премий MTV Video Music Awards. Также номинировался на прайм-таймовую премию «Эмми» и на премию «Оскар» за создание саундтрека к фильму «Пятьдесят оттенков серого».",
+    "uz": "Abel Makkonen Tesfaye – kelib chiqishi efiopiyalik boʻlgan kanadalik qoʻshiqchi, qoʻshiqnavis, musiqiy prodyuser va aktyor. The Weeknd taxallusi ostida ijod qiladi. U pop musiqasining namoyondalaridan biri sifatida tanilgan boʻlib, yengil lirik tenor ovoz diapazoni va falsetto kuylash uslubi, shuningdek, oʻziga xos alternativ R&B uslubi bilan eʼtirof qozongan. Uning yutuqlari orasida toʻrtta Grammy, yigirmata Billboard Music Awards, yigirma ikkita Juno Awards, oltita American Music Awards, uchta MTV Video Music Awards hamda bitta Latin Grammy Awards mukofoti mavjud."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/The_Weeknd",
+    "ru": "https://ru.wikipedia.org/wiki/The_Weeknd",
+    "uz": "https://uz.wikipedia.org/wiki/The_Weeknd"
+   },
+   "desc": {
+    "en": "Canadian singer and songwriter (born 1990)",
+    "ru": "канадский певец и автор песен",
+    "uz": "kanadalik qoʻshiqchi va qoʻshiqlar muallifi"
+   }
+  },
+  "JENNIE": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1228100,
+   "deezer": "https://www.deezer.com/artist/1228100",
+   "image": "library/artists/jennie.jpg",
+   "color": "#ac6753",
+   "checked": "2026-09-30T16:56:06Z",
+   "verifiedAt": "2026-09-30T16:56:06Z",
+   "fans": 645983,
+   "albums": 21,
+   "bioChecked": "2026-09-30T16:58:52Z",
+   "bio": {
+    "en": "Jennie Kim is a South Korean singer, rapper, songwriter, and actress. Born in South Korea, she moved to New Zealand in 2004 and returned to South Korea to successfully audition for YG Entertainment in 2010. She rose to prominence as a member of the South Korean girl group Blackpink, which debuted in August 2016 and became one of the best-selling girl groups of all time.",
+    "ru": "Дже́нни Ким, также известная как Дже́нни или как Дженни Руби Джейн , — южнокорейская певица, модель, рэпер, актриса и танцовщица. Является участницей южнокорейской женской группы Blackpink, сформированной YG Entertainment в 2016 году.",
+    "uz": "Jennie Kim - Janubiy Koreyalik qoʻshiqchi, reper. Janubiy Koreyada tugʻilib oʻsgan Jennie Yangi Zelandiyada besh yil tahsil oldi. 2010-yilda esa Janubiy Koreyaga qaytdi. 2016-yil avgustida YG Entertainment leybli tomonidan tuzilgan \"BLACKPINK\" guruhi aʼzosi sifatida mashhurlikka erishdi. 2018-yilning noyabrida u yakkaxon xonanda oʻlaroq „Solo“ singlini omma eʼtiboriga havola etdi. Qoʻshiq savdosi chaqqon boʻlib, Gaon Digital Chart va Billboard jurnali yuritadigan World Digital Songs chartlarida yuqori pogʻonalardan oʻrin oldi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Jennie_(singer)",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9A%D0%B8%D0%BC%2C_%D0%94%D0%B6%D0%B5%D0%BD%D0%BD%D0%B8",
+    "uz": "https://uz.wikipedia.org/wiki/Jennie"
+   },
+   "desc": {
+    "en": "South Korean singer (born 1996)",
+    "ru": "южнокорейская певица, участница Blackpink",
+    "uz": "Janubiy koreyalik qo'shiqchi, repper va BLACKPINK a'zosi"
+   }
+  },
+  "Lily Rose Depp": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4755027,
+   "deezer": "https://www.deezer.com/artist/4755027",
+   "image": "library/artists/lily-rose-depp.jpg",
+   "color": "#703a1f",
+   "checked": "2026-09-30T16:56:06Z",
+   "verifiedAt": "2026-09-30T16:56:06Z",
+   "fans": 126361,
+   "albums": 4,
+   "bioChecked": "2026-09-30T16:58:56Z",
+   "bio": {
+    "en": "Lily-Rose Melody Depp is a French and American actress and singer. Born to actors Johnny Depp and Vanessa Paradis, she began her acting career in film with a minor role in Tusk (2014) and pursued a career as a fashion model. She appeared in the period dramas The Dancer (2016) and The King (2019), and the romantic comedy A Faithful Man (2018).",
+    "ru": "Ли́ли-Ро́уз Ме́лоди Депп — франко-американская актриса и модель, дочь американского актёра Джонни Деппа и французской певицы и актрисы Ванессы Паради.",
+    "uz": "Lili-Rouz Melodi Depp - fransuz va amerikalik aktrisa va qo'shiqchi. Aktyorlar Jonni Depp va Vanessa Paradis oilasida tug'ilgan u aktyorlik faoliyatini kinoda \"Tusk\" (2014) filmidagi ikkinchi darajali rol bilan boshlagan va moda modeli sifatida karyerasini davom ettirgan. U \"Raqqosa\" (2016) va \"Qirol\" (2019) davr dramalarida, shuningdek, \"Sodiq odam\" (2018) romantik komediyasida rol o'ynagan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Lily-Rose_Depp",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%94%D0%B5%D0%BF%D0%BF%2C_%D0%9B%D0%B8%D0%BB%D0%B8-%D0%A0%D0%BE%D1%83%D0%B7"
+   },
+   "desc": {
+    "en": "French and American actress and singer (born 1999)",
+    "ru": "американская актриса и модель"
+   },
+   "bioTr": [
+    "uz"
+   ]
+  },
+  "Gesaffelstein": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 210977,
+   "deezer": "https://www.deezer.com/artist/210977",
+   "image": "library/artists/gesaffelstein.jpg",
+   "color": "#5e6d79",
+   "checked": "2026-09-30T16:56:21Z",
+   "verifiedAt": "2026-09-30T16:56:21Z",
+   "fans": 328202,
+   "albums": 22
+  },
+  "Egzod": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 9819354,
+   "itunesId": 1082774524,
+   "deezer": "https://www.deezer.com/artist/9819354",
+   "apple": "https://music.apple.com/us/artist/egzod/1082774524",
+   "image": "library/artists/egzod.jpg",
+   "color": "#795230",
+   "checked": "2026-09-30T16:56:37Z",
+   "verifiedAt": "2026-09-30T16:56:37Z",
+   "fans": 18088,
+   "albums": 92
+  },
+  "Maestro Chives": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 11695431,
+   "deezer": "https://www.deezer.com/artist/11695431",
+   "image": "library/artists/maestro-chives.jpg",
+   "color": "#65879a",
+   "checked": "2026-09-30T16:56:39Z",
+   "verifiedAt": "2026-09-30T16:56:39Z",
+   "fans": 8193,
+   "albums": 17
+  },
+  "Neoni": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 64437072,
+   "deezer": "https://www.deezer.com/artist/64437072",
+   "image": "library/artists/neoni.jpg",
+   "color": "#df2820",
+   "checked": "2026-09-30T16:56:40Z",
+   "verifiedAt": "2026-09-30T16:56:40Z",
+   "fans": 51958,
+   "albums": 90
   }
  },
  "songs": [
+  {
+   "id": "345c009073",
+   "title": "Royalty",
+   "artist": "Egzod, Maestro Chives, Neoni",
+   "artists": [
+    "Egzod",
+    "Maestro Chives",
+    "Neoni"
+   ],
+   "album": "Royalty - Single",
+   "year": 2021,
+   "genre": "Electronic",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "energetic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.95,
+   "danceability": 1.0,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 223.61,
+   "src": "library/audio/345c009073.m4a",
+   "cover": "library/covers/345c009073.jpg",
+   "color": "#64849b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     144,
+     149
+    ]
+   },
+   "addedAt": "2026-09-30T16:56:47Z",
+   "mime": "audio/mp4",
+   "size": 3617281,
+   "storage": "pages",
+   "lufs": -6.8,
+   "gain": -7.2,
+   "via": "audio",
+   "fileKey": "345c009073166c17",
+   "story": "library/stories/345c009073.jpg"
+  },
+  {
+   "id": "7f79701479",
+   "title": "I Was Never There",
+   "artist": "The Weeknd, Gesaffelstein",
+   "artists": [
+    "The Weeknd",
+    "Gesaffelstein"
+   ],
+   "album": "My Dear Melancholy,",
+   "year": 2018,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "sad",
+    "motivational",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": 112,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 241.39,
+   "src": "library/audio/7f79701479.m4a",
+   "cover": "library/covers/7f79701479.jpg",
+   "color": "#833214",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     143,
+     148
+    ]
+   },
+   "addedAt": "2026-09-30T16:56:30Z",
+   "mime": "audio/mp4",
+   "size": 3904944,
+   "storage": "pages",
+   "lufs": -6.3,
+   "gain": -7.7,
+   "via": "audio",
+   "fileKey": "7f797014794dc933",
+   "story": "library/stories/7f79701479.jpg"
+  },
+  {
+   "id": "24708a72c9",
+   "title": "One Of The Girls",
+   "artist": "The Weeknd, JENNIE, Lily Rose Depp",
+   "artists": [
+    "The Weeknd",
+    "JENNIE",
+    "Lily Rose Depp"
+   ],
+   "album": "One of the Girls - EP",
+   "year": 2023,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 258.44,
+   "src": "library/audio/24708a72c9.m4a",
+   "cover": "library/covers/24708a72c9.jpg",
+   "color": "#008f8f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     142,
+     147
+    ]
+   },
+   "addedAt": "2026-09-30T16:56:15Z",
+   "mime": "audio/mp4",
+   "size": 4180580,
+   "storage": "pages",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "24708a72c93e7c34",
+   "story": "library/stories/24708a72c9.jpg"
+  },
+  {
+   "id": "cc3f80e635",
+   "title": "Earned It (Fifty Shades of Grey)",
+   "artist": "The Weeknd",
+   "artists": [
+    "The Weeknd"
+   ],
+   "album": "Beauty Behind the Madness",
+   "year": 2014,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "romantic",
+    "sad",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 275.85,
+   "src": "library/audio/cc3f80e635.m4a",
+   "cover": "library/covers/cc3f80e635.jpg",
+   "color": "#62615d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     141,
+     146
+    ]
+   },
+   "addedAt": "2026-09-30T16:56:00Z",
+   "mime": "audio/mp4",
+   "size": 4462212,
+   "storage": "pages",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "cc3f80e635857f9e",
+   "story": "library/stories/cc3f80e635.jpg"
+  },
+  {
+   "id": "1a910f31e8",
+   "title": "Save Your Tears",
+   "artist": "The Weeknd",
+   "artists": [
+    "The Weeknd"
+   ],
+   "album": "After Hours",
+   "year": 2020,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "sad",
+    "romantic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": 118,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 248.96,
+   "src": "library/audio/1a910f31e8.m4a",
+   "cover": "library/covers/1a910f31e8.jpg",
+   "color": "#6a4725",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     140,
+     145
+    ]
+   },
+   "addedAt": "2026-09-30T16:55:46Z",
+   "mime": "audio/mp4",
+   "size": 4027326,
+   "storage": "pages",
+   "lufs": -10.1,
+   "gain": -3.9,
+   "via": "audio",
+   "fileKey": "1a910f31e8a06418",
+   "story": "library/stories/1a910f31e8.jpg"
+  },
   {
    "id": "e4fbbbd5fb",
    "title": "Carmen",
