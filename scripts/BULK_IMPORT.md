@@ -50,6 +50,21 @@ Holat: `.cavi-import/state.json`. Audio fayllari kompyuterga yuklab olinmaydi.
 Bir Telegram document ID qayta forward qilinmaydi; boshqa fayldagi bir xil qo'shiqni
 Cavi botining o'zi tekshiradi. Cover/remix savollariga dastur avtomatik «Qo'shish» bosmaydi.
 
+## GitHub Actions orqali ishga tushirish
+
+Bir marta o'z kompyuteringizda `python scripts/bulk_import.py --login --export-session`
+bilan kiring. `.cavi-import/user-session.secret` qiymatini faqat repo Actions secret
+`TELEGRAM_USER_SESSION` sifatida kiriting; bu faylni repoga upload qilmang.
+Session Telegram akkauntingizga kirish imkonini beradi: uni faqat o'zingiz boshqaradigan
+repo'ning Secrets bo'limida saqlang. Kirishni Telegram → Devices orqali bekor qilish mumkin.
+
+Repo Secrets: `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `TELEGRAM_USER_SESSION`.
+Actions → **Bulk Music Import** → **Run workflow** → limit 1000 yoki 10000.
+Bu ish avtomatik takrorlanmaydi; faqat tugma bosilganda boshlanadi. Har ishga tushirish
+3 soatgacha ishlaydi. Qolganini davom ettirish uchun yana shu workflow'ni ishga tushiring.
+Faqat maxfiy bo'lmagan progress JSON cache qilinadi; session cache yoki artifactga yozilmaydi.
+Cache o'chirilsa progress yo'qoladi, Cavi botining qo'shiq dublikat tekshiruvi baribir qoladi.
+
 ## Cheklovlar va to'xtashlar
 
 - YuklaydiBot qidiruvi barcha albom va qo'shiqlar mavjudligini kafolatlamaydi.

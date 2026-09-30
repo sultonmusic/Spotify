@@ -209,6 +209,7 @@ class Importer:
 def parser():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--login", action="store_true", help="Only log in locally; do not send messages")
+    p.add_argument("--export-session", action="store_true", help="Save session secret locally after --login")
     p.add_argument("--artists", type=Path, default=Path("scripts/import_artists.txt"))
     p.add_argument("--session", default=".cavi-import/account")
     p.add_argument("--state", type=Path, default=Path(".cavi-import/state.json"))
@@ -223,6 +224,7 @@ def parser():
 
 async def main(args):
     from telethon import TelegramClient
+    from telethon.sessions import StringSession
     api_id = os.getenv("TELEGRAM_API_ID")
     api_hash = os.getenv("TELEGRAM_API_HASH")
     if args.login:
@@ -234,7 +236,11 @@ async def main(args):
         raise RuntimeError("Sonlar musbat, --delay kamida 1 bo'lishi kerak.")
     session_dir = Path(args.session).parent
     session_dir.mkdir(parents=True, exist_ok=True, mode=0o700)
-    client = TelegramClient(args.session, int(api_id), api_hash, flood_sleep_threshold=0)
+    session_secret = os.getenv("TELEGRAM_USER_SESSION", "").strip()
+    if args.export_session and not args.login:
+        raise RuntimeError("--export-session faqat --login bilan ishlaydi.")
+    session = StringSession(session_secret) if session_secret else args.session
+    client = TelegramClient(session, int(api_id), api_hash, flood_sleep_threshold=0)
     try:
         await client.connect()
         if args.login:
@@ -242,6 +248,11 @@ async def main(args):
                                code_callback=lambda: getpass.getpass("Telegram kodi: "),
                                password=lambda: getpass.getpass("2FA parol: "))
             print("Kirish saqlandi. Session faylini GitHub'ga yoki chatga yubormang.")
+            if args.export_session:
+                export_path = session_dir / "user-session.secret"
+                export_path.write_text(StringSession.save(client.session), encoding="utf-8")
+                export_path.chmod(0o600)
+                print(f"GitHub secret uchun fayl: {export_path}. Qiymat terminalga chiqarilmadi.")
             return
         if not await client.is_user_authorized():
             raise RuntimeError("Avval --login bilan shu kompyuterda kiring.")
