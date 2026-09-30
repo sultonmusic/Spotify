@@ -22,7 +22,7 @@ from . import ai, audio, config, lookup, story
 from .artists import Artists
 from .covers import save_cover
 from .identify import Clues, identify, lyrics_payload
-from .library import Library, now_iso, store_audio
+from .library import Library, delete_media, now_iso, store_audio, store_file
 from .lookup import lyrics as fetch_lyrics
 from .taxonomy import GENRE_UZ, GENRES, LANG_UZ, LANGUAGES, MOOD_UZ, MOODS, canonical_genre
 from .telegram_api import Bot, TelegramError
@@ -33,6 +33,40 @@ SETUP_VERSION = "6"
 AUDIO_EXT = {".mp3", ".m4a", ".aac", ".flac", ".ogg", ".oga", ".opus", ".wav", ".wma", ".aif", ".aiff",
              ".ape", ".alac", ".amr", ".mka", ".weba"}
 VIDEO_EXT = {".mp4", ".mov", ".mkv", ".webm", ".avi", ".3gp", ".m4v"}
+ASK_TTL = 7 * 86400  # "add this cover?" buttons stay valid for a week
+
+# Another version of a song (asked about before it is added): cover, remix, live, karaoke…
+_VARIANT = re.compile(
+    r"\b(cover|кавер|karaoke|караоке|remix|ремикс|rmx|mashup|мэшап|live|лайв|концерт|konsert|concert|acoustic|"
+    r"акустик|instrumental|инструментал|minus|минус|slowed|sped ?up|speed ?up|nightcore|8d|reverb|bass ?boosted)\b", re.I)
+_VARIANT_LABEL = {"кавер": "cover", "karaoke": "karaoke", "караоке": "karaoke", "ремикс": "remix", "rmx": "remix",
+                  "mashup": "remix", "мэшап": "remix", "лайв": "live", "концерт": "live", "konsert": "live",
+                  "concert": "live", "акустик": "acoustic", "инструментал": "instrumental", "минус": "minus"}
+_VARIANT_UZ = {"cover": "cover (boshqa ijrochi kuylagan)", "karaoke": "karaoke", "remix": "remix", "live": "jonli ijro (live)",
+               "acoustic": "akustik versiya", "instrumental": "instrumental", "minus": "minus"}
+
+
+def variant_of(*texts: str) -> str | None:
+    """'cover' / 'remix' / 'live'… when the title marks the song as another version of an original.
+
+    Only the parts in brackets or after a dash count, so titles like "Live Your Life" stay originals.
+    """
+    for text in texts:
+        if not text:
+            continue
+        parts = re.findall(r"[(\[]([^)\]]+)[)\]]", text)
+        parts += re.split(r"\s[-–—|]\s", text)[2:] if text.count(" - ") >= 2 else []
+        for part in parts:
+            m = _VARIANT.search(part)
+            if m:
+                word = m.group(1).lower().replace(" ", "")
+                return _VARIANT_LABEL.get(word, word)
+    return None
+
+
+def base_title(title: str) -> str:
+    """The title without "(Live …)", "[Remix]", "- Cover"…"""
+    return re.sub(r"\s*[(\[][^)\]]*[)\]]", "", title).split(" - ")[0].strip() or title
 TARGET_LUFS = -14.0  # same loudness target as the big streaming services
 
 def esc(text: Any) -> str:
@@ -54,6 +88,7 @@ class Station:
         self.state: dict[str, Any] = json.loads(config.STATE_FILE.read_text()) if config.STATE_FILE.exists() else {}
         self.state_dirty = False
         self.site = config.SITE_URL
+        self.later: list[dict] = []  # notices shown after the other songs of the same batch
 
     # ================================================================== plumbing
     def save(self) -> None:
@@ -61,6 +96,10 @@ class Station:
         for key in ("pending", "bulk"):  # leftovers of the removed add-by-name feature
             if self.state.pop(key, None) is not None:
                 self.state_dirty = True
+        asks = self.state.get("asks") or {}
+        for token in [k for k, v in asks.items() if time.time() - v.get("t", 0) > ASK_TTL]:
+            del asks[token]
+            self.state_dirty = True
         if self.state_dirty:
             config.STATE_FILE.write_text(json.dumps(self.state, indent=1) + "\n")
             self.state_dirty = False
@@ -235,20 +274,26 @@ class Station:
             markup = None
         self.send(chat_id, "\n".join(text), reply_to=msg_id, markup=markup)
 
-    def handle_song(self, msg: dict, kind: str, media: dict) -> None:
+    def handle_song(self, msg: dict, kind: str, media: dict, force: bool = False) -> None:
+        """A file from the owner: a new song, another version of one (asked about later), or a music video."""
         chat_id, msg_id = msg["chat"]["id"], msg["message_id"]
         file_key = hashlib.sha1(media["file_unique_id"].encode()).hexdigest()[:16]
-        existing = self.lib.by_file(file_key)
-        if existing:
+        existing = self.lib.by_file(file_key) or next((s for s in self.lib.songs if s.get("videoKey") == file_key), None)
+        if existing and not force:
             self.remember_message(existing, msg_id)
-            self.send(chat_id, "ℹ️ Bu fayl allaqachon kutubxonada bor:\n\n" + self.card(existing),
-                      reply_to=msg_id, markup=self.song_markup(existing))
+            what = "Bu video allaqachon qo'shiqqa biriktirilgan" if existing.get("videoKey") == file_key else "Bu fayl allaqachon kutubxonada bor"
+            self.defer(chat_id, f"ℹ️ {what}:\n\n" + self.card(existing), msg_id, self.song_markup(existing))
             return
         size = media.get("file_size") or 0
         if size > config.TELEGRAM_MAX_DOWNLOAD:
-            self.send(chat_id, f"⚠️ Fayl juda katta ({size / 1048576:.1f} MB). Telegram botlari 20 MB gacha "
-                               "fayllarni yuklab ola oladi. Iltimos, siqilgan mp3 (masalan 320 kbps) yuboring.",
-                      reply_to=msg_id)
+            if kind == "video":
+                text = (f"⚠️ Video juda katta ({size / 1048576:.0f} MB). Telegram botlarga faqat 20 MB gacha faylni "
+                        "yuklab olishga ruxsat beradi.\n\nVideoni <b>480p</b> yoki <b>360p</b> sifatda yuboring — saytda "
+                        "u baribir 720p gacha ko'rsatiladi.")
+            else:
+                text = (f"⚠️ Fayl juda katta ({size / 1048576:.1f} MB). Telegram botlari 20 MB gacha fayllarni yuklab "
+                        "ola oladi. Iltimos, siqilgan mp3 (masalan 320 kbps) yuboring.")
+            self.send(chat_id, text, reply_to=msg_id)
             return
 
         status = self.send(chat_id, "⏳ Qabul qilindi. Yuklab olinmoqda…", reply_to=msg_id)
@@ -262,7 +307,7 @@ class Station:
             self.bot.safe("sendChatAction", chat_id=chat_id, action="typing")
 
         try:
-            song, duplicate = self.import_song(msg, kind, media, file_key, progress)
+            song, outcome = self.import_song(msg, kind, media, file_key, progress, force)
         except Exception as exc:
             traceback.print_exc()
             text = f"❌ Qo'shiqni qo'shib bo'lmadi: {esc(str(exc)[:300])}"
@@ -271,8 +316,21 @@ class Station:
             else:
                 self.send(chat_id, text, reply_to=msg_id)
             return
-        if duplicate:
-            text = "ℹ️ Bu qo'shiq allaqachon kutubxonada bor:\n\n" + self.card(song)
+        if outcome in ("duplicate", "ask"):
+            # Asked/told after the rest of the batch, so new songs come first.
+            if status_id:
+                self.bot.safe("deleteMessage", chat_id=chat_id, message_id=status_id)
+            if outcome == "duplicate":
+                self.defer(chat_id, "♻️ <b>Takroriy:</b> bu qo'shiq stansiyada allaqachon bor — qayta qo'shilmadi.\n\n"
+                           + self.card(song), msg_id, self.song_markup(song))
+            else:
+                self.ask_variant(chat_id, msg_id, kind, media, msg.get("caption") or "", song)
+            return
+        if outcome == "video":
+            text = "🎬 <b>Video qo'shiqqa biriktirildi!</b>\n\n" + self.card(song)
+            if song.get("videoOffset"):
+                text += f"\n\n<i>Video ovozga moslandi ({song['videoOffset']:+.1f} s).</i>"
+            text += "\n\n<i>Saytda to'liq ekranli pleyerda ko'rinadi (1–3 daqiqada).</i>"
         else:
             text = "✅ <b>Stansiyaga qo'shildi!</b>\n\n" + self.card(song) + \
                    "\n\n<i>Sayt va mini ilovada 1–3 daqiqada paydo bo'ladi.</i>"
@@ -281,10 +339,18 @@ class Station:
             self.edit(chat_id, status_id, text, self.song_markup(song))
         else:
             self.send(chat_id, text, reply_to=msg_id, markup=self.song_markup(song))
+        if outcome == "added":
+            self.ask_waiting_covers(chat_id, song)
 
-    def import_song(self, msg: dict, kind: str, media: dict, file_key: str, progress) -> tuple[dict, bool]:
-        """Downloads, identifies and stores a song. Returns (song, is_duplicate)."""
+    def import_song(self, msg: dict, kind: str, media: dict, file_key: str, progress,
+                    force: bool = False) -> tuple[dict, str]:
+        """Downloads, identifies and stores a song.
+
+        Returns (song, outcome): "added"; "video" (a music video attached to its song); "duplicate" (already on the
+        station); "ask" (another version, e.g. a cover — the song is a dict with what was found, nothing stored).
+        """
         msg_id = msg["message_id"]
+        is_video = kind == "video"
         with tempfile.TemporaryDirectory() as tmp_name:
             tmp = Path(tmp_name)
             ext = Path(media.get("file_name") or "").suffix.lower() or {"voice": ".ogg", "video": ".mp4"}.get(kind, ".mp3")
@@ -309,11 +375,24 @@ class Station:
             )
             result = identify(src, info, clues, tmp, progress)
             meta = self.canonical_artists(result)
+            variant = variant_of(meta["title"], clues.tg_title, clues.file_name, clues.caption)
+
+            if is_video and not variant:
+                # A music video of a song on the station: attach it (the video's own length doesn't matter).
+                target = next((s for s in self.lib.songs if s.get("src") and lookup.same_song(
+                    s["title"], s["artist"], meta["title"], meta["artist"])), None)
+                if target:
+                    self.attach_video(target, src, tmp, progress, same_audio=False, file_key=file_key)
+                    self.remember_message(target, msg_id)
+                    return target, "video"
 
             dup = self.lib.duplicate_of(meta["title"], meta["artist"], info.duration)
-            if dup:
+            if dup and not force:
                 self.remember_message(dup, msg_id)
-                return dup, True
+                return dup, "duplicate"
+            if variant and not force:
+                return {"title": meta["title"], "artist": meta["artist"], "variant": variant,
+                        "base": base_title(meta["title"])}, "ask"
 
             song_id = hashlib.sha1(media["file_unique_id"].encode()).hexdigest()[:10]
             progress("💾 Saqlanmoqda…")
@@ -327,9 +406,133 @@ class Station:
                 "src": src_url, "mime": mime, "size": final.stat().st_size, "storage": storage,
                 "lufs": round(lufs, 1) if lufs is not None else None,
                 "gain": round(max(-12.0, min(0.0, TARGET_LUFS - lufs)), 1) if lufs is not None else 0,
-                "via": "video" if kind == "video" else kind, "fileKey": file_key,
+                "via": "video" if is_video else kind, "fileKey": file_key,
             }
-            return self.build_song(song_id, result, info.duration, msg_id, file_fields), False
+            if variant:
+                file_fields["variant"] = variant
+            song = self.build_song(song_id, result, info.duration, msg_id, file_fields)
+            if is_video and info.has_video:
+                try:
+                    self.attach_video(song, src, tmp, progress, same_audio=True, file_key=file_key)
+                except Exception:
+                    traceback.print_exc()  # the song itself is saved; the video is a bonus
+            return song, "added"
+
+    # ================================================================== music videos
+    def song_audio(self, song: dict, tmp: Path) -> Path | None:
+        """The song's stored audio (for lining the video up with it); the bot's checkout skips library/audio."""
+        import requests
+        src = song.get("src") or ""
+        url = src if src.startswith("http") else f"{self.site.rstrip('/')}/{src}" if self.site else ""
+        local = config.ROOT / src if src and not src.startswith("http") else None
+        if local and local.exists():
+            return local
+        if not url:
+            return None
+        dest = tmp / f"ref{Path(src).suffix or '.mp3'}"
+        try:
+            with requests.get(url, stream=True, timeout=120) as resp:
+                resp.raise_for_status()
+                with open(dest, "wb") as fh:
+                    for chunk in resp.iter_content(1 << 16):
+                        fh.write(chunk)
+        except requests.RequestException as exc:
+            print(f"[video] song audio unavailable: {exc}")
+            return None
+        return dest
+
+    def attach_video(self, song: dict, src: Path, tmp: Path, progress, same_audio: bool, file_key: str) -> None:
+        """Silent web copy of the video, lined up with the song's audio, shown in the site's full-screen player."""
+        progress("🎬 Video tayyorlanmoqda…")
+        out = audio.encode_video(src, tmp / "video.mp4")
+        offset = 0.0
+        if not same_audio:
+            progress("🎚 Video ovozga moslanmoqda…")
+            ref = self.song_audio(song, tmp)
+            if ref:
+                offset, confidence = audio.align(ref, src)
+                print(f"[video] {song['id']}: offset {offset:+.2f}s (confidence {confidence:.2f})")
+                if confidence < 0.2:
+                    offset = 0.0
+        old = song.get("video")
+        url, _ = store_file(self.lib, out, f"{song['id']}-v{int(time.time())}.mp4", "video/mp4")
+        if old and old != url:
+            delete_media(old)
+        self.lib.update(song, video=url, videoSize=out.stat().st_size, videoOffset=round(offset, 2), videoKey=file_key)
+        self.save()
+
+    # ================================================================== covers & duplicates (asked at the end)
+    def defer(self, chat_id: int, text: str, reply_to: int | None = None, markup: dict | None = None) -> None:
+        self.later.append({"chat": chat_id, "text": text, "reply_to": reply_to, "markup": markup})
+
+    def flush_later(self) -> None:
+        for item in self.later:
+            self.send(item["chat"], item["text"], reply_to=item["reply_to"], markup=item["markup"])
+        self.later = []
+
+    def find_original(self, base: str, artist: str) -> dict | None:
+        """The station's original of a cover/remix: same title (the performer may differ)."""
+        same = [s for s in self.lib.songs if s.get("src") and not s.get("variant")
+                and similarity(base_title(s["title"]), base) >= 0.9]
+        return next((s for s in same if similarity(s["artist"], artist) >= 0.8), same[0] if same else None)
+
+    def ask_variant(self, chat_id: int, msg_id: int, kind: str, media: dict, caption: str, found: dict) -> None:
+        token = hashlib.sha1(f"{chat_id}:{msg_id}:{time.time()}".encode()).hexdigest()[:8]
+        keep = ("file_id", "file_unique_id", "file_name", "mime_type", "file_size", "duration", "performer", "title")
+        self.state.setdefault("asks", {})[token] = {
+            "t": int(time.time()), "chat": chat_id, "msg": msg_id, "kind": kind, "caption": caption,
+            "media": {k: media[k] for k in keep if k in media}, "base": found["base"], "artist": found["artist"],
+            "variant": found["variant"], "title": found["title"], "wait": False}
+        self.state_dirty = True
+        self.defer(chat_id, *self.variant_question(token))
+
+    def variant_question(self, token: str) -> tuple[str, int, dict]:
+        a = self.state["asks"][token]
+        label = _VARIANT_UZ.get(a["variant"], a["variant"])
+        original = self.find_original(a["base"], a["artist"])
+        lines = [f"🎤 Bu qo'shiq — <b>{esc(label)}</b>:", f"<b>{esc(a['artist'])} — {esc(a['title'])}</b>", ""]
+        rows = [[{"text": "✅ Qo'shish", "callback_data": f"vok:{token}"},
+                 {"text": "❌ Kerak emas", "callback_data": f"vno:{token}"}]]
+        if original:
+            lines.append(f"Original stansiyada bor: {esc(original['artist'])} — {esc(original['title'])}")
+        else:
+            lines.append(f"Original («{esc(a['base'])}») stansiyada hali yo'q. Avval originalni yuklab, keyin buni "
+                         "qo'shasizmi?")
+            rows.insert(0, [{"text": "📤 Avval originalni yuboraman", "callback_data": f"vwait:{token}"}])
+        lines += ["", "Buni ham stansiyaga qo'shaymi?"]
+        return "\n".join(lines), a["msg"], {"inline_keyboard": rows}
+
+    def ask_waiting_covers(self, chat_id: int, song: dict) -> None:
+        """An original just arrived: ask again about the covers that were waiting for it."""
+        for token, a in list((self.state.get("asks") or {}).items()):
+            if a.get("wait") and a["chat"] == chat_id and similarity(base_title(song["title"]), a["base"]) >= 0.9:
+                a["wait"] = False
+                self.state_dirty = True
+                text, reply_to, markup = self.variant_question(token)
+                self.defer(chat_id, "🔔 Original qo'shildi.\n\n" + text, reply_to, markup)
+
+    def handle_variant_choice(self, cq: dict, action: str, token: str, chat_id: int, message_id: int) -> None:
+        a = (self.state.get("asks") or {}).get(token)
+        if not a:
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Bu savol eskirgan — faylni qayta yuboring")
+            return
+        if action == "vwait":
+            a["wait"] = True
+            self.state_dirty = True
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"])
+            self.edit(chat_id, message_id, f"⏳ Yaxshi — originalni («{esc(a['base'])}») yuboring. U qo'shilgach, "
+                                           "bu versiyani qo'shishni yana so'rayman.")
+            return
+        self.state["asks"].pop(token, None)
+        self.state_dirty = True
+        if action == "vno":
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Qo'shilmadi")
+            self.edit(chat_id, message_id, f"❌ Qo'shilmadi: {esc(a['artist'])} — {esc(a['title'])}")
+            return
+        self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Qo'shilmoqda…")
+        self.edit(chat_id, message_id, f"⏳ Qo'shilmoqda: {esc(a['artist'])} — {esc(a['title'])}")
+        msg = {"message_id": a["msg"], "chat": {"id": a["chat"], "type": "private"}, "caption": a.get("caption") or ""}
+        self.handle_song(msg, a["kind"], a["media"], force=True)
 
     def canonical_artists(self, result) -> dict:
         """Attach every performer to its artist profile (same artist -> same profile, verified if official)."""
@@ -418,6 +621,10 @@ class Station:
         if s.get("tags"):
             hashtags = [re.sub(r"[^\w]+", "_", t).strip("_") for t in s["tags"][:6]]
             lines.append("🏷 " + " ".join(f"#{esc(t)}" for t in hashtags if t))
+        if s.get("variant"):
+            lines.append(f"🎤 Versiya: {esc(_VARIANT_UZ.get(s['variant'], s['variant']))}")
+        if s.get("video"):
+            lines.append("🎬 Video: bor (saytdagi to'liq ekranli pleyerda)")
         src = {"shazam": "Shazam", "itunes": "iTunes", "deezer": "Deezer", "ai": "AI"}
         found = " + ".join(src[x] for x in s.get("sources", []) if x in src) or "fayl ma'lumotlari"
         conf = s.get("confidence")
@@ -680,6 +887,9 @@ class Station:
             self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="🔒 Faqat egasi uchun")
             return
         action, _, song_id = data.partition(":")
+        if action in ("vok", "vno", "vwait"):
+            self.handle_variant_choice(cq, action, song_id, chat_id, message_id)
+            return
         song = self.lib.get(song_id)
         if not song:
             self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Qo'shiq topilmadi")
@@ -765,8 +975,10 @@ class Station:
                 self.save()
                 if time.monotonic() > deadline + 120:
                     break
+            self.flush_later()  # duplicates / "add this cover?" after the new songs of the batch
             # keep listening a bit longer while the user is active
             listen_until = min(deadline, time.monotonic() + config.LISTEN_SECONDS)
+        self.flush_later()
         if offset is not None:
             self.bot.safe("getUpdates", offset=offset, timeout=0, limit=1)  # confirm processed updates
         # Artist profiles: make sure every performer has one, and look up official status for a few.

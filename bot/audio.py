@@ -141,3 +141,58 @@ def encode(src: Path, dest_base: Path, info: AudioInfo, meta: dict[str, str]) ->
     if proc.returncode != 0:
         raise RuntimeError(f"ffmpeg failed: {proc.stderr[-500:]}")
     return dest, mime
+
+
+# ---------------------------------------------------------------------- music videos
+def encode_video(src: Path, dest: Path) -> Path:
+    """Silent web video for the player's artwork area: H.264, at most 720p, streaming-friendly.
+
+    The sound always comes from the song's audio file, so the video carries no audio track.
+    """
+    cmd = ["ffmpeg", "-y", "-v", "error", "-i", str(src), "-map", "0:v:0", "-an", "-sn", "-map_metadata", "-1",
+           "-vf", "scale=-2:'min(720,ih)':flags=bicubic,fps=30", "-c:v", "libx264", "-preset", "veryfast",
+           "-crf", "28", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(dest)]
+    proc = _run(cmd, timeout=900)
+    if proc.returncode != 0:
+        raise RuntimeError(f"ffmpeg video failed: {proc.stderr[-400:]}")
+    return dest
+
+
+_ENV_RATE = 50  # envelope frames per second
+
+
+def _envelope(path: Path, seconds: int):
+    """Onset strength of the first `seconds` of the sound (50 values per second)."""
+    import numpy as np
+
+    proc = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-t", str(seconds), "-map", "0:a:0", "-ac", "1",
+                           "-ar", "8000", "-f", "s16le", "-"], capture_output=True, timeout=300)
+    pcm = np.frombuffer(proc.stdout, dtype=np.int16).astype(np.float32)
+    hop = 8000 // _ENV_RATE
+    frames = len(pcm) // hop
+    if frames < _ENV_RATE * 5:
+        return None
+    energy = np.log1p(np.sqrt((pcm[: frames * hop].reshape(frames, hop) ** 2).mean(axis=1)))
+    onset = np.maximum(0, np.diff(energy, prepend=energy[0]))
+    return (onset - onset.mean()) / (onset.std() + 1e-9)
+
+
+def align(song: Path, video: Path, max_shift: int = 90) -> tuple[float, float]:
+    """How far the video runs ahead of the song: video_time = song_time + offset.
+
+    Music videos often start with an intro, so the sound of both is compared (onset envelopes,
+    cross-correlation). Returns (offset seconds, confidence 0..1); low confidence -> offset 0.
+    """
+    import numpy as np
+
+    a, b = _envelope(song, 150), _envelope(video, 150 + max_shift)
+    if a is None or b is None:
+        return 0.0, 0.0
+    corr = np.correlate(b, a, mode="full") / len(a)  # index k -> lag k - (len(a) - 1)
+    lags = np.arange(len(corr)) - (len(a) - 1)
+    ok = np.abs(lags) <= max_shift * _ENV_RATE
+    corr, lags = corr[ok], lags[ok]
+    best = int(np.argmax(corr))
+    peak = float(corr[best])
+    confidence = max(0.0, min(1.0, peak / (float(np.abs(corr).mean()) * 8 + 1e-9)))
+    return float(lags[best]) / _ENV_RATE, confidence

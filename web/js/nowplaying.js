@@ -102,6 +102,49 @@ let lyricsUpdate = () => {};
 let fullLyricsUpdate = null;
 let seeking = false;
 
+// ------------------------------------------------------------------ music video (full-screen player only)
+// A song's video plays muted in the artwork area, following the audio. The listener's choice between
+// video and cover is remembered until they change it. The mini player and the rest of the site show the cover.
+const VIDEO_KEY = "ms.videoMode";
+const videoMode = () => { try { return localStorage.getItem(VIDEO_KEY) || "video"; } catch { return "video"; } };
+function setVideoMode(mode) { try { localStorage.setItem(VIDEO_KEY, mode); } catch { /* ignore */ } }
+let artVideo = null;
+
+function syncVideo() {
+  const v = artVideo, s = player.current;
+  if (!v || !s?.video || !v.isConnected) return;
+  const target = currentTime() + (s.videoOffset || 0);
+  const inside = target >= 0 && (!v.duration || target < v.duration - 0.05);
+  v.parentElement.classList.toggle("video-out", !inside); // before/after the video: the cover shows
+  if (!inside) { if (!v.paused) v.pause(); return; }
+  if (Math.abs(v.currentTime - target) > 0.35) v.currentTime = target;
+  if (isPlaying() && v.paused) v.play().catch(() => {});
+  else if (!isPlaying() && !v.paused) v.pause();
+}
+
+function artwork(s) {
+  const withVideo = !!s.video && videoMode() === "video";
+  const box = h("div", { class: `np-art${isPlaying() ? "" : " paused"}${withVideo ? " video-mode" : ""}` }, art(s));
+  artVideo = null;
+  if (withVideo) {
+    artVideo = h("video", { src: s.video, muted: true, playsinline: true, preload: "auto", disablepictureinpicture: true });
+    artVideo.muted = true;
+    artVideo.addEventListener("loadedmetadata", syncVideo);
+    box.append(artVideo);
+  }
+  if (s.video) {
+    box.append(h("button", { class: "art-switch", onclick: () => {
+      haptic("select");
+      setVideoMode(withVideo ? "image" : "video");
+      const fresh = artwork(s);
+      box.replaceWith(fresh);
+      if (root()._update) root()._update.art = fresh;
+      syncVideo();
+    }, html: withVideo ? `${icon("image", 16)}<span>${t("np.showCover")}</span>` : `${icon("film", 16)}<span>${t("np.showVideo")}</span>` }));
+  }
+  return box;
+}
+
 export function openNowPlaying() {
   if (isOpen || !player.current) return;
   isOpen = true;
@@ -111,6 +154,7 @@ export function openNowPlaying() {
   requestAnimationFrame(() => el.classList.add("open"));
   pushOverlay(() => {
     isOpen = false;
+    artVideo?.pause();
     el.classList.remove("open");
     setTimeout(() => { if (!isOpen) el.hidden = true; }, 350);
   });
@@ -230,7 +274,7 @@ function render() {
   renderQueue();
 
   const added = Date.parse(s.addedAt || 0);
-  const artBox = h("div", { class: `np-art${isPlaying() ? "" : " paused"}` }, art(s));
+  const artBox = artwork(s);
   el.append(
     h("div", { class: "np-bg", style: { background: `linear-gradient(180deg, ${rgba(color, 0.95)} 0%, ${rgba(color, 0.55)} 40%, #121212 85%)` } }),
     h("div", { class: "np-inner" },
@@ -355,7 +399,7 @@ export function openQueue() {
 // ------------------------------------------------------------------ events
 on("track", () => { if (isOpen) render(); });
 on("time", ({ t: time }) => {
-  if (isOpen) { updateTime(); lyricsUpdate(time); }
+  if (isOpen) { updateTime(); lyricsUpdate(time); syncVideo(); }
   if (fullLyricsUpdate) fullLyricsUpdate(time);
 });
 on("state", ({ playing }) => {
@@ -363,6 +407,7 @@ on("state", ({ playing }) => {
   if (!u) return;
   u.playBtn.innerHTML = icon(playing ? "pause" : "play");
   u.art?.classList.toggle("paused", !playing);
+  syncVideo();
 });
 on("modes", () => {
   const u = root()._update;

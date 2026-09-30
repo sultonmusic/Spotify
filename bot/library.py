@@ -117,7 +117,9 @@ class Library:
 
     def pages_audio_bytes(self) -> int:
         # Computed from songs.json: the bot's checkout skips library/audio to stay fast.
-        return sum(s.get("size") or 0 for s in self.songs if s.get("src") and not s["src"].startswith("http"))
+        audio = sum(s.get("size") or 0 for s in self.songs if s.get("src") and not s["src"].startswith("http"))
+        video = sum(s.get("videoSize") or 0 for s in self.songs if s.get("video") and not s["video"].startswith("http"))
+        return audio + video
 
 
 # ---------------------------------------------------------------------- audio storage
@@ -161,9 +163,13 @@ def admin_key(user_id: int) -> str:
 
 def store_audio(lib: Library, path: Path, song_id: str, mime: str) -> tuple[str, str]:
     """Stores the final audio file. Returns (src url relative to the site root or absolute, storage kind)."""
+    return store_file(lib, path, f"{song_id}{path.suffix}", mime)
+
+
+def store_file(lib: Library, path: Path, name: str, mime: str) -> tuple[str, str]:
+    """Stores a media file on the site (library/audio/) or, once the site is full, in GitHub Releases."""
     size = path.stat().st_size
     kind = choose_storage(lib, size)
-    name = f"{song_id}{path.suffix}"
     if kind == "release":
         release = _release()
         upload = release["upload_url"].split("{")[0]
@@ -194,9 +200,13 @@ def _git_rm(rel: str) -> None:
 
 
 def delete_audio(song: dict) -> None:
-    src = song.get("src") or ""
+    delete_media(song.get("src") or "")
+    delete_media(song.get("video") or "")
+
+
+def delete_media(src: str) -> None:
     if not src:
-        return  # YouTube-backed song: nothing stored
+        return
     if not src.startswith("http"):
         _git_rm(src)
         return

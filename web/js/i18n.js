@@ -171,6 +171,8 @@ const S = {
   "page.notFound": { ru: "Страница не найдена", en: "Page not found", uz: "Sahifa topilmadi" },
   "load.error": { ru: "Не удалось загрузить медиатеку", en: "Couldn't load the library", uz: "Kutubxonani yuklab bo'lmadi" },
 
+  "np.showCover": { ru: "Обложка", en: "Cover", uz: "Muqova" },
+  "np.showVideo": { ru: "Видео", en: "Video", uz: "Video" },
   "np.playing": { ru: "Сейчас играет", en: "Now playing", uz: "Ijro etilmoqda" },
   "np.expand": { ru: "Развернуть", en: "Expand", uz: "Kattalashtirish" },
   "np.about": { ru: "О песне", en: "About the song", uz: "Qo'shiq haqida" },
