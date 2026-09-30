@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-09-29T22:35:24Z",
+ "updatedAt": "2026-09-30T01:35:02Z",
  "count": 9,
  "site": {
   "admins": [
@@ -309,7 +309,23 @@
    "checked": "2026-09-29T20:37:17Z",
    "verifiedAt": "2026-09-29T20:37:17Z",
    "fans": 9263235,
-   "albums": 32
+   "albums": 32,
+   "bioChecked": "2026-09-30T01:34:59Z",
+   "bio": {
+    "en": "Billie Eilish Pirate Baird O'Connell is an American singer-songwriter. Known for her distinctive musical sound and vocal style, she is a prominent figure in 2020s pop culture. Eilish's production style frequently uses harmony lines and vocal layering, an extension of double tracking.",
+    "ru": "Би́лли А́йлиш Па́йрат Бэрд О’Ко́ннелл — американская певица и автор-исполнитель. Впервые она привлекла внимание публики в 2015 году благодаря дебютному синглу «Ocean Eyes», написанному и спродюсированному её братом Финнеасом О’Коннеллом, с которым продолжает сотрудничать в музыке и на концертах. В 2017 году вышел её первый мини-альбом Don’t Smile at Me, добившийся коммерческого успеха и вошедший в топ-15 чартов многих стран, включая США, Великобританию, Канаду и Австралию.",
+    "uz": "Billie Eilish Pirate Baird O'Connell — amerikalik qo‘shiqchi va qo‘shiqlar muallifi. O‘zining noyob musiqiy uslubi va ta’sirchan vokali bilan tanilgan Eilish 2020-yillar pop-madaniyatining yetakchi shaxslaridan biri hisoblanadi. U birinchi marta keng jamoatchilik e’tiborini 2015-yilda SoundCloudda taqdim etilgan, birinchi singli ― „Ocean Eyes“ bilan qozondi; ushbu qo‘shiqni uning akasi Finneas O'Connell yozgan va prodyuserlik qilgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Billie_Eilish",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%90%D0%B9%D0%BB%D0%B8%D1%88%2C_%D0%91%D0%B8%D0%BB%D0%BB%D0%B8",
+    "uz": "https://uz.wikipedia.org/wiki/Billie_Eilish"
+   },
+   "desc": {
+    "en": "American singer-songwriter (born 2001)",
+    "ru": "американская певица и автор песен (2001—)",
+    "uz": "amerikalik qoʻshiqchi va qoʻshiqnavisdir (2001–)"
+   }
   },
   "Khalid": {
    "aliases": [],
@@ -321,7 +337,22 @@
    "checked": "2026-09-29T20:37:18Z",
    "verifiedAt": "2026-09-29T20:37:18Z",
    "fans": 1761171,
-   "albums": 106
+   "albums": 106,
+   "bioChecked": "2026-09-30T01:35:02Z",
+   "bio": {
+    "en": "Khalid Donnel Robinson is an American singer and songwriter from El Paso, Texas. He signed with Courtney Stewart's Right Hand Music Group, an imprint of RCA Records to release his 2016 debut single, \"Location\" and its 2017 follow-up, \"Young Dumb & Broke\". Both songs peaked within the top 20 of the Billboard Hot 100, received diamond certifications by the Recording Industry Association of America (RIAA), and preceded the release of his debut studio album, American Teen (2017).",
+    "ru": "Ха́лид До́ннел Ро́бинсон — американский соул-певец и автор-исполнитель. Лауреат и номинант многих музыкальных наград.",
+    "uz": "Khalid Donnel Robinson, Khalid sifatida tanilgan, amerikalik qoʻshiqchi va qoʻshiqnavis. U Right Hand Music Group va RCA Records bilan shartnoma imzolagan. U Amerika Yozuv Industriyasi Assotsiatsiyasi (RIAA) tomonidan 4× platinum sertifikatiga ega boʻlgan American Teen (2017) debyut studiyaviy albomi chiqqandan keyin shuhrat qozondi. Albom AQShning eng yaxshi 20 ta singllarini, jumladan, „Location“ va „Young Dumb & Broke“ singllarini oʻz ichiga oladi va RIAA tomonidan Diamond sertifikatiga ham ega boʻldi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Khalid_(singer)",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A5%D0%B0%D0%BB%D0%B8%D0%B4_(%D0%BF%D0%B5%D0%B2%D0%B5%D1%86)",
+    "uz": "https://uz.wikipedia.org/wiki/Khalid_(qo%CA%BBshiqchi)"
+   },
+   "desc": {
+    "en": "American singer (born 1998)",
+    "ru": "американский певец"
+   }
   }
  },
  "songs": [
