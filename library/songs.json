@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-09-30T07:59:57Z",
- "count": 10,
+ "updatedAt": "2026-09-30T08:39:27Z",
+ "count": 27,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -385,6 +385,847 @@
   }
  },
  "songs": [
+  {
+   "id": "ab4ac505b2",
+   "title": "ocean eyes",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "dont smile at me",
+   "year": 2016,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "sad",
+    "motivational",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.52,
+   "danceability": 0.57,
+   "bpm": 145,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 200.43,
+   "src": "library/audio/ab4ac505b2.m4a",
+   "cover": "library/covers/ab4ac505b2.jpg",
+   "color": "#b02227",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     64,
+     82
+    ]
+   },
+   "addedAt": "2026-09-30T08:39:27Z",
+   "mime": "audio/mp4",
+   "size": 3242496,
+   "storage": "pages",
+   "lufs": -8.0,
+   "gain": -6.0,
+   "via": "audio",
+   "fileKey": "ab4ac505b2d6df75",
+   "story": "library/stories/ab4ac505b2.jpg"
+  },
+  {
+   "id": "1f734f3ead",
+   "title": "CHIHIRO",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "HIT ME HARD AND SOFT",
+   "year": 2024,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "romantic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 323.64,
+   "src": "library/audio/1f734f3ead.m4a",
+   "cover": "library/covers/1f734f3ead.jpg",
+   "color": "#1a4a75",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     63,
+     81
+    ]
+   },
+   "addedAt": "2026-09-30T08:39:21Z",
+   "mime": "audio/mp4",
+   "size": 5235018,
+   "storage": "pages",
+   "lufs": -9.1,
+   "gain": -4.9,
+   "via": "audio",
+   "fileKey": "1f734f3eadae1679",
+   "story": "library/stories/1f734f3ead.jpg"
+  },
+  {
+   "id": "0e796fdc84",
+   "title": "WILDFLOWER",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "HIT ME HARD AND SOFT",
+   "year": 2024,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 287.9,
+   "src": "library/audio/0e796fdc84.m4a",
+   "cover": "library/covers/0e796fdc84.jpg",
+   "color": "#1a4a75",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     62,
+     80
+    ]
+   },
+   "addedAt": "2026-09-30T08:39:14Z",
+   "mime": "audio/mp4",
+   "size": 4657129,
+   "storage": "pages",
+   "lufs": -13.8,
+   "gain": -0.2,
+   "via": "audio",
+   "fileKey": "0e796fdc84ca5ec8",
+   "story": "library/stories/0e796fdc84.jpg"
+  },
+  {
+   "id": "90b72f0acd",
+   "title": "everything i wanted",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "everything i wanted - Single",
+   "year": 2019,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 287.6,
+   "src": "library/audio/90b72f0acd.m4a",
+   "cover": "library/covers/90b72f0acd.jpg",
+   "color": "#c69839",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     61,
+     79
+    ]
+   },
+   "addedAt": "2026-09-30T08:39:07Z",
+   "mime": "audio/mp4",
+   "size": 4652244,
+   "storage": "pages",
+   "lufs": -9.3,
+   "gain": -4.7,
+   "via": "audio",
+   "fileKey": "90b72f0acd7bdd72",
+   "story": "library/stories/90b72f0acd.jpg"
+  },
+  {
+   "id": "6c26a23b0e",
+   "title": "Happier Than Ever",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "Happier Than Ever",
+   "year": 2021,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 315.16,
+   "src": "library/audio/6c26a23b0e.m4a",
+   "cover": "library/covers/6c26a23b0e.jpg",
+   "color": "#8b6649",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     60,
+     78
+    ]
+   },
+   "addedAt": "2026-09-30T08:39:01Z",
+   "mime": "audio/mp4",
+   "size": 5097961,
+   "storage": "pages",
+   "lufs": -7.7,
+   "gain": -6.3,
+   "via": "audio",
+   "fileKey": "6c26a23b0e15d4b9",
+   "story": "library/stories/6c26a23b0e.jpg"
+  },
+  {
+   "id": "ff7bcf5638",
+   "title": "when the party's over",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+   "year": 2018,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "calm",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.52,
+   "danceability": 0.57,
+   "bpm": 125,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 193.38,
+   "src": "library/audio/ff7bcf5638.m4a",
+   "cover": "library/covers/ff7bcf5638.jpg",
+   "color": "#8e7f71",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     59,
+     77
+    ]
+   },
+   "addedAt": "2026-09-30T08:38:54Z",
+   "mime": "audio/mp4",
+   "size": 3128369,
+   "storage": "pages",
+   "lufs": -9.9,
+   "gain": -4.1,
+   "via": "audio",
+   "fileKey": "ff7bcf56383dfb4c",
+   "story": "library/stories/ff7bcf5638.jpg"
+  },
+  {
+   "id": "45396b8fa0",
+   "title": "What Was I Made For? (From The Motion Picture \"Barbie\")",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "What Was I Made For? (From The Motion Picture \"Barbie\") - Single",
+   "year": 2023,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 248.59,
+   "src": "library/audio/45396b8fa0.m4a",
+   "cover": "library/covers/45396b8fa0.jpg",
+   "color": "#897835",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     58,
+     76
+    ]
+   },
+   "addedAt": "2026-09-30T08:38:48Z",
+   "mime": "audio/mp4",
+   "size": 4021416,
+   "storage": "pages",
+   "lufs": -14.0,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "45396b8fa0588d38",
+   "story": "library/stories/45396b8fa0.jpg"
+  },
+  {
+   "id": "746bc4eb29",
+   "title": "BIRDS OF A FEATHER",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "HIT ME HARD AND SOFT",
+   "year": 2024,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "sad",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 230.85,
+   "src": "library/audio/746bc4eb29.m4a",
+   "cover": "library/covers/746bc4eb29.jpg",
+   "color": "#1a4a75",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     57,
+     75
+    ]
+   },
+   "addedAt": "2026-09-30T08:38:42Z",
+   "mime": "audio/mp4",
+   "size": 3734438,
+   "storage": "pages",
+   "lufs": -9.1,
+   "gain": -4.9,
+   "via": "audio",
+   "fileKey": "746bc4eb29d48461",
+   "story": "library/stories/746bc4eb29.jpg"
+  },
+  {
+   "id": "922a19ad2a",
+   "title": "WILDFLOWER",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "HIT ME HARD AND SOFT",
+   "year": 2024,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 261.27,
+   "src": "library/audio/922a19ad2a.m4a",
+   "cover": "library/covers/922a19ad2a.jpg",
+   "color": "#1a4a75",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     56,
+     74
+    ]
+   },
+   "addedAt": "2026-09-30T08:38:35Z",
+   "mime": "audio/mp4",
+   "size": 4226360,
+   "storage": "pages",
+   "lufs": -11.8,
+   "gain": -2.2,
+   "via": "audio",
+   "fileKey": "922a19ad2a78f1d7",
+   "story": "library/stories/922a19ad2a.jpg"
+  },
+  {
+   "id": "3eefb4f488",
+   "title": "All I Ask",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "25",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 274.16,
+   "src": "library/audio/3eefb4f488.m4a",
+   "cover": "library/covers/3eefb4f488.jpg",
+   "color": "#8c8373",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     55,
+     73
+    ]
+   },
+   "addedAt": "2026-09-30T08:38:29Z",
+   "mime": "audio/mp4",
+   "size": 4434761,
+   "storage": "pages",
+   "lufs": -14.8,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "3eefb4f4888f85e0",
+   "story": "library/stories/3eefb4f488.jpg"
+  },
+  {
+   "id": "04d58c1fab",
+   "title": "Chasing Pavements",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "19",
+   "year": 2008,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 220.98,
+   "src": "library/audio/04d58c1fab.m4a",
+   "cover": "library/covers/04d58c1fab.jpg",
+   "color": "#9a7a65",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     54,
+     72
+    ]
+   },
+   "addedAt": "2026-09-30T08:38:19Z",
+   "mime": "audio/mp4",
+   "size": 3575305,
+   "storage": "pages",
+   "lufs": -12.1,
+   "gain": -1.9,
+   "via": "audio",
+   "fileKey": "04d58c1fab5ea6f1",
+   "story": "library/stories/04d58c1fab.jpg"
+  },
+  {
+   "id": "2c33d0195c",
+   "title": "Set Fire to the Rain",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "21",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "calm",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 239.26,
+   "src": "library/audio/2c33d0195c.m4a",
+   "cover": "library/covers/2c33d0195c.jpg",
+   "color": "#797c80",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     53,
+     71
+    ]
+   },
+   "addedAt": "2026-09-30T08:38:09Z",
+   "mime": "audio/mp4",
+   "size": 3870573,
+   "storage": "pages",
+   "lufs": -7.8,
+   "gain": -6.2,
+   "via": "audio",
+   "fileKey": "2c33d0195c729f5e",
+   "story": "library/stories/2c33d0195c.jpg"
+  },
+  {
+   "id": "f082b31b32",
+   "title": "Lovesong",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "21",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 319.95,
+   "src": "library/audio/f082b31b32.m4a",
+   "cover": "library/covers/f082b31b32.jpg",
+   "color": "#797c80",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     52,
+     70
+    ]
+   },
+   "addedAt": "2026-09-30T08:37:57Z",
+   "mime": "audio/mp4",
+   "size": 5175284,
+   "storage": "pages",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "f082b31b32b3fd33",
+   "story": "library/stories/f082b31b32.jpg"
+  },
+  {
+   "id": "0fe1b98119",
+   "title": "Send My Love (To Your New Lover)",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "25",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 225.05,
+   "src": "library/audio/0fe1b98119.m4a",
+   "cover": "library/covers/0fe1b98119.jpg",
+   "color": "#8c8373",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     51,
+     69
+    ]
+   },
+   "addedAt": "2026-09-30T08:37:49Z",
+   "mime": "audio/mp4",
+   "size": 3640544,
+   "storage": "pages",
+   "lufs": -9.0,
+   "gain": -5.0,
+   "via": "audio",
+   "fileKey": "0fe1b98119741b07",
+   "story": "library/stories/0fe1b98119.jpg"
+  },
+  {
+   "id": "af37584f99",
+   "title": "Rolling In the Deep",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "21",
+   "year": 2010,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 233.94,
+   "src": "library/audio/af37584f99.m4a",
+   "cover": "library/covers/af37584f99.jpg",
+   "color": "#797c80",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     50,
+     68
+    ]
+   },
+   "addedAt": "2026-09-30T08:37:39Z",
+   "mime": "audio/mp4",
+   "size": 3784355,
+   "storage": "pages",
+   "lufs": -16.8,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "af37584f995e18c0",
+   "story": "library/stories/af37584f99.jpg"
+  },
+  {
+   "id": "5f0d01266d",
+   "title": "Easy On Me",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "30",
+   "year": 2021,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 225.72,
+   "src": "library/audio/5f0d01266d.m4a",
+   "cover": "library/covers/5f0d01266d.jpg",
+   "color": "#2f5760",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     49,
+     67
+    ]
+   },
+   "addedAt": "2026-09-30T08:37:24Z",
+   "mime": "audio/mp4",
+   "size": 3651412,
+   "storage": "pages",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "5f0d01266d30c777",
+   "story": "library/stories/5f0d01266d.jpg"
+  },
+  {
+   "id": "c327bf8128",
+   "title": "Someone Like You",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "21",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "nostalgic",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 284.98,
+   "src": "library/audio/c327bf8128.m4a",
+   "cover": "library/covers/c327bf8128.jpg",
+   "color": "#797c80",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     48,
+     66
+    ]
+   },
+   "addedAt": "2026-09-30T08:37:14Z",
+   "mime": "audio/mp4",
+   "size": 4609748,
+   "storage": "pages",
+   "lufs": -11.1,
+   "gain": -2.9,
+   "via": "audio",
+   "fileKey": "c327bf8128a82b72",
+   "story": "library/stories/c327bf8128.jpg"
+  },
   {
    "id": "fac78cc312",
    "title": "Unstoppable",
