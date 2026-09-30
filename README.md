@@ -97,6 +97,29 @@ Hisob anonim (har bir brauzer — bitta tinglovchi, kuniga bir marta), relay (`r
 Bosh sahifadagi **DJ** — o'zbek, rus yoki ingliz tilida yozing (yoki ovoz bilan ayting): «quvnoq o'zbekcha qo'shiqlar»,
 «грустные песни», «something calm to relax», «Billie Eilish kabi», «10 ta yangi qo'shiq». DJ kayfiyat, janr, til,
 ijrochi, temp, yil, «yangi / sevimli / mashhur» va sonni tushunadi, didingizga qarab tanlab, darhol qo'yadi.
+Qo'shiq nomini yozsangiz («lovely», «play Easy On Me», xato bilan ham: «skyfal») — o'sha qo'shiq, keyin o'xshashlari;
+ijrochi nomini yozsangiz («Adele», «adel qo'shiqlari», «включи Sia») — o'sha ijrochining qo'shiqlari qo'yiladi.
+
+## Android ilova (APK)
+
+Saytga Android brauzerdan (Telegram'dan emas) kirganlarga bosh sahifada **«Cavi Music ilovasi — Yuklab olish»**
+kartasi (× bilan 2 haftaga yashiriladi) va ⚙️ sozlamalarda *Ilovani yuklab olish* chiqadi. Kompyuterda brauzer
+taklif qilsa — *O'rnatish* (PWA).
+
+- Ilova `android/` da (Trusted Web Activity: sayt Chrome'da, brauzer panelisiz, fonda ijro va qulf ekranidan
+  boshqarish bilan). `.github/workflows/android.yml` uni yig'ib, **releases → android → `cavi-music.apk`** ga joylaydi.
+  Ilova doim jonli saytni ko'rsatadi, shuning uchun sayt yangilanishlari uchun APK'ni qayta o'rnatish shart emas.
+- **Imzo kaliti:** GitHub → Settings → Secrets → Actions'ga `ANDROID_KEYSTORE_PASSWORD` (istalgan uzun tasodifiy
+  matn) qo'shing va *Android app* workflow'ini qayta ishga tushiring. Birinchi yig'ishda kalit yaratilib,
+  shu parol bilan shifrlangan holda `android/signing.enc` ga saqlanadi — keyingi versiyalar eskisining ustidan
+  o'rnatiladi. Secret bo'lmasa har yig'ish yangi kalit oladi (yangi versiyadan oldin eskisini o'chirish kerak).
+- **Brauzer paneli (URL)**: to'liq ekran uchun Android saytning ildizida (`https://sultonmusic.github.io/.well-known/assetlinks.json`)
+  ilova kaliti tasdig'ini ko'rishi kerak. Buning uchun `sultonmusic.github.io` nomli alohida repo kerak; release'dagi
+  `assetlinks.json` faylini o'sha repoga `.well-known/assetlinks.json` qilib joylang. Bu bo'lmasa ilova ishlayveradi,
+  faqat tepada ingichka manzil paneli ko'rinadi.
+- **«Hey Google, play … on Cavi Music»**: ilova Android'ning `MEDIA_PLAY_FROM_SEARCH` so'rovini qabul qiladi va
+  aytilganni DJ'ga beradi (bo'sh bo'lsa — *Siz uchun*). Buni Assistant qo'llashi qurilma/Assistant versiyasiga bog'liq.
+  «Hey Google, open Cavi Music» esa ilova o'rnatilgach ishlaydi. Ilova belgisi bosib turilsa: DJ, Sevimlilar, Qidiruv.
 
 ## Ijrochilar va ☑️ tasdiqlangan belgisi
 
@@ -118,15 +141,16 @@ ijrochi, temp, yil, «yangi / sevimli / mashhur» va sonni tushunadi, didingizga
 ## Sayt imkoniyatlari
 
 - **Til:** avtomatik — ingliz tilidagi qurilmada inglizcha, qolganlarida ruscha. Yuqoridagi 🌐 tugmasi
-  (yoki **C** doirasi) orqali Русский / English / O'zbekcha ga o'zgartiriladi — musiqa to'xtamaydi.
+  (yoki chapdagi logo) orqali Русский / English / O'zbekcha ga o'zgartiriladi — musiqa to'xtamaydi.
 - **Qo'shiq matni tarjimasi:** 🌐 tugmasi bilan har bir sinxron qator ostida kichikroq qilib tanlangan tildagi tarjima.
 - **Stories:** ⤴ → *Stories kartasi* yoki matndan **4 tagacha qatorni tanlab** — muqova va shu qatorlar bilan
   9:16 rasm yoki **ovozli video** (15 soniyagacha, qatorlar karaoke kabi yonadi) — Instagram, Telegram, WhatsApp…
   Instagram rasm/video ichidagi yozuvni bosiladigan qilmaydi: ulashganda qo'shiq havolasi avtomatik nusxalanadi,
   uni Instagram'dagi **«Ссылка/Link» stikeri**ga joylaysiz. Havola qo'shiqni aynan kerakli soniyadan ochadi
   (`#/song/<id>/<soniya>`).
-- **Sahifa yangilansa** ijro etilayotgan qo'shiq kutubxona yuklanishini kutmay darhol, o'sha joyidan
-  (yangilanish vaqti ham hisobga olinib) ohista davom etadi.
+- **Sahifa yangilansa** ijro etilayotgan qo'shiq sahifaning eng birinchi qatoridanoq (skriptlar, kutubxona
+  yuklanishini kutmay) o'sha joyidan — yangilanish vaqti ham hisobga olinib — ohista davom etadi.
+  **Pastga tortib yangilash** esa sahifani qayta yuklamaydi: yangi qo'shiqlar olinadi, musiqa to'xtamaydi.
 - Ijro etilayotgan qo'shiqni istalgan joyda (bosh sahifa, qidiruv, ro'yxatlar) bossangiz — pauza emas,
   **to'liq ekranli pleyer** ochiladi. Pleyerni yuqoridan **pastga tortsangiz** — yopiladi.
 - **Sevimlilar tartibi:** *Любимые треки* → *Изменить порядок* → qo'shiqlarni ≡ dan ushlab suring → *Готово*.
@@ -197,6 +221,7 @@ Bir marta sozlanadi (~5 daqiqa):
 bot/        Telegram bot + aniqlash (Shazam, iTunes, Deezer, LRCLIB, Claude AI, ffmpeg), tarjima, Vikipediya, stories
 web/        Sayt / mini ilova (build'siz vanilla JS)
 library/    songs.json, audio, muqovalar, qo'shiq matnlari, stories rasmlari (bot avtomatik to'ldiradi)
+android/    Android ilova (TWA) — .github/workflows/android.yml yig'adi
 scripts/    build-site.sh — saytni yig'ish
 .github/workflows/station.yml — har 5 daqiqada bot + deploy
 ```

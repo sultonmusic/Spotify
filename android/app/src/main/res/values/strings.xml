@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appName">Cavi Music</string>
+    <string name="shortcutDj">DJ</string>
+    <string name="shortcutLiked">Sevimlilar</string>
+    <string name="shortcutSearch">Qidiruv</string>
+</resources>

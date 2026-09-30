@@ -28,7 +28,7 @@ function trigrams(s) {
   return t;
 }
 
-function trigramSim(a, b) {
+export function trigramSim(a, b) {
   if (!a || !b) return 0;
   const A = trigrams(a), B = trigrams(b);
   let inter = 0;

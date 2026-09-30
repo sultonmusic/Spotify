@@ -9,4 +9,6 @@ export const CONFIG = {
   refreshEvery: 90_000,
   // Cloudflare Worker (relay/) that counts ad views, skips and clicks for the bot's /ads command.
   statsUrl: "https://cavi-music-relay.sales-infarmatik-tj.workers.dev",
+  // The Android app (android/, published by .github/workflows/android.yml).
+  apkUrl: "https://github.com/sultonmusic/Spotify/releases/download/android/cavi-music.apk",
 };

@@ -176,7 +176,6 @@ const S = {
   "ad.skipIn": { ru: "Пропустить через {n}", en: "Skip in {n}", uz: "{n} soniyadan keyin o'tkazish" },
   "ad.open": { ru: "Подробнее", en: "Learn more", uz: "Batafsil" },
   "dj.banner": { ru: "DJ — музыка по вашим словам", en: "DJ — music in your own words", uz: "DJ — o'z so'zlaringiz bilan musiqa" },
-  "dj.bannerSub": { ru: "Напишите, что хотите послушать", en: "Say what you'd like to hear", uz: "Nima eshitmoqchi ekaningizni yozing" },
   "dj.hello": { ru: "Привет! Я DJ станции. Напишите по-узбекски, по-русски или по-английски, что хотите послушать — настроение, жанр, язык, исполнителя — и я подберу и включу.", en: "Hi! I'm the station's DJ. Tell me in Uzbek, Russian or English what you'd like — a mood, genre, language or artist — and I'll pick and play it.", uz: "Salom! Men stansiya DJ'iman. O'zbek, rus yoki ingliz tilida nima eshitmoqchi ekaningizni yozing — kayfiyat, janr, til yoki ijrochi — men tanlab, qo'yib beraman." },
   "dj.placeholder": { ru: "Например: грустные песни на русском", en: "e.g. upbeat English songs", uz: "Masalan: quvnoq o'zbekcha qo'shiqlar" },
   "dj.voice": { ru: "Сказать голосом", en: "Speak", uz: "Ovoz bilan aytish" },
@@ -225,6 +224,7 @@ const S = {
   "toast.copied": { ru: "Ссылка скопирована", en: "Link copied", uz: "Havola nusxalandi" },
   "toast.downloading": { ru: "Скачивание…", en: "Downloading…", uz: "Yuklab olinmoqda…" },
   "toast.newSong": { ru: "🎵 Новая песня: {s}", en: "🎵 New song: {s}", uz: "🎵 Yangi qo'shiq: {s}" },
+  "toast.upToDate": { ru: "✓ Всё обновлено", en: "✓ Up to date", uz: "✓ Hammasi yangilandi" },
   "toast.newSongs": { ru: "🎵 Новых песен: {n}", en: "🎵 {n} new songs added", uz: "🎵 {n} ta yangi qo'shiq qo'shildi" },
   "toast.failed": { ru: "«{t}» не воспроизводится — включаю следующую", en: "“{t}” couldn't play — skipping", uz: "«{t}» ochilmadi — keyingisiga o'tildi" },
 
@@ -291,6 +291,15 @@ const S = {
 
   "settings.title": { ru: "Настройки", en: "Settings", uz: "Sozlamalar" },
   "settings.language": { ru: "Язык сайта", en: "Site language", uz: "Sayt tili" },
+  "settings.getApp": { ru: "Скачать приложение (Android)", en: "Get the app (Android)", uz: "Ilovani yuklab olish (Android)" },
+  "settings.installApp": { ru: "Установить приложение", en: "Install the app", uz: "Ilovani o'rnatish" },
+  "app.title": { ru: "Приложение Cavi Music", en: "Cavi Music app", uz: "Cavi Music ilovasi" },
+  "app.subApk": { ru: "Для Android · APK", en: "For Android · APK", uz: "Android uchun · APK" },
+  "app.subPwa": { ru: "На главный экран, без браузера", en: "On your home screen, no browser", uz: "Bosh ekranga, brauzersiz" },
+  "app.download": { ru: "Скачать", en: "Download", uz: "Yuklab olish" },
+  "app.install": { ru: "Установить", en: "Install", uz: "O'rnatish" },
+  "app.downloading": { ru: "📲 Загрузка APK… Откройте файл и нажмите «Установить» (если Android спросит — разрешите установку из этого источника).", en: "📲 Downloading the APK… Open the file and tap Install (if Android asks, allow installs from this source).", uz: "📲 APK yuklanmoqda… Faylni oching va «O'rnatish»ni bosing (Android so'rasa, shu manbadan o'rnatishga ruxsat bering)." },
+  "app.tapToPlay": { ru: "▶️ Нажмите в любом месте, чтобы включить", en: "▶️ Tap anywhere to start playing", uz: "▶️ Ijro uchun istalgan joyni bosing" },
   "settings.about": { ru: "Музыку добавляет владелец станции через бота", en: "Music is added by the station owner via the bot", uz: "Musiqani stansiya egasi bot orqali qo'shadi" },
   "footer": { ru: "{n} на станции", en: "{n} on the station", uz: "Stansiyada {n}" },
 };

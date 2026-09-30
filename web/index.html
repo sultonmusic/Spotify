@@ -2,6 +2,37 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
+  <script>
+    // A page reload stops the sound. Start the song again before anything else has loaded, at the moment it
+    // would have reached; js/player.js takes this <audio> over. Same rules as earlyResume() in player.js.
+    (function () {
+      try {
+        var st = JSON.parse(localStorage.getItem("ms.player.v1") || "null"), s = st && st.song;
+        if (!st || !st.playing || !s || !s.src || Date.now() - (st.savedAt || 0) > 30 * 60000) return;
+        var away = (Date.now() - st.savedAt) / 1000;
+        var at = Math.max(0, Math.min((st.time || 0) + (away < 12 ? away : 0), (s.duration || 1e9) - 1));
+        var vol = typeof st.volume === "number" ? st.volume : 1;
+        var target = Math.max(0, Math.min(1, vol * Math.pow(10, (s.gain || 0) / 20)));
+        var a = new Audio();
+        a.preload = "auto";
+        a.setAttribute("playsinline", "");
+        a.volume = 0;
+        a.src = s.src + "#t=" + at.toFixed(2);
+        a.addEventListener("loadedmetadata", function () { if (Math.abs(a.currentTime - at) > 1) a.currentTime = at; }, { once: true });
+        var early = window.__early = { el: a, id: s.id, at: at, fade: 0 };
+        a.addEventListener("playing", function () {
+          var t0 = Date.now();
+          early.fade = setInterval(function () {
+            var k = Math.min(1, (Date.now() - t0) / 450);
+            a.volume = target * k * k;
+            if (k >= 1) clearInterval(early.fade);
+          }, 30);
+        }, { once: true });
+        var p = a.play();
+        if (p && p.catch) p.catch(function () {});
+      } catch (e) { /* storage blocked: player.js starts it later */ }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#121212">
   <meta name="color-scheme" content="dark">

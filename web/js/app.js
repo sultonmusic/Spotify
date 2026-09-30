@@ -1,7 +1,7 @@
 // App shell: boot, router, player bar, sidebar, keyboard shortcuts, live refresh.
 import { CONFIG } from "./config.js";
 import { loadLibrary, on, initSync, favSongs, songsOf, toggleFav } from "./store.js";
-import { player, restore, toggle, next, prev, seek, setVolume, isPlaying, pruneMissing, setShuffle, cycleRepeat, currentTime, duration } from "./player.js";
+import { player, restore, toggle, next, prev, seek, setVolume, isPlaying, pruneMissing, setShuffle, cycleRepeat, currentTime, duration, playList, resumeOnFirstTap } from "./player.js";
 import { h, icon, art, artistArt, likedArt, collage, fmtTime, refreshMarks, toast, go, link, overlayOpen, popOverlay, heartButton, nav, back, verifiedBadge, setShareImpl, setOpenPlayerImpl } from "./ui.js";
 import { t, LANG } from "./i18n.js";
 import * as V from "./views.js";
@@ -9,7 +9,7 @@ import { openNowPlaying, openQueue, openFullLyrics, refreshNowPlaying } from "./
 import { openShare } from "./share.js";
 import { initAds } from "./ads.js";
 import { initTelegram, setBackButton, startParam, haptic, inTelegram } from "./tg.js";
-import { artistsRanked } from "./reco.js";
+import { artistsRanked, forYou } from "./reco.js";
 
 const main = document.getElementById("main");
 const viewRoot = document.getElementById("view");
@@ -273,15 +273,91 @@ document.addEventListener("keydown", (e) => {
 on("favs", () => { refreshMarks(); if (/^\/(library(\/favs)?|liked)$/.test(currentPath || "")) render(currentPath, { keepScroll: true }); });
 on("user", () => { V.invalidateMixes(); if (ROOT_TABS.has(currentTab || "")) render(currentPath, { keepScroll: true }); });
 
-async function refresh() {
+async function refresh(manual = false) {
   try {
     const added = await loadLibrary();
-    if (!added.length) return;
+    if (!added.length) {
+      if (manual) { render(currentPath, { keepScroll: true }); toast(t("toast.upToDate")); }
+      return;
+    }
     V.invalidateMixes();
     pruneMissing();
     toast(added.length === 1 ? t("toast.newSong", { s: `${added[0].artist} — ${added[0].title}` }) : t("toast.newSongs", { n: added.length }), 3500);
-    if (ROOT_TABS.has(currentTab || "") && currentTab !== "search") render(currentPath, { keepScroll: true });
-  } catch { /* offline */ }
+    if (manual || (ROOT_TABS.has(currentTab || "") && currentTab !== "search")) render(currentPath, { keepScroll: true });
+  } catch {
+    if (manual) toast(t("load.error"));
+  }
+}
+
+// ------------------------------------------------------------------ pull down to refresh
+// The browser's own pull-to-refresh reloads the page, which stops the music (overscroll-behavior turns it
+// off). This one fetches new songs and redraws the page while the music plays on. When a new version of the
+// site is out and nothing is playing, it does reload.
+const BUILD = new URL(import.meta.url).searchParams.get("v") || "";
+async function newBuild() {
+  try {
+    const html = await (await fetch(`index.html?x=${Date.now()}`, { cache: "no-store" })).text();
+    const v = /app\.js\?v=([\w.-]+)/.exec(html)?.[1];
+    return !!(BUILD && v && v !== BUILD && v !== "__BUILD__");
+  } catch { return false; }
+}
+
+function pullToRefresh() {
+  const main = document.getElementById("main");
+  const ind = h("div", { class: "ptr", "aria-hidden": "true", html: icon("refresh", 20) });
+  document.body.append(ind);
+  const READY = 70, MAX = 120;
+  let y0 = null, pull = 0, busy = false;
+  const show = (y, spin = false) => {
+    ind.style.transform = `translate(-50%, ${y}px) rotate(${spin ? 0 : y * 3}deg)`;
+    ind.style.opacity = String(Math.min(1, y / 50));
+    ind.classList.toggle("ready", y >= READY);
+  };
+  const hide = () => { ind.classList.remove("ready", "spin"); ind.style.transform = ""; ind.style.opacity = "0"; };
+  main.addEventListener("touchstart", (e) => {
+    y0 = !busy && main.scrollTop <= 0 && e.touches.length === 1 && !overlayOpen() ? e.touches[0].clientY : null;
+    pull = 0;
+  }, { passive: true });
+  main.addEventListener("touchmove", (e) => {
+    if (y0 === null) return;
+    const dy = e.touches[0].clientY - y0;
+    if (main.scrollTop > 0 || dy <= 0) { pull = 0; hide(); return; }
+    pull = Math.min(MAX, dy * 0.5);
+    ind.classList.add("drag");
+    show(pull);
+  }, { passive: true });
+  const end = async () => {
+    if (y0 === null) return;
+    y0 = null;
+    ind.classList.remove("drag");
+    if (pull < READY) { hide(); return; }
+    busy = true;
+    haptic("light");
+    ind.classList.add("spin");
+    show(READY * 0.8, true);
+    if (!isPlaying() && await newBuild()) { location.reload(); return; }
+    await refresh(true);
+    hide();
+    busy = false;
+  };
+  main.addEventListener("touchend", end);
+  main.addEventListener("touchcancel", end);
+}
+
+// ------------------------------------------------------------------ "Hey Google, play … on Cavi Music"
+// The Android app (android/) opens the site with ?play=<what was asked>; empty means "play some music".
+function assistantRequest() {
+  const q = new URLSearchParams(location.search).get("play");
+  if (q === null) return;
+  history.replaceState(null, "", location.pathname + location.hash);
+  const text = q.trim().slice(0, 200);
+  if (text) V.askDJ(text);
+  else {
+    const list = forYou(30);
+    if (list.length) playList(list, 0, { type: "mix", id: "foryou", title: t("home.forYou") });
+  }
+  resumeOnFirstTap(); // a browser may want one tap before it plays sound
+  setTimeout(() => { if (!isPlaying()) toast(t("app.tapToPlay"), 5000); }, 1500);
 }
 
 // ------------------------------------------------------------------ boot
@@ -307,7 +383,9 @@ async function boot() {
   const m = /^song_([0-9a-f]{6,})$/.exec(sp);
   if (m && !location.hash.includes("/song/")) location.replace(`#/song/${m[1]}`);
   route();
+  assistantRequest();
 
+  pullToRefresh();
   setInterval(refresh, CONFIG.refreshEvery);
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") refresh(); });
 

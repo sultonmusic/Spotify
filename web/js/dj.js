@@ -2,7 +2,7 @@
 // the station. The request is read for mood, genre, language, artist, tempo, era, "new", "liked", "top"
 // and a number of songs; the choice is then ranked with the listener's own taste (reco.js).
 import { lib, favSongs, plays } from "./store.js";
-import { norm, searchSongs } from "./search.js";
+import { norm, searchSongs, trigramSim } from "./search.js";
 import { GENRES, MOODS, LANGS, LANG } from "./i18n.js";
 import * as reco from "./reco.js";
 
@@ -198,8 +198,85 @@ function facets(intent, lang) {
   return out.filter(Boolean);
 }
 
+// ------------------------------------------------------------------ a song or an artist named directly
+// "lovely", "включи Adele", "Billie Eilish qo'shiqlari", "play Easy On Me" -> that song / that artist.
+const FILLER = new Set(["play", "put", "on", "please", "song", "songs", "track", "tracks", "music", "by", "the", "some", "me",
+  "vklyuchi", "vklyuchit", "postav", "sigray", "davay", "hochu", "poslushat", "pozhaluysta", "pesnyu", "pesni", "pesen", "trek",
+  "treki", "muzyku", "ot", "ispolnitelya", "qoy", "qoying", "qoyib", "ber", "bering", "ijro", "et", "eshittir", "chal", "yoq",
+  "menga", "qoshiq", "qoshigi", "qoshiqlari", "qoshiqlarini", "qoshigini", "ning", "ijrochi", "kerak"]);
+const baseTitle = (t) => norm(String(t).replace(/\s*[([].*?[)\]]/g, ""));
+
+/** True when a and b differ by at most one inserted, deleted or changed letter ("adel" ~ "adele"). */
+function oneEdit(a, b) {
+  if (a === b) return true;
+  if (Math.abs(a.length - b.length) > 1) return false;
+  let i = 0, j = 0, diff = 0;
+  while (i < a.length && j < b.length) {
+    if (a[i] === b[j]) { i++; j++; continue; }
+    if (++diff > 1) return false;
+    if (a.length > b.length) i++;
+    else if (b.length > a.length) j++;
+    else { i++; j++; }
+  }
+  return diff + (a.length - i) + (b.length - j) <= 1;
+}
+
+function titleScore(q, s) {
+  const title = baseTitle(s.title) || s._t;
+  const artistHit = s.artists.some((a) => { const n = norm(a); return n.length >= 3 && ` ${q} `.includes(` ${n} `); });
+  const rest = artistHit ? s.artists.reduce((x, a) => ` ${x} `.replace(` ${norm(a)} `, " ").trim(), q) : q;
+  let sc = 0;
+  if (rest === title || rest === s._t) sc = 100;
+  else if (rest.length >= 4 && title.length >= 4 && (rest.startsWith(title) || (title.startsWith(rest) && rest.length / title.length >= 0.6))) sc = 80;
+  else if (rest.length >= 5 && trigramSim(rest, title) >= 0.62) sc = 65; // a typo in the title
+  return sc && artistHit ? sc + 15 : sc;
+}
+
+function artistScore(q, name) {
+  const n = norm(name);
+  if (q === n) return 100;
+  if (n.length >= 4 && oneEdit(q, n)) return 85;
+  return n.length >= 4 && trigramSim(q, n) >= 0.62 ? 70 : 0;
+}
+
+function findDirect(text) {
+  const all = norm(text).split(" ").filter(Boolean);
+  // Titles are tried with the words as written ("Easy On Me") and without the request words ("play lovely").
+  const forms = [...new Set([all.join(" "), all.filter((w) => !FILLER.has(w)).join(" ")])].filter((q) => q.length >= 2);
+  if (!forms.length) return null;
+  let best = null, artist = null;
+  for (const s of lib.songs) {
+    const sc = Math.max(...forms.map((q) => titleScore(q, s)));
+    if (sc && (!best || sc > best.sc || (sc === best.sc && plays(s.id) > plays(best.s.id)))) best = { s, sc };
+  }
+  for (const name of lib.byArtist.keys()) {
+    const sc = Math.max(...forms.map((q) => artistScore(q, name)));
+    if (sc && (!artist || sc > artist.sc)) artist = { name, sc };
+  }
+  if (best && best.sc >= 95) return { song: best.s };
+  if (artist && (!best || artist.sc >= best.sc)) return { artist: artist.name };
+  if (best && best.sc >= 65) return { song: best.s };
+  return null;
+}
+
 /** Understands the request, picks songs and writes the DJ's answer. */
 export function ask(text) {
+  const direct = findDirect(text);
+  if (direct) {
+    const lang = replyLang(text);
+    if (direct.song) {
+      const s = direct.song;
+      const songs = [s, ...reco.radio(s, 24)];
+      const t = { uz: `▶️ «${s.title}» — ${s.artist}. Qo'yyapman, keyin shunga o'xshash qo'shiqlar.`,
+        ru: `▶️ Включаю «${s.title}» — ${s.artist}, а дальше похожие.`, en: `▶️ Playing “${s.title}” by ${s.artist}, then similar songs.` };
+      return { intent: null, songs, lang, text: t[lang] || t.en };
+    }
+    const songs = (lib.byArtist.get(direct.artist) || []).slice()
+      .sort((a, b) => (plays(b.id) - plays(a.id)) || (Date.parse(b.addedAt || 0) - Date.parse(a.addedAt || 0)));
+    const t = { uz: `🎤 ${direct.artist}: ${plural(lang, songs.length)}. Boshladik!`, ru: `🎤 ${direct.artist}: включаю ${plural(lang, songs.length)}.`,
+      en: `🎤 ${direct.artist}: ${plural(lang, songs.length)}. Here we go!` };
+    return { intent: null, songs, lang, text: t[lang] || t.en };
+  }
   const intent = understand(text);
   const lang = intent.reply;
   let songs = intent.any ? choose(intent) : [];

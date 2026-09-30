@@ -12,6 +12,7 @@ import {
 } from "./ui.js";
 import { searchSongs, searchArtists, matchCategories } from "./search.js";
 import * as dj from "./dj.js";
+import { appBanner, appOffer, getApp } from "./install.js";
 import { MOODS, genre, mood, lang, t, describe, LANG, LANGS_UI, setLang } from "./i18n.js";
 import { canDownload, inTelegram, tg, isAdmin, haptic } from "./tg.js";
 import { rgba, getLyrics } from "./nowplaying.js";
@@ -52,13 +53,16 @@ export function openSettings() {
       sheet.append(sheetItem(code === LANG ? "check" : "globe", label, () => { dismiss(); if (code !== LANG) setTimeout(() => setLang(code), 250); },
         code === LANG ? "accent" : ""));
     }
+    const app = appOffer();
+    if (app) sheet.append(sheetItem("download", t(app === "apk" ? "settings.getApp" : "settings.installApp"), () => { dismiss(); getApp(); }));
     sheet.append(h("p", { class: "muted", style: { padding: "8px 20px 4px", fontSize: "12px", margin: 0 } }, `🔒 ${t("settings.about")}`));
   });
 }
 
 function avatar() {
-  // The platform's mark (C for Cavi Music), not the visitor's own name or photo.
-  return h("button", { class: "avatar", "aria-label": t("settings.title"), onclick: openSettings }, (CONFIG.appName || "C").trim()[0].toUpperCase());
+  // The platform's logo, not the visitor's own name or photo.
+  return h("button", { class: "avatar logo", "aria-label": t("settings.title"), onclick: openSettings },
+    h("img", { src: "icons/icon-192.png", alt: CONFIG.appName || "", draggable: "false" }));
 }
 
 function langButton() {
@@ -152,7 +156,7 @@ export function viewHome() {
   }
   const color = player.current?.color || reco.newest(1)[0]?.color || "#404040";
   v.append(h("div", { class: "home-bg", style: { background: `linear-gradient(${rgba(color, 0.6)}, transparent)` } }));
-  v.append(topbar(greeting()));
+  v.append(topbar(greeting()), appBanner());
 
   const moodCounts = new Map();
   for (const s of lib.songs) for (const m of s.moods || []) moodCounts.set(m, (moodCounts.get(m) || 0) + 1);
@@ -166,13 +170,13 @@ export function viewHome() {
   if (favSongs().length) quick.append(link("liked", { class: "quick-item" }, likedArt(), h("span", null, t("home.liked"))));
   const mx = mixes();
   if (mx[0] && lib.songs.length >= 8) quick.append(link(`mix/${mx[0].id}`, { class: "quick-item" }, collage(mx[0].songs), h("span", null, mixTitle(mx[0], 0))));
-  for (const s of reco.quickPicks(8 - quick.childElementCount)) {
+  for (const s of reco.quickPicks(7 - quick.childElementCount)) {
     const item = h("div", { class: `quick-item${player.current?.id === s.id ? " playing" : ""}`, role: "button", dataset: { qid: s.id } }, art(s), h("span", null, s.title));
     item.addEventListener("click", () => (isCurrent(s) ? openPlayer() : playSong(s, null, { type: "radio", id: s.id, title: t("ctx.radioOf", { t: s.title }) })));
     quick.append(item);
   }
+  quick.append(djTile()); // the 8th tile
   v.append(quick);
-  v.append(djBanner());
 
   const forYou = reco.forYou(20);
   v.append(section(t("home.forYou"), shelf(forYou.map((s) => songCard(s, forYou, { type: "mix", id: "foryou", title: t("home.forYou") }))),
@@ -702,14 +706,18 @@ function viewPending(id) {
 }
 
 // ------------------------------------------------------------------ DJ
-function djBanner() {
-  return link("dj", { class: "dj-banner" },
-    h("div", { class: "dj-orb", html: icon("sparkles", 26) }),
-    h("div", null, h("b", null, t("dj.banner")), h("span", null, t("dj.bannerSub"))),
-    h("span", { class: "dj-go", html: icon("right", 20) }));
+function djTile() {
+  return link("dj", { class: "quick-item dj-tile", title: t("dj.banner") },
+    h("div", { class: "dj-art", html: icon("sparkles", 24) }), h("span", null, "DJ"));
 }
 
 const djChat = []; // this visit's conversation (kept while moving between pages)
+let djPending = null;
+/** Opens the DJ and asks it (used for "Hey Google, play … on Cavi Music"). */
+export function askDJ(text) {
+  djPending = text;
+  go("dj");
+}
 
 export function viewDJ() {
   const v = h("div", { class: "view dj-view" });
@@ -770,6 +778,11 @@ export function viewDJ() {
   }
   v.append(hello, log, h("div", { class: "dj-bottom" }, chips, form));
   draw();
+  if (djPending) {
+    const text = djPending;
+    djPending = null;
+    setTimeout(() => send(text), 250);
+  }
   return v;
 }
 

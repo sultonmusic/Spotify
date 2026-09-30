@@ -1,0 +1,57 @@
+// Cavi Music for Android: a Trusted Web Activity, i.e. the site in Chrome without the browser's bar,
+// with background playback and lock-screen controls from Chrome. Built by .github/workflows/android.yml.
+plugins {
+    id 'com.android.application'
+}
+
+def site = 'https://sultonmusic.github.io/Spotify/'
+def host = 'sultonmusic.github.io'
+def keystore = System.getenv('KEYSTORE_FILE')
+
+android {
+    namespace 'io.github.sultonmusic.cavi'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'io.github.sultonmusic.cavi'
+        minSdk 23
+        targetSdk 35
+        versionCode((System.getenv('VERSION_CODE') ?: '1').toInteger())
+        versionName "1.${versionCode}"
+        resValue 'string', 'launchUrl', site
+        resValue 'string', 'hostName', host
+        resValue 'string', 'providerAuthority', 'io.github.sultonmusic.cavi.fileprovider'
+        resValue 'string', 'assetStatements',
+            "[{\"relation\": [\"delegate_permission/common.handle_all_urls\"], \"target\": {\"namespace\": \"web\", \"site\": \"https://${host}\"}}]"
+        manifestPlaceholders = [hostName: host]
+    }
+
+    signingConfigs {
+        release {
+            if (keystore) {
+                storeFile file(keystore)
+                storePassword System.getenv('KEYSTORE_PASSWORD')
+                keyAlias 'cavi'
+                keyPassword System.getenv('KEYSTORE_PASSWORD')
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+            signingConfig keystore ? signingConfigs.release : signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.7.3'
+}

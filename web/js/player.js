@@ -21,7 +21,8 @@ export const player = {
   current: null,
 };
 
-const audioEngine = new AudioEngine((ev) => onEngine(audioEngine, ev));
+const pre = window.__early?.el instanceof HTMLAudioElement ? window.__early : null; // see index.html
+const audioEngine = new AudioEngine((ev) => onEngine(audioEngine, ev), pre?.el);
 let engine = audioEngine;
 
 export const currentTime = () => engine.time;
@@ -302,17 +303,21 @@ let early = null;
   const st = readState();
   const snap = st?.song;
   if (!st?.playing || !snap?.src || Date.now() - (st.savedAt || 0) > RESUME_WINDOW) return;
-  const away = (Date.now() - st.savedAt) / 1000;
-  const at = Math.max(0, Math.min((st.time || 0) + (away < 12 ? away : 0), (snap.duration || 1e9) - 1));
   player.volume = typeof st.volume === "number" ? st.volume : 1;
   early = { id: snap.id, song: snap };
   setMediaSession(snap);
+  if (pre && pre.id === snap.id) {
+    audioEngine.song = snap; // already started (and fading in) by the inline script in index.html
+    return;
+  }
+  const away = (Date.now() - st.savedAt) / 1000;
+  const at = Math.max(0, Math.min((st.time || 0) + (away < 12 ? away : 0), (snap.duration || 1e9) - 1));
   audioEngine.load(snap, { autoplay: true, at });
   fadeIn();
 })();
 
-/** Asks for one tap when the browser didn't allow sound to start by itself after the reload. */
-function resumeOnFirstTap() {
+/** Asks for one tap when the browser didn't allow sound to start by itself (after a reload, from the Assistant). */
+export function resumeOnFirstTap() {
   setTimeout(() => {
     if (isPlaying()) return;
     const go = () => { if (!isPlaying()) { fadeIn(); play(); } off(); };

@@ -2,9 +2,9 @@
 // Events passed to the listener: play, pause, time, ended, error, waiting, playing, meta, seeked.
 
 export class AudioEngine {
-  constructor(listener) {
+  constructor(listener, el = null) {
     this.emit = listener;
-    this.el = new Audio();
+    this.el = el || new Audio(); // el: the <audio> index.html already started after a reload
     this.el.preload = "auto";
     this.el.setAttribute("playsinline", "");
     this.song = null;

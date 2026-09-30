@@ -1,0 +1,115 @@
+name: Android app
+
+# Builds the Android app (android/: the site full screen in Chrome, a Trusted Web Activity) and publishes it
+# as the release "android": https://github.com/<repo>/releases/download/android/cavi-music.apk
+# The site's "Download the app" button points there. The app shows the live site, so it only needs
+# rebuilding when android/ changes.
+#
+# Signing: with the secret ANDROID_KEYSTORE_PASSWORD (any long random text) the first run makes a key,
+# stores it encrypted with that password in android/signing.enc and every later build uses the same key,
+# so new versions install over the old one. Without the secret each build gets a one-off key.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "android/**"
+      - ".github/workflows/android.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android
+  cancel-in-progress: false
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Signing key
+        id: key
+        env:
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          dir="$RUNNER_TEMP/signing"
+          mkdir -p "$dir"
+          make_key() {
+            openssl rand -base64 48 | tr -dc 'A-Za-z0-9' | head -c 32 > "$dir/password"
+            keytool -genkeypair -keystore "$dir/cavi.jks" -storetype PKCS12 -alias cavi -keyalg RSA -keysize 3072 \
+              -validity 18250 -storepass "$(cat "$dir/password")" -keypass "$(cat "$dir/password")" -dname "CN=Cavi Music"
+          }
+          if [ -z "$KEY_PASSWORD" ]; then
+            echo "::warning::ANDROID_KEYSTORE_PASSWORD is not set: this APK gets a one-off key, so the next build won't install over it (uninstall first). Add the secret to keep one key."
+            make_key
+          elif [ -f android/signing.enc ]; then
+            if ! openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 -pass env:KEY_PASSWORD -in android/signing.enc | tar -C "$dir" -xf -; then
+              echo "::error::android/signing.enc can't be opened with ANDROID_KEYSTORE_PASSWORD (was the secret changed?). Restore the old value, or delete android/signing.enc to make a new key (the app then has to be reinstalled once)."
+              exit 1
+            fi
+          else
+            make_key
+            tar -C "$dir" -cf - cavi.jks password \
+              | openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -salt -pass env:KEY_PASSWORD -out android/signing.enc
+            echo "new=true" >> "$GITHUB_OUTPUT"
+          fi
+          pass=$(cat "$dir/password")
+          echo "::add-mask::$pass"
+          echo "KEYSTORE_FILE=$dir/cavi.jks" >> "$GITHUB_ENV"
+          echo "KEYSTORE_PASSWORD=$pass" >> "$GITHUB_ENV"
+          sha=$(keytool -list -v -keystore "$dir/cavi.jks" -storepass "$pass" -alias cavi | sed -n 's/^\s*SHA256: *//p' | head -1)
+          echo "sha256=$sha" >> "$GITHUB_OUTPUT"
+          echo "Signing certificate SHA-256: $sha"
+
+      - name: Build the APK
+        working-directory: android
+        env:
+          VERSION_CODE: ${{ github.run_number }}
+        run: |
+          ./gradlew --no-daemon assembleRelease
+          cp app/build/outputs/apk/release/app-release.apk "$RUNNER_TEMP/cavi-music.apk"
+          ls -la "$RUNNER_TEMP/cavi-music.apk"
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA256: ${{ steps.key.outputs.sha256 }}
+        run: |
+          cat > "$RUNNER_TEMP/assetlinks.json" <<JSON
+          [{
+            "relation": ["delegate_permission/common.handle_all_urls"],
+            "target": {"namespace": "android_app", "package_name": "io.github.sultonmusic.cavi",
+                       "sha256_cert_fingerprints": ["$SHA256"]}
+          }]
+          JSON
+          notes="Cavi Music for Android (build ${{ github.run_number }}). Download cavi-music.apk and open it; allow installing from this source if Android asks.
+
+          Signing certificate SHA-256: $SHA256"
+          if ! gh release view android >/dev/null 2>&1; then
+            gh release create android --target "$GITHUB_SHA" --title "Cavi Music for Android" --notes "$notes"
+          else
+            gh release edit android --notes "$notes"
+          fi
+          gh release upload android "$RUNNER_TEMP/cavi-music.apk" "$RUNNER_TEMP/assetlinks.json" --clobber
+
+      - name: Keep the new signing key (encrypted)
+        if: steps.key.outputs.new == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add android/signing.enc
+          git commit -m "Android: signing key (encrypted with ANDROID_KEYSTORE_PASSWORD)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}" && exit 0
+            sleep $((i * 3))
+          done
+          exit 1

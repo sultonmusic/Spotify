@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Long-press on the app icon. -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:shortcutId="dj" android:enabled="true" android:icon="@mipmap/ic_launcher_round"
+        android:shortcutShortLabel="@string/shortcutDj">
+        <intent android:action="android.intent.action.VIEW"
+            android:targetPackage="io.github.sultonmusic.cavi"
+            android:targetClass="io.github.sultonmusic.cavi.MainActivity"
+            android:data="https://sultonmusic.github.io/Spotify/#/dj" />
+    </shortcut>
+    <shortcut android:shortcutId="liked" android:enabled="true" android:icon="@mipmap/ic_launcher_round"
+        android:shortcutShortLabel="@string/shortcutLiked">
+        <intent android:action="android.intent.action.VIEW"
+            android:targetPackage="io.github.sultonmusic.cavi"
+            android:targetClass="io.github.sultonmusic.cavi.MainActivity"
+            android:data="https://sultonmusic.github.io/Spotify/#/liked" />
+    </shortcut>
+    <shortcut android:shortcutId="search" android:enabled="true" android:icon="@mipmap/ic_launcher_round"
+        android:shortcutShortLabel="@string/shortcutSearch">
+        <intent android:action="android.intent.action.VIEW"
+            android:targetPackage="io.github.sultonmusic.cavi"
+            android:targetClass="io.github.sultonmusic.cavi.MainActivity"
+            android:data="https://sultonmusic.github.io/Spotify/#/search" />
+    </shortcut>
+</shortcuts>
