@@ -144,17 +144,27 @@ def encode(src: Path, dest_base: Path, info: AudioInfo, meta: dict[str, str]) ->
 
 
 # ---------------------------------------------------------------------- music videos
-def encode_video(src: Path, dest: Path) -> Path:
-    """Silent web video for the player's artwork area: H.264, at most 720p, streaming-friendly.
+def encode_video(src: Path, dest: Path, max_bytes: int = 20 * 1024 * 1024) -> Path:
+    """Silent web video for the player's artwork area: H.264, up to 720p, at most `max_bytes`.
 
-    The sound always comes from the song's audio file, so the video carries no audio track.
+    The bitrate is capped so the whole video fits the size (a 4-minute clip gets ~0.7 Mbit/s at 720p,
+    which looks the same as the original on a phone); short clips keep a higher quality. The sound
+    always comes from the song's audio file, so the video carries no audio track.
     """
-    cmd = ["ffmpeg", "-y", "-v", "error", "-i", str(src), "-map", "0:v:0", "-an", "-sn", "-map_metadata", "-1",
-           "-vf", "scale=-2:'min(720,ih)':flags=bicubic,fps=30", "-c:v", "libx264", "-preset", "veryfast",
-           "-crf", "28", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(dest)]
-    proc = _run(cmd, timeout=900)
-    if proc.returncode != 0:
-        raise RuntimeError(f"ffmpeg video failed: {proc.stderr[-400:]}")
+    duration = max(1.0, probe(src).duration)
+    budget = int(max_bytes * 8 / duration * 0.92 / 1000)  # kbit/s for the whole file
+    for attempt in range(2):
+        rate = min(2500, budget if attempt == 0 else int(budget * 0.8))
+        height = 720 if rate >= 900 else 540 if rate >= 550 else 480
+        cmd = ["ffmpeg", "-y", "-v", "error", "-i", str(src), "-map", "0:v:0", "-an", "-sn", "-map_metadata", "-1",
+               "-vf", f"scale=-2:'min({height},ih)':flags=bicubic,fps='min(30,source_fps)'",
+               "-c:v", "libx264", "-preset", "medium", "-crf", "23", "-maxrate", f"{rate}k", "-bufsize", f"{rate * 2}k",
+               "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(dest)]
+        proc = _run(cmd, timeout=1500)
+        if proc.returncode != 0:
+            raise RuntimeError(f"ffmpeg video failed: {proc.stderr[-400:]}")
+        if dest.stat().st_size <= max_bytes:
+            break
     return dest
 
 

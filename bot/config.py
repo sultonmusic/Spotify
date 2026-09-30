@@ -79,3 +79,7 @@ SITE_URL = site_url()
 
 # Cloudflare Worker (relay/): wakes the bot and keeps ad statistics for /ads.
 RELAY_URL = env("RELAY_URL", "https://cavi-music-relay.sales-infarmatik-tj.workers.dev").rstrip("/")
+
+# Optional (https://my.telegram.org → API development tools): lets the bot download files up to 100 MB.
+API_ID = env("TELEGRAM_API_ID", "")
+API_HASH = env("TELEGRAM_API_HASH", "")

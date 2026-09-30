@@ -18,7 +18,7 @@ import traceback
 from pathlib import Path
 from typing import Any
 
-from . import ads, ai, audio, config, lookup, story
+from . import ads, ai, audio, bigfile, config, lookup, story
 from .artists import Artists
 from .covers import save_cover
 from .identify import Clues, identify, lyrics_payload
@@ -293,11 +293,16 @@ class Station:
             self.defer(chat_id, f"ℹ️ {what}:\n\n" + self.card(existing), msg_id, self.song_markup(existing))
             return
         size = media.get("file_size") or 0
-        if size > config.TELEGRAM_MAX_DOWNLOAD:
+        if size > bigfile.MAX_BYTES:
+            self.send(chat_id, f"⚠️ Fayl juda katta ({size / 1048576:.0f} MB). Stansiya 100 MB gacha fayllarni qabul qiladi.",
+                      reply_to=msg_id)
+            return
+        if size > config.TELEGRAM_MAX_DOWNLOAD and not bigfile.available():
             if kind == "video":
                 text = (f"⚠️ Video juda katta ({size / 1048576:.0f} MB). Telegram botlarga faqat 20 MB gacha faylni "
                         "yuklab olishga ruxsat beradi.\n\nVideoni <b>480p</b> yoki <b>360p</b> sifatda yuboring — saytda "
-                        "u baribir 720p gacha ko'rsatiladi.")
+                        "u baribir 720p gacha ko'rsatiladi.\n\n<i>100 MB gacha qabul qilish uchun README'dagi «Katta fayllar» "
+                        "bo'limini sozlang (TELEGRAM_API_ID va TELEGRAM_API_HASH).</i>")
             else:
                 text = (f"⚠️ Fayl juda katta ({size / 1048576:.1f} MB). Telegram botlari 20 MB gacha fayllarni yuklab "
                         "ola oladi. Iltimos, siqilgan mp3 (masalan 320 kbps) yuboring.")
@@ -350,6 +355,14 @@ class Station:
         if outcome == "added":
             self.ask_waiting_covers(chat_id, song)
 
+    def fetch(self, msg: dict, media: dict, dest: Path, progress=lambda _: None) -> Path:
+        """Downloads a file of the message: the Bot API up to 20 MB, Telegram's MTProto API above that."""
+        size = media.get("file_size") or 0
+        if size > config.TELEGRAM_MAX_DOWNLOAD:
+            progress(f"⏳ Katta fayl ({size / 1048576:.0f} MB) yuklab olinmoqda…")
+            return bigfile.download(msg["message_id"], dest)
+        return self.bot.download(media["file_id"], dest)
+
     def import_song(self, msg: dict, kind: str, media: dict, file_key: str, progress,
                     force: bool = False) -> tuple[dict, str]:
         """Downloads, identifies and stores a song.
@@ -362,7 +375,7 @@ class Station:
         with tempfile.TemporaryDirectory() as tmp_name:
             tmp = Path(tmp_name)
             ext = Path(media.get("file_name") or "").suffix.lower() or {"voice": ".ogg", "video": ".mp4"}.get(kind, ".mp3")
-            src = self.bot.download(media["file_id"], tmp / f"input{ext}")
+            src = self.fetch(msg, media, tmp / f"input{ext}", progress)
             info = audio.probe(src)
             if not info.has_audio:
                 raise RuntimeError("faylda audio topilmadi")
@@ -756,15 +769,16 @@ class Station:
     def create_ad(self, msg: dict) -> None:
         chat_id, msg_id = msg["chat"]["id"], msg["message_id"]
         kind, media = self.ad_media(msg)
-        if (media.get("file_size") or 0) > config.TELEGRAM_MAX_DOWNLOAD:
-            self.send(chat_id, "⚠️ Fayl 20 MB dan katta — kichikroq rasm yoki video yuboring.", reply_to=msg_id)
+        limit = bigfile.MAX_BYTES if bigfile.available() else config.TELEGRAM_MAX_DOWNLOAD
+        if (media.get("file_size") or 0) > limit:
+            self.send(chat_id, f"⚠️ Fayl {limit // 1048576} MB dan katta — kichikroq rasm yoki video yuboring.", reply_to=msg_id)
             return
         status = self.send(chat_id, "⏳ Reklama tayyorlanmoqda…", reply_to=msg_id)
         text, link = self.ad_link(msg)
         try:
             with tempfile.TemporaryDirectory() as tmp_name:
                 ext = ".jpg" if kind == "image" else ".mp4"
-                src = self.bot.download(media["file_id"], Path(tmp_name) / f"ad{ext}")
+                src = self.fetch(msg, media, Path(tmp_name) / f"ad{ext}")
                 ad = ads.create(src, kind, text, link)
         except Exception as exc:
             traceback.print_exc()

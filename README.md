@@ -70,7 +70,17 @@ huquqini buzadi. Saytda video ham, YouTube pleyeri ham yo'q — faqat audio.
 - **Qo'shiq videosi (mp4):** botga yuborsangiz, ovozidan qaysi qo'shiq ekani aniqlanadi va o'sha qo'shiqqa biriktiriladi
   (videoning kirish qismi ham hisobga olinib, ovoz bilan sinxronlanadi). Saytda video faqat to'liq ekranli pleyerda
   muqova o'rnida ovozsiz ko'rinadi (ovoz — qo'shiq faylidan); «Muqova / Video» tanlovi saqlanib qoladi.
-  Telegram botlarga 20 MB gacha fayl beradi — videoni 480p/360p sifatda yuboring.
+  Saytdagi video 20 MB dan oshmaydi (bitreyt shunga moslanadi, telefonda farq sezilmaydi).
+
+### Katta fayllar (100 MB gacha)
+
+Oddiy Bot API botlarga 20 MB dan katta faylni bermaydi. Kattaroq fayllarni bot Telegram'ning MTProto API'si orqali
+oladi — buning uchun bir marta:
+1. https://my.telegram.org → telefon raqamingiz bilan kiring → *API development tools* → ilova yarating
+   (nomi: masalan *Cavi Music*, platforma: *Other*) → **api_id** va **api_hash** ni oling.
+2. Repo → *Settings → Secrets and variables → Actions* → ikkita secret: `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`.
+
+Shundan keyin bot 100 MB gacha audio/video qabul qiladi. Sozlanmagan bo'lsa — 20 MB gacha (video uchun 480p/360p).
 
 ## Reklama
 
