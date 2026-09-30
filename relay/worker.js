@@ -53,6 +53,7 @@ export async function check(env) {
   }
   const run = await github(env, `/actions/workflows/${env.WORKFLOW}/dispatches`, {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ ref: env.BRANCH }),
   });
   return run.ok ? `started the station for ${updates.length} message(s)` : `GitHub dispatch: HTTP ${run.status}`;
