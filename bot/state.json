@@ -1,4 +1,28 @@
 {
  "setup": "4f1e7d9511ed192cd15cc35d0ca82e5bdba82835",
- "owner": "336f31d9aeea55626bc39096ee1b59bd46aa9eef596af31dd77dc65bf06751b5"
+ "owner": "336f31d9aeea55626bc39096ee1b59bd46aa9eef596af31dd77dc65bf06751b5",
+ "asks": {
+  "99f75dd1": {
+   "t": 1790795994,
+   "chat": 8988775229,
+   "msg": 152,
+   "kind": "audio",
+   "caption": "\u200b\u200b\ud83d\udc49 @YuklaydiBot",
+   "media": {
+    "file_id": "CQACAgIAAxkBAAOYar1GaUcxScprQQnZz4lsfBI24zYAAuqCAAKI68lLj27SERhjJOc9BA",
+    "file_unique_id": "AgAD6oIAAojryUs",
+    "file_name": "Lyric Video).m4a",
+    "mime_type": "audio/mp4",
+    "file_size": 3768852,
+    "duration": 233,
+    "performer": "The Weeknd, Ariana Grande",
+    "title": "Die For You (Remix / Lyric Video)"
+   },
+   "base": "Die For You",
+   "artist": "The Weeknd",
+   "variant": "remix",
+   "title": "Die For You",
+   "wait": true
+  }
+ }
 }

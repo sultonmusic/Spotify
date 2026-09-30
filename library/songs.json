@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-09-30T17:02:49Z",
- "count": 49,
+ "updatedAt": "2026-09-30T19:24:26Z",
+ "count": 61,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -593,10 +593,682 @@
    "checked": "2026-09-30T16:56:40Z",
    "verifiedAt": "2026-09-30T16:56:40Z",
    "fans": 51958,
-   "albums": 90
+   "albums": 90,
+   "bioChecked": "2026-09-30T19:24:13Z",
+   "bio": {
+    "en": "American rock band From Ashes to New have released five studio albums, five extended plays, 35 singles, and 29 music videos."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/From_Ashes_to_New_discography"
+   }
+  },
+  "Anitta": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4390053,
+   "deezer": "https://www.deezer.com/artist/4390053",
+   "image": "library/artists/anitta.jpg",
+   "color": "#6b3024",
+   "checked": "2026-09-30T19:19:41Z",
+   "verifiedAt": "2026-09-30T19:19:41Z",
+   "fans": 7408356,
+   "albums": 181,
+   "bioChecked": "2026-09-30T19:24:20Z",
+   "bio": {
+    "en": "Larissa de Macedo Machado, known professionally as Anitta, is a Brazilian singer-songwriter, dancer, actress, and occasional television host. One of Brazil's most prominent artists, she became known for her versatile style and mixing genres such as pop, funk, reggaeton and electronic music.",
+    "ru": "Ларисса ди Маседу Мачаду, более известная как Анитта , — бразильская певица, автор песен, актриса, танцовщица и предприниматель. На международном уровне её продюсером выступает Джон Шахиди, основатель студии Shots Studios."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Anitta_(singer)",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D0%B8%D1%82%D1%82%D0%B0_(%D0%BF%D0%B5%D0%B2%D0%B8%D1%86%D0%B0)"
+   },
+   "desc": {
+    "en": "Musical artist",
+    "ru": "бразильская певица, автор песен, актриса, танцовщица и предприниматель"
+   }
+  },
+  "Playboi Carti": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 10002824,
+   "deezer": "https://www.deezer.com/artist/10002824",
+   "image": "library/artists/playboi-carti.jpg",
+   "color": "#273b68",
+   "checked": "2026-09-30T19:19:58Z",
+   "verifiedAt": "2026-09-30T19:19:58Z",
+   "fans": 840606,
+   "albums": 14,
+   "bioChecked": "2026-09-30T19:24:22Z",
+   "bio": {
+    "en": "Jordan Terrell Carter, known professionally as Playboi Carti, is an American rapper. Known for his eccentric vocal style and fashion, he is considered an influential figure in modern hip-hop and a pioneer of the rage microgenre. His music has been characterized as atmospheric and avant-garde, often marked by unconventional vocal techniques such as his \"baby voice\", with critics highlighting his focus on mood and persona over traditional lyricism.",
+    "ru": "Playboi Carti — американский рэпер. Изначально Картер был подписан на местный андеграундный лейбл Awful Records, а затем на AWGE, принадлежащий ASAP Mob."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Playboi_Carti",
+    "ru": "https://ru.wikipedia.org/wiki/Playboi_Carti"
+   },
+   "desc": {
+    "en": "American rapper",
+    "ru": "американский рэпер"
+   }
+  },
+  "Dua Lipa": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 8706544,
+   "itunesId": 1031397873,
+   "deezer": "https://www.deezer.com/artist/8706544",
+   "apple": "https://music.apple.com/us/artist/dua-lipa/1031397873",
+   "image": "library/artists/dua-lipa.jpg",
+   "color": "#9f6f4f",
+   "checked": "2026-09-30T19:20:41Z",
+   "verifiedAt": "2026-09-30T19:20:41Z",
+   "fans": 8786685,
+   "albums": 136
+  },
+  "DaBaby": {
+   "aliases": [],
+   "verified": false,
+   "checked": "2026-09-30T19:24:10Z"
   }
  },
  "songs": [
+  {
+   "id": "edf3b9b90b",
+   "title": "Break My Heart",
+   "artist": "Dua Lipa",
+   "artists": [
+    "Dua Lipa"
+   ],
+   "album": "Future Nostalgia",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 229.25,
+   "src": "library/audio/edf3b9b90b.m4a",
+   "cover": "library/covers/edf3b9b90b.jpg",
+   "color": "#785b5b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     162,
+     176
+    ]
+   },
+   "addedAt": "2026-09-30T19:21:24Z",
+   "mime": "audio/mp4",
+   "size": 3708512,
+   "storage": "pages",
+   "lufs": -6.0,
+   "gain": -8.0,
+   "via": "audio",
+   "fileKey": "edf3b9b90b7f2e5d",
+   "story": "library/stories/edf3b9b90b.jpg"
+  },
+  {
+   "id": "47124906fe",
+   "title": "Love Again",
+   "artist": "Dua Lipa",
+   "artists": [
+    "Dua Lipa"
+   ],
+   "album": "Future Nostalgia",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 262.34,
+   "src": "library/audio/47124906fe.m4a",
+   "cover": "library/covers/47124906fe.jpg",
+   "color": "#785b5b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     161,
+     175
+    ]
+   },
+   "addedAt": "2026-09-30T19:21:17Z",
+   "mime": "audio/mp4",
+   "size": 4243627,
+   "storage": "pages",
+   "lufs": -10.5,
+   "gain": -3.5,
+   "via": "audio",
+   "fileKey": "47124906fe473480",
+   "story": "library/stories/47124906fe.jpg"
+  },
+  {
+   "id": "8f123504e9",
+   "title": "Levitating",
+   "artist": "Dua Lipa, DaBaby",
+   "artists": [
+    "Dua Lipa",
+    "DaBaby"
+   ],
+   "album": "Future Nostalgia",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 230.16,
+   "src": "library/audio/8f123504e9.m4a",
+   "cover": "library/covers/8f123504e9.jpg",
+   "color": "#785b5b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     160,
+     174
+    ]
+   },
+   "addedAt": "2026-09-30T19:21:10Z",
+   "mime": "audio/mp4",
+   "size": 3723162,
+   "storage": "pages",
+   "lufs": -7.2,
+   "gain": -6.8,
+   "via": "audio",
+   "fileKey": "8f123504e9546dff",
+   "story": "library/stories/8f123504e9.jpg"
+  },
+  {
+   "id": "dd81b9ff19",
+   "title": "New Rules",
+   "artist": "Dua Lipa",
+   "artists": [
+    "Dua Lipa"
+   ],
+   "album": "Dua Lipa (Complete Edition)",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 116,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 224.68,
+   "src": "library/audio/dd81b9ff19.m4a",
+   "cover": "library/covers/dd81b9ff19.jpg",
+   "color": "#293366",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     159,
+     173
+    ]
+   },
+   "addedAt": "2026-09-30T19:21:04Z",
+   "mime": "audio/mp4",
+   "size": 3634541,
+   "storage": "pages",
+   "lufs": -6.7,
+   "gain": -7.3,
+   "via": "audio",
+   "fileKey": "dd81b9ff191bc19a",
+   "story": "library/stories/dd81b9ff19.jpg"
+  },
+  {
+   "id": "3d7afa50fd",
+   "title": "Houdini",
+   "artist": "Dua Lipa",
+   "artists": [
+    "Dua Lipa"
+   ],
+   "album": "Radical Optimism",
+   "year": 2023,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 188.38,
+   "src": "library/audio/3d7afa50fd.m4a",
+   "cover": "library/covers/3d7afa50fd.jpg",
+   "color": "#02828d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     158,
+     172
+    ]
+   },
+   "addedAt": "2026-09-30T19:20:57Z",
+   "mime": "audio/mp4",
+   "size": 3047575,
+   "storage": "pages",
+   "lufs": -8.0,
+   "gain": -6.0,
+   "via": "audio",
+   "fileKey": "3d7afa50fd6cf04f",
+   "story": "library/stories/3d7afa50fd.jpg"
+  },
+  {
+   "id": "3158bed398",
+   "title": "IDGAF (Radio Edit)",
+   "artist": "Dua Lipa",
+   "artists": [
+    "Dua Lipa"
+   ],
+   "album": "IDGAF (Radio Edit) - Single",
+   "year": 2018,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "sad",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 230.11,
+   "src": "library/audio/3158bed398.m4a",
+   "cover": "library/covers/3158bed398.jpg",
+   "color": "#0e7381",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     157,
+     171
+    ]
+   },
+   "addedAt": "2026-09-30T19:20:51Z",
+   "mime": "audio/mp4",
+   "size": 3722422,
+   "storage": "pages",
+   "lufs": -14.4,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "3158bed398180668",
+   "story": "library/stories/3158bed398.jpg"
+  },
+  {
+   "id": "ba984365a2",
+   "title": "Training Season",
+   "artist": "Dua Lipa",
+   "artists": [
+    "Dua Lipa"
+   ],
+   "album": "Radical Optimism",
+   "year": 2024,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 226.49,
+   "src": "library/audio/ba984365a2.m4a",
+   "cover": "library/covers/ba984365a2.jpg",
+   "color": "#02828d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     156,
+     170
+    ]
+   },
+   "addedAt": "2026-09-30T19:20:44Z",
+   "mime": "audio/mp4",
+   "size": 3663839,
+   "storage": "pages",
+   "lufs": -9.1,
+   "gain": -4.9,
+   "via": "audio",
+   "fileKey": "ba984365a26551d2",
+   "story": "library/stories/ba984365a2.jpg"
+  },
+  {
+   "id": "25edccd4d8",
+   "title": "Out of Time",
+   "artist": "The Weeknd",
+   "artists": [
+    "The Weeknd"
+   ],
+   "album": "Dawn FM",
+   "year": 2022,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "romantic",
+    "motivational",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 233.34,
+   "src": "library/audio/25edccd4d8.m4a",
+   "cover": "library/covers/25edccd4d8.jpg",
+   "color": "#00478f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     155,
+     169
+    ]
+   },
+   "addedAt": "2026-09-30T19:20:37Z",
+   "mime": "audio/mp4",
+   "size": 3774594,
+   "storage": "pages",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "25edccd4d83b8b18",
+   "story": "library/stories/25edccd4d8.jpg"
+  },
+  {
+   "id": "f8db0f145c",
+   "title": "Blinding Lights",
+   "artist": "The Weeknd",
+   "artists": [
+    "The Weeknd"
+   ],
+   "album": "After Hours",
+   "year": 2019,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "calm",
+    "romantic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 262.57,
+   "src": "library/audio/f8db0f145c.m4a",
+   "cover": "library/covers/f8db0f145c.jpg",
+   "color": "#6a4725",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     154,
+     168
+    ]
+   },
+   "addedAt": "2026-09-30T19:20:23Z",
+   "mime": "audio/mp4",
+   "size": 4247396,
+   "storage": "pages",
+   "lufs": -10.6,
+   "gain": -3.4,
+   "via": "audio",
+   "fileKey": "f8db0f145c305cc2",
+   "story": "library/stories/f8db0f145c.jpg"
+  },
+  {
+   "id": "b38bc64c82",
+   "title": "Timeless",
+   "artist": "The Weeknd, Playboi Carti",
+   "artists": [
+    "The Weeknd",
+    "Playboi Carti"
+   ],
+   "album": "Hurry Up Tomorrow",
+   "year": 2024,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "party",
+    "romantic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 256.12,
+   "src": "library/audio/b38bc64c82.m4a",
+   "cover": "library/covers/b38bc64c82.jpg",
+   "color": "#9b6343",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     153,
+     167
+    ]
+   },
+   "addedAt": "2026-09-30T19:20:13Z",
+   "mime": "audio/mp4",
+   "size": 4143000,
+   "storage": "pages",
+   "lufs": -8.2,
+   "gain": -5.8,
+   "via": "audio",
+   "fileKey": "b38bc64c82330d11",
+   "story": "library/stories/b38bc64c82.jpg"
+  },
+  {
+   "id": "0ff0caf843",
+   "title": "São Paulo",
+   "artist": "The Weeknd, Anitta",
+   "artists": [
+    "The Weeknd",
+    "Anitta"
+   ],
+   "album": "Hurry Up Tomorrow",
+   "year": 2024,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "romantic",
+    "motivational",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 209.19,
+   "src": "library/audio/0ff0caf843.m4a",
+   "cover": "library/covers/0ff0caf843.jpg",
+   "color": "#9b6343",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     151,
+     165
+    ]
+   },
+   "addedAt": "2026-09-30T19:19:49Z",
+   "mime": "audio/mp4",
+   "size": 3384071,
+   "storage": "pages",
+   "lufs": -7.2,
+   "gain": -6.8,
+   "via": "audio",
+   "fileKey": "0ff0caf843c6dcf5",
+   "story": "library/stories/0ff0caf843.jpg"
+  },
+  {
+   "id": "37ff8e8b10",
+   "title": "Call Out My Name",
+   "artist": "The Weeknd",
+   "artists": [
+    "The Weeknd"
+   ],
+   "album": "My Dear Melancholy,",
+   "year": 2018,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "romantic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 134,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 238.33,
+   "src": "library/audio/37ff8e8b10.m4a",
+   "cover": "library/covers/37ff8e8b10.jpg",
+   "color": "#833214",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     150,
+     164
+    ]
+   },
+   "addedAt": "2026-09-30T19:19:37Z",
+   "mime": "audio/mp4",
+   "size": 3855347,
+   "storage": "pages",
+   "lufs": -7.8,
+   "gain": -6.2,
+   "via": "audio",
+   "fileKey": "37ff8e8b10dd0fe9",
+   "story": "library/stories/37ff8e8b10.jpg"
+  },
   {
    "id": "345c009073",
    "title": "Royalty",
