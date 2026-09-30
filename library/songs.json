@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-09-30T08:39:27Z",
- "count": 27,
+ "updatedAt": "2026-09-30T14:11:02Z",
+ "count": 28,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -382,9 +382,89 @@
     "en": "Australian singer and songwriter (born 1975)",
     "ru": "австралийская певица"
    }
+  },
+  "Katy Perry": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 144227,
+   "itunesId": 64387566,
+   "deezer": "https://www.deezer.com/artist/144227",
+   "apple": "https://music.apple.com/us/artist/katy-perry/64387566",
+   "image": "library/artists/katy-perry.jpg",
+   "color": "#c1733e",
+   "checked": "2026-09-30T14:08:25Z",
+   "verifiedAt": "2026-09-30T14:08:25Z",
+   "fans": 9793349,
+   "albums": 84,
+   "bioChecked": "2026-09-30T14:10:38Z",
+   "bio": {
+    "en": "Katheryn Elizabeth Hudson, known professionally as Katy Perry, is an American singer, songwriter, and television personality. Known for her influence on pop music and her camp style, she has been dubbed the \"Queen of Camp\" by Vogue and Rolling Stone.",
+    "ru": "Кэ́ти Пе́рри , — американская певица, композитор, автор песен, актриса, посол доброй воли ООН.",
+    "uz": "Katheryn Elizabeth Hudson, taxallusi — Katy Perry — amerikalik qoʻshiqchi, qoʻshiqnavis va aktrisa. Perry Kaliforniyaning Santa Barbara shahrida tugʻilib oʻsgan. Konservator ota-onasi unga ommabop pop musiqa tinglashni taqiqlashar edi. U yoshligidan gospel musiqaga qiziqqan. Perry Red Hill Records bilan shartnoma imzolab, 2001-yilda Katy Hudson nomli albom chiqargan, biroq bu albom tijoriy jihatdan muvaffaqiyatsiz boʻldi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Katy_Perry",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D1%80%D0%B8%2C_%D0%9A%D1%8D%D1%82%D0%B8",
+    "uz": "https://uz.wikipedia.org/wiki/Katy_Perry"
+   },
+   "desc": {
+    "en": "American singer (born 1984)",
+    "ru": "американская певица, композитор и актриса",
+    "uz": "amerikalik qoʻshiqchi, qoʻshiqnavis va aktrisa"
+   }
   }
  },
  "songs": [
+  {
+   "id": "ec10fd3e6c",
+   "title": "Harleys In Hawaii",
+   "artist": "Katy Perry",
+   "artists": [
+    "Katy Perry"
+   ],
+   "album": "Smile",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 140,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 194.17,
+   "src": "library/audio/ec10fd3e6c.m4a",
+   "cover": "library/covers/ec10fd3e6c.jpg",
+   "color": "#d81d32",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     83,
+     85,
+     84
+    ]
+   },
+   "addedAt": "2026-09-30T14:08:33Z",
+   "mime": "audio/mp4",
+   "size": 3141093,
+   "storage": "pages",
+   "lufs": -8.2,
+   "gain": -5.8,
+   "via": "audio",
+   "fileKey": "ec10fd3e6c52cee1",
+   "story": "library/stories/ec10fd3e6c.jpg"
+  },
   {
    "id": "ab4ac505b2",
    "title": "ocean eyes",
