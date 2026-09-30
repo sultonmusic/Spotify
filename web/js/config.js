@@ -10,8 +10,7 @@ export const CONFIG = {
   // Cloudflare Worker (relay/) that counts ad views, skips and clicks for the bot's /ads command.
   statsUrl: "https://cavi-music-relay.sales-infarmatik-tj.workers.dev",
   // The Android app (android/, published by .github/workflows/android.yml). Empty = the site doesn't offer the
-  // download. Switched off while Google Safe Browsing reviews the domain (its warning talks about "tricking you
-  // into installing software"); the app stays available at github.com/sultonmusic/Spotify/releases/tag/android.
-  // To turn the download prompt back on: "https://github.com/sultonmusic/Spotify/releases/download/android/cavi-music.apk"
-  apkUrl: "",
+  // download. It was switched off once while Chrome showed a "Dangerous site" page for the domain; if that page
+  // comes back, set this to "" again and redeploy.
+  apkUrl: "https://github.com/sultonmusic/Spotify/releases/download/android/cavi-music.apk",
 };
