@@ -582,3 +582,32 @@ button.verified-kicker { padding: 0; background: none; border: 0; color: inherit
 .np-art.video-out video { opacity: 0; }
 .art-switch { position: absolute; right: 10px; bottom: 10px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 6px 11px; border-radius: 999px; background: rgba(0,0,0,.62); color: #fff; font-size: 12px; font-weight: 700; backdrop-filter: blur(6px); }
 .art-switch:active { transform: scale(.95); }
+
+/* ---------- DJ ---------- */
+.dj-banner { position: relative; display: flex; align-items: center; gap: 14px; margin: 18px 16px 0; padding: 14px 16px; border-radius: 14px; background: linear-gradient(120deg, #1e3a8a, #6d28d9 55%, #db2777); color: #fff; box-shadow: 0 10px 30px rgba(109,40,217,.25); }
+.dj-banner b { display: block; font-size: 16px; }
+.dj-banner span { font-size: 13px; opacity: .85; }
+.dj-go { margin-left: auto; opacity: .9; }
+.dj-orb { flex: none; width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 30% 30%, #f0abfc, #8b5cf6 45%, #1e40af); color: #fff; box-shadow: 0 0 24px rgba(168,85,247,.6); }
+.dj-orb.big { width: 88px; height: 88px; margin: 0 auto; animation: djpulse 3s ease-in-out infinite; }
+@keyframes djpulse { 50% { box-shadow: 0 0 44px rgba(168,85,247,.85); transform: scale(1.04); } }
+.dj-view { padding-bottom: 150px; }
+.dj-hello { text-align: center; padding: 24px 24px 8px; }
+.dj-hello h1 { margin: 14px 0 6px; font-size: 30px; font-weight: 800; }
+.dj-hello p { margin: 0 auto; max-width: 440px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.dj-log { display: flex; flex-direction: column; gap: 10px; padding: 8px 16px; }
+.dj-msg { align-self: flex-start; max-width: 92%; padding: 12px 14px; border-radius: 16px 16px 16px 4px; background: var(--elev-2); font-size: 15px; line-height: 1.45; }
+.dj-msg.me { align-self: flex-end; border-radius: 16px 16px 4px 16px; background: #6d28d9; color: #fff; }
+.dj-tracks { margin: 8px -8px 4px; }
+.dj-tracks .row { padding-left: 8px; padding-right: 8px; }
+.dj-play { margin-top: 6px; }
+.dj-bottom { position: fixed; left: 0; right: 0; z-index: 30; bottom: calc(var(--tabbar-h) + var(--safe-b) + (var(--mini-h) + 8px) * var(--has-player, 0)); padding: 8px 12px 10px; background: linear-gradient(transparent, var(--bg) 30%); }
+body.has-player { --has-player: 1; }
+@media (min-width: 900px) { .dj-bottom { left: calc(var(--sidebar-w) + 16px); bottom: calc(var(--bar-h) + 8px); } }
+.dj-chips { flex-wrap: nowrap; overflow-x: auto; padding: 0 2px 8px; scrollbar-width: none; }
+.dj-chips::-webkit-scrollbar { display: none; }
+.dj-input { display: flex; align-items: center; gap: 6px; padding: 6px 6px 6px 16px; border-radius: 999px; background: #fff; }
+.dj-input input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: #121212; font-size: 16px; }
+.dj-mic, .dj-send { flex: none; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #121212; }
+.dj-send { background: #6d28d9; color: #fff; }
+.dj-mic.on { background: #ef4444; color: #fff; animation: djpulse 1s infinite; }

@@ -26,6 +26,7 @@ const ROUTES = [
   [/^\/mix\/(.+)$/, (id) => V.viewMix(id)],
   [/^\/song\/([^/]+)(?:\/(\d+))?$/, (id, at) => V.viewSong(id, Number(at) || 0)],
   [/^\/add$/, () => V.viewAdd()],
+  [/^\/dj$/, () => V.viewDJ()],
 ];
 const ROOT_TABS = new Set(["home", "search", "library"]);
 const scrollMemo = new Map();

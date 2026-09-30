@@ -11,6 +11,7 @@ import {
   openSheet, sheetItem, openArtistInfo, openPlayer, isCurrent,
 } from "./ui.js";
 import { searchSongs, searchArtists, matchCategories } from "./search.js";
+import * as dj from "./dj.js";
 import { MOODS, genre, mood, lang, t, describe, LANG, LANGS_UI, setLang } from "./i18n.js";
 import { canDownload, inTelegram, tg, isAdmin, haptic } from "./tg.js";
 import { rgba, getLyrics } from "./nowplaying.js";
@@ -171,6 +172,7 @@ export function viewHome() {
     quick.append(item);
   }
   v.append(quick);
+  v.append(djBanner());
 
   const forYou = reco.forYou(20);
   v.append(section(t("home.forYou"), shelf(forYou.map((s) => songCard(s, forYou, { type: "mix", id: "foryou", title: t("home.forYou") }))),
@@ -696,6 +698,78 @@ function viewPending(id) {
     try { await loadLibrary(); } catch { /* retry */ }
     if (getSong(id)) { clearInterval(timer); rerender(); }
   }, 15000);
+  return v;
+}
+
+// ------------------------------------------------------------------ DJ
+function djBanner() {
+  return link("dj", { class: "dj-banner" },
+    h("div", { class: "dj-orb", html: icon("sparkles", 26) }),
+    h("div", null, h("b", null, t("dj.banner")), h("span", null, t("dj.bannerSub"))),
+    h("span", { class: "dj-go", html: icon("right", 20) }));
+}
+
+const djChat = []; // this visit's conversation (kept while moving between pages)
+
+export function viewDJ() {
+  const v = h("div", { class: "view dj-view" });
+  v.append(topbar("DJ", { back: true }));
+  const log = h("div", { class: "dj-log" });
+  const hello = h("div", { class: "dj-hello" },
+    h("div", { class: "dj-orb big", html: icon("sparkles", 40) }),
+    h("h1", null, "DJ"),
+    h("p", null, t("dj.hello")));
+  const chips = h("div", { class: "chips dj-chips" }, (dj.SUGGESTIONS[LANG] || dj.SUGGESTIONS.en).map((x) =>
+    h("button", { class: "chip", onclick: () => send(x) }, x)));
+  const input = h("input", { type: "text", placeholder: t("dj.placeholder"), enterkeyhint: "send", autocomplete: "off" });
+  const form = h("form", { class: "dj-input", onsubmit: (e) => { e.preventDefault(); send(input.value); } }, input);
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (SR) {
+    const mic = h("button", { type: "button", class: "dj-mic", "aria-label": t("dj.voice"), html: icon("mic", 20) });
+    mic.addEventListener("click", () => {
+      const rec = new SR();
+      rec.lang = { uz: "uz-UZ", ru: "ru-RU", en: "en-US" }[LANG] || "ru-RU";
+      rec.interimResults = false;
+      mic.classList.add("on");
+      input.placeholder = t("dj.listening");
+      rec.onresult = (e) => { const said = e.results[0][0].transcript; input.value = said; send(said); };
+      rec.onend = () => { mic.classList.remove("on"); input.placeholder = t("dj.placeholder"); };
+      try { rec.start(); } catch { mic.classList.remove("on"); }
+    });
+    form.append(mic);
+  }
+  form.append(h("button", { type: "submit", class: "dj-send", "aria-label": t("dj.send"), html: icon("send", 20) }));
+
+  const bubble = (entry) => {
+    if (entry.me) return h("div", { class: "dj-msg me" }, entry.text);
+    const box = h("div", { class: "dj-msg" }, h("div", { class: "dj-text" }, entry.text));
+    if (entry.songs.length) {
+      const ctx = { type: "mix", id: `dj-${entry.at}`, title: "DJ" };
+      const list = h("div", { class: "tracks dj-tracks" });
+      entry.songs.slice(0, 5).forEach((s) => list.append(songRow(s, { list: entry.songs, context: ctx, showPlays: false })));
+      box.append(list, h("button", { class: "btn accent dj-play", onclick: () => playList(entry.songs, 0, ctx),
+        html: `${icon("play", 16)}<span>${t("dj.playAll", { n: entry.songs.length })}</span>` }));
+    }
+    return box;
+  };
+  const draw = () => {
+    log.replaceChildren(...djChat.map(bubble));
+    hello.hidden = djChat.length > 0;
+    requestAnimationFrame(() => document.getElementById("main")?.scrollTo({ top: 1e9, behavior: "smooth" }));
+  };
+  function send(text) {
+    text = String(text || "").trim();
+    if (!text) return;
+    input.value = "";
+    haptic("light");
+    const answer = dj.ask(text);
+    djChat.push({ me: true, text }, { text: answer.text, songs: answer.songs, at: Date.now() });
+    if (djChat.length > 30) djChat.splice(0, djChat.length - 30);
+    draw();
+    if (answer.songs.length) playList(answer.songs, 0, { type: "mix", id: `dj-${Date.now()}`, title: "DJ" });
+  }
+  v.append(hello, log, h("div", { class: "dj-bottom" }, chips, form));
+  draw();
   return v;
 }
 
