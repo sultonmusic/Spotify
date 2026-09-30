@@ -1,0 +1,76 @@
+name: Bulk Music Import
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: Total audio files to track (including previous runs)
+        required: true
+        default: '1000'
+      pages:
+        description: Maximum result pages per artist
+        required: true
+        default: '20'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bulk-music-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 195
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check configured credentials
+        env:
+          TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
+          TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
+          TELEGRAM_USER_SESSION: ${{ secrets.TELEGRAM_USER_SESSION }}
+        run: |
+          python - <<'PY'
+          import os
+          missing = [name for name in ('TELEGRAM_API_ID', 'TELEGRAM_API_HASH', 'TELEGRAM_USER_SESSION') if not os.environ.get(name)]
+          if missing:
+              raise SystemExit('Missing repository secrets: ' + ', '.join(missing))
+          PY
+      - name: Install Telegram client
+        run: python -m pip install 'telethon>=1.36,<2'
+      - name: Check importer
+        run: python scripts/test_bulk_import.py
+      - uses: actions/cache/restore@v4
+        with:
+          path: .cavi-import/state.json
+          key: cavi-import-progress-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: cavi-import-progress-
+      - name: Import audio (resume saved progress)
+        env:
+          TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
+          TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
+          TELEGRAM_USER_SESSION: ${{ secrets.TELEGRAM_USER_SESSION }}
+          IMPORT_LIMIT: ${{ inputs.limit }}
+          IMPORT_PAGES: ${{ inputs.pages }}
+          PYTHONUNBUFFERED: '1'
+        run: |
+          set +e
+          timeout --signal=INT --kill-after=30s 180m python scripts/bulk_import.py --limit "$IMPORT_LIMIT" --pages-per-artist "$IMPORT_PAGES"
+          result=$?
+          if [ "$result" = 124 ]; then
+            echo "::notice::Run time window ended. Run this workflow again to resume saved progress."
+            exit 0
+          fi
+          exit "$result"
+      - name: Save progress (session secrets are never cached)
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .cavi-import/state.json
+          key: cavi-import-progress-${{ github.run_id }}-${{ github.run_attempt }}
