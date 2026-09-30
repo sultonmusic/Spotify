@@ -58,11 +58,6 @@ Bot menyusidagi **🎧 Musiqa** tugmasi saytni Telegram ichida mini ilova sifati
 
 ## Qo'shiqlar faqat fayl orqali
 
-Ko'p artist bo'yicha bir buyruq bilan navbatli forward qilish uchun
-[ommaviy import ko'rsatmasi](scripts/BULK_IMPORT.md) va
-`scripts/bulk_import.py` qo'shildi. Dastur egasining alohida Telegram user session'i
-bilan ishlaydi; Cavi botining o'zi internetdan musiqa yuklamaydi.
-
 Qo'shiq faylini botga yuboring yoki istalgan chat/kanaldan forward qiling — shu. Bot qo'shiqlarni internetdan
 (jumladan YouTube'dan) o'zi yuklab olmaydi: sayt ochiq, boshqalarning qo'shiqlarini ruxsatsiz tarqatish mualliflik
 huquqini buzadi. Saytda video ham, YouTube pleyeri ham yo'q — faqat audio.
