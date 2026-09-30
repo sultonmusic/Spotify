@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-09-30T01:35:02Z",
- "count": 9,
+ "updatedAt": "2026-09-30T07:59:57Z",
+ "count": 10,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -353,9 +353,88 @@
     "en": "American singer (born 1998)",
     "ru": "американский певец"
    }
+  },
+  "Sia": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 3469,
+   "itunesId": 28721078,
+   "deezer": "https://www.deezer.com/artist/3469",
+   "apple": "https://music.apple.com/us/artist/sia/28721078",
+   "image": "library/artists/sia.jpg",
+   "color": "#474747",
+   "checked": "2026-09-30T07:57:43Z",
+   "verifiedAt": "2026-09-30T07:57:43Z",
+   "fans": 8717325,
+   "albums": 161,
+   "bioChecked": "2026-09-30T07:59:57Z",
+   "bio": {
+    "en": "Sia Kate Isobelle Furler is an Australian singer and songwriter. Born and raised in Adelaide, she started her career as a singer in the acid jazz band Crisp in the mid-1990s. When Crisp disbanded in 1997, she released her debut studio album, OnlySee, in Australia. Sia moved to London and provided vocals for the English duo Zero 7. She released her second studio album, Healing Is Difficult, in 2001 and her third, Colour the Small One, in 2004.",
+    "ru": "Си́а Кейт Изобе́ль Фёрлер, известная мононимно как Сиа — австралийская певица и автор песен в стиле эмоциональный джаз и поп, а также актриса и режиссёр. Первый её альбом вышел в 1997 году, но коммерческий успех был связан с альбомом 2008 года Some People Have Real Problems. В 2010 году Сиа получила шесть номинаций на ARIA Music Awards и победила в номинациях «лучший независимый альбом», «лучший поп-альбом» и «лучшее видео». В 2014 году песня «Chandelier» получила четыре номинации на «Грэмми» в категориях «Запись года», «Песня года», «Лучшее сольное поп-исполнение», «Лучшее музыкальное видео».",
+    "uz": "Sia Kate Isobelle Furler — avstraliyalik qoʻshiqchi va qoʻshiqnavis. Oʻz faoliyatini 1990-yillarning oʻrtalarida Adelaidadagi Crisp guruhida qoʻshiqchi sifatida boshlagan.1997-yilda Crisp guruhi tarqalib ketgan vaqtda, u Avstraliyada o'zining �M2�OnlySee�M4� nomli birinchi studiyaviy albomini chiqardi.U Londonga koʻchib oʻtdi va Zero 7 nomli britaniyalik duet uchun kuyladi.Sia 2001-yilda \"Healing Is Difficult \" nomli ikkinchi studiyaviy albomini va 2004-yilda uchinchi „Colour the Small One“ nomli albomini chiqardi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Sia",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D0%B0_(%D0%BF%D0%B5%D0%B2%D0%B8%D1%86%D0%B0)",
+    "uz": "https://uz.wikipedia.org/wiki/Sia"
+   },
+   "desc": {
+    "en": "Australian singer and songwriter (born 1975)",
+    "ru": "австралийская певица"
+   }
   }
  },
  "songs": [
+  {
+   "id": "fac78cc312",
+   "title": "Unstoppable",
+   "artist": "Sia",
+   "artists": [
+    "Sia"
+   ],
+   "album": "This Is Acting",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 174,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 226.95,
+   "src": "library/audio/fac78cc312.m4a",
+   "cover": "library/covers/fac78cc312.jpg",
+   "color": "#7c6c65",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     45,
+     46
+    ]
+   },
+   "addedAt": "2026-09-30T07:57:47Z",
+   "mime": "audio/mp4",
+   "size": 3671326,
+   "storage": "pages",
+   "lufs": -10.0,
+   "gain": -4.0,
+   "via": "audio",
+   "fileKey": "fac78cc3127f5a8a",
+   "story": "library/stories/fac78cc312.jpg"
+  },
   {
    "id": "a8b67a07e5",
    "title": "lovely",
