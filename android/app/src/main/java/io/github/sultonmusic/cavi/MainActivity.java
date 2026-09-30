@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.provider.MediaStore;
 
+import androidx.browser.customtabs.CustomTabsCallback;
+
 import com.google.androidbrowserhelper.trusted.LauncherActivity;
 
 /**
@@ -26,6 +28,16 @@ public class MainActivity extends LauncherActivity {
         return Uri.parse(getString(R.string.launchUrl)).buildUpon()
                 .appendQueryParameter("play", query)
                 .build();
+    }
+
+    /**
+     * The library's default callback crashes the app when Chrome reports a "quality" problem, e.g. that
+     * the site's /.well-known/assetlinks.json doesn't list this app. Until that file is published at
+     * https://sultonmusic.github.io/ the app should just open (with a thin address bar) instead.
+     */
+    @Override
+    protected CustomTabsCallback getCustomTabsCallback() {
+        return new CustomTabsCallback();
     }
 
     private static String clean(String s) {
