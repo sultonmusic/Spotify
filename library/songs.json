@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-09-30T19:37:29Z",
- "count": 61,
+ "updatedAt": "2026-10-01T08:55:51Z",
+ "count": 62,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -700,9 +700,90 @@
     "en": "American rapper (born 1991)",
     "ru": "Американский рэпер"
    }
+  },
+  "Alessia Cara": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 7890062,
+   "itunesId": 991444375,
+   "deezer": "https://www.deezer.com/artist/7890062",
+   "apple": "https://music.apple.com/us/artist/alessia-cara/991444375",
+   "image": "library/artists/alessia-cara.jpg",
+   "color": "#d12e42",
+   "checked": "2026-10-01T08:53:39Z",
+   "verifiedAt": "2026-10-01T08:53:39Z",
+   "fans": 700034,
+   "albums": 49,
+   "bioChecked": "2026-10-01T08:55:51Z",
+   "bio": {
+    "en": "Alessia Caracciolo, known professionally as Alessia Cara, is a Canadian singer and songwriter. She began posting covers of songs on YouTube at age 13. After uploading acoustic covers of songs such as \"Love Yourself\" and \"Sweater Weather\" online, she signed with EP Entertainment and Def Jam Recordings in 2014 and released her debut single, \"Here\", the following year. It peaked at number 19 on the Canadian Hot 100 chart and was a sleeper hit in the US, peaking at number 5 on the Billboard Hot 100 chart.",
+    "ru": "Алессия Караччиоло, более известная как Алессия Кара , — канадская соул-певица, автор-исполнитель итальянского происхождения. Лауреат нескольких музыкальных премий, в том числе «Грэмми» как «Лучший новый исполнитель».",
+    "uz": "Alessia Caracciolo, professional sifatida Alessia Cara sifatida tanilgan, kanadalik qo'shiqchi va qo'shiq muallifi. U 13 yoshida YouTube-da qo'shiqlarning muqovalarini joylashtira boshlagan. \"Love Yourself\" va \"Sweater Weather\" kabi qo'shiqlarning akustik muqovalarini internetga yuklaganidan so'ng, u 2014 yilda EP Entertainment va Def Jam Recordings bilan shartnoma tuzdi va keyingi yili o'zining \"Bu yerda\" debyut singlini chiqardi. U Canadian Hot 100 chartida 19-oʻrinni egalladi va AQSHda eng yaxshi xit boʻldi va Billboard Hot 100 chartida 5-oʻrinni egalladi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Alessia_Cara",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D0%B0%2C_%D0%90%D0%BB%D0%B5%D1%81%D1%81%D0%B8%D1%8F"
+   },
+   "desc": {
+    "en": "Canadian singer and songwriter (born 1996)",
+    "ru": "канадская певица"
+   },
+   "bioTr": [
+    "uz"
+   ]
   }
  },
  "songs": [
+  {
+   "id": "761d60e4e5",
+   "title": "Scars to Your Beautiful",
+   "artist": "Alessia Cara",
+   "artists": [
+    "Alessia Cara"
+   ],
+   "album": "Know-It-All",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 310.43,
+   "src": "library/audio/761d60e4e5.m4a",
+   "cover": "library/covers/761d60e4e5.jpg",
+   "color": "#798586",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     183,
+     184
+    ]
+   },
+   "addedAt": "2026-10-01T08:53:43Z",
+   "mime": "audio/mp4",
+   "size": 5021340,
+   "storage": "pages",
+   "lufs": -13.4,
+   "gain": -0.6,
+   "via": "audio",
+   "fileKey": "761d60e4e54c8d3e",
+   "story": "library/stories/761d60e4e5.jpg"
+  },
   {
    "id": "edf3b9b90b",
    "title": "Break My Heart",
