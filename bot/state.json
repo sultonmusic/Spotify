@@ -23,6 +23,50 @@
    "variant": "remix",
    "title": "Die For You",
    "wait": true
+  },
+  "ef4450e2": {
+   "t": 1790845129,
+   "chat": 8988775229,
+   "msg": 185,
+   "kind": "audio",
+   "caption": "\u200b\u200b\ud83d\udc49 @YuklaydiBot",
+   "media": {
+    "file_id": "CQACAgIAAxkBAAO5ar4goy94Sk8GnJumuKSQ3X4Z6LgAAkRiAALmAqlLtsJTXTOuNaI9BA",
+    "file_unique_id": "AgADRGIAAuYCqUs",
+    "file_name": "Ckay_Love_Nwantiti_Dj_Yo!_Ft_AX_EL_Joeboy,_Kuami_Eugene.m4a",
+    "mime_type": "audio/mp4",
+    "file_size": 3048602,
+    "duration": 188,
+    "performer": "Ckay-Love Nwantiti",
+    "title": "Dj Yo! Ft AX'EL (Joeboy, Kuami Eugene)"
+   },
+   "base": "love nwantiti",
+   "artist": "CKay, Dj Yo!, AX'EL",
+   "variant": "remix",
+   "title": "love nwantiti (feat. Axel & Dj Yo!) [Remix]",
+   "wait": false
+  },
+  "0b023410": {
+   "t": 1790845250,
+   "chat": 8988775229,
+   "msg": 188,
+   "kind": "audio",
+   "caption": "\u200b\u200b\ud83d\udc49 @YuklaydiBot",
+   "media": {
+    "file_id": "CQACAgIAAxkBAAO8ar4hPvbUolgWJpk9yQ_a6DbHvWgAAjp9AAKPSKBL19PrfTiHxTw9BA",
+    "file_unique_id": "AgADOn0AAo9IoEs",
+    "file_name": "CKay_Love_Nwantiti_Remix_ft_Joeboy_Kuami_Eugene_Ah_Ah_Ah_O.m4a",
+    "mime_type": "audio/mp4",
+    "file_size": 3136461,
+    "duration": 194,
+    "performer": "CKay",
+    "title": "Love Nwantiti Remix ft. Joeboy & Kuami Eugene [Ah Ah Ah] [Official\u2026"
+   },
+   "base": "Love Nwantiti",
+   "artist": "CKay, Joeboy, Kuami Eugene",
+   "variant": "remix",
+   "title": "Love Nwantiti (ah ah ah) [feat. Joeboy & Kuami Eugene] [Remix]",
+   "wait": false
   }
  }
 }
