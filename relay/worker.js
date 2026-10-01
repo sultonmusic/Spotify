@@ -58,7 +58,14 @@ export async function check(env) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ ref: env.BRANCH }),
   });
-  return run.ok ? `started the station for ${updates.length} message(s)` : `GitHub dispatch: HTTP ${run.status}`;
+  if (run.ok) return `started the station for ${updates.length} message(s)`;
+  // Don't fail silently (a read-only key once did, for a whole night): say so in the chat, at most hourly.
+  const chat = updates.find((u) => u.message?.chat?.id)?.message.chat.id;
+  if (chat && await stats(env).claimAlert(60)) {
+    await telegram(env, "sendMessage", { chat_id: chat,
+      text: `⚠️ Stansiyani ishga tushira olmadim (GitHub: HTTP ${run.status}). Xabaringiz saqlanib turibdi, muammo tuzatilgach bot uni o'qiydi.` });
+  }
+  return `GitHub dispatch: HTTP ${run.status}`;
 }
 
 // ------------------------------------------------------------------ ad statistics
@@ -69,6 +76,27 @@ export class AdStats extends DurableObject {
     super(ctx, env);
     this.sql = ctx.storage.sql;
     this.sql.exec("CREATE TABLE IF NOT EXISTS ev (ad TEXT, day TEXT, ev TEXT, uid TEXT, PRIMARY KEY (ad, day, ev, uid))");
+    this.sql.exec("CREATE TABLE IF NOT EXISTS log (ts TEXT, msg TEXT)");
+    this.sql.exec("CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v TEXT)");
+  }
+  /** What the last cron tick did; anything other than idle/busy is also kept in a short history. */
+  /** True at most once per `minutes`: the relay tells the owner about a problem, but doesn't nag. */
+  claimAlert(minutes) {
+    const last = this.sql.exec("SELECT v FROM meta WHERE k = 'lastAlert'").toArray()[0];
+    if (last && Date.now() - Date.parse(last.v) < minutes * 60_000) return false;
+    this.sql.exec("INSERT OR REPLACE INTO meta VALUES ('lastAlert', ?)", new Date().toISOString());
+    return true;
+  }
+  tick(msg) {
+    const now = new Date().toISOString();
+    this.sql.exec("INSERT OR REPLACE INTO meta VALUES ('lastTick', ?)", `${now} ${msg}`);
+    if (msg === "idle" || msg === "busy") return;
+    this.sql.exec("INSERT INTO log VALUES (?, ?)", now, msg);
+    this.sql.exec("DELETE FROM log WHERE rowid NOT IN (SELECT rowid FROM log ORDER BY rowid DESC LIMIT 100)");
+  }
+  history() {
+    const last = this.sql.exec("SELECT v FROM meta WHERE k = 'lastTick'").toArray()[0];
+    return { lastTick: last?.v || null, log: this.sql.exec("SELECT ts, msg FROM log ORDER BY rowid DESC LIMIT 30").toArray() };
   }
   record(ad, day, ev, uid) {
     this.sql.exec("INSERT OR IGNORE INTO ev VALUES (?, ?, ?, ?)", ad, day, ev, uid);
@@ -87,6 +115,34 @@ const stats = (env) => env.ADSTATS.get(env.ADSTATS.idFromName("all"));
 async function sha256(text) {
   const bytes = new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)));
   return [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+// ------------------------------------------------------------------ health (no secrets in the answer)
+// Answers "why doesn't the station wake up?": can the relay's GitHub key read runs and start the workflow
+// (checked with a branch that doesn't exist: 422 = allowed, 403 = no permission, 401 = bad or expired key),
+// when does the key expire, is a Telegram webhook blocking getUpdates, how many messages wait, and what
+// the last ticks did.
+let healthCache = { at: 0, body: null };
+async function health(env) {
+  if (healthCache.body && Date.now() - healthCache.at < 60_000) return healthCache.body;
+  const out = { time: new Date().toISOString() };
+  try {
+    const read = await github(env, `/actions/workflows/${env.WORKFLOW}/runs?per_page=1`);
+    out.githubRead = read.status;
+    out.keyExpires = read.headers.get("github-authentication-token-expiration");
+    const dry = await github(env, `/actions/workflows/${env.WORKFLOW}/dispatches`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ref: "relay-health-no-such-ref" }),
+    });
+    out.githubDispatch = dry.status; // 422 is the healthy answer here
+    out.busy = read.ok ? (await read.json()).workflow_runs?.[0]?.status !== "completed" : null;
+  } catch (e) { out.githubError = String(e); }
+  try {
+    const info = (await telegram(env, "getWebhookInfo")).result || {};
+    out.telegram = { webhookSet: Boolean(info.url), waitingMessages: info.pending_update_count };
+  } catch (e) { out.telegramError = String(e); }
+  try { Object.assign(out, await stats(env).history()); } catch (e) { out.historyError = String(e); }
+  healthCache = { at: Date.now(), body: out };
+  return out;
 }
 
 async function handle(request, env) {
@@ -110,12 +166,18 @@ async function handle(request, env) {
     const data = await stats(env).totals(new Date().toISOString().slice(0, 10));
     return Response.json(data);
   }
+  if (url.pathname === "/health") return Response.json(await health(env), { headers: CORS });
   return new Response("Cavi Music relay is running.\n", { headers: { "content-type": "text/plain; charset=utf-8", ...CORS } });
 }
 
 export default {
   async scheduled(_event, env, ctx) {
-    ctx.waitUntil(check(env).then((s) => console.log(s), (e) => console.error(String(e))));
+    ctx.waitUntil((async () => {
+      let result;
+      try { result = await check(env); } catch (e) { result = `error: ${String(e)}`; }
+      console.log(result);
+      try { await stats(env).tick(result); } catch (e) { console.error(String(e)); }
+    })());
   },
   fetch: handle,
 };

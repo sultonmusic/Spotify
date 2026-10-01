@@ -184,10 +184,16 @@ Bir marta sozlanadi (~5 daqiqa):
    - *Account ID*: bosh sahifadagi *Workers & Pages* bo'limida o'ng tomonda.
 2. **GitHub token:** https://github.com/settings/personal-access-tokens/new
    - *Repository access → Only select repositories → Spotify*
-   - *Permissions → Actions → Read and write* → *Generate token* — nusxalang.
+   - *Permissions → Actions → Read and write* (faqat *Read* bo'lsa relay xabarni ko'radi, lekin botni ishga tushira olmaydi)
+   - *Expiration:* **No expiration** yoki kamida 1 yil — kalit muddati tugasa relay to'xtaydi. → *Generate token* — nusxalang.
 3. Repo → *Settings → Secrets and variables → Actions → New repository secret* — uchtasini qo'shing:
    `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `DISPATCH_TOKEN` (2-qadamdagi GitHub token).
 4. *Actions → Relay (24/7) → Run workflow.* Tayyor — shundan keyin har bir xabarga bir daqiqa ichida 👀 chiqadi.
+
+**Tekshirish:** Worker manzili oxiriga `/health` qo'shib oching (`https://cavi-music-relay.<hisob>.workers.dev/health`):
+`githubDispatch: 422` — hammasi joyida; `403` — kalitda *Actions: Write* yo'q; `401` — kalit eskirgan; `keyExpires` — kalit
+muddati; `telegram.waitingMessages` — kutayotgan xabarlar soni; `log` — oxirgi muhim natijalar. Ishga tushirib bo'lmasa,
+relay chatga «⚠️ Stansiyani ishga tushira olmadim (GitHub: HTTP …)» deb yozadi (soatiga ko'pi bilan bir marta).
 
 ## Sozlamalar (ixtiyoriy)
 
