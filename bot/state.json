@@ -67,6 +67,28 @@
    "variant": "remix",
    "title": "Love Nwantiti (ah ah ah) [feat. Joeboy & Kuami Eugene] [Remix]",
    "wait": false
+  },
+  "30df0563": {
+   "t": 1790852137,
+   "chat": 8988775229,
+   "msg": 192,
+   "kind": "audio",
+   "caption": "\u200b\u200b\ud83d\udc49 @YuklaydiBot",
+   "media": {
+    "file_id": "CQACAgIAAxkBAAO8ar4hPvbUolgWJpk9yQ_a6DbHvWgAAjp9AAKPSKBL19PrfTiHxTw9BA",
+    "file_unique_id": "AgADOn0AAo9IoEs",
+    "file_name": "CKay_Love_Nwantiti_Remix_ft_Joeboy_Kuami_Eugene_Ah_Ah_Ah_O.m4a",
+    "mime_type": "audio/mp4",
+    "file_size": 3136461,
+    "duration": 194,
+    "performer": "CKay",
+    "title": "Love Nwantiti Remix ft. Joeboy & Kuami Eugene [Ah Ah Ah] [Official\u2026"
+   },
+   "base": "Love Nwantiti",
+   "artist": "CKay, Joeboy, Kuami Eugene",
+   "variant": "remix",
+   "title": "Love Nwantiti (ah ah ah) [feat. Joeboy & Kuami Eugene] [Remix]",
+   "wait": false
   }
  }
 }

@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-10-01T09:00:50Z",
- "count": 62,
+ "updatedAt": "2026-10-01T10:58:14Z",
+ "count": 63,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -731,9 +731,147 @@
    "bioTr": [
     "uz"
    ]
+  },
+  "CKay": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 903536,
+   "itunesId": 1168769616,
+   "deezer": "https://www.deezer.com/artist/903536",
+   "apple": "https://music.apple.com/us/artist/ckay/1168769616",
+   "image": "library/artists/ckay.jpg",
+   "color": "#ed0444",
+   "checked": "2026-10-01T10:55:57Z",
+   "verifiedAt": "2026-10-01T10:55:57Z",
+   "fans": 245567,
+   "albums": 51,
+   "bioChecked": "2026-10-01T10:58:09Z",
+   "bio": {
+    "en": "Chukwuka Chukwuma Ekweani, better known by his stage name Ckay, is a Nigerian singer, songwriter and record producer, who is the co-founder and CEO of Boyfriend Music. He was formerly signed to Chocolate City, a member of Warner Music Group independent label services ADA before joining Warner Music Africa and Atlantic Records. His international hit single \"Love Nwantiti\", also known as \"Love Nwantiti \", was released in 2019 by Chocolate City.",
+    "uz": "Chukvuka Chukvuma Ekweani, o'zining Ckay nomi bilan mashhur, nigeriyalik qo'shiqchi, qo'shiq muallifi va prodyuser, Boyfriend Music asoschilaridan biri va bosh direktori. U Warner Music Africa va Atlantic Records-ga qo'shilishdan oldin Warner Music Group mustaqil leybl xizmatlari ADA a'zosi Chocolate City bilan shartnoma imzolagan. Uning \"Love Nwantiti\" nomi bilan ham tanilgan \"Love Nwantiti\" xalqaro xit singli 2019 yilda Chocolate City tomonidan chiqarilgan.",
+    "ru": "Чуквука Чуквума Эквеани, более известный под своим сценическим псевдонимом Ckay, — нигерийский певец, автор песен и продюсер, соучредитель и генеральный директор Boyfriend Music. Ранее он подписал контракт с Chocolate City, членом независимого лейбла Warner Music Group ADA, а затем присоединился к Warner Music Africa и Atlantic Records. Его международный хит-сингл «Love Nwantiti», также известный как «Love Nwantiti», был выпущен в 2019 году компанией Chocolate City."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/CKay"
+   },
+   "desc": {
+    "en": "Nigerian singer and record producer (born 1995)"
+   },
+   "bioTr": [
+    "uz",
+    "ru"
+   ]
+  },
+  "Joeboy": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 11888005,
+   "deezer": "https://www.deezer.com/artist/11888005",
+   "image": "library/artists/joeboy.jpg",
+   "color": "#07c28b",
+   "checked": "2026-10-01T10:55:58Z",
+   "verifiedAt": "2026-10-01T10:55:58Z",
+   "fans": 321985,
+   "albums": 78,
+   "bioChecked": "2026-10-01T10:58:11Z",
+   "bio": {
+    "en": "Joseph Akinwale Akinfenwa-Donus, known professionally as Joeboy, is a Nigerian singer and songwriter. He is signed to Warner Music Africa in partnership with his record label, Young Legend. He was formerly signed by Mr Eazi under emPawa Africa, where he was discovered in 2017, through the emPawa Africa talent incubation program.",
+    "uz": "Jozef Akinvale Akinfenva-Donus, professional sifatida Joeboy nomi bilan tanilgan, nigeriyalik qo'shiqchi va qo'shiq muallifi. U Warner Music Africa bilan o'zining \"Young Legend\" yozuv yorlig'i bilan hamkorlikda imzolangan. U ilgari janob Eazi tomonidan emPawa Africa ostida imzolangan, u erda u 2017 yilda emPawa Africa iste'dodlarni inkubatsiya qilish dasturi orqali kashf etilgan.",
+    "ru": "Джозеф Акинвале Акинфенва-Донус, профессионально известный как Джобой, — нигерийский певец и автор песен. Он подписал контракт с Warner Music Africa в партнерстве со своим лейблом Young Legend. Ранее г-н Изи подписал с ним контракт с emPawa Africa, где он был обнаружен в 2017 году в рамках программы инкубации талантов emPawa Africa."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Joeboy"
+   },
+   "desc": {
+    "en": "Nigerian singer-songwriter (born 1997)"
+   },
+   "bioTr": [
+    "uz",
+    "ru"
+   ]
+  },
+  "Kuami Eugene": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 12379688,
+   "deezer": "https://www.deezer.com/artist/12379688",
+   "image": "library/artists/kuami-eugene.jpg",
+   "color": "#69584b",
+   "checked": "2026-10-01T10:55:58Z",
+   "verifiedAt": "2026-10-01T10:55:58Z",
+   "fans": 26407,
+   "albums": 92,
+   "bioChecked": "2026-10-01T10:58:14Z",
+   "bio": {
+    "en": "Eugene Kwame Marfo, who goes by the stage name Kuami Eugene is a Ghanaian High-life and Afrobeat singer-songwriter and record producer. He was signed to Lynx Entertainment and Empire Distribution and is known for several songs, including \"Angela\", \"Wish Me Well\", \"Ohemaa\", \"Wa Ye Wie\" and many others. He won the Unsung and New Artist awards in 2017 and 2018 from the Ghana Music Awards respectively, and the Ghana Music Awards UK. He also received the Most Promising Artist in Africa award from AFRIMA / LYNXGHANA.",
+    "uz": "Eugene Kvame Marfo, Kuami Evgeniy sahna nomi bilan atalgan Ganalik High-Life va Afrobeat qo'shiqchisi-qo'shiq muallifi va prodyuser. U Lynx Entertainment va Empire Distribution bilan shartnoma imzolagan va \"Angela\", \"Wish Me Well\", \"Ohemaa\", \"Wa Ye Wie\" va boshqa ko'plab qo'shiqlari bilan tanilgan. U 2017 va 2018 yillarda mos ravishda Ghana Music Awards hamda Ghana Music Awards UK mukofotlaridan Unsung va New Artist mukofotlarini qoʻlga kiritdi. U, shuningdek, AFRIMA / LYNXGHANA tomonidan Afrikaning eng istiqbolli rassomi mukofotiga sazovor bo'ldi.",
+    "ru": "Юджин Кваме Марфо, известный под сценическим псевдонимом Куами Юджин, — ганский светский певец, автор песен и автор песен в стиле афробит. Он подписал контракт с Lynx Entertainment и Empire Distribution и известен несколькими песнями, в том числе «Angela», «Wish Me Well», «Ohemaa», «Wa Ye Wie» и многими другими. Он выиграл награды Unsung и New Artist в 2017 и 2018 годах на Ghana Music Awards соответственно и Ghana Music Awards UK. Он также получил награду «Самый многообещающий артист Африки» от AFRIMA/LYNXGHANA."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Kuami_Eugene"
+   },
+   "desc": {
+    "en": "Ghanaian musician (born 1997)"
+   },
+   "bioTr": [
+    "uz",
+    "ru"
+   ]
   }
  },
  "songs": [
+  {
+   "id": "4793255c2b",
+   "title": "Love Nwantiti (ah ah ah) [feat. Joeboy & Kuami Eugene] [Remix]",
+   "artist": "CKay, Joeboy, Kuami Eugene",
+   "artists": [
+    "CKay",
+    "Joeboy",
+    "Kuami Eugene"
+   ],
+   "album": "Love Nwantiti (ah ah ah) [feat. Joeboy & Kuami Eugene] [Remix] - Single",
+   "year": 2020,
+   "genre": "Other",
+   "subgenre": "Afrobeats",
+   "moods": [
+    "romantic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 193.89,
+   "src": "library/audio/4793255c2b.m4a",
+   "cover": "library/covers/4793255c2b.jpg",
+   "color": "#781817",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     194,
+     200
+    ]
+   },
+   "addedAt": "2026-10-01T10:56:02Z",
+   "mime": "audio/mp4",
+   "size": 3136703,
+   "storage": "pages",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "4793255c2bfd3954",
+   "variant": "remix",
+   "story": "library/stories/4793255c2b.jpg"
+  },
   {
    "id": "761d60e4e5",
    "title": "Scars to Your Beautiful",
