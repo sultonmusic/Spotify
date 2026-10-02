@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-10-01T14:56:41Z",
- "count": 63,
+ "updatedAt": "2026-10-02T10:45:57Z",
+ "count": 64,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -817,9 +817,89 @@
     "uz",
     "ru"
    ]
+  },
+  "The Lumineers": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 793825,
+   "itunesId": 350720227,
+   "deezer": "https://www.deezer.com/artist/793825",
+   "apple": "https://music.apple.com/us/artist/the-lumineers/350720227",
+   "image": "library/artists/the-lumineers.jpg",
+   "color": "#37677f",
+   "checked": "2026-10-02T10:43:45Z",
+   "verifiedAt": "2026-10-02T10:43:45Z",
+   "fans": 926301,
+   "albums": 54,
+   "bioChecked": "2026-10-02T10:45:57Z",
+   "bio": {
+    "en": "The Lumineers are an American indie folk band formed in Ramsey, New Jersey, in 2005, and now based in Denver, Colorado. The founding members are Wesley Schultz and Jeremiah Fraites ; cellist and vocalist Neyla Pekarek joined the band in 2010, and was a member until 2018. The Lumineers emerged as one of the most popular folk-rock/Americana artists during the revival of these genres, their popularity growing in the 2010s. They are known for their energetic live shows and several international hit singles, including \"Ho Hey\", \"Stubborn Love\", \"Ophelia\", \"Angela\" and \"Cleopatra\".",
+    "ru": "The Lumineers — американская рок-группа, играющая в стилях фолк-рок, инди-рок и американа. Номинант премии Грэмми и других наград.",
+    "uz": "Lumineers - 2005-yilda Nyu-Jersi shtatining Ramsey shahrida tashkil etilgan va hozirda Kolorado shtatining Denver shahrida joylashgan amerikalik mustaqil folk guruhi. Asoschilar Wesley Schultz va Jeremiah Fraites; violonchelchi va vokalist Neyla Pekarek guruhga 2010-yilda qo'shilgan va 2018-yilgacha a'zo bo'lgan. Lumineers ushbu janrlarning qayta tiklanishi davrida eng mashhur folk-rok/amerikana san'atkorlaridan biriga aylandi va ularning mashhurligi 2010-yillarda o'sib bordi. Ular o'zlarining jo'shqin jonli shoulari va \"Ho Hey\", \"Stubborn Love\", \"Ophelia\", \"Angela\" va \"Cleopatra\" kabi bir qancha xalqaro xit singllari bilan tanilgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/The_Lumineers",
+    "ru": "https://ru.wikipedia.org/wiki/The_Lumineers"
+   },
+   "desc": {
+    "en": "American indie folk band",
+    "ru": "Американская фолк-рок-группа"
+   },
+   "bioTr": [
+    "uz"
+   ]
   }
  },
  "songs": [
+  {
+   "id": "cac7c3cfae",
+   "title": "Shout (The Institute Theme Song)",
+   "artist": "The Lumineers",
+   "artists": [
+    "The Lumineers"
+   ],
+   "album": "Shout (The Institute Theme Song) - Single",
+   "year": 2025,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 116.18,
+   "src": "library/audio/cac7c3cfae.m4a",
+   "cover": "library/covers/cac7c3cfae.jpg",
+   "color": "#748b7d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     203,
+     204
+    ]
+   },
+   "addedAt": "2026-10-02T10:43:50Z",
+   "mime": "audio/mp4",
+   "size": 1880538,
+   "storage": "pages",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "cac7c3cfae3b8cfa",
+   "story": "library/stories/cac7c3cfae.jpg"
+  },
   {
    "id": "4793255c2b",
    "title": "Love Nwantiti (ah ah ah) [feat. Joeboy & Kuami Eugene] [Remix]",
