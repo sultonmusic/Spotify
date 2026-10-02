@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-10-02T18:25:29Z",
- "count": 75,
+ "updatedAt": "2026-10-02T21:06:24Z",
+ "count": 74,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4302,57 +4302,6 @@
    "via": "audio",
    "fileKey": "c327bf8128a82b72",
    "story": "library/stories/c327bf8128.jpg"
-  },
-  {
-   "id": "fac78cc312",
-   "title": "Unstoppable",
-   "artist": "Sia",
-   "artists": [
-    "Sia"
-   ],
-   "album": "This Is Acting",
-   "year": 2016,
-   "genre": "Pop",
-   "subgenre": null,
-   "moods": [
-    "motivational",
-    "happy",
-    "romantic"
-   ],
-   "language": "en",
-   "energy": 0.87,
-   "danceability": 0.92,
-   "bpm": 174,
-   "tags": [],
-   "description": null,
-   "explicit": false,
-   "duration": 226.95,
-   "src": "library/audio/fac78cc312.m4a",
-   "cover": "library/covers/fac78cc312.jpg",
-   "color": "#7c6c65",
-   "lyrics": "synced",
-   "confidence": 0.95,
-   "sources": [
-    "deezer",
-    "itunes",
-    "shazam"
-   ],
-   "tg": {
-    "msgs": [
-     45,
-     46,
-     213
-    ]
-   },
-   "addedAt": "2026-09-30T07:57:47Z",
-   "mime": "audio/mp4",
-   "size": 3671326,
-   "storage": "pages",
-   "lufs": -10.0,
-   "gain": -4.0,
-   "via": "audio",
-   "fileKey": "fac78cc3127f5a8a",
-   "story": "library/stories/fac78cc312.jpg"
   },
   {
    "id": "a8b67a07e5",
