@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-10-02T16:41:57Z",
- "count": 66,
+ "updatedAt": "2026-10-02T16:48:18Z",
+ "count": 75,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -912,9 +912,575 @@
    "bioTr": [
     "uz"
    ]
+  },
+  "Rihanna": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 564,
+   "itunesId": 63346553,
+   "deezer": "https://www.deezer.com/artist/564",
+   "apple": "https://music.apple.com/us/artist/rihanna/63346553",
+   "image": "library/artists/rihanna.jpg",
+   "color": "#797679",
+   "checked": "2026-10-02T16:44:40Z",
+   "verifiedAt": "2026-10-02T16:44:40Z",
+   "fans": 18082162,
+   "albums": 91,
+   "bioChecked": "2026-10-02T16:48:08Z",
+   "bio": {
+    "en": "Robyn Rihanna Fenty is a Barbadian singer, songwriter, businesswoman, and actress. An influential figure in popular culture, she is known for her multifaceted career, artistic reinventions, and eclectic fashion style. With estimated sales exceeding 250 million records, Rihanna is one of the best-selling music artists of all time.",
+    "ru": "Риа́нна — барбадосская певица, автор песен, музыкальный продюсер, модный дизайнер, филантроп, актриса кино, телевидения и озвучивания.",
+    "uz": "Robyn Rihanna Fenty barbadoslik qoʻshiqchi, aktrisa va ishbilarmon ayoldir. Barbadosning Sent-Mishel shahrida tugʻilgan, bolaligi esa Brijtaun shahrida oʻtgan. Rihanna amerikalik prodyuser Evan Rogers uni AQShga demo-kassetalar yozishga taklif etishi ortidan musiqa sanoatiga kirib kelgan. 2005-yilda Def Jam leybli bilan shartnoma imzolaganidan soʻng, Rihanna oʻzining birinchi ikki albomi — Music of the Sun (2005) va A Girl like Me (2006) ni omma eʼtiboriga havola etgan. Mazkur albomlarning ikkisi ham Billboard 200 xit-paradining yuqori oʻntaligiga kirishga muvaffaq boʻlgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Rihanna",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A0%D0%B8%D0%B0%D0%BD%D0%BD%D0%B0",
+    "uz": "https://uz.wikipedia.org/wiki/Rihanna"
+   },
+   "desc": {
+    "en": "Barbadian singer (born 1988)",
+    "ru": "барбадосская R&B- и поп-певица и актриса"
+   }
+  },
+  "LSD": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 14720447,
+   "itunesId": 1377413450,
+   "deezer": "https://www.deezer.com/artist/14720447",
+   "apple": "https://music.apple.com/us/artist/lsd/1377413450",
+   "image": "library/artists/lsd.jpg",
+   "color": "#c18e3e",
+   "checked": "2026-10-02T16:45:09Z",
+   "verifiedAt": "2026-10-02T16:45:09Z",
+   "fans": 227324,
+   "albums": 13,
+   "bioChecked": "2026-10-02T16:48:12Z",
+   "bio": {
+    "en": "LSD and the Search for God is an American shoegaze band formed in San Francisco, California, in 2005.",
+    "uz": "LSD and the Search for God — 2005-yilda Kaliforniyaning San-Fransisko shahrida tashkil etilgan Amerika shoegaze guruhi.",
+    "ru": "LSD and the Search for God - американская шугейз-группа, образованная в Сан-Франциско, штат Калифорния, в 2005 году."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/LSD_and_the_Search_for_God"
+   },
+   "desc": {
+    "en": "American shoegaze band"
+   },
+   "bioTr": [
+    "uz",
+    "ru"
+   ]
+  },
+  "Diplo": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1846,
+   "deezer": "https://www.deezer.com/artist/1846",
+   "image": "library/artists/diplo.jpg",
+   "color": "#126fd1",
+   "checked": "2026-10-02T16:45:09Z",
+   "verifiedAt": "2026-10-02T16:45:09Z",
+   "fans": 1301912,
+   "albums": 180,
+   "bioChecked": "2026-10-02T16:48:18Z",
+   "bio": {
+    "en": "Thomas Wesley \"Wes\" Pentz Jr., known professionally as Diplo, is an American DJ and record producer. He gained recognition in 2008 with his single \"Blow Your Head\". He is a co-creator and lead member of the electronic dancehall music project Major Lazer; a member of the supergroup LSD, with Labrinth and Sia; a member of electronic duo Jack Ü, with producer and DJ Skrillex; and a member of Silk City, with Mark Ronson. He founded the record company Mad Decent in 2006 and the nonprofit organization Heaps Decent in 2007.",
+    "ru": "Томас Уэсли Пенц, более известный под псевдонимом Дипло, — американский диджей и музыкальный продюсер. Является основателем лейбла звукозаписи Mad Decent. В данный момент активно работает над проектом Major Lazer.",
+    "uz": "Tomas Uesli \"Ues\" Pentz kichik, professional ravishda Diplo nomi bilan tanilgan, amerikalik DJ va ovoz yozish prodyuseri. U 2008-yilda \"Blow Your Head\" singli bilan tan olingan. U Major Lazer elektron dancehall musiqa loyihasining hammuassisi va yetakchi a'zosi; Labrinth va Sia bilan birgalikda LSD superguruhi a'zosi; prodyuser va DJ Skrillex bilan birgalikda Jack Ü elektron dueti a'zosi; va Mark Ronson bilan birgalikda Silk City a'zosi. U 2006-yilda Mad Decent ovoz yozish kompaniyasiga va 2007-yilda Heaps Decent notijorat tashkilotiga asos solgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Diplo",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE"
+   },
+   "desc": {
+    "en": "American DJ and record producer (born 1978)",
+    "ru": "Актер, диджей, продюсер."
+   },
+   "bioTr": [
+    "uz"
+   ]
+  },
+  "Labrinth": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 256795762,
+   "deezer": "https://www.deezer.com/artist/256795762",
+   "image": "library/artists/labrinth.jpg",
+   "color": "#24596b",
+   "checked": "2026-10-02T16:45:10Z",
+   "verifiedAt": "2026-10-02T16:45:10Z",
+   "fans": 3
+  },
+  "Sean Paul": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 266523712,
+   "deezer": "https://www.deezer.com/artist/266523712",
+   "image": "library/artists/sean-paul.jpg",
+   "color": "#7c6a95",
+   "checked": "2026-10-02T16:45:31Z",
+   "verifiedAt": "2026-10-02T16:45:31Z",
+   "fans": 132,
+   "albums": 3
+  },
+  "Walter Tee": {
+   "aliases": [],
+   "verified": false,
+   "checked": "2026-10-02T16:48:05Z"
   }
  },
  "songs": [
+  {
+   "id": "22936efbf9",
+   "title": "Unstoppable",
+   "artist": "Sia",
+   "artists": [
+    "Sia"
+   ],
+   "album": "This Is Acting",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 174,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 215.76,
+   "src": "library/audio/22936efbf9.m4a",
+   "cover": "library/covers/22936efbf9.jpg",
+   "color": "#7c6c65",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     218,
+     227
+    ]
+   },
+   "addedAt": "2026-10-02T16:46:03Z",
+   "mime": "audio/mp4",
+   "size": 3490338,
+   "storage": "pages",
+   "lufs": -7.8,
+   "gain": -6.2,
+   "via": "audio",
+   "fileKey": "22936efbf90f868d",
+   "story": "library/stories/22936efbf9.jpg"
+  },
+  {
+   "id": "eeaa0fffe0",
+   "title": "I Choose Me",
+   "artist": "Walter Tee",
+   "artists": [
+    "Walter Tee"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Jazz",
+   "subgenre": "Blues",
+   "moods": [
+    "calm",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 567.19,
+   "src": "library/audio/eeaa0fffe0.m4a",
+   "cover": "library/covers/eeaa0fffe0.jpg",
+   "color": "#efa510",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     217,
+     226
+    ]
+   },
+   "addedAt": "2026-10-02T16:45:55Z",
+   "mime": "audio/mp4",
+   "size": 9173808,
+   "storage": "pages",
+   "lufs": -12.4,
+   "gain": -1.6,
+   "via": "audio",
+   "fileKey": "eeaa0fffe0856430",
+   "story": "library/stories/eeaa0fffe0.jpg"
+  },
+  {
+   "id": "2169d202d1",
+   "title": "Together",
+   "artist": "Sia",
+   "artists": [
+    "Sia"
+   ],
+   "album": "Music - Songs From and Inspired By the Motion Picture",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 208.61,
+   "src": "library/audio/2169d202d1.m4a",
+   "cover": "library/covers/2169d202d1.jpg",
+   "color": "#faa805",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     216,
+     225
+    ]
+   },
+   "addedAt": "2026-10-02T16:45:47Z",
+   "mime": "audio/mp4",
+   "size": 3374702,
+   "storage": "pages",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "2169d202d1f8edf3",
+   "story": "library/stories/2169d202d1.jpg"
+  },
+  {
+   "id": "62117fbce6",
+   "title": "Cheap Thrills",
+   "artist": "Sia, Sean Paul",
+   "artists": [
+    "Sia",
+    "Sean Paul"
+   ],
+   "album": "This Is Acting",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 180,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 217.85,
+   "src": "library/audio/62117fbce6.m4a",
+   "cover": "library/covers/62117fbce6.jpg",
+   "color": "#7c6c65",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     215,
+     224
+    ]
+   },
+   "addedAt": "2026-10-02T16:45:36Z",
+   "mime": "audio/mp4",
+   "size": 3524135,
+   "storage": "pages",
+   "lufs": -9.8,
+   "gain": -4.2,
+   "via": "audio",
+   "fileKey": "62117fbce6fa6372",
+   "story": "library/stories/62117fbce6.jpg"
+  },
+  {
+   "id": "3c5df71f00",
+   "title": "Courage to Change (From the Motion Picture \"Music\")",
+   "artist": "Sia",
+   "artists": [
+    "Sia"
+   ],
+   "album": "Courage to Change (From the Motion Picture \"Music\") - Single",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "romantic",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 292.69,
+   "src": "library/audio/3c5df71f00.m4a",
+   "cover": "library/covers/3c5df71f00.jpg",
+   "color": "#707070",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     214,
+     223
+    ]
+   },
+   "addedAt": "2026-10-02T16:45:28Z",
+   "mime": "audio/mp4",
+   "size": 4734511,
+   "storage": "pages",
+   "lufs": -7.4,
+   "gain": -6.6,
+   "via": "audio",
+   "fileKey": "3c5df71f004a637a",
+   "story": "library/stories/3c5df71f00.jpg"
+  },
+  {
+   "id": "fd8d53ae0d",
+   "title": "Thunderclouds",
+   "artist": "LSD, Sia, Diplo, Labrinth",
+   "artists": [
+    "LSD",
+    "Sia",
+    "Diplo",
+    "Labrinth"
+   ],
+   "album": "LABRINTH, SIA & DIPLO PRESENT... LSD",
+   "year": 2018,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 112,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 195.88,
+   "src": "library/audio/fd8d53ae0d.m4a",
+   "cover": "library/covers/fd8d53ae0d.jpg",
+   "color": "#ef9210",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     212,
+     222
+    ]
+   },
+   "addedAt": "2026-10-02T16:45:17Z",
+   "mime": "audio/mp4",
+   "size": 3168923,
+   "storage": "pages",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "fd8d53ae0da9dd2c",
+   "story": "library/stories/fd8d53ae0d.jpg"
+  },
+  {
+   "id": "f0ea8a72d5",
+   "title": "Chandelier",
+   "artist": "Sia",
+   "artists": [
+    "Sia"
+   ],
+   "album": "1000 Forms of Fear",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 174,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 231.36,
+   "src": "library/audio/f0ea8a72d5.m4a",
+   "cover": "library/covers/f0ea8a72d5.jpg",
+   "color": "#7a766c",
+   "lyrics": "plain",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     211,
+     221
+    ]
+   },
+   "addedAt": "2026-10-02T16:45:06Z",
+   "mime": "audio/mp4",
+   "size": 3742678,
+   "storage": "pages",
+   "lufs": -6.3,
+   "gain": -7.7,
+   "via": "audio",
+   "fileKey": "f0ea8a72d5390298",
+   "story": "library/stories/f0ea8a72d5.jpg"
+  },
+  {
+   "id": "9377916256",
+   "title": "Snowman",
+   "artist": "Sia",
+   "artists": [
+    "Sia"
+   ],
+   "album": "Gimme Christmas - EP",
+   "year": 2017,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "romantic",
+    "sad",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 172.32,
+   "src": "library/audio/9377916256.m4a",
+   "cover": "library/covers/9377916256.jpg",
+   "color": "#0f8050",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     210,
+     220
+    ]
+   },
+   "addedAt": "2026-10-02T16:44:56Z",
+   "mime": "audio/mp4",
+   "size": 2787727,
+   "storage": "pages",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "9377916256b310e2",
+   "story": "library/stories/9377916256.jpg"
+  },
+  {
+   "id": "e7d41b5467",
+   "title": "Diamonds",
+   "artist": "Rihanna",
+   "artists": [
+    "Rihanna"
+   ],
+   "album": "Unapologetic",
+   "year": 2012,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 92,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 225.44,
+   "src": "library/audio/e7d41b5467.m4a",
+   "cover": "library/covers/e7d41b5467.jpg",
+   "color": "#ffff00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     209,
+     219
+    ]
+   },
+   "addedAt": "2026-10-02T16:44:46Z",
+   "mime": "audio/mp4",
+   "size": 3646916,
+   "storage": "pages",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "e7d41b5467c2cf23",
+   "story": "library/stories/e7d41b5467.jpg"
+  },
   {
    "id": "1cefe17873",
    "title": "Someone You Loved",
@@ -3739,7 +4305,8 @@
    "tg": {
     "msgs": [
      45,
-     46
+     46,
+     213
     ]
    },
    "addedAt": "2026-09-30T07:57:47Z",
