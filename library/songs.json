@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-10-02T10:45:57Z",
- "count": 64,
+ "updatedAt": "2026-10-02T16:41:57Z",
+ "count": 66,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -848,9 +848,171 @@
    "bioTr": [
     "uz"
    ]
+  },
+  "AURORA": {
+   "aliases": [
+    "Aurora"
+   ],
+   "verified": true,
+   "deezerId": 7600518,
+   "itunesId": 947171999,
+   "deezer": "https://www.deezer.com/artist/7600518",
+   "apple": "https://music.apple.com/us/artist/aurora/947171999",
+   "image": "library/artists/aurora.jpg",
+   "color": "#7c6a95",
+   "checked": "2026-10-02T16:38:34Z",
+   "verifiedAt": "2026-10-02T16:38:34Z",
+   "fans": 196,
+   "albums": 207,
+   "bioChecked": "2026-10-02T16:41:52Z",
+   "bio": {
+    "en": "Aurora Aksnes, known mononymously as Aurora, is a Norwegian singer, songwriter and record producer. Known for blending electropop, folk, and art pop, she has been described as a pioneer of the Norwegian art pop scene and dubbed the \"Fairy of Pop\". She started writing songs and learning dance at age six, and gained recognition as a teenager after a classmate posted her music online without her knowledge. Initially trained on the piano, she later learned percussion and production.",
+    "ru": "Аврора Акснес, известная как AURORA — норвежская певица, композитор и музыкальный продюсер.",
+    "uz": "Aurora Aksnes, mononim sifatida Aurora nomi bilan tanilgan, norvegiyalik qo'shiqchi, qo'shiq muallifi va ovoz yozish prodyuseri. Elektropop, folk va art-pop musiqalarini uyg'unlashtirgani bilan tanilgan u Norvegiya art-pop sahnasining kashshofi sifatida ta'riflangan va \"Pop perisi\" deb nomlangan. U olti yoshida qo'shiqlar yozishni va raqsga tushishni o'rganishni boshladi va o'smirlik chog'ida sinfdoshi uning musiqasini uning xabarisiz internetga joylashtirganidan keyin tanildi. Dastlab u pianino chalishni o'rgangan, keyinchalik u perkussiya va prodakshnni o'rgangan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Aurora_(singer)",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%90%D0%B2%D1%80%D0%BE%D1%80%D0%B0_(%D0%BF%D0%B5%D0%B2%D0%B8%D1%86%D0%B0)"
+   },
+   "desc": {
+    "en": "Norwegian singer-songwriter (born 1996)",
+    "ru": "норвежская певица"
+   },
+   "bioTr": [
+    "uz"
+   ]
+  },
+  "Lewis Capaldi": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 12088868,
+   "itunesId": 1213405916,
+   "deezer": "https://www.deezer.com/artist/12088868",
+   "apple": "https://music.apple.com/us/artist/lewis-capaldi/1213405916",
+   "image": "library/artists/lewis-capaldi.jpg",
+   "color": "#d48d2b",
+   "checked": "2026-10-02T16:39:36Z",
+   "verifiedAt": "2026-10-02T16:39:36Z",
+   "fans": 1207423,
+   "albums": 48,
+   "bioChecked": "2026-10-02T16:41:57Z",
+   "bio": {
+    "en": "Lewis Marc Capaldi is a Scottish singer-songwriter and musician. In March 2019, his single \"Someone You Loved\" (2018) topped the UK Singles Chart where it remained for seven weeks and in November 2019, it reached No. 1 on the US Billboard Hot 100. It was nominated at the 62nd Annual Grammy Awards for Song of the Year and won the 2020 Brit Award for Song of the Year. \"Someone You Loved\" was the bestselling single of 2019 in the UK. Capaldi was nominated for the Critics' Choice Award at the 2019 Brit Awards. He also won the 2020 Brit Award for Best New Artist.",
+    "ru": "Лью́ис Марк Капа́льди — шотландский певец, автор-исполнитель.",
+    "uz": "Lyuis Mark Kapaldi - shotlandiyalik qo'shiqchi, qo'shiq muallifi va musiqachisi. 2019-yil mart oyida uning \"Someone You Loved\" (2018) singli Buyuk Britaniya singllari chartida yetti hafta davomida birinchi o'rinni egalladi va 2019-yil noyabr oyida 1-o'ringa ko'tarildi. AQShning Billboard Hot 100 ro'yxatida 1-o'rin. U 62-yillik Grammy mukofotlarida \"Yilning eng yaxshi qo'shig'i\" nominatsiyasida nomzod qilib ko'rsatilgan va 2020-yilgi Brit mukofotida \"Yilning eng yaxshi qo'shig'i\" nominatsiyasida g'olib bo'lgan. \"Someone You Loved\" Buyuk Britaniyada 2019-yilning eng ko'p sotilgan singli bo'ldi. Kapaldi 2019-yilgi Brit Awards mukofotida Tanqidchilar tanlovi mukofotiga nomzod qilib ko'rsatilgan. Shuningdek, u 2020-yilgi Brit mukofotining \"Eng yaxshi yangi ijrochi\" nominatsiyasida g'olib bo'ldi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Lewis_Capaldi",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BF%D0%B0%D0%BB%D1%8C%D0%B4%D0%B8%2C_%D0%9B%D1%8C%D1%8E%D0%B8%D1%81"
+   },
+   "desc": {
+    "en": "Scottish singer-songwriter (born 1996)",
+    "ru": "шотландский певец и автор песен"
+   },
+   "bioTr": [
+    "uz"
+   ]
   }
  },
  "songs": [
+  {
+   "id": "1cefe17873",
+   "title": "Someone You Loved",
+   "artist": "Lewis Capaldi",
+   "artists": [
+    "Lewis Capaldi"
+   ],
+   "album": "Divinely Uninspired To A Hellish Extent",
+   "year": 2018,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 110,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 186.69,
+   "src": "library/audio/1cefe17873.m4a",
+   "cover": "library/covers/1cefe17873.jpg",
+   "color": "#ca1a02",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     207,
+     208
+    ]
+   },
+   "addedAt": "2026-10-02T16:39:44Z",
+   "mime": "audio/mp4",
+   "size": 3020202,
+   "storage": "pages",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "1cefe178735f2b1f",
+   "story": "library/stories/1cefe17873.jpg"
+  },
+  {
+   "id": "6785fab441",
+   "title": "Runaway",
+   "artist": "AURORA",
+   "artists": [
+    "AURORA"
+   ],
+   "album": "Sky: Concert in the Light",
+   "year": 2022,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 249.89,
+   "src": "library/audio/6785fab441.m4a",
+   "cover": "library/covers/6785fab441.jpg",
+   "color": "#724c74",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     205,
+     206
+    ]
+   },
+   "addedAt": "2026-10-02T16:38:42Z",
+   "mime": "audio/mp4",
+   "size": 4042349,
+   "storage": "pages",
+   "lufs": -10.1,
+   "gain": -3.9,
+   "via": "audio",
+   "fileKey": "6785fab44193489a",
+   "story": "library/stories/6785fab441.jpg"
+  },
   {
    "id": "cac7c3cfae",
    "title": "Shout (The Institute Theme Song)",
