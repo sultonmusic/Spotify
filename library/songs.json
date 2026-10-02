@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-10-02T16:48:18Z",
+ "updatedAt": "2026-10-02T18:25:29Z",
  "count": 75,
  "site": {
   "admins": [
@@ -1010,7 +1010,24 @@
    "color": "#24596b",
    "checked": "2026-10-02T16:45:10Z",
    "verifiedAt": "2026-10-02T16:45:10Z",
-   "fans": 3
+   "fans": 3,
+   "bioChecked": "2026-10-02T18:25:22Z",
+   "bio": {
+    "en": "Timothy Lee McKenzie, better known by his stage name Labrinth, is a British singer, songwriter, composer, and record producer. Labrinth signed as a recording artist with Simon Cowell's record label Syco Music in 2010, initially collaborating with the English rapper Tinie Tempah. He appeared as a featured artist: uncredited on the single \"Pass Out\", but later officially on \"Frisky\"; then he released his first solo single, \"Let the Sun Shine\" in September. All three songs peaked in the top five on the UK Singles Chart.",
+    "ru": "Ти́моти Ли́ Макке́нзи, более известный по сценическому имени Labrinth — английский певец, автор-исполнитель и музыкальный продюсер.",
+    "uz": "Timoti Li Makkenzi, Labrinth sahna taxallusi bilan ko'proq tanilgan, britaniyalik qo'shiqchi, qo'shiq muallifi, bastakor va prodyuser. Labrinth 2010-yilda Simon Cowellning Syco Music ovoz yozish leybli bilan ovoz yozish rassomi sifatida shartnoma imzoladi va dastlab ingliz reperi Tinie Tempah bilan hamkorlik qildi. U taniqli qo'shiqchi sifatida paydo bo'ldi: \"Pass Out\" singlida e'lon qilinmadi, ammo keyinchalik rasman \"Frisky\" qo'shig'ida; keyin sentyabr oyida o'zining birinchi yakkaxon singli \"Let the Sun Shine\" ni chiqardi. Uchala qo'shiq ham Buyuk Britaniya singllari chartida eng yaxshi beshlikka kirdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Labrinth",
+    "ru": "https://ru.wikipedia.org/wiki/Labrinth"
+   },
+   "desc": {
+    "en": "British retired singer (born 1989)",
+    "ru": "британский автор-исполнитель и музыкальный продюсер"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Sean Paul": {
    "aliases": [],
@@ -1022,12 +1039,30 @@
    "checked": "2026-10-02T16:45:31Z",
    "verifiedAt": "2026-10-02T16:45:31Z",
    "fans": 132,
-   "albums": 3
+   "albums": 3,
+   "bioChecked": "2026-10-02T18:25:25Z",
+   "bio": {
+    "en": "Sean Paul Ryan Francis Henriques is a Jamaican rapper, singer, and songwriter. His first album, Stage One, was released in 2000. He gained international fame with his second album, Dutty Rock, in 2002. Its single \"Get Busy\" topped the US Billboard Hot 100 chart in the United States, as did \"Temperature\", off his third album, The Trinity (2005).",
+    "ru": "Шон Пол Райан Франсис Энрике, более известный как Шон Пол — ямайский рэпер и дэнсхолл-исполнитель. Является обладателем престижной музыкальной премии Грэмми.",
+    "uz": "Sean Paul Ryan Francis Henriques - yamaykalik reper, qo'shiqchi va qo'shiq muallifi. Uning birinchi albomi, Stage One, 2000-yilda chiqarilgan. U 2002-yilda o'zining ikkinchi albomi \"Dutty Rock\" bilan xalqaro miqyosda shuhrat qozondi. Uning \"Get Busy\" singli Qo'shma Shtatlardagi Billboard Hot 100 chartida birinchi o'rinni egalladi, shuningdek, uning uchinchi albomi \"The Trinity\" (2005) dan \"Temperature\" ham."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Sean_Paul",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A8%D0%BE%D0%BD_%D0%9F%D0%BE%D0%BB"
+   },
+   "desc": {
+    "en": "Jamaican rapper (born 1973)",
+    "ru": "ямайский рэпер"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Walter Tee": {
    "aliases": [],
    "verified": false,
-   "checked": "2026-10-02T16:48:05Z"
+   "checked": "2026-10-02T16:48:05Z",
+   "bioChecked": "2026-10-02T18:25:29Z"
   }
  },
  "songs": [
