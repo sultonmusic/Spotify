@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-10-02T21:06:24Z",
- "count": 74,
+ "updatedAt": "2026-10-07T09:05:33Z",
+ "count": 75,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1063,9 +1063,88 @@
    "verified": false,
    "checked": "2026-10-02T16:48:05Z",
    "bioChecked": "2026-10-02T18:25:29Z"
+  },
+  "Glass Animals": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 2489131,
+   "itunesId": 528928008,
+   "deezer": "https://www.deezer.com/artist/2489131",
+   "apple": "https://music.apple.com/us/artist/glass-animals/528928008",
+   "image": "library/artists/glass-animals.jpg",
+   "color": "#175378",
+   "checked": "2026-10-07T09:03:24Z",
+   "verifiedAt": "2026-10-07T09:03:24Z",
+   "fans": 323264,
+   "albums": 41,
+   "bioChecked": "2026-10-07T09:05:33Z",
+   "bio": {
+    "en": "Glass Animals are an English indie rock band formed in Oxford, England in 2010. The band's line-up consists of Dave Bayley, Drew MacFarlane, Edmund Irwin-Singer, and Joe Seaward (drums).",
+    "ru": "Glass Animals — британская инди-рок группа из Оксфорда, созданная в 2010 году. Возглавляема вокалистом и продюсером Дейвом Бэйли. Вместе с ним в ее состав входят друзья его детства — Джо Сиворд, Эдмунд Ирвин-Сингер и Дрю МакФарлейн.",
+    "uz": "Glass Animals — 2010-yilda Oksfordda tashkil etilgan ingliz indie-rok guruhi. Guruh qoʻshiqchi, qoʻshiq muallifi va prodyuser Dave Bayley tomonidan asos solingan. Guruhda uning bolalikdagi doʻstlari Joe Seaward, Ed Irwin-Singer va Drew MacFarlane ham bor. Bayley uchta Glass Animals albomini yozgan va ishlab chiqargan. Bayley bolaligini Massachusets va Texasda oʻtkazgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Glass_Animals",
+    "ru": "https://ru.wikipedia.org/wiki/Glass_Animals",
+    "uz": "https://uz.wikipedia.org/wiki/Glass_Animals"
+   },
+   "desc": {
+    "en": "English indie rock band",
+    "ru": "британская группа"
+   }
   }
  },
  "songs": [
+  {
+   "id": "a313b7342a",
+   "title": "Heat Waves",
+   "artist": "Glass Animals",
+   "artists": [
+    "Glass Animals"
+   ],
+   "album": "Dreamland",
+   "year": 2020,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "sad",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 235.1,
+   "src": "library/audio/a313b7342a.m4a",
+   "cover": "library/covers/a313b7342a.jpg",
+   "color": "#e21db9",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     235,
+     236
+    ]
+   },
+   "addedAt": "2026-10-07T09:03:29Z",
+   "mime": "audio/mp4",
+   "size": 3803139,
+   "storage": "pages",
+   "lufs": -6.1,
+   "gain": -7.9,
+   "via": "audio",
+   "fileKey": "a313b7342a0cc8cc",
+   "story": "library/stories/a313b7342a.jpg"
+  },
   {
    "id": "22936efbf9",
    "title": "Unstoppable",
