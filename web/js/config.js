@@ -13,4 +13,12 @@ export const CONFIG = {
   // download. It was switched off once while Chrome showed a "Dangerous site" page for the domain; if that page
   // comes back, set this to "" again and redeploy.
   apkUrl: "https://github.com/sultonmusic/Spotify/releases/download/android/cavi-music.apk",
+  // Firebase Authentication (email/password + Google). Paste your web app's config from
+  // Firebase console -> Project settings -> Your apps. Empty apiKey = sign-in is hidden.
+  firebase: {
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    appId: "",
+  },
 };

@@ -8,6 +8,7 @@ import * as V from "./views.js";
 import { openNowPlaying, openQueue, openFullLyrics, refreshNowPlaying } from "./nowplaying.js";
 import { openShare } from "./share.js";
 import { initAds } from "./ads.js";
+import { initAuth } from "./auth.js";
 import { initTelegram, setBackButton, startParam, haptic, inTelegram } from "./tg.js";
 import { artistsRanked, forYou } from "./reco.js";
 
@@ -378,6 +379,7 @@ async function boot() {
   buildPlayerBar();
   initAds();
   initSync();
+  initAuth();
 
   const sp = startParam();
   const m = /^song_([0-9a-f]{6,})$/.exec(sp);

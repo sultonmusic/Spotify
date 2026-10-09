@@ -15,6 +15,7 @@ import * as dj from "./dj.js";
 import { appBanner, appOffer, getApp } from "./install.js";
 import { MOODS, genre, mood, lang, t, describe, LANG, LANGS_UI, setLang } from "./i18n.js";
 import { canDownload, inTelegram, tg, isAdmin, haptic } from "./tg.js";
+import { authEnabled, currentUser, signIn, signUp, signOut, signInGoogle, resetPassword, googleAllowed, errorKey } from "./auth.js";
 import { rgba, getLyrics } from "./nowplaying.js";
 
 // ------------------------------------------------------------------ shared bits
@@ -53,9 +54,56 @@ export function openSettings() {
       sheet.append(sheetItem(code === LANG ? "check" : "globe", label, () => { dismiss(); if (code !== LANG) setTimeout(() => setLang(code), 250); },
         code === LANG ? "accent" : ""));
     }
+    if (authEnabled) sheet.append(sheetItem("user", currentUser ? (currentUser.email || t("auth.account")) : t("auth.signIn"),
+      () => { dismiss(); setTimeout(openAccount, 250); }, currentUser ? "accent" : ""));
     const app = appOffer();
     if (app) sheet.append(sheetItem("download", t(app === "apk" ? "settings.getApp" : "settings.installApp"), () => { dismiss(); getApp(); }));
     sheet.append(h("p", { class: "muted", style: { padding: "8px 20px 4px", fontSize: "12px", margin: 0 } }, `🔒 ${t("settings.about")}`));
+  });
+}
+
+/** Sign in / sign up / account sheet (Firebase Auth). */
+export function openAccount() {
+  openSheet((sheet, dismiss) => {
+    sheet.append(h("div", { class: "sheet-head" }, h("div", null, h("b", null, t("auth.account")), h("span", null, currentUser?.email || ""))));
+    if (currentUser) {
+      sheet.append(sheetItem("check", t("auth.signOut"), async () => { dismiss(); try { await signOut(); toast(t("auth.signedOut")); } catch { toast(t("auth.err.other")); } }));
+      return;
+    }
+    let signup = false;
+    const email = h("input", { class: "auth-input", type: "email", autocomplete: "email", placeholder: t("auth.email"), "aria-label": t("auth.email") });
+    const pass = h("input", { class: "auth-input", type: "password", autocomplete: "current-password", placeholder: t("auth.password"), "aria-label": t("auth.password") });
+    const err = h("p", { class: "auth-err", role: "alert" });
+    const submit = h("button", { class: "btn accent auth-submit", type: "submit" });
+    const toggleBtn = h("button", { class: "auth-link", type: "button" });
+    const forgot = h("button", { class: "auth-link", type: "button" }, t("auth.forgot"));
+    const paint = () => {
+      submit.textContent = signup ? t("auth.signUp") : t("auth.signIn");
+      toggleBtn.textContent = signup ? t("auth.haveAccount") : t("auth.noAccount");
+      pass.autocomplete = signup ? "new-password" : "current-password";
+      forgot.hidden = signup;
+      err.textContent = "";
+    };
+    const run = async (fn) => {
+      err.textContent = "";
+      submit.disabled = true;
+      try { await fn(); dismiss(); toast(t("auth.signedIn")); }
+      catch (e) { const k = errorKey(e); if (k) err.textContent = t(k); }
+      submit.disabled = false;
+    };
+    toggleBtn.onclick = () => { signup = !signup; paint(); };
+    forgot.onclick = async () => {
+      if (!email.value.trim()) { err.textContent = t("auth.needEmail"); return; }
+      try { await resetPassword(email.value.trim()); toast(t("auth.resetSent")); } catch (e) { const k = errorKey(e); if (k) err.textContent = t(k); }
+    };
+    const form = h("form", { class: "auth-form", novalidate: "", onsubmit: (e) => {
+      e.preventDefault();
+      run(() => (signup ? signUp : signIn)(email.value.trim(), pass.value));
+    } }, email, pass, err, submit);
+    sheet.append(form);
+    if (googleAllowed) form.append(h("button", { class: "btn ghost auth-google", type: "button", onclick: () => run(signInGoogle) }, t("auth.google")));
+    form.append(toggleBtn, forgot);
+    paint();
   });
 }
 
