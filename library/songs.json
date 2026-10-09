@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-10-07T09:05:33Z",
- "count": 75,
+ "updatedAt": "2026-10-09T19:06:23Z",
+ "count": 77,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1092,9 +1092,121 @@
     "en": "English indie rock band",
     "ru": "британская группа"
    }
+  },
+  "Kristina Moe Hals": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 249675342,
+   "deezer": "https://www.deezer.com/artist/249675342",
+   "image": "library/artists/kristina-moe-hals.jpg",
+   "color": "#6e868e",
+   "checked": "2026-10-09T19:04:14Z",
+   "verifiedAt": "2026-10-09T19:04:14Z",
+   "fans": 311,
+   "albums": 6,
+   "bioChecked": "2026-10-09T19:06:23Z"
   }
  },
  "songs": [
+  {
+   "id": "87fcde4209",
+   "title": "Writing's On The Wall (Live)",
+   "artist": "Kristina Moe Hals",
+   "artists": [
+    "Kristina Moe Hals"
+   ],
+   "album": "The Voice 2024: Knockout 1 (Live)",
+   "year": 2024,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 151.97,
+   "src": "library/audio/87fcde4209.m4a",
+   "cover": "library/covers/87fcde4209.jpg",
+   "color": "#024b8d",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     238,
+     242
+    ]
+   },
+   "addedAt": "2026-10-09T19:04:16Z",
+   "mime": "audio/mp4",
+   "size": 2459128,
+   "storage": "pages",
+   "lufs": -23.0,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "87fcde420941ceef",
+   "variant": "live",
+   "story": "library/stories/87fcde4209.jpg"
+  },
+  {
+   "id": "cfdfa43b41",
+   "title": "i love you",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+   "year": 2019,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "motivational",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 138,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 322.8,
+   "src": "library/audio/cfdfa43b41.m4a",
+   "cover": "library/covers/cfdfa43b41.jpg",
+   "color": "#8e7f71",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     237,
+     239
+    ]
+   },
+   "addedAt": "2026-10-09T19:03:46Z",
+   "mime": "audio/mp4",
+   "size": 5221863,
+   "storage": "pages",
+   "lufs": -17.3,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "cfdfa43b4111b3a1",
+   "story": "library/stories/cfdfa43b41.jpg"
+  },
   {
    "id": "a313b7342a",
    "title": "Heat Waves",
