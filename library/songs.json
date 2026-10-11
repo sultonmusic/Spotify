@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-10-09T19:06:23Z",
- "count": 77,
+ "updatedAt": "2026-10-11T16:50:41Z",
+ "count": 78,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1105,9 +1105,57 @@
    "fans": 311,
    "albums": 6,
    "bioChecked": "2026-10-09T19:06:23Z"
+  },
+  "تلاوات ياسر الدوسري إمام الحرم المكي": {
+   "aliases": [],
+   "verified": false,
+   "checked": "2026-10-11T16:50:35Z",
+   "bioChecked": "2026-10-11T16:50:41Z"
   }
  },
  "songs": [
+  {
+   "id": "8962899c4f",
+   "title": "سورة لقمان كاملة للشيخ ياسر الدوسري من ليالي رمضان عام 1442 هـ Surat…",
+   "artist": "تلاوات ياسر الدوسري إمام الحرم المكي",
+   "artists": [
+    "تلاوات ياسر الدوسري إمام الحرم المكي"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [],
+   "language": "ar",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 652.09,
+   "src": "library/audio/8962899c4f.m4a",
+   "cover": null,
+   "color": null,
+   "lyrics": null,
+   "confidence": 0.4,
+   "sources": [],
+   "tg": {
+    "msgs": [
+     243,
+     244
+    ]
+   },
+   "addedAt": "2026-10-11T16:48:31Z",
+   "mime": "audio/mp4",
+   "size": 10547464,
+   "storage": "pages",
+   "lufs": -13.9,
+   "gain": -0.1,
+   "via": "audio",
+   "fileKey": "8962899c4fca07db",
+   "story": "library/stories/8962899c4f.jpg"
+  },
   {
    "id": "87fcde4209",
    "title": "Writing's On The Wall (Live)",
