@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-10-11T16:50:41Z",
- "count": 78,
+ "updatedAt": "2026-10-16T18:53:35Z",
+ "count": 79,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1111,9 +1111,116 @@
    "verified": false,
    "checked": "2026-10-11T16:50:35Z",
    "bioChecked": "2026-10-11T16:50:41Z"
+  },
+  "Lord Huron": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 887565,
+   "itunesId": 393068687,
+   "deezer": "https://www.deezer.com/artist/887565",
+   "apple": "https://music.apple.com/us/artist/lord-huron/393068687",
+   "image": "library/artists/lord-huron.jpg",
+   "color": "#4c4442",
+   "checked": "2026-10-16T18:51:16Z",
+   "verifiedAt": "2026-10-16T18:51:16Z",
+   "fans": 120764,
+   "albums": 25,
+   "bioChecked": "2026-10-16T18:53:31Z",
+   "bio": {
+    "en": "Lord Huron is a Los Angeles-based American indie rock band composed of Mark Barry, Miguel Briseño, Tom Renaud (guitar), and founder Ben Schneider. They released their debut album Lonesome Dreams in 2012, their second album Strange Trails in 2015, their third album Vide Noir in 2018, their fourth album Long Lost in 2021, and their fifth album The Cosmic Selector Vol. 1 in 2025.",
+    "ru": "Шаблон:Музыкальная группа Lord Huron — американская инди-фолк группа из Лос-Анджелеса. Дебютный альбом «Lonesome Dreams» был выпущен в 2012 году студией звукозаписи Iamsound в США. Затем в Великобритании и в Ирландии в январе 2013 года. После выпуска альбома группа появилась на «Вечернем шоу» со своей песней «Ends of the Earth». Создатель группы, Бен Шнайдер, проводил детство у озера Гурон, что повлияло на название его группы. Там он часто проводил вечера, играя музыку у костра. Второй альбом, «Strange Trails», был выпущен 7 апреля 2015 года спустя два года.",
+    "uz": "Lord Huron - Los-Anjelesda joylashgan amerikalik indi-rok guruhi bo'lib, tarkibiga Mark Barri, Migel Briseño, Tom Reno (gitarachi) va asoschisi Ben Shnayder kiradi. Ular oʻzlarining debyut albomi “Lonesome Dreams”, ikkinchi albomi “Strange Trails”, uchinchi albomi “Vide Noir”, toʻrtinchi albomi “Long Lost” 2021-yilda va beshinchi albomi “The Cosmic Selector Vol”ni 2012-yilda chiqardilar. 2025-yilda 1 ta."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Lord_Huron",
+    "ru": "https://ru.wikipedia.org/wiki/Lord_Huron"
+   },
+   "desc": {
+    "en": "American indie folk band"
+   },
+   "bioTr": [
+    "uz"
+   ]
+  },
+  "Phoebe Bridgers": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1058631,
+   "deezer": "https://www.deezer.com/artist/1058631",
+   "image": "library/artists/phoebe-bridgers.jpg",
+   "color": "#5174a0",
+   "checked": "2026-10-16T18:51:16Z",
+   "verifiedAt": "2026-10-16T18:51:16Z",
+   "fans": 208940,
+   "albums": 34,
+   "bioChecked": "2026-10-16T18:53:35Z",
+   "bio": {
+    "en": "Phoebe Lucille Bridgers is an American singer-songwriter, record producer, and actress. Her indie folk music typically centers on acoustic guitar and electronic production, with melancholic lyrical themes. She has won four Grammy Awards from eleven nominations.",
+    "ru": "Фиби Люсил Бриджерс — американская инди-фолк-рок певица, автор-исполнитель. В её инди-фолк музыке обычно используется акустическая гитара и электронное звучание, а лирические темы меланхоличны. Она получила четыре премии «Грэмми» из одиннадцати номинаций на Грэмми-2021 и Грэмми-2024, включая победы в категориях Лучший альтернативный альбом и Лучшая рок-песня.",
+    "uz": "Phoebe Lucille Bridgers — amerikalik qoʻshiqchi va qoʻshiq muallifi. Uning indie folk musiqasi odatda akustik gitara va elektronik instrumentlar atrofida ohangdor lirik mavzularga ega. U oʻn bir nominatsiya boʻyicha toʻrtta Grammy mukofotiga sazovor boʻlgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Phoebe_Bridgers",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%91%D1%80%D0%B8%D0%B4%D0%B6%D0%B5%D1%80%D1%81%2C_%D0%A4%D0%B8%D0%B1%D0%B8",
+    "uz": "https://uz.wikipedia.org/wiki/Phoebe_Bridgers"
+   },
+   "desc": {
+    "en": "American singer and songwriter (born 1994)",
+    "ru": "американская инди-фолк-рок певица"
+   }
   }
  },
  "songs": [
+  {
+   "id": "81adb27d79",
+   "title": "The Night We Met",
+   "artist": "Lord Huron, Phoebe Bridgers",
+   "artists": [
+    "Lord Huron",
+    "Phoebe Bridgers"
+   ],
+   "album": "Strange Trails",
+   "year": 2015,
+   "genre": "Rock",
+   "subgenre": "Indie Rock",
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 174,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 208.58,
+   "src": "library/audio/81adb27d79.m4a",
+   "cover": "library/covers/81adb27d79.jpg",
+   "color": "#83896e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     245,
+     246
+    ]
+   },
+   "addedAt": "2026-10-16T18:51:23Z",
+   "mime": "audio/mp4",
+   "size": 3374320,
+   "storage": "pages",
+   "lufs": -10.9,
+   "gain": -3.1,
+   "via": "audio",
+   "fileKey": "81adb27d797738fa",
+   "story": "library/stories/81adb27d79.jpg"
+  },
   {
    "id": "8962899c4f",
    "title": "سورة لقمان كاملة للشيخ ياسر الدوسري من ليالي رمضان عام 1442 هـ Surat…",
