@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-10-18T15:14:29Z",
- "count": 81,
+ "updatedAt": "2026-10-18T15:26:10Z",
+ "count": 82,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1228,8 +1228,8 @@
   },
   "Loreen": {
    "aliases": [],
-   "verified": false,
-   "checked": "2026-10-18T15:14:21Z",
+   "verified": true,
+   "checked": "2026-10-18T15:26:06Z",
    "bioChecked": "2026-10-18T15:14:29Z",
    "bio": {
     "en": "Lorine Zineb Nora Talhaoui, known professionally as Loreen, is a Swedish singer-songwriter. Representing Sweden, she won the Eurovision Song Contest in 2012 and 2023 with the songs \"Euphoria\" and \"Tattoo\" respectively. She is the second performer, after Johnny Logan, to win the contest twice, and the first woman to do so.",
@@ -1244,10 +1244,69 @@
    "desc": {
     "en": "Swedish singer (born 1983)",
     "ru": "шведская певица"
-   }
+   },
+   "deezerId": 1199771,
+   "itunesId": 417755574,
+   "deezer": "https://www.deezer.com/artist/1199771",
+   "apple": "https://music.apple.com/us/artist/loreen/417755574",
+   "image": "library/artists/loreen.jpg",
+   "color": "#724531",
+   "verifiedAt": "2026-10-18T15:26:06Z",
+   "fans": 150382,
+   "albums": 59
   }
  },
  "songs": [
+  {
+   "id": "4895c4a294",
+   "title": "Tattoo",
+   "artist": "Loreen",
+   "artists": [
+    "Loreen"
+   ],
+   "album": "Tattoo - Single",
+   "year": 2023,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "romantic",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 183.51,
+   "src": "library/audio/4895c4a294.m4a",
+   "cover": "library/covers/4895c4a294.jpg",
+   "color": "#676667",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     253,
+     254
+    ]
+   },
+   "addedAt": "2026-10-18T15:26:10Z",
+   "mime": "audio/mp4",
+   "size": 2968724,
+   "storage": "pages",
+   "lufs": -9.0,
+   "gain": -5.0,
+   "via": "audio",
+   "fileKey": "4895c4a2945279a8",
+   "story": "library/stories/4895c4a294.jpg"
+  },
   {
    "id": "d8f7696894",
    "title": "Arcade",
