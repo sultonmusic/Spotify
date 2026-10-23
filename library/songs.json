@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-10-18T15:26:10Z",
- "count": 82,
+ "updatedAt": "2026-10-23T06:55:58Z",
+ "count": 83,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1254,9 +1254,101 @@
    "verifiedAt": "2026-10-18T15:26:06Z",
    "fans": 150382,
    "albums": 59
+  },
+  "ZAYN": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 9761322,
+   "deezer": "https://www.deezer.com/artist/9761322",
+   "image": "library/artists/zayn.jpg",
+   "color": "#305e5e",
+   "checked": "2026-10-23T06:52:26Z",
+   "verifiedAt": "2026-10-23T06:52:26Z",
+   "fans": 2708547,
+   "albums": 36,
+   "bioChecked": "2026-10-23T06:55:55Z",
+   "bio": {
+    "en": "Zain Javadd \"Zayn\" Malik is an English singer. He auditioned as a solo contestant for the British music competition television series The X Factor in 2010, where he ended up being a part of five-piece boy band One Direction, which went on to become one of the best-selling boy bands in history. He left the group in March 2015 and signed a solo recording contract with RCA Records.",
+    "ru": "Зейн Джавадд Малик, более известный мононимно как Зейн — британский певец. Родившийся и выросший в Брадфорде, Малик прошёл прослушивание в качестве сольного участника британского музыкального конкурса телесериала «The X Factor» в 2010 году. После исключения Малик был возвращён на конкурс, чтобы сформировать бойз-бэнд One Direction из пяти человек, который впоследствии стал одним из самых продаваемых бойз-бэндов всех времён. Он покинул группу в марте 2015 года и подписал контракт на сольную запись с RCA Records.",
+    "uz": "Zain Javadd Malik – Zayn Malik yoki oddiygina Zayn nomlari bilan tanilgan britaniyalik qoʻshiqchi. U 2010-yilda Britaniyadagi The X Factor televizion shousida yakkaxon ishtirokchi sifatida qatnashadi va muvaffaqiyatsizlikka uchraydi. Keyinchalik hakamlar tavsiyasiga koʻra beshta yigitdan iborat One Direction guruhini tuzishadi va oʻsha davrlarning disklari sotuvlari boʻyicha eng muvaffaqiyatli guruhlaridan biriga aylanishadi. U 2015-yilning mart oyida guruhni tark etdi va RCA Records studiyasi bilan shartnoma imzoladi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Zayn_Malik",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BB%D0%B8%D0%BA%2C_%D0%97%D0%B5%D0%B9%D0%BD",
+    "uz": "https://uz.wikipedia.org/wiki/Zayn_Malik"
+   },
+   "desc": {
+    "en": "English singer (born 1993)",
+    "ru": "британский певец, модель и композитор",
+    "uz": "Britaniyalik qoʻshiqchi"
+   }
+  },
+  "Sia Andrew Lambrou": {
+   "aliases": [
+    "Sia"
+   ],
+   "verified": true,
+   "deezerId": 14027479,
+   "deezer": "https://www.deezer.com/artist/14027479",
+   "image": "library/artists/sia-andrew-lambrou.jpg",
+   "color": "#7c6a95",
+   "checked": "2026-10-23T06:52:27Z",
+   "verifiedAt": "2026-10-23T06:52:27Z",
+   "fans": 264,
+   "bioChecked": "2026-10-23T06:55:58Z"
   }
  },
  "songs": [
+  {
+   "id": "4f235f5416",
+   "title": "Dusk Till Dawn",
+   "artist": "ZAYN, Sia Andrew Lambrou",
+   "artists": [
+    "ZAYN",
+    "Sia Andrew Lambrou"
+   ],
+   "album": "Dusk Till Dawn (Radio Edit) [feat. Sia] - Single",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 90,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 235.06,
+   "src": "library/audio/4f235f5416.m4a",
+   "cover": "library/covers/4f235f5416.jpg",
+   "color": "#1b3074",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     256,
+     258
+    ]
+   },
+   "addedAt": "2026-10-23T06:52:45Z",
+   "mime": "audio/mp4",
+   "size": 3802890,
+   "storage": "pages",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "4f235f5416e99616",
+   "story": "library/stories/4f235f5416.jpg"
+  },
   {
    "id": "4895c4a294",
    "title": "Tattoo",
