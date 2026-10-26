@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-10-23T06:55:58Z",
- "count": 83,
+ "updatedAt": "2026-10-26T06:49:32Z",
+ "count": 84,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1296,9 +1296,109 @@
    "verifiedAt": "2026-10-23T06:52:27Z",
    "fans": 264,
    "bioChecked": "2026-10-23T06:55:58Z"
+  },
+  "Mark Eliyahu": {
+   "aliases": [],
+   "verified": true,
+   "itunesId": 131599356,
+   "apple": "https://music.apple.com/us/artist/mark-eliyahu/131599356",
+   "checked": "2026-10-26T06:47:15Z",
+   "verifiedAt": "2026-10-26T06:47:15Z",
+   "bioChecked": "2026-10-26T06:49:28Z",
+   "bio": {
+    "en": "Mark Eliyahu is an Israeli musician. He plays the kamancheh.",
+    "ru": "Марк Элияху — израильский музыкант, играет на каманче.",
+    "uz": "Mark Eliyaxu - isroillik musiqachi. U kamancheh chaladi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Mark_Eliyahu",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%AD%D0%BB%D0%B8%D1%8F%D1%85%D1%83%2C_%D0%9C%D0%B0%D1%80%D0%BA"
+   },
+   "desc": {
+    "en": "Israeli musician"
+   },
+   "bioTr": [
+    "uz"
+   ]
+  },
+  "Cem Adrian": {
+   "aliases": [],
+   "verified": true,
+   "checked": "2026-10-26T06:49:22Z",
+   "verifiedAt": "2026-10-26T06:49:23Z",
+   "deezerId": 295413,
+   "deezer": "https://www.deezer.com/artist/295413",
+   "fans": 385933,
+   "image": "library/artists/cem-adrian.jpg",
+   "color": "#79624c",
+   "bioChecked": "2026-10-26T06:49:32Z",
+   "bio": {
+    "en": "Cem Filiz, better known by his stage name Cem Adrian, is a Turkish musician of Bosniak descent, singer-songwriter and record producer.",
+    "uz": "Cem Filiz, oʻzining sahna nomi bilan mashhur boʻlgan bosniyalik turk musiqachisi, ham qoʻshiq yozuvchi hamda ijro etuvchi va prodyuser.",
+    "ru": "Джем Филиз, более известный под сценическим псевдонимом Джем Адриан, является турецким музыкантом боснийского происхождения, певцом-поэтом-песенником и продюсером."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Cem_Adrian",
+    "uz": "https://uz.wikipedia.org/wiki/Cem_Adrian"
+   },
+   "desc": {
+    "en": "Turkish singer-songwriter"
+   },
+   "bioTr": [
+    "ru"
+   ]
   }
  },
  "songs": [
+  {
+   "id": "f609705b51",
+   "title": "Kül",
+   "artist": "Mark Eliyahu, Cem Adrian",
+   "artists": [
+    "Mark Eliyahu",
+    "Cem Adrian"
+   ],
+   "album": "Kül - Single",
+   "year": 2021,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "uz",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 295.06,
+   "src": "library/audio/f609705b51.m4a",
+   "cover": "library/covers/f609705b51.jpg",
+   "color": "#544c44",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     259,
+     260
+    ]
+   },
+   "addedAt": "2026-10-26T06:47:19Z",
+   "mime": "audio/mp4",
+   "size": 4772755,
+   "storage": "pages",
+   "lufs": -11.5,
+   "gain": -2.5,
+   "via": "audio",
+   "fileKey": "f609705b513c661b",
+   "story": "library/stories/f609705b51.jpg"
+  },
   {
    "id": "4f235f5416",
    "title": "Dusk Till Dawn",
