@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-01T20:41:29Z",
- "count": 84,
+ "updatedAt": "2026-11-05T06:31:29Z",
+ "count": 85,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1347,9 +1347,101 @@
    "bioTr": [
     "ru"
    ]
+  },
+  "mikeeysmind": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 191403377,
+   "itunesId": 1656295373,
+   "deezer": "https://www.deezer.com/artist/191403377",
+   "apple": "https://music.apple.com/us/artist/mikeeysmind/1656295373",
+   "image": "library/artists/mikeeysmind.jpg",
+   "color": "#c24518",
+   "checked": "2026-11-05T06:29:06Z",
+   "verifiedAt": "2026-11-05T06:29:06Z",
+   "fans": 5525,
+   "albums": 51,
+   "bioChecked": "2026-11-05T06:31:22Z"
+  },
+  "Chill77": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 366600042,
+   "deezer": "https://www.deezer.com/artist/366600042",
+   "image": "library/artists/chill77.jpg",
+   "color": "#7e2411",
+   "checked": "2026-11-05T06:29:06Z",
+   "verifiedAt": "2026-11-05T06:29:06Z",
+   "fans": 319,
+   "albums": 6,
+   "bioChecked": "2026-11-05T06:31:26Z"
+  },
+  "Unjaps": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 205020777,
+   "deezer": "https://www.deezer.com/artist/205020777",
+   "image": "library/artists/unjaps.jpg",
+   "color": "#c24518",
+   "checked": "2026-11-05T06:29:06Z",
+   "verifiedAt": "2026-11-05T06:29:06Z",
+   "fans": 581,
+   "albums": 15,
+   "bioChecked": "2026-11-05T06:31:29Z"
   }
  },
  "songs": [
+  {
+   "id": "b9876474e7",
+   "title": "Papaoutai (Afro Soul)",
+   "artist": "mikeeysmind, Chill77, Unjaps",
+   "artists": [
+    "mikeeysmind",
+    "Chill77",
+    "Unjaps"
+   ],
+   "album": "Papaoutai (Afro Soul) - Single",
+   "year": 2025,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 279.85,
+   "src": "library/audio/b9876474e7.m4a",
+   "cover": "library/covers/b9876474e7.jpg",
+   "color": "#c34518",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     261,
+     262
+    ]
+   },
+   "addedAt": "2026-11-05T06:29:14Z",
+   "mime": "audio/mp4",
+   "size": 4526814,
+   "storage": "pages",
+   "lufs": -14.6,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "b9876474e70a1b89",
+   "story": "library/stories/b9876474e7.jpg"
+  },
   {
    "id": "f609705b51",
    "title": "Kül",
