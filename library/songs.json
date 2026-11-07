@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-05T06:31:29Z",
- "count": 85,
+ "updatedAt": "2026-11-07T14:18:07Z",
+ "count": 86,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1388,9 +1388,87 @@
    "fans": 581,
    "albums": 15,
    "bioChecked": "2026-11-05T06:31:29Z"
+  },
+  "Rammstein": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 464,
+   "itunesId": 408932,
+   "deezer": "https://www.deezer.com/artist/464",
+   "apple": "https://music.apple.com/us/artist/rammstein/408932",
+   "image": "library/artists/rammstein.jpg",
+   "color": "#da3825",
+   "checked": "2026-11-07T14:15:56Z",
+   "verifiedAt": "2026-11-07T14:15:56Z",
+   "fans": 2735683,
+   "albums": 55,
+   "bioChecked": "2026-11-07T14:18:07Z",
+   "bio": {
+    "en": "Rammstein is a German Neue Deutsche Härte band formed in Berlin in 1994. The band's lineup—consisting of lead vocalist Till Lindemann, lead guitarist Richard Kruspe, rhythm guitarist Paul Landers, bassist Oliver Riedel, drummer Christoph Schneider, and keyboardist Christian \"Flake\" Lorenz—has remained unchanged throughout their history, along with their approach to songwriting, which consists of Lindemann writing and singing the lyrics over instrumental pieces the rest of the band has completed beforehand.",
+    "ru": "Rammstein — немецкая метал-группа, образованная в январе 1994 года в Берлине. Музыкальный стиль группы относится к жанру индастриал-метала.",
+    "uz": "Rammstein (Rammshtayn) - 1994-yilda tashkil topgan olmon rok-guruhi. Ular oʻzlarining musiqiy yoʻnalishini Tanz-Metal yoki raqs metali deb atashgan, bu yoʻnalish metal, indastrial va elektron musiqani oʻz ichiga oladi. Guruhga Laibach kollektivi juda katta ta'sir koʻrsatgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Rammstein",
+    "ru": "https://ru.wikipedia.org/wiki/Rammstein",
+    "uz": "https://uz.wikipedia.org/wiki/Rammstein"
+   },
+   "desc": {
+    "en": "German metal band",
+    "ru": "немецкая метал-группа"
+   }
   }
  },
  "songs": [
+  {
+   "id": "2ad9e4d9d9",
+   "title": "Sonne",
+   "artist": "Rammstein",
+   "artists": [
+    "Rammstein"
+   ],
+   "album": "Mutter",
+   "year": 2001,
+   "genre": "Metal",
+   "subgenre": null,
+   "moods": [
+    "angry",
+    "dark"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 150,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 252.87,
+   "src": "library/audio/2ad9e4d9d9.m4a",
+   "cover": "library/covers/2ad9e4d9d9.jpg",
+   "color": "#827e69",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     263,
+     264
+    ]
+   },
+   "addedAt": "2026-11-07T14:16:01Z",
+   "mime": "audio/mp4",
+   "size": 4090399,
+   "storage": "pages",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "2ad9e4d9d9f8d2d8",
+   "story": "library/stories/2ad9e4d9d9.jpg"
+  },
   {
    "id": "b9876474e7",
    "title": "Papaoutai (Afro Soul)",
