@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-07T14:18:07Z",
- "count": 86,
+ "updatedAt": "2026-11-07T18:55:47Z",
+ "count": 87,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1417,9 +1417,90 @@
     "en": "German metal band",
     "ru": "немецкая метал-группа"
    }
+  },
+  "Alphaville": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 2580,
+   "itunesId": 4157274,
+   "deezer": "https://www.deezer.com/artist/2580",
+   "apple": "https://music.apple.com/us/artist/alphaville/4157274",
+   "image": "library/artists/alphaville.jpg",
+   "color": "#115b7e",
+   "checked": "2026-11-07T18:53:28Z",
+   "verifiedAt": "2026-11-07T18:53:28Z",
+   "fans": 315845,
+   "albums": 54,
+   "bioChecked": "2026-11-07T18:55:47Z",
+   "bio": {
+    "en": "Alphaville is a German synth-pop band formed in Münster in 1982. They gained popularity in the 1980s. The group was founded by singer Marian Gold and musicians Bernhard Lloyd and Frank Mertens. They achieved chart success with the singles \"Forever Young\", \"Big in Japan\", \"Sounds Like a Melody\", \"The Jet Set\", and \"Dance with Me\". Gold remains the only continuous original member of Alphaville. They took their name from Jean-Luc Godard's 1965 film Alphaville.",
+    "ru": "Alphaville — немецкая синти-поп группа, имевшая большую популярность в середине 1980-х годов. Образовалась в 1982 году, её основателями являются Мариан Гольд, Бернхард Ллойд и Франк Мертенс. Коллектив первоначально назывался Forever Young, но позднее сменил название на Alphaville. Группа получила мировую известность благодаря трём хитам — «Big In Japan», «Forever Young» и «Sounds Like A Melody», вышедшим в 1984 году.",
+    "uz": "Alphaville - 1982-yilda Myunsterda tashkil etilgan nemis sint-pop guruhi. Ular 1980-yillarda mashhurlikka erishdilar. Guruhga qo'shiqchi Marian Gold va musiqachilar Bernhard Lloyd va Frank Mertens asos solgan. Ular \"Forever Young\", \"Big in Japan\", \"Sounds Like a Melody\", \"The Jet Set\" va \"Dance with Me\" singllari bilan chartlarda muvaffaqiyat qozonishdi. Gold Alphavillening yagona doimiy asl a'zosi bo'lib qolmoqda. Ular o'z nomlarini Jan-Lyuk Godardning 1965-yilda suratga olingan \"Alphaville\" filmidan olishgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Alphaville_(band)",
+    "ru": "https://ru.wikipedia.org/wiki/Alphaville"
+   },
+   "desc": {
+    "en": "German synth-pop band",
+    "ru": "немецкая рок-группа"
+   },
+   "bioTr": [
+    "uz"
+   ]
   }
  },
  "songs": [
+  {
+   "id": "5daab1e7b2",
+   "title": "Forever Young",
+   "artist": "Alphaville",
+   "artists": [
+    "Alphaville"
+   ],
+   "album": "Forever Young",
+   "year": 1984,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 137,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 227.46,
+   "src": "library/audio/5daab1e7b2.m4a",
+   "cover": "library/covers/5daab1e7b2.jpg",
+   "color": "#ad7452",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     265,
+     266
+    ]
+   },
+   "addedAt": "2026-11-07T18:53:36Z",
+   "mime": "audio/mp4",
+   "size": 3679607,
+   "storage": "pages",
+   "lufs": -12.6,
+   "gain": -1.4,
+   "via": "audio",
+   "fileKey": "5daab1e7b25e5402",
+   "story": "library/stories/5daab1e7b2.jpg"
+  },
   {
    "id": "2ad9e4d9d9",
    "title": "Sonne",
