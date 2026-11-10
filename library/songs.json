@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-07T18:55:47Z",
- "count": 87,
+ "updatedAt": "2026-11-10T11:58:58Z",
+ "count": 88,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1451,6 +1451,57 @@
   }
  },
  "songs": [
+  {
+   "id": "d02fc34488",
+   "title": "Papaoutai (Afro Soul)",
+   "artist": "mikeeysmind, Chill77, Unjaps",
+   "artists": [
+    "mikeeysmind",
+    "Chill77",
+    "Unjaps"
+   ],
+   "album": "Papaoutai (Afro Soul) - Single",
+   "year": 2025,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 270.56,
+   "src": "library/audio/d02fc34488.m4a",
+   "cover": "library/covers/d02fc34488.jpg",
+   "color": "#c34518",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     267,
+     268
+    ]
+   },
+   "addedAt": "2026-11-10T11:58:57Z",
+   "mime": "audio/mp4",
+   "size": 4376691,
+   "storage": "pages",
+   "lufs": -13.0,
+   "gain": -1.0,
+   "via": "audio",
+   "fileKey": "d02fc344887efa69",
+   "story": "library/stories/d02fc34488.jpg"
+  },
   {
    "id": "5daab1e7b2",
    "title": "Forever Young",
