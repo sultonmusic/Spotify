@@ -204,6 +204,34 @@ Bir marta sozlanadi (~5 daqiqa):
 muddati; `telegram.waitingMessages` — kutayotgan xabarlar soni; `log` — oxirgi muhim natijalar. Ishga tushirib bo'lmasa,
 relay chatga «⚠️ Stansiyani ishga tushira olmadim (GitHub: HTTP …)» deb yozadi (soatiga ko'pi bilan bir marta).
 
+## Profil va kirish (Firebase) — sevimlilar abadiy saqlanadi
+
+Sayt ichida **Sozlamalar → Kirish yoki ro'yxatdan o'tish** paydo bo'ladi (pochta + parol, oddiy brauzerda Google ham).
+Kirgan odamning sevimlilari, tarixi va tinglashlari Firebase'da saqlanadi va barcha qurilmalarda bir xil bo'ladi.
+Birinchi kirishda qurilmadagi sevimlilar hisobdagilar bilan **birlashtiriladi** — hech narsa yo'qolmaydi.
+Firebase sozlanmasa, sayt avvalgidek ishlayveradi. Hammasini telefon brauzeridan qilsa bo'ladi (kompyuter va CLI shart emas):
+
+1. https://console.firebase.google.com → **Add project** (Analytics shart emas).
+2. **Build → Authentication → Get started → Sign-in method**: **Email/Password** va **Google** ni yoqing.
+   *Settings → Authorized domains* ga saytingiz domenini qo'shing (masalan `sultonmusic.github.io`).
+3. **Build → Firestore Database → Create database** (production mode, istalgan region), so'ng **Rules** tabiga
+   `firebase/firestore.rules` faylidagi matnni qo'yib **Publish** bosing. (Qoida: har kim faqat o'z hujjatini o'qiydi/yozadi.)
+4. **Project settings (⚙️) → General → Your apps → Web (`</>`)** — ilovani ro'yxatdan o'tkazing va chiqqan `firebaseConfig`
+   obyektini nusxalang (`{ apiKey: ..., authDomain: ..., projectId: ..., appId: ... }`). Bu kalit ochiq bo'lishi mumkin — himoya qoidalarda.
+5. GitHub: *Settings → Secrets and variables → Actions → **Variables** → New repository variable* →
+   Name: `FIREBASE_CONFIG`, Value: shu obyekt (JSON yoki `apiKey: "...", projectId: "..."` ko'rinishida).
+6. *Actions → Deploy site → Run workflow* — sayt qayta quriladi va kirish tugmasi chiqadi.
+
+Terminal (ixtiyoriy): `cd firebase && firebase deploy --only firestore:rules` (avval `firebase login` va `firebase use <loyiha>`).
+
+## Ommaviy qo'shish (hamma bot orqali qo'shiq qo'sha oladi)
+
+`PUBLIC_UPLOADS` = `true` (variable) bo'lsa, istalgan odam botga qo'shiq yuborishi mumkin, lekin **cheklovlar bilan**:
+faqat **original** qo'shiqlar (cover/remix/live/karaoke/minus/slowed rad etiladi), stansiyada **bor** qo'shiq qayta qo'shilmaydi,
+faqat audio, fayl hajmi/davomiyligi chegaralangan, har kim uchun kunlik limit. Qo'shilgan har bir qo'shiq haqida `OWNER_IDS` dagi
+egaga xabar boradi (o'chirish tugmasi bilan). Boshqa buyruqlar (/delete, /edit, /ads …) faqat egada qoladi.
+Sayt «+» tugmasini va qoidalarni hamma ko'radigan qiladi.
+
 ## Sozlamalar (ixtiyoriy)
 
 *Settings → Secrets and variables → Actions*:
@@ -218,7 +246,9 @@ relay chatga «⚠️ Stansiyani ishga tushira olmadim (GitHub: HTTP …)» deb 
 | `AUDIO_STORAGE` | variable | `auto` (standart), `pages` yoki `release` |
 | `PAGES_AUDIO_LIMIT_MB` | variable | `auto` rejimida saytdagi audio chegarasi (standart 700 MB), keyin GitHub Releases'ga |
 | `APP_NAME` | variable | Sayt/bot nomi |
-| `PUBLIC_UPLOADS` | variable | `true` — hamma qo'shiq qo'sha oladi |
+| `PUBLIC_UPLOADS` | variable | `true` — hamma cheklovlar bilan qo'shiq qo'sha oladi (yuqoriga qarang) |
+| `PUBLIC_DAILY_LIMIT` / `PUBLIC_MAX_MB` | variable | Ommaviy rejimda kuniga nechta qo'shiq (standart 5) va fayl hajmi (standart 20 MB) |
+| `FIREBASE_CONFIG` | variable | Firebase web-ilova sozlamasi (JSON) — profil/kirish uchun |
 | `SITE_URL` | variable | Maxsus domen bo'lsa |
 
 ## Bilish kerak bo'lgan cheklovlar

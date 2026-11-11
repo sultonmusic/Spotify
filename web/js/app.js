@@ -10,6 +10,7 @@ import { openShare } from "./share.js";
 import { initAds } from "./ads.js";
 import { initTelegram, setBackButton, startParam, haptic, inTelegram } from "./tg.js";
 import { artistsRanked, forYou } from "./reco.js";
+import { initAuth, authEnabled, onAuth } from "./auth.js";
 
 const main = document.getElementById("main");
 const viewRoot = document.getElementById("view");
@@ -378,6 +379,11 @@ async function boot() {
   buildPlayerBar();
   initAds();
   initSync();
+  if (authEnabled) {
+    setTimeout(initAuth, 1200); // the Firebase SDK loads after the first screen is up
+    let uid = null;
+    onAuth((a) => { if ((a?.uid || null) !== uid) { uid = a?.uid || null; window.dispatchEvent(new Event("app:rerender")); } });
+  }
 
   const sp = startParam();
   const m = /^song_([0-9a-f]{6,})$/.exec(sp);

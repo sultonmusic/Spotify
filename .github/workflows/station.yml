@@ -82,6 +82,8 @@ jobs:
           AUDIO_STORAGE: ${{ vars.AUDIO_STORAGE }}
           PAGES_AUDIO_LIMIT_MB: ${{ vars.PAGES_AUDIO_LIMIT_MB }}
           PUBLIC_UPLOADS: ${{ vars.PUBLIC_UPLOADS }}
+          PUBLIC_DAILY_LIMIT: ${{ vars.PUBLIC_DAILY_LIMIT }}
+          PUBLIC_MAX_MB: ${{ vars.PUBLIC_MAX_MB }}
           SITE_URL: ${{ vars.SITE_URL }}
           APP_NAME: ${{ vars.APP_NAME }}
         run: |
@@ -128,6 +130,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           APP_NAME: ${{ vars.APP_NAME }}
+          FIREBASE_CONFIG: ${{ vars.FIREBASE_CONFIG }}
         run: bash scripts/build-site.sh _site
 
       - uses: actions/configure-pages@v5

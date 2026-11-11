@@ -16,6 +16,29 @@ if [ -d library ]; then cp -r library/. "$OUT/library/"; fi
 sed -i "s/__BUILD__/${BUILD}/g" "$OUT/index.html" "$OUT/sw.js"
 sed -i -E "s#(from \"\./[A-Za-z0-9_-]+\.js)\"#\1?v=${BUILD}\"#g" "$OUT"/js/*.js
 
+# Firebase accounts: FIREBASE_CONFIG (repository variable, the web-app config JSON) -> js/firebase-config.js.
+# Public by design; access is protected by firebase/firestore.rules. Empty/invalid = accounts stay switched off.
+FIREBASE_CONFIG="${FIREBASE_CONFIG:-}" python3 - "$OUT" <<'PY'
+import json, os, re, sys
+raw = os.environ.get("FIREBASE_CONFIG", "").strip()
+if raw:
+    try:
+        cfg = json.loads(raw if raw.startswith("{") else "{" + raw + "}")
+        keep = ("apiKey", "authDomain", "projectId", "storageBucket", "messagingSenderId", "appId", "measurementId")
+        cfg = {k: str(cfg[k]) for k in keep if cfg.get(k)}
+        if not cfg.get("apiKey") or not cfg.get("projectId") or not cfg.get("appId"):
+            raise ValueError("apiKey, projectId and appId are required")
+        if not cfg.get("authDomain"):
+            cfg["authDomain"] = cfg["projectId"] + ".firebaseapp.com"
+        with open(os.path.join(sys.argv[1], "js", "firebase-config.js"), "w", encoding="utf-8") as f:
+            f.write("export const FIREBASE = " + json.dumps(cfg) + ";\n")
+        print("Firebase accounts: on (" + cfg["projectId"] + ")")
+    except Exception as exc:
+        print("::warning::FIREBASE_CONFIG ignored:", exc)
+else:
+    print("Firebase accounts: off (no FIREBASE_CONFIG)")
+PY
+
 # Optional branding from repository variables / the bot itself.
 python3 - "$OUT" <<'PY'
 import json, os, re, sys, urllib.request

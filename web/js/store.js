@@ -96,13 +96,63 @@ function loadUser() {
 
 export const user = loadUser();
 
+// An account backend (js/auth.js, Firebase) plugs in here: it is told about every change and when the page hides.
+let remote = null;
+export function setRemote(hooks) { remote = hooks; }
+
 let saveTimer = null;
 function saveUser() {
   clearTimeout(saveTimer);
   saveTimer = setTimeout(() => {
     try { localStorage.setItem(LS_KEY, JSON.stringify(user)); } catch { /* full or blocked */ }
     pushSoon();
+    remote?.changed();
   }, 600);
+}
+
+/** A copy of the personal data for an account backend. */
+export function snapshotUser() {
+  return {
+    favs: { ...user.favs }, favOrder: [...(user.favOrder || [])], favTs: user.favTs || 0,
+    plays: { ...user.plays }, last: { ...user.last }, skips: { ...user.skips },
+    history: user.history.slice(0, 200), listen: Math.round(user.listen || 0), since: user.since,
+  };
+}
+
+/**
+ * Merges data from an account into this device. Counters keep the larger value, history is combined. Favourites:
+ * the newer list wins — except on the first sign-in on a device (`union`), where both lists are combined so that
+ * nothing liked before signing in is ever lost.
+ */
+export function mergeUser(r, { union = false } = {}) {
+  if (!r || typeof r !== "object") return;
+  const num = (v) => (Number.isFinite(v) ? v : 0);
+  for (const [id, n] of Object.entries(r.plays || {})) user.plays[id] = Math.max(user.plays[id] || 0, num(n));
+  for (const [id, t] of Object.entries(r.last || {})) user.last[id] = Math.max(user.last[id] || 0, num(t));
+  for (const [id, n] of Object.entries(r.skips || {})) user.skips[id] = Math.max(user.skips[id] || 0, num(n));
+  if (union) {
+    const order = [...(r.favOrder || []).filter((id) => r.favs?.[id]), ...(user.favOrder || [])];
+    for (const [id, t] of Object.entries(r.favs || {})) user.favs[id] = Math.min(user.favs[id] || Infinity, num(t) || Date.now());
+    user.favOrder = [...new Set(order)].filter((id) => user.favs[id]);
+    user.favTs = Date.now();
+  } else if (num(r.favTs) > (user.favTs || 0)) {
+    user.favs = { ...(r.favs || {}) };
+    user.favOrder = [...(r.favOrder || [])];
+    user.favTs = r.favTs;
+  }
+  const seen = new Set(user.history.map((h) => `${h.id}:${Math.floor(h.t / 1000)}`));
+  for (const h of r.history || []) {
+    const k = `${h.id}:${Math.floor(h.t / 1000)}`;
+    if (!seen.has(k)) { seen.add(k); user.history.push({ id: h.id, t: h.t }); }
+  }
+  user.history.sort((a, b) => b.t - a.t);
+  user.history.length = Math.min(user.history.length, 400);
+  user.listen = Math.max(user.listen || 0, num(r.listen));
+  if (r.since) user.since = Math.min(user.since, r.since);
+  for (const s of lib.songs) s._plays = user.plays[s.id] || 0;
+  try { localStorage.setItem(LS_KEY, JSON.stringify(user)); } catch { /* ignore */ }
+  emit("user", {});
+  emit("favs", { merged: true });
 }
 
 export const isFav = (id) => !!user.favs[id];
@@ -279,6 +329,7 @@ export function initSync() {
     if (document.visibilityState === "hidden") {
       try { localStorage.setItem(LS_KEY, JSON.stringify(user)); } catch { /* ignore */ }
       push();
+      remote?.flush();
     }
   });
 }

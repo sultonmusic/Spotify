@@ -32,6 +32,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           APP_NAME: ${{ vars.APP_NAME }}
+          FIREBASE_CONFIG: ${{ vars.FIREBASE_CONFIG }}
         run: bash scripts/build-site.sh _site
 
       - uses: actions/configure-pages@v5

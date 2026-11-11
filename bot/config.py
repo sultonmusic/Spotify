@@ -44,6 +44,13 @@ LYRICS_ENABLED = env_bool("LYRICS", True)
 # Who may add songs. Empty -> the first person who writes to the bot becomes the owner.
 OWNER_IDS = {int(x) for x in re.split(r"[,\s]+", env("OWNER_IDS")) if x.isdigit()}
 PUBLIC_UPLOADS = env_bool("PUBLIC_UPLOADS", False)
+# Public uploads (everyone may add songs through the bot) are limited: audio only, original recordings only
+# (no covers/remixes/live/karaoke), nothing already on the station, a daily quota per person.
+PUBLIC_DAILY_LIMIT = env_int("PUBLIC_DAILY_LIMIT", 5)
+PUBLIC_MAX_MB = env_int("PUBLIC_MAX_MB", 20)
+PUBLIC_MIN_SECONDS = env_int("PUBLIC_MIN_SECONDS", 45)
+PUBLIC_MAX_SECONDS = env_int("PUBLIC_MAX_SECONDS", 720)
+PUBLIC_MIN_CONFIDENCE = env_int("PUBLIC_MIN_CONFIDENCE", 60) / 100
 
 # How long a run keeps listening for new messages (seconds) and hard cap on a run.
 LISTEN_SECONDS = env_int("LISTEN_SECONDS", 120)

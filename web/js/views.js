@@ -16,6 +16,7 @@ import { appBanner, appOffer, getApp } from "./install.js";
 import { MOODS, genre, mood, lang, t, describe, LANG, LANGS_UI, setLang } from "./i18n.js";
 import { canDownload, inTelegram, tg, isAdmin, haptic } from "./tg.js";
 import { rgba, getLyrics } from "./nowplaying.js";
+import { authEnabled, getAccount, onAuth, syncStatus, signIn, signUp, signInGoogle, resetPassword, signOutNow, errorKey } from "./auth.js";
 
 // ------------------------------------------------------------------ shared bits
 /** Asks the router to redraw the current page (keeps the scroll position). */
@@ -49,6 +50,7 @@ function greeting() {
 export function openSettings() {
   openSheet((sheet, dismiss) => {
     sheet.append(h("div", { class: "sheet-head" }, h("div", null, h("b", null, t("settings.title")), h("span", null, t("settings.language")))));
+    if (authEnabled) sheet.append(accountSection(dismiss));
     for (const [code, label] of Object.entries(LANGS_UI)) {
       sheet.append(sheetItem(code === LANG ? "check" : "globe", label, () => { dismiss(); if (code !== LANG) setTimeout(() => setLang(code), 250); },
         code === LANG ? "accent" : ""));
@@ -56,6 +58,75 @@ export function openSettings() {
     const app = appOffer();
     if (app) sheet.append(sheetItem("download", t(app === "apk" ? "settings.getApp" : "settings.installApp"), () => { dismiss(); getApp(); }));
     sheet.append(h("p", { class: "muted", style: { padding: "8px 20px 4px", fontSize: "12px", margin: 0 } }, `🔒 ${t("settings.about")}`));
+  });
+}
+
+// ------------------------------------------------------------------ account (Firebase)
+function accountSection(dismiss) {
+  const box = h("div", { class: "acct" });
+  const draw = () => {
+    const a = getAccount();
+    if (!a) {
+      box.replaceChildren(sheetItem("user", t("auth.signIn"), () => { dismiss(); setTimeout(openAuth, 280); }, "accent"),
+        h("p", { class: "muted acct-note" }, t("auth.signInSub")));
+      return;
+    }
+    box.replaceChildren(
+      h("div", { class: "acct-me" }, h("b", null, a.name || a.email || t("auth.title")),
+        h("span", null, `${t(`auth.sync.${syncStatus()}`)}`)),
+      sheetItem("close", t("auth.signOut"), async () => {
+        dismiss();
+        try { await signOutNow(); toast(t("auth.bye")); } catch { toast(t(errorKey({}))); }
+      }));
+  };
+  draw();
+  const off = onAuth(() => { if (box.isConnected) draw(); else off(); });
+  return box;
+}
+
+/** Sign in / sign up sheet: email + password everywhere, Google in normal browsers (it blocks Telegram's webview). */
+export function openAuth() {
+  openSheet((sheet, dismiss) => {
+    let register = false;
+    const email = h("input", { type: "email", placeholder: t("auth.email"), autocomplete: "email", autocapitalize: "none", spellcheck: "false" });
+    const pass = h("input", { type: "password", placeholder: t("auth.password"), autocomplete: "current-password" });
+    const err = h("p", { class: "auth-err", hidden: true });
+    const submit = h("button", { class: "btn accent auth-go", type: "submit" });
+    const switchBtn = h("button", { class: "auth-link", type: "button" });
+    const forgot = h("button", { class: "auth-link", type: "button" }, t("auth.forgot"));
+    const form = h("form", { class: "auth-form", novalidate: "" }, email, pass, err, submit, switchBtn, forgot);
+    const labels = () => {
+      submit.textContent = register ? t("auth.register") : t("auth.login");
+      switchBtn.textContent = register ? t("auth.toLogin") : t("auth.toRegister");
+      pass.autocomplete = register ? "new-password" : "current-password";
+      forgot.hidden = register;
+    };
+    const fail = (e) => {
+      const key = errorKey(e);
+      err.hidden = !key;
+      err.textContent = key ? t(key) : "";
+      submit.disabled = false;
+    };
+    const done = () => { dismiss(); haptic("success"); toast(t("auth.welcome")); };
+    switchBtn.onclick = () => { register = !register; err.hidden = true; labels(); };
+    forgot.onclick = async () => {
+      if (!email.value.trim()) { err.hidden = false; err.textContent = t("auth.enterEmail"); return; }
+      try { await resetPassword(email.value.trim()); err.hidden = true; toast(t("auth.resetSent")); } catch (e) { fail(e); }
+    };
+    form.addEventListener("submit", async (ev) => {
+      ev.preventDefault();
+      submit.disabled = true;
+      err.hidden = true;
+      try { await (register ? signUp : signIn)(email.value.trim(), pass.value); done(); } catch (e) { fail(e); }
+    });
+    sheet.append(h("div", { class: "sheet-head" }, h("div", null, h("b", null, t("auth.title")), h("span", null, t("auth.signInSub")))));
+    if (!inTelegram) {
+      sheet.append(h("button", { class: "btn auth-google", type: "button",
+        onclick: async () => { try { await signInGoogle(); done(); } catch (e) { fail(e); } } }, t("auth.google")),
+        h("div", { class: "auth-or" }, "—"));
+    }
+    sheet.append(form);
+    labels();
   });
 }
 
@@ -75,6 +146,7 @@ const ownerFlag = () => { try { return localStorage.getItem(OWNER_KEY) === "1"; 
 
 /** Resolves true for the station owner: in Telegram by id, in a browser once the owner opened the Add page. */
 export function ownerMode() {
+  if (lib.site?.publicUploads) return Promise.resolve(true); // everybody may add songs through the bot
   if (inTelegram) return isAdmin(lib.site?.admins || []);
   return Promise.resolve(ownerFlag());
 }
@@ -426,8 +498,12 @@ function collectionView({ kicker, title, songs, artEl, desc, color, context, rou
 
 export function viewLiked() {
   const songs = favSongs();
-  return collectionView({ kicker: t("common.playlist"), title: t("home.liked"), songs, artEl: likedArt(), color: "#5038a0",
+  const v = collectionView({ kicker: t("common.playlist"), title: t("home.liked"), songs, artEl: likedArt(), color: "#5038a0",
     context: { type: "liked", id: "liked", title: t("home.liked") }, extraActions: songs.length > 1 ? [reorderButton()] : [] });
+  if (authEnabled && !getAccount()) { // favourites only on this device: invite to sign in so they are never lost
+    v.insertBefore(h("button", { class: "auth-banner", onclick: openAuth, html: `${icon("user", 18)}<span>${t("auth.liked.hint")}</span>` }), v.children[1] || null);
+  }
+  return v;
 }
 
 // ------------------------------------------------------------------ Liked Songs: your own order
@@ -808,12 +884,15 @@ export function viewAdd() {
     }
     body.replaceChildren(
       h("h1", { class: "add-title" }, t("add.title")),
-      h("p", { class: "muted add-sub" }, t("add.sub", { bot: CONFIG.botUsername })),
+      h("p", { class: "muted add-sub" }, t(lib.site?.publicUploads ? "add.publicSub" : "add.sub", { bot: CONFIG.botUsername })),
       h("ol", { class: "add-steps" },
         [["upload", "add.step1"], ["sparkles", "add.step2"], ["note", "add.step3"]].map(([ico, key]) =>
           h("li", null, h("span", { class: "add-ico", html: icon(ico, 20) }), h("span", null, t(key))))),
+      lib.site?.publicUploads ? h("ul", { class: "add-rules" },
+        h("li", null, t("add.rule1")), h("li", null, t("add.rule2")),
+        h("li", null, t("add.rule3", { mb: lib.site.maxMb || 20, n: lib.site.dailyLimit || 5 }))) : null,
       h("button", { class: "btn accent add-open", onclick: openBot, html: `${icon("send", 18)}<span>${t("add.openBot")}</span>` }),
-      h("p", { class: "muted add-tip" }, t("add.formats")));
+      lib.site?.publicUploads ? null : h("p", { class: "muted add-tip" }, t("add.formats")));
   });
   return v;
 }

@@ -49,6 +49,10 @@ _VARIANT_UZ = {"cover": "cover (boshqa ijrochi kuylagan)", "karaoke": "karaoke",
                "acoustic": "akustik versiya", "instrumental": "instrumental", "minus": "minus"}
 
 
+class Rejected(Exception):
+    """A public upload that doesn't meet the rules; the message is shown to the person."""
+
+
 def variant_of(*texts: str) -> str | None:
     """'cover' / 'remix' / 'live'… when the title marks the song as another version of an original.
 
@@ -160,14 +164,33 @@ class Station:
 
     # ================================================================== access
     def authorized(self, user_id: int) -> bool:
+        """The station owner (admin): every command, no upload limits. Not the same as may_upload()."""
         ok = self._is_owner(user_id)
-        if ok and not config.PUBLIC_UPLOADS:
+        if ok:
             self.lib.mark_admin(user_id)
         return ok
 
+    def may_upload(self, user_id: int) -> bool:
+        return config.PUBLIC_UPLOADS or self.authorized(user_id)
+
+    def _user_key(self, user_id: int) -> str:
+        return hmac.new(config.TOKEN.encode(), f"quota:{user_id}".encode(), hashlib.sha256).hexdigest()[:20]
+
+    def quota_left(self, user_id: int) -> int:
+        """Songs this person may still add today (public uploads). Only a keyed hash of the id is stored."""
+        today = time.strftime("%Y-%m-%d", time.gmtime())
+        quota = self.state.setdefault("quota", {})
+        for key in [k for k, v in quota.items() if v.get("d") != today]:
+            del quota[key]
+        return max(0, config.PUBLIC_DAILY_LIMIT - quota.get(self._user_key(user_id), {}).get("n", 0))
+
+    def quota_use(self, user_id: int) -> None:
+        today = time.strftime("%Y-%m-%d", time.gmtime())
+        entry = self.state.setdefault("quota", {}).setdefault(self._user_key(user_id), {"d": today, "n": 0})
+        entry["n"] += 1
+        self.state_dirty = True
+
     def _is_owner(self, user_id: int) -> bool:
-        if config.PUBLIC_UPLOADS:
-            return True
         if config.OWNER_IDS:
             return user_id in config.OWNER_IDS
         digest = hmac.new(config.TOKEN.encode(), str(user_id).encode(), hashlib.sha256).hexdigest()
@@ -217,11 +240,12 @@ class Station:
             self.recognize_voice(msg, media[1])  # "what song is this?" — anyone may ask
             return
         if media:
-            if not self.authorized(user_id):
+            admin = self.authorized(user_id)
+            if not admin and not config.PUBLIC_UPLOADS:
                 self.send(chat_id, "🔒 Bu shaxsiy musiqa stansiyasi — qo'shiq qo'shish faqat egasiga ruxsat etilgan.",
                           reply_to=msg["message_id"], markup=self.keyboard([self.app_button("🎧 Tinglash")]))
                 return
-            self.handle_song(msg, *media)
+            self.handle_song(msg, *media, public=not admin)
             return
 
         if msg.get("photo") and msg.get("reply_to_message") and self.authorized(user_id):
@@ -229,7 +253,7 @@ class Station:
             return
 
         if text:
-            self.search(chat_id, text, msg["message_id"], owner=self.authorized(user_id))
+            self.search(chat_id, text, msg["message_id"], owner=self.may_upload(user_id))
             return
         self.send(chat_id, "🎵 Menga audio fayl yoki video klip yuboring — men uni stansiyaga qo'shaman.")
 
@@ -284,15 +308,34 @@ class Station:
             markup = None
         self.send(chat_id, "\n".join(text), reply_to=msg_id, markup=markup)
 
-    def handle_song(self, msg: dict, kind: str, media: dict, force: bool = False) -> None:
-        """A file from the owner: a new song, another version of one (asked about later), or a music video."""
+    def song_markup_for(self, song: dict, public: bool) -> dict | None:
+        """Public contributors get only the listen button; delete is for the owner."""
+        if public:
+            return self.keyboard([self.app_button("▶️ Tinglash", f"song/{song['id']}")])
+        return self.song_markup(song)
+
+    def handle_song(self, msg: dict, kind: str, media: dict, force: bool = False, public: bool = False) -> None:
+        """A file from the owner or (public mode) a contributor: a new song, another version of one (owner is
+        asked), or a music video (owner only)."""
         chat_id, msg_id = msg["chat"]["id"], msg["message_id"]
+        user_id = (msg.get("from") or {}).get("id", 0)
+        if public:
+            if kind not in ("audio", "document"):
+                self.send(chat_id, "⛔ Faqat audio fayl (mp3, m4a, flac, ogg, wav) qabul qilinadi.", reply_to=msg_id)
+                return
+            if (media.get("file_size") or 0) > config.PUBLIC_MAX_MB * 1048576:
+                self.send(chat_id, f"⛔ Fayl juda katta. Eng ko'pi bilan {config.PUBLIC_MAX_MB} MB.", reply_to=msg_id)
+                return
+            if self.quota_left(user_id) <= 0:
+                self.send(chat_id, f"⏳ Bugungi limit tugadi: kuniga {config.PUBLIC_DAILY_LIMIT} ta qo'shiq. Ertaga qayta urinib ko'ring.",
+                          reply_to=msg_id)
+                return
         file_key = hashlib.sha1(media["file_unique_id"].encode()).hexdigest()[:16]
         existing = self.lib.by_file(file_key) or next((s for s in self.lib.songs if s.get("videoKey") == file_key), None)
         if existing and not force:
             self.remember_message(existing, msg_id)
             what = "Bu video allaqachon qo'shiqqa biriktirilgan" if existing.get("videoKey") == file_key else "Bu fayl allaqachon kutubxonada bor"
-            self.defer(chat_id, f"ℹ️ {what}:\n\n" + self.card(existing), msg_id, self.song_markup(existing))
+            self.defer(chat_id, f"ℹ️ {what}:\n\n" + self.card(existing), msg_id, self.song_markup_for(existing, public))
             return
         size = media.get("file_size") or 0
         if size > bigfile.MAX_BYTES:
@@ -322,7 +365,14 @@ class Station:
             self.bot.safe("sendChatAction", chat_id=chat_id, action="typing")
 
         try:
-            song, outcome = self.import_song(msg, kind, media, file_key, progress, force)
+            song, outcome = self.import_song(msg, kind, media, file_key, progress, force, public)
+        except Rejected as exc:
+            text = f"⛔ {esc(str(exc))}"
+            if status_id:
+                self.edit(chat_id, status_id, text)
+            else:
+                self.send(chat_id, text, reply_to=msg_id)
+            return
         except Exception as exc:
             traceback.print_exc()
             text = f"❌ Qo'shiqni qo'shib bo'lmadi: {esc(str(exc)[:300])}"
@@ -337,7 +387,7 @@ class Station:
                 self.bot.safe("deleteMessage", chat_id=chat_id, message_id=status_id)
             if outcome == "duplicate":
                 self.defer(chat_id, "♻️ <b>Takroriy:</b> bu qo'shiq stansiyada allaqachon bor — qayta qo'shilmadi.\n\n"
-                           + self.card(song), msg_id, self.song_markup(song))
+                           + self.card(song), msg_id, self.song_markup_for(song, public))
             else:
                 self.ask_variant(chat_id, msg_id, kind, media, msg.get("caption") or "", song)
             return
@@ -349,12 +399,17 @@ class Station:
         else:
             text = "✅ <b>Stansiyaga qo'shildi!</b>\n\n" + self.card(song) + \
                    "\n\n<i>Sayt va mini ilovada 1–3 daqiqada paydo bo'ladi.</i>"
+        if public and outcome == "added":
+            self.quota_use(user_id)
+            text += f"\n\n📊 Bugun yana {self.quota_left(user_id)} ta qo'shiq qo'sha olasiz."
+            for admin_id in config.OWNER_IDS:  # moderation: the owner sees every public upload and can delete it
+                self.send(admin_id, "📥 <b>Yangi qo'shiq (foydalanuvchidan)</b>\n\n" + self.card(song), markup=self.song_markup(song))
         if status_id:
             self.remember_message(song, status_id)
-            self.edit(chat_id, status_id, text, self.song_markup(song))
+            self.edit(chat_id, status_id, text, self.song_markup_for(song, public))
         else:
-            self.send(chat_id, text, reply_to=msg_id, markup=self.song_markup(song))
-        if outcome == "added":
+            self.send(chat_id, text, reply_to=msg_id, markup=self.song_markup_for(song, public))
+        if outcome == "added" and not public:
             self.ask_waiting_covers(chat_id, song)
 
     def fetch(self, msg: dict, media: dict, dest: Path, progress=lambda _: None) -> Path:
@@ -366,7 +421,7 @@ class Station:
         return self.bot.download(media["file_id"], dest)
 
     def import_song(self, msg: dict, kind: str, media: dict, file_key: str, progress,
-                    force: bool = False) -> tuple[dict, str]:
+                    force: bool = False, public: bool = False) -> tuple[dict, str]:
         """Downloads, identifies and stores a song.
 
         Returns (song, outcome): "added"; "video" (a music video attached to its song); "duplicate" (already on the
@@ -399,6 +454,22 @@ class Station:
             result = identify(src, info, clues, tmp, progress)
             meta = self.canonical_artists(result)
             variant = variant_of(meta["title"], clues.tg_title, clues.file_name, clues.caption)
+
+            if public:  # the rules for contributors: a real, original song that the station doesn't have yet
+                if not config.PUBLIC_MIN_SECONDS <= info.duration <= config.PUBLIC_MAX_SECONDS:
+                    raise Rejected(f"Qo'shiq davomiyligi {config.PUBLIC_MIN_SECONDS} soniyadan "
+                                   f"{config.PUBLIC_MAX_SECONDS // 60} daqiqagacha bo'lishi kerak.")
+                same = next((s for s in self.lib.songs if s.get("src") and lookup.same_song(
+                    s["title"], s["artist"], meta["title"], meta["artist"])), None)
+                if same:
+                    self.remember_message(same, msg_id)
+                    return same, "duplicate"
+                if variant:
+                    raise Rejected("Faqat original qo'shiqlar qabul qilinadi: cover, remix, live, karaoke, "
+                                   "minus, slowed/sped up va shunga o'xshash versiyalar qo'shilmaydi.")
+                if (meta.get("confidence") or 0) < config.PUBLIC_MIN_CONFIDENCE:
+                    raise Rejected("Qo'shiqni ishonchli aniqlay olmadim. Faqat nomi va ijrochisi aniq bo'lgan "
+                                   "original qo'shiqlar qabul qilinadi (fayl teglarini to'ldirib qayta yuboring).")
 
             if is_video and not variant:
                 # A music video of a song on the station: attach it (the video's own length doesn't matter).
@@ -714,6 +785,20 @@ class Station:
             ]
             if not ai.enabled():
                 text += ["", "💡 <i>AI teglash o'chiq: ANTHROPIC_API_KEY sirini qo'shsangiz yoqiladi.</i>"]
+        elif config.PUBLIC_UPLOADS:
+            text += [
+                "📁 <b>Qo'shiq faylini yuboring</b> — u stansiyaga qo'shiladi va hamma tinglay oladi.",
+                "",
+                "<b>Qoidalar</b>",
+                "• faqat <b>original</b> qo'shiqlar (cover, remix, live, karaoke, minus, slowed qabul qilinmaydi)",
+                "• stansiyada <b>allaqachon bor</b> qo'shiq qayta qo'shilmaydi",
+                f"• faqat audio (mp3, m4a, flac, ogg, wav), {config.PUBLIC_MAX_MB} MB gacha, "
+                f"{config.PUBLIC_MIN_SECONDS} soniya – {config.PUBLIC_MAX_SECONDS // 60} daqiqa",
+                f"• kuniga {config.PUBLIC_DAILY_LIMIT} tagacha qo'shiq",
+                "",
+                "Nomi, ijrochisi, muqovasi, janri va matni avtomatik aniqlanadi. "
+                "🎙 Ovozli xabar yuborsangiz — qanday qo'shiqligini aniqlayman. Matn yozsangiz — stansiyadan qidiraman.",
+            ]
         else:
             text += ["Bu shaxsiy stansiya. Qo'shiqlarni tinglash uchun tugmani bosing."]
         text += ["", f"📚 Kutubxonada: <b>{count}</b> ta qo'shiq"]
@@ -1088,6 +1173,14 @@ class Station:
                 return []
             raise
 
+    def publish_site_flags(self) -> None:
+        """Tells the site whether everybody may add songs (then it shows the Add page to all visitors)."""
+        flags = {"publicUploads": bool(config.PUBLIC_UPLOADS), "dailyLimit": config.PUBLIC_DAILY_LIMIT,
+                 "maxMb": config.PUBLIC_MAX_MB}
+        if any(self.lib.site.get(k) != v for k, v in flags.items()):
+            self.lib.site.update(flags)
+            self.lib.dirty = True
+
     def publish(self) -> None:
         """While the bot keeps running (LIVE_PUBLISH=1 in the workflow): commit the library and redeploy the
         site right away, so a new song doesn't wait for the end of this ~5 hour run."""
@@ -1135,6 +1228,7 @@ class Station:
         deadline = started + config.MAX_RUNTIME_SECONDS
         listen_until = started + config.LISTEN_SECONDS
         self.setup()
+        self.publish_site_flags()
         offset: int | None = None
         handled = 0
         failures = 0
