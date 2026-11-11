@@ -171,11 +171,20 @@ taklif qilsa — *O'rnatish* (PWA).
 - To'liq ekran pleyer, **sinxron qo'shiq matni**, navbat, aralash/takror, qulf ekranidan boshqarish,
   ovoz balandligini tenglash, yuklab olish, ulashish, klaviatura (Space, ←/→, Shift+←/→, L, /), PWA (telefonga o'rnatish).
 
-## 24/7 rejim (bot darhol javob berishi uchun)
+## 24/7 rejim (bot darhol javob beradi)
 
-GitHub "har 5 daqiqada" jadvalini ko'pincha kechiktiradi — bot ba'zan soatlab javob bermay qoladi. Buni
-**Cloudflare Workers** (bepul) tuzatadi: `relay/` har daqiqada Telegram'ni tekshiradi, xabar kelgan bo'lsa unga 👀
-qo'yadi va botni darhol ishga tushiradi (javob ~1–3 daqiqada). Qo'shiqlarni u qayta ishlamaydi — faqat uyg'otadi.
+Bot GitHub Actions'da **uzluksiz** ishlaydi: har bir ishga tushish ~5,5 soat davom etadi, Telegram'ni doimiy
+kuzatadi (long-polling) va tugagach o'zini qayta ishga tushiradi. Qo'shiq yuborsangiz javob bir necha soniyada
+keladi, sayt esa har qo'shiqdan keyin avtomatik yangilanadi (`deploy.yml`, ~1–2 daqiqa). Hech qanday qo'shimcha
+token yoki hisob kerak emas (repo ochiq bo'lgani uchun Actions daqiqalari cheksiz).
+
+Bot kodi o'zgarsa (push), ishlayotgan bot to'xtatilib yangisi ishga tushadi — kutubxona avval saqlanadi.
+Zanjir uzilib qolsa, jadval (har 5 daqiqa) uni qayta ishga tushiradi.
+
+### Ixtiyoriy: Cloudflare relay
+
+Zanjir uzilganda botni tezroq uyg'otish uchun **Cloudflare Workers** (bepul) relay'i ham bor: `relay/` har daqiqada
+Telegram'ni tekshiradi, xabar kelgan bo'lsa unga 👀 qo'yadi va botni ishga tushiradi. Odatda kerak emas.
 
 Bir marta sozlanadi (~5 daqiqa):
 
@@ -205,7 +214,7 @@ relay chatga «⚠️ Stansiyani ishga tushira olmadim (GitHub: HTTP …)» deb 
 | `AI_MODEL` | variable | Claude modeli (standart: `claude-opus-5-5`) |
 | `AI_WEB_SEARCH` | variable | `false` — AI internetdan qidirmaydi |
 | `SHAZAM` / `LYRICS` | variable | `false` — o'chirish |
-| `LISTEN_SECONDS` | variable | Har ishga tushishda bot necha soniya yangi xabar kutadi (standart 120) |
+| `LISTEN_SECONDS` / `MAX_RUNTIME_SECONDS` | variable | Bot bir ishga tushishda necha soniya ishlaydi (standart 19800 = 5,5 soat) |
 | `AUDIO_STORAGE` | variable | `auto` (standart), `pages` yoki `release` |
 | `PAGES_AUDIO_LIMIT_MB` | variable | `auto` rejimida saytdagi audio chegarasi (standart 700 MB), keyin GitHub Releases'ga |
 | `APP_NAME` | variable | Sayt/bot nomi |
@@ -215,8 +224,8 @@ relay chatga «⚠️ Stansiyani ishga tushira olmadim (GitHub: HTTP …)» deb 
 ## Bilish kerak bo'lgan cheklovlar
 
 - Telegram botlari **20 MB** gacha fayllarni yuklab oladi.
-- Bot GitHub Actions orqali ishlaydi, shuning uchun javob **bir necha daqiqa** kechikishi mumkin
-  (GitHub rejalashtirilgan ishlarni ba'zan kechiktiradi). Sayt qo'shiqdan 1–3 daqiqa keyin yangilanadi.
+- Bot GitHub Actions'da ishlaydi: javob bir necha soniyada keladi, sayt qo'shiqdan 1–3 daqiqa keyin yangilanadi.
+  Har ~5,5 soatda bot qayta ishga tushadi (bu paytda bir necha soniya uzilish bo'lishi mumkin).
 - GitHub Pages sayti ~1 GB gacha. `AUDIO_STORAGE=auto` 700 MB dan keyin yangi qo'shiqlarni GitHub Releases'ga
   saqlaydi (hajm cheklovi yo'q).
 - Sayt ochiq (public) — qo'shiqlaringizni havolani bilgan har kim tinglay oladi.

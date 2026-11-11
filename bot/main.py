@@ -10,7 +10,9 @@ import hashlib
 import hmac
 import html
 import json
+import os
 import re
+import subprocess
 import sys
 import tempfile
 import time
@@ -1086,6 +1088,26 @@ class Station:
                 return []
             raise
 
+    def publish(self) -> None:
+        """While the bot keeps running (LIVE_PUBLISH=1 in the workflow): commit the library and redeploy the
+        site right away, so a new song doesn't wait for the end of this ~5 hour run."""
+        if os.environ.get("LIVE_PUBLISH") != "1":
+            return
+        root = Path(__file__).resolve().parent.parent
+
+        def head() -> str:
+            return subprocess.run(["git", "rev-parse", "HEAD"], cwd=root, capture_output=True, text=True).stdout.strip()
+
+        try:
+            before = head()
+            subprocess.run(["bash", "scripts/save-library.sh"], cwd=root, timeout=300, check=False)
+            if head() != before:  # something was committed -> redeploy the site
+                ref = os.environ.get("GITHUB_REF_NAME", "")
+                subprocess.run(["gh", "workflow", "run", "deploy.yml", *(["--ref", ref] if ref else [])],
+                               cwd=root, timeout=60, check=False)
+        except Exception:
+            traceback.print_exc()
+
     def drop_fileless(self) -> None:
         """Songs are added only with their audio file; entries left from the add-by-name feature are removed."""
         for s in [s for s in self.lib.songs if not s.get("src")]:
@@ -1115,13 +1137,19 @@ class Station:
         self.setup()
         offset: int | None = None
         handled = 0
+        failures = 0
         while time.monotonic() < deadline:
             wait = int(max(0, min(25, listen_until - time.monotonic())))
             try:
                 updates = self.get_updates(offset, wait)
+                failures = 0
             except TelegramError as exc:
-                print(f"[station] getUpdates failed: {exc}")
-                break
+                failures += 1
+                print(f"[station] getUpdates failed ({failures}): {exc}")
+                if failures >= 5:  # a short network hiccup must not end a long run
+                    break
+                time.sleep(5 * failures)
+                continue
             if not updates:
                 if time.monotonic() >= listen_until:
                     break
@@ -1137,6 +1165,7 @@ class Station:
                 if time.monotonic() > deadline + 120:
                     break
             self.flush_later()  # duplicates / "add this cover?" after the new songs of the batch
+            self.publish()
             # keep listening a bit longer while the user is active
             listen_until = min(deadline, time.monotonic() + config.LISTEN_SECONDS)
         self.flush_later()

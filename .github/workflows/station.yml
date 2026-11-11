@@ -1,8 +1,9 @@
 name: Music Station
 
 # Read new Telegram messages -> identify & tag songs -> commit library -> redeploy site.
-# Started by the relay (relay/, within a minute of a message) and, as a fallback, by the schedule
-# (GitHub often runs "every 5 minutes" schedules only every few hours).
+# The bot keeps running for ~5.5 hours and long-polls Telegram, so it answers right away. Every new song is
+# committed and the site redeployed (deploy.yml) while it runs. When it ends it starts the next run by itself;
+# the schedule and the relay (relay/, optional) are only fallbacks in case that chain ever breaks.
 on:
   schedule:
     - cron: "*/5 * * * *"
@@ -18,17 +19,20 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  actions: write # the bot starts deploy.yml after each song and the next run when this one ends
 
 concurrency:
   group: music-station
-  cancel-in-progress: false
+  # A push (new bot/site code) replaces the long-running bot; its library is saved first (always() step).
+  # Schedule / dispatch runs wait their turn instead.
+  cancel-in-progress: ${{ github.event_name == 'push' }}
 
 jobs:
   bot:
     name: Telegram bot
     if: github.event_name == 'schedule' || github.ref_name == github.event.repository.default_branch
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 355
     outputs:
       changed: ${{ steps.save.outputs.changed }}
     steps:
@@ -59,7 +63,12 @@ jobs:
         run: pip install -q -r bot/requirements.txt
 
       - name: Process Telegram messages
+        id: bot
         env:
+          LISTEN_SECONDS: ${{ vars.LISTEN_SECONDS || '19800' }}
+          MAX_RUNTIME_SECONDS: ${{ vars.MAX_RUNTIME_SECONDS || '19800' }}
+          LIVE_PUBLISH: "1"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
           TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
@@ -70,38 +79,30 @@ jobs:
           AI_WEB_SEARCH: ${{ vars.AI_WEB_SEARCH }}
           SHAZAM: ${{ vars.SHAZAM }}
           LYRICS: ${{ vars.LYRICS }}
-          LISTEN_SECONDS: ${{ vars.LISTEN_SECONDS }}
           AUDIO_STORAGE: ${{ vars.AUDIO_STORAGE }}
           PAGES_AUDIO_LIMIT_MB: ${{ vars.PAGES_AUDIO_LIMIT_MB }}
           PUBLIC_UPLOADS: ${{ vars.PUBLIC_UPLOADS }}
           SITE_URL: ${{ vars.SITE_URL }}
           APP_NAME: ${{ vars.APP_NAME }}
-        run: python -m bot.main
+        run: |
+          echo "STARTED=$(date +%s)" >> "$GITHUB_ENV"
+          python -m bot.main
 
       - name: Save library
         id: save
         if: always()
+        run: bash scripts/save-library.sh
+
+      # Keep the bot alive: start the next run (it waits for this one to finish). Skipped when this run
+      # ended within 10 minutes, so a broken token can't start an endless loop of runs.
+      - name: Start the next run
+        if: always() && steps.bot.outcome != 'skipped'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config user.name "music-station[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # songs.json / ads.json are merged item by item if another run committed meanwhile (.gitattributes)
-          git config merge.library.name "library JSON merge"
-          git config merge.library.driver "python3 scripts/merge_json.py %O %A %B"
-          git add -A --sparse library bot/state.json 2>/dev/null || git add -A --sparse library
-          if git diff --cached --quiet; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            exit 0
+          if [ $(( $(date +%s) - ${STARTED:-0} )) -ge 600 ]; then
+            gh workflow run station.yml --ref "$GITHUB_REF_NAME" || true
           fi
-          git commit -q -m "🎵 Library update $(date -u '+%Y-%m-%d %H:%M UTC')"
-          for i in 1 2 3 4 5; do
-            if git push -q origin "HEAD:${GITHUB_REF_NAME}"; then
-              echo "changed=true" >> "$GITHUB_OUTPUT"
-              exit 0
-            fi
-            sleep $((i * 3))
-            git pull -q --rebase origin "${GITHUB_REF_NAME}"
-          done
-          exit 1
 
   deploy:
     name: Deploy website
@@ -112,6 +113,9 @@ jobs:
       (needs.bot.outputs.changed == 'true' || github.event_name != 'schedule')
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    concurrency:
+      group: pages # one site deployment at a time (the bot also starts deploy.yml while it runs)
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
