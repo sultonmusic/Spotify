@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-10T18:55:36Z",
- "count": 88,
+ "updatedAt": "2026-11-11T20:11:31Z",
+ "count": 89,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1448,9 +1448,87 @@
    "bioTr": [
     "uz"
    ]
+  },
+  "Bob Dylan": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 808,
+   "itunesId": 462006,
+   "deezer": "https://www.deezer.com/artist/808",
+   "apple": "https://music.apple.com/us/artist/bob-dylan/462006",
+   "image": "library/artists/bob-dylan.jpg",
+   "color": "#63645f",
+   "checked": "2026-11-11T20:09:23Z",
+   "verifiedAt": "2026-11-11T20:09:23Z",
+   "fans": 2133011,
+   "albums": 100,
+   "bioChecked": "2026-11-11T20:11:31Z",
+   "bio": {
+    "en": "Bob Dylan is an American singer-songwriter. Described as one of the greatest songwriters of all time, Dylan has been a major figure in popular culture over his 69-year career. Dylan added increasingly sophisticated lyrical techniques to the folk music of the early 1960s, infusing it \"with the intellectualism of classic literature and poetry\". His lyrics incorporated political, social, and philosophical influences, defying pop music conventions and appealing to the burgeoning counterculture.",
+    "ru": "Ро́берт (Боб) Ди́лан — американский поэт, автор-исполнитель, художник, писатель и киноактёр. Одна из самых влиятельных фигур в поп-музыке на протяжении последних шестидесяти лет. Лауреат Нобелевской премии по литературе 2016 года «за создание новых поэтических выражений в великой американской песенной традиции».",
+    "uz": "Bob Dylan amerikalik qoʻshiqchi, shoir, yozuvchi va rassomdir. XX asrning ikkinchi yarmi madaniyatini shakllantirishda katta hissa qoʻshgan. \"Blowin' in the Wind\" va \"The Times They Are a-Changin'\" kabi ashulalari Amerika inson huquqlarini himoyalash harakatlari madhiyalariga aylangan. Qoʻshiqlari siyosiy, ijtimoiy va falsafiy mavzularga bagʻishlangan Dylan nufuzli Rolling Stone oynomasining \"Oʻlmaslar\" roʻyxatida The Beatlesdan soʻng ikkinchi boʻlib joy olgandir."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Bob_Dylan",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BB%D0%B0%D0%BD%2C_%D0%91%D0%BE%D0%B1",
+    "uz": "https://uz.wikipedia.org/wiki/Bob_Dylan"
+   },
+   "desc": {
+    "en": "American singer-songwriter (born 1941)",
+    "ru": "американский автор-исполнитель песен, поэт, художник, киноактёр (р. 1941)"
+   }
   }
  },
  "songs": [
+  {
+   "id": "ec12632c50",
+   "title": "Knockin' On Heaven's Door",
+   "artist": "Bob Dylan",
+   "artists": [
+    "Bob Dylan"
+   ],
+   "album": "Pat Garrett & Billy the Kid (Remastered) [Soundtrack from the Motion Picture]",
+   "year": 1973,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "dreamy",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.52,
+   "danceability": 0.57,
+   "bpm": 140,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 151.46,
+   "src": "library/audio/ec12632c50.m4a",
+   "cover": "library/covers/ec12632c50.jpg",
+   "color": "#b28f4d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     269,
+     271
+    ]
+   },
+   "addedAt": "2026-11-11T20:09:27Z",
+   "mime": "audio/mp4",
+   "size": 2450599,
+   "storage": "pages",
+   "lufs": -15.4,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "ec12632c50ce1ed7",
+   "story": "library/stories/ec12632c50.jpg"
+  },
   {
    "id": "d02fc34488",
    "title": "Papaoutai (Afro Soul)",
