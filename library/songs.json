@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-11T20:11:31Z",
- "count": 89,
+ "updatedAt": "2026-11-12T09:36:32Z",
+ "count": 90,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1477,9 +1477,153 @@
     "en": "American singer-songwriter (born 1941)",
     "ru": "американский автор-исполнитель песен, поэт, художник, киноактёр (р. 1941)"
    }
+  },
+  "Max Richter": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 6690,
+   "deezer": "https://www.deezer.com/artist/6690",
+   "image": "library/artists/max-richter.jpg",
+   "color": "#707070",
+   "checked": "2026-11-12T09:34:13Z",
+   "verifiedAt": "2026-11-12T09:34:13Z",
+   "fans": 454801,
+   "albums": 116,
+   "bioChecked": "2026-11-12T09:36:25Z",
+   "bio": {
+    "en": "Max Richter is a German-born British composer and pianist. He works within postminimalist and contemporary classical styles. Richter is classically trained, having graduated in composition from the University of Edinburgh, the Royal Academy of Music in London, and studied with Luciano Berio in Italy.",
+    "ru": "Макс Рихтер — британский композитор немецкого происхождения. Автор музыки к десяткам художественных и документальных фильмов. Был признан лучшим кинокомпозитором 2008 года по версии Европейской киноакадемии за саундтрек к фильму «Вальс с Баширом». Работы Рихтера сочетают в себе элементы инструментальной и электронной музыки и близки к постминимализму.",
+    "uz": "Maks Rixter asli nemis asli britaniyalik bastakor va pianinochi. U postminimalist va zamonaviy klassik uslublarda ishlaydi. Rixter klassik tarzda tayyorlangan, Edinburg universiteti, Londondagi Qirollik musiqa akademiyasini kompozitsiyani tamomlagan va Italiyada Luciano Berio bilan birga tahsil olgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Max_Richter",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A0%D0%B8%D1%85%D1%82%D0%B5%D1%80%2C_%D0%9C%D0%B0%D0%BA%D1%81"
+   },
+   "desc": {
+    "en": "German composer (born 1966)",
+    "ru": "британский композитор"
+   },
+   "bioTr": [
+    "uz"
+   ]
+  },
+  "Louisa Fuller": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4683219,
+   "deezer": "https://www.deezer.com/artist/4683219",
+   "image": "library/artists/louisa-fuller.jpg",
+   "color": "#315066",
+   "checked": "2026-11-12T09:34:14Z",
+   "verifiedAt": "2026-11-12T09:34:14Z",
+   "fans": 7101,
+   "albums": 7,
+   "bioChecked": "2026-11-12T09:36:29Z"
+  },
+  "Natalia Bonner": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4535295,
+   "deezer": "https://www.deezer.com/artist/4535295",
+   "image": "library/artists/natalia-bonner.jpg",
+   "color": "#315066",
+   "checked": "2026-11-12T09:34:14Z",
+   "verifiedAt": "2026-11-12T09:34:14Z",
+   "fans": 3103,
+   "albums": 3,
+   "bioChecked": "2026-11-12T09:36:32Z"
+  },
+  "John Metcalfe": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 261108,
+   "deezer": "https://www.deezer.com/artist/261108",
+   "image": "library/artists/john-metcalfe.jpg",
+   "color": "#706961",
+   "checked": "2026-11-12T09:34:15Z",
+   "verifiedAt": "2026-11-12T09:34:15Z",
+   "fans": 3022,
+   "albums": 25
+  },
+  "Philip Sheppard": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 3096081,
+   "deezer": "https://www.deezer.com/artist/3096081",
+   "image": "library/artists/philip-sheppard.jpg",
+   "color": "#008f8f",
+   "checked": "2026-11-12T09:34:16Z",
+   "verifiedAt": "2026-11-12T09:34:16Z",
+   "fans": 5138,
+   "albums": 45
+  },
+  "Chris Worsey": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4535293,
+   "deezer": "https://www.deezer.com/artist/4535293",
+   "image": "library/artists/chris-worsey.jpg",
+   "color": "#274f68",
+   "checked": "2026-11-12T09:34:17Z",
+   "verifiedAt": "2026-11-12T09:34:17Z",
+   "fans": 6128,
+   "albums": 5
   }
  },
  "songs": [
+  {
+   "id": "320ad75b9d",
+   "title": "On The Nature Of Daylight",
+   "artist": "Max Richter, Louisa Fuller, Natalia Bonner, John Metcalfe, Philip Sheppard, Chris Worsey",
+   "artists": [
+    "Max Richter",
+    "Louisa Fuller",
+    "Natalia Bonner",
+    "John Metcalfe",
+    "Philip Sheppard",
+    "Chris Worsey"
+   ],
+   "album": "The Blue Notebooks (15 Years)",
+   "year": 2004,
+   "genre": "Classical",
+   "subgenre": null,
+   "moods": [
+    "calm",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.25,
+   "danceability": 0.3,
+   "bpm": 117,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 396.16,
+   "src": "library/audio/320ad75b9d.m4a",
+   "cover": "library/covers/320ad75b9d.jpg",
+   "color": "#315067",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     279,
+     280
+    ]
+   },
+   "addedAt": "2026-11-12T09:34:18Z",
+   "mime": "audio/mp4",
+   "size": 6407867,
+   "storage": "pages",
+   "lufs": -14.5,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "320ad75b9d61b98f",
+   "story": "library/stories/320ad75b9d.jpg"
+  },
   {
    "id": "ec12632c50",
    "title": "Knockin' On Heaven's Door",
