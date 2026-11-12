@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-12T17:48:17Z",
+ "updatedAt": "2026-11-12T22:56:17Z",
  "count": 92,
  "site": {
   "admins": [
@@ -1636,12 +1636,29 @@
   "Âshéghânéhâ": {
    "aliases": [],
    "verified": false,
-   "checked": "2026-11-12T17:48:03Z"
+   "checked": "2026-11-12T17:48:03Z",
+   "bioChecked": "2026-11-12T22:56:13Z"
   },
   "Sara Naeini…": {
    "aliases": [],
    "verified": false,
-   "checked": "2026-11-12T17:48:03Z"
+   "checked": "2026-11-12T17:48:03Z",
+   "bioChecked": "2026-11-12T22:56:17Z",
+   "bio": {
+    "en": "Sara Naeini is an Iranian singer and songwriter.",
+    "uz": "Sara Naeini - eronlik qo'shiqchi va qo'shiq muallifi.",
+    "ru": "Сара Наеини — иранская певица и автор песен."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Sara_Naeini"
+   },
+   "desc": {
+    "en": "Iranian singer and songwriter"
+   },
+   "bioTr": [
+    "uz",
+    "ru"
+   ]
   }
  },
  "songs": [
