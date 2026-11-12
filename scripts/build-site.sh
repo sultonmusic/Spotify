@@ -15,6 +15,7 @@ if [ -d library ]; then cp -r library/. "$OUT/library/"; fi
 # Cache busting: every deploy gets fresh JS/CSS (same ?v on every import keeps one module instance).
 sed -i "s/__BUILD__/${BUILD}/g" "$OUT/index.html" "$OUT/sw.js"
 sed -i -E "s#(from \"\./[A-Za-z0-9_-]+\.js)\"#\1?v=${BUILD}\"#g" "$OUT"/js/*.js
+sed -i -E "s#(import\(\"\./[A-Za-z0-9_-]+\.js)\"#\1?v=${BUILD}\"#g" "$OUT"/js/*.js
 
 # Optional branding from repository variables / the bot itself.
 python3 - "$OUT" <<'PY'

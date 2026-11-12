@@ -16,6 +16,8 @@ import { appBanner, appOffer, getApp } from "./install.js";
 import { MOODS, genre, mood, lang, t, describe, LANG, LANGS_UI, setLang } from "./i18n.js";
 import { canDownload, inTelegram, tg, isAdmin, haptic } from "./tg.js";
 import { rgba, getLyrics } from "./nowplaying.js";
+import { openAccount } from "./account.js";
+import { accountName } from "./account-state.js";
 
 // ------------------------------------------------------------------ shared bits
 /** Asks the router to redraw the current page (keeps the scroll position). */
@@ -53,11 +55,14 @@ export function openSettings() {
       sheet.append(sheetItem(code === LANG ? "check" : "globe", label, () => { dismiss(); if (code !== LANG) setTimeout(() => setLang(code), 250); },
         code === LANG ? "accent" : ""));
     }
+    sheet.append(sheetItem("user", accountName() || accountText(), () => { dismiss(); setTimeout(openAccount, 250); }, accountName() ? "accent" : ""));
     const app = appOffer();
     if (app) sheet.append(sheetItem("download", t(app === "apk" ? "settings.getApp" : "settings.installApp"), () => { dismiss(); getApp(); }));
     sheet.append(h("p", { class: "muted", style: { padding: "8px 20px 4px", fontSize: "12px", margin: 0 } }, `🔒 ${t("settings.about")}`));
   });
 }
+
+const accountText = () => ({ ru: "Войти / Регистрация", en: "Sign in / Register", uz: "Kirish / Ro'yxatdan o'tish" }[LANG] || "Sign in");
 
 function avatar() {
   // The platform's logo, not the visitor's own name or photo.

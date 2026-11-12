@@ -5,6 +5,7 @@ import { player, restore, toggle, next, prev, seek, setVolume, isPlaying, pruneM
 import { h, icon, art, artistArt, likedArt, collage, fmtTime, refreshMarks, toast, go, link, overlayOpen, popOverlay, heartButton, nav, back, verifiedBadge, setShareImpl, setOpenPlayerImpl } from "./ui.js";
 import { t, LANG } from "./i18n.js";
 import * as V from "./views.js";
+import { setAccount } from "./account-state.js";
 import { openNowPlaying, openQueue, openFullLyrics, refreshNowPlaying } from "./nowplaying.js";
 import { openShare } from "./share.js";
 import { initAds } from "./ads.js";
@@ -378,6 +379,8 @@ async function boot() {
   buildPlayerBar();
   initAds();
   initSync();
+  // Firebase account (loaded lazily: the app still starts if the CDN is unreachable).
+  import("./auth.js").then((A) => A.onAuth((u) => setAccount(A.accountLabel(u)))).catch((e) => console.warn("account unavailable", e));
 
   const sp = startParam();
   const m = /^song_([0-9a-f]{6,})$/.exec(sp);

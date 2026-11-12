@@ -102,7 +102,50 @@ function saveUser() {
   saveTimer = setTimeout(() => {
     try { localStorage.setItem(LS_KEY, JSON.stringify(user)); } catch { /* full or blocked */ }
     pushSoon();
+    remoteSync();
   }, 600);
+}
+
+// ------------------------------------------------------------------ account sync (Firebase, see auth.js)
+let remoteSync = () => {};
+export function setRemoteSync(fn) { remoteSync = fn; }
+
+/** Personal data as a plain object for the account document. */
+export function exportUser() {
+  return {
+    plays: user.plays, last: user.last, skips: user.skips, favs: user.favs, favOrder: user.favOrder || [],
+    favTs: user.favTs || 0, history: user.history.slice(0, 120), listen: Math.round(user.listen || 0), since: user.since,
+  };
+}
+
+/** Merges the account document into this device. union: favourites from both sides are kept (first sign-in on a device). */
+export function importUser(r, { union = false } = {}) {
+  if (!r) return;
+  for (const [id, n] of Object.entries(r.plays || {})) user.plays[id] = Math.max(user.plays[id] || 0, n);
+  for (const [id, n] of Object.entries(r.last || {})) user.last[id] = Math.max(user.last[id] || 0, n);
+  for (const [id, n] of Object.entries(r.skips || {})) user.skips[id] = Math.max(user.skips[id] || 0, n);
+  if (union) {
+    for (const [id, t] of Object.entries(r.favs || {})) if (!user.favs[id]) user.favs[id] = t;
+    user.favOrder = [...(user.favOrder || []).filter((id) => user.favs[id]), ...(r.favOrder || []).filter((id) => user.favs[id] && !(user.favOrder || []).includes(id))];
+    user.favTs = Math.max(user.favTs || 0, r.favTs || 0, Date.now());
+  } else if ((r.favTs || 0) > (user.favTs || 0)) {
+    user.favs = { ...(r.favs || {}) };
+    user.favOrder = [...(r.favOrder || [])];
+    user.favTs = r.favTs;
+  }
+  const seen = new Set(user.history.map((h) => `${h.id}:${Math.floor(h.t / 1000)}`));
+  for (const h of r.history || []) {
+    const k = `${h.id}:${Math.floor(h.t / 1000)}`;
+    if (!seen.has(k)) { seen.add(k); user.history.push(h); }
+  }
+  user.history.sort((a, b) => b.t - a.t);
+  user.history.length = Math.min(user.history.length, 400);
+  user.listen = Math.max(user.listen || 0, r.listen || 0);
+  if (r.since) user.since = Math.min(user.since, r.since);
+  for (const s of lib.songs) s._plays = user.plays[s.id] || 0;
+  try { localStorage.setItem(LS_KEY, JSON.stringify(user)); } catch { /* ignore */ }
+  emit("user", {});
+  emit("favs", { sync: true });
 }
 
 export const isFav = (id) => !!user.favs[id];
