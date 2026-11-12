@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-12T09:36:32Z",
+ "updatedAt": "2026-11-12T10:28:22Z",
  "count": 90,
  "site": {
   "admins": [
@@ -1543,7 +1543,8 @@
    "checked": "2026-11-12T09:34:15Z",
    "verifiedAt": "2026-11-12T09:34:15Z",
    "fans": 3022,
-   "albums": 25
+   "albums": 25,
+   "bioChecked": "2026-11-12T10:28:16Z"
   },
   "Philip Sheppard": {
    "aliases": [],
@@ -1555,7 +1556,8 @@
    "checked": "2026-11-12T09:34:16Z",
    "verifiedAt": "2026-11-12T09:34:16Z",
    "fans": 5138,
-   "albums": 45
+   "albums": 45,
+   "bioChecked": "2026-11-12T10:28:18Z"
   },
   "Chris Worsey": {
    "aliases": [],
@@ -1567,7 +1569,8 @@
    "checked": "2026-11-12T09:34:17Z",
    "verifiedAt": "2026-11-12T09:34:17Z",
    "fans": 6128,
-   "albums": 5
+   "albums": 5,
+   "bioChecked": "2026-11-12T10:28:22Z"
   }
  },
  "songs": [
