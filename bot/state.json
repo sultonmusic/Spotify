@@ -1,5 +1,50 @@
 {
  "setup": "4f1e7d9511ed192cd15cc35d0ca82e5bdba82835",
  "owner": "336f31d9aeea55626bc39096ee1b59bd46aa9eef596af31dd77dc65bf06751b5",
- "asks": {}
+ "asks": {
+  "45de6bc7": {
+   "t": 1794505490,
+   "chat": 8988775229,
+   "msg": 281,
+   "kind": "audio",
+   "caption": "\u200b\u200b\ud83d\udc49 @YuklaydiBot",
+   "media": {
+    "file_id": "CQACAgIAAxkBAAIBGWr1mHYQzh8i9X4KaRPliy54DaTCAALmdAACGo5JSQfvHwcseqNlPQQ",
+    "file_unique_id": "AgAD5nQAAhqOSUk",
+    "file_name": "2_Gol\u00e9_Sorkh_\u06af\u0644_\u0633\u0631\u062e_Arash_Fouladvand_feat_Nigina_Amonqulova.m4a",
+    "mime_type": "audio/mp4",
+    "file_size": 8402400,
+    "duration": 520,
+    "performer": "2. Gol\u00e9 Sorkh",
+    "title": " \u06af\u0644 \u0633\u0631\u062e (Arash Fouladvand feat Nigina Amonqulova) at UNESCO"
+   },
+   "base": "Gole Sorkh",
+   "artist": "Arash Fouladvand, Orchestre Philharmonique de Paris-Est, Bahar Choir Group, Nigina Amonqulova",
+   "variant": "live",
+   "title": "Gole Sorkh (Live)",
+   "wait": false
+  },
+  "11f601f4": {
+   "t": 1794505497,
+   "chat": 8988775229,
+   "msg": 282,
+   "kind": "audio",
+   "caption": "\u200b\u200b\ud83d\udc49 @YuklaydiBot",
+   "media": {
+    "file_id": "CQACAgIAAxkBAAIBGmr1mIedAWMMwydp2oW5qsAr6fqbAAK0bwACSD3gSJsS7nNNYOc1PQQ",
+    "file_unique_id": "AgADtG8AAkg94Eg",
+    "file_name": "3sywwty0woclzjewg9hm.m4a",
+    "mime_type": "audio/mp4",
+    "file_size": 10661141,
+    "duration": 659,
+    "performer": "9. \u00c2sh\u00e9gh\u00e2n\u00e9h\u00e2",
+    "title": " \u0639\u0627\u0634\u0642\u0627\u0646\u0647\u200c\u0647\u0627 (Arash Fouladvand feat Nigina Amonqulova, Sara Naeini\u2026"
+   },
+   "base": "Asheghane Ha",
+   "artist": "Arash Fouladvand, Vahid Taj, Sara Naeini, Orchestre Philharmonique de Paris-Est, Bahar Choir Group, Nigina Amonqulova",
+   "variant": "live",
+   "title": "Asheghane Ha (Live)",
+   "wait": false
+  }
+ }
 }
