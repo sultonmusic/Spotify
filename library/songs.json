@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-12T22:56:17Z",
- "count": 92,
+ "updatedAt": "2026-11-13T23:55:08Z",
+ "count": 93,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1659,9 +1659,115 @@
     "uz",
     "ru"
    ]
+  },
+  "Ziyoda": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 6140042,
+   "itunesId": 598034104,
+   "deezer": "https://www.deezer.com/artist/6140042",
+   "apple": "https://music.apple.com/us/artist/ziyoda/598034104",
+   "image": "library/artists/ziyoda.jpg",
+   "color": "#6c5f58",
+   "checked": "2026-11-13T23:52:55Z",
+   "verifiedAt": "2026-11-13T23:52:55Z",
+   "fans": 304,
+   "albums": 49,
+   "bioChecked": "2026-11-13T23:55:03Z",
+   "bio": {
+    "en": "Ziyoda O’tkirovna Qobilova, most commonly known by her stage name Ziyoda, is a popular Uzbek singer, actress and honored artist of Uzbekistan. She sings in Uzbek, Hindi and Persian. She has also become famous outside of Uzbekistan thanks to a cover of Ruslana's song Wild Dances. Ziyoda has also acted in a number of Uzbek drama films.",
+    "ru": "Зиёда Уткировна Кобилова — узбекская певица и актриса, наиболее известная под псевдонимом Ziyoda. С молодости любила петь песни примадонны узбекской эстрады Юлдуз Усмановой. После школы училась в музыкальном колледже имени «Хамза».",
+    "uz": "Ziyoda Qobilova — oʻzbek kino aktrisasi va qoʻshiqchisi. Tinglovchilari orasida shunchaki Ziyoda nomi bilan mashhur. Ziyoda oʻzbek va arab tillarida qoʻshiq kuylaydi.Oʻzbekiston hududidan tashqarida ukrain qoʻshiqchisi Ruslananing „Wild Dances“ qoʻshigʻini aytib tanilgan. Ziyoda bir nechta oʻzbek filmlarida rol oʻynagan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Ziyoda_Qobilova",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B1%D0%B8%D0%BB%D0%BE%D0%B2%D0%B0%2C_%D0%97%D0%B8%D1%91%D0%B4%D0%B0_%D0%A3%D1%82%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BD%D0%B0",
+    "uz": "https://uz.wikipedia.org/wiki/Ziyoda_Qobilova"
+   },
+   "desc": {
+    "en": "Musical artist"
+   }
+  },
+  "Xamdam Sobirov": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 70547022,
+   "deezer": "https://www.deezer.com/artist/70547022",
+   "image": "library/artists/xamdam-sobirov.jpg",
+   "color": "#91776a",
+   "checked": "2026-11-13T23:52:56Z",
+   "verifiedAt": "2026-11-13T23:52:56Z",
+   "fans": 442,
+   "albums": 143,
+   "bioChecked": "2026-11-13T23:55:08Z",
+   "bio": {
+    "ru": "Собиров Хамдам Бобомуродович — узбекский эстрадный певец, композитор, музыкальный продюсер и автор-исполнитель наиболее известный под псевдонимом Хамдам Собиров.",
+    "uz": "Sobirov Xamdam Bobomurodovich - o'zbek estrada xonandasi, bastakor, musiqiy prodyuser va qo'shiqchi-qo'shiq muallifi, Hamdam Sobirov taxallusi bilan mashhur.",
+    "en": "Sobirov Khamdam Bobomurodovich is an Uzbek pop singer, composer, music producer and singer-songwriter best known under the pseudonym Khamdam Sobirov."
+   },
+   "wiki": {
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%B1%D0%B8%D1%80%D0%BE%D0%B2%2C_%D0%A5%D0%B0%D0%BC%D0%B4%D0%B0%D0%BC_%D0%91%D0%BE%D0%B1%D0%BE%D0%BC%D1%83%D1%80%D0%BE%D0%B4%D0%BE%D0%B2%D0%B8%D1%87"
+   },
+   "desc": {
+    "ru": "узбекский эстрадный певец"
+   },
+   "bioTr": [
+    "uz",
+    "en"
+   ]
   }
  },
  "songs": [
+  {
+   "id": "6036ded00a",
+   "title": "Qora Atirgul",
+   "artist": "Ziyoda, Xamdam Sobirov",
+   "artists": [
+    "Ziyoda",
+    "Xamdam Sobirov"
+   ],
+   "album": "Qora Atirgul",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "uz",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 197.09,
+   "src": "library/audio/6036ded00a.m4a",
+   "cover": "library/covers/6036ded00a.jpg",
+   "color": "#775b5b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     291,
+     293
+    ]
+   },
+   "addedAt": "2026-11-13T23:52:59Z",
+   "mime": "audio/mp4",
+   "size": 3188812,
+   "storage": "pages",
+   "lufs": -8.2,
+   "gain": -5.8,
+   "via": "audio",
+   "fileKey": "6036ded00a1ef868",
+   "story": "library/stories/6036ded00a.jpg"
+  },
   {
    "id": "4d6425b14f",
    "title": "عاشقانه‌ها (Arash Fouladvand",
