@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-13T23:55:08Z",
- "count": 93,
+ "updatedAt": "2026-11-15T21:13:53Z",
+ "count": 94,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1715,9 +1715,118 @@
     "uz",
     "en"
    ]
+  },
+  "G-Eazy": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 810507,
+   "itunesId": 275649746,
+   "deezer": "https://www.deezer.com/artist/810507",
+   "apple": "https://music.apple.com/us/artist/g-eazy/275649746",
+   "image": "library/artists/g-eazy.jpg",
+   "color": "#0099ff",
+   "checked": "2026-11-15T21:11:36Z",
+   "verifiedAt": "2026-11-15T21:11:36Z",
+   "fans": 1087960,
+   "albums": 123,
+   "bioChecked": "2026-11-15T21:13:49Z",
+   "bio": {
+    "en": "Gerald Earl Gillum, known professionally as G-Eazy, is an American rapper and singer-songwriter. Based in Oakland, California, he began his career in 2006 and self-released two studio albums before signing with RCA Records to release his third album and major label debut, These Things Happen (2014). It peaked at number three on the Billboard 200 and spawned the single \"I Mean It\", which received triple platinum certification by the Recording Industry Association of America (RIAA) and marked his first entry on the Billboard Hot 100.",
+    "ru": "Дже́ральд Эрл Ги́ллум — американский рэпер, автор песен и продюсер.",
+    "uz": "Jerald Erl Gillum, professional darajada G-Eazy nomi bilan tanilgan, amerikalik reper va qo'shiqchi-qo'shiq muallifi. Kaliforniyaning Oklend shahrida joylashgan bo'lib, u o'z karerasini 2006 yilda boshlagan va RCA Records bilan imzolashdan oldin ikkita studiya albomini chiqargan va o'zining uchinchi albomi va asosiy yorlig'i debyuti \"These Things Happen\" (2014) ni chiqargan. U Billboard 200 ro'yxatida uchinchi o'rinni egalladi va Amerika Yozuv Industriyasi Assotsiatsiyasi (RIAA) tomonidan uch karra platina sertifikatiga ega bo'lgan va Billboard Hot 100 ro'yxatiga birinchi kirishini belgilagan \"I Mean It\" singlini yaratdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/G-Eazy",
+    "ru": "https://ru.wikipedia.org/wiki/G-Eazy"
+   },
+   "desc": {
+    "en": "American rapper (born 1989)",
+    "ru": "американский рэпер"
+   },
+   "bioTr": [
+    "uz"
+   ]
+  },
+  "Halsey": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5292512,
+   "deezer": "https://www.deezer.com/artist/5292512",
+   "image": "library/artists/halsey.jpg",
+   "color": "#3f92be",
+   "checked": "2026-11-15T21:11:36Z",
+   "verifiedAt": "2026-11-15T21:11:36Z",
+   "fans": 2083781,
+   "albums": 54,
+   "bioChecked": "2026-11-15T21:13:53Z",
+   "bio": {
+    "en": "Ashley Nicolette Frangipane, known professionally as Halsey, is an American singer-songwriter and actress. Noted for her distinctive singing voice, she has received numerous accolades, including three Billboard Music Awards, a Billboard Women in Music Award, and an American Music Award, as well as nominations for three Grammy Awards. She was on Time's annual list of the 100 most influential people in the world in 2020.",
+    "ru": "Э́шли Николе́тт Фра́нджипани, более известная под сценическим псевдонимом Хо́лзи , — американская певица, автор песен и активистка.",
+    "uz": "Eshli Nikolette Frangipane – amerikalik qoʻshiqchi. Halsey nomi bilan tanilgan. Ijtimoiy tarmoqlarda oʻzi chiqargan musiqalar orqali Astralwerksning e'tiborini tortdi va 2014-yilda shartnoma imzolab, oʻsha yilning oxirida oʻzining Xona 93 deb nomlangan qoʻshiqlar toʻplamini chiqargan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Halsey_(singer)",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A5%D0%BE%D0%BB%D0%B7%D0%B8",
+    "uz": "https://uz.wikipedia.org/wiki/Halsey"
+   },
+   "desc": {
+    "en": "American singer-songwriter (born 1994)",
+    "ru": "американская певица и автор песен"
+   }
   }
  },
  "songs": [
+  {
+   "id": "0319336001",
+   "title": "Him & I",
+   "artist": "G-Eazy, Halsey",
+   "artists": [
+    "G-Eazy",
+    "Halsey"
+   ],
+   "album": "The Beautiful & Damned",
+   "year": 2017,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 88,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 269.05,
+   "src": "library/audio/0319336001.m4a",
+   "cover": "library/covers/0319336001.jpg",
+   "color": "#275b68",
+   "lyrics": "plain",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     295,
+     296
+    ]
+   },
+   "addedAt": "2026-11-15T21:11:43Z",
+   "mime": "audio/mp4",
+   "size": 4352164,
+   "storage": "pages",
+   "lufs": -17.3,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "0319336001f4e631",
+   "story": "library/stories/0319336001.jpg"
+  },
   {
    "id": "6036ded00a",
    "title": "Qora Atirgul",
