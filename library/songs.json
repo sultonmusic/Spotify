@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-15T21:13:53Z",
- "count": 94,
+ "updatedAt": "2026-11-16T08:00:21Z",
+ "count": 95,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1773,9 +1773,118 @@
     "en": "American singer-songwriter (born 1994)",
     "ru": "американская певица и автор песен"
    }
+  },
+  "Øneheart": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 63260292,
+   "itunesId": 1511525726,
+   "deezer": "https://www.deezer.com/artist/63260292",
+   "apple": "https://music.apple.com/us/artist/%C3%B8neheart/1511525726",
+   "image": "library/artists/neheart.jpg",
+   "color": "#208cdf",
+   "checked": "2026-11-16T07:58:08Z",
+   "verifiedAt": "2026-11-16T07:58:08Z",
+   "fans": 29635,
+   "albums": 135,
+   "bioChecked": "2026-11-16T08:00:16Z",
+   "bio": {
+    "en": "Dmitry Iliich Volynkin, better known as Øneheart, is a Russian electronic music producer. He is best known for the song \"snowfall\" with Reidenshi, which has amassed over 1.2 billion streams on Spotify as of September 2026. In 2023, he signed with Monstercat Silk and released the single \"restless\" with Kazukii. In 2024, he made the Grammy longlist for the Best New Age Album with the album Midnight Journey, but didn't make the final list of nominees.",
+    "ru": "Дми́трий Ильи́ч Волы́нкин, более известный как Oneheart , — российский музыкант, ставший известным благодаря музыкальным работам в стиле эмбиент. В 2024 году вошёл в лонг-лист Грэмми в номинации «Лучший нью-эйдж-альбом» с альбомом Midnight Journey, но в итоговый список номинантов не попал.",
+    "uz": "Dmitriy Iliich Volinkin, Øneheart nomi bilan tanilgan, rus elektron musiqa prodyuseri. U Reidenshi bilan birgalikda 2026-yil sentabr holatiga ko‘ra Spotify’da 1,2 milliarddan ortiq oqim to‘plagan “Qor yog‘ishi” qo‘shig‘i bilan mashhur. 2023 yilda u Monstercat Silk bilan shartnoma tuzdi va Kazukii bilan \"bezovta\" singlini chiqardi. 2024-yilda u Midnight Journey albomi bilan eng yaxshi yangi asr albomi uchun Grammy uzun roʻyxatiga kirdi, ammo nomzodlarning yakuniy roʻyxatini tuza olmadi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/%C3%98neheart",
+    "ru": "https://ru.wikipedia.org/wiki/Oneheart"
+   },
+   "desc": {
+    "en": "Russian musician (born 2006)",
+    "ru": "российский музыкальный продюсер"
+   },
+   "bioTr": [
+    "uz"
+   ]
+  },
+  "reidenshi": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 135660622,
+   "deezer": "https://www.deezer.com/artist/135660622",
+   "image": "library/artists/reidenshi.jpg",
+   "color": "#03638c",
+   "checked": "2026-11-16T07:58:08Z",
+   "verifiedAt": "2026-11-16T07:58:08Z",
+   "fans": 7473,
+   "albums": 26,
+   "bioChecked": "2026-11-16T08:00:21Z",
+   "bio": {
+    "en": "\"Snowfall\" is a song by the Russian musicians Øneheart and Reidenshi, released as a single on January 14, 2022, through Dreamscape. It went viral on social media platforms such as TikTok and Instagram. By May 2023, the song had surpassed over 100 million Spotify streams and appeared in more than 500,000 TikTok videos and 400,000 Instagram reels.",
+    "ru": "«Snowfall» — песня российских музыкантов Oneheart и Reidenshi, выпущенная 14 января 2022 года на лейбле Dreamscape. Композиция получила широкую известность в социальных сетях, включая TikTok и Instagram. К маю 2023 года трек набрал более 100 миллионов прослушиваний на Spotify и был использован в свыше 500 тысяч видео на TikTok и 400 тысяч Reels в Instagram.",
+    "uz": "\"Qor yog'ishi\" - rossiyalik musiqachilar Øneheart va Reidenshi qo'shig'i, singl sifatida 2022 yil 14 yanvarda Dreamscape orqali chiqarilgan. Bu TikTok va Instagram kabi ijtimoiy media platformalarida tarqaldi. 2023-yilning mayiga kelib, qo‘shiq 100 million Spotify oqimlaridan oshib ketdi va 500 000 dan ortiq TikTok videolari va 400 000 Instagram g‘altaklarida paydo bo‘ldi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Snowfall_(song)",
+    "ru": "https://ru.wikipedia.org/wiki/Snowfall_(%D0%BF%D0%B5%D1%81%D0%BD%D1%8F)"
+   },
+   "desc": {
+    "en": "2022 single by Øneheart and Reidenshi"
+   },
+   "bioTr": [
+    "uz"
+   ]
   }
  },
  "songs": [
+  {
+   "id": "4216d6d207",
+   "title": "Snowfall",
+   "artist": "Øneheart, reidenshi",
+   "artists": [
+    "Øneheart",
+    "reidenshi"
+   ],
+   "album": "Snowfall - Single",
+   "year": 2022,
+   "genre": "Electronic",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 123.3,
+   "src": "library/audio/4216d6d207.m4a",
+   "cover": "library/covers/4216d6d207.jpg",
+   "color": "#02638d",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     297,
+     298
+    ]
+   },
+   "addedAt": "2026-11-16T07:58:10Z",
+   "mime": "audio/mp4",
+   "size": 1995011,
+   "storage": "pages",
+   "lufs": -12.6,
+   "gain": -1.4,
+   "via": "audio",
+   "fileKey": "4216d6d207ba0084",
+   "story": "library/stories/4216d6d207.jpg"
+  },
   {
    "id": "0319336001",
    "title": "Him & I",
