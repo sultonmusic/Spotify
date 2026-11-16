@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-16T08:00:21Z",
- "count": 95,
+ "updatedAt": "2026-11-16T18:26:59Z",
+ "count": 96,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1832,9 +1832,95 @@
    "bioTr": [
     "uz"
    ]
+  },
+  "MC SAIRAJ": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 212096697,
+   "itunesId": 1685787442,
+   "deezer": "https://www.deezer.com/artist/212096697",
+   "apple": "https://music.apple.com/us/artist/mc-sairaj/1685787442",
+   "image": "library/artists/mc-sairaj.jpg",
+   "color": "#7c6a95",
+   "checked": "2026-11-16T18:23:15Z",
+   "verifiedAt": "2026-11-16T18:23:15Z",
+   "fans": 11,
+   "albums": 56,
+   "bioChecked": "2026-11-16T18:26:51Z"
+  },
+  "Gozen": {
+   "aliases": [],
+   "verified": false,
+   "checked": "2026-11-16T18:26:46Z",
+   "bioChecked": "2026-11-16T18:26:59Z"
+  },
+  "GØZEN": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 288512511,
+   "deezer": "https://www.deezer.com/artist/288512511",
+   "image": "library/artists/g-zen.jpg",
+   "color": "#7c6a95",
+   "checked": "2026-11-16T18:23:15Z",
+   "verifiedAt": "2026-11-16T18:23:15Z",
+   "fans": 2,
+   "albums": 23,
+   "bioChecked": "2026-11-16T18:26:54Z"
   }
  },
  "songs": [
+  {
+   "id": "d97c2d392e",
+   "title": "AVANGARD (Remake Slowed)",
+   "artist": "MC SAIRAJ, Gozen, GØZEN",
+   "artists": [
+    "MC SAIRAJ",
+    "Gozen",
+    "GØZEN"
+   ],
+   "album": "AVANGARD (Remake) - EP",
+   "year": 2025,
+   "genre": "Electronic",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 277.25,
+   "src": "library/audio/d97c2d392e.m4a",
+   "cover": "library/covers/d97c2d392e.jpg",
+   "color": "#00008f",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     302,
+     308
+    ]
+   },
+   "addedAt": "2026-11-16T18:23:16Z",
+   "mime": "audio/mp4",
+   "size": 4485062,
+   "storage": "pages",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "d97c2d392e6c13ce",
+   "variant": "slowed",
+   "story": "library/stories/d97c2d392e.jpg"
+  },
   {
    "id": "4216d6d207",
    "title": "Snowfall",
