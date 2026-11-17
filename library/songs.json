@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-16T18:26:59Z",
+ "updatedAt": "2026-11-17T19:21:32Z",
  "count": 96,
  "site": {
   "admins": [
@@ -5282,7 +5282,10 @@
     "msgs": [
      87,
      106,
-     94
+     94,
+     318,
+     319,
+     321
     ]
    },
    "addedAt": "2026-09-30T14:42:06Z",
@@ -5293,7 +5296,12 @@
    "gain": -4.2,
    "via": "audio",
    "fileKey": "2666ecae0d087021",
-   "story": "library/stories/2666ecae0d.jpg"
+   "story": "library/stories/2666ecae0d.jpg",
+   "video": "library/audio/2666ecae0d-v1794943291.mp4",
+   "videoSize": 7523574,
+   "videoOffset": 0.0,
+   "videoKey": "f4ef72292503382b",
+   "updatedAt": "2026-11-17T19:21:31Z"
   },
   {
    "id": "ec10fd3e6c",
