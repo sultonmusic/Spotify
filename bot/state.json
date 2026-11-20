@@ -1,7 +1,30 @@
 {
  "setup": "4f1e7d9511ed192cd15cc35d0ca82e5bdba82835",
  "owner": "336f31d9aeea55626bc39096ee1b59bd46aa9eef596af31dd77dc65bf06751b5",
- "asks": {},
+ "asks": {
+  "a396e7c4": {
+   "t": 1795180469,
+   "chat": 8988775229,
+   "msg": 333,
+   "kind": "audio",
+   "caption": "\u200b\u200b\ud83d\udc49 @YuklaydiBot",
+   "media": {
+    "file_id": "CQACAgIAAxkBAAIBTWr_2pm5RwNdcePlLRHIOKT4qfqIAAJJhAACmJdgS3H756uZBICGPQQ",
+    "file_unique_id": "AgADSYQAApiXYEs",
+    "file_name": "Johnny Huynh In The Stars (garage cover).m4a",
+    "mime_type": "audio/mp4",
+    "file_size": 2527006,
+    "duration": 156,
+    "performer": "Johnny Huynh",
+    "title": "In The Stars (garage cover)"
+   },
+   "base": "In The Stars",
+   "artist": "Johnny Huynh",
+   "variant": "cover",
+   "title": "In The Stars",
+   "wait": false
+  }
+ },
  "ad_draft": {
   "t": 1794853317,
   "chat": 8988775229

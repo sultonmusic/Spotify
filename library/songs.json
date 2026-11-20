@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-18T01:47:46Z",
- "count": 98,
+ "updatedAt": "2026-11-20T13:17:47Z",
+ "count": 100,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1923,9 +1923,178 @@
    "desc": {
     "en": "English singer and songwriter (born 1988)"
    }
+  },
+  "Johnny Huynh": {
+   "aliases": [],
+   "verified": false,
+   "checked": "2026-11-20T13:17:36Z",
+   "bioChecked": "2026-11-20T13:17:47Z"
+  },
+  "Martin Garrix": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 3968561,
+   "itunesId": 430932944,
+   "deezer": "https://www.deezer.com/artist/3968561",
+   "apple": "https://music.apple.com/us/artist/martin-garrix/430932944",
+   "image": "library/artists/martin-garrix.jpg",
+   "color": "#654f46",
+   "checked": "2026-11-20T13:15:30Z",
+   "verifiedAt": "2026-11-20T13:15:30Z",
+   "fans": 7602985,
+   "albums": 165,
+   "bioChecked": "2026-11-20T13:17:40Z",
+   "bio": {
+    "en": "Martijn Gerard Garritsen, known professionally as Martin Garrix and also as Ytram or GRX, is a Dutch DJ, singer, and record producer. Best known for his singles \"Animals\", \"In the Name of Love\", and \"Scared to Be Lonely\", he was ranked number one on DJ Mag's Top 100 DJs list in 2016, 2017, 2018, 2022, and 2024.",
+    "ru": "Мартейн Герард Гарритсен, более известный как Ма́ртин Га́ррикс — нидерландский диджей и музыкальный продюсер.",
+    "uz": "Martijn Gerard Garritsen, professional tarzda Martin Garriks va Ytram yoki GRX nomi bilan tanilgan, gollandiyalik DJ, qo'shiqchi va prodyuser. \"Hayvonlar\", \"In the Name of Love\" va \"Scared to Be Lonely\" singllari bilan mashhur bo'lib, u 2016, 2017, 2018, 2022 va 2024 yillarda DJ Magning Top 100 DJ ro'yxatida birinchi o'rinni egallagan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Martin_Garrix",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%80%D1%82%D0%B8%D0%BD_%D0%93%D0%B0%D1%80%D1%80%D0%B8%D0%BA%D1%81"
+   },
+   "desc": {
+    "en": "Dutch DJ and record producer (born 1996)",
+    "ru": "нидерландский музыкант, диджей"
+   },
+   "bioTr": [
+    "uz"
+   ]
+  },
+  "Bebe Rexha": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4492087,
+   "deezer": "https://www.deezer.com/artist/4492087",
+   "image": "library/artists/bebe-rexha.jpg",
+   "color": "#4b7db4",
+   "checked": "2026-11-20T13:15:30Z",
+   "verifiedAt": "2026-11-20T13:15:30Z",
+   "fans": 1844284,
+   "albums": 129,
+   "bioChecked": "2026-11-20T13:17:44Z",
+   "bio": {
+    "en": "Bleta \"Bebe\" Rexha is an American singer and songwriter. She began her mainstream recording career as a vocalist for the pop band Black Cards in 2010, during and after which she was credited with co-writing releases for other artists—such as Eminem's Grammy Award-winning single \"The Monster\". She signed with Warner Records to release her debut extended play (EP), I Don't Wanna Grow Up (2015), which failed to chart domestically, but spawned the moderate international hit \"I'm Gonna Show You Crazy\".",
+    "ru": "Бле́та Ре́кса, более известная под своим сценическим именем Би́би Ре́кса , — американская певица и автор песен албанского происхождения, музыкальный продюсер. Получила известность после выпуска синглов «Take Me Home», «Hey Mama» и «In the Name of Love». Ранее выступала вокалисткой в коллективе Black Cards, созданном Питом Венцом. Рекса также является соавтором хита Эминема и Рианны «The Monster». Также писала песни для Селены Гомес и Ника Джонаса. 15 апреля 2019 певица заявила, что больна биполярным расстройством.",
+    "uz": "Bleta \"Bebe\" Rexha - amerikalik qo'shiqchi va qo'shiq muallifi. U 2010 yilda Black Cards pop guruhining vokalchisi sifatida o'zining asosiy ovoz yozish faoliyatini boshlagan, shu vaqt ichida va undan keyin u Eminemning Grammy mukofotiga sazovor bo'lgan \"The Monster\" singli kabi boshqa rassomlar uchun hammualliflik relizlari bilan taqdirlangan. U Warner Records bilan shartnoma imzoladi va o'zining debyut kengaytirilgan pyesasi (EP), \"I Don't Wanna Grow Up\" (2015) spektaklini chiqarish uchun shartnoma tuzdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Bebe_Rexha",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D0%BA%D1%81%D0%B0%2C_%D0%91%D0%B8%D0%B1%D0%B8"
+   },
+   "desc": {
+    "en": "American singer (born 1989)",
+    "ru": "американская певица и автор песен"
+   },
+   "bioTr": [
+    "uz"
+   ]
   }
  },
  "songs": [
+  {
+   "id": "a625cf7f2d",
+   "title": "In the Name of Love",
+   "artist": "Martin Garrix, Bebe Rexha",
+   "artists": [
+    "Martin Garrix",
+    "Bebe Rexha"
+   ],
+   "album": "In The Name Of Love - Single",
+   "year": 2016,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 195.49,
+   "src": "library/audio/a625cf7f2d.m4a",
+   "cover": "library/covers/a625cf7f2d.jpg",
+   "color": "#0ca8d6",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     335,
+     338
+    ]
+   },
+   "addedAt": "2026-11-20T13:15:34Z",
+   "mime": "audio/mp4",
+   "size": 3162667,
+   "storage": "pages",
+   "lufs": -8.9,
+   "gain": -5.1,
+   "via": "audio",
+   "fileKey": "a625cf7f2d75b666",
+   "story": "library/stories/a625cf7f2d.jpg"
+  },
+  {
+   "id": "831fc6892b",
+   "title": "In The Stars",
+   "artist": "Johnny Huynh",
+   "artists": [
+    "Johnny Huynh"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 156.2,
+   "src": "library/audio/831fc6892b.m4a",
+   "cover": "library/covers/831fc6892b.jpg",
+   "color": "#b09f22",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     334,
+     337
+    ]
+   },
+   "addedAt": "2026-11-20T13:14:34Z",
+   "mime": "audio/mp4",
+   "size": 2527058,
+   "storage": "pages",
+   "lufs": -11.6,
+   "gain": -2.4,
+   "via": "video",
+   "fileKey": "831fc6892bb6dcc4",
+   "story": "library/stories/831fc6892b.jpg",
+   "video": "library/audio/831fc6892b-v1795180527.mp4",
+   "videoSize": 16725169,
+   "videoOffset": 0.0,
+   "videoKey": "831fc6892bb6dcc4",
+   "updatedAt": "2026-11-20T13:15:27Z"
+  },
   {
    "id": "241522af68",
    "title": "Impossible",
