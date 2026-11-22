@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-22T20:26:28Z",
+ "updatedAt": "2026-11-22T21:07:24Z",
  "count": 110,
  "site": {
   "admins": [
@@ -2081,7 +2081,23 @@
    "checked": "2026-11-22T20:22:09Z",
    "verifiedAt": "2026-11-22T20:22:09Z",
    "fans": 4101,
-   "albums": 263
+   "albums": 263,
+   "bioChecked": "2026-11-22T21:07:14Z",
+   "bio": {
+    "en": "\"Sapphire\" is a song by English singer-songwriter Ed Sheeran. It was released on 5 June 2025 as the third single from Sheeran's eighth studio album, Play, through Gingerbread Man Records and Atlantic Records. The track marks Sheeran's first collaboration with an Indian artist, Arijit Singh, who provides uncredited vocals on the bridge, and is noted for its blend of Western pop and Indian Punjabi musical influences. \"Sapphire\" peaked at number five on the UK Singles Chart, becoming Sheeran's 43rd top 10 hit in his home country.",
+    "ru": "«Sapphire» — песня британского певца и композитора Эда Ширана с участием индийского певца Ариджита Сингха. Она была выпущена 5 июня 2025 года в качестве третьего сингла из восьмого студийного альбома Ширана Play на лейблах Gingerbread Man Records и Atlantic Records UK. Эта композиция стала первым совместным проектом Ширана с индийским артистом и отличается смешением западного поп-рока и музыкальных влияний пенджабской культуры.",
+    "uz": "\"Sapphire\" - ingliz qo'shiqchisi va qo'shiq muallifi Ed Sheeranning qo'shig'i. U 2025-yil 5-iyunda Gingerbread Man Records va Atlantic Records orqali Sheeranning sakkizinchi studiyaviy albomi Playdan uchinchi singl sifatida chiqarildi. Ushbu trek Sheeranning hindistonlik rassom Arijit Singx bilan birinchi hamkorligidan dalolat beradi, u ko'prikda noma'lum vokallarni taqdim etadi va G'arb popi va hind panjabi musiqiy ta'sirining uyg'unligi bilan mashhur. \"Sapphire\" Buyuk Britaniya Singles Chartda beshinchi o'rinni egalladi va Sheeranning o'z mamlakatida 43-top 10 hitiga aylandi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Sapphire_(song)",
+    "ru": "https://ru.wikipedia.org/wiki/Sapphire_(%D0%BF%D0%B5%D1%81%D0%BD%D1%8F)"
+   },
+   "desc": {
+    "en": "2025 single by Ed Sheeran"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Tungevaag": {
    "aliases": [],
@@ -2093,7 +2109,24 @@
    "checked": "2026-11-22T20:23:15Z",
    "verifiedAt": "2026-11-22T20:23:15Z",
    "fans": 182898,
-   "albums": 7
+   "albums": 7,
+   "bioChecked": "2026-11-22T21:07:19Z",
+   "bio": {
+    "en": "Martin Tungevåg, known professionally as Martin Tungevaag or simply Tungevaag, is a Norwegian DJ and music producer who peaked at number #73 on the DJ Mag top 100 DJs list in 2023. He has achieved success in Europe, Asia and South America with the electronic songs \"Samsara 2015\", \"Wicked Wonderland\", \"All for Love\", \"Bad Boy\", \"Dance\", \"Peru\" and \"Play\" together with K-391, Alan Walker and Mangoo.",
+    "ru": "Мартин Тунгевог — норвежский ди-джей, подписан на лейблах Sony Records и Eont Kontor Records. Номинировался на премию «Грэмми».",
+    "uz": "Martin Tungevaag, professional tarzda Martin Tungevaag yoki oddiygina Tungevaag nomi bilan tanilgan, norvegiyalik DJ va musiqa prodyuseri bo'lib, 2023 yilda DJ Mag top 100 DJ ro'yxatida 73-o'rinni egallagan. U K-391, Alan Uoker va Mangu bilan birgalikda \"Samsara 2015\", \"Wicked Wonderland\", \"All for Love\", \"Bad Boy\", \"Dance\", \"Peru\" va \"Play\" elektron qo'shiqlari bilan Evropa, Osiyo va Janubiy Amerikada muvaffaqiyatga erishdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Martin_Tungevaag",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D1%83%D0%BD%D0%B3%D0%B5%D0%B2%D0%BE%D0%B3%2C_%D0%9C%D0%B0%D1%80%D1%82%D0%B8%D0%BD"
+   },
+   "desc": {
+    "en": "Norwegian DJ and music producer",
+    "ru": "норвежский ди-джей"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Mangoo": {
    "aliases": [],
@@ -2105,7 +2138,8 @@
    "checked": "2026-11-22T20:23:15Z",
    "verifiedAt": "2026-11-22T20:23:15Z",
    "fans": 3008,
-   "albums": 42
+   "albums": 42,
+   "bioChecked": "2026-11-22T21:07:24Z"
   },
   "Martin Tungevaag": {
    "aliases": [],
@@ -2640,7 +2674,9 @@
    "tg": {
     "msgs": [
      340,
-     351
+     351,
+     362,
+     364
     ]
    },
    "addedAt": "2026-11-22T20:21:56Z",
@@ -2651,7 +2687,12 @@
    "gain": -6.7,
    "via": "audio",
    "fileKey": "39dce5f2b2b891ef",
-   "story": "library/stories/39dce5f2b2.jpg"
+   "story": "library/stories/39dce5f2b2.jpg",
+   "video": "library/audio/39dce5f2b2-v1795381504.mp4",
+   "videoSize": 15177078,
+   "videoOffset": 2.2,
+   "videoKey": "224893a66a46d8bf",
+   "updatedAt": "2026-11-22T21:05:04Z"
   },
   {
    "id": "a625cf7f2d",
