@@ -10,7 +10,8 @@ import {
   fmtTime, fmtLong, timeAgo, num, shareSong, downloadSong, songMenu, placeholder, back as goBack, verifiedBadge,
   openSheet, sheetItem, openArtistInfo, openPlayer, isCurrent,
 } from "./ui.js";
-import { searchSongs, searchArtists, matchCategories } from "./search.js";
+import { searchSongs, searchArtists, matchCategories, norm } from "./search.js";
+import { identifyNearbySong } from "./audio-search.js";
 import * as dj from "./dj.js";
 import { appBanner, appOffer, getApp } from "./install.js";
 import { MOODS, genre, mood, lang, t, describe, LANG, LANGS_UI, setLang } from "./i18n.js";
@@ -242,21 +243,54 @@ export function viewSearch(param) {
   const v = h("div", { class: "view" });
   const input = h("input", { type: "search", placeholder: t("search.placeholder"), value: param ?? lastQuery, enterkeyhint: "search", autocomplete: "off", "aria-label": t("search.title") });
   const clear = h("button", { class: "icon-btn", style: { width: "28px", height: "28px", color: "#121212" }, html: icon("close", 20), "aria-label": t("search.clear") });
+  const mic = h("button", { type: "button", class: "search-mic", html: icon("mic", 20), "aria-label": t("search.voice") });
+  const voiceStatus = h("div", { class: "search-voice-status", role: "status", "aria-live": "polite" });
   const results = h("div");
   v.append(h("div", { class: "search-box" }, h("h1", null, t("search.title")),
-    h("div", { class: "search-input" }, h("span", { html: icon("search", 22) }), input, clear)), results);
+    h("div", { class: "search-input" }, h("span", { html: icon("search", 22) }), input, clear, mic), voiceStatus), results);
+
+  let voiceMatch = null;
+  let voiceController = null;
+  const stopIfLeaving = () => {
+    if (!v.isConnected) {
+      voiceController?.abort();
+      window.removeEventListener("hashchange", stopIfLeaving);
+      window.removeEventListener("app:rerender", stopIfLeaving);
+    }
+  };
+  window.addEventListener("hashchange", stopIfLeaving);
+  window.addEventListener("app:rerender", stopIfLeaving);
+
+  const identifiedCard = (track) => {
+    const title = track.title || "";
+    const artist = track.subtitle || "";
+    const image = track.images?.coverarthq || track.images?.coverart;
+    const artistNorm = norm(artist);
+    const local = lib.songs.find((song) => norm(song.title) === norm(title) &&
+      (song.artists || [song.artist]).some((name) => norm(name) === artistNorm));
+    const artEl = image ? h("img", { class: "search-recognition-art", src: image, alt: "" })
+      : h("div", { class: "search-recognition-art fallback", html: icon("disc", 26) });
+    const info = h("div", { class: "search-recognition-info" }, h("b", null, title), h("span", null, artist));
+    const cardEl = h("div", { class: "search-recognition" }, artEl, info);
+    if (local) cardEl.append(h("button", { class: "search-recognition-play", "aria-label": t("common.play"),
+      html: icon("play", 18), onclick: () => playSong(local, [local], { type: "search", id: title, title }) }));
+    else cardEl.append(h("span", { class: "search-recognition-missing" }, t("search.voiceNotInLibrary")));
+    return cardEl;
+  };
 
   const render = () => {
     const q = input.value.trim();
     lastQuery = q;
     clear.style.visibility = q ? "visible" : "hidden";
     results.innerHTML = "";
+    if (voiceMatch) results.append(section(t("search.voiceMatch"), identifiedCard(voiceMatch)));
     if (!q) { results.append(browse()); return; }
     const songs = searchSongs(lib.songs, q);
     const artists = searchArtists(artistNames(), q);
     const cats = matchCategories(q);
     if (!songs.length && !artists.length && !cats.length) {
-      results.append(h("div", { class: "empty" }, h("h3", null, t("search.none", { q })), h("p", null, t("search.noneHint"))));
+      results.append(h("div", { class: "empty" }, h("h3", null,
+        voiceMatch ? t("search.voiceNotInLibrary") : t("search.none", { q })), h("p", null, t("search.noneHint"))));
       return;
     }
     const ctx = { type: "search", id: q, title: t("search.ctx", { q }) };
@@ -285,6 +319,8 @@ export function viewSearch(param) {
 
   let timer = null;
   input.addEventListener("input", () => {
+    voiceMatch = null;
+    voiceStatus.textContent = "";
     clearTimeout(timer);
     timer = setTimeout(() => {
       render();
@@ -292,7 +328,45 @@ export function viewSearch(param) {
     }, 120);
   });
   input.addEventListener("keydown", (e) => { if (e.key === "Enter") input.blur(); });
-  clear.addEventListener("click", () => { input.value = ""; render(); input.focus(); history.replaceState(history.state, "", "#/search"); });
+  clear.addEventListener("click", () => {
+    voiceController?.abort();
+    voiceMatch = null;
+    voiceStatus.textContent = "";
+    input.value = ""; render(); input.focus(); history.replaceState(history.state, "", "#/search");
+  });
+  mic.addEventListener("click", async () => {
+    if (voiceController) {
+      voiceController.abort();
+      voiceController = null;
+      voiceStatus.textContent = "";
+      mic.classList.remove("on");
+      return;
+    }
+    const controller = new AbortController();
+    voiceController = controller;
+    voiceMatch = null;
+    mic.classList.add("on");
+    voiceStatus.textContent = "";
+    try {
+      const track = await identifyNearbySong((key) => { voiceStatus.textContent = t(key); }, controller.signal);
+      if (!track) {
+        voiceStatus.textContent = t("search.voiceNoMatch");
+        return;
+      }
+      voiceMatch = track;
+      input.value = [track.title, track.subtitle].filter(Boolean).join(" ");
+      voiceStatus.textContent = "";
+      render();
+      history.replaceState(history.state, "", `#/search/${encodeURIComponent(input.value.trim())}`);
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        voiceStatus.textContent = error.name === "NotAllowedError" ? t("search.voiceMicDenied") : t("search.voiceError");
+      }
+    } finally {
+      if (voiceController === controller) voiceController = null;
+      mic.classList.remove("on");
+    }
+  });
   render();
   if (!input.value && matchMedia("(min-width: 900px)").matches) setTimeout(() => input.focus(), 50);
   return v;

@@ -341,6 +341,20 @@ svg { display: block; flex: none; }
 .search-input input::placeholder { color: #6a6a6a; }
 .search-input input::-webkit-search-cancel-button, .search-input input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
 .search-input svg { color: #121212; }
+.search-mic { width: 32px; height: 32px; flex: none; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: #121212; transition: transform .1s, color .15s; }
+.search-mic:active { transform: scale(.9); }
+.search-mic.on { color: #1db954; animation: djpulse 1s infinite; }
+.search-voice-status { padding: 8px 4px 0; color: var(--muted); font-size: 13px; }
+.search-voice-status:empty { display: none; }
+.search-voice-status:not(:empty)::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--accent); animation: djpulse 1s infinite; vertical-align: 1px; }
+.search-recognition { margin: 0 16px; padding: 12px; border-radius: 8px; background: var(--elev-1); display: flex; align-items: center; gap: 12px; min-height: 72px; }
+.search-recognition-art { width: 52px; height: 52px; flex: none; object-fit: cover; border-radius: 5px; background: var(--elev-3); }
+.search-recognition-art.fallback { display: flex; align-items: center; justify-content: center; color: var(--muted); }
+.search-recognition-info { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.search-recognition-info b, .search-recognition-info span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.search-recognition-info b { font-size: 15px; }
+.search-recognition-info span, .search-recognition-missing { color: var(--muted); font-size: 12px; }
+.search-recognition-play { width: 40px; height: 40px; flex: none; border-radius: 50%; color: var(--on-accent); background: var(--accent); display: flex; align-items: center; justify-content: center; }
 .tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 16px; }
 @media (min-width: 700px) { .tiles { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); } }
 .tile { position: relative; height: 96px; border-radius: 8px; overflow: hidden; padding: 12px; font-weight: 800; font-size: 17px; line-height: 1.15; cursor: pointer; }

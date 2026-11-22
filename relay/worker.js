@@ -78,6 +78,7 @@ export class AdStats extends DurableObject {
     this.sql.exec("CREATE TABLE IF NOT EXISTS ev (ad TEXT, day TEXT, ev TEXT, uid TEXT, PRIMARY KEY (ad, day, ev, uid))");
     this.sql.exec("CREATE TABLE IF NOT EXISTS log (ts TEXT, msg TEXT)");
     this.sql.exec("CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v TEXT)");
+    this.sql.exec("CREATE TABLE IF NOT EXISTS identify_rate (ip TEXT PRIMARY KEY, bucket INTEGER, hits INTEGER)");
   }
   /** What the last cron tick did; anything other than idle/busy is also kept in a short history. */
   /** True at most once per `minutes`: the relay tells the owner about a problem, but doesn't nag. */
@@ -101,6 +102,14 @@ export class AdStats extends DurableObject {
   record(ad, day, ev, uid) {
     this.sql.exec("INSERT OR IGNORE INTO ev VALUES (?, ?, ?, ?)", ad, day, ev, uid);
   }
+  claimIdentify(ip) {
+    const bucket = Math.floor(Date.now() / 60_000);
+    const row = this.sql.exec("SELECT bucket, hits FROM identify_rate WHERE ip = ?", ip).toArray()[0];
+    if (row?.bucket === bucket && row.hits >= 6) return false;
+    this.sql.exec("INSERT OR REPLACE INTO identify_rate VALUES (?, ?, ?)", ip, bucket, row?.bucket === bucket ? row.hits + 1 : 1);
+    this.sql.exec("DELETE FROM identify_rate WHERE bucket < ?", bucket - 10);
+    return true;
+  }
   totals(day) {
     const all = this.sql.exec("SELECT ad, ev, COUNT(*) AS n, COUNT(DISTINCT uid) AS people FROM ev GROUP BY ad, ev").toArray();
     const today = this.sql.exec("SELECT ad, ev, COUNT(DISTINCT uid) AS people FROM ev WHERE day = ? GROUP BY ad, ev", day).toArray();
@@ -110,6 +119,7 @@ export class AdStats extends DurableObject {
 
 const EVENTS = new Set(["view", "iview", "skip", "complete", "click"]);
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" };
+const IDENTIFY_ORIGINS = new Set(["https://sultonmusic.github.io"]);
 const stats = (env) => env.ADSTATS.get(env.ADSTATS.idFromName("all"));
 
 async function sha256(text) {
@@ -148,6 +158,57 @@ async function health(env) {
 async function handle(request, env) {
   const url = new URL(request.url);
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
+  if (url.pathname === "/identify" && request.method === "POST") {
+    const origin = request.headers.get("Origin") || "";
+    const headers = { "Access-Control-Allow-Origin": origin, "Vary": "Origin", "Cache-Control": "no-store" };
+    const reply = (body, status = 200) => Response.json(body, { status, headers });
+    if (!IDENTIFY_ORIGINS.has(origin)) return reply({ error: "origin not allowed" }, 403);
+    const length = Number(request.headers.get("Content-Length") || 0);
+    if (length > 120_000) return reply({ error: "signature too large" }, 413);
+    let body;
+    try {
+      const raw = await request.text();
+      if (raw.length > 120_000) return reply({ error: "signature too large" }, 413);
+      body = JSON.parse(raw);
+    } catch { return reply({ error: "bad json" }, 400); }
+    const { uri, samplems } = body || {};
+    if (typeof uri !== "string" || uri.length > 110_000 ||
+        !/^data:audio\/vnd\.shazam\.sig;base64,[A-Za-z0-9+/=]+$/.test(uri) ||
+        !Number.isInteger(samplems) || samplems < 1_000 || samplems >= 15_000) {
+      return reply({ error: "bad signature" }, 400);
+    }
+    const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+    if (!await stats(env).claimIdentify(await sha256(`cavi-identify:${ip}`))) {
+      return reply({ error: "too many searches; wait a minute and try again" }, 429);
+    }
+    const now = Date.now();
+    const id1 = crypto.randomUUID().toUpperCase();
+    const id2 = crypto.randomUUID().toUpperCase();
+    const target = `https://amp.shazam.com/discovery/v5/en/US/android/-/tag/${id1}/${id2}` +
+      "?sync=true&webv3=true&sampling=true&connected=&shazamapiversion=v3&sharehub=true&video=v3";
+    try {
+      const match = await fetch(target, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Content-Language": "en_US",
+          "User-Agent": "Mozilla/5.0 (Linux; Android 10; Mobile) AppleWebKit/537.36 Chrome/131.0.0.0 Mobile Safari/537.36",
+        },
+        body: JSON.stringify({
+          geolocation: {},
+          signature: { uri, samplems, timestamp: now },
+          timestamp: now,
+          timezone: request.cf?.timezone || "UTC",
+        }),
+        signal: AbortSignal.timeout(12_000),
+      });
+      if (!match.ok) return reply({ error: "recognition service unavailable" }, 502);
+      const result = await match.json();
+      return reply({ track: result?.track || null });
+    } catch {
+      return reply({ error: "recognition service unavailable" }, 502);
+    }
+  }
   if (url.pathname === "/ad-event" && request.method === "POST") {
     let body;
     try { body = JSON.parse(await request.text()); } catch { return new Response("bad json", { status: 400, headers: CORS }); }

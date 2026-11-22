@@ -156,6 +156,7 @@ taklif qilsa — *O'rnatish* (PWA).
 - **Sevimlilar tartibi:** *Любимые треки* → *Изменить порядок* → qo'shiqlarni ≡ dan ushlab suring → *Готово*.
   Tartib saqlanadi (Telegram ichida barcha qurilmalaringizda ham); yangi sevimlilar tepada chiqadi.
 - **Qidiruv** tugmasini ikkinchi marta bossangiz — qidiruv maydoni faollashib, klaviatura ochiladi.
+- Qidiruv maydonidagi **mikrofon** atrofdagi qo'shiqni 8 soniya tinglab, Shazam orqali taniydi; tanilgan trek kutubxonada bo'lsa, darhol ijro etish mumkin.
 - Nusxa olish va bosib turganda chiqadigan menyular o'chirilgan.
 - **Bosh sahifa:** salomlashish, tezkor tanlovlar, *Siz uchun*, *Kunlik mikslar*, yangi qo'shilganlar,
   yaqinda tinglangan, *Takror-takror*, ijrochilar, *Kashf eting*, *Unutilgan sevimlilar*, janrlar.
