@@ -138,6 +138,7 @@ def _itunes_track(r: dict) -> dict:
         "artist_id": r.get("artistId"),
         "artist_url": (r.get("artistViewUrl") or "").split("?")[0] or None,
         "track_url": (r.get("trackViewUrl") or "").split("?")[0] or None,
+        "preview_url": r.get("previewUrl"),
     }
 
 
@@ -178,7 +179,75 @@ def _deezer_track(r: dict) -> dict:
         "artist_id": art.get("id"),
         "explicit": bool(r.get("explicit_lyrics")),
         "rank": r.get("rank") or 0,
+        "track_url": r.get("link"),
+        "preview_url": r.get("preview"),
     }
+
+
+def search_candidates(title: str, artist: str, duration: float,
+                      fingerprint: dict | None = None, limit: int = 5) -> list[dict]:
+    """Merge Shazam and public catalogue matches into a short, selectable result list."""
+    candidates: list[dict] = []
+
+    def add(candidate: dict, source: str) -> None:
+        candidate = {k: v for k, v in candidate.items() if v not in (None, "")}
+        candidate["source"] = source
+        candidate["score"] = float(candidate.get("score") or _score(
+            candidate.get("title", ""), candidate.get("artist", ""), candidate.get("duration", 0),
+            title, artist, duration))
+        existing = next((item for item in candidates if same_song(
+            item.get("title", ""), item.get("artist", ""),
+            candidate.get("title", ""), candidate.get("artist", ""))), None)
+        if existing is None:
+            candidates.append(candidate)
+            return
+        if candidate["score"] > existing["score"]:
+            # Keep the fingerprint's spelling and metadata when it is the strongest match,
+            # while still filling in official catalogue links and previews.
+            for key, value in candidate.items():
+                if key not in ("title", "artist", "album", "year", "genre", "cover") or not existing.get(key):
+                    existing[key] = value
+            existing["score"] = candidate["score"]
+        else:
+            for key, value in candidate.items():
+                if value and not existing.get(key):
+                    existing[key] = value
+        sources = set(existing.get("sources") or [existing.get("source", "")])
+        sources.add(source)
+        existing["sources"] = sorted(s for s in sources if s)
+
+    if fingerprint and fingerprint.get("title"):
+        add({**fingerprint, "score": 1.0}, "Shazam")
+
+    term = f"{artist} {title}".strip()
+    if term:
+        for country in ("US", "RU"):
+            data = _get("https://itunes.apple.com/search", {
+                "term": term, "entity": "song", "media": "music", "limit": 15, "country": country,
+            })
+            for row in (data or {}).get("results", []):
+                score = _score(row.get("trackName", ""), row.get("artistName", ""),
+                               (row.get("trackTimeMillis") or 0) / 1000, title, artist, duration)
+                if score >= 0.35:
+                    add({"score": score, **_itunes_track(row)}, "Apple Music")
+            if len(candidates) >= limit and any(c.get("source") == "Apple Music" for c in candidates):
+                break
+
+    queries = ([f'artist:"{artist}" track:"{title}"'] if artist and title else [])
+    if term:
+        queries.append(term)
+    for query in queries:
+        data = _get("https://api.deezer.com/search", {"q": query, "limit": 15})
+        for row in (data or {}).get("data", []):
+            row_artist = (row.get("artist") or {}).get("name", "")
+            score = _score(row.get("title", ""), row_artist, row.get("duration") or 0, title, artist, duration)
+            if score >= 0.35:
+                add({"score": score, **_deezer_track(row)}, "Deezer")
+        if len(candidates) >= limit and any(c.get("source") == "Deezer" for c in candidates):
+            break
+
+    candidates.sort(key=lambda item: (item.get("score", 0), bool(item.get("preview_url"))), reverse=True)
+    return candidates[:limit]
 
 
 def deezer_details(track_id: int, album_id: int | None) -> dict:

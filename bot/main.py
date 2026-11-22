@@ -11,10 +11,12 @@ import hmac
 import html
 import json
 import re
+import secrets
 import sys
 import tempfile
 import time
 import traceback
+from urllib.parse import urlsplit, urlunsplit
 from pathlib import Path
 from typing import Any
 
@@ -29,12 +31,16 @@ from .telegram_api import Bot, TelegramError
 from .translate import translate_lyrics_file
 from .textutil import norm, similarity, split_artist_title, split_artists
 
-SETUP_VERSION = "7"
+SETUP_VERSION = "8"
 AUDIO_EXT = {".mp3", ".m4a", ".aac", ".flac", ".ogg", ".oga", ".opus", ".wav", ".wma", ".aif", ".aiff",
              ".ape", ".alac", ".amr", ".mka", ".weba"}
 VIDEO_EXT = {".mp4", ".mov", ".mkv", ".webm", ".avi", ".3gp", ".m4v"}
 ASK_TTL = 7 * 86400  # "add this cover?" buttons stay valid for a week
 AD_DRAFT_TTL = 30 * 60  # after /add, the next photo/video within 30 minutes becomes the ad
+INSTAGRAM_JOB_TTL = 6 * 60 * 60
+INSTAGRAM_MAX_BYTES = 100 * 1024 * 1024
+INSTAGRAM_MAX_SECONDS = 180
+INSTAGRAM_URL_RE = re.compile(r"https?://(?:www\.|m\.)?instagram\.com/[^\s<>\"']+", re.I)
 
 # Another version of a song (asked about before it is added): cover, remix, live, karaoke…
 _VARIANT = re.compile(
@@ -81,6 +87,75 @@ def fmt_duration(seconds: float) -> str:
     return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
 
 
+def instagram_url(text: str) -> str | None:
+    """Return a canonical public Reel/post URL; reject login, profile, and non-Instagram links."""
+    match = INSTAGRAM_URL_RE.search(text or "")
+    if not match:
+        return None
+    raw = match.group(0).rstrip(".,!?;:)]}")
+    try:
+        parts = urlsplit(raw)
+        if parts.scheme.lower() != "https" or parts.hostname not in {
+            "instagram.com", "www.instagram.com", "m.instagram.com",
+        }:
+            return None
+        if parts.username or parts.password or parts.port:
+            return None
+        path = parts.path.rstrip("/")
+        if not re.fullmatch(r"/(?:reel|reels|p)/[A-Za-z0-9_-]+", path, re.I):
+            return None
+        return urlunsplit(("https", "www.instagram.com", path + "/", "", ""))
+    except ValueError:
+        return None
+
+
+def download_instagram(url: str, folder: Path) -> Path:
+    """Download one public Instagram Reel without cookies or account credentials."""
+    try:
+        import yt_dlp
+    except ImportError as exc:
+        raise RuntimeError("Instagram yuklash moduli o'rnatilmagan.") from exc
+
+    options = {
+        "format": "best[height<=480]/best",
+        "outtmpl": str(folder / "reel.%(ext)s"),
+        "noplaylist": True,
+        "quiet": True,
+        "no_warnings": True,
+        "socket_timeout": 20,
+        "retries": 1,
+        "fragment_retries": 1,
+        "max_filesize": INSTAGRAM_MAX_BYTES,
+        "match_filter": lambda info, incomplete: (
+            "Instagram roligi 3 daqiqadan uzun" if (info.get("duration") or 0) > INSTAGRAM_MAX_SECONDS else None
+        ),
+    }
+    try:
+        with yt_dlp.YoutubeDL(options) as ydl:
+            info = ydl.extract_info(url, download=True)
+            paths = [Path(d.get("filepath") or d.get("_filename"))
+                     for d in (info.get("requested_downloads") or []) if d.get("filepath") or d.get("_filename")]
+            if info.get("filepath"):
+                paths.append(Path(info["filepath"]))
+            prepared = Path(ydl.prepare_filename(info))
+            paths.append(prepared)
+        source = next((path for path in paths if path.is_file()), None)
+        if source is None:
+            source = next((path for path in folder.glob("reel.*") if path.is_file()), None)
+        if source is None:
+            raise RuntimeError("Video fayli topilmadi")
+        if source.stat().st_size > INSTAGRAM_MAX_BYTES:
+            raise RuntimeError("Video hajmi 100 MB dan katta")
+        return source
+    except Exception as exc:
+        message = str(exc).lower()
+        if "3 daqiqadan uzun" in message:
+            raise RuntimeError("Bu Reel 3 daqiqadan uzun. 3 daqiqagacha bo'lgan ochiq rolik yuboring.") from None
+        if "100 mb" in message or ("100" in message and ("size" in message or "filesize" in message)):
+            raise RuntimeError("Rolik 100 MB limitidan katta.") from None
+        raise RuntimeError("Ochiq Instagram Reel yuklanmadi. Link hammaga ochiqligini tekshiring yoki videoni botga fayl qilib yuboring.") from None
+
+
 class Station:
     def __init__(self) -> None:
         self.bot = Bot(config.TOKEN)
@@ -101,6 +176,15 @@ class Station:
         for token in [k for k, v in asks.items() if time.time() - v.get("t", 0) > ASK_TTL]:
             del asks[token]
             self.state_dirty = True
+        instagram_jobs = self.state.get("instagram_jobs") or {}
+        for token in [k for k, v in instagram_jobs.items()
+                      if time.time() - v.get("t", 0) > INSTAGRAM_JOB_TTL]:
+            del instagram_jobs[token]
+            self.state_dirty = True
+        if len(instagram_jobs) > 20:
+            for token, _ in sorted(instagram_jobs.items(), key=lambda pair: pair[1].get("t", 0))[:-20]:
+                del instagram_jobs[token]
+                self.state_dirty = True
         if self.state_dirty:
             config.STATE_FILE.write_text(json.dumps(self.state, indent=1) + "\n")
             self.state_dirty = False
@@ -148,11 +232,12 @@ class Station:
             self.bot.safe("setChatMenuButton", menu_button={
                 "type": "web_app", "text": "🎧 Musiqa", "web_app": {"url": self.site}})
         self.bot.safe("setMyShortDescription", short_description=(
-            f"{config.APP_NAME} — shaxsiy musiqa stansiyasi. Qo'shiq yuboring: AI uni aniqlab, saytga joylaydi."))
+            f"{config.APP_NAME} — Instagram Reel qo'shig'ini toping, tinglang va saytga qo'shing."))
         self.bot.safe("setMyDescription", description=(
-            "🎧 Shaxsiy musiqa stansiyasi.\n\nQo'shiq faylini yuboring yoki forward qiling — bot uning nomini, "
-            "ijrochisini, albomini, janrini, kayfiyatini, muqovasi va matnini avtomatik aniqlaydi va saytga "
-            "qo'shadi.\n\n🎧 Музыкальная станция · Music station (RU / EN / UZ)."))
+            "🎧 Shaxsiy musiqa stansiyasi. Instagram Reel havolasini yuboring — bot ovozdan qo'shiqni aniqlaydi, "
+            "natijalarni ko'rsatadi va tanlanganini tinglash yoki saytga qo'shish imkonini beradi. "
+            "Qo'shiq faylini yuborsangiz ham avtomatik aniqlab qo'shadi.\n\n"
+            "🎧 Музыкальная станция · Music station (RU / EN / UZ)."))
         self.state["setup"] = signature
         self.state_dirty = True
 
@@ -208,6 +293,11 @@ class Station:
         draft = self.state.get("ad_draft")
         if draft and time.time() - draft.get("t", 0) < AD_DRAFT_TTL and self.authorized(user_id) and self.ad_media(msg):
             self.create_ad(msg)
+            return
+
+        reel_url = instagram_url(text)
+        if reel_url:
+            self.handle_instagram(msg, reel_url)
             return
 
         media = self.pick_media(msg)
@@ -281,6 +371,195 @@ class Station:
             text.append("\nStansiyaga qo'shish uchun qo'shiqning audio faylini yuboring.")
             markup = None
         self.send(chat_id, "\n".join(text), reply_to=msg_id, markup=markup)
+
+    def handle_instagram(self, msg: dict, url: str) -> None:
+        """Recognize a public Reel, then let the user select, preview, or add its soundtrack clip."""
+        chat_id, msg_id = msg["chat"]["id"], msg["message_id"]
+        status = self.send(chat_id, "🔎 Ochiq Instagram roligi tekshirilmoqda…", reply_to=msg_id)
+        status_id = (status or {}).get("message_id")
+        if not status_id:
+            return
+
+        try:
+            self.bot.safe("sendChatAction", chat_id=chat_id, action="typing")
+            with tempfile.TemporaryDirectory() as tmp_name:
+                tmp = Path(tmp_name)
+                video = download_instagram(url, tmp)
+                info = audio.probe(video)
+                if not info.has_audio:
+                    self.edit(chat_id, status_id, "🔇 Bu rolikda aniqlash uchun audio topilmadi.")
+                    return
+                if info.duration > INSTAGRAM_MAX_SECONDS:
+                    self.edit(chat_id, status_id, "⚠️ Faqat 3 daqiqagacha bo'lgan Reel qabul qilinadi.")
+                    return
+                clip = audio.excerpt(video, tmp / "fingerprint.wav", info,
+                                     seconds=min(18, max(5, int(info.duration) - 1)))
+                found = lookup.shazam(clip) if clip else None
+                if not found:
+                    self.edit(chat_id, status_id,
+                              "🎵 Rolik ovozidan qo'shiqni aniqlay olmadim. Ochiq Reel linkini tekshiring yoki videoni botga fayl qilib yuboring.")
+                    return
+                candidates = lookup.search_candidates(found["title"], found["artist"], info.duration,
+                                                      fingerprint=found, limit=5)
+                if not candidates:
+                    self.edit(chat_id, status_id, "🔎 Mos qo'shiq topilmadi. Boshqa Reel yuborib ko'ring.")
+                    return
+
+                jobs = self.state.setdefault("instagram_jobs", {})
+                token = secrets.token_hex(4)
+                while token in jobs:
+                    token = secrets.token_hex(4)
+                jobs[token] = {
+                    "t": time.time(),
+                    "h": hashlib.sha256(url.encode()).hexdigest(),
+                    "chat": chat_id,
+                    "candidates": candidates,
+                }
+                self.state_dirty = True
+                lines = ["🎵 <b>Rolikdan topilgan mos qo'shiqlar:</b>", ""]
+                for index, candidate in enumerate(candidates, 1):
+                    lines.append(f"{index}. <b>{esc(candidate.get('artist', 'Noma’lum ijrochi'))}</b> — "
+                                 f"{esc(candidate.get('title', 'Noma’lum qo‘shiq'))}")
+                lines.append("\nKeraklisini tanlang:")
+                rows = [[{"text": f"{i + 1}. {(c.get('artist') or 'Noma’lum')} — {(c.get('title') or 'Noma’lum')}"[:62],
+                          "callback_data": f"igpick:{token}:{i}"}] for i, c in enumerate(candidates)]
+                markup = self.keyboard(*rows)
+                self.edit(chat_id, status_id, "\n".join(lines), markup)
+        except RuntimeError as exc:
+            self.edit(chat_id, status_id, f"⚠️ {esc(str(exc))}")
+        except Exception as exc:
+            print(f"[instagram] recognition failed: {type(exc).__name__}")
+            self.edit(chat_id, status_id,
+                      "⚠️ Reelni ko'rib chiqishda xatolik bo'ldi. Ochiq link yuboring yoki videoni botga fayl qilib yuboring.")
+
+    def instagram_listen_url(self, candidate: dict) -> str | None:
+        url = candidate.get("preview_url") or candidate.get("track_url")
+        try:
+            parts = urlsplit(url or "")
+            host = (parts.hostname or "").lower()
+            if parts.scheme == "https" and (host == "apple.com" or host.endswith(".apple.com")
+                                             or host == "deezer.com" or host.endswith(".deezer.com")):
+                return url
+        except ValueError:
+            pass
+        return None
+
+    def instagram_selection_markup(self, token: str, index: int, candidate: dict, owner: bool) -> dict | None:
+        in_lib = next((song for song in self.lib.songs if lookup.same_song(
+            song["title"], song["artist"], candidate.get("title", ""), candidate.get("artist", ""))), None)
+        rows: list[list[dict | None]] = []
+        listen_url = self.instagram_listen_url(candidate)
+        if listen_url:
+            rows.append([{"text": "🎧 Tinglash", "url": listen_url}])
+        if in_lib:
+            rows.append([self.app_button("▶️ Saytda tinglash", f"song/{in_lib['id']}")])
+        elif owner:
+            rows.append([{"text": "➕ Saytga qo'shish", "callback_data": f"igadd:{token}:{index}"}])
+        rows.append([{"text": "↩️ Natijalarga qaytish", "callback_data": f"igback:{token}"}])
+        return self.keyboard(*rows)
+
+    def instagram_message_url(self, message: dict, job: dict) -> str | None:
+        if (message.get("chat") or {}).get("id") != job.get("chat"):
+            return None
+        original = message.get("reply_to_message") or {}
+        original_text = (original.get("text") or "") + " " + (original.get("caption") or "")
+        url = instagram_url(original_text)
+        if not url or not hmac.compare_digest(hashlib.sha256(url.encode()).hexdigest(), job.get("h", "")):
+            return None
+        return url
+
+    def handle_instagram_callback(self, cq: dict) -> None:
+        data = cq.get("data") or ""
+        action, _, payload = data.partition(":")
+        bits = payload.split(":")
+        token = bits[0] if bits else ""
+        message = cq.get("message") or {}
+        chat_id, message_id = (message.get("chat") or {}).get("id"), message.get("message_id")
+        job = (self.state.get("instagram_jobs") or {}).get(token)
+        if not job or time.time() - job.get("t", 0) > INSTAGRAM_JOB_TTL or chat_id != job.get("chat"):
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Natijalar eskirgan, Reelni qayta yuboring.")
+            return
+
+        if action == "igback":
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"])
+            candidates = job.get("candidates", [])
+            lines = ["🎵 <b>Rolikdan topilgan mos qo'shiqlar:</b>", ""]
+            for i, candidate in enumerate(candidates, 1):
+                lines.append(f"{i}. <b>{esc(candidate.get('artist', 'Noma’lum ijrochi'))}</b> — "
+                             f"{esc(candidate.get('title', 'Noma’lum qo‘shiq'))}")
+            lines.append("\nKeraklisini tanlang:")
+            rows = [[{"text": f"{i + 1}. {(c.get('artist') or 'Noma’lum')} — {(c.get('title') or 'Noma’lum')}"[:62],
+                      "callback_data": f"igpick:{token}:{i}"}] for i, c in enumerate(candidates)]
+            self.edit(chat_id, message_id, "\n".join(lines), self.keyboard(*rows))
+            return
+
+        if len(bits) < 2 or not bits[1].isdigit():
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Tanlovni topmadim.")
+            return
+        index = int(bits[1])
+        candidates = job.get("candidates", [])
+        if index >= len(candidates):
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Bu natija mavjud emas.")
+            return
+        candidate = candidates[index]
+
+        if action == "igpick":
+            owner = self.authorized((cq.get("from") or {}).get("id", 0))
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"])
+            in_lib = next((song for song in self.lib.songs if lookup.same_song(
+                song["title"], song["artist"], candidate.get("title", ""), candidate.get("artist", ""))), None)
+            text = (f"🎵 <b>{esc(candidate.get('artist', 'Noma’lum ijrochi'))} — "
+                    f"{esc(candidate.get('title', 'Noma’lum qo‘shiq'))}</b>")
+            if candidate.get("album"):
+                text += f"\n💿 {esc(candidate['album'])}"
+            if in_lib:
+                text += "\n\n✅ Bu qo'shiq saytda bor."
+            else:
+                text += "\n\n🎧 Rasmiy preview yoki trek havolasi orqali tinglang."
+                if owner:
+                    text += "\n➕ Qo'shish rolikdagi audio lavhani saytga saqlaydi."
+            self.edit(chat_id, message_id, text,
+                      self.instagram_selection_markup(token, index, candidate, owner))
+            return
+
+        if action != "igadd":
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"])
+            return
+        if not self.authorized((cq.get("from") or {}).get("id", 0)):
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="🔒 Faqat stansiya egasi qo'sha oladi.")
+            return
+        url = self.instagram_message_url(message, job)
+        if not url:
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Original Reel xabari topilmadi.")
+            self.edit(chat_id, message_id, "🔗 Linkni qayta yuboring, so'ng tanlangan qo'shiqni saytga qo'shing.")
+            return
+        self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Saytga qo'shilmoqda…")
+        self.edit(chat_id, message_id, "⏳ Reel audio lavhasi yuklanib, saytga tayyorlanmoqda…")
+
+        def progress(text: str) -> None:
+            self.edit(chat_id, message_id, text)
+
+        try:
+            original = message.get("reply_to_message") or {}
+            with tempfile.TemporaryDirectory() as tmp_name:
+                video = download_instagram(url, Path(tmp_name))
+                media = {
+                    "file_unique_id": "instagram:" + job["h"],
+                    "file_name": "instagram-reel.mp4",
+                    "file_size": video.stat().st_size,
+                }
+                song, outcome = self.import_song(
+                    original, "instagram", media, hashlib.sha1(media["file_unique_id"].encode()).hexdigest()[:16],
+                    progress, source_path=video, accept_variant=True, known=candidate)
+            if outcome == "duplicate":
+                result_text = "♻️ Bu qo'shiq saytda oldin qo'shilgan.\n\n" + self.card(song)
+            else:
+                result_text = "✅ <b>Saytga qo'shildi!</b>\n<i>Rolikdagi audio lavha qo'shiq sifatida saqlandi.</i>\n\n" + self.card(song)
+            self.edit(chat_id, message_id, result_text, self.song_markup(song))
+        except Exception as exc:
+            print(f"[instagram] add failed: {type(exc).__name__}")
+            self.edit(chat_id, message_id,
+                      "⚠️ Saytga qo'shib bo'lmadi. Reel hali hamma uchun ochiqligini tekshiring yoki videoni botga fayl qilib yuboring.")
 
     def handle_song(self, msg: dict, kind: str, media: dict, force: bool = False) -> None:
         """A file from the owner: a new song, another version of one (asked about later), or a music video."""
@@ -364,7 +643,8 @@ class Station:
         return self.bot.download(media["file_id"], dest)
 
     def import_song(self, msg: dict, kind: str, media: dict, file_key: str, progress,
-                    force: bool = False, source_path: Path | None = None, accept_variant: bool = False) -> tuple[dict, str]:
+                    force: bool = False, source_path: Path | None = None, accept_variant: bool = False,
+                    known: dict | None = None) -> tuple[dict, str]:
         """Downloads, identifies and stores a song.
 
         Returns (song, outcome): "added"; "video" (a music video attached to its song); "duplicate" (already on the
@@ -394,7 +674,7 @@ class Station:
                 caption=msg.get("caption") or "",
                 thumb=thumb,
             )
-            result = identify(src, info, clues, tmp, progress)
+            result = identify(src, info, clues, tmp, progress, known=known)
             meta = self.canonical_artists(result)
             variant = variant_of(meta["title"], clues.tg_title, clues.file_name, clues.caption)
 
@@ -716,6 +996,7 @@ class Station:
                 text += ["", "💡 <i>AI teglash o'chiq: ANTHROPIC_API_KEY sirini qo'shsangiz yoqiladi.</i>"]
         else:
             text += ["Bu shaxsiy stansiya. Qo'shiqlarni tinglash uchun tugmani bosing."]
+        text += ["", "📲 Ochiq Instagram Reel linkini yuboring — qo'shiqni topib, tanlaganingizni tinglang."]
         text += ["", f"📚 Kutubxonada: <b>{count}</b> ta qo'shiq"]
         self.send(chat_id, "\n".join(text), markup=self.keyboard([self.app_button()]))
 
@@ -1043,8 +1324,15 @@ class Station:
         user_id = (cq.get("from") or {}).get("id", 0)
         message = cq.get("message") or {}
         chat_id, message_id = (message.get("chat") or {}).get("id"), message.get("message_id")
+        action = data.partition(":")[0]
+        if action in ("igpick", "igback"):
+            self.handle_instagram_callback(cq)
+            return
         if not self.authorized(user_id):
             self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="🔒 Faqat egasi uchun")
+            return
+        if action == "igadd":
+            self.handle_instagram_callback(cq)
             return
         action, _, song_id = data.partition(":")
         if action in ("vok", "vno", "vwait"):

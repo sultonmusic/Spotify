@@ -110,7 +110,7 @@ Jarayon holati chatda yangilanadi; tugagach, yangi qo'shiqni tanlab ochish yoki 
 
 Qo'shilgan fayllar stansiyaning **ommaviy** qo'shiqlar kutubxonasiga kiradi. Bu versiyada foydalanuvchilar uchun alohida shaxsiy kutubxona yaratilmaydi. Faylni faqat stansiya egasi Telegram Mini App orqali yubora oladi. Vebsaytdagi DJ avval mavjud katalogdan qidiradi, topilmasa relay API orqali katalogni tekshiradi. GitHub Actions ishni boshlashi bir necha daqiqa olishi mumkin.
 
-Qidiruv nashr qilingan stansiya katalogidan foydalanadi; tashqi musiqa provayderlari ulangan emas. Instagram yoki YouTube havolalaridan media yuklab olinmaydi — faqat yuborishga ruxsat berilgan audio/video fayllar qabul qilinadi.
+Telegram botga ochiq Instagram Reel havolasini yuborsangiz, u rolik ovozini Shazam orqali taniydi va Apple Music/Deezer katalogidan mos natijalarni ko'rsatadi. Tanlangan trekni rasmiy preview yoki trek sahifasida tinglash mumkin. Stansiya egasi tanlangan trek nomi bilan Reel'dagi audio lavhani saytga qo'sha oladi. Xususiy, login talab qiladigan yoki o'chirilgan postlar yuklanmaydi; bunday holatda videoni botga fayl qilib yuboring. Sayt ichidagi qidiruv esa nashr qilingan stansiya katalogidan foydalanadi.
 
 API (relay, `CONFIG.statsUrl`):
 
