@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-22T21:12:28Z",
+ "updatedAt": "2026-11-22T21:17:13Z",
  "count": 110,
  "site": {
   "admins": [
@@ -2052,7 +2052,23 @@
   "SeungRi": {
    "aliases": [],
    "verified": false,
-   "checked": "2026-11-22T20:26:17Z"
+   "checked": "2026-11-22T20:26:17Z",
+   "bioChecked": "2026-11-22T21:17:13Z",
+   "bio": {
+    "en": "Lee Seung-hyun, better known by the stage names Seungri (승리) and V.I, is a South Korean former singer-songwriter and was a member of the South Korean boy band BigBang formed by YG Entertainment. A key figure of the Burning Sun scandal, he was convicted in 2020 for prostitution mediation and embezzlement.",
+    "ru": "Ли Сын Хён — бывший южнокорейский певец, автор песен, музыкальный продюсер, актёр, предприниматель, инвестор, диджей и креативный директор, бывший участник бойбенда Big Bang.",
+    "uz": "Seungri (eela) va V.I. sahna ismlari bilan tanilgan Li Seung Xyon janubiy koreyalik sobiq qo'shiqchi-qo'shiq muallifi va YG Entertainment tomonidan tashkil etilgan Janubiy Koreyaning BigBang bolalar guruhi a'zosi edi. \"Yonayotgan quyosh\" janjalining asosiy shaxsi bo'lgan u 2020 yilda fohishalik vositachiligida va pul o'g'irlashda ayblangan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Seungri",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A1%D1%8B%D0%BD%D0%BD%D0%B8"
+   },
+   "desc": {
+    "en": "South Korean former singer-songwriter (born 1990)"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "The Walkers": {
    "aliases": [],
