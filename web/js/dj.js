@@ -260,6 +260,11 @@ function findDirect(text) {
 }
 
 /** Understands the request, picks songs and writes the DJ's answer. */
+export function shouldSearchStation(text) {
+  const query = String(text || "").trim();
+  return query.length >= 3 && !findDirect(query) && !understand(query).any;
+}
+
 export function ask(text) {
   const direct = findDirect(text);
   if (direct) {

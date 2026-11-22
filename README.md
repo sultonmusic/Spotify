@@ -100,6 +100,28 @@ ijrochi, temp, yil, «yangi / sevimli / mashhur» va sonni tushunadi, didingizga
 Qo'shiq nomini yozsangiz («lovely», «play Easy On Me», xato bilan ham: «skyfal») — o'sha qo'shiq, keyin o'xshashlari;
 ijrochi nomini yozsangiz («Adele», «adel qo'shiqlari», «включи Sia») — o'sha ijrochining qo'shiqlari qo'yiladi.
 
+### DJ chatda faylni qayta ishlash
+
+Telegram ichida bot egasi DJ chatidagi **yuklash** tugmasidan audio yoki video faylni (20 MB gacha) yuborishi mumkin.
+Relay Telegram Mini App `initData` ma'lumotini serverda tekshiradi va stansiya egasining huquqini tasdiqlaydi. Fayl
+Cloudflare Durable Object'dagi vaqtinchalik navbatga bo'laklab saqlanadi va GitHub Actions'ga ish sifatida yuboriladi.
+Python botining mavjud `ffmpeg`, Shazam, metama'lumot va saqlash jarayoni uni qayta ishlab, natijani chatda ko'rsatadi.
+Jarayon holati chatda yangilanadi; tugagach, yangi qo'shiqni tanlab ochish yoki ijro etish mumkin.
+
+Qo'shilgan fayllar stansiyaning **ommaviy** qo'shiqlar kutubxonasiga kiradi. Bu versiyada foydalanuvchilar uchun alohida shaxsiy kutubxona yaratilmaydi. Faylni faqat stansiya egasi Telegram Mini App orqali yubora oladi. Vebsaytdagi DJ avval mavjud katalogdan qidiradi, topilmasa relay API orqali katalogni tekshiradi. GitHub Actions ishni boshlashi bir necha daqiqa olishi mumkin.
+
+Qidiruv nashr qilingan stansiya katalogidan foydalanadi; tashqi musiqa provayderlari ulangan emas. Instagram yoki YouTube havolalaridan media yuklab olinmaydi — faqat yuborishga ruxsat berilgan audio/video fayllar qabul qilinadi.
+
+API (relay, `CONFIG.statsUrl`):
+
+| Usul | Yo'l | Vazifasi |
+|---|---|---|
+| `GET` | `/api/music/search?q=...` | Ommaviy katalogdan qo'shiq yoki ijrochi qidirish. |
+| `POST` | `/api/music/upload` | `multipart/form-data` ichidagi `file`ni navbatga qo'yish (20 MB gacha; Telegram Mini App tasdig'i kerak). |
+| `GET` | `/api/music/jobs/{jobId}` | Ish holati va natijadagi qo'shiqni olish (stansiya egasi tasdig'i kerak). |
+
+GitHub Actions'dagi `DISPATCH_TOKEN` Worker'dan ish boshlash va Action runner'ni vaqtinchalik HMAC imzosi bilan tasdiqlash uchun ishlatiladi. `TELEGRAM_BOT_TOKEN` Worker va Actions secrets'ida avvalgidek kerak. Yangi kalit talab qilinmaydi.
+
 ## Android ilova (APK)
 
 Saytga Android brauzerdan (Telegram'dan emas) kirganlarga bosh sahifada **«Cavi Music ilovasi — Yuklab olish»**
@@ -133,7 +155,7 @@ taklif qilsa — *O'rnatish* (PWA).
 
 ## Kim nima qila oladi
 
-- **Qo'shiq qo'shish, tahrirlash, o'chirish — faqat siz (stansiya egasi)**, bot orqali.
+- **Qo'shiq qo'shish, tahrirlash, o'chirish — faqat siz (stansiya egasi)**, bot yoki Telegram Mini App ichidagi DJ orqali.
 - Saytdagi **➕ Qo'shish sahifasi** faqat sizga ko'rinadi (Telegram ID'ingiz bo'yicha; saytga faqat uning sekin
   xeshi yoziladi): qanday qo'shishni ko'rsatadi va botni ochadi.
 - **Saytni hamma ko'ra va tinglay oladi.** Har bir tashrif buyuruvchining sevimlilari va tinglashlari o'ziga tegishli.
@@ -216,7 +238,7 @@ relay chatga «⚠️ Stansiyani ishga tushira olmadim (GitHub: HTTP …)» deb 
 ## Bilish kerak bo'lgan cheklovlar
 
 - Telegram botlari **20 MB** gacha fayllarni yuklab oladi.
-- Bot GitHub Actions orqali ishlaydi, shuning uchun javob **bir necha daqiqa** kechikishi mumkin
+- Bot va saytdan kelgan fayllar GitHub Actions orqali ishlaydi, shuning uchun javob **bir necha daqiqa** kechikishi mumkin
   (GitHub rejalashtirilgan ishlarni ba'zan kechiktiradi). Sayt qo'shiqdan 1–3 daqiqa keyin yangilanadi.
 - GitHub Pages sayti ~1 GB gacha. `AUDIO_STORAGE=auto` 700 MB dan keyin yangi qo'shiqlarni GitHub Releases'ga
   saqlaydi (hajm cheklovi yo'q).

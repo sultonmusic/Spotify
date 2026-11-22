@@ -12,6 +12,7 @@ import {
 } from "./ui.js";
 import { searchSongs, searchArtists, matchCategories, norm } from "./search.js";
 import { identifyNearbySong } from "./audio-search.js";
+import { uploadStationMedia, getStationJob, searchStationMusic } from "./music-api.js";
 import * as dj from "./dj.js";
 import { appBanner, appOffer, getApp } from "./install.js";
 import { MOODS, genre, mood, lang, t, describe, LANG, LANGS_UI, setLang } from "./i18n.js";
@@ -810,6 +811,17 @@ export function viewDJ() {
     h("button", { class: "chip", onclick: () => send(x) }, x)));
   const input = h("input", { type: "text", placeholder: t("dj.placeholder"), enterkeyhint: "send", autocomplete: "off" });
   const form = h("form", { class: "dj-input", onsubmit: (e) => { e.preventDefault(); send(input.value); } }, input);
+  const fileInput = h("input", { type: "file", accept: "audio/*,video/*", hidden: true, "aria-label": t("dj.upload") });
+  const uploadButton = h("button", { type: "button", class: "dj-upload", title: t("dj.upload"), "aria-label": t("dj.upload"),
+    html: icon("upload", 18), onclick: () => fileInput.click() });
+  uploadButton.hidden = true;
+  form.append(uploadButton, fileInput);
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files?.[0];
+    fileInput.value = "";
+    if (file) processUpload(file);
+  });
+  ownerMode().then((ok) => { uploadButton.hidden = !inTelegram || !ok; });
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (SR) {
     const mic = h("button", { type: "button", class: "dj-mic", "aria-label": t("dj.voice"), html: icon("mic", 20) });
@@ -829,7 +841,7 @@ export function viewDJ() {
 
   const bubble = (entry) => {
     if (entry.me) return h("div", { class: "dj-msg me" }, entry.text);
-    const box = h("div", { class: "dj-msg" }, h("div", { class: "dj-text" }, entry.text));
+    const box = h("div", { class: `dj-msg${entry.pending ? " pending" : ""}` }, h("div", { class: "dj-text" }, entry.text));
     if (entry.songs.length) {
       const ctx = { type: "mix", id: `dj-${entry.at}`, title: "DJ" };
       const list = h("div", { class: "tracks dj-tracks" });
@@ -850,10 +862,82 @@ export function viewDJ() {
     input.value = "";
     haptic("light");
     const answer = dj.ask(text);
+    if (dj.shouldSearchStation(text)) {
+      const result = { text: t("dj.searching"), songs: [], at: Date.now(), pending: true };
+      djChat.push({ me: true, text }, result);
+      if (djChat.length > 30) djChat.splice(0, djChat.length - 30);
+      draw();
+      searchStationMusic(text).then(async (remote) => {
+        try { await loadLibrary(); } catch { /* retain the current catalog */ }
+        result.songs = remote.map((song) => getSong(song.id)).filter(Boolean);
+        if (result.songs.length) result.text = t("dj.searchResults", { n: result.songs.length });
+        else result.text = remote.length ? t("dj.searchRefresh") : t("dj.searchNone");
+        result.pending = false;
+        draw();
+      }).catch(() => {
+        result.text = t("dj.searchError");
+        result.songs = [];
+        result.pending = false;
+        draw();
+      });
+      return;
+    }
     djChat.push({ me: true, text }, { text: answer.text, songs: answer.songs, at: Date.now() });
     if (djChat.length > 30) djChat.splice(0, djChat.length - 30);
     draw();
     if (answer.songs.length) playList(answer.songs, 0, { type: "mix", id: `dj-${Date.now()}`, title: "DJ" });
+  }
+  async function processUpload(file) {
+    haptic("light");
+    if (file.size > 20 * 1024 * 1024) {
+      djChat.push({ me: true, text: `📎 ${file.name}` }, { text: t("dj.uploadTooLarge"), songs: [], at: Date.now() });
+      if (djChat.length > 30) djChat.splice(0, djChat.length - 30);
+      draw();
+      return;
+    }
+    const progress = { text: t("dj.uploadStart"), songs: [], at: Date.now(), pending: true };
+    djChat.push({ me: true, text: `📎 ${file.name}` }, progress);
+    if (djChat.length > 30) djChat.splice(0, djChat.length - 30);
+    draw();
+    try {
+      const queued = await uploadStationMedia(file, (n) => { progress.text = t("dj.uploadProgress", { n }); draw(); });
+      progress.jobId = queued.id;
+      progress.text = t("dj.uploadProcessing");
+      draw();
+      let failures = 0;
+      for (let attempt = 0; attempt < 300; attempt++) {
+        await new Promise((resolve) => setTimeout(resolve, 4000));
+        let job;
+        try { job = await getStationJob(queued.id); failures = 0; }
+        catch (error) {
+          if (++failures >= 5) throw error;
+          continue;
+        }
+        progress.text = job.message || t("dj.uploadProcessing");
+        if (["COMPLETED", "DUPLICATE"].includes(job.status)) {
+          try { await loadLibrary(); } catch { /* status is authoritative; the library may refresh on the next visit */ }
+          const song = job.result?.id ? getSong(job.result.id) : null;
+          progress.songs = song ? [song] : [];
+          progress.text = job.status === "DUPLICATE" ? t("dj.uploadDuplicate") : t("dj.uploadReady");
+          progress.pending = false;
+          draw();
+          return;
+        }
+        if (job.status === "FAILED") {
+          progress.text = t("dj.uploadError");
+          progress.pending = false;
+          draw();
+          return;
+        }
+        draw();
+      }
+      progress.text = t("dj.uploadWait");
+      progress.pending = false;
+    } catch (error) {
+      progress.text = error.message || t("dj.uploadError");
+      progress.pending = false;
+    }
+    draw();
   }
   v.append(hello, log, h("div", { class: "dj-bottom" }, chips, form));
   draw();

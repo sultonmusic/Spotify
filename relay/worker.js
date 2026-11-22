@@ -8,6 +8,11 @@
 import { DurableObject } from "cloudflare:workers";
 
 const API = "https://api.github.com";
+const MUSIC_SITE_ORIGIN = "https://sultonmusic.github.io";
+const MUSIC_MAX_BYTES = 20 * 1024 * 1024;
+const MUSIC_CHUNK_BYTES = 3 * 1024 * 1024;
+let stationAdminCache = { at: 0, ids: null };
+let stationLibraryCache = { at: 0, songs: null };
 
 async function github(env, path, init = {}) {
   return fetch(`${API}/repos/${env.REPO}${path}`, {
@@ -29,6 +34,166 @@ async function telegram(env, method, body = {}) {
     body: JSON.stringify(body),
   });
   return res.json();
+}
+
+function hex(bytes) {
+  return [...new Uint8Array(bytes)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+function encodeJsonHeader(value) {
+  const bytes = new TextEncoder().encode(JSON.stringify(value));
+  let binary = "";
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary);
+}
+
+function decodeJsonHeader(value) {
+  return JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(value), (char) => char.charCodeAt(0))));
+}
+
+async function hmac(key, message) {
+  const cryptoKey = await crypto.subtle.importKey("raw", key, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  return new Uint8Array(await crypto.subtle.sign("HMAC", cryptoKey, new TextEncoder().encode(message)));
+}
+
+async function verifyMiniApp(request, env, maxAge = 86_400) {
+  const origin = request.headers.get("Origin");
+  if (origin !== MUSIC_SITE_ORIGIN) return null;
+  const raw = request.headers.get("X-Telegram-Init-Data") || "";
+  if (!raw || raw.length > 16_384) return null;
+  const params = new URLSearchParams(raw);
+  const received = params.get("hash") || "";
+  const authDate = Number(params.get("auth_date"));
+  const now = Math.floor(Date.now() / 1000);
+  if (!/^[a-f0-9]{64}$/i.test(received) || !Number.isInteger(authDate) || authDate > now + 60 || now - authDate > maxAge) return null;
+  const data = [...params.entries()].filter(([key]) => key !== "hash").sort(([a], [b]) => a.localeCompare(b))
+    .map(([key, value]) => `${key}=${value}`).join("\n");
+  const secret = await hmac(new TextEncoder().encode("WebAppData"), env.TELEGRAM_BOT_TOKEN);
+  const expected = hex(await hmac(secret, data));
+  let diff = expected.length ^ received.length;
+  for (let i = 0; i < Math.min(expected.length, received.length); i++) diff |= expected.charCodeAt(i) ^ received.toLowerCase().charCodeAt(i);
+  if (diff) return null;
+  try {
+    const user = JSON.parse(params.get("user") || "null");
+    if (!user || !Number.isSafeInteger(user.id) || user.is_bot) return null;
+    return { uid: String(user.id), authDate };
+  } catch { return null; }
+}
+
+async function stationAdmins(env) {
+  if (stationAdminCache.ids && Date.now() - stationAdminCache.at < 60_000) return stationAdminCache.ids;
+  const site = (env.SITE_URL || "https://sultonmusic.github.io/Spotify/").replace(/\/?$/, "/");
+  const response = await fetch(`${site}library/songs.json`, { headers: { "Cache-Control": "no-cache" } });
+  if (!response.ok) throw new Error(`station library: HTTP ${response.status}`);
+  const data = await response.json();
+  const ids = Array.isArray(data?.site?.admins) ? data.site.admins : [];
+  stationAdminCache = { at: Date.now(), ids };
+  return ids;
+}
+
+async function isStationAdmin(env, uid) {
+  try {
+    const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(uid), "PBKDF2", false, ["deriveBits"]);
+    const bits = await crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt: new TextEncoder().encode("cavi-music:admin"), iterations: 150_000 }, key, 256);
+    const digest = hex(bits);
+    return (await stationAdmins(env)).some((item) => typeof item === "string" && item.length === digest.length &&
+      [...digest].reduce((d, ch, i) => d | (ch.charCodeAt(0) ^ item[i].charCodeAt(0)), 0) === 0);
+  } catch { return false; }
+}
+
+async function requireStationOwner(request, env, maxAge) {
+  const identity = await verifyMiniApp(request, env, maxAge);
+  return identity && await isStationAdmin(env, identity.uid) ? identity : null;
+}
+
+function musicCors(request) {
+  const origin = request.headers.get("Origin");
+  if (origin !== MUSIC_SITE_ORIGIN) return {};
+  return { "Access-Control-Allow-Origin": origin, "Vary": "Origin", "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, X-Telegram-Init-Data", "Cache-Control": "no-store" };
+}
+
+function musicJson(request, body, status = 200) {
+  return Response.json(body, { status, headers: musicCors(request) });
+}
+
+function webMusicDO(env, id) {
+  return env.WEBMUSIC.get(env.WEBMUSIC.idFromName("music-jobs"));
+}
+
+async function jobSignatureOK(request, env, action, id) {
+  const timestamp = request.headers.get("X-Music-Timestamp") || "";
+  const signature = request.headers.get("X-Music-Signature") || "";
+  if (!/^\d{10}$/.test(timestamp) || Math.abs(Math.floor(Date.now() / 1000) - Number(timestamp)) > 300 || !/^[a-f0-9]{64}$/i.test(signature)) return false;
+  const expected = hex(await hmac(new TextEncoder().encode(env.DISPATCH_TOKEN), `cavi-web-music\n${action}\n${id}\n${timestamp}`));
+  let diff = expected.length ^ signature.length;
+  for (let i = 0; i < Math.min(expected.length, signature.length); i++) diff |= expected.charCodeAt(i) ^ signature.toLowerCase().charCodeAt(i);
+  return diff === 0;
+}
+
+const AUDIO_TYPES = new Set([".mp3", ".m4a", ".aac", ".flac", ".ogg", ".oga", ".opus", ".wav", ".wma", ".aif", ".aiff", ".ape", ".alac", ".amr", ".mka", ".weba"]);
+const VIDEO_TYPES = new Set([".mp4", ".mov", ".mkv", ".webm", ".avi", ".3gp", ".m4v"]);
+
+function validateUpload(file) {
+  const name = String(file.name || "upload").split(/[\\/]/).pop().replace(/[\u0000-\u001f]/g, "").slice(0, 160);
+  const ext = (name.match(/\.[a-z0-9]{1,8}$/i) || [""])[0].toLowerCase();
+  const mime = String(file.type || "application/octet-stream").toLowerCase().slice(0, 100);
+  const kind = VIDEO_TYPES.has(ext) ? "video" : AUDIO_TYPES.has(ext) ? "audio" : "";
+  if (!kind || (kind === "audio" && !mime.startsWith("audio/") && mime !== "application/octet-stream") ||
+      (kind === "video" && !mime.startsWith("video/") && mime !== "application/octet-stream")) return null;
+  return { name, ext, mime, kind };
+}
+
+async function createMusicUpload(request, env) {
+  const headers = musicCors(request);
+  if (!headers["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
+  const identity = await requireStationOwner(request, env, 3600);
+  if (!identity) return musicJson(request, { error: "owner authorization required; open the site from the Telegram bot" }, 403);
+  const length = Number(request.headers.get("Content-Length") || 0);
+  if (length > MUSIC_MAX_BYTES + 256 * 1024) return musicJson(request, { error: "file exceeds 20 MB" }, 413);
+  let form;
+  try { form = await request.formData(); } catch { return musicJson(request, { error: "invalid upload" }, 400); }
+  const file = form.get("file");
+  if (!file || typeof file.arrayBuffer !== "function") return musicJson(request, { error: "choose an audio or video file" }, 400);
+  if (!file.size || file.size > MUSIC_MAX_BYTES) return musicJson(request, { error: "file must be between 1 byte and 20 MB" }, 413);
+  const details = validateUpload(file);
+  if (!details) return musicJson(request, { error: "unsupported audio/video file type" }, 415);
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  if (bytes.byteLength !== file.size || bytes.byteLength > MUSIC_MAX_BYTES) return musicJson(request, { error: "upload size mismatch" }, 400);
+  const fileKey = hex(await crypto.subtle.digest("SHA-256", bytes));
+  const id = crypto.randomUUID();
+  const meta = { id, uid: identity.uid, fileName: details.name, mime: details.mime, kind: details.kind,
+    size: bytes.byteLength, fileKey, createdAt: Date.now() };
+  const stub = webMusicDO(env, id);
+  const saved = await stub.fetch("https://music-jobs/create", { method: "POST",
+    headers: { "Content-Type": "application/octet-stream", "X-Music-Meta": encodeJsonHeader(meta) }, body: bytes });
+  if (!saved.ok) return musicJson(request, await saved.json().catch(() => ({ error: "could not queue upload" })), saved.status);
+  const dispatch = await github(env, "/actions/workflows/web-music.yml/dispatches", { method: "POST",
+    headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ref: env.BRANCH, inputs: { job_id: id } }) });
+  if (!dispatch.ok) {
+    await stub.fetch(`https://music-jobs/status/${id}`, { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ uid: identity.uid, status: "FAILED", message: "Could not start the processor. Try again later." }) });
+    return musicJson(request, { error: "could not start music processing" }, 503);
+  }
+  return musicJson(request, { ...(await saved.json()), status: "QUEUED" }, 202);
+}
+
+async function publicMusicJob(request, env, id) {
+  if (!(await requireStationOwner(request, env))) return musicJson(request, { error: "owner authorization required" }, 403);
+  const identity = await verifyMiniApp(request, env);
+  const response = await webMusicDO(env, id).fetch(`https://music-jobs/job/${id}`, { headers: { "X-Music-Uid": identity.uid } });
+  return new Response(response.body, { status: response.status, headers: { ...musicCors(request), "Content-Type": "application/json" } });
+}
+
+async function internalMusic(request, env, url) {
+  const match = url.pathname.match(/^\/internal\/music\/jobs\/([a-f0-9-]{36})\/(input|status)$/i);
+  if (!match) return new Response("not found", { status: 404 });
+  const [, id, action] = match;
+  if (!(await jobSignatureOK(request, env, action, id))) return new Response("forbidden", { status: 403 });
+  const stub = webMusicDO(env, id);
+  if (action === "input" && request.method === "GET") return stub.fetch(`https://music-jobs/input/${id}`);
+  if (action === "status" && request.method === "POST") return stub.fetch(`https://music-jobs/status/${id}`, { method: "POST", body: request.body, headers: { "Content-Type": "application/json" } });
+  return new Response("method not allowed", { status: 405 });
 }
 
 /** Is a run of the station workflow queued or running? (Then it will read the messages itself.) */
@@ -117,14 +282,140 @@ export class AdStats extends DurableObject {
   }
 }
 
+// Private, owner-only upload queue. Files are split into 3 MiB rows because SQLite-backed Durable Objects
+// cap individual BLOBs at 8 MiB. Raw uploads are removed as soon as the Actions worker finishes.
+export class WebMusicJobs extends DurableObject {
+  constructor(ctx, env) {
+    super(ctx, env);
+    this.sql = ctx.storage.sql;
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS jobs (
+      id TEXT PRIMARY KEY, uid TEXT NOT NULL, file_name TEXT NOT NULL, mime TEXT NOT NULL, kind TEXT NOT NULL,
+      size INTEGER NOT NULL, file_key TEXT NOT NULL, status TEXT NOT NULL, message TEXT, result TEXT,
+      created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL
+    )`);
+    this.sql.exec("CREATE INDEX IF NOT EXISTS jobs_uid_created ON jobs(uid, created_at)");
+    this.sql.exec("CREATE TABLE IF NOT EXISTS chunks (job_id TEXT NOT NULL, part INTEGER NOT NULL, bytes BLOB NOT NULL, PRIMARY KEY(job_id, part))");
+  }
+
+  async fetch(request) {
+    const url = new URL(request.url);
+    if (url.pathname === "/create" && request.method === "POST") {
+      let meta;
+      try { meta = decodeJsonHeader(request.headers.get("X-Music-Meta") || ""); }
+      catch { return Response.json({ error: "invalid upload metadata" }, { status: 400 }); }
+      const bytes = new Uint8Array(await request.arrayBuffer());
+      if (!meta.id || !meta.uid || bytes.byteLength !== meta.size || bytes.byteLength > MUSIC_MAX_BYTES) {
+        return Response.json({ error: "invalid upload payload" }, { status: 400 });
+      }
+      const now = Date.now();
+      this.sql.exec("DELETE FROM jobs WHERE created_at < ?", now - 7 * 86_400_000);
+      this.sql.exec("DELETE FROM chunks WHERE job_id NOT IN (SELECT id FROM jobs)");
+      const running = this.sql.exec("SELECT COUNT(*) AS n FROM jobs WHERE uid = ? AND status IN ('QUEUED','PROCESSING','UPLOADING')", meta.uid).toArray()[0]?.n || 0;
+      if (running >= 2) return Response.json({ error: "one or two uploads are already processing" }, { status: 429 });
+      const recent = this.sql.exec("SELECT COUNT(*) AS n FROM jobs WHERE uid = ? AND created_at > ?", meta.uid, now - 3_600_000).toArray()[0]?.n || 0;
+      if (recent >= 6) return Response.json({ error: "upload limit reached; try again in an hour" }, { status: 429 });
+      this.sql.exec("INSERT INTO jobs VALUES (?, ?, ?, ?, ?, ?, ?, 'QUEUED', 'Waiting for the processor', NULL, ?, ?)",
+        meta.id, meta.uid, meta.fileName, meta.mime, meta.kind, meta.size, meta.fileKey, now, now);
+      for (let offset = 0, part = 0; offset < bytes.length; offset += MUSIC_CHUNK_BYTES, part++) {
+        this.sql.exec("INSERT INTO chunks VALUES (?, ?, ?)", meta.id, part, bytes.slice(offset, offset + MUSIC_CHUNK_BYTES));
+      }
+      return Response.json({ id: meta.id, status: "QUEUED", createdAt: now }, { status: 202 });
+    }
+
+    const jobMatch = url.pathname.match(/^\/job\/([a-f0-9-]{36})$/i);
+    if (jobMatch && request.method === "GET") {
+      const job = this.sql.exec("SELECT id, uid, file_name, kind, size, status, message, result, created_at, updated_at FROM jobs WHERE id = ?", jobMatch[1]).toArray()[0];
+      if (!job) return Response.json({ error: "job not found" }, { status: 404 });
+      if (job.uid !== request.headers.get("X-Music-Uid")) return Response.json({ error: "forbidden" }, { status: 403 });
+      let result = null;
+      try { result = job.result ? JSON.parse(job.result) : null; } catch { /* malformed result stays hidden */ }
+      return Response.json({ id: job.id, status: job.status, message: job.message, result,
+        fileName: job.file_name, kind: job.kind, size: job.size, createdAt: job.created_at, updatedAt: job.updated_at });
+    }
+
+    const inputMatch = url.pathname.match(/^\/input\/([a-f0-9-]{36})$/i);
+    if (inputMatch && request.method === "GET") {
+      const job = this.sql.exec("SELECT file_name, mime, kind, size, file_key FROM jobs WHERE id = ?", inputMatch[1]).toArray()[0];
+      if (!job) return new Response("job not found", { status: 404 });
+      const rows = this.sql.exec("SELECT bytes FROM chunks WHERE job_id = ? ORDER BY part", inputMatch[1]).toArray();
+      const body = new Uint8Array(job.size);
+      let offset = 0;
+      for (const row of rows) { const chunk = new Uint8Array(row.bytes); body.set(chunk, offset); offset += chunk.length; }
+      if (offset !== job.size) return new Response("upload data expired", { status: 410 });
+      const meta = encodeJsonHeader({ fileName: job.file_name, mime: job.mime, kind: job.kind, fileKey: job.file_key });
+      return new Response(body, { headers: { "Content-Type": job.mime, "X-Music-Meta": meta, "Cache-Control": "no-store" } });
+    }
+
+    const statusMatch = url.pathname.match(/^\/status\/([a-f0-9-]{36})$/i);
+    if (statusMatch && request.method === "POST") {
+      let update;
+      try { update = await request.json(); } catch { return Response.json({ error: "invalid status" }, { status: 400 }); }
+      const allowed = new Set(["PROCESSING", "UPLOADING", "COMPLETED", "DUPLICATE", "FAILED"]);
+      if (!allowed.has(update.status)) return Response.json({ error: "invalid status" }, { status: 400 });
+      const job = this.sql.exec("SELECT id, status FROM jobs WHERE id = ?", statusMatch[1]).toArray()[0];
+      if (!job) return Response.json({ error: "job not found" }, { status: 404 });
+      let result = null;
+      if (update.result && typeof update.result === "object") {
+        result = JSON.stringify(update.result);
+        if (result.length > 24_000) return Response.json({ error: "result is too large" }, { status: 413 });
+      }
+      const message = String(update.message || "").slice(0, 240);
+      this.sql.exec("UPDATE jobs SET status = ?, message = ?, result = COALESCE(?, result), updated_at = ? WHERE id = ?",
+        update.status, message, result, Date.now(), statusMatch[1]);
+      if (["COMPLETED", "DUPLICATE", "FAILED"].includes(update.status)) this.sql.exec("DELETE FROM chunks WHERE job_id = ?", statusMatch[1]);
+      return Response.json({ ok: true });
+    }
+    return new Response("not found", { status: 404 });
+  }
+}
+
 const EVENTS = new Set(["view", "iview", "skip", "complete", "click"]);
-const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" };
+const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type, X-Telegram-Init-Data" };
 const IDENTIFY_ORIGINS = new Set(["https://sultonmusic.github.io"]);
 const stats = (env) => env.ADSTATS.get(env.ADSTATS.idFromName("all"));
 
 async function sha256(text) {
   const bytes = new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)));
   return [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function stationSongs(env) {
+  if (stationLibraryCache.songs && Date.now() - stationLibraryCache.at < 30_000) return stationLibraryCache.songs;
+  const site = (env.SITE_URL || "https://sultonmusic.github.io/Spotify/").replace(/\/?$/, "/");
+  const response = await fetch(`${site}library/songs.json`, { headers: { "Cache-Control": "no-cache" } });
+  if (!response.ok) throw new Error(`station library: HTTP ${response.status}`);
+  const data = await response.json();
+  stationLibraryCache = { at: Date.now(), songs: Array.isArray(data.songs) ? data.songs.filter((song) => song?.id && song?.src) : [] };
+  return stationLibraryCache.songs;
+}
+
+function musicNorm(text) {
+  return String(text || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[ʻʼ’'`´]/g, "").replace(/&/g, " and ").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+}
+
+async function searchMusic(request, env, url) {
+  if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
+  const query = String(url.searchParams.get("q") || "").trim().slice(0, 120);
+  if (query.length < 2) return musicJson(request, { error: "enter at least two characters" }, 400);
+  let songs;
+  try { songs = await stationSongs(env); } catch { return musicJson(request, { error: "music library unavailable" }, 503); }
+  const q = musicNorm(query), words = q.split(" ").filter(Boolean);
+  const found = [];
+  for (const song of songs) {
+    const title = musicNorm(song.title), artist = musicNorm(song.artist), album = musicNorm(song.album);
+    const all = `${artist} ${title} ${album}`;
+    let score = all.includes(q) ? 100 : words.every((word) => all.split(" ").some((part) => part.startsWith(word))) ? 70 : 0;
+    if (title === q) score += 30;
+    else if (title.startsWith(q)) score += 20;
+    if (artist === q || artist.startsWith(q)) score += 12;
+    if (score) found.push({ score, song: { id: song.id, title: song.title, artist: song.artist, artists: song.artists,
+      album: song.album, duration: song.duration, cover: song.cover, color: song.color, src: song.src,
+      mime: song.mime, size: song.size, genre: song.genre, language: song.language, year: song.year,
+      moods: song.moods, video: song.video } });
+  }
+  found.sort((a, b) => b.score - a.score);
+  return musicJson(request, { query, count: found.length, songs: found.slice(0, 12).map((item) => item.song) });
 }
 
 // ------------------------------------------------------------------ health (no secrets in the answer)
@@ -158,6 +449,11 @@ async function health(env) {
 async function handle(request, env) {
   const url = new URL(request.url);
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
+  if (url.pathname === "/api/music/search" && request.method === "GET") return searchMusic(request, env, url);
+  if (url.pathname === "/api/music/upload" && request.method === "POST") return createMusicUpload(request, env);
+  const musicJob = url.pathname.match(/^\/api\/music\/jobs\/([a-f0-9-]{36})$/i);
+  if (musicJob && request.method === "GET") return publicMusicJob(request, env, musicJob[1]);
+  if (url.pathname.startsWith("/internal/music/")) return internalMusic(request, env, url);
   if (url.pathname === "/identify" && request.method === "POST") {
     const origin = request.headers.get("Origin") || "";
     const headers = { "Access-Control-Allow-Origin": origin, "Vary": "Origin", "Cache-Control": "no-store" };

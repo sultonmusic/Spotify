@@ -12,11 +12,20 @@ crons = ["* * * * *"]
 REPO = "sultonmusic/Spotify"
 BRANCH = "ccr-804fe7ec-qgezod"
 WORKFLOW = "station.yml"
+SITE_URL = "https://sultonmusic.github.io/Spotify/"
 
 [[durable_objects.bindings]]
 name = "ADSTATS"
 class_name = "AdStats"
 
+[[durable_objects.bindings]]
+name = "WEBMUSIC"
+class_name = "WebMusicJobs"
+
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["AdStats"]
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["WebMusicJobs"]

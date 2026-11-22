@@ -364,7 +364,7 @@ class Station:
         return self.bot.download(media["file_id"], dest)
 
     def import_song(self, msg: dict, kind: str, media: dict, file_key: str, progress,
-                    force: bool = False) -> tuple[dict, str]:
+                    force: bool = False, source_path: Path | None = None, accept_variant: bool = False) -> tuple[dict, str]:
         """Downloads, identifies and stores a song.
 
         Returns (song, outcome): "added"; "video" (a music video attached to its song); "duplicate" (already on the
@@ -375,7 +375,7 @@ class Station:
         with tempfile.TemporaryDirectory() as tmp_name:
             tmp = Path(tmp_name)
             ext = Path(media.get("file_name") or "").suffix.lower() or {"voice": ".ogg", "video": ".mp4"}.get(kind, ".mp3")
-            src = self.fetch(msg, media, tmp / f"input{ext}", progress)
+            src = Path(source_path) if source_path else self.fetch(msg, media, tmp / f"input{ext}", progress)
             info = audio.probe(src)
             if not info.has_audio:
                 raise RuntimeError("faylda audio topilmadi")
@@ -404,14 +404,16 @@ class Station:
                     s["title"], s["artist"], meta["title"], meta["artist"])), None)
                 if target:
                     self.attach_video(target, src, tmp, progress, same_audio=False, file_key=file_key)
-                    self.remember_message(target, msg_id)
+                    if msg_id:
+                        self.remember_message(target, msg_id)
                     return target, "video"
 
             dup = self.lib.duplicate_of(meta["title"], meta["artist"], info.duration)
             if dup and not force:
-                self.remember_message(dup, msg_id)
+                if msg_id:
+                    self.remember_message(dup, msg_id)
                 return dup, "duplicate"
-            if variant and not force:
+            if variant and not force and not accept_variant:
                 return {"title": meta["title"], "artist": meta["artist"], "variant": variant,
                         "base": base_title(meta["title"])}, "ask"
 
