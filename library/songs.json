@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-20T13:17:47Z",
- "count": 100,
+ "updatedAt": "2026-11-22T20:26:28Z",
+ "count": 110,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1989,9 +1989,670 @@
    "bioTr": [
     "uz"
    ]
+  },
+  "K-391": {
+   "aliases": [],
+   "verified": true,
+   "itunesId": 519186020,
+   "apple": "https://music.apple.com/us/artist/k-391/519186020",
+   "checked": "2026-11-22T20:21:52Z",
+   "verifiedAt": "2026-11-22T20:21:52Z",
+   "deezerId": 1722651,
+   "deezer": "https://www.deezer.com/artist/1722651",
+   "image": "library/artists/k-391.jpg",
+   "color": "#943f52",
+   "fans": 251887,
+   "albums": 52,
+   "bioChecked": "2026-11-22T20:26:21Z",
+   "bio": {
+    "en": "Kenneth Osberg Nilsen, known professionally as K-391, is a Norwegian music producer and DJ. He is best known for his 2018 single \"Ignite\", a song featuring Alan Walker, Julie Bergan and Seungri which reached number one in Norway.",
+    "uz": "Kenneth Osberg Nilsen, K-391 nomi bilan mashhur boʻlgan – norvegiyalik musiqa prodyuser va DJ. U 2018-yil „Ignite“ singli bilan mashhur, Alan Walker, Julie Bergan va Seungri ishtirokidagi qoʻshiq Norvegiya birinchi oʻrinni egalladi.",
+    "ru": "Кеннет Осберг Нильсен, профессионально известный как К-391, — норвежский музыкальный продюсер и диджей. Он наиболее известен своим синглом 2018 года «Ignite», песней с участием Алана Уокера, Джули Берган и Сынри, которая достигла первого места в Норвегии."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/K-391",
+    "uz": "https://uz.wikipedia.org/wiki/K-391"
+   },
+   "desc": {
+    "en": "Norwegian music producer and DJ (born 1994)",
+    "uz": "norvegiyalik musiqa prodyuser va DJ"
+   },
+   "bioTr": [
+    "ru"
+   ]
+  },
+  "Julie Bergan": {
+   "aliases": [],
+   "verified": true,
+   "checked": "2026-11-22T20:26:17Z",
+   "verifiedAt": "2026-11-22T20:26:17Z",
+   "deezerId": 4330987,
+   "deezer": "https://www.deezer.com/artist/4330987",
+   "fans": 65270,
+   "image": "library/artists/julie-bergan.jpg",
+   "color": "#3d50c2",
+   "bioChecked": "2026-11-22T20:26:25Z",
+   "bio": {
+    "en": "Julie Bergan is a Norwegian singer and songwriter born in Skien, Norway. Bergan started releasing covers on YouTube at the age of 16, eventually signing a record deal with Warner Music Norway in 2013. In 2015 she attained mainstream success in Denmark and Germany with her single \"All Hours\", before breaking through in her native Norway in 2016 with \"Arigato\" peaking at number one. Bergan's major-label debut album Turn On the Light was released in 2018. She returned to the number one spot in 2018 on VG-lista after collaborating with K-391, Alan Walker and Seungri on \"Ignite\".",
+    "ru": "Ю́лье Берга́н — норвежская певица и автор-исполнитель. Начала свою карьеру в возрасте 16 лет с выкладывания кавер-песен на YouTube. В 2013 году подписала свой первый контракт со звукозаписывающей студией Warner Music Norway. Наибольшую популярность получил её сингл «All Hours», который возымел успех в Дании и Германии в 2015 году. А годом позже добилась популярности в родной Норвегии с песней «Arigato». Свой дебютный альбом Берган выпустила в 2018 году под названием «Turn on the Light».",
+    "uz": "Julie Bergan norvegiyalik qo'shiqchi va qo'shiq muallifi, Norvegiyaning Skien shahrida tug'ilgan. Bergan 16 yoshida YouTube-da muqovalarni chiqarishni boshladi va oxir-oqibat 2013 yilda Warner Music Norway bilan rekord shartnoma imzoladi. 2015 yilda u \"All Hours\" qo'shig'i bilan Daniya va Germaniyada katta muvaffaqiyatlarga erishdi, 2016 yilda o'z vatani Norvegiyada \"Arigato\" qo'shig'i bilan birinchi o'rinni egalladi. Berganning \"Turn On the Light\" debyut albomi 2018 yilda chiqarilgan. U 2018 yilda K-391, Alan Uoker va Seungri bilan \"Ignite\" filmida hamkorlik qilganidan so'ng VG-listada birinchi o'ringa qaytdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Julie_Bergan",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%2C_%D0%AE%D0%BB%D1%8C%D0%B5"
+   },
+   "desc": {
+    "en": "Norwegian singer and songwriter",
+    "ru": "норвежская певица"
+   },
+   "bioTr": [
+    "uz"
+   ]
+  },
+  "SeungRi": {
+   "aliases": [],
+   "verified": false,
+   "checked": "2026-11-22T20:26:17Z"
+  },
+  "The Walkers": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 205195,
+   "itunesId": 1624510976,
+   "deezer": "https://www.deezer.com/artist/205195",
+   "apple": "https://music.apple.com/us/artist/the-walkers/1624510976",
+   "image": "library/artists/the-walkers.jpg",
+   "color": "#c8a231",
+   "checked": "2026-11-22T20:22:08Z",
+   "verifiedAt": "2026-11-22T20:22:08Z",
+   "fans": 3427,
+   "albums": 63,
+   "bioChecked": "2026-11-22T20:26:28Z"
+  },
+  "SAPPHIRE": {
+   "aliases": [
+    "Sapphire"
+   ],
+   "verified": true,
+   "deezerId": 1378534,
+   "deezer": "https://www.deezer.com/artist/1378534",
+   "image": "library/artists/sapphire.jpg",
+   "color": "#545874",
+   "checked": "2026-11-22T20:22:09Z",
+   "verifiedAt": "2026-11-22T20:22:09Z",
+   "fans": 4101,
+   "albums": 263
+  },
+  "Tungevaag": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 2221921,
+   "deezer": "https://www.deezer.com/artist/2221921",
+   "image": "library/artists/tungevaag.jpg",
+   "color": "#541679",
+   "checked": "2026-11-22T20:23:15Z",
+   "verifiedAt": "2026-11-22T20:23:15Z",
+   "fans": 182898,
+   "albums": 7
+  },
+  "Mangoo": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 2221931,
+   "deezer": "https://www.deezer.com/artist/2221931",
+   "image": "library/artists/mangoo.jpg",
+   "color": "#00478f",
+   "checked": "2026-11-22T20:23:15Z",
+   "verifiedAt": "2026-11-22T20:23:15Z",
+   "fans": 3008,
+   "albums": 42
+  },
+  "Martin Tungevaag": {
+   "aliases": [],
+   "verified": true,
+   "checked": "2026-11-22T20:26:18Z",
+   "verifiedAt": "2026-11-22T20:26:18Z",
+   "deezerId": 2221921,
+   "deezer": "https://www.deezer.com/artist/2221921",
+   "fans": 182898,
+   "image": "library/artists/martin-tungevaag.jpg",
+   "color": "#541679"
+  },
+  "Emelie Hollow": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 231083155,
+   "deezer": "https://www.deezer.com/artist/231083155",
+   "image": "library/artists/emelie-hollow.jpg",
+   "color": "#7c6a95",
+   "checked": "2026-11-22T20:23:23Z",
+   "verifiedAt": "2026-11-22T20:23:23Z",
+   "fans": 17
+  },
+  "Sorana": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1651733,
+   "deezer": "https://www.deezer.com/artist/1651733",
+   "image": "library/artists/sorana.jpg",
+   "color": "#1257ed",
+   "checked": "2026-11-22T20:24:11Z",
+   "verifiedAt": "2026-11-22T20:24:11Z",
+   "fans": 4684,
+   "albums": 38
   }
  },
  "songs": [
+  {
+   "id": "327bcd1ced",
+   "title": "Lost Control",
+   "artist": "Alan Walker, Sorana",
+   "artists": [
+    "Alan Walker",
+    "Sorana"
+   ],
+   "album": "Different World",
+   "year": 2018,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 222.4,
+   "src": "library/audio/327bcd1ced.m4a",
+   "cover": "library/covers/327bcd1ced.jpg",
+   "color": "#cfad30",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     350,
+     360
+    ]
+   },
+   "addedAt": "2026-11-22T20:24:15Z",
+   "mime": "audio/mp4",
+   "size": 3597743,
+   "storage": "pages",
+   "lufs": -8.2,
+   "gain": -5.8,
+   "via": "audio",
+   "fileKey": "327bcd1ceda187a3",
+   "story": "library/stories/327bcd1ced.jpg"
+  },
+  {
+   "id": "ff1dc9fb52",
+   "title": "The Drum",
+   "artist": "Alan Walker",
+   "artists": [
+    "Alan Walker"
+   ],
+   "album": "Walkerverse, Pt. I - EP",
+   "year": 2022,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 187.69,
+   "src": "library/audio/ff1dc9fb52.m4a",
+   "cover": "library/covers/ff1dc9fb52.jpg",
+   "color": "#bda41b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     349,
+     359
+    ]
+   },
+   "addedAt": "2026-11-22T20:24:07Z",
+   "mime": "audio/mp4",
+   "size": 3036332,
+   "storage": "pages",
+   "lufs": -7.3,
+   "gain": -6.7,
+   "via": "audio",
+   "fileKey": "ff1dc9fb52386a19",
+   "story": "library/stories/ff1dc9fb52.jpg"
+  },
+  {
+   "id": "351f581091",
+   "title": "Alone",
+   "artist": "Alan Walker",
+   "artists": [
+    "Alan Walker"
+   ],
+   "album": "Alone - Single",
+   "year": 2016,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "romantic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": 97,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 163.33,
+   "src": "library/audio/351f581091.m4a",
+   "cover": "library/covers/351f581091.jpg",
+   "color": "#525f61",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     347,
+     358
+    ]
+   },
+   "addedAt": "2026-11-22T20:24:00Z",
+   "mime": "audio/mp4",
+   "size": 2642402,
+   "storage": "pages",
+   "lufs": -6.5,
+   "gain": -7.5,
+   "via": "audio",
+   "fileKey": "351f581091fefae6",
+   "story": "library/stories/351f581091.jpg"
+  },
+  {
+   "id": "c9a51a7918",
+   "title": "Lily",
+   "artist": "Alan Walker, K-391, Emelie Hollow",
+   "artists": [
+    "Alan Walker",
+    "K-391",
+    "Emelie Hollow"
+   ],
+   "album": "Different World",
+   "year": 2018,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 151,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 195.93,
+   "src": "library/audio/c9a51a7918.m4a",
+   "cover": "library/covers/c9a51a7918.jpg",
+   "color": "#cfad30",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     346,
+     357
+    ]
+   },
+   "addedAt": "2026-11-22T20:23:26Z",
+   "mime": "audio/mp4",
+   "size": 3169653,
+   "storage": "pages",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "c9a51a79183eeaff",
+   "story": "library/stories/c9a51a7918.jpg"
+  },
+  {
+   "id": "0772d701c0",
+   "title": "Play",
+   "artist": "K-391, Alan Walker, Tungevaag, Mangoo, Martin Tungevaag",
+   "artists": [
+    "K-391",
+    "Alan Walker",
+    "Tungevaag",
+    "Mangoo",
+    "Martin Tungevaag"
+   ],
+   "album": "Play (feat. Mangoo) - Single",
+   "year": 2019,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "calm",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": 102,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 168.14,
+   "src": "library/audio/0772d701c0.m4a",
+   "cover": "library/covers/0772d701c0.jpg",
+   "color": "#551679",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     345,
+     356
+    ]
+   },
+   "addedAt": "2026-11-22T20:23:19Z",
+   "mime": "audio/mp4",
+   "size": 2720192,
+   "storage": "pages",
+   "lufs": -9.3,
+   "gain": -4.7,
+   "via": "audio",
+   "fileKey": "0772d701c0a01a78",
+   "story": "library/stories/0772d701c0.jpg"
+  },
+  {
+   "id": "cbb4daaa27",
+   "title": "The Spectre",
+   "artist": "Alan Walker",
+   "artists": [
+    "Alan Walker"
+   ],
+   "album": "The Spectre - Single",
+   "year": 2017,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 128,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 206.31,
+   "src": "library/audio/cbb4daaa27.m4a",
+   "cover": "library/covers/cbb4daaa27.jpg",
+   "color": "#1b4474",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     344,
+     355
+    ]
+   },
+   "addedAt": "2026-11-22T20:23:10Z",
+   "mime": "audio/mp4",
+   "size": 3337516,
+   "storage": "pages",
+   "lufs": -6.2,
+   "gain": -7.8,
+   "via": "audio",
+   "fileKey": "cbb4daaa27b219a9",
+   "story": "library/stories/cbb4daaa27.jpg"
+  },
+  {
+   "id": "a122cedd8e",
+   "title": "Unity",
+   "artist": "The Walkers, SAPPHIRE, Alan Walker",
+   "artists": [
+    "The Walkers",
+    "SAPPHIRE",
+    "Alan Walker"
+   ],
+   "album": "Unity",
+   "year": 2022,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 229.02,
+   "src": "library/audio/a122cedd8e.m4a",
+   "cover": "library/covers/a122cedd8e.jpg",
+   "color": "#cba431",
+   "lyrics": "synced",
+   "confidence": 0.8,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": [
+     343,
+     354
+    ]
+   },
+   "addedAt": "2026-11-22T20:23:02Z",
+   "mime": "audio/mp4",
+   "size": 3704764,
+   "storage": "pages",
+   "lufs": -9.4,
+   "gain": -4.6,
+   "via": "audio",
+   "fileKey": "a122cedd8e93c197",
+   "story": "library/stories/a122cedd8e.jpg"
+  },
+  {
+   "id": "838ea5322b",
+   "title": "Unity",
+   "artist": "The Walkers, Alan Walker, SAPPHIRE",
+   "artists": [
+    "The Walkers",
+    "Alan Walker",
+    "SAPPHIRE"
+   ],
+   "album": "Unity - Single",
+   "year": 2022,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 203.99,
+   "src": "library/audio/838ea5322b.m4a",
+   "cover": "library/covers/838ea5322b.jpg",
+   "color": "#caa331",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     342,
+     353
+    ]
+   },
+   "addedAt": "2026-11-22T20:22:12Z",
+   "mime": "audio/mp4",
+   "size": 3299963,
+   "storage": "pages",
+   "lufs": -10.2,
+   "gain": -3.8,
+   "via": "audio",
+   "fileKey": "838ea5322b89de26",
+   "story": "library/stories/838ea5322b.jpg"
+  },
+  {
+   "id": "00c9a3470b",
+   "title": "Faded",
+   "artist": "Alan Walker",
+   "artists": [
+    "Alan Walker"
+   ],
+   "album": "Faded - EP",
+   "year": 2015,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 180,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 212.53,
+   "src": "library/audio/00c9a3470b.m4a",
+   "cover": "library/covers/00c9a3470b.jpg",
+   "color": "#3cb4c3",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     341,
+     352
+    ]
+   },
+   "addedAt": "2026-11-22T20:22:04Z",
+   "mime": "audio/mp4",
+   "size": 3438399,
+   "storage": "pages",
+   "lufs": -7.7,
+   "gain": -6.3,
+   "via": "audio",
+   "fileKey": "00c9a3470b756b7f",
+   "story": "library/stories/00c9a3470b.jpg"
+  },
+  {
+   "id": "39dce5f2b2",
+   "title": "Ignite",
+   "artist": "K-391, Alan Walker, Julie Bergan, SeungRi",
+   "artists": [
+    "K-391",
+    "Alan Walker",
+    "Julie Bergan",
+    "SeungRi"
+   ],
+   "album": "Ignite (feat. Alan Walker, Julie Bergan & SeungRi) - Single",
+   "year": 2018,
+   "genre": "Electronic",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 207.17,
+   "src": "library/audio/39dce5f2b2.m4a",
+   "cover": "library/covers/39dce5f2b2.jpg",
+   "color": "#7c2313",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     340,
+     351
+    ]
+   },
+   "addedAt": "2026-11-22T20:21:56Z",
+   "mime": "audio/mp4",
+   "size": 3351484,
+   "storage": "pages",
+   "lufs": -7.3,
+   "gain": -6.7,
+   "via": "audio",
+   "fileKey": "39dce5f2b2b891ef",
+   "story": "library/stories/39dce5f2b2.jpg"
+  },
   {
    "id": "a625cf7f2d",
    "title": "In the Name of Love",
@@ -6666,7 +7327,8 @@
    "tg": {
     "msgs": [
      36,
-     42
+     42,
+     348
     ]
    },
    "addedAt": "2026-09-29T20:37:01Z",
