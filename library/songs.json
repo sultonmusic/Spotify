@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-22T21:07:24Z",
+ "updatedAt": "2026-11-22T21:12:28Z",
  "count": 110,
  "site": {
   "admins": [
@@ -2150,7 +2150,24 @@
    "deezer": "https://www.deezer.com/artist/2221921",
    "fans": 182898,
    "image": "library/artists/martin-tungevaag.jpg",
-   "color": "#541679"
+   "color": "#541679",
+   "bioChecked": "2026-11-22T21:12:19Z",
+   "bio": {
+    "en": "Martin Tungevåg, known professionally as Martin Tungevaag or simply Tungevaag, is a Norwegian DJ and music producer who peaked at number #73 on the DJ Mag top 100 DJs list in 2023. He has achieved success in Europe, Asia and South America with the electronic songs \"Samsara 2015\", \"Wicked Wonderland\", \"All for Love\", \"Bad Boy\", \"Dance\", \"Peru\" and \"Play\" together with K-391, Alan Walker and Mangoo.",
+    "ru": "Мартин Тунгевог — норвежский ди-джей, подписан на лейблах Sony Records и Eont Kontor Records. Номинировался на премию «Грэмми».",
+    "uz": "Martin Tungevaag, professional tarzda Martin Tungevaag yoki oddiygina Tungevaag nomi bilan tanilgan, norvegiyalik DJ va musiqa prodyuseri bo'lib, 2023 yilda DJ Mag top 100 DJ ro'yxatida 73-o'rinni egallagan. U K-391, Alan Uoker va Mangu bilan birgalikda \"Samsara 2015\", \"Wicked Wonderland\", \"All for Love\", \"Bad Boy\", \"Dance\", \"Peru\" va \"Play\" elektron qo'shiqlari bilan Evropa, Osiyo va Janubiy Amerikada muvaffaqiyatga erishdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Martin_Tungevaag",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D1%83%D0%BD%D0%B3%D0%B5%D0%B2%D0%BE%D0%B3%2C_%D0%9C%D0%B0%D1%80%D1%82%D0%B8%D0%BD"
+   },
+   "desc": {
+    "en": "Norwegian DJ and music producer",
+    "ru": "норвежский ди-джей"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Emelie Hollow": {
    "aliases": [],
@@ -2161,7 +2178,8 @@
    "color": "#7c6a95",
    "checked": "2026-11-22T20:23:23Z",
    "verifiedAt": "2026-11-22T20:23:23Z",
-   "fans": 17
+   "fans": 17,
+   "bioChecked": "2026-11-22T21:12:23Z"
   },
   "Sorana": {
    "aliases": [],
@@ -2173,7 +2191,23 @@
    "checked": "2026-11-22T20:24:11Z",
    "verifiedAt": "2026-11-22T20:24:11Z",
    "fans": 4684,
-   "albums": 38
+   "albums": 38,
+   "bioChecked": "2026-11-22T21:12:28Z",
+   "bio": {
+    "en": "Sorana Paula Păcurar better known as Sorana Păcurar or simply as Sorana, is a Romanian singer and songwriter. Originally from Cluj-Napoca, she was a finalist for the 2010 Miss Romania title. Upon taking part in X Factor Romania, acting in the Romanian soap opera O nouă viață and being part of the Romanian group Lala Band, Sorana released her first single \"Povești\" (\"Stories\") in 2015 under Marius Moga's label DeMoga Music. She then left her native country to further pursue a musical career and relocated to London and then Los Angeles.",
+    "uz": "Sorana Paula Păcurar Sorana Păcurar yoki oddiygina Sorana sifatida tanilgan, ruminiyalik qo'shiqchi va qo'shiq muallifi. Asli Kluj-Napoka shahridan bo'lib, u 2010 yilda \"Miss Ruminiya\" unvoni uchun finalchi bo'lgan. X Factor Ruminiyada ishtirok etib, Ruminiya seriali O nouă viațăda rol o‘ynagan va Ruminiyaning Lala Band guruhining bir qismi bo‘lgan Sorana 2015 yilda Marius Moganing DeMoga Music yorlig‘i ostida o‘zining birinchi “Povești” (“Hikoyalar”) singlini chiqardi. Keyin u musiqiy karerasini davom ettirish uchun o'z mamlakatini tark etdi va Londonga, keyin esa Los-Anjelesga ko'chib o'tdi.",
+    "ru": "Сорана Паула Пэкурар, более известная как Сорана Пэкурар или просто Сорана, — румынская певица и автор песен. Родом из Клуж-Напоки, она была финалисткой конкурса «Мисс Румыния 2010». После участия в X Factor Румыния, участия в румынской мыльной опере O nouă viaă и участия в румынской группе Lala Band, Сорана выпустила свой первый сингл «Poveşti» («Истории») в 2015 году под лейблом Мариуса Моги DeMoga Music. Затем она покинула родную страну, чтобы продолжить музыкальную карьеру, и переехала в Лондон, а затем в Лос-Анджелес."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Sorana_(singer)"
+   },
+   "desc": {
+    "en": "Romanian singer and songwriter"
+   },
+   "bioTr": [
+    "uz",
+    "ru"
+   ]
   }
  },
  "songs": [
