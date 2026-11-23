@@ -1,8 +1,7 @@
 name: Music Station
 
-# Read new Telegram messages -> identify & tag songs -> commit library -> redeploy site.
-# Started by the relay (relay/, within a minute of a message) and, as a fallback, by the schedule
-# (GitHub often runs "every 5 minutes" schedules only every few hours).
+# Read queued Telegram messages -> identify & tag songs -> commit library -> redeploy site.
+# Started immediately by the relay webhook, with a schedule as a recovery path.
 on:
   schedule:
     - cron: "*/5 * * * *"
@@ -66,6 +65,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OWNER_IDS: ${{ secrets.OWNER_IDS }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
           AI_MODEL: ${{ vars.AI_MODEL }}
           AI_WEB_SEARCH: ${{ vars.AI_WEB_SEARCH }}
           SHAZAM: ${{ vars.SHAZAM }}

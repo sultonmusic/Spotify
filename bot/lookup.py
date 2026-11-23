@@ -77,8 +77,8 @@ def shazam(clip: Path) -> dict | None:
 # --------------------------------------------------------------------------- catalogues
 
 _VERSION_WORDS = re.compile(
-    r"\b(?:remix|mix|rmx|dub|live|cover|karaoke|instrumental|acoustic|version|edit|remaster(?:ed)?|sped|slowed|"
-    r"reprise|demo|club|extended|radio|tribute|minus)\b", re.I)
+    r"\b(?:remix|mix|rmx|dub|live|cover|karaoke|instrumental|acoustic|version|edit|remaster(?:ed)?|"
+    r"speed\s*up|sped|slowed|reverb|nightcore|bootleg|reprise|demo|club|extended|radio|tribute|minus)\b", re.I)
 
 
 def _score(cand_title: str, cand_artist: str, cand_duration: float, title: str, artist: str, duration: float) -> float:
@@ -184,17 +184,30 @@ def _deezer_track(r: dict) -> dict:
     }
 
 
+def _original_track_title(title: str) -> str:
+    """Remove common edit/remix labels so catalogue search can find the original recording first."""
+    version = (r"remix|rmx|mix|dub|slowed|sped\s*up|speed\s*up|nightcore|reverb|live|cover|karaoke|"
+               r"instrumental|acoustic|edit|remaster(?:ed)?|extended|radio|bootleg")
+    clean_title = re.sub(rf"\s*[\[(][^\])]*\b(?:{version})\b[^\])]*[\])]", "", title or "", flags=re.I)
+    match = re.search(rf"\b(?:{version})\b.*$", clean_title, flags=re.I)
+    if match:
+        clean_title = clean_title[:match.start()]
+    return re.sub(r"\s+", " ", clean_title).strip(" -–—()[]") or title
+
+
 def search_candidates(title: str, artist: str, duration: float,
                       fingerprint: dict | None = None, limit: int = 5) -> list[dict]:
     """Merge Shazam and public catalogue matches into a short, selectable result list."""
     candidates: list[dict] = []
+    original_title = _original_track_title(title)
+    search_titles = list(dict.fromkeys(t for t in (original_title, title) if t))
 
     def add(candidate: dict, source: str) -> None:
         candidate = {k: v for k, v in candidate.items() if v not in (None, "")}
         candidate["source"] = source
         candidate["score"] = float(candidate.get("score") or _score(
             candidate.get("title", ""), candidate.get("artist", ""), candidate.get("duration", 0),
-            title, artist, duration))
+            original_title, artist, duration))
         existing = next((item for item in candidates if same_song(
             item.get("title", ""), item.get("artist", ""),
             candidate.get("title", ""), candidate.get("artist", ""))), None)
@@ -217,36 +230,47 @@ def search_candidates(title: str, artist: str, duration: float,
         existing["sources"] = sorted(s for s in sources if s)
 
     if fingerprint and fingerprint.get("title"):
-        add({**fingerprint, "score": 1.0}, "Shazam")
+        add(fingerprint, "Shazam")
 
-    term = f"{artist} {title}".strip()
-    if term:
+    for search_title in search_titles:
+        term = f"{artist} {search_title}".strip()
+        if not term:
+            continue
         for country in ("US", "RU"):
             data = _get("https://itunes.apple.com/search", {
                 "term": term, "entity": "song", "media": "music", "limit": 15, "country": country,
             })
             for row in (data or {}).get("results", []):
                 score = _score(row.get("trackName", ""), row.get("artistName", ""),
-                               (row.get("trackTimeMillis") or 0) / 1000, title, artist, duration)
+                               (row.get("trackTimeMillis") or 0) / 1000, original_title, artist, duration)
                 if score >= 0.35:
                     add({"score": score, **_itunes_track(row)}, "Apple Music")
-            if len(candidates) >= limit and any(c.get("source") == "Apple Music" for c in candidates):
+            if any(c.get("source") == "Apple Music" for c in candidates):
                 break
 
-    queries = ([f'artist:"{artist}" track:"{title}"'] if artist and title else [])
-    if term:
-        queries.append(term)
+    queries = []
+    for search_title in search_titles:
+        if artist and search_title:
+            queries.append(f'artist:"{artist}" track:"{search_title}"')
+        term = f"{artist} {search_title}".strip()
+        if term:
+            queries.append(term)
     for query in queries:
         data = _get("https://api.deezer.com/search", {"q": query, "limit": 15})
         for row in (data or {}).get("data", []):
             row_artist = (row.get("artist") or {}).get("name", "")
-            score = _score(row.get("title", ""), row_artist, row.get("duration") or 0, title, artist, duration)
+            score = _score(row.get("title", ""), row_artist, row.get("duration") or 0,
+                           original_title, artist, duration)
             if score >= 0.35:
                 add({"score": score, **_deezer_track(row)}, "Deezer")
-        if len(candidates) >= limit and any(c.get("source") == "Deezer" for c in candidates):
+        if any(c.get("source") == "Deezer" for c in candidates):
             break
 
-    candidates.sort(key=lambda item: (item.get("score", 0), bool(item.get("preview_url"))), reverse=True)
+    candidates.sort(key=lambda item: (
+        bool(_VERSION_WORDS.search(item.get("title", ""))),
+        -item.get("score", 0),
+        not bool(item.get("preview_url")),
+    ))
     return candidates[:limit]
 
 

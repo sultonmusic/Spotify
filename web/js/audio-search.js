@@ -1,4 +1,5 @@
 import { CONFIG } from "./config.js";
+import { inTelegram, tg } from "./tg.js";
 
 const CLIP_MS = 8_000;
 let vibraReady;
@@ -123,13 +124,15 @@ export async function identifyNearbySong(onStatus, signal) {
 
     const response = await fetch(`${CONFIG.statsUrl}/identify`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json",
+        ...(inTelegram && tg?.initData ? { "X-Telegram-Init-Data": tg.initData } : {}) },
       body: JSON.stringify(signature),
       signal,
     });
     const data = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(data.error || "Qo'shiqni aniqlashda xatolik");
-    return data.track || null;
+    return data.track ? { ...data.track, autoAddJobId: data.jobId || null,
+      existingId: data.existingId || null, autoAddError: data.queueError || null } : null;
   } finally {
     recorder?.disconnect();
     source?.disconnect();

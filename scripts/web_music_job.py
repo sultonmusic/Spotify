@@ -12,6 +12,7 @@ import sys
 import tempfile
 import time
 import traceback
+from urllib.parse import urlsplit
 from pathlib import Path
 
 import requests
@@ -58,7 +59,7 @@ def fetch_upload(job_id: str) -> tuple[bytes, dict]:
         meta = json.loads(base64.b64decode(response.headers["X-Music-Meta"]).decode("utf-8"))
     except (KeyError, ValueError, UnicodeDecodeError) as exc:
         raise RuntimeError("upload metadata is invalid") from exc
-    if meta.get("kind") not in ("audio", "video") or not JOB_ID_RE.fullmatch(job_id):
+    if meta.get("kind") not in ("audio", "video", "identify") or not JOB_ID_RE.fullmatch(job_id):
         raise RuntimeError("upload type is invalid")
     if len(response.content) != int(response.headers.get("Content-Length", len(response.content))):
         raise RuntimeError("upload transfer was incomplete")
@@ -75,11 +76,123 @@ def safe_filename(name: str, kind: str) -> str:
     return name
 
 
+def download_preview(url: str, dest: Path) -> Path:
+    parts = urlsplit(url or "")
+    host = (parts.hostname or "").lower()
+    if parts.scheme != "https" or not (host.endswith(".apple.com") or host == "apple.com" or
+                                         host.endswith(".deezer.com") or host == "deezer.com" or
+                                         host.endswith(".dzcdn.net") or host == "dzcdn.net"):
+        raise RuntimeError("No official audio preview was found")
+    if Path(parts.path).suffix.lower() not in (".mp3", ".m4a"):
+        raise RuntimeError("The official preview format is not supported")
+    size = 0
+    try:
+        with requests.get(url, stream=True, timeout=(15, 45)) as response:
+            response.raise_for_status()
+            with dest.open("wb") as target:
+                for chunk in response.iter_content(64 * 1024):
+                    if not chunk:
+                        continue
+                    size += len(chunk)
+                    if size > MAX_BYTES:
+                        raise RuntimeError("The official preview is too large")
+                    target.write(chunk)
+    except requests.RequestException as exc:
+        raise RuntimeError("The official preview could not be downloaded") from exc
+    if not size:
+        raise RuntimeError("The official preview was empty")
+    return dest
+
+
+def notify_owner(chat_id: str | int | None, text: str) -> None:
+    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    if not token or not chat_id:
+        return
+    try:
+        requests.post(f"https://api.telegram.org/bot{token}/sendMessage",
+                      json={"chat_id": chat_id, "text": text}, timeout=12).raise_for_status()
+    except requests.RequestException:
+        print("[web-music] Telegram notification failed")
+
+
+def _process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict) -> None:
+    try:
+        payload = json.loads(data.decode("utf-8"))
+        raw = payload.get("track") or {}
+        title, artist = str(raw.get("title") or "").strip(), str(raw.get("subtitle") or "").strip()
+        if not title or not artist:
+            raise RuntimeError("Shazam returned incomplete track info")
+    except (UnicodeDecodeError, json.JSONDecodeError, AttributeError) as exc:
+        raise RuntimeError("Shazam result is invalid") from exc
+
+    from bot import lookup
+    from bot.main import Station
+
+    fingerprint = {"title": title, "artist": artist, "album": "", "genre": "",
+                   "cover": (raw.get("images") or {}).get("coverarthq") or (raw.get("images") or {}).get("coverart")}
+    for section in raw.get("sections") or []:
+        for item in section.get("metadata") or []:
+            label, value = (item.get("title") or "").lower(), item.get("text") or ""
+            if label == "album": fingerprint["album"] = value
+            elif label == "released" and value[:4].isdigit(): fingerprint["year"] = int(value[:4])
+            elif label == "genre": fingerprint["genre"] = value
+
+    station = Station()
+    existing = next((song for song in station.lib.songs if lookup.same_song(
+        song["title"], song["artist"], title, artist)), None)
+    if existing:
+        outcome_song, outcome = existing, "duplicate"
+    else:
+        matches = lookup.search_candidates(title, artist, 0, fingerprint=fingerprint, limit=8)
+        chosen = next((candidate for candidate in matches if candidate.get("preview_url") and
+                       not re.search(r"\b(?:remix|rmx|slowed|sped\s*up|live|cover|karaoke|nightcore)\b",
+                                     candidate.get("title", ""), re.I)), None)
+        if not chosen:
+            chosen = next((candidate for candidate in matches if candidate.get("preview_url")), None)
+        if not chosen:
+            raise RuntimeError("Shazam found the song, but no official playable preview is available")
+
+        preview_parts = urlsplit(chosen["preview_url"])
+        extension = Path(preview_parts.path).suffix.lower()
+        with tempfile.TemporaryDirectory(prefix="cavi-shazam-") as temp_dir:
+            source = download_preview(chosen["preview_url"], Path(temp_dir) / f"preview{extension}")
+            unique = "shazam:" + meta["fileKey"]
+            media = {"file_name": f"{chosen['title']}{extension}", "file_unique_id": unique,
+                     "file_size": source.stat().st_size, "performer": chosen.get("artist"),
+                     "title": chosen.get("title")}
+            progress = lambda message: update_status(job_id, "PROCESSING", message)
+            outcome_song, outcome = station.import_song(
+                {"message_id": 0, "caption": ""}, "shazam", media, str(meta["fileKey"]), progress,
+                source_path=source, accept_variant=True, known=chosen)
+            station.save()
+
+    result = {key: outcome_song.get(key) for key in (
+        "id", "title", "artist", "artists", "album", "duration", "src", "cover", "color")}
+    result["outcome"] = outcome
+    result["telegramChatId"] = meta.get("uid")
+    result_path.write_text(json.dumps(result, ensure_ascii=False), encoding="utf-8")
+    state = "DUPLICATE" if outcome == "duplicate" else "UPLOADING"
+    message = "Bu qo'shiq stansiyada allaqachon bor." if outcome == "duplicate" else "Preview sayt kutubxonasiga saqlanmoqda…"
+    update_status(job_id, state, message, result)
+
+
+def process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict) -> None:
+    try:
+        _process_recognition(job_id, result_path, data, meta)
+    except Exception:
+        notify_owner(meta.get("uid"),
+                     "⚠️ Shazam topgan qo'shiqni saytga qo'sha olmadim. Rasmiy preview mavjudligini tekshirib ko'ring.")
+        raise
+
+
 def process(job_id: str, result_path: Path) -> None:
     if not JOB_ID_RE.fullmatch(job_id):
         raise RuntimeError("invalid job id")
     update_status(job_id, "PROCESSING", "Audio/video tahlil qilinmoqda…")
     data, meta = fetch_upload(job_id)
+    if meta["kind"] == "identify":
+        process_recognition(job_id, result_path, data, meta)
+        return
     name = safe_filename(str(meta.get("fileName") or "upload"), meta["kind"])
     with tempfile.TemporaryDirectory(prefix="cavi-web-music-") as temp_dir:
         source = Path(temp_dir) / name
@@ -123,8 +236,20 @@ def finalize(job_id: str, result_path: Path, workflow_outcome: str) -> None:
         status = "DUPLICATE" if result.get("outcome") == "duplicate" else "COMPLETED"
         message = "Qo'shiq stansiyada bor." if status == "DUPLICATE" else "Tayyor — saytda oching yoki ijro eting."
         update_status(job_id, status, message, result)
+        title = f"{result.get('artist') or ''} — {result.get('title') or ''}".strip(" —")
+        icon = "ℹ️" if status == "DUPLICATE" else "✅"
+        detail = ("saytda avvaldan bor." if status == "DUPLICATE"
+                  else "saytga qo'shildi; previewni tinglashingiz mumkin.")
+        notify_owner(result.get("telegramChatId"),
+                     f"{icon} {title} {detail}")
         return
     update_status(job_id, "FAILED", "Faylni qayta ishlash yoki saytga joylash amalga oshmadi. Yana urinib ko'ring.")
+    if result_path.exists():
+        try:
+            notify_owner(json.loads(result_path.read_text(encoding="utf-8")).get("telegramChatId"),
+                         "⚠️ Shazam topgan qo'shiqni saytga joylay olmadim. Boshqa trekni sinab ko'ring.")
+        except (ValueError, OSError):
+            pass
 
 
 def main() -> int:

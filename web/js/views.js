@@ -275,8 +275,31 @@ export function viewSearch(param) {
     const cardEl = h("div", { class: "search-recognition" }, artEl, info);
     if (local) cardEl.append(h("button", { class: "search-recognition-play", "aria-label": t("common.play"),
       html: icon("play", 18), onclick: () => playSong(local, [local], { type: "search", id: title, title }) }));
+    else if (track.autoAddJobId) cardEl.append(h("span", { class: "search-recognition-missing" }, t("search.voiceAdding")));
     else cardEl.append(h("span", { class: "search-recognition-missing" }, t("search.voiceNotInLibrary")));
     return cardEl;
+  };
+
+  const monitorRecognition = async (jobId) => {
+    voiceStatus.textContent = t("search.voiceAdding");
+    for (let attempt = 0; attempt < 100 && v.isConnected; attempt++) {
+      try {
+        const job = await getStationJob(jobId);
+        if (job.status === "COMPLETED" || job.status === "DUPLICATE") {
+          await loadLibrary().catch(() => {});
+          if (v.isConnected) {
+            render();
+            voiceStatus.textContent = t(job.status === "DUPLICATE" ? "search.voiceAlready" : "search.voiceAdded");
+          }
+          return;
+        }
+        if (job.status === "FAILED") {
+          voiceStatus.textContent = job.message || t("search.voiceAddFailed");
+          return;
+        }
+      } catch { /* the next poll can recover from a brief network issue */ }
+      await new Promise((resolve) => setTimeout(resolve, 3_000));
+    }
   };
 
   const render = () => {
@@ -354,10 +377,12 @@ export function viewSearch(param) {
         voiceStatus.textContent = t("search.voiceNoMatch");
         return;
       }
+      if (track.existingId) await loadLibrary().catch(() => {});
       voiceMatch = track;
       input.value = [track.title, track.subtitle].filter(Boolean).join(" ");
-      voiceStatus.textContent = "";
+      voiceStatus.textContent = track.autoAddJobId ? t("search.voiceAdding") : (track.autoAddError || "");
       render();
+      if (track.autoAddJobId) void monitorRecognition(track.autoAddJobId);
       history.replaceState(history.state, "", `#/search/${encodeURIComponent(input.value.trim())}`);
     } catch (error) {
       if (error.name !== "AbortError") {

@@ -1,9 +1,5 @@
-// Cavi Music relay — wakes the station up as soon as someone writes to the bot, and keeps ad statistics.
-//
-// The bot itself runs on GitHub Actions (Shazam, ffmpeg, AI tagging, commit, site deploy), but GitHub starts
-// scheduled runs late (sometimes hours apart). This tiny Cloudflare Worker runs every minute for free: when
-// messages are waiting in Telegram and the bot isn't already running, it marks them with 👀 and starts the
-// GitHub workflow right away. It never processes songs and never consumes the messages (the bot does).
+// Cavi Music relay — accepts Telegram webhooks, starts the station, and keeps ad statistics.
+// The Cloudflare cron is a recovery path; recognition, library updates, and site deploys run in GitHub Actions.
 
 import { DurableObject } from "cloudflare:workers";
 
@@ -34,6 +30,66 @@ async function telegram(env, method, body = {}) {
     body: JSON.stringify(body),
   });
   return res.json();
+}
+
+function telegramInbox(env) {
+  return env.TELEGRAM_INBOX.get(env.TELEGRAM_INBOX.idFromName("bot-updates"));
+}
+
+async function enqueueTelegramUpdate(env, update) {
+  return telegramInbox(env).fetch("https://telegram-inbox/enqueue", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(update),
+  });
+}
+
+async function dispatchQueuedUpdates(env) {
+  const inbox = telegramInbox(env);
+  const pending = await inbox.fetch("https://telegram-inbox/pending");
+  const { count = 0 } = await pending.json();
+  if (!count) return "idle";
+  if (await stationBusy(env)) return "busy";
+  const claim = await inbox.fetch("https://telegram-inbox/claim", { method: "POST" });
+  if (!(await claim.json()).claimed) return "dispatch already starting";
+  const run = await github(env, `/actions/workflows/${env.WORKFLOW}/dispatches`, {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ref: env.BRANCH }),
+  });
+  if (run.ok) return `started the station for ${count} update(s)`;
+  await inbox.fetch("https://telegram-inbox/release", { method: "POST" });
+  const updates = await inbox.fetch("https://telegram-inbox/peek");
+  const { result = [] } = await updates.json();
+  const chat = result.find((item) => item.message?.chat?.id)?.message.chat.id;
+  if (chat && await stats(env).claimAlert(60)) {
+    await telegram(env, "sendMessage", { chat_id: chat,
+      text: `⚠️ Stansiyani ishga tushira olmadim (GitHub: HTTP ${run.status}). Xabaringiz navbatda saqlanib turibdi.` });
+  }
+  return `GitHub dispatch: HTTP ${run.status}`;
+}
+
+async function telegramWebhook(request, env, ctx) {
+  if (request.headers.get("X-Telegram-Bot-Api-Secret-Token") !== env.DISPATCH_TOKEN) {
+    return new Response("forbidden", { status: 403 });
+  }
+  let update;
+  try {
+    const raw = await request.text();
+    if (raw.length > 1_000_000) return new Response("update too large", { status: 413 });
+    update = JSON.parse(raw);
+  } catch { return new Response("bad update", { status: 400 }); }
+  if (!Number.isSafeInteger(update?.update_id)) return new Response("invalid update", { status: 400 });
+  const stored = await enqueueTelegramUpdate(env, update);
+  if (!stored.ok) return new Response("could not store update", { status: 503 });
+
+  ctx.waitUntil((async () => {
+    const message = update.message;
+    if (message?.chat?.id && message.message_id) {
+      await telegram(env, "setMessageReaction", { chat_id: message.chat.id, message_id: message.message_id,
+        reaction: [{ type: "emoji", emoji: "👀" }] });
+    }
+    try { console.log(await dispatchQueuedUpdates(env)); }
+    catch (error) { console.error(`[webhook] ${String(error)}`); }
+  })());
+  return new Response("ok");
 }
 
 function hex(bytes) {
@@ -178,6 +234,36 @@ async function createMusicUpload(request, env) {
   return musicJson(request, { ...(await saved.json()), status: "QUEUED" }, 202);
 }
 
+async function queueShazamResult(request, env, identity, track) {
+  const existing = (await stationSongs(env)).find((song) => musicNorm(song.title) === musicNorm(track.title) &&
+    musicNorm(song.artist) === musicNorm(track.subtitle));
+  if (existing) return { existingId: existing.id };
+
+  const id = crypto.randomUUID();
+  const payload = new TextEncoder().encode(JSON.stringify({ track, chatId: identity.uid }));
+  const fileKey = await sha256(`cavi-shazam\n${musicNorm(track.title)}\n${musicNorm(track.subtitle)}`);
+  const meta = { id, uid: identity.uid, fileName: "shazam-recognition.json", mime: "application/json",
+    kind: "identify", size: payload.byteLength, fileKey };
+  const stub = webMusicDO(env, id);
+  const saved = await stub.fetch("https://music-jobs/create", { method: "POST",
+    headers: { "Content-Type": "application/octet-stream", "X-Music-Meta": encodeJsonHeader(meta) }, body: payload });
+  if (!saved.ok) throw new Error("recognition job could not be queued");
+
+  const dispatch = await github(env, "/actions/workflows/web-music.yml/dispatches", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ref: env.BRANCH, inputs: { job_id: id } }),
+  });
+  if (!dispatch.ok) {
+    await stub.fetch(`https://music-jobs/status/${id}`, { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ uid: identity.uid, status: "FAILED", message: "GitHub Actions ishga tushmadi. Yana urinib ko'ring." }) });
+    throw new Error("recognition processor could not be started");
+  }
+  const title = `${track.subtitle || "Noma’lum ijrochi"} — ${track.title || "Noma’lum qo‘shiq"}`;
+  await telegram(env, "sendMessage", { chat_id: identity.uid,
+    text: `🎙 Shazam topdi: ${title}\n\nBot original versiya va previewni qidirib, saytga yuboryapti.` }).catch(() => {});
+  return { jobId: id, status: "QUEUED" };
+}
+
 async function publicMusicJob(request, env, id) {
   if (!(await requireStationOwner(request, env))) return musicJson(request, { error: "owner authorization required" }, 403);
   const identity = await verifyMiniApp(request, env);
@@ -205,32 +291,23 @@ async function stationBusy(env) {
 }
 
 export async function check(env) {
-  // Never call getUpdates while the bot is polling: Telegram allows only one reader at a time.
-  if (await stationBusy(env)) return "busy";
-  const res = await telegram(env, "getUpdates", { timeout: 0, limit: 20, allowed_updates: ["message", "callback_query"] });
-  if (!res.ok) return `telegram: ${res.description}`;
-  const updates = res.result || [];
-  if (!updates.length) return "idle";
-  // "Received" mark on each waiting message (the reply comes a minute or two later).
-  for (const u of updates) {
-    const m = u.message;
-    if (m?.chat?.id && m.message_id) {
-      await telegram(env, "setMessageReaction", { chat_id: m.chat.id, message_id: m.message_id, reaction: [{ type: "emoji", emoji: "👀" }] });
+  const webhook = await telegram(env, "getWebhookInfo");
+  if (!webhook.ok) return `telegram: ${webhook.description}`;
+  if (!webhook.result?.url) {
+    // Recovery fallback until the webhook has been configured.
+    const poll = await telegram(env, "getUpdates", { timeout: 0, limit: 20,
+      allowed_updates: ["message", "callback_query"] });
+    if (!poll.ok) return `telegram: ${poll.description}`;
+    for (const update of poll.result || []) {
+      await enqueueTelegramUpdate(env, update);
+      const message = update.message;
+      if (message?.chat?.id && message.message_id) {
+        await telegram(env, "setMessageReaction", { chat_id: message.chat.id, message_id: message.message_id,
+          reaction: [{ type: "emoji", emoji: "👀" }] });
+      }
     }
   }
-  const run = await github(env, `/actions/workflows/${env.WORKFLOW}/dispatches`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ref: env.BRANCH }),
-  });
-  if (run.ok) return `started the station for ${updates.length} message(s)`;
-  // Don't fail silently (a read-only key once did, for a whole night): say so in the chat, at most hourly.
-  const chat = updates.find((u) => u.message?.chat?.id)?.message.chat.id;
-  if (chat && await stats(env).claimAlert(60)) {
-    await telegram(env, "sendMessage", { chat_id: chat,
-      text: `⚠️ Stansiyani ishga tushira olmadim (GitHub: HTTP ${run.status}). Xabaringiz saqlanib turibdi, muammo tuzatilgach bot uni o'qiydi.` });
-  }
-  return `GitHub dispatch: HTTP ${run.status}`;
+  return dispatchQueuedUpdates(env);
 }
 
 // ------------------------------------------------------------------ ad statistics
@@ -279,6 +356,65 @@ export class AdStats extends DurableObject {
     const all = this.sql.exec("SELECT ad, ev, COUNT(*) AS n, COUNT(DISTINCT uid) AS people FROM ev GROUP BY ad, ev").toArray();
     const today = this.sql.exec("SELECT ad, ev, COUNT(DISTINCT uid) AS people FROM ev WHERE day = ? GROUP BY ad, ev", day).toArray();
     return { all, today };
+  }
+}
+
+// Telegram pushes each update here; Actions reads with an offset so acknowledged messages are deleted safely.
+export class TelegramInbox extends DurableObject {
+  constructor(ctx, env) {
+    super(ctx, env);
+    this.sql = ctx.storage.sql;
+    this.sql.exec("CREATE TABLE IF NOT EXISTS updates (update_id INTEGER PRIMARY KEY, body TEXT NOT NULL, created_at INTEGER NOT NULL)");
+    this.sql.exec("CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v INTEGER NOT NULL)");
+  }
+
+  async fetch(request) {
+    const url = new URL(request.url);
+    if (url.pathname === "/enqueue" && request.method === "POST") {
+      let update;
+      try { update = await request.json(); } catch { return Response.json({ error: "invalid update" }, { status: 400 }); }
+      if (!Number.isSafeInteger(update?.update_id)) return Response.json({ error: "invalid update id" }, { status: 400 });
+      const body = JSON.stringify(update);
+      if (body.length > 1_000_000) return Response.json({ error: "update too large" }, { status: 413 });
+      const now = Date.now();
+      this.sql.exec("INSERT OR IGNORE INTO updates VALUES (?, ?, ?)", update.update_id, body, now);
+      this.sql.exec("DELETE FROM updates WHERE created_at < ?", now - 24 * 60 * 60_000);
+      return Response.json({ ok: true });
+    }
+    if (url.pathname === "/pending" && request.method === "GET") {
+      const count = this.sql.exec("SELECT COUNT(*) AS count FROM updates").toArray()[0]?.count || 0;
+      return Response.json({ count });
+    }
+    if (url.pathname === "/peek" && request.method === "GET") {
+      const rows = this.sql.exec("SELECT body FROM updates ORDER BY update_id LIMIT 20").toArray();
+      return Response.json({ result: rows.map((row) => JSON.parse(row.body)) });
+    }
+    if (url.pathname === "/poll" && request.method === "GET") {
+      const offsetText = url.searchParams.get("offset");
+      const offset = offsetText === null ? null : Number(offsetText);
+      if (offset !== null && !Number.isSafeInteger(offset)) return Response.json({ error: "invalid offset" }, { status: 400 });
+      if (offset !== null) this.sql.exec("DELETE FROM updates WHERE update_id < ?", offset);
+      const read = () => this.sql.exec("SELECT body FROM updates ORDER BY update_id LIMIT 100")
+        .toArray().map((row) => JSON.parse(row.body));
+      let result = read();
+      const timeout = Math.max(0, Math.min(20, Number(url.searchParams.get("timeout") || 0)));
+      if (!result.length && timeout) {
+        await new Promise((resolve) => setTimeout(resolve, timeout * 1000));
+        result = read();
+      }
+      return Response.json({ ok: true, result });
+    }
+    if (url.pathname === "/claim" && request.method === "POST") {
+      const current = this.sql.exec("SELECT v FROM meta WHERE k = 'dispatchLock'").toArray()[0]?.v || 0;
+      if (current > Date.now()) return Response.json({ claimed: false });
+      this.sql.exec("INSERT OR REPLACE INTO meta VALUES ('dispatchLock', ?)", Date.now() + 20_000);
+      return Response.json({ claimed: true });
+    }
+    if (url.pathname === "/release" && request.method === "POST") {
+      this.sql.exec("DELETE FROM meta WHERE k = 'dispatchLock'");
+      return Response.json({ ok: true });
+    }
+    return new Response("not found", { status: 404 });
   }
 }
 
@@ -335,14 +471,15 @@ export class WebMusicJobs extends DurableObject {
 
     const inputMatch = url.pathname.match(/^\/input\/([a-f0-9-]{36})$/i);
     if (inputMatch && request.method === "GET") {
-      const job = this.sql.exec("SELECT file_name, mime, kind, size, file_key FROM jobs WHERE id = ?", inputMatch[1]).toArray()[0];
+      const job = this.sql.exec("SELECT uid, file_name, mime, kind, size, file_key FROM jobs WHERE id = ?", inputMatch[1]).toArray()[0];
       if (!job) return new Response("job not found", { status: 404 });
       const rows = this.sql.exec("SELECT bytes FROM chunks WHERE job_id = ? ORDER BY part", inputMatch[1]).toArray();
       const body = new Uint8Array(job.size);
       let offset = 0;
       for (const row of rows) { const chunk = new Uint8Array(row.bytes); body.set(chunk, offset); offset += chunk.length; }
       if (offset !== job.size) return new Response("upload data expired", { status: 410 });
-      const meta = encodeJsonHeader({ fileName: job.file_name, mime: job.mime, kind: job.kind, fileKey: job.file_key });
+      const meta = encodeJsonHeader({ uid: job.uid, fileName: job.file_name, mime: job.mime,
+        kind: job.kind, fileKey: job.file_key });
       return new Response(body, { headers: { "Content-Type": job.mime, "X-Music-Meta": meta, "Cache-Control": "no-store" } });
     }
 
@@ -439,16 +576,28 @@ async function health(env) {
   } catch (e) { out.githubError = String(e); }
   try {
     const info = (await telegram(env, "getWebhookInfo")).result || {};
-    out.telegram = { webhookSet: Boolean(info.url), waitingMessages: info.pending_update_count };
+    const pending = await telegramInbox(env).fetch("https://telegram-inbox/pending");
+    out.telegram = { webhookSet: Boolean(info.url), waitingMessages: info.pending_update_count,
+      queuedMessages: (await pending.json()).count || 0 };
   } catch (e) { out.telegramError = String(e); }
   try { Object.assign(out, await stats(env).history()); } catch (e) { out.historyError = String(e); }
   healthCache = { at: Date.now(), body: out };
   return out;
 }
 
-async function handle(request, env) {
+async function handle(request, env, ctx) {
   const url = new URL(request.url);
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
+  if (url.pathname === "/telegram-webhook" && request.method === "POST") return telegramWebhook(request, env, ctx);
+  if (url.pathname === "/internal/telegram/updates" && request.method === "GET") {
+    const expected = await sha256(`cavi-telegram-updates:${env.DISPATCH_TOKEN}`);
+    if (request.headers.get("X-Relay-Key") !== expected) return new Response("forbidden", { status: 403 });
+    const params = new URLSearchParams();
+    if (url.searchParams.has("offset")) params.set("offset", url.searchParams.get("offset"));
+    const timeout = Number(url.searchParams.get("timeout") || 0);
+    params.set("timeout", String(Math.max(0, Math.min(20, Number.isFinite(timeout) ? timeout : 0))));
+    return telegramInbox(env).fetch(`https://telegram-inbox/poll?${params}`);
+  }
   if (url.pathname === "/api/music/search" && request.method === "GET") return searchMusic(request, env, url);
   if (url.pathname === "/api/music/upload" && request.method === "POST") return createMusicUpload(request, env);
   const musicJob = url.pathname.match(/^\/api\/music\/jobs\/([a-f0-9-]{36})$/i);
@@ -500,7 +649,17 @@ async function handle(request, env) {
       });
       if (!match.ok) return reply({ error: "recognition service unavailable" }, 502);
       const result = await match.json();
-      return reply({ track: result?.track || null });
+      const track = result?.track || null;
+      if (!track) return reply({ track: null });
+      const initData = request.headers.get("X-Telegram-Init-Data") || "";
+      const identity = initData ? await requireStationOwner(request, env) : null;
+      if (!identity) return reply({ track });
+      try {
+        return reply({ track, ...(await queueShazamResult(request, env, identity, track)) });
+      } catch (error) {
+        console.error(`[identify] queue failed: ${String(error)}`);
+        return reply({ track, queueError: "Shazam topdi, lekin saytga yuborish boshlandi deb tasdiqlay olmadim." });
+      }
     } catch {
       return reply({ error: "recognition service unavailable" }, 502);
     }
@@ -536,5 +695,5 @@ export default {
       try { await stats(env).tick(result); } catch (e) { console.error(String(e)); }
     })());
   },
-  fetch: handle,
+  fetch: (request, env, ctx) => handle(request, env, ctx),
 };

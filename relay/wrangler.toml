@@ -1,4 +1,4 @@
-# Cloudflare Worker that wakes the GitHub Actions bot (see worker.js). Deployed by .github/workflows/relay.yml.
+# Cloudflare Worker that receives Telegram webhooks and starts the GitHub Actions bot (see worker.js).
 name = "cavi-music-relay"
 main = "worker.js"
 compatibility_date = "2025-09-01"
@@ -22,6 +22,10 @@ class_name = "AdStats"
 name = "WEBMUSIC"
 class_name = "WebMusicJobs"
 
+[[durable_objects.bindings]]
+name = "TELEGRAM_INBOX"
+class_name = "TelegramInbox"
+
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["AdStats"]
@@ -29,3 +33,7 @@ new_sqlite_classes = ["AdStats"]
 [[migrations]]
 tag = "v2"
 new_sqlite_classes = ["WebMusicJobs"]
+
+[[migrations]]
+tag = "v3"
+new_sqlite_classes = ["TelegramInbox"]

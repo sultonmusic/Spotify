@@ -12,13 +12,14 @@ tasdiqlangan (☑️) ijrochi profillari, 3 tilda tarjimali sinxron matn va stor
 ## Qanday ishlaydi
 
 ```
-Siz ──(fayl / forward)──▶ Telegram bot ──▶ GitHub Actions (har 5 daqiqada)
-                                     ├─ Shazam: qo'shiqni ovozidan aniqlaydi
-                                     ├─ iTunes + Deezer: albom, yil, janr, muqova, BPM
-                                     ├─ LRCLIB: qo'shiq matni (sinxron karaoke) + uz/ru/en tarjima
-                                     ├─ Claude AI: yakuniy nom/ijrochi, janr, kayfiyat, til, teglar, tavsif
-                                     ├─ ffmpeg: toza teglar, ovoz balandligi (-14 LUFS)
-                                     └─ library/ ga saqlaydi ──▶ GitHub Pages (sayt + mini ilova)
+Telegram xabar ──▶ webhook ──┐
+Sayt mikrofoni ──▶ Shazam ────┴─▶ Cloudflare relay ──▶ GitHub Actions
+                                                    ├─ Instagram Reel: Shazam + original katalog versiyalari
+                                                    ├─ iTunes + Deezer: albom, yil, janr, muqova, BPM
+                                                    ├─ LRCLIB: qo'shiq matni (sinxron karaoke) + uz/ru/en tarjima
+                                                    ├─ Claude AI: janr, kayfiyat, til, teglar, tavsif
+                                                    ├─ ffmpeg: toza teglar, ovoz balandligi (-14 LUFS)
+                                                    └─ library/ ga saqlaydi ──▶ GitHub Pages (sayt + mini ilova)
 ```
 
 Server kerak emas — hammasi GitHub'da, bepul.
@@ -32,7 +33,7 @@ Server kerak emas — hammasi GitHub'da, bepul.
    - `ANTHROPIC_API_KEY` = [console.anthropic.com](https://console.anthropic.com) dagi API kalit
    AI bo'lmasa ham bot ishlaydi (Shazam + katalog + qoidalar asosida), lekin AI bilan janr/kayfiyat/til
    aniqroq bo'ladi va noma'lum o'zbek qo'shiqlarini internetdan qidirib topadi.
-4. **Ishga tushiring:** *Actions → Music Station → Run workflow*. Keyin bot har 5 daqiqada o'zi ishlaydi.
+4. **Ishga tushiring:** *Actions → Music Station → Run workflow*. Real vaqt webhook sozlamasi uchun quyidagi 24/7 bo'limni ham bajaring.
 5. Botga `/start` yozing. **Birinchi yozgan odam stansiya egasi bo'ladi** (faqat u qo'shiq qo'sha oladi).
 
 Bot menyusidagi **🎧 Musiqa** tugmasi saytni Telegram ichida mini ilova sifatida ochadi.
@@ -196,9 +197,11 @@ taklif qilsa — *O'rnatish* (PWA).
 
 ## 24/7 rejim (bot darhol javob berishi uchun)
 
-GitHub "har 5 daqiqada" jadvalini ko'pincha kechiktiradi — bot ba'zan soatlab javob bermay qoladi. Buni
-**Cloudflare Workers** (bepul) tuzatadi: `relay/` har daqiqada Telegram'ni tekshiradi, xabar kelgan bo'lsa unga 👀
-qo'yadi va botni darhol ishga tushiradi (javob ~1–3 daqiqada). Qo'shiqlarni u qayta ishlamaydi — faqat uyg'otadi.
+Telegram webhook xabarni relay'ga darhol yetkazadi; relay navbatni saqlab, GitHub Actions botini ishga tushiradi.
+Cloudflare cron daqiqalik zaxira vazifasini bajaradi. Javob va saytga qo'shilish GitHub runner navbati hamda
+trekni qayta ishlashga bog'liq, shuning uchun odatda bir necha daqiqa oladi. Sayt mikrofonidan avtomatik
+botga yuborish va kutubxonaga qo'shish Telegram ichidagi **🎧 Musiqa** tugmasidan ochilganda ishlaydi;
+oddiy brauzerda egasi tasdiqlanmagani uchun Shazam natijasi ko'rinadi, lekin sayt kutubxonasiga avtomatik qo'shilmaydi.
 
 Bir marta sozlanadi (~5 daqiqa):
 
@@ -211,11 +214,11 @@ Bir marta sozlanadi (~5 daqiqa):
    - *Expiration:* **No expiration** yoki kamida 1 yil — kalit muddati tugasa relay to'xtaydi. → *Generate token* — nusxalang.
 3. Repo → *Settings → Secrets and variables → Actions → New repository secret* — uchtasini qo'shing:
    `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `DISPATCH_TOKEN` (2-qadamdagi GitHub token).
-4. *Actions → Relay (24/7) → Run workflow.* Tayyor — shundan keyin har bir xabarga bir daqiqa ichida 👀 chiqadi.
+4. *Actions → Relay (24/7) → Run workflow.* Bu deploy Worker'ni chiqaradi va Telegram webhook'ini o'rnatadi.
 
 **Tekshirish:** Worker manzili oxiriga `/health` qo'shib oching (`https://cavi-music-relay.<hisob>.workers.dev/health`):
 `githubDispatch: 422` — hammasi joyida; `403` — kalitda *Actions: Write* yo'q; `401` — kalit eskirgan; `keyExpires` — kalit
-muddati; `telegram.waitingMessages` — kutayotgan xabarlar soni; `log` — oxirgi muhim natijalar. Ishga tushirib bo'lmasa,
+muddati; `telegram.webhookSet` — webhook ulangan; `telegram.queuedMessages` — navbatda turgan xabarlar; `log` — oxirgi muhim natijalar. Ishga tushirib bo'lmasa,
 relay chatga «⚠️ Stansiyani ishga tushira olmadim (GitHub: HTTP …)» deb yozadi (soatiga ko'pi bilan bir marta).
 
 ## Sozlamalar (ixtiyoriy)

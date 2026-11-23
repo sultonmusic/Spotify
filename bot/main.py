@@ -20,6 +20,8 @@ from urllib.parse import urlsplit, urlunsplit
 from pathlib import Path
 from typing import Any
 
+import requests
+
 from . import ads, ai, audio, bigfile, config, lookup, story
 from .artists import Artists
 from .covers import save_cover
@@ -399,7 +401,7 @@ class Station:
                     self.edit(chat_id, status_id,
                               "🎵 Rolik ovozidan qo'shiqni aniqlay olmadim. Ochiq Reel linkini tekshiring yoki videoni botga fayl qilib yuboring.")
                     return
-                candidates = lookup.search_candidates(found["title"], found["artist"], info.duration,
+                candidates = lookup.search_candidates(found["title"], found["artist"], 0,
                                                       fingerprint=found, limit=5)
                 if not candidates:
                     self.edit(chat_id, status_id, "🔎 Mos qo'shiq topilmadi. Boshqa Reel yuborib ko'ring.")
@@ -419,9 +421,10 @@ class Station:
                 lines = ["🎵 <b>Rolikdan topilgan mos qo'shiqlar:</b>", ""]
                 for index, candidate in enumerate(candidates, 1):
                     lines.append(f"{index}. <b>{esc(candidate.get('artist', 'Noma’lum ijrochi'))}</b> — "
-                                 f"{esc(candidate.get('title', 'Noma’lum qo‘shiq'))}")
+                                 f"{esc(candidate.get('title', 'Noma’lum qo‘shiq'))} · "
+                                 f"{fmt_duration(candidate.get('duration') or 0)}")
                 lines.append("\nKeraklisini tanlang:")
-                rows = [[{"text": f"{i + 1}. {(c.get('artist') or 'Noma’lum')} — {(c.get('title') or 'Noma’lum')}"[:62],
+                rows = [[{"text": self.instagram_result_label(i + 1, c),
                           "callback_data": f"igpick:{token}:{i}"}] for i, c in enumerate(candidates)]
                 markup = self.keyboard(*rows)
                 self.edit(chat_id, status_id, "\n".join(lines), markup)
@@ -433,16 +436,22 @@ class Station:
                       "⚠️ Reelni ko'rib chiqishda xatolik bo'ldi. Ochiq link yuboring yoki videoni botga fayl qilib yuboring.")
 
     def instagram_listen_url(self, candidate: dict) -> str | None:
-        url = candidate.get("preview_url") or candidate.get("track_url")
+        url = candidate.get("preview_url")
         try:
             parts = urlsplit(url or "")
             host = (parts.hostname or "").lower()
             if parts.scheme == "https" and (host == "apple.com" or host.endswith(".apple.com")
-                                             or host == "deezer.com" or host.endswith(".deezer.com")):
+                                             or host == "deezer.com" or host.endswith(".deezer.com")
+                                             or host == "dzcdn.net" or host.endswith(".dzcdn.net")):
                 return url
         except ValueError:
             pass
         return None
+
+    def instagram_result_label(self, number: int, candidate: dict) -> str:
+        suffix = f" · {fmt_duration(candidate.get('duration') or 0)}"
+        title = f"{number}. {candidate.get('artist') or 'Noma’lum'} — {candidate.get('title') or 'Noma’lum'}"
+        return title[:64 - len(suffix)] + suffix
 
     def instagram_selection_markup(self, token: str, index: int, candidate: dict, owner: bool) -> dict | None:
         in_lib = next((song for song in self.lib.songs if lookup.same_song(
@@ -450,7 +459,9 @@ class Station:
         rows: list[list[dict | None]] = []
         listen_url = self.instagram_listen_url(candidate)
         if listen_url:
-            rows.append([{"text": "🎧 Tinglash", "url": listen_url}])
+            rows.append([{"text": "🎧 Chatda tinglash", "callback_data": f"iglisten:{token}:{index}"}])
+        elif candidate.get("track_url"):
+            rows.append([{"text": "🌐 Rasmiy trek sahifasi", "url": candidate["track_url"]}])
         if in_lib:
             rows.append([self.app_button("▶️ Saytda tinglash", f"song/{in_lib['id']}")])
         elif owner:
@@ -486,9 +497,10 @@ class Station:
             lines = ["🎵 <b>Rolikdan topilgan mos qo'shiqlar:</b>", ""]
             for i, candidate in enumerate(candidates, 1):
                 lines.append(f"{i}. <b>{esc(candidate.get('artist', 'Noma’lum ijrochi'))}</b> — "
-                             f"{esc(candidate.get('title', 'Noma’lum qo‘shiq'))}")
+                             f"{esc(candidate.get('title', 'Noma’lum qo‘shiq'))} · "
+                             f"{fmt_duration(candidate.get('duration') or 0)}")
             lines.append("\nKeraklisini tanlang:")
-            rows = [[{"text": f"{i + 1}. {(c.get('artist') or 'Noma’lum')} — {(c.get('title') or 'Noma’lum')}"[:62],
+            rows = [[{"text": self.instagram_result_label(i + 1, c),
                       "callback_data": f"igpick:{token}:{i}"}] for i, c in enumerate(candidates)]
             self.edit(chat_id, message_id, "\n".join(lines), self.keyboard(*rows))
             return
@@ -503,6 +515,25 @@ class Station:
             return
         candidate = candidates[index]
 
+        if action == "iglisten":
+            preview = self.instagram_listen_url(candidate)
+            if not preview:
+                self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Bu trek uchun preview yo'q.")
+                return
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Chat pleyeriga yuborilyapti…")
+            try:
+                self.bot.call("sendAudio", chat_id=chat_id, audio=preview,
+                              title=candidate.get("title") or "",
+                              performer=candidate.get("artist") or "",
+                              reply_parameters={"message_id": message_id}, timeout=25)
+            except TelegramError:
+                track_url = candidate.get("track_url")
+                self.send(chat_id, "Telegram previewni ola olmadi. Rasmiy sahifani ochib tinglang.",
+                          reply_to=message_id,
+                          markup=self.keyboard([{"text": "🌐 Rasmiy trek sahifasi", "url": track_url}]
+                                               if track_url else []))
+            return
+
         if action == "igpick":
             owner = self.authorized((cq.get("from") or {}).get("id", 0))
             self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"])
@@ -515,7 +546,7 @@ class Station:
             if in_lib:
                 text += "\n\n✅ Bu qo'shiq saytda bor."
             else:
-                text += "\n\n🎧 Rasmiy preview yoki trek havolasi orqali tinglang."
+                text += "\n\n🎧 Preview bor bo'lsa Telegram chatida tinglang."
                 if owner:
                     text += "\n➕ Qo'shish rolikdagi audio lavhani saytga saqlaydi."
             self.edit(chat_id, message_id, text,
@@ -1325,7 +1356,7 @@ class Station:
         message = cq.get("message") or {}
         chat_id, message_id = (message.get("chat") or {}).get("id"), message.get("message_id")
         action = data.partition(":")[0]
-        if action in ("igpick", "igback"):
+        if action in ("igpick", "igback", "iglisten"):
             self.handle_instagram_callback(cq)
             return
         if not self.authorized(user_id):
@@ -1365,16 +1396,22 @@ class Station:
     # ================================================================== main loop
     def get_updates(self, offset: int | None, timeout: int) -> list[dict]:
         try:
-            return self.bot.call("getUpdates", timeout=timeout, offset=offset,
-                                 allowed_updates=["message", "callback_query"])
-        except TelegramError as exc:
-            if exc.code == 409:
-                if "webhook" in str(exc).lower():  # a webhook is set -> switch to polling
-                    self.bot.safe("deleteWebhook")
-                else:  # another reader (the relay's quick check) for a moment -> just ask again
-                    time.sleep(2)
-                return []
-            raise
+            if not config.DISPATCH_TOKEN:
+                raise TelegramError("DISPATCH_TOKEN is not configured for the Telegram webhook queue")
+            params = {"timeout": max(0, min(20, int(timeout)))}
+            if offset is not None:
+                params["offset"] = offset
+            key = hashlib.sha256(f"cavi-telegram-updates:{config.DISPATCH_TOKEN}".encode()).hexdigest()
+            response = requests.get(f"{config.RELAY_URL}/internal/telegram/updates", params=params,
+                                    headers={"X-Relay-Key": key}, timeout=params["timeout"] + 10)
+            if not response.ok:
+                raise TelegramError(f"Telegram queue: HTTP {response.status_code}", response.status_code)
+            data = response.json()
+            if not data.get("ok"):
+                raise TelegramError(f"Telegram queue: {data.get('description') or 'invalid response'}")
+            return data.get("result") or []
+        except requests.RequestException as exc:
+            raise TelegramError(f"Telegram queue request failed: {exc}") from None
 
     def drop_fileless(self) -> None:
         """Songs are added only with their audio file; entries left from the add-by-name feature are removed."""
@@ -1431,7 +1468,10 @@ class Station:
             listen_until = min(deadline, time.monotonic() + config.LISTEN_SECONDS)
         self.flush_later()
         if offset is not None:
-            self.bot.safe("getUpdates", offset=offset, timeout=0, limit=1)  # confirm processed updates
+            try:
+                self.get_updates(offset, 0)  # confirm processed webhook updates
+            except TelegramError as exc:
+                print(f"[station] update acknowledgement failed: {exc}")
         # Artist profiles: make sure every performer has one, and look up official status for a few.
         try:
             self.artists.sync_with_songs()

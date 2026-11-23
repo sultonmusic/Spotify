@@ -39,4 +39,9 @@ jobs:
           npx -y wrangler@4 deploy --var "REPO:${{ github.repository }}" --var "BRANCH:${{ github.ref_name }}"
           printf %s "$TELEGRAM_BOT_TOKEN" | npx -y wrangler@4 secret put TELEGRAM_BOT_TOKEN
           printf %s "$DISPATCH_TOKEN" | npx -y wrangler@4 secret put DISPATCH_TOKEN
-          echo "Relay deployed: the station now wakes up within a minute of every message."
+          response=$(curl -fsS "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook" \
+            --data-urlencode "url=https://cavi-music-relay.sales-infarmatik-tj.workers.dev/telegram-webhook" \
+            --data-urlencode "secret_token=${DISPATCH_TOKEN}" \
+            --data-urlencode 'allowed_updates=["message","callback_query"]')
+          echo "$response" | jq -e '.ok == true' >/dev/null
+          echo "Relay deployed: Telegram updates now trigger the station immediately."
