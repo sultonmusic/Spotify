@@ -29,5 +29,152 @@
   "t": 1794853317,
   "chat": 8988775229
  },
- "instagram_jobs": {}
+ "instagram_jobs": {},
+ "catalog_jobs": {
+  "1906e70b": {
+   "t": 1795475000.3291547,
+   "chat": 8988775229,
+   "candidates": [
+    {
+     "score": 0.8,
+     "title": "I Cross the Line",
+     "artist": "Sven Erler",
+     "album": "Dancing in the Street",
+     "genre": "Rock",
+     "year": 2025,
+     "duration": 175.45,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c3/fb/e9/c3fbe9e6-9de9-98a2-e808-0dad5ffc51e6/859708999693_cover.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 322857733,
+     "artist_url": "https://music.apple.com/us/artist/sven-erler/322857733",
+     "track_url": "https://music.apple.com/us/album/i-cross-the-line/1820864028",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ee/a8/83/eea8839f-c419-13ac-0664-fcf914d52771/mzaf_16373470362244623674.plus.aac.p.m4a",
+     "source": "Apple Music"
+    },
+    {
+     "score": 0.8,
+     "title": "I cross the line",
+     "artist": "DR41D",
+     "album": "I cross the line",
+     "genre": "Electronica",
+     "year": 2026,
+     "duration": 210.0,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e0/64/80/e0648018-a101-db86-8a8d-6098c996b11c/artwork.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1743600879,
+     "artist_url": "https://music.apple.com/us/artist/dr41d/1743600879",
+     "track_url": "https://music.apple.com/us/album/i-cross-the-line/6769946441",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c6/bf/f2/c6bff243-332c-7676-dd2e-dbb28db86c95/mzaf_15675482009211042351.plus.aac.p.m4a",
+     "source": "Apple Music"
+    },
+    {
+     "score": 0.8,
+     "title": "I Cross the Line",
+     "artist": "Sulton",
+     "album": "I Cross the Line",
+     "genre": "Pop",
+     "year": 2025,
+     "duration": 193.72,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a6/ab/85/a6ab854e-8cc5-3be8-2b59-c6c1021fd100/artwork.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1811109407,
+     "artist_url": "https://music.apple.com/us/artist/sulton/1811109407",
+     "track_url": "https://music.apple.com/us/album/i-cross-the-line/1813556147",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cb/ee/10/cbee1019-9280-6d12-9d05-5ee90229cf8d/mzaf_13041570927003517558.plus.aac.p.m4a",
+     "source": "Apple Music"
+    },
+    {
+     "score": 0.77,
+     "title": "Cross the Line",
+     "artist": "Place Vendome",
+     "album": "Place Vendome",
+     "genre": "Rock",
+     "year": 2005,
+     "duration": 296.707,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/67/f7/12/mzi.autqkjlf.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 83918408,
+     "artist_url": "https://music.apple.com/us/artist/place-vendome/83918408",
+     "track_url": "https://music.apple.com/us/album/cross-the-line/83918487",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/fc/a3/94/fca394c8-16f5-6e7c-df34-fce987da7662/mzaf_10943448716452818760.plus.aac.p.m4a",
+     "source": "Apple Music"
+    },
+    {
+     "score": 0.77,
+     "title": "Cross the Line",
+     "artist": "John Legend",
+     "album": "Evolver",
+     "genre": "R&B/Soul",
+     "year": 2008,
+     "duration": 202.907,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c9/f8/6a/c9f86a6d-c058-26ad-920b-d62b73dde055/886971374025.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 16586443,
+     "artist_url": "https://music.apple.com/us/artist/john-legend/16586443",
+     "track_url": "https://music.apple.com/us/album/cross-the-line/292767820",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/18/7f/73/187f736d-378a-6c0d-cfbb-c637e8384908/mzaf_16623755287345562091.plus.aac.p.m4a",
+     "source": "Apple Music"
+    },
+    {
+     "score": 0.77,
+     "title": "what happens if I cross the line",
+     "artist": "Celine Hess",
+     "album": "what happens if I cross the line",
+     "genre": "Singer/Songwriter",
+     "year": 2024,
+     "duration": 196.271,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/fc/63/e6/fc63e6aa-24f9-837b-fdaa-1e516d363066/artwork.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1493600067,
+     "artist_url": "https://music.apple.com/us/artist/celine-hess/1493600067",
+     "track_url": "https://music.apple.com/us/album/what-happens-if-i-cross-the-line/1723012706",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/c6/a1/66/c6a166ee-e124-883d-c3cc-ab0383318689/mzaf_7431636455290314469.plus.aac.p.m4a",
+     "source": "Apple Music",
+     "id": 2599106132,
+     "album_id": 527908862,
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/1b90309fc1aa004f7a378b74dd178077/1000x1000-000000-80-0-0.jpg",
+     "rank": 110795,
+     "sources": [
+      "Apple Music",
+      "Deezer"
+     ]
+    },
+    {
+     "score": 0.77,
+     "title": "cross the line",
+     "artist": "pryme!",
+     "album": "cross the line",
+     "genre": "Alternative",
+     "year": 2026,
+     "duration": 228.46,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/bc/84/2a/bc842a98-f5f9-7c9e-212c-878ccdaee01c/075679555298.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1675793466,
+     "artist_url": "https://music.apple.com/us/artist/pryme/1675793466",
+     "track_url": "https://music.apple.com/us/album/cross-the-line/6815500358",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/85/e0/12/85e012d3-b679-7308-3243-c9bf84d3487c/mzaf_926208398982124020.plus.aac.p.m4a",
+     "source": "Apple Music",
+     "sources": [
+      "Apple Music"
+     ]
+    },
+    {
+     "score": 0.77,
+     "title": "Cross the Line",
+     "artist": "Ai.D",
+     "album": "Cross the Line",
+     "genre": "Alternative",
+     "year": 2025,
+     "duration": 201.49,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a0/67/9a/a0679aa0-8d0c-6558-4690-80639a2064ba/859714925044_cover.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1735551659,
+     "artist_url": "https://music.apple.com/us/artist/ai-d/1735551659",
+     "track_url": "https://music.apple.com/us/album/cross-the-line/1833643715",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b8/15/08/b815082d-c2d7-bdab-6198-9f4a0abaca8c/mzaf_13773380749798839392.plus.aac.p.m4a",
+     "source": "Apple Music"
+    }
+   ]
+  }
+ }
 }
