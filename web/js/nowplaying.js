@@ -203,6 +203,8 @@ export function openNowPlaying() {
 /** Redraw (e.g. after the language changed). */
 export function refreshNowPlaying() { if (isOpen) render(); }
 
+const durationLabel = (song, value) => `${song?.previewOnly ? `${t("common.preview")} · ` : ""}${fmtTime(value)}`;
+
 function render() {
   const s = player.current;
   const el = root();
@@ -211,7 +213,7 @@ function render() {
   const color = s.color || "#535353";
   const playBtn = h("button", { class: "np-play", "aria-label": t("common.play"), html: icon(isPlaying() ? "pause" : "play"), onclick: () => { haptic("medium"); toggle(); } });
   const range = h("input", { class: "range", type: "range", min: 0, max: 1000, value: 0, "aria-label": "Time" });
-  const tCur = h("span", null, "0:00"), tDur = h("span", null, fmtTime(s.duration));
+  const tCur = h("span", null, "0:00"), tDur = h("span", null, durationLabel(s, s.duration));
   range.addEventListener("input", () => {
     seeking = true;
     tCur.textContent = fmtTime((range.value / 1000) * (duration() || s.duration));
@@ -323,7 +325,7 @@ function updateTime() {
   u.range.value = p;
   u.range.style.setProperty("--p", `${p / 10}%`);
   u.tCur.textContent = fmtTime(time);
-  u.tDur.textContent = fmtTime(d);
+  u.tDur.textContent = durationLabel(player.current, d);
 }
 
 // ------------------------------------------------------------------ full-screen lyrics

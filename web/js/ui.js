@@ -286,7 +286,7 @@ export function songRow(s, opts = {}) {
         opts.sub ?? [s.artist, verifiedBadge(s.artists?.[0], 13)])),
     opts.showPlays !== false ? h("div", { class: "extra plays" }, n ? `${num(n)} ▶` : "") : null,
     heartButton(s, 20),
-    h("div", { class: "extra" }, fmtTime(s.duration)),
+    h("div", { class: "extra" }, s.previewOnly ? `${t("common.preview")} · ${fmtTime(s.duration)}` : fmtTime(s.duration)),
     h("button", { class: "icon-btn more", "aria-label": t("common.more"), html: icon("more", 20),
       onclick: (e) => { e.stopPropagation(); songMenu(s, opts); } }),
   );

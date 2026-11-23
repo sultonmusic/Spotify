@@ -320,8 +320,9 @@ export function viewSearch(param) {
     if (local) cardEl.append(h("button", { class: "search-recognition-play", "aria-label": t("common.play"),
       html: icon("play", 18), onclick: () => playSong(local, [local], { type: "search", id: title, title }) }));
     else if (track.autoAddJobId) cardEl.append(h("span", { class: "search-recognition-missing" }, t("search.voiceAdding")));
-    else if (!inTelegram && (!siteOwnerToken() || track.ownerConnectionRequired)) cardEl.append(h("button", { class: "search-recognition-connect",
+    else if (!siteOwnerToken() || track.ownerConnectionRequired) cardEl.append(h("button", { class: "search-recognition-connect",
       onclick: (event) => connectOwnerAndQueue(track, event.currentTarget) }, t("search.voiceConnectButton")));
+    else if (track.queueError) cardEl.append(h("span", { class: "search-recognition-missing" }, track.queueError));
     else cardEl.append(h("span", { class: "search-recognition-missing" }, t("search.voiceNotInLibrary")));
     return cardEl;
   };
@@ -431,7 +432,7 @@ export function viewSearch(param) {
       if (track.existingId) await loadLibrary().catch(() => {});
       voiceMatch = track;
       input.value = [track.title, track.subtitle].filter(Boolean).join(" ");
-      voiceStatus.textContent = track.autoAddJobId ? t("search.voiceAdding") : (track.autoAddError || "");
+      voiceStatus.textContent = track.autoAddJobId ? t("search.voiceAdding") : (track.autoAddError || track.queueError || "");
       render();
       if (track.autoAddJobId) void monitorRecognition(track.autoAddJobId);
       history.replaceState(history.state, "", `#/search/${encodeURIComponent(input.value.trim())}`);
@@ -961,7 +962,7 @@ export function viewDJ() {
     djChat.push({ me: true, text }, { text: answer.text, songs: answer.songs, at: Date.now() });
     if (djChat.length > 30) djChat.splice(0, djChat.length - 30);
     draw();
-    if (answer.songs.length) playList(answer.songs, 0, { type: "mix", id: `dj-${Date.now()}`, title: "DJ" });
+    if (answer.confident && answer.songs.length) playList(answer.songs, 0, { type: "mix", id: `dj-${Date.now()}`, title: "DJ" });
   }
   async function processUpload(file) {
     haptic("light");

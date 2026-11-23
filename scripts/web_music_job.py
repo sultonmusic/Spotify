@@ -126,7 +126,7 @@ def _process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict
         raise RuntimeError("Shazam result is invalid") from exc
 
     from bot import lookup
-    from bot.main import Station
+    from bot.main import Station, variant_of
 
     fingerprint = {"title": title, "artist": artist, "album": "", "genre": "",
                    "cover": (raw.get("images") or {}).get("coverarthq") or (raw.get("images") or {}).get("coverart")}
@@ -145,10 +145,7 @@ def _process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict
     else:
         matches = lookup.search_candidates(title, artist, 0, fingerprint=fingerprint, limit=8)
         chosen = next((candidate for candidate in matches if candidate.get("preview_url") and
-                       not re.search(r"\b(?:remix|rmx|slowed|sped\s*up|live|cover|karaoke|nightcore)\b",
-                                     candidate.get("title", ""), re.I)), None)
-        if not chosen:
-            chosen = next((candidate for candidate in matches if candidate.get("preview_url")), None)
+                       not variant_of(candidate.get("title", ""))), None)
         if not chosen:
             raise RuntimeError("Shazam found the song, but no official playable preview is available")
 
@@ -164,6 +161,9 @@ def _process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict
             outcome_song, outcome = station.import_song(
                 {"message_id": 0, "caption": ""}, "shazam", media, str(meta["fileKey"]), progress,
                 source_path=source, accept_variant=True, known=chosen)
+            if outcome != "duplicate":
+                station.lib.update(outcome_song, previewOnly=True,
+                                   previewOfDuration=round(float(chosen.get("duration") or 0), 2))
             station.save()
 
     result = {key: outcome_song.get(key) for key in (

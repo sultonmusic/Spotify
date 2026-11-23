@@ -10,6 +10,7 @@ import hashlib
 import hmac
 import html
 import json
+import csv
 import re
 import secrets
 import sys
@@ -33,14 +34,16 @@ from .telegram_api import Bot, TelegramError
 from .translate import translate_lyrics_file
 from .textutil import norm, similarity, split_artist_title, split_artists
 
-SETUP_VERSION = "8"
+SETUP_VERSION = "9"
 AUDIO_EXT = {".mp3", ".m4a", ".aac", ".flac", ".ogg", ".oga", ".opus", ".wav", ".wma", ".aif", ".aiff",
              ".ape", ".alac", ".amr", ".mka", ".weba"}
 VIDEO_EXT = {".mp4", ".mov", ".mkv", ".webm", ".avi", ".3gp", ".m4v"}
 ASK_TTL = 7 * 86400  # "add this cover?" buttons stay valid for a week
 AD_DRAFT_TTL = 30 * 60  # after /add, the next photo/video within 30 minutes becomes the ad
 INSTAGRAM_JOB_TTL = 6 * 60 * 60
+CATALOG_JOB_TTL = 10 * 60
 INSTAGRAM_MAX_BYTES = 100 * 1024 * 1024
+CATALOG_PREVIEW_MAX_BYTES = 20 * 1024 * 1024
 INSTAGRAM_MAX_SECONDS = 180
 INSTAGRAM_URL_RE = re.compile(r"https?://(?:www\.|m\.)?instagram\.com/[^\s<>\"']+", re.I)
 
@@ -187,6 +190,15 @@ class Station:
             for token, _ in sorted(instagram_jobs.items(), key=lambda pair: pair[1].get("t", 0))[:-20]:
                 del instagram_jobs[token]
                 self.state_dirty = True
+        catalog_jobs = self.state.get("catalog_jobs") or {}
+        for token in [k for k, v in catalog_jobs.items()
+                      if time.time() - v.get("t", 0) > CATALOG_JOB_TTL]:
+            del catalog_jobs[token]
+            self.state_dirty = True
+        if len(catalog_jobs) > 20:
+            for token, _ in sorted(catalog_jobs.items(), key=lambda pair: pair[1].get("t", 0))[:-20]:
+                del catalog_jobs[token]
+                self.state_dirty = True
         if self.state_dirty:
             config.STATE_FILE.write_text(json.dumps(self.state, indent=1) + "\n")
             self.state_dirty = False
@@ -223,6 +235,7 @@ class Station:
             {"command": "add", "description": "Reklama qo'shish"},
             {"command": "ads", "description": "Reklamalar va statistika"},
             {"command": "list", "description": "Oxirgi qo'shilgan qo'shiqlar"},
+            {"command": "all", "description": "Ro'yxatni sayt bilan solishtirish"},
             {"command": "stats", "description": "Kutubxona statistikasi"},
             {"command": "artists", "description": "Ijrochilar va tasdiqlanganlar"},
             {"command": "edit", "description": "Qo'shiq ma'lumotini tuzatish (javob tariqasida)"},
@@ -277,7 +290,9 @@ class Station:
         chat_id = msg["chat"]["id"]
 
         if text.startswith("/"):
-            command, _, arg = text.partition(" ")
+            parts = text.split(maxsplit=1)
+            command = parts[0]
+            arg = parts[1] if len(parts) > 1 else ""
             command = command[1:].split("@")[0].lower()
             if command == "start" and arg.startswith("connect_"):
                 code = arg[len("connect_"):].split()[0]
@@ -333,6 +348,16 @@ class Station:
                           reply_to=msg["message_id"], markup=self.keyboard([self.app_button("🎧 Tinglash")]))
                 return
             self.handle_song(msg, *media)
+            return
+
+        document = msg.get("document") or {}
+        document_name = (document.get("file_name") or "").lower()
+        if Path(document_name).suffix in (".txt", ".csv"):
+            if not self.authorized(user_id):
+                self.send(chat_id, "🔒 Ro'yxatni tekshirish faqat stansiya egasiga ruxsat etilgan.",
+                          reply_to=msg["message_id"])
+                return
+            self.audit_track_document(msg, document)
             return
 
         if msg.get("photo") and msg.get("reply_to_message") and self.authorized(user_id):
@@ -473,6 +498,112 @@ class Station:
         suffix = f" · {fmt_duration(candidate.get('duration') or 0)}"
         title = f"{number}. {candidate.get('artist') or 'Noma’lum'} — {candidate.get('title') or 'Noma’lum'}"
         return title[:64 - len(suffix)] + suffix
+
+    def handle_catalog_callback(self, cq: dict) -> None:
+        data = cq.get("data") or ""
+        action, _, payload = data.partition(":")
+        bits = payload.split(":")
+        token = bits[0] if bits else ""
+        message = cq.get("message") or {}
+        chat_id, message_id = (message.get("chat") or {}).get("id"), message.get("message_id")
+        job = (self.state.get("catalog_jobs") or {}).get(token)
+        if not job or time.time() - job.get("t", 0) > CATALOG_JOB_TTL or chat_id != job.get("chat"):
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"],
+                          text="Natijalar eskirgan. Qo'shiq nomini qayta yuboring.")
+            return
+        if len(bits) < 2 or not bits[1].isdigit():
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Natija topilmadi.")
+            return
+        index = int(bits[1])
+        candidates = job.get("candidates", [])
+        if index >= len(candidates):
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Bu natija mavjud emas.")
+            return
+        candidate = candidates[index]
+        preview = self.instagram_listen_url(candidate)
+        if action == "catlisten":
+            if not preview:
+                self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Rasmiy preview topilmadi.")
+                return
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Preview chatga yuborilyapti…")
+            try:
+                self.bot.call("sendAudio", chat_id=chat_id, audio=preview,
+                              title=candidate.get("title") or "", performer=candidate.get("artist") or "",
+                              reply_parameters={"message_id": message_id}, timeout=25)
+            except TelegramError:
+                self.send(chat_id, "Telegram previewni ola olmadi. Rasmiy trek sahifasini ochib ko'ring.",
+                          reply_to=message_id,
+                          markup=self.keyboard([{"text": "🌐 Rasmiy trek", "url": candidate.get("track_url")}]
+                                               if (candidate.get("track_url") or "").startswith("https://") else []))
+            return
+
+        if action != "catadd":
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"])
+            return
+        if not self.authorized((cq.get("from") or {}).get("id", 0)):
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="🔒 Faqat stansiya egasi qo'sha oladi.")
+            return
+        if not preview:
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Bu trekda rasmiy preview yo'q.")
+            return
+        existing = next((song for song in self.lib.songs if lookup.same_song(
+            song["title"], song["artist"], candidate.get("title", ""), candidate.get("artist", ""))), None)
+        if existing:
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Bu trek saytda bor.")
+            self.edit(chat_id, message_id, "✅ Bu qo'shiq saytda avvaldan bor.\n\n" + self.card(existing),
+                      self.song_markup(existing))
+            return
+
+        self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Rasmiy preview qo'shilmoqda…")
+        self.edit(chat_id, message_id, "⏳ Rasmiy 30 soniyalik preview olinib, saytga qo'shilmoqda…")
+        try:
+            parts = urlsplit(preview)
+            extension = Path(parts.path).suffix.lower()
+            if extension not in (".mp3", ".m4a"):
+                raise RuntimeError("Rasmiy preview formati mos emas.")
+            with tempfile.TemporaryDirectory(prefix="cavi-catalog-") as tmp_name:
+                source = Path(tmp_name) / f"preview{extension}"
+                size = 0
+                with requests.get(preview, stream=True, timeout=(15, 45)) as response:
+                    response.raise_for_status()
+                    final_host = (urlsplit(response.url).hostname or "").lower()
+                    if not (final_host == "apple.com" or final_host.endswith(".apple.com")
+                            or final_host == "deezer.com" or final_host.endswith(".deezer.com")
+                            or final_host == "dzcdn.net" or final_host.endswith(".dzcdn.net")):
+                        raise RuntimeError("Preview rasmiy musiqa katalogidan kelmadi.")
+                    with source.open("wb") as target:
+                        for chunk in response.iter_content(64 * 1024):
+                            if not chunk:
+                                continue
+                            size += len(chunk)
+                            if size > CATALOG_PREVIEW_MAX_BYTES:
+                                raise RuntimeError("Preview hajmi kutilganidan katta.")
+                            target.write(chunk)
+                if not size:
+                    raise RuntimeError("Rasmiy preview bo'sh qaytdi.")
+                preview_key = hashlib.sha1(preview.encode()).hexdigest()[:16]
+                media = {"file_unique_id": "catalog-preview:" + preview_key,
+                         "file_name": f"{candidate.get('title') or 'preview'}{extension}",
+                         "file_size": size, "performer": candidate.get("artist"),
+                         "title": candidate.get("title")}
+
+                def progress(text: str) -> None:
+                    self.edit(chat_id, message_id, text)
+
+                song, outcome = self.import_song(
+                    {"message_id": 0, "caption": ""}, "catalog-preview", media, preview_key,
+                    progress, source_path=source, accept_variant=True, known=candidate)
+            if outcome != "duplicate":
+                self.lib.update(song, previewOnly=True, previewOfDuration=round(float(candidate.get("duration") or 0), 2))
+                self.save()
+                result = "✅ Saytga rasmiy qisqa preview qo'shildi. Bu to'liq qo'shiq emas."
+            else:
+                result = "✅ Bu qo'shiq saytda avvaldan bor."
+            self.edit(chat_id, message_id, result + "\n\n" + self.card(song), self.song_markup(song))
+        except Exception as exc:
+            print(f"[catalog] add failed: {type(exc).__name__}")
+            self.edit(chat_id, message_id,
+                      "⚠️ Preview qo'shilmadi. To'liq trekni qo'shish uchun audio faylini botga yuboring.")
 
     def instagram_selection_markup(self, token: str, index: int, candidate: dict, owner: bool) -> dict | None:
         in_lib = next((song for song in self.lib.songs if lookup.same_song(
@@ -978,6 +1109,10 @@ class Station:
             lines.append("🏷 " + " ".join(f"#{esc(t)}" for t in hashtags if t))
         if s.get("variant"):
             lines.append(f"🎤 Versiya: {esc(_VARIANT_UZ.get(s['variant'], s['variant']))}")
+        if s.get("previewOnly"):
+            original_duration = s.get("previewOfDuration")
+            lines.append("🎧 Rasmiy qisqa preview" +
+                         (f" · asl trek {fmt_duration(original_duration)}" if original_duration else ""))
         if s.get("video"):
             lines.append("🎬 Video: bor (saytdagi to'liq ekranli pleyerda)")
         src = {"shazam": "Shazam", "itunes": "iTunes", "deezer": "Deezer", "ai": "AI"}
@@ -1032,6 +1167,7 @@ class Station:
                 "Matn yozsangiz — stansiyadan qidiraman",
                 "/add — reklama qo'shish · /ads — reklamalar va statistika",
                 "/list — oxirgi qo'shiqlar",
+                "/all — Ijrochi — Qo'shiq ro'yxatini sayt bilan solishtirish (1000 tagacha)",
                 "/stats — statistika",
                 "/artists — ijrochilar (☑️ = tasdiqlangan)",
                 "/verify Ijrochi · /unverify Ijrochi — belgini qo'lda qo'yish/olish",
@@ -1236,6 +1372,9 @@ class Station:
             lines.append(f"{i}. <b>{esc(s['artist'])}</b> — {esc(s['title'])} <code>{s['id']}</code>")
         self.send(chat_id, "\n".join(lines), markup=self.keyboard([self.app_button()]))
 
+    def cmd_all(self, msg: dict, arg: str) -> None:
+        self.audit_tracks(msg["chat"]["id"], arg, msg["message_id"])
+
     def cmd_stats(self, msg: dict, arg: str) -> None:
         songs = self.lib.songs
         artists: dict[str, int] = {}
@@ -1360,8 +1499,12 @@ class Station:
                 scored.append((score, s))
         scored.sort(key=lambda x: -x[0])
         if not scored:
+            if owner and len(q) >= 4:
+                self.search_catalog(chat_id, query, reply_to)
+                return
             self.send(chat_id, "🔎 Stansiyada topilmadi." + (
-                "\n\nQo'shish uchun qo'shiq faylini yuboring yoki istalgan chatdan forward qiling." if owner else ""),
+                "\n\nAniq qo'shiq yoki ijrochi nomini yozing — rasmiy qisqa previewni qidiraman. "
+                "To'liq trek qo'shish uchun audio faylini yuboring yoki forward qiling." if owner else ""),
                 reply_to=reply_to)
             return
         top = [s for _, s in scored[:8]]
@@ -1369,6 +1512,139 @@ class Station:
         lines += [f"• <b>{esc(s['artist'])}</b> — {esc(s['title'])} <code>{s['id']}</code>" for s in top]
         rows = [[self.app_button(f"▶️ {s['artist']} — {s['title']}"[:60], f"song/{s['id']}")] for s in top]
         self.send(chat_id, "\n".join(lines), reply_to=reply_to, markup=self.keyboard(*rows))
+
+    def search_catalog(self, chat_id: int, query: str, reply_to: int) -> None:
+        status = self.send(chat_id, "🌐 Stansiyada yo'q. Rasmiy katalogdan originalini qidiryapman…",
+                           reply_to=reply_to)
+        status_id = (status or {}).get("message_id")
+        if not status_id:
+            return
+        try:
+            matches = lookup.search_candidates(query, "", 0, limit=20)
+            originals = []
+            for candidate in matches:
+                if candidate.get("score", 0) < 0.58 or variant_of(candidate.get("title", "")):
+                    continue
+                if any(lookup.same_song(x.get("title", ""), x.get("artist", ""),
+                                        candidate.get("title", ""), candidate.get("artist", ""))
+                       for x in originals):
+                    continue
+                originals.append(candidate)
+            originals = originals[:8]
+            if not originals:
+                self.edit(chat_id, status_id,
+                          "🔎 Original trekni ishonchli topmadim. Ijrochi va qo'shiq nomini aniqroq yozing; "
+                          "to'liq trekni qo'shish uchun o'zingizdagi audio faylni yuboring.")
+                return
+
+            jobs = self.state.setdefault("catalog_jobs", {})
+            token = secrets.token_hex(4)
+            while token in jobs:
+                token = secrets.token_hex(4)
+            jobs[token] = {"t": time.time(), "chat": chat_id, "candidates": originals}
+            self.state_dirty = True
+            lines = ["🎵 <b>Rasmiy katalogdan topildi (original versiyalar):</b>", ""]
+            rows = []
+            for index, candidate in enumerate(originals):
+                artist = candidate.get("artist") or "Noma'lum ijrochi"
+                title = candidate.get("title") or "Noma'lum qo'shiq"
+                duration = candidate.get("duration") or 0
+                existing = next((song for song in self.lib.songs if lookup.same_song(
+                    song["title"], song["artist"], title, artist)), None)
+                lines.append(f"{index + 1}. <b>{esc(artist)}</b> — {esc(title)} · {fmt_duration(duration)}"
+                             + (" · ✅ saytda bor" if existing else ""))
+                buttons = []
+                if self.instagram_listen_url(candidate):
+                    buttons.append({"text": "🎧 Preview", "callback_data": f"catlisten:{token}:{index}"})
+                if existing:
+                    buttons.append(self.app_button("▶️ Saytda", f"song/{existing['id']}"))
+                elif self.instagram_listen_url(candidate):
+                    buttons.append({"text": "➕ Saytga 30s preview", "callback_data": f"catadd:{token}:{index}"})
+                elif candidate.get("track_url", "").startswith("https://"):
+                    buttons.append({"text": "🌐 Rasmiy sahifa", "url": candidate["track_url"]})
+                if buttons:
+                    rows.append(buttons)
+            lines.append("\nTo'liq MP3 katalogdan olinmaydi. Previewni qo'shish tugmasi faqat rasmiy qisqa lavhani qo'shadi; "
+                         "to'liq trek uchun o'zingizdagi audio faylni yuboring.")
+            self.edit(chat_id, status_id, "\n".join(lines), self.keyboard(*rows))
+        except Exception as exc:
+            print(f"[catalog] search failed: {type(exc).__name__}")
+            self.edit(chat_id, status_id,
+                      "⚠️ Musiqa katalogi hozir javob bermadi. Birozdan keyin qayta yozing yoki audio fayl yuboring.")
+
+    def audit_tracks(self, chat_id: int, text: str, reply_to: int | None = None) -> None:
+        rows = []
+        ignored = 0
+        seen = set()
+        for raw in text.splitlines():
+            raw = raw.strip().lstrip("•*- ").strip()
+            if not raw or raw.lower() in ("artist — title", "artist - title", "ijrochi — qo'shiq", "artist,title"):
+                continue
+            if "," in raw or "\t" in raw:
+                try:
+                    fields = next(csv.reader([raw])) if "," in raw else raw.split("\t", 1)
+                except csv.Error:
+                    fields = []
+                if len(fields) >= 2:
+                    artist, title = fields[0].strip().strip('"'), fields[1].strip().strip('"')
+                else:
+                    artist, title = split_artist_title(raw)
+            else:
+                artist, title = split_artist_title(raw)
+            if norm(artist) in ("artist", "ijrochi") and norm(title) in ("title", "song", "qoshiq"):
+                continue
+            if not artist and norm(raw) in ("artist,title", "artist,track", "ijrochi,qoshiq"):
+                continue
+            if not artist or not title:
+                continue
+            if variant_of(title):
+                ignored += 1
+                continue
+            key = (norm(artist), norm(title))
+            if key in seen:
+                continue
+            seen.add(key)
+            existing = next((song for song in self.lib.songs if lookup.same_song(
+                song["title"], song["artist"], title, artist)), None)
+            rows.append((artist, title, existing))
+            if len(rows) >= 1000:
+                break
+        if not rows:
+            self.send(chat_id,
+                      "📋 Format: har qatorga <code>Ijrochi — Qo'shiq</code> yozing. "
+                      "Katta ro'yxatni .txt yoki .csv fayl qilib yuboring.", reply_to=reply_to)
+            return
+        present = sum(bool(existing) for _, _, existing in rows)
+        missing = len(rows) - present
+        lines = ["📋 <b>Sayt kutubxonasi tekshiruvi</b>", "",
+                 f"Original treklar: <b>{len(rows)}</b>",
+                 f"Saytda bor: <b>{present}</b>", f"Saytda yo'q: <b>{missing}</b>"]
+        if ignored:
+            lines.append(f"Remix/cover/live kabi versiyalar tashlab ketildi: {ignored}")
+        if missing:
+            lines += ["", "<b>Saytda yo'q — audio fayli kerak:</b>"]
+            lines += [f"• {esc(artist[:90])} — {esc(title[:90])}"
+                      for artist, title, existing in rows if not existing][:12]
+            if missing > 12:
+                lines.append(f"… va yana {missing - 12} ta")
+            lines += ["", "Bu ro'yxat katalogdan to'liq MP3 yuklamaydi. O'zingizda bor yoki foydalanish huquqingiz bor "
+                      "audio fayllarni yuborsangiz, bot ularni saytga qo'shadi."]
+        self.send(chat_id, "\n".join(lines), reply_to=reply_to)
+
+    def audit_track_document(self, msg: dict, document: dict) -> None:
+        chat_id = msg["chat"]["id"]
+        if int(document.get("file_size") or 0) > 256 * 1024:
+            self.send(chat_id, "Ro'yxat fayli 256 KB dan kichik bo'lsin (eng ko'pi 1000 qator).",
+                      reply_to=msg["message_id"])
+            return
+        try:
+            with tempfile.TemporaryDirectory() as tmp_name:
+                path = self.bot.download(document["file_id"], Path(tmp_name) / "tracks.txt")
+                text = path.read_bytes().decode("utf-8-sig")
+            self.audit_tracks(chat_id, text, msg["message_id"])
+        except (TelegramError, OSError, UnicodeDecodeError):
+            self.send(chat_id, "Ro'yxatni o'qiy olmadim. UTF-8 .txt/.csv fayl yuboring.",
+                      reply_to=msg["message_id"])
 
     # ================================================================== callbacks
     def handle_callback(self, cq: dict) -> None:
@@ -1380,11 +1656,17 @@ class Station:
         if action in ("igpick", "igback", "iglisten"):
             self.handle_instagram_callback(cq)
             return
+        if action == "catlisten":
+            self.handle_catalog_callback(cq)
+            return
         if not self.authorized(user_id):
             self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="🔒 Faqat egasi uchun")
             return
         if action == "igadd":
             self.handle_instagram_callback(cq)
+            return
+        if action == "catadd":
+            self.handle_catalog_callback(cq)
             return
         action, _, song_id = data.partition(":")
         if action in ("vok", "vno", "vwait"):

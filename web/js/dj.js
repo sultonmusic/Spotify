@@ -254,8 +254,7 @@ function findDirect(text) {
     if (sc && (!artist || sc > artist.sc)) artist = { name, sc };
   }
   if (best && best.sc >= 95) return { song: best.s };
-  if (artist && (!best || artist.sc >= best.sc)) return { artist: artist.name };
-  if (best && best.sc >= 65) return { song: best.s };
+  if (artist && artist.sc >= 100 && (!best || artist.sc >= best.sc)) return { artist: artist.name };
   return null;
 }
 
@@ -274,13 +273,13 @@ export function ask(text) {
       const songs = [s, ...reco.radio(s, 24)];
       const t = { uz: `▶️ «${s.title}» — ${s.artist}. Qo'yyapman, keyin shunga o'xshash qo'shiqlar.`,
         ru: `▶️ Включаю «${s.title}» — ${s.artist}, а дальше похожие.`, en: `▶️ Playing “${s.title}” by ${s.artist}, then similar songs.` };
-      return { intent: null, songs, lang, text: t[lang] || t.en };
+      return { intent: null, songs, lang, confident: true, text: t[lang] || t.en };
     }
     const songs = (lib.byArtist.get(direct.artist) || []).slice()
       .sort((a, b) => (plays(b.id) - plays(a.id)) || (Date.parse(b.addedAt || 0) - Date.parse(a.addedAt || 0)));
     const t = { uz: `🎤 ${direct.artist}: ${plural(lang, songs.length)}. Boshladik!`, ru: `🎤 ${direct.artist}: включаю ${plural(lang, songs.length)}.`,
       en: `🎤 ${direct.artist}: ${plural(lang, songs.length)}. Here we go!` };
-    return { intent: null, songs, lang, text: t[lang] || t.en };
+    return { intent: null, songs, lang, confident: true, text: t[lang] || t.en };
   }
   const intent = understand(text);
   const lang = intent.reply;
@@ -306,20 +305,19 @@ export function ask(text) {
   }
   if (!intent.any) {
     songs = searchSongs(lib.songs, text).slice(0, 25);
-    mode = songs.length ? "search" : "mix";
-    if (!songs.length) songs = reco.forYou(25);
+    mode = songs.length ? "search" : "none";
   }
   const f = facets(intent, lang);
   const desc = f.length ? ` — ${f.join(", ")}` : "";
   const lines = {
     match: { uz: `🎧 ${plural(lang, songs.length)} tanladim${desc}. Boshladik!`, ru: `🎧 Подобрал ${plural(lang, songs.length)}${desc}. Включаю!`, en: `🎧 Picked ${plural(lang, songs.length)}${desc}. Here we go!` },
     looser: { uz: `🤏 «${missing}» bo'yicha stansiyada hozircha qo'shiq yo'q, lekin mana ${plural(lang, songs.length)}${desc}. Boshladik!`, ru: `🤏 «${missing}» на станции пока нет, но вот ${plural(lang, songs.length)}${desc}. Включаю!`, en: `🤏 Nothing “${missing}” on the station yet, but here are ${plural(lang, songs.length)}${desc}. Here we go!` },
-    search: { uz: `🔎 «${text}» bo'yicha ${plural(lang, songs.length)} topdim. Qo'yyapman!`, ru: `🔎 По запросу «${text}» нашёл ${plural(lang, songs.length)}. Включаю!`, en: `🔎 Found ${plural(lang, songs.length)} for “${text}”. Playing!` },
-    mix: { uz: "✨ Aniq tushunmadim, lekin didingizga mos miks tayyorladim.", ru: "✨ Не совсем понял, но собрал микс под ваш вкус.", en: "✨ Not sure what you meant, so here's a mix for your taste." },
+    search: { uz: `🔎 «${text}» bo'yicha ${plural(lang, songs.length)} topdim. Keraklisini tanlang.`, ru: `🔎 По запросу «${text}» нашёл ${plural(lang, songs.length)}. Выберите нужную.`, en: `🔎 Found ${plural(lang, songs.length)} for “${text}”. Choose the one you meant.` },
     none: { uz: "😕 Stansiyada bunday qo'shiq topilmadi. Boshqacha so'rab ko'ring — masalan: «quvnoq o'zbekcha qo'shiqlar».", ru: "😕 Такого на станции не нашлось. Попробуйте иначе — например: «грустные песни на русском».", en: "😕 Nothing like that on the station yet. Try something like “upbeat English songs”." },
   };
   const key = songs.length ? mode : "none";
-  return { intent, songs, lang, text: lines[key][lang] || lines[key].en };
+  return { intent, songs, lang, confident: Boolean(intent.any && songs.length && mode !== "search"),
+    text: lines[key][lang] || lines[key].en };
 }
 
 export const SUGGESTIONS = {

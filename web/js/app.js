@@ -154,7 +154,7 @@ function buildPlayerBar() {
     artist.textContent = s.artist;
     heartSlot.replaceChildren(heartButton(s, 22));
     bar.style.setProperty("--pb-bg", s.color || "#333");
-    tDur.textContent = fmtTime(s.duration);
+    tDur.textContent = `${s.previewOnly ? `${t("common.preview")} · ` : ""}${fmtTime(s.duration)}`;
     document.title = `${s.title} • ${s.artist}`;
   };
   const setPlaying = () => { playBtn.innerHTML = icon(isPlaying() ? "pause" : "play", 24); };
@@ -169,7 +169,7 @@ function buildPlayerBar() {
   on("time", ({ t: time, d }) => {
     const p = d ? (time / d) * 100 : 0;
     progress.style.width = `${p}%`;
-    if (!seeking) { range.value = p * 10; range.style.setProperty("--p", `${p}%`); tCur.textContent = fmtTime(time); tDur.textContent = fmtTime(d); }
+    if (!seeking) { range.value = p * 10; range.style.setProperty("--p", `${p}%`); tCur.textContent = fmtTime(time); tDur.textContent = `${player.current?.previewOnly ? `${t("common.preview")} · ` : ""}${fmtTime(d)}`; }
   });
   on("error", ({ song }) => toast(t("toast.failed", { t: song?.title || "" })));
   setTrack(player.current);
