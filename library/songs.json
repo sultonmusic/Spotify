@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-23T12:20:56Z",
+ "updatedAt": "2026-11-23T14:09:53Z",
  "count": 111,
  "site": {
   "admins": [
@@ -2225,99 +2225,78 @@
     "ru"
    ]
   },
-  "Ark Patrol": {
+  "Sulton": {
    "aliases": [],
    "verified": true,
-   "deezerId": 350862032,
-   "itunesId": 848565657,
-   "deezer": "https://www.deezer.com/artist/350862032",
-   "apple": "https://music.apple.com/us/artist/ark-patrol/848565657",
-   "image": "library/artists/ark-patrol.jpg",
-   "color": "#7c6a95",
-   "checked": "2026-11-23T12:18:44Z",
-   "verifiedAt": "2026-11-23T12:18:44Z",
-   "fans": 635,
-   "albums": 18,
-   "bioChecked": "2026-11-23T12:20:53Z",
+   "itunesId": 1811109407,
+   "apple": "https://music.apple.com/us/artist/sulton/1811109407",
+   "checked": "2026-11-23T14:07:47Z",
+   "verifiedAt": "2026-11-23T14:07:47Z",
+   "bioChecked": "2026-11-23T14:09:53Z",
    "bio": {
-    "en": "Ark Patrol is an American solo musical project of an American musician Brandon Gomez. He started the project in 2014 and gained widespread international attention with his 2015 viral single \"Let Go\" featuring Veronika Redd.",
-    "uz": "Ark Patrol - amerikalik musiqachi Brandon Gomesning amerikalik yakkaxon musiqiy loyihasi. U loyihani 2014-yilda boshlagan va 2015-yilda Veronika Redd ishtirokidagi “Let Go” virusli singli bilan xalqaro eʼtiborni qozongan.",
-    "ru": "Ark Patrol — американский сольный музыкальный проект американского музыканта Брэндона Гомеса. Он начал проект в 2014 году и получил широкое международное внимание благодаря своему вирусному синглу 2015 года «Let Go» с участием Вероники Редд."
+    "en": "Kasim Sulton is an American bassist, keyboardist, guitarist, and vocalist. Best known for his work with Utopia, Sulton sang lead on 1979's \"Set Me Free\", Utopia's only top 40 hit in the United States. As a solo artist, Sulton hit the Canadian top 40 in 1982 with \"Don't Break My Heart\".",
+    "uz": "Qosim Sulton - amerikalik baschi, klaviaturachi, gitarachi va vokalchi. Utopiya bilan ishi bilan mashhur bo‘lgan Sulton 1979-yilda “Set Me Free” qo‘shig‘ida bosh qo‘shiq kuylagan, Utopiyaning Qo‘shma Shtatlardagi yagona eng yaxshi 40 ta hiti. Sulton yakkaxon ijrochi sifatida 1982 yilda \"Yuragimni sindirma\" qo'shig'i bilan Kanadaning eng yaxshi 40 taligiga kirgan.",
+    "ru": "Касим Салтон — американский басист, клавишник, гитарист и вокалист. Самый известный благодаря своей работе с Utopia, Султон спел главную роль в песне 1979 года \"Set Me Free\", единственном хите Utopia, входящем в топ-40 в Соединенных Штатах. Как сольный исполнитель, Султон вошел в топ-40 Канады в 1982 году с песней «Don't Break My Heart»."
    },
    "wiki": {
-    "en": "https://en.wikipedia.org/wiki/Ark_Patrol"
+    "en": "https://en.wikipedia.org/wiki/Kasim_Sulton"
    },
    "desc": {
-    "en": "Solo musical project by Brandon Gomez"
+    "en": "American musician (born 1955)"
    },
    "bioTr": [
     "uz",
     "ru"
    ]
-  },
-  "Veronika Redd": {
-   "aliases": [],
-   "verified": true,
-   "deezerId": 7652770,
-   "deezer": "https://www.deezer.com/artist/7652770",
-   "image": "library/artists/veronika-redd.jpg",
-   "color": "#8f8f00",
-   "checked": "2026-11-23T12:18:44Z",
-   "verifiedAt": "2026-11-23T12:18:44Z",
-   "fans": 177,
-   "albums": 4,
-   "bioChecked": "2026-11-23T12:20:56Z"
   }
  },
  "songs": [
   {
-   "id": "2ebbcbdf29",
-   "title": "Let Go",
-   "artist": "Ark Patrol, Veronika Redd",
+   "id": "cddddd4b6b",
+   "title": "Golden Nights",
+   "artist": "Sulton",
    "artists": [
-    "Ark Patrol",
-    "Veronika Redd"
+    "Sulton"
    ],
-   "album": "Let Go (feat. Veronika Redd)",
-   "year": 2013,
-   "genre": "Electronic",
+   "album": "01",
+   "year": 2025,
+   "genre": "Pop",
    "subgenre": null,
    "moods": [
-    "motivational",
-    "energetic",
-    "party"
+    "happy",
+    "romantic"
    ],
    "language": "en",
-   "energy": 0.95,
-   "danceability": 1.0,
+   "energy": 0.65,
+   "danceability": 0.7,
    "bpm": null,
    "tags": [],
    "description": null,
    "explicit": false,
-   "duration": 20.88,
-   "src": "library/audio/2ebbcbdf29.m4a",
-   "cover": "library/covers/2ebbcbdf29.jpg",
-   "color": "#d3482c",
-   "lyrics": "synced",
-   "confidence": 0.95,
+   "duration": 205.06,
+   "src": "library/audio/cddddd4b6b.m4a",
+   "cover": "library/covers/cddddd4b6b.jpg",
+   "color": "#03508c",
+   "lyrics": null,
+   "confidence": 0.8,
    "sources": [
-    "deezer",
     "itunes"
    ],
    "tg": {
     "msgs": [
-     378
+     381,
+     382
     ]
    },
-   "addedAt": "2026-11-23T12:18:48Z",
+   "addedAt": "2026-11-23T14:07:48Z",
    "mime": "audio/mp4",
-   "size": 167884,
+   "size": 3317203,
    "storage": "pages",
-   "lufs": -14.1,
+   "lufs": -14.7,
    "gain": 0.0,
-   "via": "instagram",
-   "fileKey": "2ebbcbdf29ea2844",
-   "story": "library/stories/2ebbcbdf29.jpg"
+   "via": "audio",
+   "fileKey": "cddddd4b6b0d50de",
+   "story": "library/stories/cddddd4b6b.jpg"
   },
   {
    "id": "327bcd1ced",
