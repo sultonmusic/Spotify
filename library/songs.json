@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-23T14:09:53Z",
- "count": 111,
+ "updatedAt": "2026-11-23T15:19:13Z",
+ "count": 112,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -2248,9 +2248,82 @@
     "uz",
     "ru"
    ]
+  },
+  "Beyoncé": {
+   "aliases": [],
+   "verified": true,
+   "itunesId": 1419227,
+   "apple": "https://music.apple.com/us/artist/beyonc%C3%A9/1419227",
+   "checked": "2026-11-23T15:17:05Z",
+   "verifiedAt": "2026-11-23T15:17:05Z",
+   "bioChecked": "2026-11-23T15:19:13Z",
+   "bio": {
+    "en": "Beyoncé Giselle Knowles-Carter is an American singer, songwriter, actress, and businesswoman. Known for her vocal ability, artistic reinventions, and live performances, she is widely regarded as one of the most culturally significant figures of the 21st century. Credited with shaping popular music, Beyoncé is often deemed one of the greatest entertainers of all time.",
+    "ru": "Бейо́нсе Жизе́ль Но́улз-Картер, более известная мононимно как Бейо́нсе , — американская певица в стиле R’n’B, актриса, танцовщица, музыкальный продюсер. Будучи ребёнком, участвовала в разных вокальных и танцевальных конкурсах, принимала участие в школьной художественной самодеятельности. Ноулз прославилась в конце 1990-х годов, будучи солисткой женской R&B-группы Destiny’s Child.",
+    "uz": "Beyoncé Giselle Knowles-Carter amerikalik qoʻshiqchi, qoʻshiqnavis va aktrisadir. Texasning Houston shahrida tugʻilib oʻsgan Beyoncé bolaligidanoq turli qoʻshiq va raqs musobaqalarida qatnashgan. U 1990-yillaring oxirlarida qizlardan iborat Destiny's Child guruhi aʼzosi oʻlaroq shuhrat qozondi. Bu guruh barcha zamonlarning eng koʻp albomi sotilgan qizlardan iborat guruhlaridan biri boʻlgan. U 2003-yilda Dangerously in Love nomli ilk yakkaxon albomini chiqardi. Albomdagi „Crazy in Love“ va „Baby Boy“ singllari AQShning Billboard Hot 100 musiqiy chartida birinchi raqamli ashulalar boʻlishdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Beyonc%C3%A9",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D0%B9%D0%BE%D0%BD%D1%81%D0%B5",
+    "uz": "https://uz.wikipedia.org/wiki/Beyonc%C3%A9"
+   },
+   "desc": {
+    "en": "American singer and songwriter (born 1981)",
+    "ru": "американская певица и актриса",
+    "uz": "amerikalik qoʻshiqchi, qoʻshiqnavis va aktrisa"
+   }
   }
  },
  "songs": [
+  {
+   "id": "67ef3db978",
+   "title": "Halo",
+   "artist": "Beyoncé",
+   "artists": [
+    "Beyoncé"
+   ],
+   "album": "I AM...SASHA FIERCE",
+   "year": 2008,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 224.82,
+   "src": "library/audio/67ef3db978.m4a",
+   "cover": "library/covers/67ef3db978.jpg",
+   "color": "#ffff00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     392,
+     393
+    ]
+   },
+   "addedAt": "2026-11-23T15:17:09Z",
+   "mime": "audio/mp4",
+   "size": 3636780,
+   "storage": "pages",
+   "lufs": -10.1,
+   "gain": -3.9,
+   "via": "audio",
+   "fileKey": "67ef3db97853aa0c",
+   "story": "library/stories/67ef3db978.jpg"
+  },
   {
    "id": "cddddd4b6b",
    "title": "Golden Nights",
