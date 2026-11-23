@@ -1,5 +1,6 @@
 import { CONFIG } from "./config.js";
 import { inTelegram, tg } from "./tg.js";
+import { siteOwnerHeaders } from "./site-owner-auth.js";
 
 const CLIP_MS = 8_000;
 let vibraReady;
@@ -125,14 +126,15 @@ export async function identifyNearbySong(onStatus, signal) {
     const response = await fetch(`${CONFIG.statsUrl}/identify`, {
       method: "POST",
       headers: { "Content-Type": "application/json",
-        ...(inTelegram && tg?.initData ? { "X-Telegram-Init-Data": tg.initData } : {}) },
+        ...(inTelegram && tg?.initData ? { "X-Telegram-Init-Data": tg.initData } : {}), ...siteOwnerHeaders() },
       body: JSON.stringify(signature),
       signal,
     });
     const data = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(data.error || "Qo'shiqni aniqlashda xatolik");
     return data.track ? { ...data.track, autoAddJobId: data.jobId || null,
-      existingId: data.existingId || null, autoAddError: data.queueError || null } : null;
+      existingId: data.existingId || null, autoAddError: data.queueError || null,
+      ownerConnectionRequired: Boolean(data.ownerConnectionRequired) } : null;
   } finally {
     recorder?.disconnect();
     source?.disconnect();

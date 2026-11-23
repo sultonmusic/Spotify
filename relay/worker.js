@@ -148,6 +148,7 @@ async function stationAdmins(env) {
 }
 
 async function isStationAdmin(env, uid) {
+  if ((env.OWNER_IDS || "").split(/[\s,]+/).includes(String(uid))) return true;
   try {
     const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(uid), "PBKDF2", false, ["deriveBits"]);
     const bits = await crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt: new TextEncoder().encode("cavi-music:admin"), iterations: 150_000 }, key, 256);
@@ -157,16 +158,35 @@ async function isStationAdmin(env, uid) {
   } catch { return false; }
 }
 
+async function verifySiteOwnerToken(request, env) {
+  if (request.headers.get("Origin") !== MUSIC_SITE_ORIGIN) return null;
+  const token = request.headers.get("X-Cavi-Owner-Token") || "";
+  const match = token.match(/^(\d+)\.(\d{10})\.([a-f0-9]{64})$/i);
+  if (!match) return null;
+  const [, uid, expires, signature] = match;
+  const expiry = Number(expires);
+  const now = Math.floor(Date.now() / 1000);
+  if (!Number.isSafeInteger(expiry) || expiry < now || expiry > now + 31 * 86_400) return null;
+  const expected = hex(await hmac(new TextEncoder().encode(env.DISPATCH_TOKEN), `cavi-site-owner\n${uid}\n${expires}`));
+  let diff = expected.length ^ signature.length;
+  for (let i = 0; i < Math.min(expected.length, signature.length); i++) diff |= expected.charCodeAt(i) ^ signature.toLowerCase().charCodeAt(i);
+  if (diff || !await isStationAdmin(env, uid)) return null;
+  return { uid, authDate: now };
+}
+
 async function requireStationOwner(request, env, maxAge) {
-  const identity = await verifyMiniApp(request, env, maxAge);
-  return identity && await isStationAdmin(env, identity.uid) ? identity : null;
+  if (request.headers.get("X-Telegram-Init-Data")) {
+    const identity = await verifyMiniApp(request, env, maxAge);
+    return identity && await isStationAdmin(env, identity.uid) ? identity : null;
+  }
+  return verifySiteOwnerToken(request, env);
 }
 
 function musicCors(request) {
   const origin = request.headers.get("Origin");
   if (origin !== MUSIC_SITE_ORIGIN) return {};
   return { "Access-Control-Allow-Origin": origin, "Vary": "Origin", "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, X-Telegram-Init-Data", "Cache-Control": "no-store" };
+    "Access-Control-Allow-Headers": "Content-Type, X-Telegram-Init-Data, X-Cavi-Owner-Token", "Cache-Control": "no-store" };
 }
 
 function musicJson(request, body, status = 200) {
@@ -264,9 +284,35 @@ async function queueShazamResult(request, env, identity, track) {
   return { jobId: id, status: "QUEUED" };
 }
 
+async function connectSiteOwner(request, env) {
+  if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  if (!await stats(env).claimIdentify(await sha256(`cavi-connect:${ip}`), 3)) {
+    return musicJson(request, { error: "too many connection attempts; wait a minute" }, 429);
+  }
+  const code = crypto.randomUUID().replaceAll("-", "");
+  const expires = Date.now() + 10 * 60_000;
+  const saved = await webMusicDO(env, code).fetch("https://music-jobs/connect/create", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code, expires }),
+  });
+  if (!saved.ok) return musicJson(request, { error: "could not start Telegram connection" }, 503);
+  return musicJson(request, { code, expires });
+}
+
+async function pollSiteOwnerConnection(request, env, code) {
+  if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
+  const response = await webMusicDO(env, code).fetch(`https://music-jobs/connect/status/${code}`);
+  if (!response.ok) return musicJson(request, { error: "connection code expired" }, 410);
+  const state = await response.json();
+  if (!state.uid) return musicJson(request, { status: "PENDING" });
+  const expires = String(Math.floor(Date.now() / 1000) + 30 * 86_400);
+  const signature = hex(await hmac(new TextEncoder().encode(env.DISPATCH_TOKEN), `cavi-site-owner\n${state.uid}\n${expires}`));
+  return musicJson(request, { status: "CONNECTED", token: `${state.uid}.${expires}.${signature}` });
+}
+
 async function publicMusicJob(request, env, id) {
-  if (!(await requireStationOwner(request, env))) return musicJson(request, { error: "owner authorization required" }, 403);
-  const identity = await verifyMiniApp(request, env);
+  const identity = await requireStationOwner(request, env);
+  if (!identity) return musicJson(request, { error: "owner authorization required" }, 403);
   const response = await webMusicDO(env, id).fetch(`https://music-jobs/job/${id}`, { headers: { "X-Music-Uid": identity.uid } });
   return new Response(response.body, { status: response.status, headers: { ...musicCors(request), "Content-Type": "application/json" } });
 }
@@ -344,10 +390,10 @@ export class AdStats extends DurableObject {
   record(ad, day, ev, uid) {
     this.sql.exec("INSERT OR IGNORE INTO ev VALUES (?, ?, ?, ?)", ad, day, ev, uid);
   }
-  claimIdentify(ip) {
+  claimIdentify(ip, limit = 6) {
     const bucket = Math.floor(Date.now() / 60_000);
     const row = this.sql.exec("SELECT bucket, hits FROM identify_rate WHERE ip = ?", ip).toArray()[0];
-    if (row?.bucket === bucket && row.hits >= 6) return false;
+    if (row?.bucket === bucket && row.hits >= limit) return false;
     this.sql.exec("INSERT OR REPLACE INTO identify_rate VALUES (?, ?, ?)", ip, bucket, row?.bucket === bucket ? row.hits + 1 : 1);
     this.sql.exec("DELETE FROM identify_rate WHERE bucket < ?", bucket - 10);
     return true;
@@ -429,12 +475,48 @@ export class WebMusicJobs extends DurableObject {
       size INTEGER NOT NULL, file_key TEXT NOT NULL, status TEXT NOT NULL, message TEXT, result TEXT,
       created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL
     )`);
+    this.sql.exec("CREATE TABLE IF NOT EXISTS owner_connect (code TEXT PRIMARY KEY, uid TEXT, expires INTEGER NOT NULL, delivered INTEGER NOT NULL DEFAULT 0)");
     this.sql.exec("CREATE INDEX IF NOT EXISTS jobs_uid_created ON jobs(uid, created_at)");
     this.sql.exec("CREATE TABLE IF NOT EXISTS chunks (job_id TEXT NOT NULL, part INTEGER NOT NULL, bytes BLOB NOT NULL, PRIMARY KEY(job_id, part))");
   }
 
   async fetch(request) {
     const url = new URL(request.url);
+    if (url.pathname === "/connect/create" && request.method === "POST") {
+      let body;
+      try { body = await request.json(); } catch { return Response.json({ error: "invalid connection" }, { status: 400 }); }
+      const { code, expires } = body || {};
+      const now = Date.now();
+      if (!/^[a-f0-9]{32}$/i.test(code || "") || !Number.isSafeInteger(expires) || expires <= now || expires > now + 10 * 60_000) {
+        return Response.json({ error: "invalid connection" }, { status: 400 });
+      }
+      this.sql.exec("DELETE FROM owner_connect WHERE expires < ? OR delivered = 1", now);
+      this.sql.exec("INSERT INTO owner_connect(code, uid, expires) VALUES (?, NULL, ?)", code, expires);
+      return Response.json({ ok: true });
+    }
+    if (url.pathname === "/connect/claim" && request.method === "POST") {
+      let body;
+      try { body = await request.json(); } catch { return Response.json({ error: "invalid connection" }, { status: 400 }); }
+      const { code, uid } = body || {};
+      const row = this.sql.exec("SELECT uid, expires FROM owner_connect WHERE code = ?", code).toArray()[0];
+      if (!row || row.expires < Date.now()) return Response.json({ error: "connection expired" }, { status: 410 });
+      if (row.uid) return Response.json({ error: "connection already used" }, { status: 409 });
+      if (!/^\d{1,20}$/.test(String(uid || ""))) return Response.json({ error: "invalid owner" }, { status: 400 });
+      this.sql.exec("UPDATE owner_connect SET uid = ? WHERE code = ? AND uid IS NULL", String(uid), code);
+      return Response.json({ ok: true });
+    }
+    const connectMatch = url.pathname.match(/^\/connect\/status\/([a-f0-9]{32})$/i);
+    if (connectMatch && request.method === "GET") {
+      const row = this.sql.exec("SELECT uid, expires, delivered FROM owner_connect WHERE code = ?", connectMatch[1]).toArray()[0];
+      if (!row || row.expires < Date.now() || row.delivered) {
+        this.sql.exec("DELETE FROM owner_connect WHERE code = ?", connectMatch[1]);
+        return Response.json({ error: "connection expired" }, { status: 410 });
+      }
+      if (!row.uid) return Response.json({ status: "PENDING" });
+      this.sql.exec("UPDATE owner_connect SET delivered = 1 WHERE code = ?", connectMatch[1]);
+      return Response.json({ uid: row.uid });
+    }
+
     if (url.pathname === "/create" && request.method === "POST") {
       let meta;
       try { meta = decodeJsonHeader(request.headers.get("X-Music-Meta") || ""); }
@@ -507,7 +589,7 @@ export class WebMusicJobs extends DurableObject {
 }
 
 const EVENTS = new Set(["view", "iview", "skip", "complete", "click"]);
-const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type, X-Telegram-Init-Data" };
+const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type, X-Telegram-Init-Data, X-Cavi-Owner-Token" };
 const IDENTIFY_ORIGINS = new Set(["https://sultonmusic.github.io"]);
 const stats = (env) => env.ADSTATS.get(env.ADSTATS.idFromName("all"));
 
@@ -598,6 +680,38 @@ async function handle(request, env, ctx) {
     params.set("timeout", String(Math.max(0, Math.min(20, Number.isFinite(timeout) ? timeout : 0))));
     return telegramInbox(env).fetch(`https://telegram-inbox/poll?${params}`);
   }
+  if (url.pathname === "/api/owner/connect" && request.method === "POST") return connectSiteOwner(request, env);
+  const ownerConnect = url.pathname.match(/^\/api\/owner\/connect\/([a-f0-9]{32})$/i);
+  if (ownerConnect && request.method === "GET") return pollSiteOwnerConnection(request, env, ownerConnect[1]);
+  if (url.pathname === "/internal/owner/connect" && request.method === "POST") {
+    if (request.headers.get("X-Relay-Key") !== await sha256(`cavi-owner-connect:${env.DISPATCH_TOKEN}`)) {
+      return new Response("forbidden", { status: 403 });
+    }
+    let body;
+    try { body = await request.json(); } catch { return new Response("bad json", { status: 400 }); }
+    if (!/^[a-f0-9]{32}$/i.test(body?.code || "") || !/^\d{1,20}$/.test(String(body?.uid || "")) ||
+        !await isStationAdmin(env, String(body.uid))) return new Response("owner verification failed", { status: 403 });
+    return webMusicDO(env, body.code).fetch("https://music-jobs/connect/claim", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code: body.code, uid: String(body.uid) }),
+    });
+  }
+  if (url.pathname === "/api/identify/queue" && request.method === "POST") {
+    const identity = await requireStationOwner(request, env);
+    if (!identity) return musicJson(request, { error: "connect this device to the owner Telegram account first" }, 403);
+    if (!await stats(env).claimIdentify(await sha256(`cavi-owner-queue:${identity.uid}`), 6)) {
+      return musicJson(request, { error: "too many add requests; wait a minute" }, 429);
+    }
+    let body;
+    try { body = await request.json(); } catch { return musicJson(request, { error: "invalid track" }, 400); }
+    const track = body?.track;
+    if (!track || typeof track.title !== "string" || !track.title.trim() || track.title.length > 300 ||
+        typeof track.subtitle !== "string" || !track.subtitle.trim() || track.subtitle.length > 300) {
+      return musicJson(request, { error: "invalid track" }, 400);
+    }
+    try { return musicJson(request, await queueShazamResult(request, env, identity, track), 202); }
+    catch (error) { console.error(`[identify] queue failed: ${String(error)}`); return musicJson(request, { error: "could not queue this track" }, 503); }
+  }
   if (url.pathname === "/api/music/search" && request.method === "GET") return searchMusic(request, env, url);
   if (url.pathname === "/api/music/upload" && request.method === "POST") return createMusicUpload(request, env);
   const musicJob = url.pathname.match(/^\/api\/music\/jobs\/([a-f0-9-]{36})$/i);
@@ -651,9 +765,8 @@ async function handle(request, env, ctx) {
       const result = await match.json();
       const track = result?.track || null;
       if (!track) return reply({ track: null });
-      const initData = request.headers.get("X-Telegram-Init-Data") || "";
-      const identity = initData ? await requireStationOwner(request, env) : null;
-      if (!identity) return reply({ track });
+      const identity = await requireStationOwner(request, env);
+      if (!identity) return reply({ track, ownerConnectionRequired: true });
       try {
         return reply({ track, ...(await queueShazamResult(request, env, identity, track)) });
       } catch (error) {

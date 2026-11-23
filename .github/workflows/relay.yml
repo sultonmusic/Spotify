@@ -31,6 +31,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+          OWNER_IDS: ${{ secrets.OWNER_IDS }}
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ] || [ -z "$DISPATCH_TOKEN" ]; then
             echo "::warning::Relay is not set up yet: add CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID and DISPATCH_TOKEN secrets (README, '24/7 rejim')."
@@ -39,6 +40,7 @@ jobs:
           npx -y wrangler@4 deploy --var "REPO:${{ github.repository }}" --var "BRANCH:${{ github.ref_name }}"
           printf %s "$TELEGRAM_BOT_TOKEN" | npx -y wrangler@4 secret put TELEGRAM_BOT_TOKEN
           printf %s "$DISPATCH_TOKEN" | npx -y wrangler@4 secret put DISPATCH_TOKEN
+          if [ -n "$OWNER_IDS" ]; then printf %s "$OWNER_IDS" | npx -y wrangler@4 secret put OWNER_IDS; fi
           response=$(curl -fsS "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook" \
             --data-urlencode "url=https://cavi-music-relay.sales-infarmatik-tj.workers.dev/telegram-webhook" \
             --data-urlencode "secret_token=${DISPATCH_TOKEN}" \

@@ -13,6 +13,7 @@ import {
 import { searchSongs, searchArtists, matchCategories, norm } from "./search.js";
 import { identifyNearbySong } from "./audio-search.js";
 import { uploadStationMedia, getStationJob, searchStationMusic } from "./music-api.js";
+import { siteOwnerToken, createSiteOwnerConnection, waitForSiteOwnerConnection, queueRecognizedTrack } from "./site-owner-auth.js";
 import * as dj from "./dj.js";
 import { appBanner, appOffer, getApp } from "./install.js";
 import { MOODS, genre, mood, lang, t, describe, LANG, LANGS_UI, setLang } from "./i18n.js";
@@ -77,13 +78,10 @@ function langButton() {
 }
 
 // ------------------------------------------------------------------ owner tools
-const OWNER_KEY = "ms.owner";
-const ownerFlag = () => { try { return localStorage.getItem(OWNER_KEY) === "1"; } catch { return false; } };
-
-/** Resolves true for the station owner: in Telegram by id, in a browser once the owner opened the Add page. */
+/** Resolves true for the station owner using Telegram identity or a securely paired browser session. */
 export function ownerMode() {
   if (inTelegram) return isAdmin(lib.site?.admins || []);
-  return Promise.resolve(ownerFlag());
+  return Promise.resolve(!!siteOwnerToken());
 }
 
 function addButton() {
@@ -252,15 +250,61 @@ export function viewSearch(param) {
 
   let voiceMatch = null;
   let voiceController = null;
+  let connectionController = null;
   const stopIfLeaving = () => {
     if (!v.isConnected) {
       voiceController?.abort();
+      connectionController?.abort();
       window.removeEventListener("hashchange", stopIfLeaving);
       window.removeEventListener("app:rerender", stopIfLeaving);
     }
   };
   window.addEventListener("hashchange", stopIfLeaving);
   window.addEventListener("app:rerender", stopIfLeaving);
+
+  const connectOwnerAndQueue = async (track, button) => {
+    if (connectionController) return;
+    button.disabled = true;
+    voiceStatus.textContent = t("search.voiceConnectStarting");
+    const controller = new AbortController();
+    connectionController = controller;
+    let connectLink = null;
+    try {
+      const { code } = await createSiteOwnerConnection(controller.signal);
+      if (!v.isConnected) return;
+      connectLink = h("a", { class: "search-recognition-connect", href:
+        `https://t.me/${CONFIG.botUsername}?start=connect_${code}`, target: "_blank", rel: "noopener" }, t("search.voiceConnectOpen"));
+      button.replaceWith(connectLink);
+      voiceStatus.textContent = t("search.voiceConnectWaiting");
+      await waitForSiteOwnerConnection(code, controller.signal);
+      if (!v.isConnected) return;
+      voiceStatus.textContent = t("search.voiceAdding");
+      const queued = await queueRecognizedTrack(track);
+      if (queued.existingId) {
+        await loadLibrary().catch(() => {});
+        const song = lib.songs.find((item) => item.id === queued.existingId);
+        voiceMatch = { ...track, title: song?.title || track.title, subtitle: song?.artist || track.subtitle,
+          existingId: queued.existingId };
+        render();
+        voiceStatus.textContent = t("search.voiceAlready");
+      } else if (queued.jobId) {
+        voiceMatch = { ...track, autoAddJobId: queued.jobId };
+        render();
+        void monitorRecognition(queued.jobId);
+      } else {
+        throw new Error(t("search.voiceAddFailed"));
+      }
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        voiceStatus.textContent = error.message || t("search.voiceConnectFailed");
+        if (connectLink?.isConnected) connectLink.replaceWith(h("button", { class: "search-recognition-connect",
+          onclick: (event) => connectOwnerAndQueue(track, event.currentTarget) }, t("search.voiceConnectButton")));
+      }
+      if (button.isConnected) button.disabled = false;
+    } finally {
+      if (connectionController === controller) connectionController = null;
+    }
+  };
 
   const identifiedCard = (track) => {
     const title = track.title || "";
@@ -276,6 +320,8 @@ export function viewSearch(param) {
     if (local) cardEl.append(h("button", { class: "search-recognition-play", "aria-label": t("common.play"),
       html: icon("play", 18), onclick: () => playSong(local, [local], { type: "search", id: title, title }) }));
     else if (track.autoAddJobId) cardEl.append(h("span", { class: "search-recognition-missing" }, t("search.voiceAdding")));
+    else if (!inTelegram && (!siteOwnerToken() || track.ownerConnectionRequired)) cardEl.append(h("button", { class: "search-recognition-connect",
+      onclick: (event) => connectOwnerAndQueue(track, event.currentTarget) }, t("search.voiceConnectButton")));
     else cardEl.append(h("span", { class: "search-recognition-missing" }, t("search.voiceNotInLibrary")));
     return cardEl;
   };
@@ -287,6 +333,9 @@ export function viewSearch(param) {
         const job = await getStationJob(jobId);
         if (job.status === "COMPLETED" || job.status === "DUPLICATE") {
           await loadLibrary().catch(() => {});
+          const song = job.result && lib.songs.find((item) => item.id === job.result.id);
+          if (song && voiceMatch) voiceMatch = { ...voiceMatch, title: song.title, subtitle: song.artist,
+            autoAddJobId: null, existingId: song.id };
           if (v.isConnected) {
             render();
             voiceStatus.textContent = t(job.status === "DUPLICATE" ? "search.voiceAlready" : "search.voiceAdded");
@@ -343,6 +392,7 @@ export function viewSearch(param) {
 
   let timer = null;
   input.addEventListener("input", () => {
+    connectionController?.abort();
     voiceMatch = null;
     voiceStatus.textContent = "";
     clearTimeout(timer);
@@ -354,6 +404,7 @@ export function viewSearch(param) {
   input.addEventListener("keydown", (e) => { if (e.key === "Enter") input.blur(); });
   clear.addEventListener("click", () => {
     voiceController?.abort();
+    connectionController?.abort();
     voiceMatch = null;
     voiceStatus.textContent = "";
     input.value = ""; render(); input.focus(); history.replaceState(history.state, "", "#/search");
@@ -987,9 +1038,8 @@ export function viewAdd() {
   v.append(topbar(t("add.title"), { back: true }));
   const body = h("div", { class: "pad add-page" }, h("div", { class: "spinner" }));
   v.append(body);
-  if (!inTelegram) { try { localStorage.setItem(OWNER_KEY, "1"); } catch { /* ignore */ } }
   ownerMode().then((ok) => {
-    if (!ok && inTelegram) {
+    if (!ok) {
       body.replaceChildren(h("div", { class: "empty" }, h("div", { class: "big-ico", html: icon("user", 56) }),
         h("h3", null, t("add.ownerOnly")), h("p", null, t("add.ownerOnlyDesc")), h("a", { class: "btn", href: "#/" }, t("common.homeBtn"))));
       return;

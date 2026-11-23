@@ -199,9 +199,10 @@ taklif qilsa — *O'rnatish* (PWA).
 
 Telegram webhook xabarni relay'ga darhol yetkazadi; relay navbatni saqlab, GitHub Actions botini ishga tushiradi.
 Cloudflare cron daqiqalik zaxira vazifasini bajaradi. Javob va saytga qo'shilish GitHub runner navbati hamda
-trekni qayta ishlashga bog'liq, shuning uchun odatda bir necha daqiqa oladi. Sayt mikrofonidan avtomatik
-botga yuborish va kutubxonaga qo'shish Telegram ichidagi **🎧 Musiqa** tugmasidan ochilganda ishlaydi;
-oddiy brauzerda egasi tasdiqlanmagani uchun Shazam natijasi ko'rinadi, lekin sayt kutubxonasiga avtomatik qo'shilmaydi.
+trekni qayta ishlashga bog'liq, shuning uchun odatda bir necha daqiqa oladi. Telegram ichidagi **🎧 Musiqa**
+tugmasidan avtomatik ishlaydi. Sayt alohida brauzer yoki PWA'da ochilgan bo'lsa, birinchi Shazam natijasidagi
+**Telegramga ulash** tugmasini bir marta bosing va botdagi ulanishni tasdiqlang; keyingi topilgan treklar botga
+yuborilib, sayt kutubxonasiga avtomatik qo'shiladi.
 
 Bir marta sozlanadi (~5 daqiqa):
 

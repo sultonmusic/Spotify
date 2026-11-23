@@ -279,6 +279,27 @@ class Station:
         if text.startswith("/"):
             command, _, arg = text.partition(" ")
             command = command[1:].split("@")[0].lower()
+            if command == "start" and arg.startswith("connect_"):
+                code = arg[len("connect_"):].split()[0]
+                if not re.fullmatch(r"[a-f0-9]{32}", code, re.I):
+                    self.send(chat_id, "⚠️ Ulanish kodi noto'g'ri. Saytda qayta urinib ko'ring.")
+                    return
+                if not self.authorized(user_id):
+                    self.send(chat_id, "🔒 Saytni ulash faqat stansiya egasiga mumkin.")
+                    return
+                try:
+                    relay_key = hashlib.sha256(f"cavi-owner-connect:{config.DISPATCH_TOKEN}".encode()).hexdigest()
+                    response = requests.post(f"{config.RELAY_URL}/internal/owner/connect",
+                        json={"code": code, "uid": str(user_id)}, headers={"X-Relay-Key": relay_key}, timeout=15)
+                    if response.ok:
+                        self.send(chat_id, "✅ Cavi Music sayti ushbu qurilmaga ulandi. Saytga qayting — Shazam topgan qo'shiqlar avtomatik qo'shiladi.")
+                    elif response.status_code == 410:
+                        self.send(chat_id, "⌛ Ulanish kodi muddati tugagan. Saytda yangisini yarating.")
+                    else:
+                        self.send(chat_id, "⚠️ Qurilmani ulab bo'lmadi. Sahifadagi kodni yangilab, qayta urinib ko'ring.")
+                except requests.RequestException:
+                    self.send(chat_id, "⚠️ Ulanish vaqtincha ishlamadi. Saytda qayta urinib ko'ring.")
+                return
             if command in ("start", "help", "app"):
                 self.cmd_start(chat_id, command, self.authorized(user_id))
                 return

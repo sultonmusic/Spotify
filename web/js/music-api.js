@@ -1,15 +1,19 @@
-// Website-to-station upload API. Uploads are authenticated with Telegram Mini App initData;
-// only the station owner can add media to the shared public catalog.
+// Website-to-station upload API. Telegram initData or a paired owner session authenticates writes.
 import { CONFIG } from "./config.js";
 import { inTelegram, tg } from "./tg.js";
+import { siteOwnerHeaders } from "./site-owner-auth.js";
 
 const MAX_BYTES = 20 * 1024 * 1024;
 
 async function api(path, options = {}) {
-  if (!inTelegram || !tg?.initData) throw new Error("Open Cavi Music from the Telegram bot to upload media.");
+  const telegramHeaders = inTelegram && tg?.initData ? { "X-Telegram-Init-Data": tg.initData } : {};
+  const ownerHeaders = siteOwnerHeaders();
+  if (!Object.keys(telegramHeaders).length && !Object.keys(ownerHeaders).length) {
+    throw new Error("Connect this device to the owner Telegram account first.");
+  }
   const response = await fetch(`${CONFIG.statsUrl}${path}`, {
     ...options,
-    headers: { "X-Telegram-Init-Data": tg.initData, ...(options.headers || {}) },
+    headers: { ...telegramHeaders, ...ownerHeaders, ...(options.headers || {}) },
     cache: "no-store",
   });
   const body = await response.json().catch(() => ({}));
@@ -21,12 +25,16 @@ export function uploadStationMedia(file, onProgress = () => {}) {
   if (!file || file.size < 1 || file.size > MAX_BYTES) throw new Error("Choose a file up to 20 MB.");
   const form = new FormData();
   form.append("file", file, file.name);
-  if (!inTelegram || !tg?.initData) return Promise.reject(new Error("Open Cavi Music from the Telegram bot to upload media."));
+  const telegramHeaders = inTelegram && tg?.initData ? { "X-Telegram-Init-Data": tg.initData } : {};
+  const ownerHeaders = siteOwnerHeaders();
+  if (!Object.keys(telegramHeaders).length && !Object.keys(ownerHeaders).length) {
+    return Promise.reject(new Error("Connect this device to the owner Telegram account first."));
+  }
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", `${CONFIG.statsUrl}/api/music/upload`);
     xhr.timeout = 120_000;
-    xhr.setRequestHeader("X-Telegram-Init-Data", tg.initData);
+    for (const [name, value] of Object.entries({ ...telegramHeaders, ...ownerHeaders })) xhr.setRequestHeader(name, value);
     xhr.upload.onprogress = (event) => { if (event.lengthComputable) onProgress(Math.min(100, Math.round(event.loaded / event.total * 100))); };
     xhr.onerror = () => reject(new Error("Network error while uploading the file."));
     xhr.ontimeout = () => reject(new Error("Upload timed out. Check your connection and try again."));

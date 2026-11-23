@@ -355,6 +355,8 @@ svg { display: block; flex: none; }
 .search-recognition-info b { font-size: 15px; }
 .search-recognition-info span, .search-recognition-missing { color: var(--muted); font-size: 12px; }
 .search-recognition-play { width: 40px; height: 40px; flex: none; border-radius: 50%; color: var(--on-accent); background: var(--accent); display: flex; align-items: center; justify-content: center; }
+.search-recognition-connect { flex: none; max-width: 180px; padding: 9px 12px; border-radius: 20px; color: var(--on-accent); background: var(--accent); font-size: 12px; font-weight: 700; text-align: center; }
+.search-recognition-connect:disabled { opacity: .6; }
 .tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 16px; }
 @media (min-width: 700px) { .tiles { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); } }
 .tile { position: relative; height: 96px; border-radius: 8px; overflow: hidden; padding: 12px; font-weight: 800; font-size: 17px; line-height: 1.15; cursor: pointer; }
