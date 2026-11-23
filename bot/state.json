@@ -139,6 +139,34 @@
      ]
     }
    ]
+  },
+  "a610cae1": {
+   "t": 1795444496.071694,
+   "h": "941459945028067c3a11114e9ce35b4e43674ef9eb10355000ff30056ddd4113",
+   "chat": 8988775229,
+   "candidates": [
+    {
+     "title": "Le mamash tant moqu\u00e9",
+     "artist": "Gigachad",
+     "genre": "World",
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d4/b6/0b/d4b60b39-c440-ddd5-6c11-ff7e8abf8dd9/artwork.jpg/800x800cc.jpg",
+     "isrc": "QZTB92331576",
+     "album": "Gros-nouille Land",
+     "label": "Mar\u00e9e records",
+     "year": 2023,
+     "source": "Shazam",
+     "score": 1.0,
+     "duration": 101.538,
+     "artist_id": 1711292291,
+     "artist_url": "https://music.apple.com/us/artist/gigachad/1711292291",
+     "track_url": "https://music.apple.com/us/album/le-mamash-tant-moqu%C3%A9/1712654513",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/1e/41/e1/1e41e1c7-f6f0-b910-ba7d-3a8017a1d610/mzaf_18238916590060946955.plus.aac.p.m4a",
+     "sources": [
+      "Apple Music",
+      "Shazam"
+     ]
+    }
+   ]
   }
  }
 }
