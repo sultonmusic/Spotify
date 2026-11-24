@@ -29,59 +29,37 @@
   "t": 1794853317,
   "chat": 8988775229
  },
- "instagram_jobs": {
-  "e41db1bc": {
-   "t": 1795513388.2129943,
-   "h": "b1ecd62772e3227ac73cb66db35a41dc3a2b64b097eea84e40782743c42367ca",
+ "instagram_jobs": {},
+ "catalog_jobs": {
+  "af98bcfd": {
+   "t": 1795539095.855615,
    "chat": 8988775229,
    "candidates": [
     {
-     "title": "Hislerim (feat. Zerrin Temiz)",
-     "artist": "Serhat Durmus",
-     "genre": "Electronic",
-     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/6f/47/aa/6f47aadf-4e41-6e07-47b3-a89b2f6634c4/8faa1f41-0623-4922-b1ff-6a5786b45072.jpg/800x800cc.jpg",
-     "isrc": "TCADT1883474",
-     "album": "Hislerim (feat. Zerrin Temiz) - Single",
-     "label": "Serhat Durmus under exclusive license to Amuseio AB",
-     "year": 2018,
-     "source": "Shazam",
-     "score": 1.0,
-     "duration": 214.204,
-     "artist_id": 1236186316,
-     "artist_url": "https://music.apple.com/us/artist/serhat-durmus/1236186316",
-     "track_url": "https://music.apple.com/us/album/hislerim-feat-zerrin-temiz/1475500493",
-     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8f/a8/46/8fa8464f-e7dc-26ac-3124-8da39d7b04ca/mzaf_4314110871260223785.plus.aac.p.m4a",
+     "score": 0.8,
+     "title": "Falling Through Me",
+     "artist": "Sulton",
+     "album": "01",
+     "genre": "Pop",
+     "year": 2025,
+     "duration": 173.44,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1a/0f/eb/1a0feb79-8637-eef0-486e-cbc70a572542/artwork.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1811109407,
+     "artist_url": "https://music.apple.com/us/artist/sulton/1811109407",
+     "track_url": "https://music.apple.com/us/album/falling-through-me/1813183648",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f5/ac/9d/f5ac9da7-7c0c-9e74-4d9c-4f8ca0246642/mzaf_4444055840427771917.plus.aac.p.m4a",
+     "source": "Apple Music",
+     "id": 3356645271,
+     "album_id": 753336251,
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/1bc884c5749fd2623998d01b5035fde6/1000x1000-000000-80-0-0.jpg",
+     "rank": 100000,
      "sources": [
       "Apple Music",
-      "Deezer",
-      "Shazam"
-     ],
-     "id": 3579645661,
-     "album_id": 829951191,
-     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/b75a4500554ad3e2d35211b975775f3d/1000x1000-000000-80-0-0.jpg",
-     "rank": 601885
-    },
-    {
-     "score": 0.8384615384615384,
-     "title": "Yolu Yok (feat. Zerrin Temiz)",
-     "artist": "Serhat Durmus",
-     "album": "Yolu Yok (feat. Zerrin Temiz)",
-     "genre": "Downtempo",
-     "year": 2018,
-     "duration": 195.991,
-     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7f/5e/05/7f5e05dd-e42b-9042-90d3-021d71914b57/e805e08b-6a2a-41f8-99a1-34b4d931ce30.jpg/600x600bb.jpg",
-     "explicit": false,
-     "artist_id": 1236186316,
-     "artist_url": "https://music.apple.com/us/artist/serhat-durmus/1236186316",
-     "track_url": "https://music.apple.com/us/album/yolu-yok-feat-zerrin-temiz/1475501327",
-     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d3/b3/ae/d3b3ae4a-5d6e-a066-784f-1b2affb079ef/mzaf_17664409021122797923.plus.aac.p.m4a",
-     "source": "Apple Music",
-     "sources": [
-      "Apple Music"
+      "Deezer"
      ]
     }
    ]
   }
- },
- "catalog_jobs": {}
+ }
 }
