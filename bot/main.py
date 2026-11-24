@@ -1533,7 +1533,8 @@ class Station:
         self.send(chat_id, "\n".join(lines), reply_to=reply_to, markup=self.keyboard(*rows))
 
     def search_catalog(self, chat_id: int, query: str, reply_to: int) -> None:
-        status = self.send(chat_id, "🌐 Stansiyada yo'q. Rasmiy katalogdan originalini qidiryapman…",
+        """Search official catalogues and offer previews; never ingest protected third-party streams."""
+        status = self.send(chat_id, "🌐 Stansiyada yo'q. Rasmiy musiqa kataloglaridan originalini qidiryapman…",
                            reply_to=reply_to)
         status_id = (status or {}).get("message_id")
         if not status_id:
@@ -1552,8 +1553,7 @@ class Station:
             originals = originals[:8]
             if not originals:
                 self.edit(chat_id, status_id,
-                          "🔎 Original trekni ishonchli topmadim. Ijrochi va qo'shiq nomini aniqroq yozing; "
-                          "to'liq trekni qo'shish uchun o'zingizdagi audio faylni yuboring.")
+                          "🔎 Original trekni ishonchli topmadim. Ijrochi va qo'shiq nomini aniqroq yozing.")
                 return
 
             jobs = self.state.setdefault("catalog_jobs", {})
@@ -1562,7 +1562,7 @@ class Station:
                 token = secrets.token_hex(4)
             jobs[token] = {"t": time.time(), "chat": chat_id, "candidates": originals}
             self.state_dirty = True
-            lines = ["🎵 <b>Rasmiy katalogdan topildi (original versiyalar):</b>", ""]
+            lines = ["🎵 <b>Rasmiy katalogdan topilgan original treklar:</b>", ""]
             rows = []
             for index, candidate in enumerate(originals):
                 artist = candidate.get("artist") or "Noma'lum ijrochi"
@@ -1574,23 +1574,24 @@ class Station:
                              + (" · ✅ saytda bor" if existing else ""))
                 buttons = []
                 if self.instagram_listen_url(candidate):
-                    buttons.append({"text": "🎧 Preview", "callback_data": f"catlisten:{token}:{index}"})
+                    buttons.append({"text": "🎧 Rasmiy preview", "callback_data": f"catlisten:{token}:{index}"})
                 if existing:
                     buttons.append(self.app_button("▶️ Saytda", f"song/{existing['id']}"))
                 elif self.instagram_listen_url(candidate):
-                    buttons.append({"text": "➕ Saytga qo'shish", "callback_data": f"catadd:{token}:{index}"})
-                elif candidate.get("track_url", "").startswith("https://"):
-                    buttons.append({"text": "🌐 Rasmiy sahifa", "url": candidate["track_url"]})
-                buttons.append({"text": "▶️ YouTube to'liq versiya",
+                    buttons.append({"text": "➕ Preview qo'shish", "callback_data": f"catadd:{token}:{index}"})
+                official_url = candidate.get("track_url") or ""
+                if official_url.startswith("https://"):
+                    buttons.append({"text": "🌐 Rasmiy trek sahifasi", "url": official_url})
+                buttons.append({"text": "▶️ YouTube rasmiy qidiruv",
                                 "url": youtube_search_url(artist, title)})
-                if buttons:
-                    rows.append(buttons)
-            lines.append("\nTo'liq trekni audio fayl qilib yuborsangiz, saytdagi lavha o'zi to'liq versiyaga almashadi.")
+                rows.append(buttons)
+            lines.append("\nTo'liq MP3 faqat sizga tegishli yoki yuklab olish litsenziyasi mavjud audio fayldan qo'shiladi. "
+                         "YouTube qidiruv havolasi o'z-o'zidan MP3 olish huquqini bermaydi.")
             self.edit(chat_id, status_id, "\n".join(lines), self.keyboard(*rows))
         except Exception as exc:
             print(f"[catalog] search failed: {type(exc).__name__}")
             self.edit(chat_id, status_id,
-                      "⚠️ Musiqa katalogi hozir javob bermadi. Birozdan keyin qayta yozing yoki audio fayl yuboring.")
+                      "⚠️ Musiqa katalogi hozir javob bermadi. Birozdan keyin qayta yozing yoki ruxsatli audio fayl yuboring.")
 
     def audit_tracks(self, chat_id: int, text: str, reply_to: int | None = None) -> None:
         rows = []
