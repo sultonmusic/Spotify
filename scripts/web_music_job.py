@@ -143,7 +143,7 @@ def _process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict
     except (UnicodeDecodeError, json.JSONDecodeError, AttributeError) as exc:
         raise RuntimeError("Shazam result is invalid") from exc
 
-    from bot import lookup
+    from bot import lookup, config
     from bot.main import Station, variant_of
 
     fingerprint = {"title": title, "artist": artist, "album": "", "genre": "",
@@ -315,10 +315,17 @@ def finalize(job_id: str, result_path: Path, workflow_outcome: str) -> None:
         title = f"{result.get('artist') or ''} — {result.get('title') or ''}".strip(" —")
         if result.get("origin") == "dj-auto":
             if status != "DUPLICATE":
-                notify_owner(result.get("telegramChatId"),
-                             f"🎧 Saytdagi DJ'da so'rashdi: {title}\n\nRasmiy katalog lavhasi saytga qo'shildi. "
-                             "To'liq versiyasi sizda bo'lsa, audio faylni shu botga yuboring — saytdagi lavha "
-                             "o'zi to'liq versiyaga almashadi.")
+                if result.get("fullAudio"):
+                    source = result.get("provider") or "ruxsatli manba"
+                    licence = result.get("license") or "litsenziya ma'lumoti mavjud"
+                    notify_owner(result.get("telegramChatId"),
+                                 f"🎧 Saytdagi DJ so'rovi: {title}\n\nTo'liq audio {source} orqali saytga qo'shildi. "
+                                 f"Manba litsenziyasi: {licence}.")
+                else:
+                    notify_owner(result.get("telegramChatId"),
+                                 f"🎧 Saytdagi DJ'da so'rashdi: {title}\n\nRasmiy katalog preview'i saytga qo'shildi. "
+                                 "To'liq versiyasi sizda bo'lsa, audio faylni shu botga yuboring — preview "
+                                 "to'liq versiyaga almashtiriladi.")
             return
         icon = "ℹ️" if status == "DUPLICATE" else "✅"
         detail = ("saytda avvaldan bor." if status == "DUPLICATE"
