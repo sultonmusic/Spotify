@@ -17,7 +17,7 @@ import sys
 import tempfile
 import time
 import traceback
-from urllib.parse import urlsplit, urlunsplit
+from urllib.parse import quote_plus, urlsplit, urlunsplit
 from pathlib import Path
 from typing import Any
 
@@ -90,6 +90,12 @@ def fmt_duration(seconds: float) -> str:
     h, rem = divmod(seconds, 3600)
     m, s = divmod(rem, 60)
     return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
+
+
+def youtube_search_url(artist: str, title: str) -> str:
+    """Open YouTube search for the full/official version; does not download or extract audio."""
+    query = " ".join(part.strip() for part in (artist, title) if part and part.strip())
+    return "https://www.youtube.com/results?search_query=" + quote_plus(query + " official audio full song")
 
 
 def instagram_url(text: str) -> str | None:
@@ -471,7 +477,10 @@ class Station:
                                  f"{fmt_duration(candidate.get('duration') or 0)}")
                 lines.append("\nKeraklisini tanlang:")
                 rows = [[{"text": self.instagram_result_label(i + 1, c),
-                          "callback_data": f"igpick:{token}:{i}"}] for i, c in enumerate(candidates)]
+                          "callback_data": f"igpick:{token}:{i}"},
+                         {"text": "▶️ YouTube to'liq versiya",
+                          "url": youtube_search_url(c.get("artist", ""), c.get("title", ""))}]
+                        for i, c in enumerate(candidates)]
                 markup = self.keyboard(*rows)
                 self.edit(chat_id, status_id, "\n".join(lines), markup)
         except RuntimeError as exc:
@@ -1572,6 +1581,8 @@ class Station:
                     buttons.append({"text": "➕ Saytga qo'shish", "callback_data": f"catadd:{token}:{index}"})
                 elif candidate.get("track_url", "").startswith("https://"):
                     buttons.append({"text": "🌐 Rasmiy sahifa", "url": candidate["track_url"]})
+                buttons.append({"text": "▶️ YouTube to'liq versiya",
+                                "url": youtube_search_url(artist, title)})
                 if buttons:
                     rows.append(buttons)
             lines.append("\nTo'liq trekni audio fayl qilib yuborsangiz, saytdagi lavha o'zi to'liq versiyaga almashadi.")
@@ -1811,3 +1822,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+

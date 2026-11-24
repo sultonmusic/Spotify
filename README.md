@@ -260,3 +260,17 @@ scripts/    build-site.sh — saytni yig'ish
 ```
 
 Lokal sinov: `bash scripts/build-site.sh _site && python3 -m http.server -d _site 8000`
+
+
+## Muhim: Termux va joylashtirish
+
+Bu arxivdagi bot oddiy doimiy polling bot emas: Telegram yangilanishlarini Cloudflare Relay navbatidan oladi (`DISPATCH_TOKEN` va `RELAY_URL` kerak), so'ng GitHub Actions kutubxonani saqlab, saytni qayta chiqaradi. Shu sababli faqat Termux'da `python -m bot.main` ishlatish to'liq deploy bo'lmaydi. Tavsiya etilgan ishga tushirish usuli — GitHub Actions + Cloudflare Relay.
+
+GitHub repoga arxivni yuklagach, **Settings → Secrets and variables → Actions** bo'limida quyidagilarni sozlang:
+
+- `TELEGRAM_BOT_TOKEN` — BotFather tokeni
+- `DISPATCH_TOKEN` — Relay va Actions o'rtasidagi maxfiy kalit (tasodifiy uzun qiymat)
+- `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` — Relay Worker deploy uchun
+- ixtiyoriy: `ANTHROPIC_API_KEY`, `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `OWNER_IDS`
+
+`GITHUB_TOKEN` odatda Actions tomonidan avtomatik beriladi. Keyin **Actions → Relay (24/7) → Run workflow** va undan so'ng **Actions → Music Station → Run workflow** ni ishga tushiring. Bot tokenini chatga yoki ochiq repoga yozmang.
