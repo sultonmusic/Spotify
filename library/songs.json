@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-23T23:05:50Z",
- "count": 113,
+ "updatedAt": "2026-11-24T08:52:44Z",
+ "count": 114,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -2272,9 +2272,71 @@
     "ru": "американская певица и актриса",
     "uz": "amerikalik qoʻshiqchi, qoʻshiqnavis va aktrisa"
    }
+  },
+  "Kliren Shadow": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 356643812,
+   "itunesId": 1852292687,
+   "deezer": "https://www.deezer.com/artist/356643812",
+   "apple": "https://music.apple.com/us/artist/kliren-shadow/1852292687",
+   "image": "library/artists/kliren-shadow.jpg",
+   "color": "#514242",
+   "checked": "2026-11-24T08:52:43Z",
+   "verifiedAt": "2026-11-24T08:52:43Z",
+   "fans": 47,
+   "albums": 360
   }
  },
  "songs": [
+  {
+   "id": "43fbb152fc",
+   "title": "Falling Through Memories",
+   "artist": "Kliren Shadow",
+   "artists": [
+    "Kliren Shadow"
+   ],
+   "album": "Memories Hurt Again",
+   "year": 2026,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 30.0,
+   "src": "library/audio/43fbb152fc.m4a",
+   "cover": "library/covers/43fbb152fc.jpg",
+   "color": "#505050",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-24T08:52:44Z",
+   "mime": "audio/mp4",
+   "size": 1007400,
+   "storage": "pages",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "shazam",
+   "fileKey": "26be4ab91c74674728818c08d3d86e01f3522789e53ac0613d7cb54246beafaf",
+   "story": "library/stories/43fbb152fc.jpg",
+   "previewOnly": true,
+   "previewOfDuration": 276.96,
+   "updatedAt": "2026-11-24T08:52:44Z"
+  },
   {
    "id": "e80b74b5d6",
    "title": "I Cross the Line",
