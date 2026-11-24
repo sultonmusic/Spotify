@@ -822,11 +822,24 @@ export function viewSong(id, at = 0) {
   }
   if (s.tags?.length) v.append(h("div", { class: "chips", style: { marginTop: "12px", flexWrap: "wrap" } }, s.tags.map((tag) => link(`search/${encodeURIComponent(tag)}`, { class: "chip outline" }, `#${tag}`))));
 
-  const names = { shazam: "Shazam", itunes: "iTunes", deezer: "Deezer", ai: "AI" };
+  const names = { shazam: "Shazam", itunes: "iTunes", deezer: "Deezer", ai: "AI", youtube: "YouTube", jamendo: "Jamendo" };
   const found = (s.sources || []).map((x) => names[x]).filter(Boolean).join(" + ");
   v.append(h("p", { class: "pad muted", style: { fontSize: "12px", marginTop: "14px" } },
     [t("song.added", { when: timeAgo(Date.parse(s.addedAt || 0)) }), found ? t("song.found", { src: found }) : null,
       s.confidence != null ? t("song.confidence", { n: Math.round(s.confidence * 100) }) : null].filter(Boolean).join(" • ")));
+  // Licensed full songs (bot/acquire.py): credit the source and licence, as CC BY requires.
+  const origin = s.origin;
+  if (origin?.attribution) {
+    const safe = (u) => (typeof u === "string" && u.startsWith("https://") ? u : null);
+    const credit = h("p", { class: "pad muted", style: { fontSize: "12px", marginTop: "4px" } }, `📄 ${t("song.origin")}: `);
+    const src = safe(origin.url);
+    credit.append(src ? h("a", { href: src, target: "_blank", rel: "noopener noreferrer" }, origin.attribution) : origin.attribution);
+    if (origin.license) {
+      const lic = safe(origin.licenseUrl);
+      credit.append(" · ", lic ? h("a", { href: lic, target: "_blank", rel: "noopener noreferrer" }, origin.license) : origin.license);
+    }
+    v.append(credit);
+  }
 
   if (s.lyrics) {
     const box = h("div", { class: "lyrics-plain", style: { fontSize: "16px" } }, "…");

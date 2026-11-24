@@ -23,7 +23,7 @@ from typing import Any
 
 import requests
 
-from . import ads, ai, audio, bigfile, config, lookup, story
+from . import acquire, ads, ai, audio, bigfile, config, lookup, story, youtube
 from .artists import Artists
 from .covers import save_cover
 from .identify import Clues, identify, lyrics_payload
@@ -623,10 +623,13 @@ class Station:
             rows.append([{"text": "🎧 Chatda tinglash", "callback_data": f"iglisten:{token}:{index}"}])
         elif candidate.get("track_url"):
             rows.append([{"text": "🌐 Rasmiy trek sahifasi", "url": candidate["track_url"]}])
+        if owner and (not in_lib or in_lib.get("previewOnly")):
+            rows.append([{"text": "⬇️ To'liq rasmiy versiyani saytga qo'shish",
+                          "callback_data": f"igfull:{token}:{index}"}])
         if in_lib:
             rows.append([self.app_button("▶️ Saytda tinglash", f"song/{in_lib['id']}")])
         elif owner:
-            rows.append([{"text": "➕ Saytga qo'shish", "callback_data": f"igadd:{token}:{index}"}])
+            rows.append([{"text": "➕ Rolikdagi lavhani qo'shish", "callback_data": f"igadd:{token}:{index}"}])
         rows.append([{"text": "↩️ Natijalarga qaytish", "callback_data": f"igback:{token}"}])
         return self.keyboard(*rows)
 
@@ -752,6 +755,182 @@ class Station:
             print(f"[instagram] add failed: {type(exc).__name__}")
             self.edit(chat_id, message_id,
                       "⚠️ Saytga qo'shib bo'lmadi. Reel hali hamma uchun ochiqligini tekshiring yoki videoni botga fayl qilib yuboring.")
+
+    # ================================================================== full songs from authorised sources
+    def handle_full_callback(self, cq: dict, action: str) -> None:
+        """⬇️ under a recognised song (Instagram Reel or catalog search): fetch the full official song."""
+        data = cq.get("data") or ""
+        bits = data.partition(":")[2].split(":")
+        message = cq.get("message") or {}
+        chat_id, message_id = (message.get("chat") or {}).get("id"), message.get("message_id")
+        store, ttl = (("instagram_jobs", INSTAGRAM_JOB_TTL) if action == "igfull"
+                      else ("catalog_jobs", CATALOG_JOB_TTL))
+        job = (self.state.get(store) or {}).get(bits[0] if bits else "")
+        if not job or time.time() - job.get("t", 0) > ttl or chat_id != job.get("chat"):
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"],
+                          text="Natijalar eskirgan. So'rovni qayta yuboring.")
+            return
+        if len(bits) < 2 or not bits[1].isdigit() or int(bits[1]) >= len(job.get("candidates", [])):
+            self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Bu natija mavjud emas.")
+            return
+        self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Rasmiy versiya qidirilmoqda…")
+        candidate = job["candidates"][int(bits[1])]
+        if job.get("busy"):  # a double tap must not import the song twice
+            return
+        job["busy"] = True
+        try:
+            self.publish_full_song(chat_id, message_id, candidate)
+        finally:
+            job.pop("busy", None)
+            self.state_dirty = True
+
+    def publish_full_song(self, chat_id: int, message_id: int, candidate: dict) -> dict | None:
+        """Official original → authorised audio → MP3 → existing catalog. Success is reported only when stored."""
+        title = (candidate.get("title") or "").strip()
+        artist = (candidate.get("artist") or "").strip()
+        expected = float(candidate.get("duration") or 0)
+        if not title or not artist:
+            self.edit(chat_id, message_id, "⚠️ Qo'shiq nomi yoki ijrochisi noma'lum — rasmiy versiyani qidirib bo'lmaydi.")
+            return None
+        name = f"<b>{esc(artist)} — {esc(title)}</b>"
+
+        def progress(text: str) -> None:
+            self.edit(chat_id, message_id, f"{name}\n\n{text}")
+            self.bot.safe("sendChatAction", chat_id=chat_id, action="typing")
+
+        existing = next((s for s in self.lib.songs if lookup.same_song(s["title"], s["artist"], title, artist)), None)
+        if existing and not existing.get("previewOnly"):
+            self.edit(chat_id, message_id, "♻️ Bu qo'shiq saytda allaqachon bor.\n\n" + self.card(existing),
+                      self.song_markup(existing))
+            return existing
+
+        progress("🔎 Rasmiy qo'shiq qidirilmoqda…")
+        videos: list[youtube.Video] = []
+        problems: list[str] = []
+        if youtube.available():
+            try:
+                videos = youtube.search(title, artist, expected)
+            except youtube.YouTubeError as exc:
+                problems.append(str(exc))
+                print(f"[full] {exc}")
+        else:
+            problems.append("YOUTUBE_API_KEY sozlanmagan — YouTube tekshiruvi o'tkazilmadi")
+        progress("🪪 Ijrochi va kanal tekshirilmoqda…")
+        official = youtube.best_official(videos, expected)
+        print(f"[full] {artist} - {title}: {len(videos)} video(s), official="
+              f"{official.id + ' ' + official.kind if official else 'none'}")
+
+        progress("⚖️ Yuklab olish ruxsati tekshirilmoqda…")
+        got: acquire.Acquired | None = None
+        tags = {"title": title, "artist": artist, "album": candidate.get("album") or "",
+                "date": str(candidate.get("year") or "")}
+        with tempfile.TemporaryDirectory(prefix="cavi-full-") as tmp_name:
+            tmp = Path(tmp_name)
+            # Every official upload whose audio the owner may use (an official one first, in priority order).
+            permitted = [v for v in videos if v.official and acquire.youtube_permission(v)[0]]
+            if official in permitted:
+                permitted.remove(official)
+                permitted.insert(0, official)
+            if official and official not in permitted:
+                problems.append("rasmiy video: " + acquire.youtube_permission(official)[1])
+            for video in permitted[:2]:
+                progress(f"🎚 MP3 tayyorlanmoqda… <i>(YouTube: {esc(video.channel)})</i>")
+                try:
+                    got = acquire.youtube_audio(video, tmp, tags)
+                    break
+                except acquire.AcquireError as exc:
+                    problems.append(str(exc))
+            if not got and config.JAMENDO_CLIENT_ID:
+                progress("🔎 Ruxsat berilgan muqobil manba (Jamendo) qidirilmoqda…")
+                row = acquire.jamendo_find(title, artist, expected)
+                if row:
+                    progress("🎚 MP3 tayyorlanmoqda… <i>(Jamendo)</i>")
+                    try:
+                        got = acquire.jamendo_audio(row, tmp, tags)
+                    except acquire.AcquireError as exc:
+                        problems.append(str(exc))
+            elif not got:
+                problems.append("JAMENDO_CLIENT_ID sozlanmagan — muqobil manba tekshirilmadi")
+
+            if not got:
+                self.full_song_unavailable(chat_id, message_id, name, official, title, artist, problems)
+                return None
+            return self.store_full_song(chat_id, message_id, name, candidate, got, tmp, progress)
+
+    def store_full_song(self, chat_id: int, message_id: int, name: str, candidate: dict,
+                        got: "acquire.Acquired", tmp: Path, progress) -> dict | None:
+        file_key = hashlib.sha1(got.stable_key.encode()).hexdigest()[:16]
+        same_source = self.lib.by_file(file_key)
+        if same_source:
+            self.edit(chat_id, message_id, "♻️ Bu manbadagi qo'shiq saytda allaqachon bor.\n\n"
+                      + self.card(same_source), self.song_markup(same_source))
+            return same_source
+
+        # Audio fingerprint: the file must really be the requested song (catches wrong search results),
+        # and a song already on the station under another name is caught here too.
+        info = audio.probe(got.path)
+        clip = audio.excerpt(got.path, tmp / "verify.wav", info) if config.SHAZAM_ENABLED else None
+        heard = lookup.shazam(clip) if clip else None
+        if heard and not lookup.same_song(heard.get("title", ""), heard.get("artist", ""),
+                                          candidate.get("title", ""), candidate.get("artist", "")):
+            self.edit(chat_id, message_id,
+                      f"{name}\n\n⚠️ Topilgan audio boshqa qo'shiq bo'lib chiqdi (Shazam: "
+                      f"{esc(heard.get('artist', ''))} — {esc(heard.get('title', ''))}). Saytga qo'shilmadi.")
+            return None
+        if heard:
+            dup = next((s for s in self.lib.songs if not s.get("previewOnly") and lookup.same_song(
+                s["title"], s["artist"], heard.get("title", ""), heard.get("artist", ""))), None)
+            if dup:
+                self.edit(chat_id, message_id, "♻️ Bu qo'shiq saytda allaqachon bor (audio barmoq izi bo'yicha).\n\n"
+                          + self.card(dup), self.song_markup(dup))
+                return dup
+
+        progress("☁️ Cavi Music'ga yuklanmoqda…")
+        media = {"file_unique_id": "source:" + got.stable_key, "file_name": f"{candidate.get('title')}.mp3",
+                 "file_size": got.path.stat().st_size, "performer": candidate.get("artist"),
+                 "title": candidate.get("title")}
+        try:
+            song, outcome = self.import_song({"message_id": 0, "caption": ""}, got.provider, media, file_key,
+                                             progress, source_path=got.path, accept_variant=True, known=candidate)
+        except Exception as exc:
+            traceback.print_exc()
+            self.edit(chat_id, message_id, f"{name}\n\n❌ Saytga yuklab bo'lmadi: {esc(str(exc)[:200])}")
+            return None
+        if outcome == "duplicate":
+            self.edit(chat_id, message_id, "♻️ Bu qo'shiq saytda allaqachon bor.\n\n" + self.card(song),
+                      self.song_markup(song))
+            return song
+        stored = song.get("src") and (song["src"].startswith("https://")
+                                      or (config.ROOT / song["src"]).is_file())
+        if outcome != "added" or not stored:
+            self.edit(chat_id, message_id, f"{name}\n\n❌ Audio saqlanmadi — saytga qo'shilmadi.")
+            if outcome == "added":
+                self.lib.remove(song)
+                self.save()
+            return None
+        self.lib.update(song, origin=got.origin(), sources=sorted(set(song.get("sources") or []) | {got.provider}))
+        self.save()
+        print(f"[full] published {song['id']} from {got.stable_key} ({got.license})")
+        text = ("✅ <b>Muvaffaqiyatli joylandi!</b>\n\n" + self.card(song)
+                + f"\n\n📄 Manba: {esc(got.attribution)} · {esc(got.license)}"
+                + "\n<i>Sayt va mini ilovada 1–3 daqiqada paydo bo'ladi.</i>")
+        self.edit(chat_id, message_id, text, self.keyboard(
+            *(self.song_markup(song) or {}).get("inline_keyboard", []),
+            [{"text": "🌐 Manba", "url": got.url}]))
+        return song
+
+    def full_song_unavailable(self, chat_id: int, message_id: int, name: str, official, title: str, artist: str,
+                              problems: list[str]) -> None:
+        lines = [name, "", "⛔️ To'liq versiyani ruxsat berilgan manbadan olib bo'lmadi — saytga hech narsa qo'shilmadi."]
+        if official:
+            lines.append(f"\n▶️ Rasmiy versiya: <b>{esc(official.title)}</b> · {esc(official.channel)}")
+        if problems:
+            lines.append("\n<i>Sabab:</i>")
+            lines += [f"• {esc(p)}" for p in dict.fromkeys(problems)][:5]
+        lines.append("\nTo'liq qo'shiqni o'zingizda bor audio fayl qilib yuborsangiz, bot uni darhol qo'shadi.")
+        link = ({"text": "▶️ YouTube'dagi rasmiy versiya", "url": official.url} if official
+                else {"text": "▶️ YouTube'da qidirish", "url": youtube_search_url(artist, title)})
+        self.edit(chat_id, message_id, "\n".join(lines), self.keyboard([link]))
 
     def handle_song(self, msg: dict, kind: str, media: dict, force: bool = False) -> None:
         """A file from the owner: a new song, another version of one (asked about later), or a music video."""
@@ -1573,6 +1752,9 @@ class Station:
                 lines.append(f"{index + 1}. <b>{esc(artist)}</b> — {esc(title)} · {fmt_duration(duration)}"
                              + (" · ✅ saytda bor" if existing else ""))
                 buttons = []
+                if not existing or existing.get("previewOnly"):
+                    rows.append([{"text": f"⬇️ {index + 1}. To'liq versiyani qo'shish",
+                                  "callback_data": f"catfull:{token}:{index}"}])
                 if self.instagram_listen_url(candidate):
                     buttons.append({"text": "🎧 Preview", "callback_data": f"catlisten:{token}:{index}"})
                 if existing:
@@ -1585,7 +1767,8 @@ class Station:
                                 "url": youtube_search_url(artist, title)})
                 if buttons:
                     rows.append(buttons)
-            lines.append("\nTo'liq trekni audio fayl qilib yuborsangiz, saytdagi lavha o'zi to'liq versiyaga almashadi.")
+            lines.append("\n⬇️ — rasmiy to'liq versiyani ruxsat berilgan manbadan olib, saytga qo'shadi."
+                         "\nTo'liq trekni audio fayl qilib yuborsangiz, saytdagi lavha o'zi to'liq versiyaga almashadi.")
             self.edit(chat_id, status_id, "\n".join(lines), self.keyboard(*rows))
         except Exception as exc:
             print(f"[catalog] search failed: {type(exc).__name__}")
@@ -1687,6 +1870,9 @@ class Station:
             return
         if action == "catadd":
             self.handle_catalog_callback(cq)
+            return
+        if action in ("igfull", "catfull"):
+            self.handle_full_callback(cq, action)
             return
         action, _, song_id = data.partition(":")
         if action in ("vok", "vno", "vwait"):

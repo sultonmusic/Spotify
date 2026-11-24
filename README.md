@@ -60,8 +60,45 @@ Bot menyusidagi **🎧 Musiqa** tugmasi saytni Telegram ichida mini ilova sifati
 ## Qo'shiqlar faqat fayl orqali
 
 Qo'shiq faylini botga yuboring yoki istalgan chat/kanaldan forward qiling — shu. Bot qo'shiqlarni internetdan
-(jumladan YouTube'dan) o'zi yuklab olmaydi: sayt ochiq, boshqalarning qo'shiqlarini ruxsatsiz tarqatish mualliflik
-huquqini buzadi. Saytda video ham, YouTube pleyeri ham yo'q — faqat audio.
+o'zi yuklab olmaydi, faqat **yuklab olishga aniq ruxsat berilgan** manbalardan oladi (pastdagi bo'lim): sayt ochiq,
+boshqalarning qo'shiqlarini ruxsatsiz tarqatish mualliflik huquqini buzadi. Saytda video ham, YouTube pleyeri ham yo'q — faqat audio.
+
+## ⬇️ Rasmiy to'liq versiya (YouTube + ruxsat berilgan manbalar)
+
+Instagram Reel natijasida yoki qo'shiq nomi bo'yicha qidiruvda (masalan `Adele - Hello`) egasiga
+**⬇️ To'liq versiyani qo'shish** tugmasi chiqadi. Bosilganda bot:
+
+1. 🔎 YouTube'da rasmiy versiyani qidiradi (YouTube Data API) va har bir videoni tekshiradi:
+   kanal ijrochiniki / label'ning «<Ijrochi> - Topic» kanali / VEVO, kontent egasi da'vosi (`licensedContent`),
+   nom o'xshashligi, katalogdagi davomiylik. Cover, remix, nightcore, sped up, slowed, karaoke, live,
+   norasmiy lyric video va fan yuklamalari rad etiladi. Sarlavhada «Official» yozilgani o'zi yetarli emas.
+   Tartib: rasmiy klip → rasmiy audio → ijrochi kanali → label (Topic). Klipda intro bo'lsa, rasmiy audio olinadi.
+2. ⚖️ Yuklab olish ruxsatini tekshiradi. Audio **faqat** quyidagi hollarda olinadi:
+   - video **Creative Commons (CC BY)** litsenziyasida (`YT_ALLOW_CREATIVE_COMMONS`, standart yoqilgan), yoki
+   - video kanali `YT_AUTHORIZED_CHANNELS` ro'yxatida — huquqi sizda bo'lgan / yozma ruxsat olgan kanallar
+     (masalan, o'zingizning kanalingiz).
+   Standart YouTube litsenziyasidagi video **yuklanmaydi** — bot rasmiy videoning aniq havolasini beradi va
+   ruxsat berilgan muqobil manbani qidiradi: **Jamendo** (ijrochilar yuklab olishga ruxsat bergan to'liq treklar).
+   DRM, kirish (sign-in), yosh yoki hudud cheklovlari chetlab o'tilmaydi.
+3. 🎚 Audioni tekshiradi (to'liq dekodlanadi, preview emas, uzunligi to'g'ri) va MP3 ga o'giradi (256 kbps, 44.1 kHz).
+4. 🪪 Shazam barmoq izi bilan audio haqiqatan so'ralgan qo'shiq ekanini tasdiqlaydi; boshqa qo'shiq bo'lsa — qo'shmaydi.
+5. ☁️ Mavjud kutubxonaga (`library/songs.json` + `library/audio/` yoki GitHub Releases) qo'shadi. Saytdagi qisqa
+   preview bo'lsa — to'liq versiya bilan almashtiriladi. Manba va litsenziya qo'shiq sahifasida ko'rsatiladi (CC BY talabi).
+
+Takroriy qo'shiqlar uch bosqichda ushlanadi: manba ID si (`youtube:<id>`, `jamendo:<id>`), nom + ijrochi
+(katalog) va Shazam barmoq izi. «✅ Muvaffaqiyatli joylandi!» faqat audio haqiqatan saqlanganda chiqadi.
+
+**Kerakli sozlamalar** (*Settings → Secrets and variables → Actions*):
+
+| Nomi | Turi | Qayerdan olinadi |
+|---|---|---|
+| `YOUTUBE_API_KEY` | secret | [Google Cloud Console](https://console.cloud.google.com/) → yangi loyiha → *APIs & Services → Library* → **YouTube Data API v3** → *Enable* → *Credentials → Create credentials → API key*. Kalitni *API restrictions* da faqat YouTube Data API v3 bilan cheklang. Bepul kvota: kuniga 10 000 birlik (~45 ta qidiruv). |
+| `JAMENDO_CLIENT_ID` | secret | [devportal.jamendo.com](https://devportal.jamendo.com/) → ro'yxatdan o'ting → *My Applications → New* → **Client ID** (bepul, notijorat foydalanish). |
+| `YT_AUTHORIZED_CHANNELS` | variable | Huquqi sizda bo'lgan kanallar ID lari (`UC…`, vergul bilan). Kanal ID: kanal → *About → Share channel → Copy channel ID*. |
+| `YT_ALLOW_CREATIVE_COMMONS` | variable | `false` — CC videolarni ham yuklamaslik (standart `true`). |
+
+Kalitlar bo'lmasa ham bot ishlaydi: `YOUTUBE_API_KEY` siz YouTube tekshiruvi o'tkazilmaydi (qidiruv havolasi beriladi),
+`JAMENDO_CLIENT_ID` siz muqobil manba qidirilmaydi — bot sababini xabarda aytadi.
 
 ## Cover, remix, takroriy qo'shiqlar va videolar
 
@@ -247,11 +284,19 @@ relay chatga «⚠️ Stansiyani ishga tushira olmadim (GitHub: HTTP …)» deb 
 - GitHub Pages sayti ~1 GB gacha. `AUDIO_STORAGE=auto` 700 MB dan keyin yangi qo'shiqlarni GitHub Releases'ga
   saqlaydi (hajm cheklovi yo'q).
 - Sayt ochiq (public) — qo'shiqlaringizni havolani bilgan har kim tinglay oladi.
+- ⬇️ To'liq versiya: label/ijrochi kanallaridagi rasmiy qo'shiqlar deyarli doim standart YouTube litsenziyasida —
+  ularni bot yuklamaydi (faqat havola beradi). Avtomatik qo'shiladiganlari: CC BY videolar, sizning ruxsat
+  berilgan kanallaringiz va Jamendo'dagi treklar (asosan mustaqil ijrochilar).
+- YouTube GitHub Actions serverlaridan yuklashni ba'zan «sign in» bilan cheklaydi; bunda bot cheklovni chetlab
+  o'tmaydi, xabar beradi va Jamendo'ni sinaydi.
+- YouTube Data API kvotasi: kuniga ~45 ta qidiruv (bir qidiruv ≈ 201 birlik).
 
 ## Loyiha tuzilishi
 
 ```
 bot/        Telegram bot + aniqlash (Shazam, iTunes, Deezer, LRCLIB, Claude AI, ffmpeg), tarjima, Vikipediya, stories
+            youtube.py — rasmiy videoni topish/baholash; acquire.py — ruxsat, Jamendo, MP3, tekshiruv
+tests/      python -m unittest discover -s tests
 web/        Sayt / mini ilova (build'siz vanilla JS)
 library/    songs.json, audio, muqovalar, qo'shiq matnlari, stories rasmlari (bot avtomatik to'ldiradi)
 android/    Android ilova (TWA) — .github/workflows/android.yml yig'adi
@@ -272,5 +317,26 @@ GitHub repoga arxivni yuklagach, **Settings → Secrets and variables → Action
 - `DISPATCH_TOKEN` — Relay va Actions o'rtasidagi maxfiy kalit (tasodifiy uzun qiymat)
 - `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` — Relay Worker deploy uchun
 - ixtiyoriy: `ANTHROPIC_API_KEY`, `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `OWNER_IDS`
+- ixtiyoriy (⬇️ to'liq versiya): `YOUTUBE_API_KEY`, `JAMENDO_CLIENT_ID`; variables: `YT_AUTHORIZED_CHANNELS`, `YT_ALLOW_CREATIVE_COMMONS`
 
 `GITHUB_TOKEN` odatda Actions tomonidan avtomatik beriladi. Keyin **Actions → Relay (24/7) → Run workflow** va undan so'ng **Actions → Music Station → Run workflow** ni ishga tushiring. Bot tokenini chatga yoki ochiq repoga yozmang.
+
+### Termux'da sinash
+
+```bash
+pkg install python ffmpeg git
+git clone https://github.com/sultonmusic/Spotify && cd Spotify
+pip install -r bot/requirements.txt
+python -m unittest discover -s tests -v     # to'liq-versiya oqimi testlari (tarmoqsiz)
+```
+
+Botni Termux'da ishga tushirish (`TELEGRAM_BOT_TOKEN`, `DISPATCH_TOKEN`, `YOUTUBE_API_KEY`… ni `export` qilib,
+`python -m bot.main`) Relay navbatidagi xabarlarni o'qiydi, lekin kutubxona o'zgarishlarini o'zingiz `git push`
+qilmaguningizcha sayt yangilanmaydi — doimiy ish uchun GitHub Actions ishlatiladi. Kalitlarni `.bashrc` ga
+yozmang va hech qachon commit qilmang.
+
+### Cloudflare
+
+Relay Worker'da o'zgarish kerak emas: tugma bosilishi (callback) avvalgidek webhook → Relay navbati → Actions
+orqali keladi. YouTube/Jamendo so'rovlarini Worker emas, GitHub Actions'dagi bot yuboradi, shuning uchun
+Cloudflare'ga yangi secret qo'shilmaydi.

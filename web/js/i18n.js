@@ -46,6 +46,7 @@ const S = {
   "common.artist": { ru: "Исполнитель", en: "Artist", uz: "Ijrochi" },
   "common.song": { ru: "Песня", en: "Song", uz: "Qo'shiq" },
   "common.preview": { ru: "Превью", en: "Preview", uz: "Preview" },
+  "song.origin": { ru: "Источник", en: "Source", uz: "Manba" },
   "common.playlist": { ru: "Плейлист", en: "Playlist", uz: "Pleylist" },
   "common.mix": { ru: "Микс", en: "Mix", uz: "Miks" },
   "common.genre": { ru: "Жанр", en: "Genre", uz: "Janr" },

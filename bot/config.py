@@ -84,3 +84,13 @@ RELAY_URL = env("RELAY_URL", "https://cavi-music-relay.sales-infarmatik-tj.worke
 # Optional (https://my.telegram.org → API development tools): lets the bot download files up to 100 MB.
 API_ID = env("TELEGRAM_API_ID", "")
 API_HASH = env("TELEGRAM_API_HASH", "")
+
+# Full-length songs from authorised sources (bot/youtube.py, bot/acquire.py).
+# YouTube Data API v3 key (Google Cloud console) — finds and verifies the official upload.
+YOUTUBE_API_KEY = env("YOUTUBE_API_KEY")
+# Channel ids (UC…) whose videos the owner holds the rights to / has written permission to use.
+YT_AUTHORIZED_CHANNELS = env("YT_AUTHORIZED_CHANNELS")
+# Creative Commons (CC BY) videos may be reused under their licence (with attribution).
+YT_ALLOW_CREATIVE_COMMONS = env_bool("YT_ALLOW_CREATIVE_COMMONS", True)
+# Jamendo API client id (devportal.jamendo.com) — full tracks whose artists allowed downloads.
+JAMENDO_CLIENT_ID = env("JAMENDO_CLIENT_ID")
