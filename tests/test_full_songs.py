@@ -382,6 +382,32 @@ class StationTests(unittest.TestCase):
         self.assertNotIn(f"igfull:{token}:0",
                          [b.get("callback_data") for row in guest["inline_keyboard"] for b in row])
 
+    def add_station_songs(self):
+        for sid, title in (("e80b74b5d6", "I Cross the Line"), ("cddddd4b6b", "Golden Nights")):
+            self.station.lib.add({"id": sid, "title": title, "artist": "Sulton", "artists": ["Sulton"],
+                                  "duration": 200, "src": f"library/audio/{sid}.mp3"})
+
+    def test_artist_only_match_goes_to_full_version_search(self):
+        self.add_station_songs()
+        self.station.search(1, "Sulton Falling Through Me", 5, owner=True)
+        self.assertIn("Falling Through Me", self.messages[-1])
+        self.assertNotIn("Topildi: 2 ta", "\n".join(self.messages))
+        token = next(iter(self.station.state["catalog_jobs"]))
+        job = self.station.state["catalog_jobs"][token]
+        self.assertEqual(job["candidates"][0]["artist"], "Sulton")
+        self.assertEqual(job["candidates"][0]["title"], "Falling Through Me")
+        datas = [b.get("callback_data") for row in self.last_markup["inline_keyboard"] for b in row]
+        self.assertIn(f"catfull:{token}:0", datas)
+
+    def test_song_on_station_and_artist_query_still_list_station(self):
+        self.add_station_songs()
+        self.station.search(1, "Sulton I Cross the Line", 5, owner=True)
+        self.assertIn("Topildi", self.messages[-1])
+        self.station.search(1, "Sulton", 5, owner=True)
+        self.assertIn("Topildi: 2 ta", self.messages[-1])
+        self.station.search(1, "Sulton Falling Through Me", 5, owner=False)  # guests: station only
+        self.assertIn("Topildi: 2 ta", self.messages[-1])
+
     def test_full_callback_requires_owner(self):
         self.station.state["owner"] = "someone-else"
         self.station.state["instagram_jobs"] = {"tok": {"t": 9e12, "chat": 1, "candidates": [self.candidate]}}

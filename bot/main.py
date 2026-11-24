@@ -1696,6 +1696,12 @@ class Station:
             if score >= 0.6:
                 scored.append((score, s))
         scored.sort(key=lambda x: -x[0])
+        # Only the artist matched ("Sulton Falling Through Me" -> other Sulton songs): the requested song itself
+        # is not on the station, so the owner gets the official catalog / full-version search instead.
+        if owner and len(q) >= 4 and scored and not any(self.names_song(query, s) for _, s in scored) \
+                and not any(self.names_artist(query, s) for _, s in scored):
+            self.search_catalog(chat_id, query, reply_to)
+            return
         if not scored:
             if owner and len(q) >= 4:
                 self.search_catalog(chat_id, query, reply_to)
@@ -1710,6 +1716,37 @@ class Station:
         lines += [f"• <b>{esc(s['artist'])}</b> — {esc(s['title'])} <code>{s['id']}</code>" for s in top]
         rows = [[self.app_button(f"▶️ {s['artist']} — {s['title']}"[:60], f"song/{s['id']}")] for s in top]
         self.send(chat_id, "\n".join(lines), reply_to=reply_to, markup=self.keyboard(*rows))
+
+    @staticmethod
+    def names_song(query: str, song: dict) -> bool:
+        """Does the query name this very song (not just its artist)?"""
+        q, title = norm(query), norm(song.get("title") or "")
+        if not title:
+            return False
+        return (title in q or similarity(query, song["title"]) >= 0.85
+                or similarity(query, f"{song['artist']} {song['title']}") >= 0.85)
+
+    @staticmethod
+    def names_artist(query: str, song: dict) -> bool:
+        """The query is just the artist's name ("Sulton") -> list the artist's songs on the station."""
+        q = norm(query)
+        return any(q == norm(a) for a in [song.get("artist") or ""] + list(song.get("artists") or []))
+
+    def guess_request(self, query: str) -> dict | None:
+        """Artist + title from free text: "Artist - Title", or a known station artist at the start/end."""
+        artist, title = split_artist_title(query)
+        if artist and title:
+            return {"artist": artist, "title": title, "duration": 0}
+        words = query.split()
+        known = {norm(a): a for song in self.lib.songs for a in [song.get("artist") or ""] + list(song.get("artists") or []) if a}
+        for n in range(min(4, len(words) - 1), 0, -1):
+            head, tail = " ".join(words[:n]), " ".join(words[n:])
+            if norm(head) in known:
+                return {"artist": known[norm(head)], "title": tail, "duration": 0}
+            head, tail = " ".join(words[-n:]), " ".join(words[:-n])
+            if norm(head) in known:
+                return {"artist": known[norm(head)], "title": tail, "duration": 0}
+        return None
 
     def search_catalog(self, chat_id: int, query: str, reply_to: int) -> None:
         status = self.send(chat_id, "🌐 Stansiyada yo'q. Rasmiy katalogdan originalini qidiryapman…",
@@ -1730,9 +1767,28 @@ class Station:
                 originals.append(candidate)
             originals = originals[:8]
             if not originals:
+                guess = self.guess_request(query)
+                if not guess:
+                    self.edit(chat_id, status_id,
+                              "🔎 Original trekni ishonchli topmadim. Ijrochi va qo'shiq nomini "
+                              "<b>Ijrochi - Qo'shiq</b> ko'rinishida yozing; to'liq trekni qo'shish uchun "
+                              "o'zingizdagi audio faylni yuboring.")
+                    return
+                # Not in iTunes/Deezer (e.g. an independent artist): still offer the official full-version search.
+                jobs = self.state.setdefault("catalog_jobs", {})
+                token = secrets.token_hex(4)
+                while token in jobs:
+                    token = secrets.token_hex(4)
+                jobs[token] = {"t": time.time(), "chat": chat_id, "candidates": [guess]}
+                self.state_dirty = True
                 self.edit(chat_id, status_id,
-                          "🔎 Original trekni ishonchli topmadim. Ijrochi va qo'shiq nomini aniqroq yozing; "
-                          "to'liq trekni qo'shish uchun o'zingizdagi audio faylni yuboring.")
+                          f"🔎 Stansiyada ham, iTunes/Deezer katalogida ham yo'q:\n<b>{esc(guess['artist'])}</b> — "
+                          f"{esc(guess['title'])}\n\n⬇️ — YouTube'dagi rasmiy versiyani va ruxsat berilgan "
+                          "manbalarni tekshirib, to'liq MP3 ni saytga qo'shadi.",
+                          self.keyboard([{"text": "⬇️ To'liq versiyani qidirish va qo'shish",
+                                          "callback_data": f"catfull:{token}:0"}],
+                                        [{"text": "▶️ YouTube'da qidirish",
+                                          "url": youtube_search_url(guess["artist"], guess["title"])}]))
                 return
 
             jobs = self.state.setdefault("catalog_jobs", {})
