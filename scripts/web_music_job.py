@@ -115,9 +115,27 @@ def notify_owner(chat_id: str | int | None, text: str) -> None:
         print("[web-music] Telegram notification failed")
 
 
+def owner_chat(station) -> int | None:
+    """The station owner's Telegram chat: OWNER_IDS, else a chat the bot has seen whose hash is the stored owner."""
+    from bot import config
+    if config.OWNER_IDS:
+        return min(config.OWNER_IDS)
+    owner = station.state.get("owner")
+    if not owner:
+        return None
+    seen = {item.get("chat") for group in ("asks", "catalog_jobs") for item in (station.state.get(group) or {}).values()
+            if isinstance(item, dict)}
+    for chat in seen:
+        if isinstance(chat, int) and hmac.compare_digest(owner, hmac.new(
+                config.TOKEN.encode(), str(chat).encode(), hashlib.sha256).hexdigest()):
+            return chat
+    return None
+
+
 def _process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict) -> None:
     try:
         payload = json.loads(data.decode("utf-8"))
+        origin = payload.get("origin") or "shazam"
         raw = payload.get("track") or {}
         title, artist = str(raw.get("title") or "").strip(), str(raw.get("subtitle") or "").strip()
         if not title or not artist:
@@ -169,7 +187,8 @@ def _process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict
     result = {key: outcome_song.get(key) for key in (
         "id", "title", "artist", "artists", "album", "duration", "src", "cover", "color")}
     result["outcome"] = outcome
-    result["telegramChatId"] = meta.get("uid")
+    result["origin"] = origin
+    result["telegramChatId"] = owner_chat(station) if origin == "dj-auto" else meta.get("uid")
     result_path.write_text(json.dumps(result, ensure_ascii=False), encoding="utf-8")
     state = "DUPLICATE" if outcome == "duplicate" else "UPLOADING"
     message = "Bu qo'shiq stansiyada allaqachon bor." if outcome == "duplicate" else "Preview sayt kutubxonasiga saqlanmoqda…"
@@ -181,9 +200,12 @@ def process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict)
         _process_recognition(job_id, result_path, data, meta)
     except Exception:
         try:
-            source = "DJ" if json.loads(data.decode("utf-8")).get("origin") == "dj" else "Shazam"
+            origin = json.loads(data.decode("utf-8")).get("origin")
         except (UnicodeDecodeError, json.JSONDecodeError, AttributeError):
-            source = "Shazam"
+            origin = "shazam"
+        if origin == "dj-auto":
+            raise  # a listener's request; the site shows the failure, the owner isn't disturbed
+        source = "DJ" if origin == "dj" else "Shazam"
         notify_owner(meta.get("uid"),
                      f"⚠️ {source} topgan qo'shiqni saytga qo'sha olmadim. Rasmiy preview mavjudligini tekshirib ko'ring.")
         raise
@@ -241,6 +263,13 @@ def finalize(job_id: str, result_path: Path, workflow_outcome: str) -> None:
         message = "Qo'shiq stansiyada bor." if status == "DUPLICATE" else "Tayyor — saytda oching yoki ijro eting."
         update_status(job_id, status, message, result)
         title = f"{result.get('artist') or ''} — {result.get('title') or ''}".strip(" —")
+        if result.get("origin") == "dj-auto":
+            if status != "DUPLICATE":
+                notify_owner(result.get("telegramChatId"),
+                             f"🎧 Saytdagi DJ'da so'rashdi: {title}\n\nRasmiy katalog lavhasi saytga qo'shildi. "
+                             "To'liq versiyasi sizda bo'lsa, audio faylni shu botga yuboring — saytdagi lavha "
+                             "o'zi to'liq versiyaga almashadi.")
+            return
         icon = "ℹ️" if status == "DUPLICATE" else "✅"
         detail = ("saytda avvaldan bor." if status == "DUPLICATE"
                   else "saytga qo'shildi; previewni tinglashingiz mumkin.")
@@ -250,7 +279,10 @@ def finalize(job_id: str, result_path: Path, workflow_outcome: str) -> None:
     update_status(job_id, "FAILED", "Faylni qayta ishlash yoki saytga joylash amalga oshmadi. Yana urinib ko'ring.")
     if result_path.exists():
         try:
-            notify_owner(json.loads(result_path.read_text(encoding="utf-8")).get("telegramChatId"),
+            failed = json.loads(result_path.read_text(encoding="utf-8"))
+            if failed.get("origin") == "dj-auto":
+                return
+            notify_owner(failed.get("telegramChatId"),
                          "⚠️ Shazam topgan qo'shiqni saytga joylay olmadim. Boshqa trekni sinab ko'ring.")
         except (ValueError, OSError):
             pass
