@@ -555,7 +555,7 @@ class Station:
             return
 
         self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="Rasmiy preview qo'shilmoqda…")
-        self.edit(chat_id, message_id, "⏳ Rasmiy 30 soniyalik preview olinib, saytga qo'shilmoqda…")
+        self.edit(chat_id, message_id, "⏳ Rasmiy katalog lavhasi olinib, saytga qo'shilmoqda…")
         try:
             parts = urlsplit(preview)
             extension = Path(parts.path).suffix.lower()
@@ -902,7 +902,17 @@ class Station:
                     self.attach_video(song, src, tmp, progress, same_audio=True, file_key=file_key)
                 except Exception:
                     traceback.print_exc()  # the song itself is saved; the video is a bonus
+            if kind not in ("catalog-preview", "shazam", "instagram"):
+                self.replace_previews(song)
             return song, "added"
+
+    def replace_previews(self, song: dict) -> None:
+        """A full file of a song that the site only had as a catalog clip: the clip goes, the full song stays."""
+        for old in [s for s in self.lib.songs if s is not song and s.get("previewOnly") and lookup.same_song(
+                s["title"], s["artist"], song["title"], song["artist"])]:
+            self.lib.remove(old)
+            print(f"[station] full song {song['id']} replaced catalog clip {old['id']}")
+        self.save()
 
     # ================================================================== music videos
     def song_audio(self, song: dict, tmp: Path) -> Path | None:
@@ -1559,13 +1569,12 @@ class Station:
                 if existing:
                     buttons.append(self.app_button("▶️ Saytda", f"song/{existing['id']}"))
                 elif self.instagram_listen_url(candidate):
-                    buttons.append({"text": "➕ Saytga 30s preview", "callback_data": f"catadd:{token}:{index}"})
+                    buttons.append({"text": "➕ Saytga qo'shish", "callback_data": f"catadd:{token}:{index}"})
                 elif candidate.get("track_url", "").startswith("https://"):
                     buttons.append({"text": "🌐 Rasmiy sahifa", "url": candidate["track_url"]})
                 if buttons:
                     rows.append(buttons)
-            lines.append("\nTo'liq MP3 katalogdan olinmaydi. Previewni qo'shish tugmasi faqat rasmiy qisqa lavhani qo'shadi; "
-                         "to'liq trek uchun o'zingizdagi audio faylni yuboring.")
+            lines.append("\nTo'liq trekni audio fayl qilib yuborsangiz, saytdagi lavha o'zi to'liq versiyaga almashadi.")
             self.edit(chat_id, status_id, "\n".join(lines), self.keyboard(*rows))
         except Exception as exc:
             print(f"[catalog] search failed: {type(exc).__name__}")

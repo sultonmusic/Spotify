@@ -65,3 +65,21 @@ export async function searchMusicCatalog(query) {
   if (!response.ok) throw new Error(body.error || `Music catalog returned HTTP ${response.status}`);
   return body.results || [];
 }
+
+/** Any listener: ask the station to add a catalog track the DJ found (the station checks it against the catalog). */
+export async function requestDjTrack(candidate) {
+  const response = await fetch(`${CONFIG.statsUrl}/api/music/dj-request`, {
+    method: "POST", headers: { "Content-Type": "application/json" }, cache: "no-store",
+    body: JSON.stringify({ title: candidate.title, artist: candidate.artist }),
+  });
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(body.error || `Music service returned HTTP ${response.status}`);
+  return body;
+}
+
+export async function getDjRequest(id) {
+  const response = await fetch(`${CONFIG.statsUrl}/api/music/dj-request/${encodeURIComponent(id)}`, { cache: "no-store" });
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(body.error || `Music service returned HTTP ${response.status}`);
+  return body;
+}

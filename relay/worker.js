@@ -530,9 +530,10 @@ export class WebMusicJobs extends DurableObject {
       this.sql.exec("DELETE FROM jobs WHERE created_at < ?", now - 7 * 86_400_000);
       this.sql.exec("DELETE FROM chunks WHERE job_id NOT IN (SELECT id FROM jobs)");
       const running = this.sql.exec("SELECT COUNT(*) AS n FROM jobs WHERE uid = ? AND status IN ('QUEUED','PROCESSING','UPLOADING')", meta.uid).toArray()[0]?.n || 0;
-      if (running >= 2) return Response.json({ error: "one or two uploads are already processing" }, { status: 429 });
+      const shared = meta.uid === "dj-public";
+      if (running >= (shared ? 3 : 2)) return Response.json({ error: "one or two uploads are already processing" }, { status: 429 });
       const recent = this.sql.exec("SELECT COUNT(*) AS n FROM jobs WHERE uid = ? AND created_at > ?", meta.uid, now - 3_600_000).toArray()[0]?.n || 0;
-      if (recent >= 6) return Response.json({ error: "upload limit reached; try again in an hour" }, { status: 429 });
+      if (recent >= (shared ? 20 : 6)) return Response.json({ error: "upload limit reached; try again in an hour" }, { status: 429 });
       this.sql.exec("INSERT INTO jobs VALUES (?, ?, ?, ?, ?, ?, ?, 'QUEUED', 'Waiting for the processor', NULL, ?, ?)",
         meta.id, meta.uid, meta.fileName, meta.mime, meta.kind, meta.size, meta.fileKey, now, now);
       for (let offset = 0, part = 0; offset < bytes.length; offset += MUSIC_CHUNK_BYTES, part++) {
@@ -651,14 +652,8 @@ function alternateRecording(title) {
   return /(?:[[(][^\])]*(?:remix|rmx|slowed|sped\s*up|speed\s*up|live|cover|karaoke|nightcore|instrumental|acoustic|radio\s*edit|extended\s*mix)[^\])]*[\])]|\s[-–—]\s*(?:remix|rmx|slowed|sped\s*up|speed\s*up|live|cover|karaoke|nightcore|instrumental|acoustic|radio\s*edit|extended\s*mix)\b|\s+(?:slowed|sped\s*up|speed\s*up|nightcore)\s*$/i.test(title || "");
 }
 
-async function searchCatalog(request, env, url) {
-  if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
-  const query = String(url.searchParams.get("q") || "").trim().slice(0, 120);
-  if (query.length < 4) return musicJson(request, { error: "enter a song title or artist" }, 400);
-  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
-  if (!await stats(env).claimIdentify(await sha256(`cavi-catalog:${ip}`), 8)) {
-    return musicJson(request, { error: "too many searches; wait a minute and try again" }, 429);
-  }
+/** Official catalog matches (Apple Music + Deezer), best first; null when both catalogs are down. */
+async function catalogMatches(query) {
   const appleUrl = new URL("https://itunes.apple.com/search");
   appleUrl.search = new URLSearchParams({ term: query, entity: "song", limit: "20", country: "US" });
   const deezerUrl = new URL("https://api.deezer.com/search");
@@ -670,7 +665,7 @@ async function searchCatalog(request, env, url) {
     } catch { return null; }
   };
   const [apple, deezer] = await Promise.all([requestJson(appleUrl), requestJson(deezerUrl)]);
-  if (!apple && !deezer) return musicJson(request, { error: "music catalog unavailable" }, 502);
+  if (!apple && !deezer) return null;
 
   const found = new Map();
   const add = (candidate) => {
@@ -701,8 +696,78 @@ async function searchCatalog(request, env, url) {
     cover: row.album?.cover_xl || row.album?.cover_big, trackUrl: row.link,
     previewUrl: row.preview, provider: "Deezer",
   });
-  return musicJson(request, { query, results: [...found.values()]
-    .sort((a, b) => Number(b.hasPreview) - Number(a.hasPreview)).slice(0, 8) });
+  return [...found.values()].sort((a, b) => Number(b.hasPreview) - Number(a.hasPreview)).slice(0, 8);
+}
+
+async function searchCatalog(request, env, url) {
+  if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
+  const query = String(url.searchParams.get("q") || "").trim().slice(0, 120);
+  if (query.length < 4) return musicJson(request, { error: "enter a song title or artist" }, 400);
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  if (!await stats(env).claimIdentify(await sha256(`cavi-catalog:${ip}`), 8)) {
+    return musicJson(request, { error: "too many searches; wait a minute and try again" }, 429);
+  }
+  const results = await catalogMatches(query);
+  if (!results) return musicJson(request, { error: "music catalog unavailable" }, 502);
+  return musicJson(request, { query, results });
+}
+
+// ------------------------------------------------------------------ DJ requests from any listener
+// A listener asks the DJ for a song the station doesn't have. The relay checks that the exact title/artist
+// is in the official catalog, then the station bot adds the catalog's official clip to the site and tells the
+// owner, who can send the full file to the bot (it then replaces the clip).
+const DJ_PUBLIC_UID = "dj-public";
+
+async function queueDjRequest(request, env) {
+  if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  if (!await stats(env).claimIdentify(await sha256(`cavi-dj-request:${ip}`), 3)) {
+    return musicJson(request, { error: "too many requests; wait a minute" }, 429);
+  }
+  let body;
+  try { body = await request.json(); } catch { return musicJson(request, { error: "invalid track" }, 400); }
+  const title = String(body?.title || "").trim().slice(0, 200);
+  const artist = String(body?.artist || "").trim().slice(0, 160);
+  if (!title || !artist) return musicJson(request, { error: "invalid track" }, 400);
+
+  const existing = (await stationSongs(env)).find((song) => musicNorm(song.title) === musicNorm(title) &&
+    musicNorm(song.artist) === musicNorm(artist));
+  if (existing) return musicJson(request, { existingId: existing.id });
+
+  const matches = await catalogMatches(`${artist} ${title}`);
+  if (!matches) return musicJson(request, { error: "music catalog unavailable" }, 502);
+  const match = matches.find((item) => item.hasPreview && musicNorm(item.title) === musicNorm(title) &&
+    musicNorm(item.artist) === musicNorm(artist));
+  if (!match) return musicJson(request, { error: "this track is not in the official catalog" }, 404);
+
+  const track = { title: match.title, subtitle: match.artist, images: match.cover ? { coverart: match.cover } : {} };
+  const id = crypto.randomUUID();
+  const payload = new TextEncoder().encode(JSON.stringify({ track, origin: "dj-auto" }));
+  const fileKey = await sha256(`cavi-shazam\n${musicNorm(match.title)}\n${musicNorm(match.artist)}`);
+  const meta = { id, uid: DJ_PUBLIC_UID, fileName: "dj-request.json", mime: "application/json",
+    kind: "identify", size: payload.byteLength, fileKey };
+  const stub = webMusicDO(env, id);
+  const saved = await stub.fetch("https://music-jobs/create", { method: "POST",
+    headers: { "Content-Type": "application/octet-stream", "X-Music-Meta": encodeJsonHeader(meta) }, body: payload });
+  if (!saved.ok) return musicJson(request, await saved.json().catch(() => ({ error: "could not queue this track" })), saved.status);
+  const dispatch = await github(env, "/actions/workflows/web-music.yml/dispatches", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ref: env.BRANCH, inputs: { job_id: id } }),
+  });
+  if (!dispatch.ok) {
+    await stub.fetch(`https://music-jobs/status/${id}`, { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ uid: DJ_PUBLIC_UID, status: "FAILED", message: "processor could not start" }) });
+    return musicJson(request, { error: "could not start music processing" }, 503);
+  }
+  return musicJson(request, { jobId: id, status: "QUEUED", title: match.title, artist: match.artist }, 202);
+}
+
+async function djRequestStatus(request, env, id) {
+  if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
+  const response = await webMusicDO(env, id).fetch(`https://music-jobs/job/${id}`, { headers: { "X-Music-Uid": DJ_PUBLIC_UID } });
+  if (!response.ok) return musicJson(request, { error: "request not found" }, response.status);
+  const job = await response.json();
+  return musicJson(request, { status: job.status, songId: job.result?.id || null });
 }
 
 // ------------------------------------------------------------------ health (no secrets in the answer)
@@ -783,6 +848,9 @@ async function handle(request, env, ctx) {
   }
   if (url.pathname === "/api/music/search" && request.method === "GET") return searchMusic(request, env, url);
   if (url.pathname === "/api/music/catalog" && request.method === "GET") return searchCatalog(request, env, url);
+  if (url.pathname === "/api/music/dj-request" && request.method === "POST") return queueDjRequest(request, env);
+  const djRequest = url.pathname.match(/^\/api\/music\/dj-request\/([a-f0-9-]{36})$/i);
+  if (djRequest && request.method === "GET") return djRequestStatus(request, env, djRequest[1]);
   if (url.pathname === "/api/music/upload" && request.method === "POST") return createMusicUpload(request, env);
   const musicJob = url.pathname.match(/^\/api\/music\/jobs\/([a-f0-9-]{36})$/i);
   if (musicJob && request.method === "GET") return publicMusicJob(request, env, musicJob[1]);

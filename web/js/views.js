@@ -12,7 +12,7 @@ import {
 } from "./ui.js";
 import { searchSongs, searchArtists, matchCategories, norm } from "./search.js";
 import { identifyNearbySong } from "./audio-search.js";
-import { uploadStationMedia, getStationJob, searchStationMusic, searchMusicCatalog } from "./music-api.js";
+import { uploadStationMedia, getStationJob, searchStationMusic, searchMusicCatalog, requestDjTrack, getDjRequest } from "./music-api.js";
 import { siteOwnerToken, createSiteOwnerConnection, waitForSiteOwnerConnection, queueRecognizedTrack } from "./site-owner-auth.js";
 import * as dj from "./dj.js";
 import { appBanner, appOffer, getApp } from "./install.js";
@@ -983,6 +983,12 @@ export function viewDJ() {
           result.text = t("dj.catalogSearching");
           draw();
           result.catalogCandidates = await searchMusicCatalog(text);
+          const best = bestCatalogMatch(text, result.catalogCandidates);
+          if (best) {
+            result.pending = false;
+            autoAddCatalogTrack(result, best);
+            return;
+          }
           result.text = result.catalogCandidates.length
             ? t("dj.catalogFound", { n: result.catalogCandidates.length }) : t("dj.catalogNone");
         } else result.text = t("dj.searchNone");
@@ -1000,6 +1006,64 @@ export function viewDJ() {
     if (djChat.length > 30) djChat.splice(0, djChat.length - 30);
     draw();
     if (answer.confident && answer.songs.length) playList(answer.songs, 0, { type: "mix", id: `dj-${Date.now()}`, title: "DJ" });
+  }
+  /** The catalog result that best matches what was typed (only ones the station can add). */
+  function bestCatalogMatch(text, candidates) {
+    const words = norm(text).split(" ").filter((w) => w.length >= 2);
+    let best = null, bestScore = 0;
+    for (const candidate of candidates || []) {
+      if (!candidate.hasPreview) continue;
+      const hay = ` ${norm(`${candidate.artist} ${candidate.title}`)} `;
+      const score = words.filter((w) => hay.includes(` ${w}`)).length / Math.max(1, words.length);
+      if (score > bestScore) { best = candidate; bestScore = score; }
+    }
+    return bestScore >= 0.5 ? best : null;
+  }
+  /** Any listener: the station adds the found track by itself, then the DJ plays it. */
+  async function autoAddCatalogTrack(entry, candidate) {
+    const name = `${candidate.artist} — ${candidate.title}`;
+    entry.text = t("dj.autoAdding", { name });
+    entry.addingIndex = entry.catalogCandidates.indexOf(candidate);
+    draw();
+    const playById = async (id) => {
+      await loadLibrary().catch(() => {});
+      const song = id && getSong(id);
+      if (!song) return false;
+      entry.songs = [song];
+      entry.catalogCandidates = [];
+      entry.text = t("dj.autoReady", { name });
+      draw();
+      playSong(song, [song], { type: "search", id: song.id, title: song.title });
+      return true;
+    };
+    try {
+      const queued = await requestDjTrack(candidate);
+      if (queued.existingId && await playById(queued.existingId)) return;
+      if (!queued.jobId) throw new Error(t("dj.addFailed"));
+      let failures = 0;
+      for (let attempt = 0; attempt < 120; attempt++) {
+        await new Promise((resolve) => setTimeout(resolve, 4000));
+        let job;
+        try { job = await getDjRequest(queued.jobId); failures = 0; }
+        catch (error) { if (++failures >= 5) throw error; continue; }
+        if (["COMPLETED", "DUPLICATE"].includes(job.status)) {
+          // the site redeploys a little after the job finishes; wait until the song is in the catalog
+          for (let tries = 0; tries < 30; tries++) {
+            if (await playById(job.songId)) return;
+            await new Promise((resolve) => setTimeout(resolve, 5000));
+          }
+          entry.text = t("dj.addTimeout");
+          return;
+        }
+        if (job.status === "FAILED") throw new Error(t("dj.addFailed"));
+      }
+      entry.text = t("dj.addTimeout");
+    } catch {
+      entry.text = t("dj.catalogFound", { n: entry.catalogCandidates.length });
+    } finally {
+      entry.addingIndex = null;
+      draw();
+    }
   }
   async function addCatalogCandidate(entry, candidate, index) {
     if (entry.addingIndex != null) return;
