@@ -658,14 +658,20 @@ async function catalogMatches(query) {
   appleUrl.search = new URLSearchParams({ term: query, entity: "song", limit: "20", country: "US" });
   const deezerUrl = new URL("https://api.deezer.com/search");
   deezerUrl.search = new URLSearchParams({ q: query, limit: "20" });
-  const requestJson = async (target) => {
+  const musicbrainzUrl = new URL("https://musicbrainz.org/ws/2/recording/");
+  const safeQuery = query.replace(/["\\\\]/g, " ");
+  musicbrainzUrl.search = new URLSearchParams({ query: `recording:"${safeQuery}"`, fmt: "json", limit: "20" });
+  const requestJson = async (target, headers = {}) => {
     try {
-      const response = await fetch(target, { signal: AbortSignal.timeout(8_000) });
+      const response = await fetch(target, { headers, signal: AbortSignal.timeout(8_000) });
       return response.ok ? await response.json() : null;
     } catch { return null; }
   };
-  const [apple, deezer] = await Promise.all([requestJson(appleUrl), requestJson(deezerUrl)]);
-  if (!apple && !deezer) return null;
+  const [apple, deezer, musicbrainz] = await Promise.all([
+    requestJson(appleUrl), requestJson(deezerUrl),
+    requestJson(musicbrainzUrl, { "User-Agent": "CaviMusic/1.0 (https://sultonmusic.github.io/Spotify/)" }),
+  ]);
+  if (!apple && !deezer && !musicbrainz) return null;
 
   const found = new Map();
   const add = (candidate) => {
@@ -677,13 +683,18 @@ async function catalogMatches(query) {
     const trackUrl = String(candidate.trackUrl || "").startsWith("https://") ? candidate.trackUrl : "";
     const item = { title, artist, duration: Math.max(0, Math.min(3600, Number(candidate.duration) || 0)),
       cover: String(candidate.cover || "").startsWith("https://") ? candidate.cover : "",
-      trackUrl, hasPreview: Boolean(previewUrl), provider: candidate.provider };
+      trackUrl, hasPreview: Boolean(previewUrl), provider: candidate.provider,
+      providers: [candidate.provider].filter(Boolean), releaseDate: String(candidate.releaseDate || "").slice(0, 20),
+      recordingId: String(candidate.recordingId || "").slice(0, 80) };
     const existing = found.get(key);
     if (!existing) found.set(key, item);
     else {
       existing.hasPreview ||= item.hasPreview;
       existing.cover ||= item.cover;
       existing.trackUrl ||= item.trackUrl;
+      existing.releaseDate ||= item.releaseDate;
+      existing.recordingId ||= item.recordingId;
+      existing.providers = [...new Set([...(existing.providers || []), ...item.providers])];
     }
   };
   for (const row of apple?.results || []) add({
@@ -696,7 +707,19 @@ async function catalogMatches(query) {
     cover: row.album?.cover_xl || row.album?.cover_big, trackUrl: row.link,
     previewUrl: row.preview, provider: "Deezer",
   });
-  return [...found.values()].sort((a, b) => Number(b.hasPreview) - Number(a.hasPreview)).slice(0, 8);
+  for (const row of musicbrainz?.recordings || []) {
+    const artist = (row["artist-credit"] || []).map((credit) => credit.name || credit.artist?.name || "").filter(Boolean).join(" ");
+    const release = (row.releases || [])[0];
+    const releaseId = release?.id || "";
+    add({
+      title: row.title, artist, duration: (row.length || 0) / 1000,
+      cover: releaseId ? `https://coverartarchive.org/release/${releaseId}/front-500` : "",
+      trackUrl: row.id ? `https://musicbrainz.org/recording/${row.id}` : "",
+      releaseDate: row["first-release-date"] || release?.date || "",
+      recordingId: row.id || "", provider: "MusicBrainz",
+    });
+  }
+  return [...found.values()].sort((a, b) => Number(b.hasPreview) - Number(a.hasPreview)).slice(0, 12);
 }
 
 async function searchCatalog(request, env, url) {
