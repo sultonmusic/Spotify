@@ -951,7 +951,10 @@ export function viewDJ() {
           norm(song.artist) === norm(candidate.artist));
         const info = h("div", { class: "dj-catalog-info" },
           h("b", null, candidate.title),
-          h("span", null, `${candidate.artist} · ${fmtTime(candidate.duration)}`));
+          h("span", null, `${candidate.artist} · ${fmtTime(candidate.duration)}`),
+          candidate.releaseDate ? h("span", { class: "muted" }, candidate.releaseDate) : null,
+          candidate.providers?.length ? h("span", { class: "muted" }, `Manba: ${candidate.providers.join(", ")}`) :
+            candidate.provider ? h("span", { class: "muted" }, `Manba: ${candidate.provider}`) : null);
         let action;
         if (existing) {
           action = h("button", { class: "btn dj-catalog-action", onclick: () => playSong(existing, [existing],
