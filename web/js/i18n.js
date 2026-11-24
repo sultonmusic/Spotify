@@ -348,6 +348,7 @@ const S = {
   "app.install": { ru: "Установить", en: "Install", uz: "O'rnatish" },
   "app.downloading": { ru: "📲 Загрузка APK… Откройте файл и нажмите «Установить» (если Android спросит — разрешите установку из этого источника).", en: "📲 Downloading the APK… Open the file and tap Install (if Android asks, allow installs from this source).", uz: "📲 APK yuklanmoqda… Faylni oching va «O'rnatish»ni bosing (Android so'rasa, shu manbadan o'rnatishga ruxsat bering)." },
   "app.tapToPlay": { ru: "▶️ Нажмите в любом месте, чтобы включить", en: "▶️ Tap anywhere to start playing", uz: "▶️ Ijro uchun istalgan joyni bosing" },
+  "settings.version": { ru: "Версия сайта", en: "Site version", uz: "Sayt versiyasi" },
   "settings.about": { ru: "Музыку добавляет владелец станции через бота", en: "Music is added by the station owner via the bot", uz: "Musiqani stansiya egasi bot orqali qo'shadi" },
   "footer": { ru: "{n} на станции", en: "{n} on the station", uz: "Stansiyada {n}" },
 };

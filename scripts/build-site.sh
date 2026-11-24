@@ -5,6 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 OUT="${1:-_site}"
 BUILD="${BUILD_ID:-$(git rev-parse --short HEAD 2>/dev/null || date +%s)}"
+BUILT_AT="$(date -u '+%Y-%m-%dT%H:%M:00Z')"
 
 rm -rf "$OUT"
 mkdir -p "$OUT/library"
@@ -13,7 +14,8 @@ if [ -d library ]; then cp -r library/. "$OUT/library/"; fi
 [ -f "$OUT/library/songs.json" ] || echo '{"version":1,"count":0,"artists":{},"songs":[]}' > "$OUT/library/songs.json"
 
 # Cache busting: every deploy gets fresh JS/CSS (same ?v on every import keeps one module instance).
-sed -i "s/__BUILD__/${BUILD}/g" "$OUT/index.html" "$OUT/sw.js"
+sed -i "s/__BUILD__/${BUILD}/g" "$OUT/index.html" "$OUT/sw.js" "$OUT/js/config.js"
+sed -i "s/__BUILT_AT__/${BUILT_AT}/g" "$OUT/js/config.js"
 sed -i -E "s#(from \"\./[A-Za-z0-9_-]+\.js)\"#\1?v=${BUILD}\"#g" "$OUT"/js/*.js
 sed -i -E "s#(import\(\"\./[A-Za-z0-9_-]+\.js)\"#\1?v=${BUILD}\"#g" "$OUT"/js/*.js
 

@@ -62,6 +62,10 @@ export function openSettings() {
     const app = appOffer();
     if (app) sheet.append(sheetItem("download", t(app === "apk" ? "settings.getApp" : "settings.installApp"), () => { dismiss(); getApp(); }));
     sheet.append(h("p", { class: "muted", style: { padding: "8px 20px 4px", fontSize: "12px", margin: 0 } }, `🔒 ${t("settings.about")}`));
+    const built = CONFIG.build && !CONFIG.build.startsWith("__");
+    sheet.append(h("p", { class: "muted", style: { padding: "0 20px 8px", fontSize: "12px", margin: 0 } },
+      `ℹ️ ${t("settings.version")}: ${built ? `${CONFIG.build} · ${new Date(CONFIG.builtAt).toLocaleString([], {
+        year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" })}` : "dev"}`));
   });
 }
 

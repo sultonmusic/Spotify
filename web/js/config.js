@@ -1,6 +1,9 @@
 // Site settings. Change the name/bot here if you rename things.
 export const CONFIG = {
   appName: "Cavi Music",
+  // Filled in by scripts/build-site.sh on every deploy (shown at the bottom of Settings).
+  build: "__BUILD__",
+  builtAt: "__BUILT_AT__",
   botUsername: "CaviSpotifybot",
   library: "library/songs.json",
   // Spotify standard: a play counts after 30 seconds of actual listening.
