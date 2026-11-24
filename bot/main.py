@@ -1572,6 +1572,15 @@ class Station:
                     song["title"], song["artist"], title, artist)), None)
                 lines.append(f"{index + 1}. <b>{esc(artist)}</b> — {esc(title)} · {fmt_duration(duration)}"
                              + (" · ✅ saytda bor" if existing else ""))
+                details = []
+                if candidate.get("album"):
+                    details.append("Albom: " + str(candidate["album"]))
+                if candidate.get("year"):
+                    details.append("Yil: " + str(candidate["year"]))
+                if candidate.get("genre"):
+                    details.append("Janr: " + str(candidate["genre"]))
+                if details:
+                    lines.append("   <i>" + esc(" · ".join(details)) + "</i>")
                 buttons = []
                 if self.instagram_listen_url(candidate):
                     buttons.append({"text": "🎧 Rasmiy preview", "callback_data": f"catlisten:{token}:{index}"})
