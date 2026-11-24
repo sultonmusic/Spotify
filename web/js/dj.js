@@ -261,7 +261,24 @@ function findDirect(text) {
 /** Understands the request, picks songs and writes the DJ's answer. */
 export function shouldSearchStation(text) {
   const query = String(text || "").trim();
-  return query.length >= 3 && !findDirect(query) && !understand(query).any;
+  return query.length >= 3 && !findDirect(query) && (!understand(query).any || namedTitle(query));
+}
+
+/** "Falling Through Me by Sulton": an artist plus words that aren't a mood/genre/etc. is one specific song,
+ *  not "play this artist" — so it is searched for (and added if missing) instead of playing the artist's songs. */
+function namedTitle(text) {
+  const intent = understand(text);
+  if (!intent.artists.length) return false;
+  const artistWords = new Set(intent.artists.flatMap((name) => norm(name).split(" ")));
+  const rest = intent.q.split(" ").filter((w) => w && !artistWords.has(w) && !FILLER.has(w) && !/^\d+$/.test(w));
+  return rest.length > 0 && !understand(rest.join(" ")).any;
+}
+
+const CONNECTORS = new Set([...FILLER].filter((w) => !["the", "me", "on", "some"].includes(w)));
+/** The request without "play / by / qo'y / ning …" — what to look up in the music catalogs. */
+export function catalogQuery(text) {
+  const words = norm(text).split(" ").filter((w) => w && !CONNECTORS.has(w));
+  return words.length ? words.join(" ") : String(text || "").trim();
 }
 
 export function ask(text) {

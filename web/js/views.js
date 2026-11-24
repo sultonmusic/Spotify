@@ -986,8 +986,9 @@ export function viewDJ() {
         else if (norm(text).length >= 4) {
           result.text = t("dj.catalogSearching");
           draw();
-          result.catalogCandidates = await searchMusicCatalog(text);
-          const best = bestCatalogMatch(text, result.catalogCandidates);
+          const lookup = dj.catalogQuery(text);
+          result.catalogCandidates = await searchMusicCatalog(lookup);
+          const best = bestCatalogMatch(lookup, result.catalogCandidates);
           if (best) {
             result.pending = false;
             autoAddCatalogTrack(result, best);
