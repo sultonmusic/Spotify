@@ -12,7 +12,7 @@ import {
 } from "./ui.js";
 import { searchSongs, searchArtists, matchCategories, norm } from "./search.js";
 import { identifyNearbySong } from "./audio-search.js";
-import { uploadStationMedia, getStationJob, searchStationMusic } from "./music-api.js";
+import { uploadStationMedia, getStationJob, searchStationMusic, searchMusicCatalog } from "./music-api.js";
 import { siteOwnerToken, createSiteOwnerConnection, waitForSiteOwnerConnection, queueRecognizedTrack } from "./site-owner-auth.js";
 import * as dj from "./dj.js";
 import { appBanner, appOffer, getApp } from "./install.js";
@@ -919,12 +919,42 @@ export function viewDJ() {
   const bubble = (entry) => {
     if (entry.me) return h("div", { class: "dj-msg me" }, entry.text);
     const box = h("div", { class: `dj-msg${entry.pending ? " pending" : ""}` }, h("div", { class: "dj-text" }, entry.text));
+    if (entry.catalogStatus) box.append(h("div", { class: "dj-text dj-catalog-status" }, entry.catalogStatus));
     if (entry.songs.length) {
       const ctx = { type: "mix", id: `dj-${entry.at}`, title: "DJ" };
       const list = h("div", { class: "tracks dj-tracks" });
       entry.songs.slice(0, 5).forEach((s) => list.append(songRow(s, { list: entry.songs, context: ctx, showPlays: false })));
       box.append(list, h("button", { class: "btn accent dj-play", onclick: () => playList(entry.songs, 0, ctx),
         html: `${icon("play", 16)}<span>${t("dj.playAll", { n: entry.songs.length })}</span>` }));
+    }
+    if (entry.catalogCandidates?.length) {
+      const list = h("div", { class: "dj-catalog-list" });
+      entry.catalogCandidates.forEach((candidate, index) => {
+        const existing = lib.songs.find((song) => norm(song.title) === norm(candidate.title) &&
+          norm(song.artist) === norm(candidate.artist));
+        const info = h("div", { class: "dj-catalog-info" },
+          h("b", null, candidate.title),
+          h("span", null, `${candidate.artist} · ${fmtTime(candidate.duration)}`));
+        let action;
+        if (existing) {
+          action = h("button", { class: "btn dj-catalog-action", onclick: () => playSong(existing, [existing],
+            { type: "search", id: existing.id, title: existing.title }), html: `${icon("play", 14)}<span>${t("dj.previewAlready")}</span>` });
+        } else if (entry.addingIndex === index && entry.connectUrl) {
+          action = h("a", { class: "btn dj-catalog-action", href: entry.connectUrl, target: "_blank", rel: "noopener" }, t("dj.connectOpen"));
+        } else if (entry.addingIndex === index) {
+          action = h("button", { class: "btn dj-catalog-action", disabled: true }, t("dj.addProcessing"));
+        } else if (candidate.hasPreview) {
+          action = h("button", { class: "btn accent dj-catalog-action", onclick: () => addCatalogCandidate(entry, candidate, index) },
+            h("span", { html: icon("plus", 14) }), h("span", null, t("dj.addPreview")));
+        } else {
+          action = h("div", { class: "dj-catalog-actions" },
+            h("span", { class: "muted" }, t("dj.noPreview")),
+            candidate.trackUrl ? h("a", { href: candidate.trackUrl, target: "_blank", rel: "noopener" },
+              t("dj.catalogOfficialPage")) : null);
+        }
+        list.append(h("div", { class: "dj-catalog-item" }, info, action));
+      });
+      box.append(list);
     }
     return box;
   };
@@ -948,7 +978,14 @@ export function viewDJ() {
         try { await loadLibrary(); } catch { /* retain the current catalog */ }
         result.songs = remote.map((song) => getSong(song.id)).filter(Boolean);
         if (result.songs.length) result.text = t("dj.searchResults", { n: result.songs.length });
-        else result.text = remote.length ? t("dj.searchRefresh") : t("dj.searchNone");
+        else if (remote.length) result.text = t("dj.searchRefresh");
+        else if (norm(text).length >= 4) {
+          result.text = t("dj.catalogSearching");
+          draw();
+          result.catalogCandidates = await searchMusicCatalog(text);
+          result.text = result.catalogCandidates.length
+            ? t("dj.catalogFound", { n: result.catalogCandidates.length }) : t("dj.catalogNone");
+        } else result.text = t("dj.searchNone");
         result.pending = false;
         draw();
       }).catch(() => {
@@ -963,6 +1000,58 @@ export function viewDJ() {
     if (djChat.length > 30) djChat.splice(0, djChat.length - 30);
     draw();
     if (answer.confident && answer.songs.length) playList(answer.songs, 0, { type: "mix", id: `dj-${Date.now()}`, title: "DJ" });
+  }
+  async function addCatalogCandidate(entry, candidate, index) {
+    if (entry.addingIndex != null) return;
+    entry.addingIndex = index;
+    entry.connectUrl = "";
+    entry.catalogStatus = t("dj.addProcessing");
+    draw();
+    try {
+      if (!siteOwnerToken()) {
+        entry.catalogStatus = t("dj.connectStarting");
+        draw();
+        const { code } = await createSiteOwnerConnection();
+        entry.connectUrl = `https://t.me/${CONFIG.botUsername}?start=connect_${code}`;
+        entry.catalogStatus = t("dj.connectWaiting");
+        draw();
+        await waitForSiteOwnerConnection(code);
+        entry.connectUrl = "";
+      }
+      entry.catalogStatus = t("dj.addProcessing");
+      draw();
+      const queued = await queueRecognizedTrack({ title: candidate.title, subtitle: candidate.artist,
+        images: candidate.cover ? { coverart: candidate.cover } : {} }, "dj");
+      if (queued.existingId) {
+        await loadLibrary().catch(() => {});
+        entry.catalogStatus = t("dj.previewAlready");
+        return;
+      }
+      if (!queued.jobId) throw new Error(t("dj.addFailed"));
+      let failures = 0;
+      for (let attempt = 0; attempt < 180; attempt++) {
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        let job;
+        try { job = await getStationJob(queued.jobId); failures = 0; }
+        catch (error) {
+          if (++failures >= 5) throw error;
+          continue;
+        }
+        if (["COMPLETED", "DUPLICATE"].includes(job.status)) {
+          await loadLibrary().catch(() => {});
+          entry.catalogStatus = t(job.status === "DUPLICATE" ? "dj.previewAlready" : "dj.previewAdded");
+          return;
+        }
+        if (job.status === "FAILED") throw new Error(job.message || t("dj.addFailed"));
+      }
+      entry.catalogStatus = t("dj.addTimeout");
+    } catch (error) {
+      entry.catalogStatus = error.message || t("dj.addFailed");
+    } finally {
+      entry.addingIndex = null;
+      entry.connectUrl = "";
+      draw();
+    }
   }
   async function processUpload(file) {
     haptic("light");

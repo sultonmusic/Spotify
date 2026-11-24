@@ -68,6 +68,6 @@ export async function waitForSiteOwnerConnection(code, signal) {
   throw new Error("Connection timed out. Start again and open the Telegram link.");
 }
 
-export function queueRecognizedTrack(track) {
-  return jsonRequest("/api/identify/queue", { method: "POST", body: JSON.stringify({ track }) });
+export function queueRecognizedTrack(track, source = "shazam") {
+  return jsonRequest("/api/identify/queue", { method: "POST", body: JSON.stringify({ track, source }) });
 }

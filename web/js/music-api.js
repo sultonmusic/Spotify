@@ -58,3 +58,10 @@ export async function searchStationMusic(query) {
   if (!response.ok) throw new Error(body.error || `Music search returned HTTP ${response.status}`);
   return body.songs || [];
 }
+
+export async function searchMusicCatalog(query) {
+  const response = await fetch(`${CONFIG.statsUrl}/api/music/catalog?q=${encodeURIComponent(query)}`, { cache: "no-store" });
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(body.error || `Music catalog returned HTTP ${response.status}`);
+  return body.results || [];
+}

@@ -629,6 +629,15 @@ button.verified-kicker { padding: 0; background: none; border: 0; color: inherit
 .dj-tracks { margin: 8px -8px 4px; }
 .dj-tracks .row { padding-left: 8px; padding-right: 8px; }
 .dj-play { margin-top: 6px; }
+.dj-catalog-status { margin-top: 8px; color: var(--muted); }
+.dj-catalog-list { display: grid; gap: 8px; margin-top: 10px; }
+.dj-catalog-item { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 9px; border-radius: 12px; background: var(--elev-1); }
+.dj-catalog-info { display: grid; gap: 2px; min-width: 0; flex: 1; }
+.dj-catalog-info b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dj-catalog-info span { color: var(--muted); font-size: 12px; }
+.dj-catalog-action { flex: 0 0 auto; min-height: 34px; padding: 6px 9px; font-size: 12px; }
+.dj-catalog-action span { display: inline-flex; align-items: center; gap: 4px; }
+.dj-catalog-actions { display: grid; justify-items: end; gap: 3px; flex: 0 0 auto; font-size: 11px; }
 .dj-bottom { position: fixed; left: 0; right: 0; z-index: 30; bottom: calc(var(--tabbar-h) + var(--safe-b) + (var(--mini-h) + 8px) * var(--has-player, 0)); padding: 8px 12px 10px; background: linear-gradient(transparent, var(--bg) 30%); }
 body.has-player { --has-player: 1; }
 @media (min-width: 900px) { .dj-bottom { left: calc(var(--sidebar-w) + 16px); bottom: calc(var(--bar-h) + 8px); } }

@@ -180,8 +180,12 @@ def process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict)
     try:
         _process_recognition(job_id, result_path, data, meta)
     except Exception:
+        try:
+            source = "DJ" if json.loads(data.decode("utf-8")).get("origin") == "dj" else "Shazam"
+        except (UnicodeDecodeError, json.JSONDecodeError, AttributeError):
+            source = "Shazam"
         notify_owner(meta.get("uid"),
-                     "⚠️ Shazam topgan qo'shiqni saytga qo'sha olmadim. Rasmiy preview mavjudligini tekshirib ko'ring.")
+                     f"⚠️ {source} topgan qo'shiqni saytga qo'sha olmadim. Rasmiy preview mavjudligini tekshirib ko'ring.")
         raise
 
 

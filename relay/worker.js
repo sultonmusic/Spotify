@@ -254,13 +254,13 @@ async function createMusicUpload(request, env) {
   return musicJson(request, { ...(await saved.json()), status: "QUEUED" }, 202);
 }
 
-async function queueShazamResult(request, env, identity, track) {
+async function queueShazamResult(request, env, identity, track, origin = "shazam") {
   const existing = (await stationSongs(env)).find((song) => musicNorm(song.title) === musicNorm(track.title) &&
     musicNorm(song.artist) === musicNorm(track.subtitle));
   if (existing) return { existingId: existing.id };
 
   const id = crypto.randomUUID();
-  const payload = new TextEncoder().encode(JSON.stringify({ track, chatId: identity.uid }));
+  const payload = new TextEncoder().encode(JSON.stringify({ track, chatId: identity.uid, origin }));
   const fileKey = await sha256(`cavi-shazam\n${musicNorm(track.title)}\n${musicNorm(track.subtitle)}`);
   const meta = { id, uid: identity.uid, fileName: "shazam-recognition.json", mime: "application/json",
     kind: "identify", size: payload.byteLength, fileKey };
@@ -279,8 +279,9 @@ async function queueShazamResult(request, env, identity, track) {
     throw new Error("recognition processor could not be started");
   }
   const title = `${track.subtitle || "Noma’lum ijrochi"} — ${track.title || "Noma’lum qo‘shiq"}`;
+  const source = origin === "dj" ? "DJ" : "Shazam";
   await telegram(env, "sendMessage", { chat_id: identity.uid,
-    text: `🎙 Shazam topdi: ${title}\n\nBot original versiya va previewni qidirib, saytga yuboryapti.` }).catch(() => {});
+    text: `🎧 ${source} topdi: ${title}\n\nBot original versiya va previewni qidirib, saytga yuboryapti.` }).catch(() => {});
   return { jobId: id, status: "QUEUED" };
 }
 
@@ -637,6 +638,73 @@ async function searchMusic(request, env, url) {
   return musicJson(request, { query, count: found.length, songs: found.slice(0, 12).map((item) => item.song) });
 }
 
+function officialPreview(url) {
+  try {
+    const parsed = new URL(url || "");
+    const host = parsed.hostname.toLowerCase();
+    return parsed.protocol === "https:" && (host === "apple.com" || host.endsWith(".apple.com") ||
+      host === "deezer.com" || host.endsWith(".deezer.com") || host === "dzcdn.net" || host.endsWith(".dzcdn.net"));
+  } catch { return false; }
+}
+
+function alternateRecording(title) {
+  return /(?:[[(][^\])]*(?:remix|rmx|slowed|sped\s*up|speed\s*up|live|cover|karaoke|nightcore|instrumental|acoustic|radio\s*edit|extended\s*mix)[^\])]*[\])]|\s[-–—]\s*(?:remix|rmx|slowed|sped\s*up|speed\s*up|live|cover|karaoke|nightcore|instrumental|acoustic|radio\s*edit|extended\s*mix)\b|\s+(?:slowed|sped\s*up|speed\s*up|nightcore)\s*$/i.test(title || "");
+}
+
+async function searchCatalog(request, env, url) {
+  if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
+  const query = String(url.searchParams.get("q") || "").trim().slice(0, 120);
+  if (query.length < 4) return musicJson(request, { error: "enter a song title or artist" }, 400);
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  if (!await stats(env).claimIdentify(await sha256(`cavi-catalog:${ip}`), 8)) {
+    return musicJson(request, { error: "too many searches; wait a minute and try again" }, 429);
+  }
+  const appleUrl = new URL("https://itunes.apple.com/search");
+  appleUrl.search = new URLSearchParams({ term: query, entity: "song", limit: "20", country: "US" });
+  const deezerUrl = new URL("https://api.deezer.com/search");
+  deezerUrl.search = new URLSearchParams({ q: query, limit: "20" });
+  const requestJson = async (target) => {
+    try {
+      const response = await fetch(target, { signal: AbortSignal.timeout(8_000) });
+      return response.ok ? await response.json() : null;
+    } catch { return null; }
+  };
+  const [apple, deezer] = await Promise.all([requestJson(appleUrl), requestJson(deezerUrl)]);
+  if (!apple && !deezer) return musicJson(request, { error: "music catalog unavailable" }, 502);
+
+  const found = new Map();
+  const add = (candidate) => {
+    const title = String(candidate.title || "").trim().slice(0, 200);
+    const artist = String(candidate.artist || "").trim().slice(0, 160);
+    if (!title || !artist || alternateRecording(title)) return;
+    const key = `${musicNorm(title)}|${musicNorm(artist)}`;
+    const previewUrl = officialPreview(candidate.previewUrl) ? candidate.previewUrl : "";
+    const trackUrl = String(candidate.trackUrl || "").startsWith("https://") ? candidate.trackUrl : "";
+    const item = { title, artist, duration: Math.max(0, Math.min(3600, Number(candidate.duration) || 0)),
+      cover: String(candidate.cover || "").startsWith("https://") ? candidate.cover : "",
+      trackUrl, hasPreview: Boolean(previewUrl), provider: candidate.provider };
+    const existing = found.get(key);
+    if (!existing) found.set(key, item);
+    else {
+      existing.hasPreview ||= item.hasPreview;
+      existing.cover ||= item.cover;
+      existing.trackUrl ||= item.trackUrl;
+    }
+  };
+  for (const row of apple?.results || []) add({
+    title: row.trackName, artist: row.artistName, duration: (row.trackTimeMillis || 0) / 1000,
+    cover: (row.artworkUrl100 || "").replace("100x100bb", "600x600bb"),
+    trackUrl: row.trackViewUrl, previewUrl: row.previewUrl, provider: "Apple Music",
+  });
+  for (const row of deezer?.data || []) add({
+    title: row.title, artist: row.artist?.name, duration: row.duration,
+    cover: row.album?.cover_xl || row.album?.cover_big, trackUrl: row.link,
+    previewUrl: row.preview, provider: "Deezer",
+  });
+  return musicJson(request, { query, results: [...found.values()]
+    .sort((a, b) => Number(b.hasPreview) - Number(a.hasPreview)).slice(0, 8) });
+}
+
 // ------------------------------------------------------------------ health (no secrets in the answer)
 // Answers "why doesn't the station wake up?": can the relay's GitHub key read runs and start the workflow
 // (checked with a branch that doesn't exist: 422 = allowed, 403 = no permission, 401 = bad or expired key),
@@ -709,10 +777,12 @@ async function handle(request, env, ctx) {
         typeof track.subtitle !== "string" || !track.subtitle.trim() || track.subtitle.length > 300) {
       return musicJson(request, { error: "invalid track" }, 400);
     }
-    try { return musicJson(request, await queueShazamResult(request, env, identity, track), 202); }
+    try { return musicJson(request, await queueShazamResult(request, env, identity, track,
+      body?.source === "dj" ? "dj" : "shazam"), 202); }
     catch (error) { console.error(`[identify] queue failed: ${String(error)}`); return musicJson(request, { error: "could not queue this track" }, 503); }
   }
   if (url.pathname === "/api/music/search" && request.method === "GET") return searchMusic(request, env, url);
+  if (url.pathname === "/api/music/catalog" && request.method === "GET") return searchCatalog(request, env, url);
   if (url.pathname === "/api/music/upload" && request.method === "POST") return createMusicUpload(request, env);
   const musicJob = url.pathname.match(/^\/api\/music\/jobs\/([a-f0-9-]{36})$/i);
   if (musicJob && request.method === "GET") return publicMusicJob(request, env, musicJob[1]);
