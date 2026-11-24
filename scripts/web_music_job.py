@@ -158,7 +158,57 @@ def _process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict
     station = Station()
     existing = next((song for song in station.lib.songs if lookup.same_song(
         song["title"], song["artist"], title, artist)), None)
-    if existing:
+
+    # Public DJ requests first try a full-length Jamendo recording. Jamendo only returns tracks
+    # whose artists explicitly allow downloads; acquire.jamendo_audio validates the full file
+    # and preserves the Creative Commons licence/attribution in the song origin metadata.
+    if origin == "dj-auto" and config.JAMENDO_CLIENT_ID and (not existing or existing.get("previewOnly")):
+        from bot import acquire, audio
+        try:
+            progress = lambda message: update_status(job_id, "PROCESSING", message)
+            progress("Jamendo'da yuklab olishga ruxsat berilgan to'liq audio qidirilmoqda…")
+            row = acquire.jamendo_find(title, artist, float(fingerprint.get("duration") or 0))
+            if row:
+                with tempfile.TemporaryDirectory(prefix="cavi-jamendo-") as temp_dir:
+                    temp = Path(temp_dir)
+                    tags = {"title": title, "artist": artist, "album": fingerprint.get("album") or "",
+                            "date": str(fingerprint.get("year") or "")}
+                    got = acquire.jamendo_audio(row, temp, tags)
+                    info = audio.probe(got.path)
+                    if config.SHAZAM_ENABLED:
+                        clip = audio.excerpt(got.path, temp / "verify.wav", info)
+                        heard = lookup.shazam(clip) if clip else None
+                        if heard and not lookup.same_song(heard.get("title", ""), heard.get("artist", ""),
+                                                          title, artist):
+                            raise RuntimeError("Jamendo audiosi so'ralgan qo'shiqqa mos kelmadi")
+
+                    file_key = hashlib.sha1(got.stable_key.encode()).hexdigest()[:16]
+                    media = {"file_unique_id": "source:" + got.stable_key,
+                             "file_name": f"{title}.mp3", "file_size": got.path.stat().st_size,
+                             "performer": artist, "title": title}
+                    known = {**fingerprint, "title": title, "artist": artist}
+                    outcome_song, outcome = station.import_song(
+                        {"message_id": 0, "caption": ""}, "jamendo", media, file_key, progress,
+                        force=True, source_path=got.path, accept_variant=True, known=known)
+                    if outcome == "added":
+                        station.lib.update(outcome_song, origin=got.origin(),
+                                           sources=sorted(set(outcome_song.get("sources") or []) | {"jamendo"}))
+                        station.save()
+                        result = {key: outcome_song.get(key) for key in (
+                            "id", "title", "artist", "artists", "album", "duration", "src", "cover", "color")}
+                        result.update({"outcome": "added", "origin": origin, "fullAudio": True,
+                                       "provider": got.provider, "license": got.license,
+                                       "licenseUrl": got.license_url, "attribution": got.attribution,
+                                       "telegramChatId": owner_chat(station)})
+                        result_path.write_text(json.dumps(result, ensure_ascii=False), encoding="utf-8")
+                        update_status(job_id, "UPLOADING", "To'liq audio Cavi Music kutubxonasiga saqlanmoqda…", result)
+                        return
+        except Exception as exc:
+            # A Jamendo miss or unavailable track is not fatal: continue with the existing
+            # official-preview flow rather than blocking a DJ request.
+            print(f"[web-music] Jamendo full-track fallback: {exc}")
+
+    if existing and not existing.get("previewOnly"):
         outcome_song, outcome = existing, "duplicate"
     else:
         matches = lookup.search_candidates(title, artist, 0, fingerprint=fingerprint, limit=8)
