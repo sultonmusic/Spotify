@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-24T08:52:44Z",
+ "updatedAt": "2026-11-24T08:59:38Z",
  "count": 114,
  "site": {
   "admins": [
@@ -2285,7 +2285,8 @@
    "checked": "2026-11-24T08:52:43Z",
    "verifiedAt": "2026-11-24T08:52:43Z",
    "fans": 47,
-   "albums": 360
+   "albums": 360,
+   "bioChecked": "2026-11-24T08:59:38Z"
   }
  },
  "songs": [

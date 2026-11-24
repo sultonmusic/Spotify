@@ -30,5 +30,156 @@
   "chat": 8988775229
  },
  "instagram_jobs": {},
- "catalog_jobs": {}
+ "catalog_jobs": {
+  "b6972c14": {
+   "t": 1795510654.1301136,
+   "chat": 8988775229,
+   "candidates": [
+    {
+     "score": 0.8,
+     "title": "Hola",
+     "artist": "Dalex",
+     "album": "Climaxxx",
+     "genre": "Urbano latino",
+     "year": 2019,
+     "duration": 225.0,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/36/25/b1/3625b123-9c16-9866-5384-0ad06279f463/858167007987_Cover.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 213016252,
+     "artist_url": "https://music.apple.com/us/artist/dalex/213016252",
+     "track_url": "https://music.apple.com/us/album/hola/1461611602",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/39/21/e6/3921e6da-903f-4ad2-3f1d-228bb3030e6c/mzaf_11046015458427460803.plus.aac.p.m4a",
+     "source": "Apple Music",
+     "id": 671901332,
+     "album_id": 95028932,
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/656b799a74e3828886a3a612d01f1aea/1000x1000-000000-80-0-0.jpg",
+     "rank": 324303,
+     "sources": [
+      "Apple Music",
+      "Deezer"
+     ]
+    },
+    {
+     "score": 0.8,
+     "title": "Hola",
+     "artist": "Zion & Lennox",
+     "album": "Hola",
+     "genre": "Urbano latino",
+     "year": 2018,
+     "duration": 220.538,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/c0/c5/fd/c0c5fddd-4425-8ca9-712f-72b238a5f240/190296901522.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 80567633,
+     "artist_url": "https://music.apple.com/us/artist/zion-lennox/80567633",
+     "track_url": "https://music.apple.com/us/album/hola/1432961417",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fa/3c/f6/fa3cf672-45ee-169a-f0d7-9b2153726e96/mzaf_9501687766881253078.plus.aac.p.m4a",
+     "source": "Apple Music",
+     "id": 546828042,
+     "album_id": 71722482,
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/4223b15e5797287af11cb1f31f2c3b09/1000x1000-000000-80-0-0.jpg",
+     "rank": 417251,
+     "sources": [
+      "Apple Music",
+      "Deezer"
+     ]
+    },
+    {
+     "score": 0.8,
+     "title": "Hola",
+     "artist": "Luis Brown",
+     "album": "Hola",
+     "genre": "Urbano latino",
+     "year": 2025,
+     "duration": 120.0,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5e/e7/3f/5ee73fe0-7b81-a5bf-f4bd-169db5ff271e/artwork.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1567124704,
+     "artist_url": "https://music.apple.com/us/artist/luis-brown/1567124704",
+     "track_url": "https://music.apple.com/us/album/hola/1797113201",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/40/2b/b1/402bb15a-d68d-e858-f4d1-ed256b7ad579/mzaf_16770734944449843433.plus.aac.p.m4a",
+     "source": "Apple Music"
+    },
+    {
+     "score": 0.8,
+     "title": "Hola",
+     "artist": "Estilo Chihuahua",
+     "album": "Otra Historia",
+     "genre": "M\u00fasica Mexicana",
+     "year": 2016,
+     "duration": 218.009,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/7e/c2/77/7ec2775b-7ebd-1ed3-7da2-628e72b6d128/cover.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 960343672,
+     "artist_url": "https://music.apple.com/us/artist/estilo-chihuahua/960343672",
+     "track_url": "https://music.apple.com/us/album/hola/1732578619",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7b/c3/fe/7bc3fe84-6891-09a4-e74d-47f9e1569e56/mzaf_10895500337944533190.plus.aac.p.m4a",
+     "source": "Apple Music"
+    },
+    {
+     "score": 0.8,
+     "title": "\u00a1Hola!",
+     "artist": "Super Simple Espa\u00f1ol",
+     "album": "La Canci\u00f3n Del Ba\u00f1o y M\u00e1s Canciones Infantiles",
+     "genre": "Children's Music",
+     "year": 2018,
+     "duration": 78.109,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/e5/60/e3/e560e372-9ddc-b171-df26-7324109fce06/093624880714.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1566607748,
+     "artist_url": "https://music.apple.com/us/artist/super-simple-espa%C3%B1ol/1566607748",
+     "track_url": "https://music.apple.com/us/album/hola/1566614612",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/c1/d7/73/c1d77395-f0a0-4bac-e1ae-dd2fccf4f29e/mzaf_9098899414466864426.plus.aac.p.m4a",
+     "source": "Apple Music"
+    },
+    {
+     "score": 0.8,
+     "title": "Hola",
+     "artist": "Beachcrimes",
+     "album": "Hola",
+     "genre": "Dance",
+     "year": 2025,
+     "duration": 173.403,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/17/75/69/177569e0-043a-0a71-287b-e2985de29ad7/656465408068_cover.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1666992927,
+     "artist_url": "https://music.apple.com/us/artist/beachcrimes/1666992927",
+     "track_url": "https://music.apple.com/us/album/hola/1856028539",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1c/ed/a5/1ceda554-424e-afa7-9183-6cc696f99d3a/mzaf_10986404584784957999.plus.aac.p.m4a",
+     "source": "Apple Music"
+    },
+    {
+     "score": 0.8,
+     "title": "Hola",
+     "artist": "Hildemaro",
+     "album": "Amanec\u00ed Contigo Y Sin Tab\u00fa",
+     "genre": "M\u00fasica tropical",
+     "year": 1986,
+     "duration": 228.717,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/7a/54/9e/7a549ec7-cbe4-3fc2-aa0a-bb7d2d56e001/19CRGIM12711.rgb.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 251576819,
+     "artist_url": "https://music.apple.com/us/artist/hildemaro/251576819",
+     "track_url": "https://music.apple.com/us/album/hola/1495480931",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/62/c6/54/62c65407-296b-c0c4-fdfc-c8602ae9e901/mzaf_3035873256784769044.plus.aac.p.m4a",
+     "source": "Apple Music"
+    },
+    {
+     "score": 0.8,
+     "title": "\u00a1hola!",
+     "artist": "Hollyn",
+     "album": "\u00a1hola!",
+     "genre": "Pop",
+     "year": 2017,
+     "duration": 195.944,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/0d/56/b1/0d56b11c-4b8f-e95d-5c7b-3900a00e6c45/669447013570.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 921685860,
+     "artist_url": "https://music.apple.com/us/artist/hollyn/921685860",
+     "track_url": "https://music.apple.com/us/album/hola/1533118737",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f9/82/df/f982df8b-bdaf-d2b0-aaa5-2350a9b381d7/mzaf_5842316643448020564.plus.aac.p.m4a",
+     "source": "Apple Music"
+    }
+   ]
+  }
+ }
 }
