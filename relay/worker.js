@@ -649,7 +649,7 @@ function officialPreview(url) {
 }
 
 function alternateRecording(title) {
-  return /(?:[[(][^\])]*(?:remix|rmx|slowed|sped\s*up|speed\s*up|live|cover|karaoke|nightcore|instrumental|acoustic|radio\s*edit|extended\s*mix)[^\])]*[\])]|\s[-–—]\s*(?:remix|rmx|slowed|sped\s*up|speed\s*up|live|cover|karaoke|nightcore|instrumental|acoustic|radio\s*edit|extended\s*mix)\b|\s+(?:slowed|sped\s*up|speed\s*up|nightcore)\s*$/i.test(title || "");
+  return /(?:[\[(][^\])]*(?:remix|rmx|slowed|sped\s*up|speed\s*up|live|cover|karaoke|nightcore|instrumental|acoustic|radio\s*edit|extended\s*mix)[^\])]*[\])]|\s[-–—]\s*(?:remix|rmx|slowed|sped\s*up|speed\s*up|live|cover|karaoke|nightcore|instrumental|acoustic|radio\s*edit|extended\s*mix)\b|\s+(?:slowed|sped\s*up|speed\s*up|nightcore)\s*$/i.test(title || "");
 }
 
 /** Official catalog matches (Apple Music + Deezer), best first; null when both catalogs are down. */
