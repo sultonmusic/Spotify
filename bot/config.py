@@ -41,8 +41,8 @@ AI_WEB_SEARCH = env_bool("AI_WEB_SEARCH", True)
 SHAZAM_ENABLED = env_bool("SHAZAM", True)
 LYRICS_ENABLED = env_bool("LYRICS", True)
 
-# Who may add songs. Empty -> the first person who writes to the bot becomes the owner.
-OWNER_IDS = {int(x) for x in re.split(r"[,\s]+", env("OWNER_IDS")) if x.isdigit()}
+# Who may add songs. OWNER_IDS env overrides this default owner list.
+OWNER_IDS = {int(x) for x in re.split(r"[ ,\s]+", env("OWNER_IDS", "8988775229")) if x.isdigit()}
 PUBLIC_UPLOADS = env_bool("PUBLIC_UPLOADS", False)
 
 # How long a run keeps listening for new messages (seconds) and hard cap on a run.
