@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-24T09:59:34Z",
- "count": 113,
+ "updatedAt": "2026-11-25T17:12:32Z",
+ "count": 115,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -2272,9 +2272,129 @@
     "ru": "американская певица и актриса",
     "uz": "amerikalik qoʻshiqchi, qoʻshiqnavis va aktrisa"
    }
+  },
+  "Malika Ravshanova": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 109472212,
+   "itunesId": 1534708528,
+   "deezer": "https://www.deezer.com/artist/109472212",
+   "apple": "https://music.apple.com/us/artist/malika-ravshanova/1534708528",
+   "image": "library/artists/malika-ravshanova.jpg",
+   "color": "#74373f",
+   "checked": "2026-11-25T17:10:16Z",
+   "verifiedAt": "2026-11-25T17:10:16Z",
+   "fans": 8,
+   "albums": 12,
+   "bioChecked": "2026-11-25T17:12:28Z"
+  },
+  "عبدالرحمن مسعد": {
+   "aliases": [],
+   "verified": true,
+   "itunesId": 1549539744,
+   "apple": "https://music.apple.com/us/artist/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D9%85%D8%B3%D8%B9%D8%AF/1549539744",
+   "checked": "2026-11-25T17:10:23Z",
+   "verifiedAt": "2026-11-25T17:10:23Z",
+   "bioChecked": "2026-11-25T17:12:32Z"
   }
  },
  "songs": [
+  {
+   "id": "49e6479fe7",
+   "title": "ما تيسر من سورة مريم 2",
+   "artist": "عبدالرحمن مسعد",
+   "artists": [
+    "عبدالرحمن مسعد"
+   ],
+   "album": "Abdel Rahman Musad Collection",
+   "year": 2026,
+   "genre": "Religious",
+   "subgenre": "Islamic",
+   "moods": [
+    "calm"
+   ],
+   "language": "ar",
+   "energy": 0.3,
+   "danceability": 0.35,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 406.27,
+   "src": "library/audio/49e6479fe7.m4a",
+   "cover": "library/covers/49e6479fe7.jpg",
+   "color": "#34426b",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     474,
+     476
+    ]
+   },
+   "addedAt": "2026-11-25T17:10:24Z",
+   "mime": "audio/mp4",
+   "size": 6571968,
+   "storage": "pages",
+   "lufs": -12.1,
+   "gain": -1.9,
+   "via": "audio",
+   "fileKey": "49e6479fe72d386d",
+   "story": "library/stories/49e6479fe7.jpg"
+  },
+  {
+   "id": "1bd0c34ca9",
+   "title": "Bu Mening Onam",
+   "artist": "Malika Ravshanova",
+   "artists": [
+    "Malika Ravshanova"
+   ],
+   "album": "Bu Mening Onam - Single",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "uz",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 223.0,
+   "src": "library/audio/1bd0c34ca9.m4a",
+   "cover": "library/covers/1bd0c34ca9.jpg",
+   "color": "#ab7054",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     473,
+     475
+    ]
+   },
+   "addedAt": "2026-11-25T17:10:17Z",
+   "mime": "audio/mp4",
+   "size": 3607513,
+   "storage": "pages",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "1bd0c34ca9d51745",
+   "story": "library/stories/1bd0c34ca9.jpg"
+  },
   {
    "id": "e80b74b5d6",
    "title": "I Cross the Line",
