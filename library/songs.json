@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T18:44:49Z",
- "count": 116,
+ "updatedAt": "2026-11-26T18:51:36Z",
+ "count": 117,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -2302,9 +2302,69 @@
    "checked": "2026-11-25T17:10:23Z",
    "verifiedAt": "2026-11-25T17:10:23Z",
    "bioChecked": "2026-11-25T17:12:32Z"
+  },
+  "Imagine Dragons": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 416239,
+   "itunesId": 358714030,
+   "deezer": "https://www.deezer.com/artist/416239",
+   "apple": "https://music.apple.com/us/artist/imagine-dragons/358714030",
+   "image": "library/artists/imagine-dragons.jpg",
+   "color": "#934746",
+   "checked": "2026-11-26T18:51:32Z",
+   "verifiedAt": "2026-11-26T18:51:32Z",
+   "fans": 9574439,
+   "albums": 65
   }
  },
  "songs": [
+  {
+   "id": "a4403fe751",
+   "title": "Believer",
+   "artist": "Imagine Dragons",
+   "artists": [
+    "Imagine Dragons"
+   ],
+   "album": "Evolve",
+   "year": 2017,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "sad",
+    "motivational",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.52,
+   "danceability": 0.57,
+   "bpm": 125,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 204.35,
+   "src": "library/audio/a4403fe751.mp3",
+   "cover": "library/covers/a4403fe751.jpg",
+   "color": "#255a6a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T18:51:36Z",
+   "mime": "audio/mpeg",
+   "size": 4905934,
+   "storage": "pages",
+   "lufs": -6.8,
+   "gain": -7.2,
+   "via": "audio",
+   "fileKey": "yt:Kx7B-XvmFtE",
+   "story": "library/stories/a4403fe751.jpg"
+  },
   {
    "id": "0c2065487b",
    "title": "Falling Through Me",
