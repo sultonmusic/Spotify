@@ -48,5 +48,20 @@ if bot:
 print(f"site: name={name or 'default'} bot=@{bot or 'default'}")
 PY
 
+# Never publish a site whose songs point at audio files that aren't in it (every song would be skipped).
+python3 - "$OUT" <<'PY'
+import json, os, sys
+out = sys.argv[1]
+with open(os.path.join(out, "library", "songs.json"), encoding="utf-8") as f:
+    data = json.load(f)
+songs = data if isinstance(data, list) else data.get("songs", [])
+missing = [s["src"] for s in songs if s.get("src") and not s["src"].startswith("http")
+           and not os.path.exists(os.path.join(out, s["src"]))]
+if missing:
+    print(f"::error::{len(missing)} song file(s) missing from the site, e.g. {missing[:3]} - not publishing")
+    sys.exit(1)
+print(f"audio check: all {len(songs)} songs have their files")
+PY
+
 touch "$OUT/.nojekyll"
 echo "Built $OUT (build $BUILD): $(find "$OUT" -type f | wc -l) files, $(du -sh "$OUT" | cut -f1)"

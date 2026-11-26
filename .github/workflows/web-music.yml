@@ -95,12 +95,14 @@ jobs:
           done
           exit 1
 
-      # The processing checkout skips old audio blobs for speed. Deploy from a full checkout so
-      # an upload never removes previously published audio from the Pages artifact.
+      # The processing checkout skips old audio blobs for speed. Deploy from a separate, full checkout so
+      # an upload never removes previously published audio from the Pages artifact (re-using the sparse
+      # working tree here published the site without library/audio).
       - uses: actions/checkout@v4
         if: steps.save.outputs.changed == 'true'
         with:
           ref: ${{ github.ref_name }}
+          path: site-src
 
       - uses: actions/configure-pages@v5
         if: steps.save.outputs.changed == 'true'
@@ -110,7 +112,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           APP_NAME: ${{ vars.APP_NAME }}
-        run: bash scripts/build-site.sh _site
+        run: bash site-src/scripts/build-site.sh "$GITHUB_WORKSPACE/_site"
 
       - uses: actions/upload-pages-artifact@v3
         if: steps.save.outputs.changed == 'true'
