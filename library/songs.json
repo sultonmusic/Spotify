@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T21:30:34Z",
- "count": 173,
+ "updatedAt": "2026-11-26T21:50:15Z",
+ "count": 197,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -3934,10 +3934,1459 @@
    "checked": "2026-11-26T21:30:28Z",
    "verifiedAt": "2026-11-26T21:30:28Z",
    "fans": 12887422,
-   "albums": 38
+   "albums": 38,
+   "itunesId": 278873078,
+   "apple": "https://music.apple.com/us/artist/bruno-mars/278873078"
+  },
+  "Sam Smith": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1097709,
+   "itunesId": 156488786,
+   "deezer": "https://www.deezer.com/artist/1097709",
+   "apple": "https://music.apple.com/us/artist/sam-smith/156488786",
+   "image": "library/artists/sam-smith.jpg",
+   "color": "#8b3f04",
+   "checked": "2026-11-26T21:39:03Z",
+   "verifiedAt": "2026-11-26T21:39:03Z",
+   "fans": 5599171,
+   "albums": 109
+  },
+  "Kim Petras": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4652821,
+   "deezer": "https://www.deezer.com/artist/4652821",
+   "image": "library/artists/kim-petras.jpg",
+   "color": "#787064",
+   "checked": "2026-11-26T21:39:04Z",
+   "verifiedAt": "2026-11-26T21:39:04Z",
+   "fans": 145977,
+   "albums": 74
+  },
+  "Harry Styles": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5313805,
+   "itunesId": 471260289,
+   "deezer": "https://www.deezer.com/artist/5313805",
+   "apple": "https://music.apple.com/us/artist/harry-styles/471260289",
+   "image": "library/artists/harry-styles.jpg",
+   "color": "#cea731",
+   "checked": "2026-11-26T21:39:26Z",
+   "verifiedAt": "2026-11-26T21:39:26Z",
+   "fans": 2225677,
+   "albums": 7
+  },
+  "Miley Cyrus": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 12436,
+   "itunesId": 137057909,
+   "deezer": "https://www.deezer.com/artist/12436",
+   "apple": "https://music.apple.com/us/artist/miley-cyrus/137057909",
+   "image": "library/artists/miley-cyrus.jpg",
+   "color": "#5a5a5a",
+   "checked": "2026-11-26T21:39:56Z",
+   "verifiedAt": "2026-11-26T21:39:56Z",
+   "fans": 7269569,
+   "albums": 57
+  },
+  "Taylor Swift": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 12246,
+   "itunesId": 159260351,
+   "deezer": "https://www.deezer.com/artist/12246",
+   "apple": "https://music.apple.com/us/artist/taylor-swift/159260351",
+   "image": "library/artists/taylor-swift.jpg",
+   "color": "#715346",
+   "checked": "2026-11-26T21:40:27Z",
+   "verifiedAt": "2026-11-26T21:40:27Z",
+   "fans": 12798460,
+   "albums": 120
+  },
+  "Arctic Monkeys": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1182,
+   "itunesId": 62820413,
+   "deezer": "https://www.deezer.com/artist/1182",
+   "apple": "https://music.apple.com/us/artist/arctic-monkeys/62820413",
+   "image": "library/artists/arctic-monkeys.jpg",
+   "color": "#74786d",
+   "checked": "2026-11-26T21:41:02Z",
+   "verifiedAt": "2026-11-26T21:41:02Z",
+   "fans": 4990074,
+   "albums": 35
+  },
+  "Linkin Park": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 92,
+   "itunesId": 148662,
+   "deezer": "https://www.deezer.com/artist/92",
+   "apple": "https://music.apple.com/us/artist/linkin-park/148662",
+   "image": "library/artists/linkin-park.jpg",
+   "color": "#474747",
+   "checked": "2026-11-26T21:41:22Z",
+   "verifiedAt": "2026-11-26T21:41:22Z",
+   "fans": 12292492,
+   "albums": 69
+  },
+  "Evanescence": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 98,
+   "itunesId": 42102393,
+   "deezer": "https://www.deezer.com/artist/98",
+   "apple": "https://music.apple.com/us/artist/evanescence/42102393",
+   "image": "library/artists/evanescence.jpg",
+   "color": "#99110e",
+   "checked": "2026-11-26T21:41:53Z",
+   "verifiedAt": "2026-11-26T21:41:53Z",
+   "fans": 3797905,
+   "albums": 33
+  },
+  "Hozier": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5062414,
+   "itunesId": 342260741,
+   "deezer": "https://www.deezer.com/artist/5062414",
+   "apple": "https://music.apple.com/us/artist/hozier/342260741",
+   "image": "library/artists/hozier.jpg",
+   "color": "#766d67",
+   "checked": "2026-11-26T21:42:43Z",
+   "verifiedAt": "2026-11-26T21:42:43Z",
+   "fans": 1421716,
+   "albums": 32
+  },
+  "Passenger": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 16398,
+   "itunesId": 396255033,
+   "deezer": "https://www.deezer.com/artist/16398",
+   "apple": "https://music.apple.com/us/artist/passenger/396255033",
+   "image": "library/artists/passenger.jpg",
+   "color": "#8a7866",
+   "checked": "2026-11-26T21:43:24Z",
+   "verifiedAt": "2026-11-26T21:43:24Z",
+   "fans": 1360347,
+   "albums": 51
+  },
+  "Gotye": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 159449,
+   "itunesId": 161541223,
+   "deezer": "https://www.deezer.com/artist/159449",
+   "apple": "https://music.apple.com/us/artist/gotye/161541223",
+   "image": "library/artists/gotye.jpg",
+   "color": "#675d63",
+   "checked": "2026-11-26T21:43:55Z",
+   "verifiedAt": "2026-11-26T21:43:55Z",
+   "fans": 422223,
+   "albums": 5
+  },
+  "Kimbra": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 392150,
+   "deezer": "https://www.deezer.com/artist/392150",
+   "image": "library/artists/kimbra.jpg",
+   "color": "#808080",
+   "checked": "2026-11-26T21:43:55Z",
+   "verifiedAt": "2026-11-26T21:43:55Z",
+   "fans": 190246,
+   "albums": 52
+  },
+  "50 Cent": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 66,
+   "itunesId": 112058,
+   "deezer": "https://www.deezer.com/artist/66",
+   "apple": "https://music.apple.com/us/artist/50-cent/112058",
+   "image": "library/artists/50-cent.jpg",
+   "color": "#8f6759",
+   "checked": "2026-11-26T21:44:25Z",
+   "verifiedAt": "2026-11-26T21:44:25Z",
+   "fans": 7896637,
+   "albums": 59
+  },
+  "Joji": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5078097,
+   "itunesId": 1258279972,
+   "deezer": "https://www.deezer.com/artist/5078097",
+   "apple": "https://music.apple.com/us/artist/joji/1258279972",
+   "image": "library/artists/joji.jpg",
+   "color": "#60632c",
+   "checked": "2026-11-26T21:45:18Z",
+   "verifiedAt": "2026-11-26T21:45:18Z",
+   "fans": 567288,
+   "albums": 31
+  },
+  "d4vd": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 153913832,
+   "itunesId": 1599361691,
+   "deezer": "https://www.deezer.com/artist/153913832",
+   "apple": "https://music.apple.com/us/artist/d4vd/1599361691",
+   "image": "library/artists/d4vd.jpg",
+   "color": "#818472",
+   "checked": "2026-11-26T21:45:47Z",
+   "verifiedAt": "2026-11-26T21:45:47Z",
+   "fans": 143845,
+   "albums": 29
+  },
+  "Stephen Sanchez": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 13129925,
+   "itunesId": 1276541872,
+   "deezer": "https://www.deezer.com/artist/13129925",
+   "apple": "https://music.apple.com/us/artist/stephen-sanchez/1276541872",
+   "image": "library/artists/stephen-sanchez.jpg",
+   "color": "#d4b52b",
+   "checked": "2026-11-26T21:46:13Z",
+   "verifiedAt": "2026-11-26T21:46:13Z",
+   "fans": 38121,
+   "albums": 22
+  },
+  "JVKE": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 14486481,
+   "itunesId": 1439925456,
+   "deezer": "https://www.deezer.com/artist/14486481",
+   "apple": "https://music.apple.com/us/artist/jvke/1439925456",
+   "image": "library/artists/jvke.jpg",
+   "color": "#038c68",
+   "checked": "2026-11-26T21:46:39Z",
+   "verifiedAt": "2026-11-26T21:46:39Z",
+   "fans": 147037,
+   "albums": 94
+  },
+  "Rema": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5259966,
+   "itunesId": 1304716885,
+   "deezer": "https://www.deezer.com/artist/5259966",
+   "apple": "https://music.apple.com/us/artist/rema/1304716885",
+   "image": "library/artists/rema.jpg",
+   "color": "#857d7a",
+   "checked": "2026-11-26T21:47:04Z",
+   "verifiedAt": "2026-11-26T21:47:04Z",
+   "fans": 580805,
+   "albums": 77
+  },
+  "Selena Gomez": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 292185,
+   "deezer": "https://www.deezer.com/artist/292185",
+   "image": "library/artists/selena-gomez.jpg",
+   "color": "#d3872c",
+   "checked": "2026-11-26T21:47:04Z",
+   "verifiedAt": "2026-11-26T21:47:04Z",
+   "fans": 5560114,
+   "albums": 70
+  },
+  "Wiz Khalifa": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 74804,
+   "itunesId": 201714418,
+   "deezer": "https://www.deezer.com/artist/74804",
+   "apple": "https://music.apple.com/us/artist/wiz-khalifa/201714418",
+   "image": "library/artists/wiz-xalifa.jpg",
+   "color": "#8e8e4d",
+   "checked": "2026-11-26T21:47:42Z",
+   "verifiedAt": "2026-11-26T21:47:42Z",
+   "fans": 6917502,
+   "albums": 209
+  },
+  "Major Lazer": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 282118,
+   "itunesId": 315761934,
+   "deezer": "https://www.deezer.com/artist/282118",
+   "apple": "https://music.apple.com/us/artist/major-lazer/315761934",
+   "image": "library/artists/major-lazer.jpg",
+   "color": "#63463d",
+   "checked": "2026-11-26T21:48:36Z",
+   "verifiedAt": "2026-11-26T21:48:36Z",
+   "fans": 7657540,
+   "albums": 126
+  },
+  "MØ": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4333887,
+   "deezer": "https://www.deezer.com/artist/4333887",
+   "image": "library/artists/m.jpg",
+   "color": "#7f807f",
+   "checked": "2026-11-26T21:48:36Z",
+   "verifiedAt": "2026-11-26T21:48:36Z",
+   "fans": 372725,
+   "albums": 69
+  },
+  "Descemer Bueno": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1821231,
+   "deezer": "https://www.deezer.com/artist/1821231",
+   "image": "library/artists/descemer-bueno.jpg",
+   "color": "#9a1527",
+   "checked": "2026-11-26T21:49:13Z",
+   "verifiedAt": "2026-11-26T21:49:13Z",
+   "fans": 26553,
+   "albums": 79
+  },
+  "Gente De Zona": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 279489,
+   "deezer": "https://www.deezer.com/artist/279489",
+   "image": "library/artists/gente-de-zona.jpg",
+   "color": "#f5d00a",
+   "checked": "2026-11-26T21:49:13Z",
+   "verifiedAt": "2026-11-26T21:49:13Z",
+   "fans": 620063,
+   "albums": 75
+  },
+  "Queen": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 412,
+   "itunesId": 3296287,
+   "deezer": "https://www.deezer.com/artist/412",
+   "apple": "https://music.apple.com/us/artist/queen/3296287",
+   "image": "library/artists/queen.jpg",
+   "color": "#123f7d",
+   "checked": "2026-11-26T21:50:05Z",
+   "verifiedAt": "2026-11-26T21:50:05Z",
+   "fans": 12885983,
+   "albums": 95
   }
  },
  "songs": [
+  {
+   "id": "1a8ac2e595",
+   "title": "Bohemian Rhapsody",
+   "artist": "Queen",
+   "artists": [
+    "Queen"
+   ],
+   "album": "A Night At The Opera (Deluxe Edition)",
+   "year": 1975,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "energetic"
+   ],
+   "language": "ar",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 362.59,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1a8ac2e595.mp3",
+   "cover": "library/covers/1a8ac2e595.jpg",
+   "color": "#00ffff",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:50:14Z",
+   "mime": "audio/mpeg",
+   "size": 8703531,
+   "storage": "release",
+   "lufs": -13.2,
+   "gain": -0.8,
+   "via": "audio",
+   "fileKey": "yt:BSTsnWoslP4",
+   "story": "library/stories/1a8ac2e595.jpg"
+  },
+  {
+   "id": "b4e6cbb680",
+   "title": "Bailando (English Version)",
+   "artist": "Enrique Iglesias, Sean Paul, Descemer Bueno, Gente De Zona",
+   "artists": [
+    "Enrique Iglesias",
+    "Sean Paul",
+    "Descemer Bueno",
+    "Gente De Zona"
+   ],
+   "album": "SEX and LOVE (Deluxe Edition)",
+   "year": 2008,
+   "genre": "Latin",
+   "subgenre": "Pop Latino",
+   "moods": [
+    "romantic",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 182,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 271.71,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b4e6cbb680.mp3",
+   "cover": "library/covers/b4e6cbb680.jpg",
+   "color": "#793a16",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:49:21Z",
+   "mime": "audio/mpeg",
+   "size": 6522850,
+   "storage": "release",
+   "lufs": -13.3,
+   "gain": -0.7,
+   "via": "audio",
+   "fileKey": "yt:3xSq8_d_2r8",
+   "story": "library/stories/b4e6cbb680.jpg"
+  },
+  {
+   "id": "b91fab1e76",
+   "title": "Lean On",
+   "artist": "Major Lazer, DJ Snake, MØ, Diplo",
+   "artists": [
+    "Major Lazer",
+    "DJ Snake",
+    "MØ",
+    "Diplo"
+   ],
+   "album": "Peace Is The Mission (Extended)",
+   "year": 2015,
+   "genre": "Electronic",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "energetic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": 98,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 178.9,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b91fab1e76.mp3",
+   "cover": "library/covers/b91fab1e76.jpg",
+   "color": "#00aa81",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:48:40Z",
+   "mime": "audio/mpeg",
+   "size": 4295455,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "yt:5vOid-7uBdQ",
+   "story": "library/stories/b91fab1e76.jpg"
+  },
+  {
+   "id": "cf4e91315f",
+   "title": "We Don't Talk Anymore",
+   "artist": "Charlie Puth, Selena Gomez",
+   "artists": [
+    "Charlie Puth",
+    "Selena Gomez"
+   ],
+   "album": "Nine Track Mind",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 230.45,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/cf4e91315f.mp3",
+   "cover": "library/covers/cf4e91315f.jpg",
+   "color": "#f6e509",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:48:20Z",
+   "mime": "audio/mpeg",
+   "size": 5532077,
+   "storage": "release",
+   "lufs": -10.1,
+   "gain": -3.9,
+   "via": "audio",
+   "fileKey": "yt:yN6JgL0IUJg",
+   "story": "library/stories/cf4e91315f.jpg"
+  },
+  {
+   "id": "a7956c8574",
+   "title": "See You Again",
+   "artist": "Wiz Khalifa, Charlie Puth",
+   "artists": [
+    "Wiz Khalifa",
+    "Charlie Puth"
+   ],
+   "album": "Furious 7 (Original Motion Picture Soundtrack)",
+   "year": 2015,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "motivational",
+    "romantic",
+    "nostalgic"
+   ],
+   "language": "en",
+   "energy": 0.97,
+   "danceability": 1.0,
+   "bpm": 160,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 237.37,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a7956c8574.mp3",
+   "cover": "library/covers/a7956c8574.jpg",
+   "color": "#7a7978",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:47:49Z",
+   "mime": "audio/mpeg",
+   "size": 5698567,
+   "storage": "release",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "yt:Ss3IhUmpCt0",
+   "story": "library/stories/a7956c8574.jpg"
+  },
+  {
+   "id": "a9ec39125a",
+   "title": "Calm Down",
+   "artist": "Rema, Selena Gomez",
+   "artists": [
+    "Rema",
+    "Selena Gomez"
+   ],
+   "album": "Calm Down",
+   "year": 2022,
+   "genre": "Other",
+   "subgenre": "Afrobeats",
+   "moods": [
+    "romantic",
+    "calm",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 239.29,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a9ec39125a.mp3",
+   "cover": "library/covers/a9ec39125a.jpg",
+   "color": "#d38b2c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:47:08Z",
+   "mime": "audio/mpeg",
+   "size": 5744597,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:DKrelwjugQA",
+   "story": "library/stories/a9ec39125a.jpg"
+  },
+  {
+   "id": "cd1c505e20",
+   "title": "golden hour",
+   "artist": "JVKE",
+   "artists": [
+    "JVKE"
+   ],
+   "album": "this is what ____ feels like (Vol. 1-4)",
+   "year": 2022,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 231.65,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/cd1c505e20.mp3",
+   "cover": "library/covers/cd1c505e20.jpg",
+   "color": "#747877",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:46:43Z",
+   "mime": "audio/mpeg",
+   "size": 5561445,
+   "storage": "release",
+   "lufs": -7.4,
+   "gain": -6.6,
+   "via": "audio",
+   "fileKey": "yt:uV_5eEvamoQ",
+   "story": "library/stories/cd1c505e20.jpg"
+  },
+  {
+   "id": "9a04e68246",
+   "title": "Until I Found You",
+   "artist": "Stephen Sanchez",
+   "artists": [
+    "Stephen Sanchez"
+   ],
+   "album": "Until I Found You",
+   "year": 2022,
+   "genre": "Pop",
+   "subgenre": "Singer/Songwriter",
+   "moods": [
+    "motivational",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 178.01,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9a04e68246.mp3",
+   "cover": "library/covers/9a04e68246.jpg",
+   "color": "#133a88",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:46:18Z",
+   "mime": "audio/mpeg",
+   "size": 4273504,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:znvky0Uq8qc",
+   "story": "library/stories/9a04e68246.jpg"
+  },
+  {
+   "id": "517e8337a3",
+   "title": "Here With Me",
+   "artist": "d4vd",
+   "artists": [
+    "d4vd"
+   ],
+   "album": "Petals to Thorns",
+   "year": 2022,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 254.86,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/517e8337a3.mp3",
+   "cover": "library/covers/517e8337a3.jpg",
+   "color": "#af1c0f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:45:52Z",
+   "mime": "audio/mpeg",
+   "size": 6118417,
+   "storage": "release",
+   "lufs": -16.2,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:mEveOIoiHg4",
+   "story": "library/stories/517e8337a3.jpg"
+  },
+  {
+   "id": "4d41e91850",
+   "title": "Glimpse of Us",
+   "artist": "Joji",
+   "artists": [
+    "Joji"
+   ],
+   "album": "SMITHEREENS",
+   "year": 2022,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 234.03,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/4d41e91850.mp3",
+   "cover": "library/covers/4d41e91850.jpg",
+   "color": "#4bb490",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:45:22Z",
+   "mime": "audio/mpeg",
+   "size": 5618443,
+   "storage": "release",
+   "lufs": -9.3,
+   "gain": -4.7,
+   "via": "audio",
+   "fileKey": "yt:20zVdUxZdwg",
+   "story": "library/stories/4d41e91850.jpg"
+  },
+  {
+   "id": "831307ff9b",
+   "title": "505",
+   "artist": "Arctic Monkeys",
+   "artists": [
+    "Arctic Monkeys"
+   ],
+   "album": "Favourite Worst Nightmare",
+   "year": 2007,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 140,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 251.81,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/831307ff9b.mp3",
+   "cover": "library/covers/831307ff9b.jpg",
+   "color": "#6e684a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:44:57Z",
+   "mime": "audio/mpeg",
+   "size": 6045275,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:KfEEm4Zx-EU",
+   "story": "library/stories/831307ff9b.jpg"
+  },
+  {
+   "id": "3d39641c02",
+   "title": "In Da Club",
+   "artist": "50 Cent",
+   "artists": [
+    "50 Cent"
+   ],
+   "album": "Get Rich or Die Tryin' (Bonus Track Version)",
+   "year": 2003,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "motivational",
+    "party",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.97,
+   "danceability": 1.0,
+   "bpm": 180,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 249.84,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3d39641c02.mp3",
+   "cover": "library/covers/3d39641c02.jpg",
+   "color": "#ae2a27",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:44:33Z",
+   "mime": "audio/mpeg",
+   "size": 5997488,
+   "storage": "release",
+   "lufs": -19.8,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:bykSx6ewuac",
+   "story": "library/stories/3d39641c02.jpg"
+  },
+  {
+   "id": "9203212458",
+   "title": "Somebody That I Used To Know",
+   "artist": "Gotye, Kimbra",
+   "artists": [
+    "Gotye",
+    "Kimbra"
+   ],
+   "album": "Making Mirrors",
+   "year": 2011,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "motivational",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 129,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 243.89,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9203212458.mp3",
+   "cover": "library/covers/9203212458.jpg",
+   "color": "#dc9c23",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:43:59Z",
+   "mime": "audio/mpeg",
+   "size": 5855208,
+   "storage": "release",
+   "lufs": -22.0,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:jg51kFe7CWU",
+   "story": "library/stories/9203212458.jpg"
+  },
+  {
+   "id": "cc2697cc8f",
+   "title": "Let Her Go (Anniversary Edition)",
+   "artist": "Passenger, Ed Sheeran",
+   "artists": [
+    "Passenger",
+    "Ed Sheeran"
+   ],
+   "album": "All The Little Lights (Anniversary Edition)",
+   "year": 2023,
+   "genre": "Pop",
+   "subgenre": "Singer/Songwriter",
+   "moods": [
+    "romantic",
+    "sad",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 285.13,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/cc2697cc8f.mp3",
+   "cover": "library/covers/cc2697cc8f.jpg",
+   "color": "#00308f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:43:29Z",
+   "mime": "audio/mpeg",
+   "size": 6844815,
+   "storage": "release",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:8a1eG-Y0u6Y",
+   "story": "library/stories/cc2697cc8f.jpg"
+  },
+  {
+   "id": "7c775fbfd1",
+   "title": "Take Me to Church",
+   "artist": "Hozier",
+   "artists": [
+    "Hozier"
+   ],
+   "album": "Hozier (Expanded Edition)",
+   "year": 2013,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.72,
+   "danceability": 0.77,
+   "bpm": 129,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 256.43,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7c775fbfd1.mp3",
+   "cover": "library/covers/7c775fbfd1.jpg",
+   "color": "#b57e4a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:42:48Z",
+   "mime": "audio/mpeg",
+   "size": 6155873,
+   "storage": "release",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "yt:6A3PMQA5c74",
+   "story": "library/stories/7c775fbfd1.jpg"
+  },
+  {
+   "id": "bf7fd38156",
+   "title": "Demons",
+   "artist": "Imagine Dragons",
+   "artists": [
+    "Imagine Dragons"
+   ],
+   "album": "Night Visions",
+   "year": 2012,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 90,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 175.36,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/bf7fd38156.mp3",
+   "cover": "library/covers/bf7fd38156.jpg",
+   "color": "#6c6c72",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:42:17Z",
+   "mime": "audio/mpeg",
+   "size": 4210039,
+   "storage": "release",
+   "lufs": -10.2,
+   "gain": -3.8,
+   "via": "audio",
+   "fileKey": "yt:J1aVXLHQRd4",
+   "story": "library/stories/bf7fd38156.jpg"
+  },
+  {
+   "id": "53760ec393",
+   "title": "Bring Me To Life",
+   "artist": "Evanescence",
+   "artists": [
+    "Evanescence"
+   ],
+   "album": "Fallen",
+   "year": 2003,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "motivational",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 253.89,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/53760ec393.mp3",
+   "cover": "library/covers/53760ec393.jpg",
+   "color": "#4b789b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:41:57Z",
+   "mime": "audio/mpeg",
+   "size": 6094801,
+   "storage": "release",
+   "lufs": -12.7,
+   "gain": -1.3,
+   "via": "audio",
+   "fileKey": "yt:-eGM0IJc70Y",
+   "story": "library/stories/53760ec393.jpg"
+  },
+  {
+   "id": "744da0cf11",
+   "title": "Numb",
+   "artist": "Linkin Park",
+   "artists": [
+    "Linkin Park"
+   ],
+   "album": "Meteora (Deluxe Edition)",
+   "year": 2003,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 187.15,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/744da0cf11.mp3",
+   "cover": "library/covers/744da0cf11.jpg",
+   "color": "#8f4c00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:41:26Z",
+   "mime": "audio/mpeg",
+   "size": 4493527,
+   "storage": "release",
+   "lufs": -7.8,
+   "gain": -6.2,
+   "via": "audio",
+   "fileKey": "yt:Q7cQU86CDB0",
+   "story": "library/stories/744da0cf11.jpg"
+  },
+  {
+   "id": "2e59cafc4f",
+   "title": "Do I Wanna Know?",
+   "artist": "Arctic Monkeys",
+   "artists": [
+    "Arctic Monkeys"
+   ],
+   "album": "AM",
+   "year": 2013,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 85,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 265.68,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2e59cafc4f.mp3",
+   "cover": "library/covers/2e59cafc4f.jpg",
+   "color": "#30565f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:41:07Z",
+   "mime": "audio/mpeg",
+   "size": 6378193,
+   "storage": "release",
+   "lufs": -9.3,
+   "gain": -4.7,
+   "via": "audio",
+   "fileKey": "yt:pqrUQrAcfo4",
+   "story": "library/stories/2e59cafc4f.jpg"
+  },
+  {
+   "id": "d9bac7a09d",
+   "title": "Blank Space",
+   "artist": "Taylor Swift",
+   "artists": [
+    "Taylor Swift"
+   ],
+   "album": "1989 (Deluxe Edition)",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 96,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 272.43,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d9bac7a09d.mp3",
+   "cover": "library/covers/d9bac7a09d.jpg",
+   "color": "#a78858",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:40:35Z",
+   "mime": "audio/mpeg",
+   "size": 6540059,
+   "storage": "release",
+   "lufs": -10.4,
+   "gain": -3.6,
+   "via": "audio",
+   "fileKey": "yt:6hCqRb8Dtvo",
+   "story": "library/stories/d9bac7a09d.jpg"
+  },
+  {
+   "id": "d763b77a9d",
+   "title": "Flowers",
+   "artist": "Miley Cyrus",
+   "artists": [
+    "Miley Cyrus"
+   ],
+   "album": "Endless Summer Vacation",
+   "year": 2023,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 201.47,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d763b77a9d.mp3",
+   "cover": "library/covers/d763b77a9d.jpg",
+   "color": "#025d8d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:40:01Z",
+   "mime": "audio/mpeg",
+   "size": 4836824,
+   "storage": "release",
+   "lufs": -7.5,
+   "gain": -6.5,
+   "via": "audio",
+   "fileKey": "yt:BkSSOGNeWTM",
+   "story": "library/stories/d763b77a9d.jpg"
+  },
+  {
+   "id": "5913c79613",
+   "title": "As It Was",
+   "artist": "Harry Styles",
+   "artists": [
+    "Harry Styles"
+   ],
+   "album": "Harry's House",
+   "year": 2022,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 163.47,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5913c79613.mp3",
+   "cover": "library/covers/5913c79613.jpg",
+   "color": "#af8350",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:39:31Z",
+   "mime": "audio/mpeg",
+   "size": 3925009,
+   "storage": "release",
+   "lufs": -14.3,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:nujn6wbr-e8",
+   "story": "library/stories/5913c79613.jpg"
+  },
+  {
+   "id": "20c942bf7e",
+   "title": "Unholy",
+   "artist": "Sam Smith, Kim Petras",
+   "artists": [
+    "Sam Smith",
+    "Kim Petras"
+   ],
+   "album": "Unholy",
+   "year": 2022,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 155.59,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/20c942bf7e.mp3",
+   "cover": "library/covers/20c942bf7e.jpg",
+   "color": "#7e7a74",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:39:10Z",
+   "mime": "audio/mpeg",
+   "size": 3735504,
+   "storage": "release",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:8VKD-IlvibI",
+   "story": "library/stories/20c942bf7e.jpg"
+  },
+  {
+   "id": "68673f468c",
+   "title": "Talking to the Moon",
+   "artist": "Bruno Mars",
+   "artists": [
+    "Bruno Mars"
+   ],
+   "album": "Doo-Wops & Hooligans",
+   "year": 2010,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 214.52,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/68673f468c.mp3",
+   "cover": "library/covers/68673f468c.jpg",
+   "color": "#f1b10e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:38:42Z",
+   "mime": "audio/mpeg",
+   "size": 5150176,
+   "storage": "release",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "yt:QyN7J1eB1fU",
+   "story": "library/stories/68673f468c.jpg"
+  },
   {
    "id": "6a3b34b154",
    "title": "APT.",
