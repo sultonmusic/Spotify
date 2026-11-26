@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T20:55:37Z",
+ "updatedAt": "2026-11-26T21:07:10Z",
  "count": 142,
  "site": {
   "admins": [
@@ -1222,19 +1222,23 @@
    "verified": true,
    "deezerId": 249675342,
    "deezer": "https://www.deezer.com/artist/249675342",
-   "image": "library/artists/kristina-moe-hals.jpg",
-   "color": "#6e868e",
+   "image": "library/artists/kristina-moe-hals-yt.jpg",
+   "color": "#b4292b",
    "checked": "2026-10-09T19:04:14Z",
    "verifiedAt": "2026-10-09T19:04:14Z",
    "fans": 311,
    "albums": 6,
-   "bioChecked": "2026-10-09T19:06:23Z"
+   "bioChecked": "2026-10-09T19:06:23Z",
+   "ytPhotoChecked": "2026-11-26T21:03:08Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC6ipBVkDdDA27DUywpb2FeQ"
   },
   "تلاوات ياسر الدوسري إمام الحرم المكي": {
    "aliases": [],
    "verified": false,
    "checked": "2026-11-10T18:55:36Z",
-   "bioChecked": "2026-10-11T16:50:41Z"
+   "bioChecked": "2026-10-11T16:50:41Z",
+   "ytPhotoChecked": "2026-11-26T21:03:09Z"
   },
   "Lord Huron": {
    "aliases": [],
@@ -1243,8 +1247,8 @@
    "itunesId": 393068687,
    "deezer": "https://www.deezer.com/artist/887565",
    "apple": "https://music.apple.com/us/artist/lord-huron/393068687",
-   "image": "library/artists/lord-huron.jpg",
-   "color": "#4c4442",
+   "image": "library/artists/lord-huron-yt.jpg",
+   "color": "#1b4b74",
    "checked": "2026-10-16T18:51:16Z",
    "verifiedAt": "2026-10-16T18:51:16Z",
    "fans": 120764,
@@ -1264,15 +1268,18 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:10Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCHIqmk90GKurdVSG5cf-sFQ"
   },
   "Phoebe Bridgers": {
    "aliases": [],
    "verified": true,
    "deezerId": 1058631,
    "deezer": "https://www.deezer.com/artist/1058631",
-   "image": "library/artists/phoebe-bridgers.jpg",
-   "color": "#5174a0",
+   "image": "library/artists/phoebe-bridgers-yt.jpg",
+   "color": "#3182ce",
    "checked": "2026-10-16T18:51:16Z",
    "verifiedAt": "2026-10-16T18:51:16Z",
    "fans": 208940,
@@ -1291,7 +1298,10 @@
    "desc": {
     "en": "American singer and songwriter (born 1994)",
     "ru": "американская инди-фолк-рок певица"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:03:12Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCprIJgC2-qqSHNVztFjRFmw"
   },
   "Duncan Laurence": {
    "aliases": [],
@@ -1300,8 +1310,8 @@
    "itunesId": 1209181560,
    "deezer": "https://www.deezer.com/artist/60859742",
    "apple": "https://music.apple.com/us/artist/duncan-laurence/1209181560",
-   "image": "library/artists/duncan-laurence.jpg",
-   "color": "#987f67",
+   "image": "library/artists/duncan-laurence-yt.jpg",
+   "color": "#7b7b7b",
    "checked": "2026-10-18T15:12:05Z",
    "verifiedAt": "2026-10-18T15:12:05Z",
    "fans": 110090,
@@ -1320,15 +1330,18 @@
    "desc": {
     "en": "Dutch singer (born 1994)",
     "ru": "нидерландский певец"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:03:13Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCBa6lSIB_gX6IuOQlrqRvkg"
   },
   "FLETCHER": {
    "aliases": [],
    "verified": true,
    "deezerId": 438810,
    "deezer": "https://www.deezer.com/artist/438810",
-   "image": "library/artists/fletcher.jpg",
-   "color": "#3b68a6",
+   "image": "library/artists/fletcher-yt.jpg",
+   "color": "#7a7a7a",
    "checked": "2026-10-18T15:12:05Z",
    "verifiedAt": "2026-10-18T15:12:05Z",
    "fans": 32304,
@@ -1348,7 +1361,10 @@
    "bioTr": [
     "uz",
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:14Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCzrpaSWxEkjeKfoSR2L7OzQ"
   },
   "Loreen": {
    "aliases": [],
@@ -1373,19 +1389,22 @@
    "itunesId": 417755574,
    "deezer": "https://www.deezer.com/artist/1199771",
    "apple": "https://music.apple.com/us/artist/loreen/417755574",
-   "image": "library/artists/loreen.jpg",
-   "color": "#724531",
+   "image": "library/artists/loreen-yt.jpg",
+   "color": "#7b6a57",
    "verifiedAt": "2026-10-18T15:26:06Z",
    "fans": 150382,
-   "albums": 59
+   "albums": 59,
+   "ytPhotoChecked": "2026-11-26T21:03:15Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCpYX3GkOcmXISdUqjD0qksA"
   },
   "ZAYN": {
    "aliases": [],
    "verified": true,
    "deezerId": 9761322,
    "deezer": "https://www.deezer.com/artist/9761322",
-   "image": "library/artists/zayn.jpg",
-   "color": "#305e5e",
+   "image": "library/artists/zayn-yt.jpg",
+   "color": "#656163",
    "checked": "2026-10-23T06:52:26Z",
    "verifiedAt": "2026-10-23T06:52:26Z",
    "fans": 2708547,
@@ -1405,7 +1424,10 @@
     "en": "English singer (born 1993)",
     "ru": "британский певец, модель и композитор",
     "uz": "Britaniyalik qoʻshiqchi"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:03:16Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCYR9erHSNBPjjNswR4FrMaw"
   },
   "Sia Andrew Lambrou": {
    "aliases": [
@@ -1419,7 +1441,8 @@
    "checked": "2026-10-23T06:52:27Z",
    "verifiedAt": "2026-10-23T06:52:27Z",
    "fans": 264,
-   "bioChecked": "2026-10-23T06:55:58Z"
+   "bioChecked": "2026-10-23T06:55:58Z",
+   "ytPhotoChecked": "2026-11-26T21:03:17Z"
   },
   "Mark Eliyahu": {
    "aliases": [],
@@ -1443,7 +1466,12 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:18Z",
+   "image": "library/artists/mark-eliyahu-yt.jpg",
+   "color": "#474747",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC603KhEUPgAifzpOKqOIbSg"
   },
   "Cem Adrian": {
    "aliases": [],
@@ -1453,8 +1481,8 @@
    "deezerId": 295413,
    "deezer": "https://www.deezer.com/artist/295413",
    "fans": 385933,
-   "image": "library/artists/cem-adrian.jpg",
-   "color": "#79624c",
+   "image": "library/artists/cem-adrian-yt.jpg",
+   "color": "#8b0408",
    "bioChecked": "2026-10-26T06:49:32Z",
    "bio": {
     "en": "Cem Filiz, better known by his stage name Cem Adrian, is a Turkish musician of Bosniak descent, singer-songwriter and record producer.",
@@ -1470,7 +1498,10 @@
    },
    "bioTr": [
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:19Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCeCim6X1nQhGJ0wfQ9pBw8w"
   },
   "mikeeysmind": {
    "aliases": [],
@@ -1479,39 +1510,48 @@
    "itunesId": 1656295373,
    "deezer": "https://www.deezer.com/artist/191403377",
    "apple": "https://music.apple.com/us/artist/mikeeysmind/1656295373",
-   "image": "library/artists/mikeeysmind.jpg",
-   "color": "#c24518",
+   "image": "library/artists/mikeeysmind-yt.jpg",
+   "color": "#772318",
    "checked": "2026-11-05T06:29:06Z",
    "verifiedAt": "2026-11-05T06:29:06Z",
    "fans": 5525,
    "albums": 51,
-   "bioChecked": "2026-11-05T06:31:22Z"
+   "bioChecked": "2026-11-05T06:31:22Z",
+   "ytPhotoChecked": "2026-11-26T21:03:20Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UChjFdE8k87FZl7QIRlPCikg"
   },
   "Chill77": {
    "aliases": [],
    "verified": true,
    "deezerId": 366600042,
    "deezer": "https://www.deezer.com/artist/366600042",
-   "image": "library/artists/chill77.jpg",
-   "color": "#7e2411",
+   "image": "library/artists/chill77-yt.jpg",
+   "color": "#896e4c",
    "checked": "2026-11-05T06:29:06Z",
    "verifiedAt": "2026-11-05T06:29:06Z",
    "fans": 319,
    "albums": 6,
-   "bioChecked": "2026-11-05T06:31:26Z"
+   "bioChecked": "2026-11-05T06:31:26Z",
+   "ytPhotoChecked": "2026-11-26T21:03:21Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCmUyw7xQSTrk-F7h2pv-IWA"
   },
   "Unjaps": {
    "aliases": [],
    "verified": true,
    "deezerId": 205020777,
    "deezer": "https://www.deezer.com/artist/205020777",
-   "image": "library/artists/unjaps.jpg",
+   "image": "library/artists/unjaps-yt.jpg",
    "color": "#c24518",
    "checked": "2026-11-05T06:29:06Z",
    "verifiedAt": "2026-11-05T06:29:06Z",
    "fans": 581,
    "albums": 15,
-   "bioChecked": "2026-11-05T06:31:29Z"
+   "bioChecked": "2026-11-05T06:31:29Z",
+   "ytPhotoChecked": "2026-11-26T21:03:23Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCkcUK-ZZbI7XddiQJtAQJrA"
   },
   "Rammstein": {
    "aliases": [],
@@ -1520,8 +1560,8 @@
    "itunesId": 408932,
    "deezer": "https://www.deezer.com/artist/464",
    "apple": "https://music.apple.com/us/artist/rammstein/408932",
-   "image": "library/artists/rammstein.jpg",
-   "color": "#da3825",
+   "image": "library/artists/rammstein-yt.jpg",
+   "color": "#1b3d74",
    "checked": "2026-11-07T14:15:56Z",
    "verifiedAt": "2026-11-07T14:15:56Z",
    "fans": 2735683,
@@ -1540,7 +1580,10 @@
    "desc": {
     "en": "German metal band",
     "ru": "немецкая метал-группа"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:03:23Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCs6GGpd9zvsYghuYe0VDFUQ"
   },
   "Alphaville": {
    "aliases": [],
@@ -1549,8 +1592,8 @@
    "itunesId": 4157274,
    "deezer": "https://www.deezer.com/artist/2580",
    "apple": "https://music.apple.com/us/artist/alphaville/4157274",
-   "image": "library/artists/alphaville.jpg",
-   "color": "#115b7e",
+   "image": "library/artists/alphaville-yt.jpg",
+   "color": "#752b1a",
    "checked": "2026-11-07T18:53:28Z",
    "verifiedAt": "2026-11-07T18:53:28Z",
    "fans": 315845,
@@ -1571,7 +1614,10 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:24Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC-GWJZkyivsS-0yMjKMH0AA"
   },
   "Bob Dylan": {
    "aliases": [],
@@ -1580,8 +1626,8 @@
    "itunesId": 462006,
    "deezer": "https://www.deezer.com/artist/808",
    "apple": "https://music.apple.com/us/artist/bob-dylan/462006",
-   "image": "library/artists/bob-dylan.jpg",
-   "color": "#63645f",
+   "image": "library/artists/bob-dylan-yt.jpg",
+   "color": "#837f7c",
    "checked": "2026-11-11T20:09:23Z",
    "verifiedAt": "2026-11-11T20:09:23Z",
    "fans": 2133011,
@@ -1600,15 +1646,18 @@
    "desc": {
     "en": "American singer-songwriter (born 1941)",
     "ru": "американский автор-исполнитель песен, поэт, художник, киноактёр (р. 1941)"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:03:25Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCBqkojCXby4zGkWX86FEY7Q"
   },
   "Max Richter": {
    "aliases": [],
    "verified": true,
    "deezerId": 6690,
    "deezer": "https://www.deezer.com/artist/6690",
-   "image": "library/artists/max-richter.jpg",
-   "color": "#707070",
+   "image": "library/artists/max-richter-yt.jpg",
+   "color": "#767676",
    "checked": "2026-11-12T09:34:13Z",
    "verifiedAt": "2026-11-12T09:34:13Z",
    "fans": 454801,
@@ -1629,20 +1678,26 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:27Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCQ9qvYOejrGR1fNOmTIreSQ"
   },
   "Louisa Fuller": {
    "aliases": [],
    "verified": true,
    "deezerId": 4683219,
    "deezer": "https://www.deezer.com/artist/4683219",
-   "image": "library/artists/louisa-fuller.jpg",
-   "color": "#315066",
+   "image": "library/artists/louisa-fuller-yt.jpg",
+   "color": "#8f008f",
    "checked": "2026-11-12T09:34:14Z",
    "verifiedAt": "2026-11-12T09:34:14Z",
    "fans": 7101,
    "albums": 7,
-   "bioChecked": "2026-11-12T09:36:29Z"
+   "bioChecked": "2026-11-12T09:36:29Z",
+   "ytPhotoChecked": "2026-11-26T21:03:28Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCfXwwAnGP6oNuY2P1Dr4fdg"
   },
   "Natalia Bonner": {
    "aliases": [],
@@ -1655,33 +1710,40 @@
    "verifiedAt": "2026-11-12T09:34:14Z",
    "fans": 3103,
    "albums": 3,
-   "bioChecked": "2026-11-12T09:36:32Z"
+   "bioChecked": "2026-11-12T09:36:32Z",
+   "ytPhotoChecked": "2026-11-26T21:03:29Z"
   },
   "John Metcalfe": {
    "aliases": [],
    "verified": true,
    "deezerId": 261108,
    "deezer": "https://www.deezer.com/artist/261108",
-   "image": "library/artists/john-metcalfe.jpg",
-   "color": "#706961",
+   "image": "library/artists/john-metcalfe-yt.jpg",
+   "color": "#1f4770",
    "checked": "2026-11-12T09:34:15Z",
    "verifiedAt": "2026-11-12T09:34:15Z",
    "fans": 3022,
    "albums": 25,
-   "bioChecked": "2026-11-12T10:28:16Z"
+   "bioChecked": "2026-11-12T10:28:16Z",
+   "ytPhotoChecked": "2026-11-26T21:03:30Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC5e7Qd1u6qEMAWvt9qRVOtA"
   },
   "Philip Sheppard": {
    "aliases": [],
    "verified": true,
    "deezerId": 3096081,
    "deezer": "https://www.deezer.com/artist/3096081",
-   "image": "library/artists/philip-sheppard.jpg",
-   "color": "#008f8f",
+   "image": "library/artists/philip-sheppard-yt.jpg",
+   "color": "#0181fe",
    "checked": "2026-11-12T09:34:16Z",
    "verifiedAt": "2026-11-12T09:34:16Z",
    "fans": 5138,
    "albums": 45,
-   "bioChecked": "2026-11-12T10:28:18Z"
+   "bioChecked": "2026-11-12T10:28:18Z",
+   "ytPhotoChecked": "2026-11-26T21:03:31Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCC7-eR80X8bhAFE7xuux7zA"
   },
   "Chris Worsey": {
    "aliases": [],
@@ -1694,7 +1756,8 @@
    "verifiedAt": "2026-11-12T09:34:17Z",
    "fans": 6128,
    "albums": 5,
-   "bioChecked": "2026-11-12T10:28:22Z"
+   "bioChecked": "2026-11-12T10:28:22Z",
+   "ytPhotoChecked": "2026-11-26T21:03:32Z"
   },
   "Néy Nâmé": {
    "aliases": [],
@@ -1715,7 +1778,8 @@
    "bioTr": [
     "uz",
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:33Z"
   },
   "Nigina Amonqulova": {
    "aliases": [],
@@ -1734,7 +1798,12 @@
    },
    "desc": {
     "en": "Tajik folk singer (born 1986)"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:03:34Z",
+   "image": "library/artists/nigina-amonqulova-yt.jpg",
+   "color": "#d2712d",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UClkjZk2vcts1RAouHUoF-4A"
   },
   "Sara Naeini and…": {
    "aliases": [],
@@ -1755,13 +1824,15 @@
    "bioTr": [
     "uz",
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:35Z"
   },
   "Âshéghânéhâ": {
    "aliases": [],
    "verified": false,
    "checked": "2026-11-12T17:48:03Z",
-   "bioChecked": "2026-11-12T22:56:13Z"
+   "bioChecked": "2026-11-12T22:56:13Z",
+   "ytPhotoChecked": "2026-11-26T21:03:35Z"
   },
   "Sara Naeini…": {
    "aliases": [],
@@ -1782,7 +1853,12 @@
    "bioTr": [
     "uz",
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:36Z",
+   "image": "library/artists/sara-naeini-yt.jpg",
+   "color": "#7c1f20",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCSfTPR7Czs-Ie3-54tZ4Gog"
   },
   "Ziyoda": {
    "aliases": [],
@@ -1791,8 +1867,8 @@
    "itunesId": 598034104,
    "deezer": "https://www.deezer.com/artist/6140042",
    "apple": "https://music.apple.com/us/artist/ziyoda/598034104",
-   "image": "library/artists/ziyoda.jpg",
-   "color": "#6c5f58",
+   "image": "library/artists/ziyoda-yt.jpg",
+   "color": "#a1765e",
    "checked": "2026-11-13T23:52:55Z",
    "verifiedAt": "2026-11-13T23:52:55Z",
    "fans": 304,
@@ -1810,15 +1886,18 @@
    },
    "desc": {
     "en": "Musical artist"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:03:37Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCUovCSSk3E2u18-3xvEhivg"
   },
   "Xamdam Sobirov": {
    "aliases": [],
    "verified": true,
    "deezerId": 70547022,
    "deezer": "https://www.deezer.com/artist/70547022",
-   "image": "library/artists/xamdam-sobirov.jpg",
-   "color": "#91776a",
+   "image": "library/artists/xamdam-sobirov-yt.jpg",
+   "color": "#0039ab",
    "checked": "2026-11-13T23:52:56Z",
    "verifiedAt": "2026-11-13T23:52:56Z",
    "fans": 442,
@@ -1838,7 +1917,10 @@
    "bioTr": [
     "uz",
     "en"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:38Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC_nzTKbK9hAbAmJsHitvBIA"
   },
   "G-Eazy": {
    "aliases": [],
@@ -1847,8 +1929,8 @@
    "itunesId": 275649746,
    "deezer": "https://www.deezer.com/artist/810507",
    "apple": "https://music.apple.com/us/artist/g-eazy/275649746",
-   "image": "library/artists/g-eazy.jpg",
-   "color": "#0099ff",
+   "image": "library/artists/g-eazy-yt.jpg",
+   "color": "#666666",
    "checked": "2026-11-15T21:11:36Z",
    "verifiedAt": "2026-11-15T21:11:36Z",
    "fans": 1087960,
@@ -1869,15 +1951,18 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:40Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC-gyn25H6GcaFDYEqvFVjHA"
   },
   "Halsey": {
    "aliases": [],
    "verified": true,
    "deezerId": 5292512,
    "deezer": "https://www.deezer.com/artist/5292512",
-   "image": "library/artists/halsey.jpg",
-   "color": "#3f92be",
+   "image": "library/artists/halsey-yt.jpg",
+   "color": "#246281",
    "checked": "2026-11-15T21:11:36Z",
    "verifiedAt": "2026-11-15T21:11:36Z",
    "fans": 2083781,
@@ -1896,7 +1981,10 @@
    "desc": {
     "en": "American singer-songwriter (born 1994)",
     "ru": "американская певица и автор песен"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:03:41Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC3BBS0-pODIeS8QGX_qtrCg"
   },
   "Øneheart": {
    "aliases": [],
@@ -1905,8 +1993,8 @@
    "itunesId": 1511525726,
    "deezer": "https://www.deezer.com/artist/63260292",
    "apple": "https://music.apple.com/us/artist/%C3%B8neheart/1511525726",
-   "image": "library/artists/neheart.jpg",
-   "color": "#208cdf",
+   "image": "library/artists/neheart-yt.jpg",
+   "color": "#6e7d4f",
    "checked": "2026-11-16T07:58:08Z",
    "verifiedAt": "2026-11-16T07:58:08Z",
    "fans": 29635,
@@ -1927,15 +2015,18 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:43Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCauF-wg16i1xhWIoJONstBw"
   },
   "reidenshi": {
    "aliases": [],
    "verified": true,
    "deezerId": 135660622,
    "deezer": "https://www.deezer.com/artist/135660622",
-   "image": "library/artists/reidenshi.jpg",
-   "color": "#03638c",
+   "image": "library/artists/reidenshi-yt.jpg",
+   "color": "#776a5e",
    "checked": "2026-11-16T07:58:08Z",
    "verifiedAt": "2026-11-16T07:58:08Z",
    "fans": 7473,
@@ -1955,7 +2046,10 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:44Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCvueFMrZ36uI4hb8BcIM_WQ"
   },
   "MC SAIRAJ": {
    "aliases": [],
@@ -1964,32 +2058,39 @@
    "itunesId": 1685787442,
    "deezer": "https://www.deezer.com/artist/212096697",
    "apple": "https://music.apple.com/us/artist/mc-sairaj/1685787442",
-   "image": "library/artists/mc-sairaj.jpg",
-   "color": "#7c6a95",
+   "image": "library/artists/mc-sairaj-yt.jpg",
+   "color": "#021b8d",
    "checked": "2026-11-16T18:23:15Z",
    "verifiedAt": "2026-11-16T18:23:15Z",
    "fans": 11,
    "albums": 56,
-   "bioChecked": "2026-11-16T18:26:51Z"
+   "bioChecked": "2026-11-16T18:26:51Z",
+   "ytPhotoChecked": "2026-11-26T21:03:45Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UClow3KreamG5i9fAeGDUgdg"
   },
   "Gozen": {
    "aliases": [],
    "verified": false,
    "checked": "2026-11-16T18:26:46Z",
-   "bioChecked": "2026-11-16T18:26:59Z"
+   "bioChecked": "2026-11-16T18:26:59Z",
+   "ytPhotoChecked": "2026-11-26T21:03:46Z"
   },
   "GØZEN": {
    "aliases": [],
    "verified": true,
    "deezerId": 288512511,
    "deezer": "https://www.deezer.com/artist/288512511",
-   "image": "library/artists/g-zen.jpg",
-   "color": "#7c6a95",
+   "image": "library/artists/g-zen-yt.jpg",
+   "color": "#8f0000",
    "checked": "2026-11-16T18:23:15Z",
    "verifiedAt": "2026-11-16T18:23:15Z",
    "fans": 2,
    "albums": 23,
-   "bioChecked": "2026-11-16T18:26:54Z"
+   "bioChecked": "2026-11-16T18:26:54Z",
+   "ytPhotoChecked": "2026-11-26T21:03:47Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC9zktL92uR5ppPOvtWHIWkw"
   },
   "Ramin Djawadi": {
    "aliases": [],
@@ -1998,8 +2099,8 @@
    "itunesId": 5581431,
    "deezer": "https://www.deezer.com/artist/67835",
    "apple": "https://music.apple.com/us/artist/ramin-djawadi/5581431",
-   "image": "library/artists/ramin-djawadi.jpg",
-   "color": "#8f008f",
+   "image": "library/artists/ramin-djawadi-yt.jpg",
+   "color": "#6a5a4e",
    "checked": "2026-11-18T01:45:05Z",
    "verifiedAt": "2026-11-18T01:45:05Z",
    "fans": 546758,
@@ -2018,7 +2119,10 @@
    "desc": {
     "en": "German composer (born 1974)",
     "ru": "ирано-немецкий композитор оркестровой музыки для кино и телевидения"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:03:49Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCvV2r2DeuALi2RprU-J53EA"
   },
   "James Arthur": {
    "aliases": [],
@@ -2027,8 +2131,8 @@
    "itunesId": 193502798,
    "deezer": "https://www.deezer.com/artist/873890",
    "apple": "https://music.apple.com/us/artist/james-arthur/193502798",
-   "image": "library/artists/james-arthur.jpg",
-   "color": "#008f8f",
+   "image": "library/artists/james-arthur-yt.jpg",
+   "color": "#6d6b6d",
    "checked": "2026-11-18T01:45:35Z",
    "verifiedAt": "2026-11-18T01:45:35Z",
    "fans": 1544297,
@@ -2046,13 +2150,21 @@
    },
    "desc": {
     "en": "English singer and songwriter (born 1988)"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:03:50Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCNAbUat5xDtp6FeBphe2V_Q"
   },
   "Johnny Huynh": {
    "aliases": [],
    "verified": false,
    "checked": "2026-11-20T13:17:36Z",
-   "bioChecked": "2026-11-20T13:17:47Z"
+   "bioChecked": "2026-11-20T13:17:47Z",
+   "ytPhotoChecked": "2026-11-26T21:03:51Z",
+   "image": "library/artists/johnny-huynh-yt.jpg",
+   "color": "#721d2d",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCgD26qQaJMC-ESBVfQhIVWw"
   },
   "Martin Garrix": {
    "aliases": [],
@@ -2061,8 +2173,8 @@
    "itunesId": 430932944,
    "deezer": "https://www.deezer.com/artist/3968561",
    "apple": "https://music.apple.com/us/artist/martin-garrix/430932944",
-   "image": "library/artists/martin-garrix.jpg",
-   "color": "#654f46",
+   "image": "library/artists/martin-garrix-yt.jpg",
+   "color": "#5a3e34",
    "checked": "2026-11-20T13:15:30Z",
    "verifiedAt": "2026-11-20T13:15:30Z",
    "fans": 7602985,
@@ -2083,15 +2195,18 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:52Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCqJnSdHjKtfsrHi9aI-9d3g"
   },
   "Bebe Rexha": {
    "aliases": [],
    "verified": true,
    "deezerId": 4492087,
    "deezer": "https://www.deezer.com/artist/4492087",
-   "image": "library/artists/bebe-rexha.jpg",
-   "color": "#4b7db4",
+   "image": "library/artists/bebe-rexha-yt.jpg",
+   "color": "#8d6151",
    "checked": "2026-11-20T13:15:30Z",
    "verifiedAt": "2026-11-20T13:15:30Z",
    "fans": 1844284,
@@ -2112,7 +2227,10 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:54Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UChwSjx8SnvG6k96a9xqYw1g"
   },
   "K-391": {
    "aliases": [],
@@ -2123,8 +2241,8 @@
    "verifiedAt": "2026-11-22T20:21:52Z",
    "deezerId": 1722651,
    "deezer": "https://www.deezer.com/artist/1722651",
-   "image": "library/artists/k-391.jpg",
-   "color": "#943f52",
+   "image": "library/artists/k-391-yt.jpg",
+   "color": "#733f1c",
    "fans": 251887,
    "albums": 52,
    "bioChecked": "2026-11-22T20:26:21Z",
@@ -2143,7 +2261,10 @@
    },
    "bioTr": [
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:55Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCCfu9bjxcM2RU3UGKCJDPYg"
   },
   "Julie Bergan": {
    "aliases": [],
@@ -2153,8 +2274,8 @@
    "deezerId": 4330987,
    "deezer": "https://www.deezer.com/artist/4330987",
    "fans": 65270,
-   "image": "library/artists/julie-bergan.jpg",
-   "color": "#3d50c2",
+   "image": "library/artists/julie-bergan-yt.jpg",
+   "color": "#fddf02",
    "bioChecked": "2026-11-22T20:26:25Z",
    "bio": {
     "en": "Julie Bergan is a Norwegian singer and songwriter born in Skien, Norway. Bergan started releasing covers on YouTube at the age of 16, eventually signing a record deal with Warner Music Norway in 2013. In 2015 she attained mainstream success in Denmark and Germany with her single \"All Hours\", before breaking through in her native Norway in 2016 with \"Arigato\" peaking at number one. Bergan's major-label debut album Turn On the Light was released in 2018. She returned to the number one spot in 2018 on VG-lista after collaborating with K-391, Alan Walker and Seungri on \"Ignite\".",
@@ -2171,7 +2292,10 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:57Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCacbRN9SZa1-LJuXWP8uQ9w"
   },
   "SeungRi": {
    "aliases": [],
@@ -2192,7 +2316,12 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:03:58Z",
+   "image": "library/artists/seungri-yt.jpg",
+   "color": "#70482d",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCx6PfQUFTqzwYB-v5DqsqEg"
   },
   "The Walkers": {
    "aliases": [],
@@ -2201,13 +2330,16 @@
    "itunesId": 1624510976,
    "deezer": "https://www.deezer.com/artist/205195",
    "apple": "https://music.apple.com/us/artist/the-walkers/1624510976",
-   "image": "library/artists/the-walkers.jpg",
-   "color": "#c8a231",
+   "image": "library/artists/the-walkers-yt.jpg",
+   "color": "#0b4085",
    "checked": "2026-11-22T20:22:08Z",
    "verifiedAt": "2026-11-22T20:22:08Z",
    "fans": 3427,
    "albums": 63,
-   "bioChecked": "2026-11-22T20:26:28Z"
+   "bioChecked": "2026-11-22T20:26:28Z",
+   "ytPhotoChecked": "2026-11-26T21:03:59Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCizvD0WqEEw35I5vruPvUkA"
   },
   "SAPPHIRE": {
    "aliases": [
@@ -2216,8 +2348,8 @@
    "verified": true,
    "deezerId": 1378534,
    "deezer": "https://www.deezer.com/artist/1378534",
-   "image": "library/artists/sapphire.jpg",
-   "color": "#545874",
+   "image": "library/artists/sapphire-yt.jpg",
+   "color": "#34a0cb",
    "checked": "2026-11-22T20:22:09Z",
    "verifiedAt": "2026-11-22T20:22:09Z",
    "fans": 4101,
@@ -2237,15 +2369,18 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:04:00Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCGMqchjtot9E9wllDd6taGQ"
   },
   "Tungevaag": {
    "aliases": [],
    "verified": true,
    "deezerId": 2221921,
    "deezer": "https://www.deezer.com/artist/2221921",
-   "image": "library/artists/tungevaag.jpg",
-   "color": "#541679",
+   "image": "library/artists/tungevaag-yt.jpg",
+   "color": "#663529",
    "checked": "2026-11-22T20:23:15Z",
    "verifiedAt": "2026-11-22T20:23:15Z",
    "fans": 182898,
@@ -2266,20 +2401,26 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:04:01Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCnXSny6ePqmcyOythooXftg"
   },
   "Mangoo": {
    "aliases": [],
    "verified": true,
    "deezerId": 2221931,
    "deezer": "https://www.deezer.com/artist/2221931",
-   "image": "library/artists/mangoo.jpg",
-   "color": "#00478f",
+   "image": "library/artists/mangoo-yt.jpg",
+   "color": "#877155",
    "checked": "2026-11-22T20:23:15Z",
    "verifiedAt": "2026-11-22T20:23:15Z",
    "fans": 3008,
    "albums": 42,
-   "bioChecked": "2026-11-22T21:07:24Z"
+   "bioChecked": "2026-11-22T21:07:24Z",
+   "ytPhotoChecked": "2026-11-26T21:04:02Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCtsdavZDmHkrIpmaakaSWjA"
   },
   "Martin Tungevaag": {
    "aliases": [],
@@ -2307,27 +2448,31 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:04:03Z"
   },
   "Emelie Hollow": {
    "aliases": [],
    "verified": true,
    "deezerId": 231083155,
    "deezer": "https://www.deezer.com/artist/231083155",
-   "image": "library/artists/emelie-hollow.jpg",
-   "color": "#7c6a95",
+   "image": "library/artists/emelie-hollow-yt.jpg",
+   "color": "#69794b",
    "checked": "2026-11-22T20:23:23Z",
    "verifiedAt": "2026-11-22T20:23:23Z",
    "fans": 17,
-   "bioChecked": "2026-11-22T21:12:23Z"
+   "bioChecked": "2026-11-22T21:12:23Z",
+   "ytPhotoChecked": "2026-11-26T21:04:04Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC-fS43SitfQ-gQTBkvPTdoQ"
   },
   "Sorana": {
    "aliases": [],
    "verified": true,
    "deezerId": 1651733,
    "deezer": "https://www.deezer.com/artist/1651733",
-   "image": "library/artists/sorana.jpg",
-   "color": "#1257ed",
+   "image": "library/artists/sorana-yt.jpg",
+   "color": "#1750ba",
    "checked": "2026-11-22T20:24:11Z",
    "verifiedAt": "2026-11-22T20:24:11Z",
    "fans": 4684,
@@ -2347,7 +2492,10 @@
    "bioTr": [
     "uz",
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T21:04:05Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC3zsGP0UJ5sQHjRyOHMtM_Q"
   },
   "Sulton": {
    "aliases": [],
@@ -2374,10 +2522,13 @@
    ],
    "deezerId": 4591616,
    "deezer": "https://www.deezer.com/artist/4591616",
-   "image": "library/artists/sulton.jpg",
-   "color": "#840b10",
+   "image": "library/artists/sulton-yt.jpg",
+   "color": "#3c66a0",
    "fans": 0,
-   "albums": 5
+   "albums": 5,
+   "ytPhotoChecked": "2026-11-26T21:04:06Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC8CfZwPTjbA0DQ4swuPtSEw"
   },
   "Beyoncé": {
    "aliases": [],
@@ -2401,7 +2552,12 @@
     "en": "American singer and songwriter (born 1981)",
     "ru": "американская певица и актриса",
     "uz": "amerikalik qoʻshiqchi, qoʻshiqnavis va aktrisa"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:04:07Z",
+   "image": "library/artists/beyonce-yt.jpg",
+   "color": "#766962",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCoPQ_TWm8JZ5nJv4a5BzSWA"
   },
   "Malika Ravshanova": {
    "aliases": [],
@@ -2410,13 +2566,16 @@
    "itunesId": 1534708528,
    "deezer": "https://www.deezer.com/artist/109472212",
    "apple": "https://music.apple.com/us/artist/malika-ravshanova/1534708528",
-   "image": "library/artists/malika-ravshanova.jpg",
-   "color": "#74373f",
+   "image": "library/artists/malika-ravshanova-yt.jpg",
+   "color": "#c25339",
    "checked": "2026-11-25T17:10:16Z",
    "verifiedAt": "2026-11-25T17:10:16Z",
    "fans": 8,
    "albums": 12,
-   "bioChecked": "2026-11-25T17:12:28Z"
+   "bioChecked": "2026-11-25T17:12:28Z",
+   "ytPhotoChecked": "2026-11-26T21:04:09Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCbEWHcxEPOLx67F2sI_1zUA"
   },
   "عبدالرحمن مسعد": {
    "aliases": [],
@@ -2425,7 +2584,8 @@
    "apple": "https://music.apple.com/us/artist/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D9%85%D8%B3%D8%B9%D8%AF/1549539744",
    "checked": "2026-11-25T17:10:23Z",
    "verifiedAt": "2026-11-25T17:10:23Z",
-   "bioChecked": "2026-11-25T17:12:32Z"
+   "bioChecked": "2026-11-25T17:12:32Z",
+   "ytPhotoChecked": "2026-11-26T21:04:10Z"
   },
   "Imagine Dragons": {
    "aliases": [],
@@ -2434,8 +2594,8 @@
    "itunesId": 358714030,
    "deezer": "https://www.deezer.com/artist/416239",
    "apple": "https://music.apple.com/us/artist/imagine-dragons/358714030",
-   "image": "library/artists/imagine-dragons.jpg",
-   "color": "#934746",
+   "image": "library/artists/imagine-dragons-yt.jpg",
+   "color": "#6a4f41",
    "checked": "2026-11-26T18:51:32Z",
    "verifiedAt": "2026-11-26T18:51:32Z",
    "fans": 9574439,
@@ -2454,7 +2614,10 @@
    "desc": {
     "en": "American pop rock band",
     "ru": "американская рок-группа"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:04:10Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC0aXrjVxG5pZr99v77wZdPQ"
   },
   "Shohrux Mirzo": {
    "aliases": [],
@@ -2463,13 +2626,16 @@
    "itunesId": 1384931577,
    "deezer": "https://www.deezer.com/artist/14790713",
    "apple": "https://music.apple.com/us/artist/shohrux-mirzo/1384931577",
-   "image": "library/artists/shohrux-mirzo.jpg",
-   "color": "#5d6c65",
+   "image": "library/artists/shohrux-mirzo-yt.jpg",
+   "color": "#6f6f75",
    "checked": "2026-11-26T20:17:48Z",
    "verifiedAt": "2026-11-26T20:17:48Z",
    "fans": 0,
    "albums": 8,
-   "bioChecked": "2026-11-26T20:25:25Z"
+   "bioChecked": "2026-11-26T20:25:25Z",
+   "ytPhotoChecked": "2026-11-26T21:04:11Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCQexyifaIVEfAAcmvF3IK3Q"
   },
   "Lady Gaga": {
    "aliases": [],
@@ -2478,8 +2644,8 @@
    "itunesId": 277293880,
    "deezer": "https://www.deezer.com/artist/75491",
    "apple": "https://music.apple.com/us/artist/lady-gaga/277293880",
-   "image": "library/artists/lady-gaga.jpg",
-   "color": "#808080",
+   "image": "library/artists/lady-gaga-yt.jpg",
+   "color": "#6d6d6d",
    "checked": "2026-11-26T20:36:05Z",
    "verifiedAt": "2026-11-26T20:36:05Z",
    "fans": 9378644,
@@ -2499,15 +2665,18 @@
     "en": "American singer, songwriter and actress (born 1986)",
     "ru": "американская певица, автор песен, актриса и активистка (род. 1986)",
     "uz": "amerikalik xonanda va aktrisa"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:04:12Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCGKXb1syicud01CJOOFRykg"
   },
   "Bradley Cooper": {
    "aliases": [],
    "verified": true,
    "deezerId": 7735426,
    "deezer": "https://www.deezer.com/artist/7735426",
-   "image": "library/artists/bradley-cooper.jpg",
-   "color": "#a76558",
+   "image": "library/artists/bradley-cooper-yt.jpg",
+   "color": "#f9ea06",
    "checked": "2026-11-26T20:36:05Z",
    "verifiedAt": "2026-11-26T20:36:05Z",
    "fans": 374253,
@@ -2526,7 +2695,10 @@
    "desc": {
     "ru": "американский актёр, режиссёр и певец (род. 1975)",
     "en": "American actor and filmmaker (born 1975)"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:04:13Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCZehs3e4vYhnvPb_aJu-nYA"
   },
   "Eminem": {
    "aliases": [],
@@ -2535,8 +2707,8 @@
    "itunesId": 111051,
    "deezer": "https://www.deezer.com/artist/13",
    "apple": "https://music.apple.com/us/artist/eminem/111051",
-   "image": "library/artists/eminem.jpg",
-   "color": "#6f4720",
+   "image": "library/artists/eminem-yt.jpg",
+   "color": "#6d4622",
    "checked": "2026-11-26T20:36:30Z",
    "verifiedAt": "2026-11-26T20:36:30Z",
    "fans": 19200659,
@@ -2555,7 +2727,10 @@
    "desc": {
     "en": "American rapper (born 1972)",
     "ru": "американский рэпер, автор песен и актёр"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T21:04:14Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCedvOgsKFzcK3hA5taf3KoQ"
   },
   "Ed Sheeran": {
    "aliases": [],
@@ -2564,12 +2739,30 @@
    "itunesId": 183313439,
    "deezer": "https://www.deezer.com/artist/384236",
    "apple": "https://music.apple.com/us/artist/ed-sheeran/183313439",
-   "image": "library/artists/ed-sheeran.jpg",
-   "color": "#3e69aa",
+   "image": "library/artists/ed-sheeran-yt.jpg",
+   "color": "#977458",
    "checked": "2026-11-26T20:36:57Z",
    "verifiedAt": "2026-11-26T20:36:57Z",
    "fans": 20983583,
-   "albums": 151
+   "albums": 151,
+   "ytPhotoChecked": "2026-11-26T21:04:16Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UClmXPfaYhXOYsNn_QUyheWQ",
+   "bioChecked": "2026-11-26T21:04:49Z",
+   "bio": {
+    "en": "Edward Christopher Sheeran is an English singer-songwriter. Born in Halifax, West Yorkshire, and raised in Framlingham, Suffolk, he began writing songs around the age of eleven. In early 2011, Sheeran independently released the extended play No.5 Collaborations Project. He signed with Asylum Records the same year.",
+    "ru": "Эд Ширан — британский певец, музыкант, звукозаписывающий продюсер, актёр и бизнесмен. Первый коммерческий успех пришёл к нему в июне 2011 года благодаря синглу «The A Team», занявшему третье место в британском чарте. Все его альбомы + (2011), × (2015), ÷ (2017) и No.6 Collaborations Project (2019) занимали первые места в британском чарте, последние два также возглавляли американский чарт. Песня Ширана «Thinking Out Loud» принесла ему две премии «Грэмми» в 2016 году. В январе 2017 сингл «Shape of You» занял 1-е место по продажам в США и Великобритании.",
+    "uz": "Edward Christopher Sheeran ingliz qoʻshiqchisi, qoʻshiqnavisi, musiqachisi, produseri, aktyori va ishbilarmonidir."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Ed_Sheeran",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A8%D0%B8%D1%80%D0%B0%D0%BD%2C_%D0%AD%D0%B4",
+    "uz": "https://uz.wikipedia.org/wiki/Ed_Sheeran"
+   },
+   "desc": {
+    "en": "English singer-songwriter (born 1991)",
+    "ru": "английский автор-исполнитель"
+   }
   },
   "Coldplay": {
    "aliases": [],
@@ -2578,12 +2771,30 @@
    "itunesId": 471744,
    "deezer": "https://www.deezer.com/artist/892",
    "apple": "https://music.apple.com/us/artist/coldplay/471744",
-   "image": "library/artists/coldplay.jpg",
-   "color": "#008fd5",
+   "image": "library/artists/coldplay-yt.jpg",
+   "color": "#684743",
    "checked": "2026-11-26T20:37:17Z",
    "verifiedAt": "2026-11-26T20:37:17Z",
    "fans": 18480303,
-   "albums": 124
+   "albums": 124,
+   "ytPhotoChecked": "2026-11-26T21:04:17Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCIaFw5VBEK8qaW6nRpx_qnw",
+   "bioChecked": "2026-11-26T21:04:50Z",
+   "bio": {
+    "en": "Coldplay are a British rock band formed in London in 1997. They consist of vocalist and pianist Chris Martin, lead guitarist Jonny Buckland, bassist Guy Berryman and drummer Will Champion; manager Phil Harvey is also credited as a full member. The group are known for their live performances and have had a significant impact on popular culture.",
+    "ru": "Coldplay — британская рок-группа, созданная в Лондоне в 1996 году. В ее состав входят вокалист, ритм-гитарист и клавишник Крис Мартин, соло-гитарист Джонни Бакленд, басист Гай Берримен, барабанщик Уилл Чемпион и креативный директор Фил Харви. Они познакомились в Лондонском университете и начали вместе заниматься музыкой с 1996 по 1998 год, первоначально назвав свой квартет Starfish. После независимого выпуска расширенной пьесы Safety (1998) Coldplay подписали контракт с лейблом Parlophone в 1999 году.",
+    "uz": "Coldplay britan alternativ rok guruhi boʻlib, 1996-yili xonanda Chris Martin va gitarachi Jonny Buckland tomonidan London Universitet Kollejida tuzilgan. Avvaliga nomi Pectoralz boʻlgan guruhga bas gitarachi Guy Berryman qoʻshilib, guruh nomi Starfish qilib oʻzgartirildi. Keyinchalik dovulchi va back-vokalchi Will Champion guruhga keldi. Baʼzan menejer Phil Harvey norasmiy beshinchi aʼzo sifatida koʻrsatiladi. Guruh 1998-yili Colplay deb atala boshlandi. Bundan keyin guruh uchta EP: Safety (1998), Brothers & Sisters va The Blue Room (1999) chiqardi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Coldplay",
+    "ru": "https://ru.wikipedia.org/wiki/Coldplay",
+    "uz": "https://uz.wikipedia.org/wiki/Coldplay"
+   },
+   "desc": {
+    "en": "British rock band",
+    "ru": "британская рок-группа"
+   }
   },
   "OneRepublic": {
    "aliases": [],
@@ -2592,12 +2803,30 @@
    "itunesId": 260414340,
    "deezer": "https://www.deezer.com/artist/74398",
    "apple": "https://music.apple.com/us/artist/onerepublic/260414340",
-   "image": "library/artists/onerepublic.jpg",
-   "color": "#767d6f",
+   "image": "library/artists/onerepublic-yt.jpg",
+   "color": "#738c7c",
    "checked": "2026-11-26T20:37:42Z",
    "verifiedAt": "2026-11-26T20:37:42Z",
    "fans": 4365811,
-   "albums": 101
+   "albums": 101,
+   "ytPhotoChecked": "2026-11-26T21:04:18Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCrrbm1toLPud8fFIisPuxpg",
+   "bioChecked": "2026-11-26T21:04:53Z",
+   "bio": {
+    "en": "OneRepublic is an American pop rock band formed in Colorado Springs, Colorado in 2002. The lineup currently consists of Ryan Tedder, Zach Filkins, Drew Brown, Brent Kutzle, Eddie Fisher and Brian Willett.",
+    "ru": "OneRepublic — американская поп-рок-группа из Колорадо-Спрингс, известность которой принёс сингл «Apologize», ставший в США трижды платиновым и достигший третьего места в хит-параде Великобритании 11 ноября 2007 года. Ремикс на песню был включён в альбом Timbaland «Shock Value» и в дебютный альбом OneRepublic «Dreaming Out Loud».",
+    "uz": "OneRepublic — 2002-yilda Kolorado shtatining Kolorado-Springs shahrida tashkil etilgan amerikalik pop-rok guruhi. U bosh vokalchi va multi-instrumentalist Rayan Tedder, bosh gitarachi va skripkachi Zak Filkins, ritmchi gitarachi Drew Braun, baschi va violonchelchi Brent Kutzle, barabanchi Eddi Fisher va klaviaturachi va skripkachi Brayan Uilettdan iborat."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/OneRepublic",
+    "ru": "https://ru.wikipedia.org/wiki/OneRepublic",
+    "uz": "https://uz.wikipedia.org/wiki/OneRepublic"
+   },
+   "desc": {
+    "en": "American pop rock band",
+    "ru": "американская поп-рок-группа"
+   }
   },
   "Marshmello": {
    "aliases": [],
@@ -2606,24 +2835,30 @@
    "itunesId": 980795202,
    "deezer": "https://www.deezer.com/artist/7890702",
    "apple": "https://music.apple.com/us/artist/marshmello/980795202",
-   "image": "library/artists/marshmello.jpg",
-   "color": "#808080",
+   "image": "library/artists/marshmello-yt.jpg",
+   "color": "#24536b",
    "checked": "2026-11-26T20:38:05Z",
    "verifiedAt": "2026-11-26T20:38:05Z",
    "fans": 3124320,
-   "albums": 183
+   "albums": 183,
+   "ytPhotoChecked": "2026-11-26T21:04:20Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCrxpwXq8wCTskOQq5d_KoqQ"
   },
   "Bastille": {
    "aliases": [],
    "verified": true,
    "deezerId": 1352097,
    "deezer": "https://www.deezer.com/artist/1352097",
-   "image": "library/artists/bastille.jpg",
-   "color": "#f5800a",
+   "image": "library/artists/bastille-yt.jpg",
+   "color": "#99021e",
    "checked": "2026-11-26T20:38:05Z",
    "verifiedAt": "2026-11-26T20:38:05Z",
    "fans": 2253193,
-   "albums": 91
+   "albums": 91,
+   "ytPhotoChecked": "2026-11-26T21:04:21Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCw81Qqzprmu2NKgRpZHiPrg"
   },
   "Avicii": {
    "aliases": [],
@@ -2632,12 +2867,15 @@
    "itunesId": 298496035,
    "deezer": "https://www.deezer.com/artist/293585",
    "apple": "https://music.apple.com/us/artist/avicii/298496035",
-   "image": "library/artists/avicii.jpg",
-   "color": "#92816d",
+   "image": "library/artists/avicii-yt.jpg",
+   "color": "#956c5e",
    "checked": "2026-11-26T20:38:26Z",
    "verifiedAt": "2026-11-26T20:38:26Z",
    "fans": 8383798,
-   "albums": 67
+   "albums": 67,
+   "ytPhotoChecked": "2026-11-26T21:04:23Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCuACQmW04T3v9Mz_1_suFYw"
   },
   "David Guetta": {
    "aliases": [],
@@ -2646,12 +2884,15 @@
    "itunesId": 5557599,
    "deezer": "https://www.deezer.com/artist/542",
    "apple": "https://music.apple.com/us/artist/david-guetta/5557599",
-   "image": "library/artists/david-guetta.jpg",
-   "color": "#1f5370",
+   "image": "library/artists/david-guetta-yt.jpg",
+   "color": "#e4001b",
    "checked": "2026-11-26T20:38:51Z",
    "verifiedAt": "2026-11-26T20:38:51Z",
    "fans": 20195711,
-   "albums": 382
+   "albums": 382,
+   "ytPhotoChecked": "2026-11-26T21:04:24Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCh-4c1ZoBPNP1C8c-7iVvUQ"
   },
   "Calvin Harris": {
    "aliases": [],
@@ -2660,12 +2901,15 @@
    "itunesId": 201955086,
    "deezer": "https://www.deezer.com/artist/12178",
    "apple": "https://music.apple.com/us/artist/calvin-harris/201955086",
-   "image": "library/artists/calvin-harris.jpg",
-   "color": "#656565",
+   "image": "library/artists/calvin-harris-yt.jpg",
+   "color": "#6f6f6f",
    "checked": "2026-11-26T20:39:17Z",
    "verifiedAt": "2026-11-26T20:39:17Z",
    "fans": 12358719,
-   "albums": 187
+   "albums": 187,
+   "ytPhotoChecked": "2026-11-26T21:04:25Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCZ0Aezmtk-S2l8A9Ln-2lKw"
   },
   "The Chainsmokers": {
    "aliases": [],
@@ -2674,12 +2918,15 @@
    "itunesId": 580391756,
    "deezer": "https://www.deezer.com/artist/4104927",
    "apple": "https://music.apple.com/us/artist/the-chainsmokers/580391756",
-   "image": "library/artists/the-chainsmokers.jpg",
-   "color": "#cc9233",
+   "image": "library/artists/the-chainsmokers-yt.jpg",
+   "color": "#cd8032",
    "checked": "2026-11-26T20:39:41Z",
    "verifiedAt": "2026-11-26T20:39:41Z",
    "fans": 5853736,
-   "albums": 113
+   "albums": 113,
+   "ytPhotoChecked": "2026-11-26T21:04:26Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCQgUHOPJJrmzCjExg-ISupA"
   },
   "Justin Bieber": {
    "aliases": [],
@@ -2688,12 +2935,15 @@
    "itunesId": 320569549,
    "deezer": "https://www.deezer.com/artist/288166",
    "apple": "https://music.apple.com/us/artist/justin-bieber/320569549",
-   "image": "library/artists/justin-bieber.jpg",
-   "color": "#6d4b32",
+   "image": "library/artists/justin-bieber-yt.jpg",
+   "color": "#685444",
    "checked": "2026-11-26T20:40:06Z",
    "verifiedAt": "2026-11-26T20:40:06Z",
    "fans": 11200508,
-   "albums": 58
+   "albums": 58,
+   "ytPhotoChecked": "2026-11-26T21:04:28Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCGvj8kfUV5Q6lzECIrGY19g"
   },
   "Lorde": {
    "aliases": [],
@@ -2702,24 +2952,30 @@
    "itunesId": 602767352,
    "deezer": "https://www.deezer.com/artist/4448485",
    "apple": "https://music.apple.com/us/artist/lorde/602767352",
-   "image": "library/artists/lorde.jpg",
-   "color": "#657b9a",
+   "image": "library/artists/lorde-yt.jpg",
+   "color": "#6a7072",
    "checked": "2026-11-26T20:41:17Z",
    "verifiedAt": "2026-11-26T20:41:17Z",
    "fans": 2096656,
-   "albums": 22
+   "albums": 22,
+   "ytPhotoChecked": "2026-11-26T21:04:29Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCILoG0-vdgLDnrwtRuM_0GQ"
   },
   "Mikky Ekko": {
    "aliases": [],
    "verified": true,
    "deezerId": 393373,
    "deezer": "https://www.deezer.com/artist/393373",
-   "image": "library/artists/mikky-ekko.jpg",
-   "color": "#63769c",
+   "image": "library/artists/mikky-ekko-yt.jpg",
+   "color": "#777777",
    "checked": "2026-11-26T20:41:54Z",
    "verifiedAt": "2026-11-26T20:41:54Z",
    "fans": 28269,
-   "albums": 38
+   "albums": 38,
+   "ytPhotoChecked": "2026-11-26T21:04:30Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCs_zPKBz1t_I64dBQg0EfBw"
   },
   "Christina Perri": {
    "aliases": [],
@@ -2728,12 +2984,15 @@
    "itunesId": 378346343,
    "deezer": "https://www.deezer.com/artist/996589",
    "apple": "https://music.apple.com/us/artist/christina-perri/378346343",
-   "image": "library/artists/christina-perri.jpg",
-   "color": "#706055",
+   "image": "library/artists/christina-perri-yt.jpg",
+   "color": "#757374",
    "checked": "2026-11-26T20:42:20Z",
    "verifiedAt": "2026-11-26T20:42:20Z",
    "fans": 883962,
-   "albums": 38
+   "albums": 38,
+   "ytPhotoChecked": "2026-11-26T21:04:31Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCunB7BiOZ7aN6v6TgCp5dRA"
   },
   "One Direction": {
    "aliases": [],
@@ -2742,12 +3001,15 @@
    "itunesId": 396754057,
    "deezer": "https://www.deezer.com/artist/1007876",
    "apple": "https://music.apple.com/us/artist/one-direction/396754057",
-   "image": "library/artists/one-direction.jpg",
-   "color": "#5e4b50",
+   "image": "library/artists/one-direction-yt.jpg",
+   "color": "#805b4c",
    "checked": "2026-11-26T20:42:45Z",
    "verifiedAt": "2026-11-26T20:42:45Z",
    "fans": 6598959,
-   "albums": 13
+   "albums": 13,
+   "ytPhotoChecked": "2026-11-26T21:04:32Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCREhun2tPd7aQnJczZM_Mww"
   },
   "Maroon 5": {
    "aliases": [],
@@ -2756,12 +3018,15 @@
    "itunesId": 1798556,
    "deezer": "https://www.deezer.com/artist/1188",
    "apple": "https://music.apple.com/us/artist/maroon-5/1798556",
-   "image": "library/artists/maroon-5.jpg",
+   "image": "library/artists/maroon-5-yt.jpg",
    "color": "#85705f",
    "checked": "2026-11-26T20:43:05Z",
    "verifiedAt": "2026-11-26T20:43:05Z",
    "fans": 11451286,
-   "albums": 64
+   "albums": 64,
+   "ytPhotoChecked": "2026-11-26T21:04:34Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCdFe4KkWwZ_twpo-UECR-Nw"
   },
   "Shawn Mendes": {
    "aliases": [],
@@ -2770,12 +3035,15 @@
    "itunesId": 890403665,
    "deezer": "https://www.deezer.com/artist/5962948",
    "apple": "https://music.apple.com/us/artist/shawn-mendes/890403665",
-   "image": "library/artists/shawn-mendes.jpg",
-   "color": "#7a7973",
+   "image": "library/artists/shawn-mendes-yt.jpg",
+   "color": "#686862",
    "checked": "2026-11-26T20:43:24Z",
    "verifiedAt": "2026-11-26T20:43:24Z",
    "fans": 6799106,
-   "albums": 44
+   "albums": 44,
+   "ytPhotoChecked": "2026-11-26T21:04:35Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC6ZjlLJhqP79nqGr3Ic6Adg"
   },
   "Charlie Puth": {
    "aliases": [],
@@ -2784,12 +3052,15 @@
    "itunesId": 336249253,
    "deezer": "https://www.deezer.com/artist/1362735",
    "apple": "https://music.apple.com/us/artist/charlie-puth/336249253",
-   "image": "library/artists/charlie-puth.jpg",
-   "color": "#911109",
+   "image": "library/artists/charlie-puth-yt.jpg",
+   "color": "#847b7f",
    "checked": "2026-11-26T20:43:49Z",
    "verifiedAt": "2026-11-26T20:43:49Z",
    "fans": 2316229,
-   "albums": 97
+   "albums": 97,
+   "ytPhotoChecked": "2026-11-26T21:04:36Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCQ-ygxSFSlq-O2zGnXxELXQ"
   },
   "Justin Timberlake": {
    "aliases": [],
@@ -2798,12 +3069,15 @@
    "itunesId": 398128,
    "deezer": "https://www.deezer.com/artist/1147",
    "apple": "https://music.apple.com/us/artist/justin-timberlake/398128",
-   "image": "library/artists/justin-timberlake.jpg",
-   "color": "#ac7145",
+   "image": "library/artists/justin-timberlake-yt.jpg",
+   "color": "#8c7873",
    "checked": "2026-11-26T20:44:38Z",
    "verifiedAt": "2026-11-26T20:44:38Z",
    "fans": 6724809,
-   "albums": 43
+   "albums": 43,
+   "ytPhotoChecked": "2026-11-26T21:04:38Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC6VwktUsQQDCkHG1h6YftAQ"
   },
   "Enrique Iglesias": {
    "aliases": [],
@@ -2812,12 +3086,15 @@
    "itunesId": 90895,
    "deezer": "https://www.deezer.com/artist/2792",
    "apple": "https://music.apple.com/us/artist/enrique-iglesias/90895",
-   "image": "library/artists/enrique-iglesias.jpg",
-   "color": "#00dbff",
+   "image": "library/artists/enrique-iglesias-yt.jpg",
+   "color": "#777777",
    "checked": "2026-11-26T20:45:07Z",
    "verifiedAt": "2026-11-26T20:45:07Z",
    "fans": 5964673,
-   "albums": 95
+   "albums": 95,
+   "ytPhotoChecked": "2026-11-26T21:04:39Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCD-0qTYqRd4t9re9AwRydnQ"
   },
   "Akon": {
    "aliases": [],
@@ -2826,12 +3103,15 @@
    "itunesId": 3261325,
    "deezer": "https://www.deezer.com/artist/38",
    "apple": "https://music.apple.com/us/artist/akon/3261325",
-   "image": "library/artists/akon.jpg",
-   "color": "#544c3b",
+   "image": "library/artists/akon-yt.jpg",
+   "color": "#9c6663",
    "checked": "2026-11-26T20:45:30Z",
    "verifiedAt": "2026-11-26T20:45:30Z",
    "fans": 4796782,
-   "albums": 84
+   "albums": 84,
+   "ytPhotoChecked": "2026-11-26T21:04:40Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCRWV7T1N1UFFYsiiEAoUbFw"
   },
   "Coolio": {
    "aliases": [],
@@ -2840,12 +3120,15 @@
    "itunesId": 625207,
    "deezer": "https://www.deezer.com/artist/99",
    "apple": "https://music.apple.com/us/artist/coolio/625207",
-   "image": "library/artists/coolio.jpg",
-   "color": "#583c37",
+   "image": "library/artists/coolio-yt.jpg",
+   "color": "#653d2a",
    "checked": "2026-11-26T20:47:12Z",
    "verifiedAt": "2026-11-26T20:47:12Z",
    "fans": 280365,
-   "albums": 28
+   "albums": 28,
+   "ytPhotoChecked": "2026-11-26T21:04:41Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC48nZNzBVu13HPwJ3upxQnQ"
   },
   "L.V": {
    "aliases": [
@@ -2854,36 +3137,45 @@
    "verified": true,
    "deezerId": 1225601,
    "deezer": "https://www.deezer.com/artist/1225601",
-   "image": "library/artists/l-v.jpg",
-   "color": "#618786",
+   "image": "library/artists/l-v-yt.jpg",
+   "color": "#827955",
    "checked": "2026-11-26T20:47:12Z",
    "verifiedAt": "2026-11-26T20:47:12Z",
    "fans": 2288,
-   "albums": 28
+   "albums": 28,
+   "ytPhotoChecked": "2026-11-26T21:04:42Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCGOQJ9L8-am6zngFFY_VEoQ"
   },
   "2Pac": {
    "aliases": [],
    "verified": true,
    "deezerId": 167095,
    "deezer": "https://www.deezer.com/artist/167095",
-   "image": "library/artists/2pac.jpg",
-   "color": "#8f0000",
+   "image": "library/artists/2pac-yt.jpg",
+   "color": "#7f7e81",
    "checked": "2026-11-26T20:47:56Z",
    "verifiedAt": "2026-11-26T20:47:56Z",
    "fans": 4151969,
-   "albums": 23
+   "albums": 23,
+   "ytPhotoChecked": "2026-11-26T21:04:43Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC5RrGzC-JXglhFW5NhT4r6w"
   },
   "Talent": {
    "aliases": [],
    "verified": true,
    "deezerId": 662130,
    "deezer": "https://www.deezer.com/artist/662130",
-   "image": "library/artists/talent.jpg",
-   "color": "#d6cc29",
+   "image": "library/artists/talent-yt.jpg",
+   "color": "#58a75f",
    "checked": "2026-11-26T20:47:57Z",
    "verifiedAt": "2026-11-26T20:47:57Z",
    "fans": 217,
-   "albums": 69
+   "albums": 69,
+   "ytPhotoChecked": "2026-11-26T21:04:45Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCVpz_BuNZRx9Q8bjDEtBWtA"
   }
  },
  "songs": [
