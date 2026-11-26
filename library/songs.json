@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T21:59:53Z",
- "count": 200,
+ "updatedAt": "2026-11-26T23:40:29Z",
+ "count": 201,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4315,9 +4315,69 @@
    "verifiedAt": "2026-11-26T21:59:48Z",
    "fans": 1351999,
    "albums": 42
+  },
+  "Sting": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 368,
+   "itunesId": 94804,
+   "deezer": "https://www.deezer.com/artist/368",
+   "apple": "https://music.apple.com/us/artist/sting/94804",
+   "image": "library/artists/sting.jpg",
+   "color": "#14147a",
+   "checked": "2026-11-26T23:40:24Z",
+   "verifiedAt": "2026-11-26T23:40:24Z",
+   "fans": 1798271,
+   "albums": 95
   }
  },
  "songs": [
+  {
+   "id": "d147168b9b",
+   "title": "Shape Of My Heart",
+   "artist": "Sting",
+   "artists": [
+    "Sting"
+   ],
+   "album": "Ten Summoner's Tales",
+   "year": 1993,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.68,
+   "danceability": 0.73,
+   "bpm": 84,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 280.78,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d147168b9b.mp3",
+   "cover": "library/covers/d147168b9b.jpg",
+   "color": "#ebc914",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T23:40:29Z",
+   "mime": "audio/mpeg",
+   "size": 6739930,
+   "storage": "release",
+   "lufs": -13.0,
+   "gain": -1.0,
+   "via": "audio",
+   "fileKey": "yt:RVfGFmBFgoc",
+   "story": "library/stories/d147168b9b.jpg"
+  },
   {
    "id": "af42833a66",
    "title": "Kill Bill",
