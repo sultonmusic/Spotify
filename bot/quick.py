@@ -48,26 +48,116 @@ def youtube_id(text: str) -> str | None:
     return m.group(1) if m else None
 
 
-def search(query: str) -> list[dict]:
-    """Eng moslari yuqorida bo'lgan natijalar: [{"id", "title", "channel", "duration"}]."""
+# Qidiruvda so'ralmagan bo'lsa pastga tushiriladigan versiyalar (remix, karaoke, treyler, ...)
+_VARIANT = re.compile(
+    r"\b(remix|rmx|karaoke|cover|live|concert|slowed|sped|speed up|nightcore|reverb|8d|instrumental|minus|"
+    r"lyrics?|amv|edit|trailer|teaser|scene|clip|reaction|tutorial|piano|guitar|vocals only)\b", re.I)
+
+
+def _norm(text: str) -> str:
+    """Solishtirish uchun: kichik harf, apostroflarsiz, o'zbekcha x/h farqisiz."""
+    text = (text or "").lower()
+    text = re.sub(r"[’'`ʻʼ‘]", "", text)
+    return text.replace("x", "h")
+
+
+def _words(text: str) -> list[str]:
+    return [w for w in re.findall(r"\w+", _norm(text)) if len(w) > 1 or w.isdigit()]
+
+
+def _word_hit(word: str, hay: list[str]) -> bool:
+    from difflib import SequenceMatcher
+    return any(word == h or (len(word) > 3 and SequenceMatcher(None, word, h).ratio() >= 0.88) for h in hay)
+
+
+def _ytmusic_results(query: str) -> list[dict]:
+    """YouTube Music: rasmiy qo'shiqlar (songs), keyin kliplar (videos); ijrochi nomi aniq mos kelsa — uning qo'shiqlari."""
+    from ytmusicapi import YTMusic
+
+    yt = YTMusic()
+    items: list[dict] = []
+
+    def add(r: dict, kind: str) -> None:
+        if not r.get("videoId"):
+            return
+        artist = ", ".join(a["name"] for a in (r.get("artists") or []) if a.get("name"))
+        items.append({"id": r["videoId"], "title": r.get("title") or "", "artist": artist,
+                      "duration": int(r.get("duration_seconds") or 0), "kind": kind})
+
+    if len(_words(query)) <= 3:  # "Shoxrux Mirzo" — ijrochining o'z qo'shiqlari
+        try:
+            from difflib import SequenceMatcher
+            for a in yt.search(query, filter="artists", limit=3)[:1]:
+                if SequenceMatcher(None, _norm(a.get("artist")), _norm(query)).ratio() >= 0.9 and a.get("browseId"):
+                    for r in ((yt.get_artist(a["browseId"]).get("songs") or {}).get("results") or [])[:10]:
+                        add(r, "artist")
+        except Exception as exc:
+            print(f"[quick] artist: {exc}")
+    for r in yt.search(query, filter="songs", limit=20):
+        add(r, "song")
+    for r in yt.search(query, filter="videos", limit=20):
+        add(r, "video")
+    return items
+
+
+def _youtube_results(query: str) -> list[dict]:
+    """Oddiy YouTube qidiruvi (YouTube Music ishlamasa)."""
     import yt_dlp
 
-    opts = {"quiet": True, "no_warnings": True, "extract_flat": True}
-    with yt_dlp.YoutubeDL(opts) as ydl:
+    with yt_dlp.YoutubeDL({"quiet": True, "no_warnings": True, "extract_flat": True}) as ydl:
         res = ydl.extract_info(f"ytsearch{SEARCH_COUNT}:{query}", download=False)
-    words = [w for w in re.findall(r"\w+", query.lower()) if len(w) > 1]
-    scored = []
-    for i, e in enumerate((res or {}).get("entries") or []):
-        dur = int(e.get("duration") or 0)
-        if not e.get("id") or dur > MAX_DURATION:
+    return [{"id": e["id"], "title": e.get("title") or e["id"], "artist": "",
+             "duration": int(e.get("duration") or 0), "kind": "youtube"}
+            for e in (res or {}).get("entries") or [] if e.get("id")]
+
+
+def search(query: str) -> list[dict]:
+    """Eng moslari yuqorida: [{"id", "title", "artist", "duration", "kind"}]."""
+    items: list[dict] = []
+    try:
+        items = _ytmusic_results(query)
+    except Exception as exc:
+        print(f"[quick] ytmusic: {exc}")
+    if len(items) < 5:
+        try:
+            items += _youtube_results(query)
+        except Exception as exc:
+            print(f"[quick] youtube: {exc}")
+
+    qwords = _words(query)
+    asked_variant = bool(_VARIANT.search(query))
+    bonus = {"artist": 20, "song": 15, "video": 5, "youtube": 0}
+    scored, seen_ids = [], set()
+    for i, r in enumerate(items):
+        if r["id"] in seen_ids or r["duration"] > MAX_DURATION:
             continue
-        channel = (e.get("channel") or e.get("uploader") or "").strip()
-        hay = f"{e.get('title', '')} {channel}".lower()
-        score = sum(w in hay for w in words) * 10 - i  # mos so'zlar ko'p + yuqoriroq bo'lsa
-        scored.append((score, {"id": e["id"], "title": e.get("title") or e["id"],
-                               "channel": channel, "duration": dur}))
+        seen_ids.add(r["id"])
+        hay = _words(f"{r['artist']} {r['title']}")
+        coverage = sum(_word_hit(w, hay) for w in qwords) / max(1, len(qwords))
+        score = coverage * 100 + bonus[r["kind"]] - i * 0.3
+        if not asked_variant and _VARIANT.search(r["title"]):
+            score -= 30
+        if r["duration"] > 15 * 60:
+            score -= 40
+        scored.append((score, r))
     scored.sort(key=lambda x: -x[0])
-    return [item for _, item in scored]
+
+    # Bir xil qo'shiqning nusxalari (ijrochi + nom bir xil) — faqat eng yaxshisi qoladi
+    out, seen_keys = [], set()
+    for _, r in scored:
+        key = (_norm(r["artist"]), re.sub(r"\s*[\(\[].*?[\)\]]", "", _norm(r["title"])).strip())
+        if r["artist"] and key in seen_keys:
+            continue
+        seen_keys.add(key)
+        out.append(r)
+    return out[:SEARCH_COUNT]
+
+
+def label(r: dict) -> str:
+    """Ro'yxatdagi yozuv: "Ijrochi - Nomi" (nomda ijrochi bo'lsa, faqat nom)."""
+    if r.get("artist") and _norm(r["artist"].split(",")[0]) not in _norm(r["title"]):
+        return f"{r['artist']} - {r['title']}"
+    return r["title"]
 
 
 def to_mp3(video_id: str, folder: Path) -> dict:
@@ -110,7 +200,7 @@ class QuickSearch:
         lines = []
         for i, r in enumerate(chunk, start=start + 1):
             dur = f" <b>{fmt_duration(r['duration'])}</b>" if r["duration"] else ""
-            lines.append(f"{i}. <i>{esc(short(r['title']))}</i>{dur}")
+            lines.append(f"{i}. <i>{esc(short(label(r)))}</i>{dur}")
         text = header + "\n\n" + "\n".join(lines)
         nums = [{"text": str(i), "callback_data": f"dl:{r['id']}"} for i, r in enumerate(chunk, start=start + 1)]
         rows = [nums[j:j + 5] for j in range(0, len(nums), 5)]
@@ -177,7 +267,9 @@ class QuickSearch:
                 self.st.state_dirty = True
         except Exception as exc:
             print(f"[quick] mp3 {video_id}: {exc}")
-            self.st.send(chat_id, "❌ Bu qo'shiqni audioga aylantirib bo'lmadi. Ro'yxatdan boshqasini tanlang.")
+            reason = re.sub(r"\x1b\[[0-9;]*m", "", str(exc)).strip().split("\n")[0][:250]
+            self.st.send(chat_id, "❌ Bu qo'shiqni audioga aylantirib bo'lmadi. Ro'yxatdan boshqasini tanlang.\n"
+                                  f"<code>{esc(reason)}</code>")
         finally:
             if wait:
                 self.bot.safe("deleteMessage", chat_id=chat_id, message_id=wait["message_id"])

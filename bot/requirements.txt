@@ -6,3 +6,4 @@ shazamio>=0.8
 yt-dlp>=2024.10.22
 numpy>=1.26
 telethon>=1.36
+ytmusicapi>=1.8
