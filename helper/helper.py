@@ -240,7 +240,11 @@ def main() -> None:
         raise SystemExit(".env faylida BOT_TOKEN topilmadi.")
     self_update()
     log("Yordamchi ishga tushdi. Navbat kutilmoqda...")
+    next_update = time.monotonic() + 1800
     while True:
+        if time.monotonic() > next_update:  # har 30 daqiqada yangi versiyani tekshiradi (ish bo'lmagan paytda)
+            next_update = time.monotonic() + 1800
+            self_update()
         try:
             r = session.get(f"{RELAY}/internal/dl/claim", params={"timeout": 20},
                             headers={"X-Relay-Key": KEY}, timeout=40)
