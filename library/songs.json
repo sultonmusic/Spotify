@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T20:48:06Z",
+ "updatedAt": "2026-11-26T20:55:37Z",
  "count": 142,
  "site": {
   "admins": [
@@ -9,8 +9,8 @@
  },
  "artists": {
   "The Irrepressibles": {
-   "image": "library/artists/the-irrepressibles.jpg",
-   "color": "#808080",
+   "image": "library/artists/the-irrepressibles-yt.jpg",
+   "color": "#718e88",
    "checked": "2026-09-29T19:16:20Z",
    "verified": true,
    "deezerId": 329723,
@@ -32,7 +32,10 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:51:30Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCs5yGUc0WlEGc2_T2INCrRg"
   },
   "Elissa": {
    "aliases": [],
@@ -41,8 +44,8 @@
    "itunesId": 28117976,
    "deezer": "https://www.deezer.com/artist/722",
    "apple": "https://music.apple.com/us/artist/elissa/28117976",
-   "image": "library/artists/elissa.jpg",
-   "color": "#b99336",
+   "image": "library/artists/elissa-yt.jpg",
+   "color": "#3e4f60",
    "checked": "2026-09-29T20:02:10Z",
    "verifiedAt": "2026-09-29T20:02:10Z",
    "fans": 1359818,
@@ -63,15 +66,18 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:51:31Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC6bPEzqfwKuLia5CYJ261_g"
   },
   "Saad Lamjarred": {
    "aliases": [],
    "verified": true,
    "deezerId": 4042249,
    "deezer": "https://www.deezer.com/artist/4042249",
-   "image": "library/artists/saad-lamjarred.jpg",
-   "color": "#6c6863",
+   "image": "library/artists/saad-lamjarred-yt.jpg",
+   "color": "#385057",
    "checked": "2026-09-29T20:02:10Z",
    "verifiedAt": "2026-09-29T20:02:10Z",
    "fans": 504619,
@@ -89,7 +95,10 @@
    },
    "desc": {
     "en": "Moroccan singer and actor (born 1985)"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:32Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCq3Rh1L8aSl8C7hlMzRXCKQ"
   },
   "Adele": {
    "aliases": [],
@@ -98,8 +107,8 @@
    "itunesId": 262836961,
    "deezer": "https://www.deezer.com/artist/75798",
    "apple": "https://music.apple.com/us/artist/adele/262836961",
-   "image": "library/artists/adele.jpg",
-   "color": "#2f5760",
+   "image": "library/artists/adele-yt.jpg",
+   "color": "#30555f",
    "checked": "2026-09-29T20:17:29Z",
    "verifiedAt": "2026-09-29T20:17:29Z",
    "fans": 15481731,
@@ -118,7 +127,10 @@
    "desc": {
     "en": "English singer-songwriter (born 1988)",
     "ru": "британская певица и автор песен"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:34Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCRw0x9_EfawqmgDI2IgQLLg"
   },
   "Ahmed Bukhatir": {
    "aliases": [],
@@ -127,8 +139,8 @@
    "itunesId": 457677737,
    "deezer": "https://www.deezer.com/artist/2480901",
    "apple": "https://music.apple.com/us/artist/ahmed-bukhatir/457677737",
-   "image": "library/artists/ahmed-buxatir.jpg",
-   "color": "#247ddb",
+   "image": "library/artists/ahmed-buxatir-yt.jpg",
+   "color": "#274d9e",
    "checked": "2026-09-29T20:36:14Z",
    "verifiedAt": "2026-09-29T20:36:14Z",
    "fans": 53988,
@@ -148,7 +160,10 @@
    },
    "bioTr": [
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:51:35Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC3Pw-36q2SfAUcdh8PZBapQ"
   },
   "Indila": {
    "aliases": [],
@@ -157,8 +172,8 @@
    "itunesId": 365001429,
    "deezer": "https://www.deezer.com/artist/4437965",
    "apple": "https://music.apple.com/us/artist/indila/365001429",
-   "image": "library/artists/indila.jpg",
-   "color": "#2b3764",
+   "image": "library/artists/indila-yt.jpg",
+   "color": "#3060cf",
    "checked": "2026-09-29T20:36:28Z",
    "verifiedAt": "2026-09-29T20:36:28Z",
    "fans": 1584666,
@@ -178,7 +193,10 @@
     "en": "French singer-songwriter (born 1984)",
     "ru": "французская певица",
     "uz": "Fransuz xonandasi"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:36Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCWR_-sd1qBK7HtJTgw0Djkw"
   },
   "Keane": {
    "aliases": [],
@@ -187,8 +205,8 @@
    "itunesId": 1187178,
    "deezer": "https://www.deezer.com/artist/106",
    "apple": "https://music.apple.com/us/artist/keane/1187178",
-   "image": "library/artists/keane.jpg",
-   "color": "#803512",
+   "image": "library/artists/keane-yt.jpg",
+   "color": "#7f3512",
    "checked": "2026-09-29T20:36:42Z",
    "verifiedAt": "2026-09-29T20:36:42Z",
    "fans": 2138253,
@@ -208,7 +226,10 @@
    "bioTr": [
     "uz",
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:51:37Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCTE7TdLSp9K2GacePon_WGA"
   },
   "Alan Walker": {
    "aliases": [],
@@ -217,8 +238,8 @@
    "itunesId": 1062085272,
    "deezer": "https://www.deezer.com/artist/4999707",
    "apple": "https://music.apple.com/us/artist/alan-walker/1062085272",
-   "image": "library/artists/alan-walker.jpg",
-   "color": "#1c5773",
+   "image": "library/artists/alan-walker-yt.jpg",
+   "color": "#40444e",
    "checked": "2026-09-29T20:36:54Z",
    "verifiedAt": "2026-09-29T20:36:54Z",
    "fans": 4055020,
@@ -237,15 +258,18 @@
    "desc": {
     "en": "Norwegian DJ and music producer (born 1997)",
     "ru": "норвежский музыкальный продюсер и диджей"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:38Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCaXJEi-wOOVe2eZZHzyz4mQ"
   },
   "Ava Max": {
    "aliases": [],
    "verified": true,
    "deezerId": 12948083,
    "deezer": "https://www.deezer.com/artist/12948083",
-   "image": "library/artists/ava-max.jpg",
-   "color": "#cfb230",
+   "image": "library/artists/ava-max-yt.jpg",
+   "color": "#a5765a",
    "checked": "2026-09-29T20:36:54Z",
    "verifiedAt": "2026-09-29T20:36:54Z",
    "fans": 1229867,
@@ -266,7 +290,10 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:51:40Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCNCrZy3cD0_qZfFz2f6gSkQ"
   },
   "Tom Odell": {
    "aliases": [],
@@ -275,8 +302,8 @@
    "itunesId": 524929515,
    "deezer": "https://www.deezer.com/artist/4044787",
    "apple": "https://music.apple.com/ru/artist/tom-odell/524929515",
-   "image": "library/artists/tom-odell.jpg",
-   "color": "#ba7945",
+   "image": "library/artists/tom-odell-yt.jpg",
+   "color": "#808080",
    "checked": "2026-09-29T20:37:07Z",
    "verifiedAt": "2026-09-29T20:37:07Z",
    "fans": 782951,
@@ -295,7 +322,10 @@
    "desc": {
     "en": "English singer-songwriter (born 1990)",
     "ru": "британский певец, музыкант и композитор"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:41Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCrP3Rfz32MT-OH9MZh_N9kA"
   },
   "Billie Eilish": {
    "aliases": [],
@@ -304,8 +334,8 @@
    "itunesId": 1065981054,
    "deezer": "https://www.deezer.com/artist/9635624",
    "apple": "https://music.apple.com/us/artist/billie-eilish/1065981054",
-   "image": "library/artists/billie-eilish.jpg",
-   "color": "#10447f",
+   "image": "library/artists/billie-eilish-yt.jpg",
+   "color": "#0f4780",
    "checked": "2026-09-29T20:37:17Z",
    "verifiedAt": "2026-09-29T20:37:17Z",
    "fans": 9263235,
@@ -325,15 +355,18 @@
     "en": "American singer-songwriter (born 2001)",
     "ru": "американская певица и автор песен (2001—)",
     "uz": "amerikalik qoʻshiqchi va qoʻshiqnavisdir (2001–)"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:43Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCERrDZ8oN0U_n9MphMKERcg"
   },
   "Khalid": {
    "aliases": [],
    "verified": true,
    "deezerId": 362326,
    "deezer": "https://www.deezer.com/artist/362326",
-   "image": "library/artists/xalid.jpg",
-   "color": "#5b5755",
+   "image": "library/artists/xalid-yt.jpg",
+   "color": "#7a533d",
    "checked": "2026-09-29T20:37:18Z",
    "verifiedAt": "2026-09-29T20:37:18Z",
    "fans": 1761171,
@@ -352,7 +385,10 @@
    "desc": {
     "en": "American singer (born 1998)",
     "ru": "американский певец"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:44Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCnfeNQJ7TgUCPCBD0q5Zh-Q"
   },
   "Sia": {
    "aliases": [],
@@ -361,8 +397,8 @@
    "itunesId": 28721078,
    "deezer": "https://www.deezer.com/artist/3469",
    "apple": "https://music.apple.com/us/artist/sia/28721078",
-   "image": "library/artists/sia.jpg",
-   "color": "#474747",
+   "image": "library/artists/sia-yt.jpg",
+   "color": "#a21920",
    "checked": "2026-09-30T07:57:43Z",
    "verifiedAt": "2026-09-30T07:57:43Z",
    "fans": 8717325,
@@ -381,7 +417,10 @@
    "desc": {
     "en": "Australian singer and songwriter (born 1975)",
     "ru": "австралийская певица"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:45Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCaPIRYCKs51kvD4jrbwMH1w"
   },
   "Katy Perry": {
    "aliases": [],
@@ -390,8 +429,8 @@
    "itunesId": 64387566,
    "deezer": "https://www.deezer.com/artist/144227",
    "apple": "https://music.apple.com/us/artist/katy-perry/64387566",
-   "image": "library/artists/katy-perry.jpg",
-   "color": "#c1733e",
+   "image": "library/artists/katy-perry-yt.jpg",
+   "color": "#c83771",
    "checked": "2026-09-30T14:08:25Z",
    "verifiedAt": "2026-09-30T14:08:25Z",
    "fans": 9793349,
@@ -411,7 +450,10 @@
     "en": "American singer (born 1984)",
     "ru": "американская певица, композитор и актриса",
     "uz": "amerikalik qoʻshiqchi, qoʻshiqnavis va aktrisa"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:47Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC_7s69e1mDS3lgcTMJEPjCg"
   },
   "Lana Del Rey": {
    "aliases": [],
@@ -420,8 +462,8 @@
    "itunesId": 464296584,
    "deezer": "https://www.deezer.com/artist/1424821",
    "apple": "https://music.apple.com/us/artist/lana-del-rey/464296584",
-   "image": "library/artists/lana-del-rey.jpg",
-   "color": "#606671",
+   "image": "library/artists/lana-del-rey-yt.jpg",
+   "color": "#8f6b69",
    "checked": "2026-09-30T14:41:57Z",
    "verifiedAt": "2026-09-30T14:41:57Z",
    "fans": 5814598,
@@ -441,7 +483,10 @@
     "en": "American singer-songwriter (born 1985)",
     "ru": "американская певица, композитор, автор",
     "uz": "Lana del Rey"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:49Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCyqq-aiu3vEHuf5NhwmOJcw"
   },
   "The Weeknd": {
    "aliases": [],
@@ -450,8 +495,8 @@
    "itunesId": 479756766,
    "deezer": "https://www.deezer.com/artist/4050205",
    "apple": "https://music.apple.com/us/artist/the-weeknd/479756766",
-   "image": "library/artists/the-weeknd.jpg",
-   "color": "#99603e",
+   "image": "library/artists/the-weeknd-yt.jpg",
+   "color": "#773a18",
    "checked": "2026-09-30T16:55:37Z",
    "verifiedAt": "2026-09-30T16:55:37Z",
    "fans": 14711196,
@@ -471,15 +516,18 @@
     "en": "Canadian singer and songwriter (born 1990)",
     "ru": "канадский певец и автор песен",
     "uz": "kanadalik qoʻshiqchi va qoʻshiqlar muallifi"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:50Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UClYV6hHlupm_S_ObS1W-DYw"
   },
   "JENNIE": {
    "aliases": [],
    "verified": true,
    "deezerId": 1228100,
    "deezer": "https://www.deezer.com/artist/1228100",
-   "image": "library/artists/jennie.jpg",
-   "color": "#ac6753",
+   "image": "library/artists/jennie-yt.jpg",
+   "color": "#9e3c47",
    "checked": "2026-09-30T16:56:06Z",
    "verifiedAt": "2026-09-30T16:56:06Z",
    "fans": 645983,
@@ -499,15 +547,18 @@
     "en": "South Korean singer (born 1996)",
     "ru": "южнокорейская певица, участница Blackpink",
     "uz": "Janubiy koreyalik qo'shiqchi, repper va BLACKPINK a'zosi"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:52Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCAl7xQ6q0PEgZMQD7zr4AKQ"
   },
   "Lily Rose Depp": {
    "aliases": [],
    "verified": true,
    "deezerId": 4755027,
    "deezer": "https://www.deezer.com/artist/4755027",
-   "image": "library/artists/lily-rose-depp.jpg",
-   "color": "#703a1f",
+   "image": "library/artists/lily-rose-depp-yt.jpg",
+   "color": "#008f8f",
    "checked": "2026-09-30T16:56:06Z",
    "verifiedAt": "2026-09-30T16:56:06Z",
    "fans": 126361,
@@ -528,15 +579,18 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:51:53Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UChGTI8sivCDh1AWues5lrDA"
   },
   "Gesaffelstein": {
    "aliases": [],
    "verified": true,
    "deezerId": 210977,
    "deezer": "https://www.deezer.com/artist/210977",
-   "image": "library/artists/gesaffelstein.jpg",
-   "color": "#5e6d79",
+   "image": "library/artists/gesaffelstein-yt.jpg",
+   "color": "#788787",
    "checked": "2026-09-30T16:56:21Z",
    "verifiedAt": "2026-09-30T16:56:21Z",
    "fans": 328202,
@@ -553,7 +607,10 @@
    "desc": {
     "en": "French music producer (born 1985)",
     "ru": "французский техно-музыкант, диджей и продюсер"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:54Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCq7VAQmXDurV-9VN2bSFXvw"
   },
   "Egzod": {
    "aliases": [],
@@ -562,34 +619,40 @@
    "itunesId": 1082774524,
    "deezer": "https://www.deezer.com/artist/9819354",
    "apple": "https://music.apple.com/us/artist/egzod/1082774524",
-   "image": "library/artists/egzod.jpg",
-   "color": "#795230",
+   "image": "library/artists/egzod-yt.jpg",
+   "color": "#14667a",
    "checked": "2026-09-30T16:56:37Z",
    "verifiedAt": "2026-09-30T16:56:37Z",
    "fans": 18088,
    "albums": 92,
-   "bioChecked": "2026-09-30T17:02:46Z"
+   "bioChecked": "2026-09-30T17:02:46Z",
+   "ytPhotoChecked": "2026-11-26T20:51:56Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCGgeiSMVvdO6xpCRtA7P9Rg"
   },
   "Maestro Chives": {
    "aliases": [],
    "verified": true,
    "deezerId": 11695431,
    "deezer": "https://www.deezer.com/artist/11695431",
-   "image": "library/artists/maestro-chives.jpg",
-   "color": "#65879a",
+   "image": "library/artists/maestro-chives-yt.jpg",
+   "color": "#5b5b5b",
    "checked": "2026-09-30T16:56:39Z",
    "verifiedAt": "2026-09-30T16:56:39Z",
    "fans": 8193,
    "albums": 17,
-   "bioChecked": "2026-09-30T17:02:49Z"
+   "bioChecked": "2026-09-30T17:02:49Z",
+   "ytPhotoChecked": "2026-11-26T20:51:58Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCnb-FqRYfagkdavB9qdmEmQ"
   },
   "Neoni": {
    "aliases": [],
    "verified": true,
    "deezerId": 64437072,
    "deezer": "https://www.deezer.com/artist/64437072",
-   "image": "library/artists/neoni.jpg",
-   "color": "#df2820",
+   "image": "library/artists/neoni-yt.jpg",
+   "color": "#cf1d28",
    "checked": "2026-09-30T16:56:40Z",
    "verifiedAt": "2026-09-30T16:56:40Z",
    "fans": 51958,
@@ -600,15 +663,18 @@
    },
    "wiki": {
     "en": "https://en.wikipedia.org/wiki/From_Ashes_to_New_discography"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:51:59Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC6kcGp85EGfDb9pk6xaKhJg"
   },
   "Anitta": {
    "aliases": [],
    "verified": true,
    "deezerId": 4390053,
    "deezer": "https://www.deezer.com/artist/4390053",
-   "image": "library/artists/anitta.jpg",
-   "color": "#6b3024",
+   "image": "library/artists/anitta-yt.jpg",
+   "color": "#d14818",
    "checked": "2026-09-30T19:19:41Z",
    "verifiedAt": "2026-09-30T19:19:41Z",
    "fans": 7408356,
@@ -625,15 +691,18 @@
    "desc": {
     "en": "Musical artist",
     "ru": "бразильская певица, автор песен, актриса, танцовщица и предприниматель"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:52:01Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCI99G32byWj1aH13pbxnTEw"
   },
   "Playboi Carti": {
    "aliases": [],
    "verified": true,
    "deezerId": 10002824,
    "deezer": "https://www.deezer.com/artist/10002824",
-   "image": "library/artists/playboi-carti.jpg",
-   "color": "#273b68",
+   "image": "library/artists/playboi-carti-yt.jpg",
+   "color": "#a37e5c",
    "checked": "2026-09-30T19:19:58Z",
    "verifiedAt": "2026-09-30T19:19:58Z",
    "fans": 840606,
@@ -650,7 +719,10 @@
    "desc": {
     "en": "American rapper",
     "ru": "американский рэпер"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:52:02Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCRB-a6u9flpg0xuBqCf9QlQ"
   },
   "Dua Lipa": {
    "aliases": [],
@@ -659,8 +731,8 @@
    "itunesId": 1031397873,
    "deezer": "https://www.deezer.com/artist/8706544",
    "apple": "https://music.apple.com/us/artist/dua-lipa/1031397873",
-   "image": "library/artists/dua-lipa.jpg",
-   "color": "#9f6f4f",
+   "image": "library/artists/dua-lipa-yt.jpg",
+   "color": "#81462b",
    "checked": "2026-09-30T19:20:41Z",
    "verifiedAt": "2026-09-30T19:20:41Z",
    "fans": 8786685,
@@ -679,7 +751,10 @@
    "desc": {
     "en": "English singer (born 1995)",
     "ru": "британская певица и автор песен"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:52:03Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCzVb0SIXp9q9PeKCcFjsBtA"
   },
   "DaBaby": {
    "aliases": [],
@@ -699,7 +774,12 @@
    "desc": {
     "en": "American rapper (born 1991)",
     "ru": "Американский рэпер"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:52:05Z",
+   "image": "library/artists/dababy-yt.jpg",
+   "color": "#c4b52e",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCtHsn1Jx_POCdTcR-ulootg"
   },
   "Alessia Cara": {
    "aliases": [],
@@ -708,8 +788,8 @@
    "itunesId": 991444375,
    "deezer": "https://www.deezer.com/artist/7890062",
    "apple": "https://music.apple.com/us/artist/alessia-cara/991444375",
-   "image": "library/artists/alessia-cara.jpg",
-   "color": "#d12e42",
+   "image": "library/artists/alessia-cara-yt.jpg",
+   "color": "#275b68",
    "checked": "2026-10-01T08:53:39Z",
    "verifiedAt": "2026-10-01T08:53:39Z",
    "fans": 700034,
@@ -730,7 +810,10 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:52:06Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCrqLG11GjSzO5bVYzXIF8CA"
   },
   "CKay": {
    "aliases": [],
@@ -739,8 +822,8 @@
    "itunesId": 1168769616,
    "deezer": "https://www.deezer.com/artist/903536",
    "apple": "https://music.apple.com/us/artist/ckay/1168769616",
-   "image": "library/artists/ckay.jpg",
-   "color": "#ed0444",
+   "image": "library/artists/ckay-yt.jpg",
+   "color": "#cd350c",
    "checked": "2026-10-01T10:55:57Z",
    "verifiedAt": "2026-10-01T10:55:57Z",
    "fans": 245567,
@@ -760,15 +843,18 @@
    "bioTr": [
     "uz",
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:52:07Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCUNNGmpQ75t0GZII3coI8rg"
   },
   "Joeboy": {
    "aliases": [],
    "verified": true,
    "deezerId": 11888005,
    "deezer": "https://www.deezer.com/artist/11888005",
-   "image": "library/artists/joeboy.jpg",
-   "color": "#07c28b",
+   "image": "library/artists/joeboy-yt.jpg",
+   "color": "#147b3c",
    "checked": "2026-10-01T10:55:58Z",
    "verifiedAt": "2026-10-01T10:55:58Z",
    "fans": 321985,
@@ -788,15 +874,18 @@
    "bioTr": [
     "uz",
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:52:08Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCHxEAq_D6CJ1sn0tocJ6GdA"
   },
   "Kuami Eugene": {
    "aliases": [],
    "verified": true,
    "deezerId": 12379688,
    "deezer": "https://www.deezer.com/artist/12379688",
-   "image": "library/artists/kuami-eugene.jpg",
-   "color": "#69584b",
+   "image": "library/artists/kuami-eugene-yt.jpg",
+   "color": "#6c3a3c",
    "checked": "2026-10-01T10:55:58Z",
    "verifiedAt": "2026-10-01T10:55:58Z",
    "fans": 26407,
@@ -816,7 +905,10 @@
    "bioTr": [
     "uz",
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:52:10Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCLFWCyQxRlz_JMFvq_5PG3A"
   },
   "The Lumineers": {
    "aliases": [],
@@ -825,8 +917,8 @@
    "itunesId": 350720227,
    "deezer": "https://www.deezer.com/artist/793825",
    "apple": "https://music.apple.com/us/artist/the-lumineers/350720227",
-   "image": "library/artists/the-lumineers.jpg",
-   "color": "#37677f",
+   "image": "library/artists/the-lumineers-yt.jpg",
+   "color": "#574637",
    "checked": "2026-10-02T10:43:45Z",
    "verifiedAt": "2026-10-02T10:43:45Z",
    "fans": 926301,
@@ -847,7 +939,10 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:52:11Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCMcghb8JhNIYntWea9QKFGA"
   },
   "AURORA": {
    "aliases": [
@@ -858,8 +953,8 @@
    "itunesId": 947171999,
    "deezer": "https://www.deezer.com/artist/7600518",
    "apple": "https://music.apple.com/us/artist/aurora/947171999",
-   "image": "library/artists/aurora.jpg",
-   "color": "#7c6a95",
+   "image": "library/artists/aurora-yt.jpg",
+   "color": "#6b8990",
    "checked": "2026-10-02T16:38:34Z",
    "verifiedAt": "2026-10-02T16:38:34Z",
    "fans": 196,
@@ -880,7 +975,10 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:52:12Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC4G-AJa7kn8oumI6TT2WXYw"
   },
   "Lewis Capaldi": {
    "aliases": [],
@@ -889,8 +987,8 @@
    "itunesId": 1213405916,
    "deezer": "https://www.deezer.com/artist/12088868",
    "apple": "https://music.apple.com/us/artist/lewis-capaldi/1213405916",
-   "image": "library/artists/lewis-capaldi.jpg",
-   "color": "#d48d2b",
+   "image": "library/artists/lewis-capaldi-yt.jpg",
+   "color": "#d5892a",
    "checked": "2026-10-02T16:39:36Z",
    "verifiedAt": "2026-10-02T16:39:36Z",
    "fans": 1207423,
@@ -911,7 +1009,10 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:52:14Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCxrxwFTBU3DTJ9Y5TKeW7KA"
   },
   "Rihanna": {
    "aliases": [],
@@ -920,8 +1021,8 @@
    "itunesId": 63346553,
    "deezer": "https://www.deezer.com/artist/564",
    "apple": "https://music.apple.com/us/artist/rihanna/63346553",
-   "image": "library/artists/rihanna.jpg",
-   "color": "#797679",
+   "image": "library/artists/rihanna-yt.jpg",
+   "color": "#564339",
    "checked": "2026-10-02T16:44:40Z",
    "verifiedAt": "2026-10-02T16:44:40Z",
    "fans": 18082162,
@@ -940,7 +1041,10 @@
    "desc": {
     "en": "Barbadian singer (born 1988)",
     "ru": "барбадосская R&B- и поп-певица и актриса"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:52:15Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCvWtix2TtWGe9kffqnwdaMw"
   },
   "LSD": {
    "aliases": [],
@@ -949,8 +1053,8 @@
    "itunesId": 1377413450,
    "deezer": "https://www.deezer.com/artist/14720447",
    "apple": "https://music.apple.com/us/artist/lsd/1377413450",
-   "image": "library/artists/lsd.jpg",
-   "color": "#c18e3e",
+   "image": "library/artists/lsd-yt.jpg",
+   "color": "#9a3d1a",
    "checked": "2026-10-02T16:45:09Z",
    "verifiedAt": "2026-10-02T16:45:09Z",
    "fans": 227324,
@@ -970,15 +1074,18 @@
    "bioTr": [
     "uz",
     "ru"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:52:16Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCsXKPFouKx7giAFRheB-G7A"
   },
   "Diplo": {
    "aliases": [],
    "verified": true,
    "deezerId": 1846,
    "deezer": "https://www.deezer.com/artist/1846",
-   "image": "library/artists/diplo.jpg",
-   "color": "#126fd1",
+   "image": "library/artists/diplo-yt.jpg",
+   "color": "#106ed0",
    "checked": "2026-10-02T16:45:09Z",
    "verifiedAt": "2026-10-02T16:45:09Z",
    "fans": 1301912,
@@ -999,15 +1106,18 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:52:18Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCXAX3AtRPPdesKYSS8FKayg"
   },
   "Labrinth": {
    "aliases": [],
    "verified": true,
    "deezerId": 256795762,
    "deezer": "https://www.deezer.com/artist/256795762",
-   "image": "library/artists/labrinth.jpg",
-   "color": "#24596b",
+   "image": "library/artists/labrinth-yt.jpg",
+   "color": "#ad8c52",
    "checked": "2026-10-02T16:45:10Z",
    "verifiedAt": "2026-10-02T16:45:10Z",
    "fans": 3,
@@ -1027,15 +1137,18 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:52:19Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCLx8m3I4zQAQc0tdASjdAfw"
   },
   "Sean Paul": {
    "aliases": [],
    "verified": true,
    "deezerId": 266523712,
    "deezer": "https://www.deezer.com/artist/266523712",
-   "image": "library/artists/sean-paul.jpg",
-   "color": "#7c6a95",
+   "image": "library/artists/sean-paul-yt.jpg",
+   "color": "#7e1411",
    "checked": "2026-10-02T16:45:31Z",
    "verifiedAt": "2026-10-02T16:45:31Z",
    "fans": 132,
@@ -1056,13 +1169,21 @@
    },
    "bioTr": [
     "uz"
-   ]
+   ],
+   "ytPhotoChecked": "2026-11-26T20:52:20Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCnCNNA05VZcH8wVJYtC-6ew"
   },
   "Walter Tee": {
    "aliases": [],
    "verified": false,
    "checked": "2026-11-01T20:41:28Z",
-   "bioChecked": "2026-10-02T18:25:29Z"
+   "bioChecked": "2026-10-02T18:25:29Z",
+   "ytPhotoChecked": "2026-11-26T20:52:22Z",
+   "image": "library/artists/walter-tee-yt.jpg",
+   "color": "#246b5f",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCBJLsllD5OzVvCBbdAelDWA"
   },
   "Glass Animals": {
    "aliases": [],
@@ -1071,8 +1192,8 @@
    "itunesId": 528928008,
    "deezer": "https://www.deezer.com/artist/2489131",
    "apple": "https://music.apple.com/us/artist/glass-animals/528928008",
-   "image": "library/artists/glass-animals.jpg",
-   "color": "#175378",
+   "image": "library/artists/glass-animals-yt.jpg",
+   "color": "#b0762c",
    "checked": "2026-10-07T09:03:24Z",
    "verifiedAt": "2026-10-07T09:03:24Z",
    "fans": 323264,
@@ -1091,7 +1212,10 @@
    "desc": {
     "en": "English indie rock band",
     "ru": "британская группа"
-   }
+   },
+   "ytPhotoChecked": "2026-11-26T20:52:23Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCfeJiV0Xu-C4z4DApRcznig"
   },
   "Kristina Moe Hals": {
    "aliases": [],
@@ -2359,7 +2483,23 @@
    "checked": "2026-11-26T20:36:05Z",
    "verifiedAt": "2026-11-26T20:36:05Z",
    "fans": 9378644,
-   "albums": 82
+   "albums": 82,
+   "bioChecked": "2026-11-26T20:52:27Z",
+   "bio": {
+    "en": "Stefani Joanne Angelina Germanotta, known professionally as Lady Gaga, is an American singer, songwriter, and actress. An influential figure in popular music, she is known for her image reinventions, flamboyant fashion, and versatility across the entertainment industry. With estimated sales of 124 million records, she is one of the best-selling music artists of all time.",
+    "ru": "Сте́фани Джоа́нн Анджели́на Джермано́тта ; род. 28 марта 1986, Нью-Йорк, США), известная под сценическим псевдонимом Ле́ди Га́га — американская певица, автор песен, продюсер, филантроп и актриса. Имеет множество наград, среди которых 14 премий «Грэмми», 13 MTV Video Music Awards и 8 MTV Europe Music Awards, а также занимает четвёртое место в списке 100 величайших женщин в музыке по версии VH1. Журнал Time дважды включал исполнительницу в список Time 100.",
+    "uz": "Stefani Joanne Angelina Germanotta, taxallusi — Lady Gaga amerikalik xonanda, aktrisa va kiyimlar dizayneridir. Nyu York shahrida tugʻilib oʻsgan Stefani avval Muqaddas Yurak ayollar monastirida, keyin New York Universitetining Tisch sanʼat maktabida tahsil oldi. Manhattan rock musiqa sahnasida ijro etishni boshlab, 2007-yil oxiriga kelib Streamline Records studiyasidan shartnoma imzoladi. Studiya uchun qoʻshiq yozib yurgan Stefanining vokaliga Akon eʼtibor qaratdi va unga Kon Live Distribution leyblidan shartnoma taklif etdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Lady_Gaga",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9B%D0%B5%D0%B4%D0%B8_%D0%93%D0%B0%D0%B3%D0%B0",
+    "uz": "https://uz.wikipedia.org/wiki/Lady_Gaga"
+   },
+   "desc": {
+    "en": "American singer, songwriter and actress (born 1986)",
+    "ru": "американская певица, автор песен, актриса и активистка (род. 1986)",
+    "uz": "amerikalik xonanda va aktrisa"
+   }
   },
   "Bradley Cooper": {
    "aliases": [],
@@ -2371,7 +2511,22 @@
    "checked": "2026-11-26T20:36:05Z",
    "verifiedAt": "2026-11-26T20:36:05Z",
    "fans": 374253,
-   "albums": 4
+   "albums": 4,
+   "bioChecked": "2026-11-26T20:52:30Z",
+   "bio": {
+    "ru": "Брэ́дли Чарльз Ку́пер — американский актёр и режиссёр. Обладатель различных наград и номинаций, в том числе одной статуэтки BAFTA, трёх «Грэмми», а также двенадцати номинаций на «Оскар», шести на «Золотой глобус» и одной на «Тони». Купер трижды попадал в список ста знаменитостей журнала Forbes. В 2015 году оказался в списке ста самых влиятельных людей мира по версии журнала Time. Фильмы с его участием собрали в прокате 13 миллиардов долларов. Актёр четыре раза попадал в список самых высокооплачиваемых актёров мира.",
+    "en": "Bradley Charles Cooper is an American actor and filmmaker. He is the recipient of various accolades, including a British Academy Film Award and three Grammy Awards. In addition, he has been nominated for twelve Academy Awards, six Golden Globe Awards, and a Tony Award. Cooper appeared on the Forbes Celebrity 100 list three times and on Time's list of the 100 most influential people in the world in 2015. His films have grossed $13 billion worldwide, and he has been placed in annual rankings of the world's highest-paid actors four times.",
+    "uz": "Bradley Cooper amerikalik aktyoridir. Shaxsiy hayoti, Irina Shayk bilan uchrashadi."
+   },
+   "wiki": {
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9A%D1%83%D0%BF%D0%B5%D1%80%2C_%D0%91%D1%80%D1%8D%D0%B4%D0%BB%D0%B8",
+    "en": "https://en.wikipedia.org/wiki/Bradley_Cooper",
+    "uz": "https://uz.wikipedia.org/wiki/Bradley_Cooper"
+   },
+   "desc": {
+    "ru": "американский актёр, режиссёр и певец (род. 1975)",
+    "en": "American actor and filmmaker (born 1975)"
+   }
   },
   "Eminem": {
    "aliases": [],
@@ -2385,7 +2540,22 @@
    "checked": "2026-11-26T20:36:30Z",
    "verifiedAt": "2026-11-26T20:36:30Z",
    "fans": 19200659,
-   "albums": 72
+   "albums": 72,
+   "bioChecked": "2026-11-26T20:52:32Z",
+   "bio": {
+    "en": "Marshall Bruce Mathers III, known professionally as Eminem, is an American rapper, songwriter, record producer, and record executive. Known for his rap flow and conscious rap, which includes political criticism and social commentary, he is widely regarded as one of the greatest and most influential rappers of all time, often credited with popularizing hip-hop in Middle America and the acceptance of white rappers. While much of his transgressive art during the late 1990s and early 2000s made him a controversial figure, Eminem has become a representation of popular angst in lower-income America.",
+    "ru": "Эмине́м — американский рэпер, композитор, музыкальный продюсер, продюсер и актёр.",
+    "uz": "Marshall Bruce Mathers III Eminem taxallusi ostida tanilgan amerikalik reper, produser, qoʻshiqnavis va aktyordir. Slim Shady ismli alter egosi bor. Yakkaxon ijodidan tashqari, Eminem oʻzining D12 guruhi va Bad Meets Evil dueti aʼzosi hamdir. Eminem jahonda eng koʻp xaridorgir musiqachilardan biri, 2000-yillarda eng koʻp albomi sotilgan artistdir. U qator jurnallar, jumladan Rolling Stone tomonidan eng buyuk artistlar roʻyxatiga kiritilgan. Rolling Stone unga shuningdek „Hip Hop qiroli“ unvonini bergan. Eminem Billboard albomlar charti choʻqqisini oʻn marta egallagan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Eminem",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%AD%D0%BC%D0%B8%D0%BD%D0%B5%D0%BC",
+    "uz": "https://uz.wikipedia.org/wiki/Eminem"
+   },
+   "desc": {
+    "en": "American rapper (born 1972)",
+    "ru": "американский рэпер, автор песен и актёр"
+   }
   },
   "Ed Sheeran": {
    "aliases": [],
