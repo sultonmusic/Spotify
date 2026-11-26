@@ -163,6 +163,32 @@ class Artists:
                 s["artists"], s["artist"] = canon, ", ".join(canon)
                 self.lib.dirty = True
 
+    def spotify_images(self, budget: int = 40) -> None:
+        """Artist photos from Spotify (shown from Spotify's image server). Each artist is looked up once a week."""
+        from . import spotify
+
+        if not spotify.enabled():
+            return
+        week_ago = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
+        for name, p in list(self.profiles.items()):
+            if budget <= 0:
+                break
+            if p.get("imageSource") == "spotify" or (p.get("spotifyChecked") or "") > week_ago:
+                continue
+            budget -= 1
+            found = spotify.artist(name)
+            p["spotifyChecked"] = _now()
+            self.lib.dirty = True
+            if not found:
+                continue
+            color = spotify.main_color(found["image"])
+            p.update(image=found["image"], imageSource="spotify", spotifyId=found["id"])
+            if found.get("url"):
+                p["spotify"] = found["url"]
+            if color:
+                p["color"] = color
+            print(f"[spotify] photo for {name}")
+
     def backfill(self, budget: int = 8) -> None:
         """Looks up unverified artists on Deezer: verified if a song of ours is on their official page."""
         now = datetime.now(timezone.utc)
