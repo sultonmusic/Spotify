@@ -1,7 +1,7 @@
 {
  "version": 1,
  "updatedAt": "2026-11-26T21:07:10Z",
- "count": 142,
+ "count": 169,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -3176,9 +3176,1701 @@
    "ytPhotoChecked": "2026-11-26T21:04:45Z",
    "imageSource": "ytmusic",
    "youtubeMusic": "https://music.youtube.com/channel/UCVpz_BuNZRx9Q8bjDEtBWtA"
+  },
+  "The Neighbourhood": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 296861,
+   "itunesId": 219350813,
+   "deezer": "https://www.deezer.com/artist/296861",
+   "apple": "https://music.apple.com/us/artist/the-neighbourhood/219350813",
+   "image": "library/artists/the-neighbourhood.jpg",
+   "color": "#808080",
+   "checked": "2026-11-26T20:51:09Z",
+   "verifiedAt": "2026-11-26T20:51:09Z",
+   "fans": 1691016,
+   "albums": 25
+  },
+  "Cigarettes After Sex": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 9568982,
+   "itunesId": 1069739468,
+   "deezer": "https://www.deezer.com/artist/9568982",
+   "apple": "https://music.apple.com/us/artist/cigarettes-after-sex/1069739468",
+   "image": "library/artists/cigarettes-after-sex.jpg",
+   "color": "#707070",
+   "checked": "2026-11-26T20:51:38Z",
+   "verifiedAt": "2026-11-26T20:51:38Z",
+   "fans": 919771,
+   "albums": 22
+  },
+  "TV Girl": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1683410,
+   "itunesId": 468460706,
+   "deezer": "https://www.deezer.com/artist/1683410",
+   "apple": "https://music.apple.com/us/artist/tv-girl/468460706",
+   "image": "library/artists/tv-girl.jpg",
+   "color": "#e3ca1c",
+   "checked": "2026-11-26T20:52:13Z",
+   "verifiedAt": "2026-11-26T20:52:13Z",
+   "fans": 463255,
+   "albums": 12
+  },
+  "Clean Bandit": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1000956,
+   "itunesId": 463049461,
+   "deezer": "https://www.deezer.com/artist/1000956",
+   "apple": "https://music.apple.com/us/artist/clean-bandit/463049461",
+   "image": "library/artists/clean-bandit.jpg",
+   "color": "#725043",
+   "checked": "2026-11-26T20:53:41Z",
+   "verifiedAt": "2026-11-26T20:53:41Z",
+   "fans": 4179108,
+   "albums": 162
+  },
+  "Anne-Marie": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 6396188,
+   "deezer": "https://www.deezer.com/artist/6396188",
+   "image": "library/artists/anne-marie.jpg",
+   "color": "#696970",
+   "checked": "2026-11-26T20:53:42Z",
+   "verifiedAt": "2026-11-26T20:53:42Z",
+   "fans": 1869854,
+   "albums": 130
+  },
+  "DJ Snake": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 482758,
+   "itunesId": 125742557,
+   "deezer": "https://www.deezer.com/artist/482758",
+   "apple": "https://music.apple.com/us/artist/dj-snake/125742557",
+   "image": "library/artists/dj-snake.jpg",
+   "color": "#6d4322",
+   "checked": "2026-11-26T20:54:21Z",
+   "verifiedAt": "2026-11-26T20:54:21Z",
+   "fans": 5808535,
+   "albums": 107
+  },
+  "Timbaland": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 9662,
+   "itunesId": 3342627,
+   "deezer": "https://www.deezer.com/artist/9662",
+   "apple": "https://music.apple.com/us/artist/timbaland/3342627",
+   "image": "library/artists/timbaland.jpg",
+   "color": "#977b68",
+   "checked": "2026-11-26T20:54:39Z",
+   "verifiedAt": "2026-11-26T20:54:39Z",
+   "fans": 1188362,
+   "albums": 59
+  },
+  "Shakira": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 160,
+   "itunesId": 889327,
+   "deezer": "https://www.deezer.com/artist/160",
+   "apple": "https://music.apple.com/us/artist/shakira/889327",
+   "image": "library/artists/shakira.jpg",
+   "color": "#be6419",
+   "checked": "2026-11-26T20:55:21Z",
+   "verifiedAt": "2026-11-26T20:55:21Z",
+   "fans": 11824965,
+   "albums": 69
+  },
+  "Freshlyground": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 69586,
+   "deezer": "https://www.deezer.com/artist/69586",
+   "image": "library/artists/freshlyground.jpg",
+   "color": "#6d452c",
+   "checked": "2026-11-26T20:55:23Z",
+   "verifiedAt": "2026-11-26T20:55:23Z",
+   "fans": 10497,
+   "albums": 21
+  },
+  "Various Artists": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5080,
+   "deezer": "https://www.deezer.com/artist/5080",
+   "image": "library/artists/various-artists.jpg",
+   "color": "#a3865c",
+   "checked": "2026-11-26T20:55:49Z",
+   "verifiedAt": "2026-11-26T20:55:49Z",
+   "fans": 205102
+  },
+  "Pitbull": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 776,
+   "itunesId": 27044968,
+   "deezer": "https://www.deezer.com/artist/776",
+   "apple": "https://music.apple.com/us/artist/pitbull/27044968",
+   "image": "library/artists/pitbull.jpg",
+   "color": "#707070",
+   "checked": "2026-11-26T20:56:16Z",
+   "verifiedAt": "2026-11-26T20:56:16Z",
+   "fans": 7285762,
+   "albums": 185
+  },
+  "Afrojack": {
+   "aliases": [
+    "AFROJACK"
+   ],
+   "verified": true,
+   "deezerId": 169361,
+   "deezer": "https://www.deezer.com/artist/169361",
+   "image": "library/artists/afrojack.jpg",
+   "color": "#ffff00",
+   "checked": "2026-11-26T20:56:17Z",
+   "verifiedAt": "2026-11-26T20:56:17Z",
+   "fans": 2173703,
+   "albums": 226
+  },
+  "Ne-Yo": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 104,
+   "deezer": "https://www.deezer.com/artist/104",
+   "image": "library/artists/ne-yo.jpg",
+   "color": "#00008f",
+   "checked": "2026-11-26T20:56:17Z",
+   "verifiedAt": "2026-11-26T20:56:17Z",
+   "fans": 3910197,
+   "albums": 87
+  },
+  "Nayer": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 304290671,
+   "deezer": "https://www.deezer.com/artist/304290671",
+   "image": "library/artists/nayer.jpg",
+   "color": "#72332f",
+   "checked": "2026-11-26T20:56:18Z",
+   "verifiedAt": "2026-11-26T20:56:18Z",
+   "fans": 0,
+   "albums": 2
+  },
+  "Britney Spears": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 483,
+   "itunesId": 217005,
+   "deezer": "https://www.deezer.com/artist/483",
+   "apple": "https://music.apple.com/us/artist/britney-spears/217005",
+   "image": "library/artists/britney-spears.jpg",
+   "color": "#00478f",
+   "checked": "2026-11-26T20:56:41Z",
+   "verifiedAt": "2026-11-26T20:56:41Z",
+   "fans": 5482960,
+   "albums": 32
+  },
+  "Madonna": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 290,
+   "itunesId": 20044,
+   "deezer": "https://www.deezer.com/artist/290",
+   "apple": "https://music.apple.com/us/artist/madonna/20044",
+   "image": "library/artists/madonna.jpg",
+   "color": "#5f7172",
+   "checked": "2026-11-26T20:57:24Z",
+   "verifiedAt": "2026-11-26T20:57:24Z",
+   "fans": 4946712,
+   "albums": 149
+  },
+  "Michael Jackson": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 259,
+   "itunesId": 32940,
+   "deezer": "https://www.deezer.com/artist/259",
+   "apple": "https://music.apple.com/us/artist/michael-jackson/32940",
+   "image": "library/artists/michael-jackson.jpg",
+   "color": "#2f3d60",
+   "checked": "2026-11-26T20:58:06Z",
+   "verifiedAt": "2026-11-26T20:58:06Z",
+   "fans": 13311869,
+   "albums": 38
+  },
+  "The Beatles": {
+   "aliases": [],
+   "verified": true,
+   "itunesId": 136975,
+   "apple": "https://music.apple.com/us/artist/the-beatles/136975",
+   "checked": "2026-11-26T20:58:46Z",
+   "verifiedAt": "2026-11-26T20:58:46Z"
+  },
+  "Elton John": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 413,
+   "itunesId": 54657,
+   "deezer": "https://www.deezer.com/artist/413",
+   "apple": "https://music.apple.com/us/artist/elton-john/54657",
+   "image": "library/artists/elton-john.jpg",
+   "color": "#008f8f",
+   "checked": "2026-11-26T20:59:21Z",
+   "verifiedAt": "2026-11-26T20:59:21Z",
+   "fans": 3037500,
+   "albums": 108
+  },
+  "Bryan Adams": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 170,
+   "itunesId": 85932,
+   "deezer": "https://www.deezer.com/artist/170",
+   "apple": "https://music.apple.com/us/artist/bryan-adams/85932",
+   "image": "library/artists/bryan-adams.jpg",
+   "color": "#757575",
+   "checked": "2026-11-26T20:59:46Z",
+   "verifiedAt": "2026-11-26T20:59:46Z",
+   "fans": 1763747,
+   "albums": 80
+  },
+  "Celine Dion": {
+   "aliases": [
+    "Céline Dion"
+   ],
+   "verified": true,
+   "deezerId": 198,
+   "itunesId": 63729,
+   "deezer": "https://www.deezer.com/artist/198",
+   "apple": "https://music.apple.com/us/artist/c%C3%A9line-dion/63729",
+   "image": "library/artists/celine-dion.jpg",
+   "color": "#997957",
+   "checked": "2026-11-26T21:00:17Z",
+   "verifiedAt": "2026-11-26T21:00:17Z",
+   "fans": 3760172,
+   "albums": 64
+  },
+  "James Horner": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 184,
+   "deezer": "https://www.deezer.com/artist/184",
+   "image": "library/artists/james-horner.jpg",
+   "color": "#94673b",
+   "checked": "2026-11-26T21:00:17Z",
+   "verifiedAt": "2026-11-26T21:00:17Z",
+   "fans": 498345,
+   "albums": 90
+  },
+  "Whitney Houston": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 174,
+   "itunesId": 13952,
+   "deezer": "https://www.deezer.com/artist/174",
+   "apple": "https://music.apple.com/us/artist/whitney-houston/13952",
+   "image": "library/artists/whitney-houston.jpg",
+   "color": "#81382f",
+   "checked": "2026-11-26T21:00:48Z",
+   "verifiedAt": "2026-11-26T21:00:48Z",
+   "fans": 3949791,
+   "albums": 54
+  },
+  "Frank Sinatra": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 617,
+   "deezer": "https://www.deezer.com/artist/617",
+   "image": "library/artists/frank-sinatra.jpg",
+   "color": "#666666",
+   "checked": "2026-11-26T21:01:21Z",
+   "verifiedAt": "2026-11-26T21:01:21Z",
+   "fans": 2492202,
+   "albums": 89
+  },
+  "Elvis Presley": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1125,
+   "itunesId": 197443,
+   "deezer": "https://www.deezer.com/artist/1125",
+   "apple": "https://music.apple.com/us/artist/elvis-presley/197443",
+   "image": "library/artists/elvis-presley.jpg",
+   "color": "#808080",
+   "checked": "2026-11-26T21:01:41Z",
+   "verifiedAt": "2026-11-26T21:01:41Z",
+   "fans": 3279976,
+   "albums": 75
+  },
+  "The Jordanaires": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 147982,
+   "deezer": "https://www.deezer.com/artist/147982",
+   "image": "library/artists/the-jordanaires.jpg",
+   "color": "#808080",
+   "checked": "2026-11-26T21:01:41Z",
+   "verifiedAt": "2026-11-26T21:01:41Z",
+   "fans": 2868,
+   "albums": 39
+  },
+  "George Michael": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 3098,
+   "itunesId": 894337,
+   "deezer": "https://www.deezer.com/artist/3098",
+   "apple": "https://music.apple.com/us/artist/george-michael/894337",
+   "image": "library/artists/george-michael.jpg",
+   "color": "#dab225",
+   "checked": "2026-11-26T21:02:20Z",
+   "verifiedAt": "2026-11-26T21:02:20Z",
+   "fans": 1517300,
+   "albums": 45
+  },
+  "Bon Jovi": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 637,
+   "itunesId": 122782,
+   "deezer": "https://www.deezer.com/artist/637",
+   "apple": "https://music.apple.com/us/artist/bon-jovi/122782",
+   "image": "library/artists/bon-jovi.jpg",
+   "color": "#676367",
+   "checked": "2026-11-26T21:03:07Z",
+   "verifiedAt": "2026-11-26T21:03:07Z",
+   "fans": 5303762,
+   "albums": 69
+  },
+  "Metallica": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 119,
+   "itunesId": 3996865,
+   "deezer": "https://www.deezer.com/artist/119",
+   "apple": "https://music.apple.com/us/artist/metallica/3996865",
+   "image": "library/artists/metallica.jpg",
+   "color": "#d2b00c",
+   "checked": "2026-11-26T21:03:47Z",
+   "verifiedAt": "2026-11-26T21:03:47Z",
+   "fans": 8193126,
+   "albums": 69
+  },
+  "The Cranberries": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 196,
+   "itunesId": 122615,
+   "deezer": "https://www.deezer.com/artist/196",
+   "apple": "https://music.apple.com/us/artist/the-cranberries/122615",
+   "image": "library/artists/the-cranberries.jpg",
+   "color": "#808080",
+   "checked": "2026-11-26T21:04:17Z",
+   "verifiedAt": "2026-11-26T21:04:17Z",
+   "fans": 1949678,
+   "albums": 55
+  },
+  "Radiohead": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 399,
+   "itunesId": 657515,
+   "deezer": "https://www.deezer.com/artist/399",
+   "apple": "https://music.apple.com/ru/artist/radiohead/657515",
+   "image": "library/artists/radiohead.jpg",
+   "color": "#ca6112",
+   "checked": "2026-11-26T21:05:00Z",
+   "verifiedAt": "2026-11-26T21:05:00Z",
+   "fans": 4129805,
+   "albums": 45
+  },
+  "Daft Punk": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 27,
+   "deezer": "https://www.deezer.com/artist/27",
+   "image": "library/artists/daft-punk.jpg",
+   "color": "#5c5753",
+   "checked": "2026-11-26T21:05:41Z",
+   "verifiedAt": "2026-11-26T21:05:41Z",
+   "fans": 5245002,
+   "albums": 38
+  },
+  "Post Malone": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 7543848,
+   "itunesId": 966309175,
+   "deezer": "https://www.deezer.com/artist/7543848",
+   "apple": "https://music.apple.com/us/artist/post-malone/966309175",
+   "image": "library/artists/post-malone.jpg",
+   "color": "#cf0102",
+   "checked": "2026-11-26T21:06:22Z",
+   "verifiedAt": "2026-11-26T21:06:22Z",
+   "fans": 4228259,
+   "albums": 40
+  },
+  "Drake": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 246791,
+   "itunesId": 271256,
+   "deezer": "https://www.deezer.com/artist/246791",
+   "apple": "https://music.apple.com/us/artist/drake/271256",
+   "image": "library/artists/drake.jpg",
+   "color": "#820d34",
+   "checked": "2026-11-26T21:06:57Z",
+   "verifiedAt": "2026-11-26T21:06:57Z",
+   "fans": 24147812,
+   "albums": 97
   }
  },
  "songs": [
+  {
+   "id": "c99f9d7adf",
+   "title": "God's Plan",
+   "artist": "Drake",
+   "artists": [
+    "Drake"
+   ],
+   "album": "Scorpion",
+   "year": 2018,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "energetic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 154,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 198.97,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c99f9d7adf.mp3",
+   "cover": "library/covers/c99f9d7adf.jpg",
+   "color": "#4d4d4d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:07:01Z",
+   "mime": "audio/mpeg",
+   "size": 4776906,
+   "storage": "release",
+   "lufs": -11.8,
+   "gain": -2.2,
+   "via": "audio",
+   "fileKey": "yt:FrsOnNxIrg8",
+   "story": "library/stories/c99f9d7adf.jpg"
+  },
+  {
+   "id": "1b199797e0",
+   "title": "Circles",
+   "artist": "Post Malone",
+   "artists": [
+    "Post Malone"
+   ],
+   "album": "Hollywood's Bleeding",
+   "year": 2019,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "romantic",
+    "energetic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 215.28,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1b199797e0.mp3",
+   "cover": "library/covers/1b199797e0.jpg",
+   "color": "#32515d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:06:26Z",
+   "mime": "audio/mpeg",
+   "size": 5168025,
+   "storage": "release",
+   "lufs": -5.8,
+   "gain": -8.2,
+   "via": "audio",
+   "fileKey": "yt:4EQkYVtE-28",
+   "story": "library/stories/1b199797e0.jpg"
+  },
+  {
+   "id": "7dddc84113",
+   "title": "Starboy",
+   "artist": "The Weeknd, Daft Punk",
+   "artists": [
+    "The Weeknd",
+    "Daft Punk"
+   ],
+   "album": "Starboy",
+   "year": 2016,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "romantic",
+    "motivational",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 186,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 230.45,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7dddc84113.mp3",
+   "cover": "library/covers/7dddc84113.jpg",
+   "color": "#a8042c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:05:45Z",
+   "mime": "audio/mpeg",
+   "size": 5532626,
+   "storage": "release",
+   "lufs": -8.0,
+   "gain": -6.0,
+   "via": "audio",
+   "fileKey": "yt:3_g2un5M350",
+   "story": "library/stories/7dddc84113.jpg"
+  },
+  {
+   "id": "81f3a785ef",
+   "title": "Creep",
+   "artist": "Radiohead",
+   "artists": [
+    "Radiohead"
+   ],
+   "album": "Halloween",
+   "year": 2013,
+   "genre": "Other",
+   "subgenre": "Альтернатива",
+   "moods": [],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 238.64,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/81f3a785ef.mp3",
+   "cover": "library/covers/81f3a785ef.jpg",
+   "color": "#395f64",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:05:04Z",
+   "mime": "audio/mpeg",
+   "size": 5729032,
+   "storage": "release",
+   "lufs": -10.3,
+   "gain": -3.7,
+   "via": "audio",
+   "fileKey": "yt:9RfVp-GhKfs",
+   "story": "library/stories/81f3a785ef.jpg"
+  },
+  {
+   "id": "3df537e069",
+   "title": "Zombie",
+   "artist": "The Cranberries",
+   "artists": [
+    "The Cranberries"
+   ],
+   "album": "Stars: The Best of the Cranberries 1992-2002",
+   "year": 1994,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 307.81,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3df537e069.mp3",
+   "cover": "library/covers/3df537e069.jpg",
+   "color": "#427dbd",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:04:23Z",
+   "mime": "audio/mpeg",
+   "size": 7389105,
+   "storage": "release",
+   "lufs": -9.3,
+   "gain": -4.7,
+   "via": "audio",
+   "fileKey": "yt:lSDfCdycdvk",
+   "story": "library/stories/3df537e069.jpg"
+  },
+  {
+   "id": "aa38ba4220",
+   "title": "Nothing Else Matters",
+   "artist": "Metallica",
+   "artists": [
+    "Metallica"
+   ],
+   "album": "Metallica (Remastered)",
+   "year": 1991,
+   "genre": "Metal",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 143,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 388.73,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/aa38ba4220.mp3",
+   "cover": "library/covers/aa38ba4220.jpg",
+   "color": "#8f008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:03:53Z",
+   "mime": "audio/mpeg",
+   "size": 9331364,
+   "storage": "release",
+   "lufs": -14.7,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:pTYIf2pkxzQ",
+   "story": "library/stories/aa38ba4220.jpg"
+  },
+  {
+   "id": "e82ad2ed6a",
+   "title": "It's My Life",
+   "artist": "Bon Jovi",
+   "artists": [
+    "Bon Jovi"
+   ],
+   "album": "Greatest Hits: The Ultimate Collection (Deluxe Edition)",
+   "year": 2000,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 224.49,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e82ad2ed6a.mp3",
+   "cover": "library/covers/e82ad2ed6a.jpg",
+   "color": "#d6a529",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:03:11Z",
+   "mime": "audio/mpeg",
+   "size": 5389242,
+   "storage": "release",
+   "lufs": -7.7,
+   "gain": -6.3,
+   "via": "audio",
+   "fileKey": "yt:bY3vXr7fm8k",
+   "story": "library/stories/e82ad2ed6a.jpg"
+  },
+  {
+   "id": "5dd1d55337",
+   "title": "Careless Whisper",
+   "artist": "George Michael",
+   "artists": [
+    "George Michael"
+   ],
+   "album": "Make It Big",
+   "year": 1984,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "motivational",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 153,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 392.27,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5dd1d55337.mp3",
+   "cover": "library/covers/5dd1d55337.jpg",
+   "color": "#00ffff",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:02:25Z",
+   "mime": "audio/mpeg",
+   "size": 9416024,
+   "storage": "release",
+   "lufs": -22.2,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:_u0zg4p9cV4",
+   "story": "library/stories/5dd1d55337.jpg"
+  },
+  {
+   "id": "62766c954e",
+   "title": "Can't Help Falling In Love",
+   "artist": "Elvis Presley, The Jordanaires",
+   "artists": [
+    "Elvis Presley",
+    "The Jordanaires"
+   ],
+   "album": "Elv1s: 30 #1 Hits",
+   "year": 1961,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": 101,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 177.84,
+   "src": "library/audio/62766c954e.mp3",
+   "cover": "library/covers/62766c954e.jpg",
+   "color": "#b0964f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:01:44Z",
+   "mime": "audio/mpeg",
+   "size": 4269497,
+   "storage": "pages",
+   "lufs": -12.4,
+   "gain": -1.6,
+   "via": "audio",
+   "fileKey": "yt:TlrNxJqODBc",
+   "story": "library/stories/62766c954e.jpg"
+  },
+  {
+   "id": "d7ed84c045",
+   "title": "My Way (2008 Remastered)",
+   "artist": "Frank Sinatra",
+   "artists": [
+    "Frank Sinatra"
+   ],
+   "album": "HITS Spring 2023",
+   "year": 2023,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 276.25,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d7ed84c045.mp3",
+   "cover": "library/covers/d7ed84c045.jpg",
+   "color": "#981e06",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:01:26Z",
+   "mime": "audio/mpeg",
+   "size": 6631652,
+   "storage": "release",
+   "lufs": -12.1,
+   "gain": -1.9,
+   "via": "audio",
+   "fileKey": "yt:qQzdAsjWGPg",
+   "story": "library/stories/d7ed84c045.jpg"
+  },
+  {
+   "id": "5f4e95be8a",
+   "title": "I Will Always Love You",
+   "artist": "Whitney Houston",
+   "artists": [
+    "Whitney Houston"
+   ],
+   "album": "Mein Song - Dein Song",
+   "year": 1992,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 134,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 263.8,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5f4e95be8a.mp3",
+   "cover": "library/covers/5f4e95be8a.jpg",
+   "color": "#c31217",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:00:54Z",
+   "mime": "audio/mpeg",
+   "size": 6332713,
+   "storage": "release",
+   "lufs": -11.7,
+   "gain": -2.3,
+   "via": "audio",
+   "fileKey": "yt:m4QZL7whs10",
+   "story": "library/stories/5f4e95be8a.jpg"
+  },
+  {
+   "id": "de73a8dd83",
+   "title": "My Heart Will Go on (From \"Titanic\")",
+   "artist": "Celine Dion, James Horner",
+   "artists": [
+    "Celine Dion",
+    "James Horner"
+   ],
+   "album": "Titanic (Music from the Motion Picture) [Collector's Anniversary Edition]",
+   "year": 1997,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": 99,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 310.26,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/de73a8dd83.mp3",
+   "cover": "library/covers/de73a8dd83.jpg",
+   "color": "#bb9244",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:00:23Z",
+   "mime": "audio/mpeg",
+   "size": 7447932,
+   "storage": "release",
+   "lufs": -17.7,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:J1k-IKFMcNE",
+   "story": "library/stories/de73a8dd83.jpg"
+  },
+  {
+   "id": "6372ea3b58",
+   "title": "Heaven (Classic Version)",
+   "artist": "Bryan Adams",
+   "artists": [
+    "Bryan Adams"
+   ],
+   "album": "Classic",
+   "year": 2022,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 263.17,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/6372ea3b58.mp3",
+   "cover": "library/covers/6372ea3b58.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:59:50Z",
+   "mime": "audio/mpeg",
+   "size": 6317722,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:0ZnURckdcyo",
+   "story": "library/stories/6372ea3b58.jpg"
+  },
+  {
+   "id": "7f4594a686",
+   "title": "Sacrifice",
+   "artist": "Elton John",
+   "artists": [
+    "Elton John"
+   ],
+   "album": "Love Songs (Remastered)",
+   "year": 1989,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 113,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 304.13,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7f4594a686.mp3",
+   "cover": "library/covers/7f4594a686.jpg",
+   "color": "#785659",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:59:26Z",
+   "mime": "audio/mpeg",
+   "size": 7300953,
+   "storage": "release",
+   "lufs": -14.8,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:RvbjcIQNZJ8",
+   "story": "library/stories/7f4594a686.jpg"
+  },
+  {
+   "id": "71f44ea8aa",
+   "title": "Let It Be",
+   "artist": "The Beatles",
+   "artists": [
+    "The Beatles"
+   ],
+   "album": "1",
+   "year": 1970,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 230.44,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/71f44ea8aa.mp3",
+   "cover": "library/covers/71f44ea8aa.jpg",
+   "color": "#e41b13",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:58:50Z",
+   "mime": "audio/mpeg",
+   "size": 5532037,
+   "storage": "release",
+   "lufs": -11.9,
+   "gain": -2.1,
+   "via": "audio",
+   "fileKey": "yt:HzvDofigTKQ",
+   "story": "library/stories/71f44ea8aa.jpg"
+  },
+  {
+   "id": "1b43c85f42",
+   "title": "Billie Jean",
+   "artist": "Michael Jackson",
+   "artists": [
+    "Michael Jackson"
+   ],
+   "album": "Thriller",
+   "year": 1982,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 117,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 294.23,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1b43c85f42.mp3",
+   "cover": "library/covers/1b43c85f42.jpg",
+   "color": "#6b5a4d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:58:14Z",
+   "mime": "audio/mpeg",
+   "size": 7063057,
+   "storage": "release",
+   "lufs": -14.4,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:Kr4EQDVETuA",
+   "story": "library/stories/1b43c85f42.jpg"
+  },
+  {
+   "id": "e236290082",
+   "title": "Frozen",
+   "artist": "Madonna",
+   "artists": [
+    "Madonna"
+   ],
+   "album": "Ray of Light",
+   "year": 1998,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 108,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 367.33,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e236290082.mp3",
+   "cover": "library/covers/e236290082.jpg",
+   "color": "#468f9c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:57:29Z",
+   "mime": "audio/mpeg",
+   "size": 8817544,
+   "storage": "release",
+   "lufs": -12.7,
+   "gain": -1.3,
+   "via": "audio",
+   "fileKey": "yt:JkPieADAVew",
+   "story": "library/stories/e236290082.jpg"
+  },
+  {
+   "id": "b9639404e2",
+   "title": "Toxic",
+   "artist": "Britney Spears",
+   "artists": [
+    "Britney Spears"
+   ],
+   "album": "In the Zone",
+   "year": 2003,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 143,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 198.8,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b9639404e2.mp3",
+   "cover": "library/covers/b9639404e2.jpg",
+   "color": "#0e77a0",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:56:46Z",
+   "mime": "audio/mpeg",
+   "size": 4772877,
+   "storage": "release",
+   "lufs": -8.9,
+   "gain": -5.1,
+   "via": "audio",
+   "fileKey": "yt:tVdr_JWmnsA",
+   "story": "library/stories/b9639404e2.jpg"
+  },
+  {
+   "id": "3f6ed2ebf7",
+   "title": "Give Me Everything",
+   "artist": "Pitbull, Afrojack, Ne-Yo, Nayer",
+   "artists": [
+    "Pitbull",
+    "Afrojack",
+    "Ne-Yo",
+    "Nayer"
+   ],
+   "album": "Planet Pit (Deluxe Version)",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "motivational",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 252.31,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3f6ed2ebf7.mp3",
+   "cover": "library/covers/3f6ed2ebf7.jpg",
+   "color": "#6c3423",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:56:26Z",
+   "mime": "audio/mpeg",
+   "size": 6056827,
+   "storage": "release",
+   "lufs": -6.7,
+   "gain": -7.3,
+   "via": "audio",
+   "fileKey": "yt:E2lX1ZovtcA",
+   "story": "library/stories/3f6ed2ebf7.jpg"
+  },
+  {
+   "id": "370a08859a",
+   "title": "On The Floor by Jennifer Lopez",
+   "artist": "Various Artists",
+   "artists": [
+    "Various Artists"
+   ],
+   "album": "2011 Summer Hits Top 15",
+   "year": 2011,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 130,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 286.01,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/370a08859a.mp3",
+   "cover": "library/covers/370a08859a.jpg",
+   "color": "#b8250c",
+   "lyrics": "plain",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:55:55Z",
+   "mime": "audio/mpeg",
+   "size": 6866101,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:wLxoT-zZdk8",
+   "story": "library/stories/370a08859a.jpg"
+  },
+  {
+   "id": "ac5abf915e",
+   "title": "Waka Waka (This Time for Africa) [The Official 2010 FIFA World Cup (TM) Song]",
+   "artist": "Shakira, Freshlyground",
+   "artists": [
+    "Shakira",
+    "Freshlyground"
+   ],
+   "album": "Listen Up! The Official 2010 FIFA World Cup Album",
+   "year": 2010,
+   "genre": "Latin",
+   "subgenre": "Pop Latino",
+   "moods": [
+    "motivational",
+    "party",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 202.63,
+   "src": "library/audio/ac5abf915e.mp3",
+   "cover": "library/covers/ac5abf915e.jpg",
+   "color": "#cd9332",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:55:26Z",
+   "mime": "audio/mpeg",
+   "size": 4864581,
+   "storage": "pages",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "yt:Z_slTWayFK0",
+   "story": "library/stories/ac5abf915e.jpg"
+  },
+  {
+   "id": "4fba9b6e45",
+   "title": "Apologize",
+   "artist": "Timbaland, OneRepublic",
+   "artists": [
+    "Timbaland",
+    "OneRepublic"
+   ],
+   "album": "Dreaming Out Loud",
+   "year": 2006,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 118,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 184.4,
+   "src": "library/audio/4fba9b6e45.mp3",
+   "cover": "library/covers/4fba9b6e45.jpg",
+   "color": "#274b81",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:54:42Z",
+   "mime": "audio/mpeg",
+   "size": 4427295,
+   "storage": "pages",
+   "lufs": -9.7,
+   "gain": -4.3,
+   "via": "audio",
+   "fileKey": "yt:RObFa5oJAYU",
+   "story": "library/stories/4fba9b6e45.jpg"
+  },
+  {
+   "id": "c52de69316",
+   "title": "Let Me Love You",
+   "artist": "DJ Snake, Justin Bieber",
+   "artists": [
+    "DJ Snake",
+    "Justin Bieber"
+   ],
+   "album": "Encore",
+   "year": 2016,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 205.95,
+   "src": "library/audio/c52de69316.mp3",
+   "cover": "library/covers/c52de69316.jpg",
+   "color": "#d3932c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:54:24Z",
+   "mime": "audio/mpeg",
+   "size": 4944541,
+   "storage": "pages",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:rJ0D1GbDq1Q",
+   "story": "library/stories/c52de69316.jpg"
+  },
+  {
+   "id": "19bd738520",
+   "title": "Rockabye",
+   "artist": "Clean Bandit, Sean Paul, Anne-Marie",
+   "artists": [
+    "Clean Bandit",
+    "Sean Paul",
+    "Anne-Marie"
+   ],
+   "album": "Speak Your Mind (Deluxe)",
+   "year": 2016,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": 102,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 251.09,
+   "src": "library/audio/19bd738520.mp3",
+   "cover": "library/covers/19bd738520.jpg",
+   "color": "#b88247",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:53:48Z",
+   "mime": "audio/mpeg",
+   "size": 6028020,
+   "storage": "pages",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "yt:mVw5KiGwqaQ",
+   "story": "library/stories/19bd738520.jpg"
+  },
+  {
+   "id": "b6eb151ebc",
+   "title": "Lovers Rock",
+   "artist": "TV Girl",
+   "artists": [
+    "TV Girl"
+   ],
+   "album": "French Exit",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": 105,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 213.92,
+   "src": "library/audio/b6eb151ebc.mp3",
+   "cover": "library/covers/b6eb151ebc.jpg",
+   "color": "#8f0047",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:52:16Z",
+   "mime": "audio/mpeg",
+   "size": 5135756,
+   "storage": "pages",
+   "lufs": -9.1,
+   "gain": -4.9,
+   "via": "audio",
+   "fileKey": "yt:j_sG_Juncn8",
+   "story": "library/stories/b6eb151ebc.jpg"
+  },
+  {
+   "id": "64f9e5e0b2",
+   "title": "Apocalypse",
+   "artist": "Cigarettes After Sex",
+   "artists": [
+    "Cigarettes After Sex"
+   ],
+   "album": "Cigarettes After Sex",
+   "year": 2017,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "sad",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 290.15,
+   "src": "library/audio/64f9e5e0b2.mp3",
+   "cover": "library/covers/64f9e5e0b2.jpg",
+   "color": "#444b47",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:51:40Z",
+   "mime": "audio/mpeg",
+   "size": 6965155,
+   "storage": "pages",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:DdI598gKkKw",
+   "story": "library/stories/64f9e5e0b2.jpg"
+  },
+  {
+   "id": "6e3b29b8ac",
+   "title": "Sweater Weather",
+   "artist": "The Neighbourhood",
+   "artists": [
+    "The Neighbourhood"
+   ],
+   "album": "I Love You.",
+   "year": 2012,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 124,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 240.4,
+   "src": "library/audio/6e3b29b8ac.mp3",
+   "cover": "library/covers/6e3b29b8ac.jpg",
+   "color": "#787878",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:51:12Z",
+   "mime": "audio/mpeg",
+   "size": 5771100,
+   "storage": "pages",
+   "lufs": -6.7,
+   "gain": -7.3,
+   "via": "audio",
+   "fileKey": "yt:cULQhvuq1Zc",
+   "story": "library/stories/6e3b29b8ac.jpg"
+  },
   {
    "id": "ba4e4f1ef4",
    "title": "Changes",
