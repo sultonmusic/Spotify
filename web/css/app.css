@@ -694,3 +694,26 @@ body.has-player { --has-player: 1; }
 
 /* the invisible reCAPTCHA badge must not cover the sheet buttons */
 .grecaptcha-badge { visibility: hidden; }
+
+/* ---------- add songs chat ---------- */
+.ac-view .topbar { display: flex; align-items: center; }
+.ac-form { border-radius: 22px; align-items: flex-end; }
+.ac-text { flex: 1; min-width: 0; border: 0; outline: 0; resize: none; background: transparent; color: #121212; font: inherit; font-size: 16px; line-height: 1.35; padding: 9px 0; max-height: 120px; }
+.ac-me { white-space: pre-wrap; word-break: break-word; }
+.ac-file { display: flex; align-items: center; gap: 10px; cursor: pointer; min-width: 220px; }
+.ac-file-ico { flex: none; width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.18); }
+.ac-file-info { display: grid; gap: 2px; min-width: 0; }
+.ac-file-info b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ac-file-info span { font-size: 12px; opacity: .8; }
+.ac-reply { width: 92%; }
+.ac-counts { margin-top: 6px; font-size: 13px; color: var(--muted); }
+.ac-bar { height: 4px; margin-top: 8px; border-radius: 2px; background: rgba(255,255,255,.12); overflow: hidden; }
+.ac-bar i { display: block; height: 100%; background: #8b5cf6; transition: width .4s; }
+.ac-rows { display: grid; gap: 2px; margin-top: 8px; }
+.ac-row { display: flex; align-items: center; gap: 8px; min-width: 0; padding: 4px 0; font-size: 14px; }
+.ac-mark { flex: none; width: 20px; text-align: center; }
+.ac-q { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ac-play { flex: none; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--accent, #1ed760); color: #000; }
+.ac-more { margin-top: 6px; font-size: 13px; color: #c4b5fd; }
+.search-add-ask { display: grid; justify-items: end; gap: 4px; flex: none; font-size: 12px; color: var(--muted); }
+.ac-view .topbar h1 { font-size: 22px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

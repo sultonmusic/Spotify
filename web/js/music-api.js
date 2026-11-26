@@ -88,6 +88,17 @@ export async function requestDjQuery(query) {
   return body;
 }
 
+/** «Qo'shiq qo'shish»: a list of songs/artists, added one by one by the station (one job for the whole list). */
+export async function requestDjBatch(queries) {
+  const response = await fetch(`${CONFIG.statsUrl}/api/music/dj-batch`, {
+    method: "POST", headers: { "Content-Type": "application/json" }, cache: "no-store",
+    body: JSON.stringify({ queries }),
+  });
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok) throw Object.assign(new Error(body.error || `Music service returned HTTP ${response.status}`), body);
+  return body;
+}
+
 export async function getDjRequest(id) {
   const response = await fetch(`${CONFIG.statsUrl}/api/music/dj-request/${encodeURIComponent(id)}`, { cache: "no-store" });
   const body = await response.json().catch(() => ({}));

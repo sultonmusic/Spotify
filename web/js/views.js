@@ -323,12 +323,52 @@ export function viewSearch(param) {
     const cardEl = h("div", { class: "search-recognition" }, artEl, info);
     if (local) cardEl.append(h("button", { class: "search-recognition-play", "aria-label": t("common.play"),
       html: icon("play", 18), onclick: () => playSong(local, [local], { type: "search", id: title, title }) }));
-    else if (track.autoAddJobId) cardEl.append(h("span", { class: "search-recognition-missing" }, t("search.voiceAdding")));
-    else if (!siteOwnerToken() || track.ownerConnectionRequired) cardEl.append(h("button", { class: "search-recognition-connect",
-      onclick: (event) => connectOwnerAndQueue(track, event.currentTarget) }, t("search.voiceConnectButton")));
+    else if (track.autoAddJobId || track.botAdding) cardEl.append(h("span", { class: "search-recognition-missing" }, t("search.voiceAdding")));
     else if (track.queueError) cardEl.append(h("span", { class: "search-recognition-missing" }, track.queueError));
-    else cardEl.append(h("span", { class: "search-recognition-missing" }, t("search.voiceNotInLibrary")));
+    else cardEl.append(h("div", { class: "search-add-ask" }, h("span", null, t("search.addAsk")),
+      h("button", { class: "search-recognition-connect", onclick: (event) => addFromShazam(track, event.currentTarget) },
+        t("search.addYes"))));
     return cardEl;
+  };
+
+  /** Shazam found a song the station doesn't have: the bot adds its original (full song), then it plays. */
+  const addFromShazam = async (track, button) => {
+    button.disabled = true;
+    voiceStatus.textContent = t("search.voiceAdding");
+    const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    try {
+      const queued = await requestDjQuery(`${track.subtitle || ""} ${track.title || ""}`.trim());
+      voiceMatch = { ...track, botAdding: true };
+      render();
+      for (let attempt = 0; attempt < 150 && v.isConnected; attempt++) {
+        await wait(4000);
+        let job;
+        try { job = await getDjRequest(queued.jobId); } catch { continue; }
+        if (job.status === "COMPLETED" || job.status === "DUPLICATE") {
+          for (let tries = 0; tries < 30 && v.isConnected; tries++) {
+            await loadLibrary().catch(() => {});
+            const added = job.songId && getSong(job.songId);
+            if (added) {
+              voiceMatch = { ...track, title: added.title, subtitle: added.artist, botAdding: false, existingId: added.id };
+              render();
+              voiceStatus.textContent = t("search.voiceAdded");
+              playSong(added, [added], { type: "search", id: added.id, title: added.title });
+              return;
+            }
+            await wait(5000);
+          }
+          voiceStatus.textContent = t("dj.addTimeout");
+          return;
+        }
+        if (job.status === "FAILED") throw new Error(job.message || t("search.voiceAddFailed"));
+      }
+    } catch (error) {
+      if (!v.isConnected) return;
+      voiceMatch = { ...track, botAdding: false,
+        queueError: error.helperOffline ? t("addchat.offline") : t("search.voiceAddFailed") };
+      voiceStatus.textContent = "";
+      render();
+    }
   };
 
   const monitorRecognition = async (jobId) => {

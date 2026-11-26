@@ -5,6 +5,7 @@ import { player, restore, toggle, next, prev, seek, setVolume, isPlaying, pruneM
 import { h, icon, art, artistArt, likedArt, collage, fmtTime, refreshMarks, toast, go, link, overlayOpen, popOverlay, heartButton, nav, back, verifiedBadge, setShareImpl, setOpenPlayerImpl } from "./ui.js";
 import { t, LANG } from "./i18n.js";
 import * as V from "./views.js";
+import { viewAddChat } from "./addchat.js";
 import { setAccount } from "./account-state.js";
 import { openNowPlaying, openQueue, openFullLyrics, refreshNowPlaying } from "./nowplaying.js";
 import { openShare } from "./share.js";
@@ -29,8 +30,9 @@ const ROUTES = [
   [/^\/song\/([^/]+)(?:\/(\d+))?$/, (id, at) => V.viewSong(id, Number(at) || 0)],
   [/^\/add$/, () => V.viewAdd()],
   [/^\/dj$/, () => V.viewDJ()],
+  [/^\/qoshish$/, () => viewAddChat(), "add"],
 ];
-const ROOT_TABS = new Set(["home", "search", "library"]);
+const ROOT_TABS = new Set(["home", "search", "add", "library"]);
 const scrollMemo = new Map();
 const visited = [];
 let currentPath = null;
@@ -190,6 +192,23 @@ function syncFabs() {
 }
 on("track", syncFabs);
 
+// Inside Telegram the system media notification / lock-screen player can't be shown (Telegram's web view
+// doesn't support it). The first time a song plays there, offer to open the site in the browser, where it works.
+on("track", () => {
+  if (!inTelegram || localStorage.getItem("ms.tgMediaHint")) return;
+  localStorage.setItem("ms.tgMediaHint", "1");
+  const url = location.href.split("#")[0];
+  const text = { uz: "Telegram ichida qo'shiq bildirishnomada va qulf ekranida ko'rinmaydi. Brauzerda ochsangiz, pleyer bildirishnomada chiqadi.",
+    ru: "Внутри Telegram плеер не показывается в уведомлениях и на экране блокировки. Откройте сайт в браузере — там он будет.",
+    en: "Inside Telegram the player can't appear in notifications or on the lock screen. Open the site in your browser to get it." }[LANG]
+    || "Open the site in your browser to control music from notifications.";
+  const open = { uz: "Brauzerda ochish", ru: "Открыть в браузере", en: "Open in browser" }[LANG] || "Open in browser";
+  try {
+    window.Telegram.WebApp.showPopup({ message: text, buttons: [{ id: "open", type: "default", text: open }, { type: "close" }] },
+      (id) => { if (id === "open") window.Telegram.WebApp.openLink(url); });
+  } catch { /* old Telegram versions */ }
+});
+
 // ------------------------------------------------------------------ sidebar (desktop)
 let sidebarBuilt = false;
 function buildSidebar() {
@@ -204,6 +223,7 @@ function buildSidebar() {
       h("nav", { class: "side-nav" },
         h("a", { href: "#/", dataset: { tab: "home" }, html: `${icon("home")}<span>${t("nav.home")}</span>` }),
         h("a", { href: "#/search", dataset: { tab: "search" }, html: `${icon("search")}<span>${t("nav.search")}</span>` }),
+        h("a", { href: "#/qoshish", dataset: { tab: "add" }, html: `${icon("plus")}<span>${t("nav.add")}</span>` }),
         h("a", { href: "#", onclick: (e) => { e.preventDefault(); V.openSettings(); }, html: `<span style="width:24px;text-align:center">🌐</span><span>${t("settings.language")}: ${LANG.toUpperCase()}</span>` }),
         addLink)),
     libBox);
@@ -229,7 +249,7 @@ let sidebarFill = () => {};
 function buildTabbar() {
   const bar = document.getElementById("tabbar");
   bar.replaceChildren();
-  for (const [tab, ico, label, href] of [["home", "home", t("nav.home"), "#/"], ["search", "search", t("nav.search"), "#/search"], ["library", "library", t("nav.library"), "#/library"]]) {
+  for (const [tab, ico, label, href] of [["home", "home", t("nav.home"), "#/"], ["search", "search", t("nav.search"), "#/search"], ["add", "plus", t("nav.add"), "#/qoshish"], ["library", "library", t("nav.library"), "#/library"]]) {
     bar.append(h("a", { href, dataset: { tab, icon: ico }, onclick: (e) => {
       const here = parsePath();
       if (tab === "search" && currentTab === "search") {

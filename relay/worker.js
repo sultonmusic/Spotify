@@ -842,13 +842,53 @@ async function queueDjQuery(request, env, rawQuery) {
   return musicJson(request, { jobId: id, status: "QUEUED", query }, 202);
 }
 
+// "Qo'shiq qo'shish" chat: one message (or a .txt list) with up to 300 songs/artists. They go into ONE job
+// that the station works through one by one (continuing in follow-up runs), skipping songs it already has.
+const DJ_BATCH_MAX = 300;
+async function queueDjBatch(request, env) {
+  if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  if (!await stats(env).claimIdentify(await sha256(`cavi-dj-batch:${ip}`), 2)) {
+    return musicJson(request, { error: "too many requests; wait a minute" }, 429);
+  }
+  let body;
+  try { body = await request.json(); } catch { return musicJson(request, { error: "invalid list" }, 400); }
+  const seen = new Set();
+  const queries = (Array.isArray(body?.queries) ? body.queries : [])
+    .map((q) => String(q || "").trim().replace(/\s+/g, " ").slice(0, 120))
+    .filter((q) => q.length >= 2 && !seen.has(musicNorm(q)) && seen.add(musicNorm(q)));
+  if (!queries.length) return musicJson(request, { error: "empty list" }, 400);
+  if (queries.length > DJ_BATCH_MAX) return musicJson(request, { error: `at most ${DJ_BATCH_MAX} songs at once` }, 413);
+  const online = await telegramInbox(env).fetch("https://telegram-inbox/dl/online").then((r) => r.json()).catch(() => ({}));
+  if (!online.online) return musicJson(request, { error: "download helper is offline", helperOffline: true }, 503);
+  const id = crypto.randomUUID();
+  const payload = new TextEncoder().encode(JSON.stringify({ origin: "dj-batch", queries }));
+  const meta = { id, uid: DJ_PUBLIC_UID, fileName: "dj-batch.json", mime: "application/json",
+    kind: "identify", size: payload.byteLength, fileKey: await sha256(`cavi-dj-batch\n${id}`) };
+  const stub = webMusicDO(env, id);
+  const saved = await stub.fetch("https://music-jobs/create", { method: "POST",
+    headers: { "Content-Type": "application/octet-stream", "X-Music-Meta": encodeJsonHeader(meta) }, body: payload });
+  if (!saved.ok) return musicJson(request, await saved.json().catch(() => ({ error: "could not queue this list" })), saved.status);
+  const dispatch = await github(env, "/actions/workflows/web-music.yml/dispatches", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ref: env.BRANCH, inputs: { job_id: id } }),
+  });
+  if (!dispatch.ok) {
+    await stub.fetch(`https://music-jobs/status/${id}`, { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ uid: DJ_PUBLIC_UID, status: "FAILED", message: "processor could not start" }) });
+    return musicJson(request, { error: "could not start music processing" }, 503);
+  }
+  return musicJson(request, { jobId: id, status: "QUEUED", count: queries.length }, 202);
+}
+
 async function djRequestStatus(request, env, id) {
   if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
   const response = await webMusicDO(env, id).fetch(`https://music-jobs/job/${id}`, { headers: { "X-Music-Uid": DJ_PUBLIC_UID } });
   if (!response.ok) return musicJson(request, { error: "request not found" }, response.status);
   const job = await response.json();
   const name = job.result?.title ? `${job.result.artist || ""} — ${job.result.title}`.replace(/^ — /, "") : "";
-  return musicJson(request, { status: job.status, songId: job.result?.id || null, message: job.message || "", name });
+  return musicJson(request, { status: job.status, songId: job.result?.id || null, message: job.message || "", name,
+    items: Array.isArray(job.result?.items) ? job.result.items : undefined });
 }
 
 // ------------------------------------------------------------------ health (no secrets in the answer)
@@ -942,6 +982,7 @@ async function handle(request, env, ctx) {
   if (url.pathname === "/api/music/search" && request.method === "GET") return searchMusic(request, env, url);
   if (url.pathname === "/api/music/catalog" && request.method === "GET") return searchCatalog(request, env, url);
   if (url.pathname === "/api/music/dj-request" && request.method === "POST") return queueDjRequest(request, env);
+  if (url.pathname === "/api/music/dj-batch" && request.method === "POST") return queueDjBatch(request, env);
   const djRequest = url.pathname.match(/^\/api\/music\/dj-request\/([a-f0-9-]{36})$/i);
   if (djRequest && request.method === "GET") return djRequestStatus(request, env, djRequest[1]);
   if (url.pathname === "/api/music/upload" && request.method === "POST") return createMusicUpload(request, env);
