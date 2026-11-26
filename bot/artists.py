@@ -178,7 +178,7 @@ class Artists:
         for name, p in list(self.profiles.items()):
             if budget <= 0:
                 break
-            if p.get("imageSource") == "ytmusic" or (p.get("ytPhotoChecked") or "") > week_ago:
+            if p.get("imageSource") in ("ytmusic", "manual") or (p.get("ytPhotoChecked") or "") > week_ago:
                 continue
             budget -= 1
             p["ytPhotoChecked"] = _now()
@@ -208,7 +208,7 @@ class Artists:
         for name, p in list(self.profiles.items()):
             if budget <= 0:
                 break
-            if p.get("imageSource") == "spotify" or (p.get("spotifyChecked") or "") > week_ago:
+            if p.get("imageSource") in ("spotify", "manual") or (p.get("spotifyChecked") or "") > week_ago:
                 continue
             budget -= 1
             found = spotify.artist(name)

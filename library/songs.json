@@ -2506,29 +2506,20 @@
    "verifiedAt": "2026-11-23T14:07:47Z",
    "bioChecked": "2026-11-23T14:09:53Z",
    "bio": {
-    "en": "Kasim Sulton is an American bassist, keyboardist, guitarist, and vocalist. Best known for his work with Utopia, Sulton sang lead on 1979's \"Set Me Free\", Utopia's only top 40 hit in the United States. As a solo artist, Sulton hit the Canadian top 40 in 1982 with \"Don't Break My Heart\".",
-    "uz": "Qosim Sulton - amerikalik baschi, klaviaturachi, gitarachi va vokalchi. Utopiya bilan ishi bilan mashhur bo‘lgan Sulton 1979-yilda “Set Me Free” qo‘shig‘ida bosh qo‘shiq kuylagan, Utopiyaning Qo‘shma Shtatlardagi yagona eng yaxshi 40 ta hiti. Sulton yakkaxon ijrochi sifatida 1982 yilda \"Yuragimni sindirma\" qo'shig'i bilan Kanadaning eng yaxshi 40 taligiga kirgan.",
-    "ru": "Касим Салтон — американский басист, клавишник, гитарист и вокалист. Самый известный благодаря своей работе с Utopia, Султон спел главную роль в песне 1979 года \"Set Me Free\", единственном хите Utopia, входящем в топ-40 в Соединенных Штатах. Как сольный исполнитель, Султон вошел в топ-40 Канады в 1982 году с песней «Don't Break My Heart»."
+    "uz": "Sulton — qo'shiq muallifi va ijrochi. Qo'shiqlari matni va g'oyasi o'ziniki. Asarlari Spotify, Apple Music va YouTube Music'da.",
+    "ru": "Sulton — автор и исполнитель песен. Тексты и идеи песен — его собственные. Музыка доступна в Spotify, Apple Music и YouTube Music.",
+    "en": "Sulton is a songwriter and artist who writes his own lyrics and concepts. His music is on Spotify, Apple Music and YouTube Music."
    },
-   "wiki": {
-    "en": "https://en.wikipedia.org/wiki/Kasim_Sulton"
-   },
-   "desc": {
-    "en": "American musician (born 1955)"
-   },
-   "bioTr": [
-    "uz",
-    "ru"
-   ],
    "deezerId": 4591616,
    "deezer": "https://www.deezer.com/artist/4591616",
-   "image": "library/artists/sulton-yt.jpg",
-   "color": "#3c66a0",
+   "image": "library/artists/sulton-photo.jpg",
+   "color": "#595959",
    "fans": 0,
    "albums": 5,
    "ytPhotoChecked": "2026-11-26T21:04:06Z",
-   "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC8CfZwPTjbA0DQ4swuPtSEw"
+   "imageSource": "manual",
+   "youtubeMusic": "https://music.youtube.com/channel/UC8CfZwPTjbA0DQ4swuPtSEw",
+   "youtube": "https://www.youtube.com/channel/UCqOAq-AffvkajUeyEYE0kPw"
   },
   "Beyoncé": {
    "aliases": [],
