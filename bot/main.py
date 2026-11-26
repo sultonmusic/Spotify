@@ -291,6 +291,9 @@ class Station:
             self.handle_callback(update["callback_query"])
             return
         msg = update.get("message")
+        if msg and msg.get("chat", {}).get("type") in ("group", "supergroup"):
+            archive.group_message(self, msg)  # yopiq guruhni zaxira arxiv qilib ulash
+            return
         if not msg or msg.get("chat", {}).get("type") != "private":
             return
         user_id = (msg.get("from") or {}).get("id", 0)
@@ -1407,8 +1410,8 @@ class Station:
     def cmd_arxiv(self, msg: dict, arg: str) -> None:
         chat = self.state.get("archive_chat")
         if not chat:
-            self.send(msg["chat"]["id"], "🗄 Zaxira arxiv ulanmagan. Botni yopiq kanalga admin qiling va "
-                                         "kanaldagi istalgan postni shu yerga forward qiling.")
+            self.send(msg["chat"]["id"], "🗄 Zaxira arxiv ulanmagan. Botni yopiq guruhga qo'shib, guruhga /arxiv "
+                                         "yozing (kanal bo'lsa — kanaldagi postni shu yerga forward qiling).")
             return
         done = self.state.get("archived") or {}
         songs = [s for s in self.lib.songs if s.get("src") and not s.get("previewOnly")]

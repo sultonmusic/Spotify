@@ -51,6 +51,27 @@ def connect(station, msg: dict) -> bool:
     return True
 
 
+def group_message(station, msg: dict) -> None:
+    """Guruhdagi xabar: egasi «/arxiv» yozsa (yoki botni belgilasa) — shu guruh arxiv bo'ladi."""
+    chat = msg.get("chat") or {}
+    if msg.get("migrate_to_chat_id") and station.state.get("archive_chat") == chat.get("id"):
+        station.state["archive_chat"] = msg["migrate_to_chat_id"]  # guruh supergroup'ga aylandi
+        station.state_dirty = True
+        return
+    text = (msg.get("text") or msg.get("caption") or "").strip().lower()
+    me = (station.bot.safe("getMe") or {}).get("username", "").lower()
+    asked = text.startswith("/arxiv") or text.startswith("/archive") or (me and f"@{me}" in text)
+    user_id = (msg.get("from") or {}).get("id", 0)
+    if not asked or not station.authorized(user_id) or station.state.get("archive_chat") == chat.get("id"):
+        return
+    station.state["archive_chat"] = chat["id"]
+    station.state["archived"] = {}
+    station.state_dirty = True
+    total = sum(1 for s in station.lib.songs if s.get("src") and not s.get("previewOnly"))
+    station.send(chat["id"], f"✅ Bu guruh Cavi Music zaxira arxivi sifatida ulandi. Saytdagi {total} ta qo'shiq "
+                             "bu yerga asta-sekin yuboriladi, keyin har bir yangi qo'shiq ham o'zi tushadi.")
+
+
 def _caption(song: dict) -> str:
     head = f"🎵 {song.get('artist') or ''} — {song.get('title') or ''}".strip(" —")
     extra = " · ".join(str(x) for x in (song.get("album"), song.get("year"), song.get("genre")) if x)
