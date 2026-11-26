@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-25T17:12:32Z",
- "count": 115,
+ "updatedAt": "2026-11-26T18:44:49Z",
+ "count": 116,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -2247,7 +2247,13 @@
    "bioTr": [
     "uz",
     "ru"
-   ]
+   ],
+   "deezerId": 4591616,
+   "deezer": "https://www.deezer.com/artist/4591616",
+   "image": "library/artists/sulton.jpg",
+   "color": "#840b10",
+   "fans": 0,
+   "albums": 5
   },
   "Beyoncé": {
    "aliases": [],
@@ -2299,6 +2305,54 @@
   }
  },
  "songs": [
+  {
+   "id": "0c2065487b",
+   "title": "Falling Through Me",
+   "artist": "Sulton",
+   "artists": [
+    "Sulton"
+   ],
+   "album": "01",
+   "year": 2025,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 30.0,
+   "src": "library/audio/0c2065487b.m4a",
+   "cover": "library/covers/0c2065487b.jpg",
+   "color": "#03508c",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T18:44:49Z",
+   "mime": "audio/mp4",
+   "size": 1044304,
+   "storage": "pages",
+   "lufs": -12.3,
+   "gain": -1.7,
+   "via": "shazam",
+   "fileKey": "d7b24a3a6b66dbc5f8b9f42500dd7ffdbad0df57cac78d1e55b05c3f9603d8c9",
+   "story": "library/stories/0c2065487b.jpg",
+   "previewOnly": true,
+   "previewOfDuration": 173.44,
+   "updatedAt": "2026-11-26T18:44:49Z"
+  },
   {
    "id": "49e6479fe7",
    "title": "ما تيسر من سورة مريم 2",
