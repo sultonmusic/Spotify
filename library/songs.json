@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T21:07:10Z",
- "count": 169,
+ "updatedAt": "2026-11-26T21:13:19Z",
+ "count": 170,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -3629,9 +3629,69 @@
    "verifiedAt": "2026-11-26T21:06:57Z",
    "fans": 24147812,
    "albums": 97
+  },
+  "Travis Scott": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4495513,
+   "itunesId": 549236696,
+   "deezer": "https://www.deezer.com/artist/4495513",
+   "apple": "https://music.apple.com/us/artist/travis-scott/549236696",
+   "image": "library/artists/travis-scott.jpg",
+   "color": "#7f6b68",
+   "checked": "2026-11-26T21:13:11Z",
+   "verifiedAt": "2026-11-26T21:13:11Z",
+   "fans": 3166001,
+   "albums": 66
   }
  },
  "songs": [
+  {
+   "id": "9c994308f1",
+   "title": "goosebumps",
+   "artist": "Travis Scott",
+   "artists": [
+    "Travis Scott"
+   ],
+   "album": "Birds In The Trap Sing McKnight",
+   "year": 2016,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 130,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 243.84,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9c994308f1.mp3",
+   "cover": "library/covers/9c994308f1.jpg",
+   "color": "#001d8f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:13:19Z",
+   "mime": "audio/mpeg",
+   "size": 5853480,
+   "storage": "release",
+   "lufs": -7.5,
+   "gain": -6.5,
+   "via": "audio",
+   "fileKey": "yt:9mahKFNuHqM",
+   "story": "library/stories/9c994308f1.jpg"
+  },
   {
    "id": "c99f9d7adf",
    "title": "God's Plan",
