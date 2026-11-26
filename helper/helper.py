@@ -25,7 +25,7 @@ import yt_dlp
 
 HERE = Path(__file__).resolve().parent
 RELAY = "https://cavi-music-relay.sales-infarmatik-tj.workers.dev"
-UPDATE_URL = "https://raw.githubusercontent.com/sultonmusic/Spotify/feature/cavi-universal-music-search/helper/helper.py"
+UPDATE_URL = "https://raw.githubusercontent.com/sultonmusic/Spotify/ccr-804fe7ec-qgezod/helper/helper.py"
 CACHE_FILE = HERE / "helper_cache.json"
 MAX_UPLOAD = 50 * 1024 * 1024
 
