@@ -133,6 +133,39 @@ def report(job_id: str, **result) -> None:
         time.sleep(3)
 
 
+_NOT_ORIGINAL = re.compile(r"cover|remix|live|karaoke|slowed|sped|reverb|instrumental|8d|nightcore|acoustic|"
+                           r"tiktok|minus|kavers|ремикс|кавер", re.I)
+
+
+def _words(text: str) -> list:
+    return re.sub(r"[^\w\s]", " ", (text or "").lower()).split()
+
+
+def same_song_here(line: str, blocked_id: str) -> list:
+    """YouTube bu mintaqada yopgan qo'shiq uchun: shu yerda ochiq bo'lgan o'sha qo'shiqning boshqa yuklamalari."""
+    artist, title = split_line(line)
+    if not title:
+        artist, title = "", line
+    want_title = [w for w in _words(re.sub(r"[\(\[].*?[\)\]]", "", title)) if len(w) > 1]
+    want_artist = [w for w in _words((artist or "").split(",")[0]) if len(w) > 1]
+    try:
+        with yt_dlp.YoutubeDL({"quiet": True, "no_warnings": True, "extract_flat": True}) as ydl:
+            found = ydl.extract_info(f"ytsearch10:{line}", download=False) or {}
+    except Exception as exc:
+        log("qidiruv xatosi:", exc)
+        return []
+    out = []
+    for e in found.get("entries") or []:
+        vid, name = e.get("id"), e.get("title") or ""
+        hay = _words(f"{name} {e.get('channel') or e.get('uploader') or ''}")
+        if not vid or vid == blocked_id or _NOT_ORIGINAL.search(name):
+            continue
+        if all(w in hay for w in want_title) and all(w in hay for w in want_artist):
+            official = all(w in _words(e.get("channel") or e.get("uploader") or "") for w in want_artist)
+            out.append((0 if official else 1, vid))  # the artist's own channel first
+    return [vid for _, vid in sorted(out, key=lambda x: x[0])][:3]
+
+
 def handle_site(job: dict) -> None:
     """Saytdagi DJ so'rovi: MP3 egasining chatiga jim yuboriladi, file_id stansiyaga qaytariladi."""
     job_id, video_id = job["job_id"], job["video_id"]
@@ -142,7 +175,21 @@ def handle_site(job: dict) -> None:
             report(job_id, file_id=cache[video_id])
             log("sayt (keshdan):", video_id)
             return
-        msg = upload_mp3(job["chat_id"], video_id, job.get("line") or "", silent=True)
+        try:
+            msg = upload_mp3(job["chat_id"], video_id, job.get("line") or "", silent=True)
+        except Exception as exc:
+            if "available" not in str(exc).lower() and "blocked" not in str(exc).lower():
+                raise
+            msg = None
+            for other in same_song_here(job.get("line") or "", video_id):  # yopiq bo'lsa — boshqa yuklamasi
+                log("yopiq, boshqasi sinanmoqda:", other)
+                try:
+                    msg = upload_mp3(job["chat_id"], other, job.get("line") or "", silent=True)
+                    break
+                except Exception as again:
+                    log("bu ham bo'lmadi:", other, str(again)[:120])
+            if msg is None:
+                raise
         report(job_id, file_id=(msg.get("audio") or {}).get("file_id"), message_id=msg.get("message_id"),
                chat_id=job["chat_id"])
         log("sayt uchun tayyor:", video_id)

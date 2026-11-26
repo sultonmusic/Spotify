@@ -139,6 +139,11 @@ def search(query: str) -> list[dict]:
         hay = _words(f"{r['artist']} {r['title']}")
         coverage = sum(_word_hit(w, hay) for w in qwords) / max(1, len(qwords))
         score = coverage * 100 + bonus[r["kind"]] - i * 0.3
+        # the artist the user typed is the one who sings it ("Queen Bohemian Rhapsody" → Queen, not a cover
+        # whose title merely mentions "(Queen)")
+        main_artist = _words(r["artist"].split(",")[0]) if r["artist"] else []
+        if main_artist and all(_word_hit(w, qwords) for w in main_artist):
+            score += 25
         if not asked_variant and _VARIANT.search(r["title"]):
             score -= 30
         if r["duration"] > 15 * 60:

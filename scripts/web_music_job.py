@@ -220,11 +220,52 @@ def first_original(query: str) -> dict | None:
     from bot import quick
     from bot.main import variant_of
 
+    return (original_candidates(query) or [None])[0]
+
+
+def original_candidates(query: str, limit: int = 4) -> list[dict]:
+    """The first original result and other uploads of the SAME song (its official video, another official
+    audio…), best first. YouTube blocks some official audio uploads in some countries ("Video unavailable"):
+    then the next upload of the same song is tried."""
+    from bot import quick
+    from bot.main import variant_of
+
     results = quick.search(query)
     asked_variant = bool(quick._VARIANT.search(query))
     clean = [r for r in results if asked_variant or not (quick._VARIANT.search(r["title"]) or variant_of(r["title"]))]
     official = [r for r in clean if r["kind"] in ("artist", "song")]
-    return (official or clean or [None])[0]
+    ordered = official + [r for r in clean if r not in official]
+    if not ordered:
+        return []
+    base = lambda r: re.sub(r"\s*[\(\[].*?[\)\]]", "", quick._norm(split_artist_title(r)[1])).strip()
+    singer = lambda r: quick._norm((split_artist_title(r)[0] or "").split(",")[0])
+    want, who = base(ordered[0]), singer(ordered[0])
+    return [r for r in ordered if r is ordered[0] or (want and base(r) == want and who and singer(r) == who)][:limit]
+
+
+def helper_mp3(candidates: list[dict], name: str, owner, first_helper_id: str | None = None) -> tuple[dict | None, dict]:
+    """Asks the helper device for the MP3 of the first upload that works. Returns (upload used, helper result)."""
+    import uuid
+
+    got: dict = {}
+    for i, cand in enumerate(candidates):
+        helper_id = first_helper_id if i == 0 and first_helper_id else None
+        if not helper_id:
+            helper_id = str(uuid.uuid4())
+            response = requests.post(f"{api_base()}/internal/dl/enqueue", headers={"X-Relay-Key": dl_key()}, timeout=20,
+                                     json={"mode": "site", "job_id": helper_id, "chat_id": owner,
+                                           "video_id": cand["id"], "line": name[:200]})
+            response.raise_for_status()
+            if not response.json().get("helperOnline"):
+                raise RuntimeError("Yuklovchi qurilma o'chiq")
+        got = wait_for_helper(helper_id, minutes=6)
+        if got.get("file_id") and not got.get("error"):
+            return cand, got
+        error = str(got.get("error") or "")
+        print(f"[web-music] helper error for {name!r} ({cand['id']}): {error}")
+        if "available" not in error.lower() and "blocked" not in error.lower():
+            break  # only a blocked/unavailable upload is worth retrying with another one
+    return None, got
 
 
 def split_artist_title(r: dict) -> tuple[str, str]:
@@ -261,7 +302,8 @@ def process_dj_query(job_id: str, result_path: Path, query: str) -> None:
     from bot.main import Station
 
     update_status(job_id, "PROCESSING", "Bot qo'shiqni qidirmoqda…")
-    chosen = first_original(query)
+    candidates = original_candidates(query)
+    chosen = candidates[0] if candidates else None
     if not chosen:
         raise RuntimeError("Hech narsa topilmadi")
     artist, title = split_artist_title(chosen)
@@ -279,15 +321,10 @@ def process_dj_query(job_id: str, result_path: Path, query: str) -> None:
             raise RuntimeError("station owner chat is unknown")
         update_status(job_id, "PROCESSING", f"Topildi: {name}. Audio tayyorlanmoqda…",
                       {"title": title, "artist": artist})
-        job = {"mode": "site", "job_id": job_id, "chat_id": owner, "video_id": chosen["id"], "line": name[:200]}
-        response = requests.post(f"{api_base()}/internal/dl/enqueue", json=job,
-                                 headers={"X-Relay-Key": dl_key()}, timeout=20)
-        response.raise_for_status()
-        if not response.json().get("helperOnline"):
-            raise RuntimeError("Yuklovchi qurilma o'chiq")
-        got = wait_for_helper(job_id)
-        if got.get("error") or not got.get("file_id"):
+        used, got = helper_mp3(candidates, name, owner)
+        if not used:
             raise RuntimeError(f"Yuklovchi xatosi: {got.get('error') or 'fayl yo‘q'}")
+        chosen = used
 
         with tempfile.TemporaryDirectory(prefix="cavi-dj-yt-") as temp_dir:
             source = Path(temp_dir) / "song.mp3"
@@ -387,10 +424,11 @@ def process_dj_batch(job_id: str, result_path: Path, queries: list[str]) -> None
         if k >= total or k in prepared:
             return
         try:
-            chosen = first_original(queries[k])
+            candidates = original_candidates(queries[k])
         except Exception as exc:
             print(f"[web-music] search failed for {queries[k]!r}: {exc}")
-            chosen = None
+            candidates = []
+        chosen = candidates[0] if candidates else None
         if not chosen:
             prepared[k] = ("x", None)
             return
@@ -407,13 +445,12 @@ def process_dj_batch(job_id: str, result_path: Path, queries: list[str]) -> None
         response.raise_for_status()
         if not response.json().get("helperOnline"):
             raise RuntimeError("Yuklovchi qurilma o'chiq")
-        prepared[k] = ("q", (chosen, artist, title, name, helper_id))
+        prepared[k] = ("q", (candidates, artist, title, name, helper_id))
 
     def add_prepared(data: tuple) -> tuple[str, str | None]:
-        chosen, artist, title, name, helper_id = data
-        got = wait_for_helper(helper_id, minutes=6)
-        if got.get("error") or not got.get("file_id"):
-            print(f"[web-music] helper error for {name!r}: {got.get('error')}")
+        candidates, artist, title, name, helper_id = data
+        chosen, got = helper_mp3(candidates, name, owner, first_helper_id=helper_id)
+        if not chosen:
             return "f", None
         with tempfile.TemporaryDirectory(prefix="cavi-dj-batch-") as temp_dir:
             source = Path(temp_dir) / "song.mp3"
