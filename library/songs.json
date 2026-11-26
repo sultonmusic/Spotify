@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T21:29:15Z",
- "count": 170,
+ "updatedAt": "2026-11-26T21:30:34Z",
+ "count": 173,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -3887,9 +3887,193 @@
    "ytPhotoChecked": "2026-11-26T21:17:42Z",
    "imageSource": "ytmusic",
    "youtubeMusic": "https://music.youtube.com/channel/UCf_gP4AMRSgAfyzbkeS9k4g"
+  },
+  "Karolina Protsenko": {
+   "aliases": [],
+   "verified": true,
+   "itunesId": 1414152307,
+   "apple": "https://music.apple.com/us/artist/karolina-protsenko/1414152307",
+   "checked": "2026-11-26T21:23:11Z",
+   "verifiedAt": "2026-11-26T21:23:11Z"
+  },
+  "Teddy Swims": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 64927672,
+   "itunesId": 1462541757,
+   "deezer": "https://www.deezer.com/artist/64927672",
+   "apple": "https://music.apple.com/us/artist/teddy-swims/1462541757",
+   "image": "library/artists/teddy-swims.jpg",
+   "color": "#576b7f",
+   "checked": "2026-11-26T21:30:02Z",
+   "verifiedAt": "2026-11-26T21:30:02Z",
+   "fans": 440424,
+   "albums": 79
+  },
+  "ROSÉ": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 126335112,
+   "itunesId": 1406242696,
+   "deezer": "https://www.deezer.com/artist/126335112",
+   "apple": "https://music.apple.com/us/artist/ros%C3%A9/1406242696",
+   "image": "library/artists/rose.jpg",
+   "color": "#417cbe",
+   "checked": "2026-11-26T21:30:27Z",
+   "verifiedAt": "2026-11-26T21:30:27Z",
+   "fans": 572035,
+   "albums": 7
+  },
+  "Bruno Mars": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 429675,
+   "deezer": "https://www.deezer.com/artist/429675",
+   "image": "library/artists/bruno-mars.jpg",
+   "color": "#808080",
+   "checked": "2026-11-26T21:30:28Z",
+   "verifiedAt": "2026-11-26T21:30:28Z",
+   "fans": 12887422,
+   "albums": 38
   }
  },
  "songs": [
+  {
+   "id": "6a3b34b154",
+   "title": "APT.",
+   "artist": "ROSÉ, Bruno Mars",
+   "artists": [
+    "ROSÉ",
+    "Bruno Mars"
+   ],
+   "album": "APT.",
+   "year": 2024,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "romantic",
+    "calm"
+   ],
+   "language": "ko",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 173.43,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/6a3b34b154.mp3",
+   "cover": "library/covers/6a3b34b154.jpg",
+   "color": "#f20d4a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:30:34Z",
+   "mime": "audio/mpeg",
+   "size": 4164058,
+   "storage": "release",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "yt:DiTd771WumE",
+   "story": "library/stories/6a3b34b154.jpg"
+  },
+  {
+   "id": "5517664c19",
+   "title": "Lose Control",
+   "artist": "Teddy Swims",
+   "artists": [
+    "Teddy Swims"
+   ],
+   "album": "I've Tried Everything But Therapy (Part 1)",
+   "year": 2005,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 264.89,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5517664c19.mp3",
+   "cover": "library/covers/5517664c19.jpg",
+   "color": "#c4450d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:30:07Z",
+   "mime": "audio/mpeg",
+   "size": 6359216,
+   "storage": "release",
+   "lufs": -21.7,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:AeedWEyMYYo",
+   "story": "library/stories/5517664c19.jpg"
+  },
+  {
+   "id": "c8a42ddd9e",
+   "title": "My Heart Will Go On (Celine Dion)",
+   "artist": "Karolina Protsenko",
+   "artists": [
+    "Karolina Protsenko"
+   ],
+   "album": "My Heart Will Go On",
+   "year": 2021,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 109.88,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c8a42ddd9e.mp3",
+   "cover": "library/covers/c8a42ddd9e.jpg",
+   "color": "#fc9103",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:23:12Z",
+   "mime": "audio/mpeg",
+   "size": 2638837,
+   "storage": "release",
+   "lufs": -15.6,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:Btpge7QzknA",
+   "story": "library/stories/c8a42ddd9e.jpg"
+  },
   {
    "id": "9c994308f1",
    "title": "goosebumps",
