@@ -51,6 +51,7 @@ const S = {
   "addchat.waiting": { ru: "в очереди: {n}", en: "{n} queued", uz: "{n} tasi navbatda" },
   "addchat.showAll": { ru: "Показать все ({n})", en: "Show all ({n})", uz: "Hammasini ko'rsatish ({n})" },
   "addchat.showLess": { ru: "Свернуть", en: "Show less", uz: "Yig'ish" },
+  "addchat.retryFailed": { ru: "Повторить ошибки ({n})", en: "Retry failed ({n})", uz: "Xatolarni qayta urinish ({n})" },
   "addchat.retry": { ru: "Повторить", en: "Retry", uz: "Qayta urinish" },
   "search.addAsk": { ru: "Добавить на сайт?", en: "Add to the site?", uz: "Saytga qo'shilsinmi?" },
   "search.addYes": { ru: "Добавить", en: "Add", uz: "Qo'shish" },

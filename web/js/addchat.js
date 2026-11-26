@@ -183,6 +183,11 @@ function botBubble(entry) {
   }
   if (entry.status === "offline" || entry.status === "failed") {
     box.append(h("button", { class: "btn accent dj-play", onclick: () => start(entry) }, t("addchat.retry")));
+  } else if (entry.status === "done" && c.f) {
+    // only the lines that failed go again (as a new message)
+    const failed = entry.queries.filter((_, i) => entry.items[i]?.[0] === "f");
+    box.append(h("button", { class: "btn accent dj-play", onclick: () => { send(failed.join("\n")); } },
+      t("addchat.retryFailed", { n: failed.length })));
   }
   return box;
 }
