@@ -10,13 +10,17 @@ qayta bajariladi (shu sababli foydalanuvchilar qidiruvi repozitoriyga yozilmaydi
 """
 from __future__ import annotations
 
+import hashlib
 import html
+import os
 import re
 import tempfile
 from pathlib import Path
 from typing import Any
 
-from . import audio, lookup
+import requests
+
+from . import audio, config, lookup
 from .telegram_api import TelegramError
 
 PAGE_SIZE = 10
@@ -264,6 +268,29 @@ class QuickSearch:
                              performer=song["artist"], duration=int(song.get("duration") or 0))
         return bool(sent)
 
+    def queue_for_helper(self, chat_id: int, video_id: str, line: str) -> None:
+        """MP3 ishini Cloudflare navbatiga qo'yadi; kompyuterdagi helper.py uni yuklab, o'zi yuboradi."""
+        wait = self.st.send(chat_id, "⏳ Audio tayyorlanmoqda...")
+        job = {"chat_id": chat_id, "video_id": video_id, "line": line[:200],
+               "wait_id": (wait or {}).get("message_id")}
+        key = hashlib.sha256(f"cavi-dl:{config.TOKEN}".encode()).hexdigest()
+        try:
+            resp = requests.post(f"{config.RELAY_URL}/internal/dl/enqueue", json=job,
+                                 headers={"X-Relay-Key": key}, timeout=15)
+            online = resp.ok and resp.json().get("helperOnline")
+        except (requests.RequestException, ValueError) as exc:
+            print(f"[quick] queue: {exc}")
+            resp, online = None, False
+        if resp is not None and resp.ok and online:
+            return  # helper yuklab yuboradi va "tayyorlanmoqda" xabarini o'chiradi
+        text = ("💻 Yuklovchi kompyuter hozir o'chiq — qo'shiq navbatga qo'yildi, kompyuter yoqilishi bilan "
+                "(1 soat ichida) yuboriladi." if resp is not None and resp.ok else
+                "⚠️ Yuklash navbati vaqtincha ishlamadi. Birozdan keyin qayta urinib ko'ring.")
+        if wait:
+            self.st.edit(chat_id, wait["message_id"], text)
+        else:
+            self.st.send(chat_id, text)
+
     def send_mp3(self, chat_id: int, video_id: str, reply_to: int | None = None, line: str = "") -> None:
         cache = self.st.state.setdefault("yt_files", {})
         if video_id in cache:  # avval yuborilgan — darhol jo'natamiz
@@ -274,6 +301,11 @@ class QuickSearch:
 
         song = self.library_song(line)
         if song and self.send_library_song(chat_id, song):
+            return
+
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            # YouTube GitHub serverlaridan yuklashni bloklaydi — ishni egasining kompyuteridagi yordamchiga beramiz
+            self.queue_for_helper(chat_id, video_id, line)
             return
 
         wait = self.st.send(chat_id, "⏳ Audio tayyorlanmoqda...")
