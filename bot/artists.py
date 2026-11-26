@@ -163,6 +163,41 @@ class Artists:
                 s["artists"], s["artist"] = canon, ", ".join(canon)
                 self.lib.dirty = True
 
+    def ytmusic_images(self, budget: int = 40) -> None:
+        """Artist photos from YouTube Music (official artist channel), saved on the site like Deezer's were.
+        Artists without an exact match keep their current photo; they are looked up again after a week."""
+        import hashlib
+        import re
+
+        from . import config, ytphotos
+        from .covers import save_cover
+        from .lookup import download_image
+        from .textutil import norm
+
+        week_ago = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
+        for name, p in list(self.profiles.items()):
+            if budget <= 0:
+                break
+            if p.get("imageSource") == "ytmusic" or (p.get("ytPhotoChecked") or "") > week_ago:
+                continue
+            budget -= 1
+            p["ytPhotoChecked"] = _now()
+            self.lib.dirty = True
+            found = ytphotos.artist_photo(name)
+            data = download_image(found["url"]) if found else None
+            if not data:
+                continue
+            slug = re.sub(r"[^a-z0-9]+", "-", norm(name)).strip("-")[:40] or hashlib.sha1(name.encode()).hexdigest()[:10]
+            dest = config.ARTISTS_DIR / f"{slug}-yt.jpg"  # new file name: browsers don't keep showing the old photo
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            color = save_cover(data, dest)
+            if not color:
+                continue
+            p.update(image=f"library/artists/{dest.name}", color=color, imageSource="ytmusic")
+            if found.get("channel"):
+                p["youtubeMusic"] = f"https://music.youtube.com/channel/{found['channel']}"
+            print(f"[ytphotos] photo for {name}")
+
     def spotify_images(self, budget: int = 40) -> None:
         """Artist photos from Spotify (shown from Spotify's image server). Each artist is looked up once a week."""
         from . import spotify
