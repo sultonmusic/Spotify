@@ -2077,7 +2077,7 @@ class Station:
         try:
             self.artists.sync_with_songs()
             self.artists.backfill(budget=6)
-            self.artists.ytmusic_images(budget=40)
+            self.artists.ytmusic_images(budget=150)
             self.artists.spotify_images(budget=40)
             self.artists.backfill_bios(budget=3)
         except Exception:
