@@ -676,6 +676,38 @@
   "370a08859a": {
    "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/370a08859a.mp3",
    "m": 168
+  },
+  "62766c954e": {
+   "src": "library/audio/62766c954e.mp3",
+   "m": 169
+  },
+  "ac5abf915e": {
+   "src": "library/audio/ac5abf915e.mp3",
+   "m": 170
+  },
+  "4fba9b6e45": {
+   "src": "library/audio/4fba9b6e45.mp3",
+   "m": 171
+  },
+  "c52de69316": {
+   "src": "library/audio/c52de69316.mp3",
+   "m": 172
+  },
+  "19bd738520": {
+   "src": "library/audio/19bd738520.mp3",
+   "m": 173
+  },
+  "b6eb151ebc": {
+   "src": "library/audio/b6eb151ebc.mp3",
+   "m": 174
+  },
+  "64f9e5e0b2": {
+   "src": "library/audio/64f9e5e0b2.mp3",
+   "m": 175
+  },
+  "6e3b29b8ac": {
+   "src": "library/audio/6e3b29b8ac.mp3",
+   "m": 176
   }
  }
 }

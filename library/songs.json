@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T21:19:45Z",
+ "updatedAt": "2026-11-26T21:25:15Z",
  "count": 170,
  "site": {
   "admins": [
@@ -2930,7 +2930,24 @@
    "albums": 382,
    "ytPhotoChecked": "2026-11-26T21:04:24Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCh-4c1ZoBPNP1C8c-7iVvUQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCh-4c1ZoBPNP1C8c-7iVvUQ",
+   "bioChecked": "2026-11-26T21:24:24Z",
+   "bio": {
+    "en": "Pierre David Guetta is a French DJ and record producer. He has sold over 10 million albums and 65 million singles globally, with more than 40 billion streams on Spotify. Guetta was voted the number one DJ in the DJ Mag Top 100 DJs polls in 2011, 2020, 2021, 2023, 2025, and 2026. In 2013, Billboard ranked his song \"When Love Takes Over\" as the number one dance-pop collaboration of all time.",
+    "ru": "Пьер Дави́д Ге́тта́ — французский диджей и продюсер.",
+    "uz": "Pierre David Guetta - frantsuz di-jeyi va prodyuser. U butun dunyo bo'ylab 10 milliondan ortiq albom va 65 million singl sotgan, Spotify-da 40 milliarddan ortiq oqimlar mavjud. Guetta 2011, 2020, 2021, 2023, 2025 va 2026-yillarda DJ Mag Top 100 DJ so‘rovlarida birinchi raqamli DJ bo‘ldi. 2013-yilda Billboard uning “When Love Takes Over” qoʻshigʻini barcha davrlarning raqs-pop hamkorligidagi birinchi raqamli qoʻshigʻi deb topdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/David_Guetta",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%93%D0%B5%D1%82%D1%82%D0%B0%2C_%D0%94%D0%B0%D0%B2%D0%B8%D0%B4"
+   },
+   "desc": {
+    "en": "French DJ (born 1967)",
+    "ru": "французский музыкальный продюсер и диджей (род. 1967)"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Calvin Harris": {
    "aliases": [],
@@ -2947,7 +2964,24 @@
    "albums": 187,
    "ytPhotoChecked": "2026-11-26T21:04:25Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCZ0Aezmtk-S2l8A9Ln-2lKw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCZ0Aezmtk-S2l8A9Ln-2lKw",
+   "bioChecked": "2026-11-26T21:24:29Z",
+   "bio": {
+    "en": "Adam Richard Wiles, known professionally as Calvin Harris, is a Scottish DJ, record producer, singer and songwriter. His debut studio album, I Created Disco (2007) was preceded by the singles \"Acceptable in the 80s\" and \"The Girls\", both of which achieved commercial success in Europe and Australia. His second album, Ready for the Weekend (2009), debuted atop the official album charts in his native Scotland as well as the United Kingdom, and its lead single, \"I'm Not Alone\", became his first song to reach number one in the UK Singles Charts. On his early tracks, Harris mostly sang in his songs.",
+    "ru": "А́дам Ри́чард Вайлс, более известный под псевдонимом Ке́львин Ха́ррис — шотландский автор-исполнитель, музыкальный продюсер и диджей. Его дебютный студийный альбом I Created Disco стал золотым, а синглы «Acceptable in the 80s» и «The Girls» вошли в топ-10 британского чарта. В 2009 году выпустил второй студийный альбом Ready for the Weekend, который дебютировал с первой строчки в UK Albums Chart, впоследствии став золотым. В 2010 году запустил собственный лейбл Fly Eye Records, впоследствии заключив партнёрство с Sony/ATV Music Publishing.",
+    "uz": "Adam Richard Uayls, professional ravishda Kalvin Xarris nomi bilan tanilgan, shotlandiyalik DJ, prodyuser, qo'shiqchi va qo'shiq muallifi. Uning debyut studiya albomi \"I Created Disco\" (2007) oldidan \"Acceptable in 80s\" va \"The Girls\" singllari bo'lib, ikkalasi ham Yevropa va Avstraliyada tijorat muvaffaqiyatiga erishgan. Uning ikkinchi albomi \"Ready for the Weekend\" (2009) vatani Shotlandiyada, shuningdek, Buyuk Britaniyada rasmiy albom chartlarida birinchi o'rinni egalladi va uning \"I'm Not Alone\" bosh singli Buyuk Britaniyadagi Singles Chart-da birinchi o'rinni egallagan birinchi qo'shig'i bo'ldi. O'zining dastlabki treklarida Xarris asosan qo'shiqlarida kuylagan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Calvin_Harris",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9A%D0%B5%D0%BB%D1%8C%D0%B2%D0%B8%D0%BD_%D0%A5%D0%B0%D1%80%D1%80%D0%B8%D1%81"
+   },
+   "desc": {
+    "en": "Scottish DJ (born 1984)",
+    "ru": "шотландский автор-исполнитель, музыкальный продюсер и диджей"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "The Chainsmokers": {
    "aliases": [],
@@ -2964,7 +2998,24 @@
    "albums": 113,
    "ytPhotoChecked": "2026-11-26T21:04:26Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCQgUHOPJJrmzCjExg-ISupA"
+   "youtubeMusic": "https://music.youtube.com/channel/UCQgUHOPJJrmzCjExg-ISupA",
+   "bioChecked": "2026-11-26T21:24:33Z",
+   "bio": {
+    "en": "The Chainsmokers are an American electronic DJ and production duo consisting of Alex Pall and Drew Taggart. They started out by releasing remixes of songs by indie artists. The EDM-pop duo achieved a breakthrough with their 2014 song \"#Selfie\", which became a top-20 single in several countries. They have won a Grammy Award, two American Music Awards, seven Billboard Music Awards and nine iHeartRadio Music Awards. According to Forbes' 2019 list of highest-paid celebrities, the Chainsmokers were the highest-paid DJs, dethroning Calvin Harris after six years.",
+    "ru": "The Chainsmokers — американский дуэт жанра EDM-поп, состоящий из диджеев и продюсеров Эндрю Таггарта и Алекса Полла.",
+    "uz": "Chainsmokers - bu Aleks Pall va Drew Taggartdan iborat amerikalik elektron DJ va prodyuserlik dueti. Ular hind artistlari qo'shiqlarining remikslarini chiqarishdan boshladilar. EDM-pop dueti 2014 yilda \"#Selfie\" qo'shig'i bilan muvaffaqiyatga erishdi, u bir qancha mamlakatlarda top-20 singlga aylandi. Ular Grammy mukofoti, ikkita American Music Awards, ettita Billboard Music Awards va to'qqizta iHeartRadio Music Awards mukofotiga sazovor bo'lishdi. Forbes jurnalining 2019 yilgi eng ko'p maosh oluvchi mashhurlar ro'yxatiga ko'ra, Chainsmokers olti yildan so'ng Kalvin Xarrisni taxtdan tushirib, eng ko'p maosh oluvchi DJlar bo'ldi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/The_Chainsmokers",
+    "ru": "https://ru.wikipedia.org/wiki/The_Chainsmokers"
+   },
+   "desc": {
+    "en": "American music producer duo",
+    "ru": "Американский музыкальный дуэт"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Justin Bieber": {
    "aliases": [],
