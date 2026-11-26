@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T18:51:36Z",
+ "updatedAt": "2026-11-26T19:20:28Z",
  "count": 117,
  "site": {
   "admins": [
@@ -2315,7 +2315,22 @@
    "checked": "2026-11-26T18:51:32Z",
    "verifiedAt": "2026-11-26T18:51:32Z",
    "fans": 9574439,
-   "albums": 65
+   "albums": 65,
+   "bioChecked": "2026-11-26T19:20:28Z",
+   "bio": {
+    "en": "Imagine Dragons are an American pop rock band formed in 2008, based in Las Vegas, Nevada. The band currently consists of lead singer Dan Reynolds, guitarist Wayne Sermon, and bassist Ben McKee. Their debut single, \"It's Time\", was released in February 2012, reaching the Top 20 of various charts around the world. Their debut album, Night Visions, which resulted in the chart-topping singles \"Radioactive\" and \"Demons\", reached No. 2 in America on release in September 2012, and achieved Platinum sales by June 2013.",
+    "ru": "Imagine Dragons — американская поп-рок-группа, образованная в 2008 году в городе Лас-Вегас, США. Стали известны после выпуска дебютного студийного альбома Night Visions в сентябре 2012 года. Американский журнал Billboard назвал их самыми яркими новыми звёздами 2013 года и самой популярной группой 2017 года, а журнал Rolling Stone назвал их сингл «Radioactive» самым большим рок-хитом года.",
+    "uz": "Imagine Dragons — amerikalik pop rok guruh. Imagine Dragons 2008-yil, Las Vegas, Nevadada tashkil topgan, guruh asosiy ijrochi Dan Reynolds, gitarist Wayne Sermon, basschi Ben McKee va barabanchi Daniel Platzman dan iborat. Guruh dastlab xalq eʼtiboriga „Itʼs Time“ qoʻshigʻi orqali tushgan, shundan keyin debyut albomi boʻlgan Night Visions (2012) mukofotni ham qoʻlga kiritgan, natijada „Radioactive“ va\"Demons\" qoʻshiqlari musiqiy chartlarda birinchi oʻrinda turdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Imagine_Dragons",
+    "ru": "https://ru.wikipedia.org/wiki/Imagine_Dragons",
+    "uz": "https://uz.wikipedia.org/wiki/Imagine_Dragons"
+   },
+   "desc": {
+    "en": "American pop rock band",
+    "ru": "американская рок-группа"
+   }
   }
  },
  "songs": [
