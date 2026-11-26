@@ -23,7 +23,7 @@ from typing import Any
 
 import requests
 
-from . import acquire, ads, ai, audio, bigfile, config, lookup, story, youtube
+from . import acquire, ads, ai, archive, audio, bigfile, config, lookup, story, youtube
 from .quick import QuickSearch
 from .artists import Artists
 from .covers import save_cover
@@ -296,6 +296,10 @@ class Station:
         user_id = (msg.get("from") or {}).get("id", 0)
         text = (msg.get("text") or "").strip()
         chat_id = msg["chat"]["id"]
+
+        # Egasi yopiq kanaldan post forward qilsa — o'sha kanal qo'shiqlar zaxira arxivi bo'ladi.
+        if archive.channel_of(msg) and self.authorized(user_id) and archive.connect(self, msg):
+            return
 
         if text.startswith("/"):
             parts = text.split(maxsplit=1)
@@ -1371,6 +1375,7 @@ class Station:
                 "/add — reklama qo'shish · /ads — reklamalar va statistika",
                 "/list — oxirgi qo'shiqlar",
                 "/all — Ijrochi — Qo'shiq ro'yxatini sayt bilan solishtirish (1000 tagacha)",
+                "/arxiv — Telegram kanaldagi zaxira arxiv holati",
                 "/stats — statistika",
                 "/artists — ijrochilar (☑️ = tasdiqlangan)",
                 "/verify Ijrochi · /unverify Ijrochi — belgini qo'lda qo'yish/olish",
@@ -1399,6 +1404,20 @@ class Station:
         self.send(chat_id, "\n".join(text), markup=self.keyboard([self.app_button()]))
 
     # ================================================================== ads (/add, /ads)
+    def cmd_arxiv(self, msg: dict, arg: str) -> None:
+        chat = self.state.get("archive_chat")
+        if not chat:
+            self.send(msg["chat"]["id"], "🗄 Zaxira arxiv ulanmagan. Botni yopiq kanalga admin qiling va "
+                                         "kanaldagi istalgan postni shu yerga forward qiling.")
+            return
+        done = self.state.get("archived") or {}
+        songs = [s for s in self.lib.songs if s.get("src") and not s.get("previewOnly")]
+        saved = sum(1 for s in songs if (done.get(s["id"]) or {}).get("src") == s.get("src"))
+        info = self.bot.safe("getChat", chat_id=chat) or {}
+        self.send(msg["chat"]["id"], f"🗄 Arxiv kanali: {info.get('title') or chat}\n"
+                                     f"Kanalda: {saved} / {len(songs)} ta qo'shiq. Qolganlari har ishga "
+                                     "tushishda bir nechtadan yuboriladi.")
+
     def cmd_add(self, msg: dict, arg: str) -> None:
         self.state["ad_draft"] = {"t": int(time.time()), "chat": msg["chat"]["id"]}
         self.state_dirty = True
@@ -2059,6 +2078,10 @@ class Station:
         except Exception:
             traceback.print_exc()
         self.backfill_translations(budget=4)
+        try:
+            archive.archive_pending(self, budget_seconds=180)
+        except Exception:
+            traceback.print_exc()
         self.drop_fileless()
         for s in self.lib.songs:  # story images for songs added before this feature
             if not s.get("story"):

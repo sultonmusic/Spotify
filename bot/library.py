@@ -131,13 +131,37 @@ def _gh(method: str, url: str, **kwargs: Any) -> requests.Response:
     return requests.request(method, url, headers=headers, timeout=kwargs.pop("timeout", 120), **kwargs)
 
 
-def _release() -> dict:
+# GitHub allows at most 1000 files in one release: when a release is nearly full, the next one is used
+# ("audio-library", "audio-library-2", "audio-library-3", …). There is no limit on the number of releases.
+RELEASE_MAX_ASSETS = 950
+_RELEASE_URL = re.compile(r"/releases/download/([^/]+)/")
+
+
+def release_tag(lib: Library) -> str:
+    """The first audio release that still has room (counted from the files the library points to)."""
+    counts: dict[str, int] = {}
+    for song in lib.songs:
+        for key in ("src", "video"):
+            match = _RELEASE_URL.search(song.get(key) or "")
+            if match:
+                counts[match.group(1)] = counts.get(match.group(1), 0) + 1
+    number = 1
+    while True:
+        tag = config.RELEASE_TAG if number == 1 else f"{config.RELEASE_TAG}-{number}"
+        if counts.get(tag, 0) < RELEASE_MAX_ASSETS:
+            return tag
+        number += 1
+
+
+def _release(tag: str | None = None) -> dict:
+    tag = tag or config.RELEASE_TAG
     api = f"https://api.github.com/repos/{config.GITHUB_REPOSITORY}/releases"
-    resp = _gh("GET", f"{api}/tags/{config.RELEASE_TAG}")
+    resp = _gh("GET", f"{api}/tags/{tag}")
     if resp.status_code == 200:
         return resp.json()
+    suffix = tag[len(config.RELEASE_TAG):].lstrip("-")
     resp = _gh("POST", api, json={
-        "tag_name": config.RELEASE_TAG, "name": "🎵 Audio library",
+        "tag_name": tag, "name": "🎵 Audio library" + (f" {suffix}" if suffix else ""),
         "body": "Music station audio files (managed automatically by the bot).",
         "prerelease": True,
     })
@@ -171,7 +195,7 @@ def store_file(lib: Library, path: Path, name: str, mime: str) -> tuple[str, str
     size = path.stat().st_size
     kind = choose_storage(lib, size)
     if kind == "release":
-        release = _release()
+        release = _release(release_tag(lib))
         upload = release["upload_url"].split("{")[0]
         with open(path, "rb") as fh:
             resp = _gh("POST", upload, params={"name": name}, data=fh,
@@ -213,7 +237,8 @@ def delete_media(src: str) -> None:
     if not (config.GITHUB_TOKEN and config.GITHUB_REPOSITORY):
         return
     try:
-        release = _release()
+        match = _RELEASE_URL.search(src)
+        release = _release(match.group(1) if match else None)
         name = src.rsplit("/", 1)[-1]
         for asset in release.get("assets", []):
             if asset["name"] == name:
