@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T20:25:26Z",
- "count": 118,
+ "updatedAt": "2026-11-26T20:48:06Z",
+ "count": 142,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -2346,9 +2346,1484 @@
    "fans": 0,
    "albums": 8,
    "bioChecked": "2026-11-26T20:25:25Z"
+  },
+  "Lady Gaga": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 75491,
+   "itunesId": 277293880,
+   "deezer": "https://www.deezer.com/artist/75491",
+   "apple": "https://music.apple.com/us/artist/lady-gaga/277293880",
+   "image": "library/artists/lady-gaga.jpg",
+   "color": "#808080",
+   "checked": "2026-11-26T20:36:05Z",
+   "verifiedAt": "2026-11-26T20:36:05Z",
+   "fans": 9378644,
+   "albums": 82
+  },
+  "Bradley Cooper": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 7735426,
+   "deezer": "https://www.deezer.com/artist/7735426",
+   "image": "library/artists/bradley-cooper.jpg",
+   "color": "#a76558",
+   "checked": "2026-11-26T20:36:05Z",
+   "verifiedAt": "2026-11-26T20:36:05Z",
+   "fans": 374253,
+   "albums": 4
+  },
+  "Eminem": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 13,
+   "itunesId": 111051,
+   "deezer": "https://www.deezer.com/artist/13",
+   "apple": "https://music.apple.com/us/artist/eminem/111051",
+   "image": "library/artists/eminem.jpg",
+   "color": "#6f4720",
+   "checked": "2026-11-26T20:36:30Z",
+   "verifiedAt": "2026-11-26T20:36:30Z",
+   "fans": 19200659,
+   "albums": 72
+  },
+  "Ed Sheeran": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 384236,
+   "itunesId": 183313439,
+   "deezer": "https://www.deezer.com/artist/384236",
+   "apple": "https://music.apple.com/us/artist/ed-sheeran/183313439",
+   "image": "library/artists/ed-sheeran.jpg",
+   "color": "#3e69aa",
+   "checked": "2026-11-26T20:36:57Z",
+   "verifiedAt": "2026-11-26T20:36:57Z",
+   "fans": 20983583,
+   "albums": 151
+  },
+  "Coldplay": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 892,
+   "itunesId": 471744,
+   "deezer": "https://www.deezer.com/artist/892",
+   "apple": "https://music.apple.com/us/artist/coldplay/471744",
+   "image": "library/artists/coldplay.jpg",
+   "color": "#008fd5",
+   "checked": "2026-11-26T20:37:17Z",
+   "verifiedAt": "2026-11-26T20:37:17Z",
+   "fans": 18480303,
+   "albums": 124
+  },
+  "OneRepublic": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 74398,
+   "itunesId": 260414340,
+   "deezer": "https://www.deezer.com/artist/74398",
+   "apple": "https://music.apple.com/us/artist/onerepublic/260414340",
+   "image": "library/artists/onerepublic.jpg",
+   "color": "#767d6f",
+   "checked": "2026-11-26T20:37:42Z",
+   "verifiedAt": "2026-11-26T20:37:42Z",
+   "fans": 4365811,
+   "albums": 101
+  },
+  "Marshmello": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 7890702,
+   "itunesId": 980795202,
+   "deezer": "https://www.deezer.com/artist/7890702",
+   "apple": "https://music.apple.com/us/artist/marshmello/980795202",
+   "image": "library/artists/marshmello.jpg",
+   "color": "#808080",
+   "checked": "2026-11-26T20:38:05Z",
+   "verifiedAt": "2026-11-26T20:38:05Z",
+   "fans": 3124320,
+   "albums": 183
+  },
+  "Bastille": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1352097,
+   "deezer": "https://www.deezer.com/artist/1352097",
+   "image": "library/artists/bastille.jpg",
+   "color": "#f5800a",
+   "checked": "2026-11-26T20:38:05Z",
+   "verifiedAt": "2026-11-26T20:38:05Z",
+   "fans": 2253193,
+   "albums": 91
+  },
+  "Avicii": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 293585,
+   "itunesId": 298496035,
+   "deezer": "https://www.deezer.com/artist/293585",
+   "apple": "https://music.apple.com/us/artist/avicii/298496035",
+   "image": "library/artists/avicii.jpg",
+   "color": "#92816d",
+   "checked": "2026-11-26T20:38:26Z",
+   "verifiedAt": "2026-11-26T20:38:26Z",
+   "fans": 8383798,
+   "albums": 67
+  },
+  "David Guetta": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 542,
+   "itunesId": 5557599,
+   "deezer": "https://www.deezer.com/artist/542",
+   "apple": "https://music.apple.com/us/artist/david-guetta/5557599",
+   "image": "library/artists/david-guetta.jpg",
+   "color": "#1f5370",
+   "checked": "2026-11-26T20:38:51Z",
+   "verifiedAt": "2026-11-26T20:38:51Z",
+   "fans": 20195711,
+   "albums": 382
+  },
+  "Calvin Harris": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 12178,
+   "itunesId": 201955086,
+   "deezer": "https://www.deezer.com/artist/12178",
+   "apple": "https://music.apple.com/us/artist/calvin-harris/201955086",
+   "image": "library/artists/calvin-harris.jpg",
+   "color": "#656565",
+   "checked": "2026-11-26T20:39:17Z",
+   "verifiedAt": "2026-11-26T20:39:17Z",
+   "fans": 12358719,
+   "albums": 187
+  },
+  "The Chainsmokers": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4104927,
+   "itunesId": 580391756,
+   "deezer": "https://www.deezer.com/artist/4104927",
+   "apple": "https://music.apple.com/us/artist/the-chainsmokers/580391756",
+   "image": "library/artists/the-chainsmokers.jpg",
+   "color": "#cc9233",
+   "checked": "2026-11-26T20:39:41Z",
+   "verifiedAt": "2026-11-26T20:39:41Z",
+   "fans": 5853736,
+   "albums": 113
+  },
+  "Justin Bieber": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 288166,
+   "itunesId": 320569549,
+   "deezer": "https://www.deezer.com/artist/288166",
+   "apple": "https://music.apple.com/us/artist/justin-bieber/320569549",
+   "image": "library/artists/justin-bieber.jpg",
+   "color": "#6d4b32",
+   "checked": "2026-11-26T20:40:06Z",
+   "verifiedAt": "2026-11-26T20:40:06Z",
+   "fans": 11200508,
+   "albums": 58
+  },
+  "Lorde": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4448485,
+   "itunesId": 602767352,
+   "deezer": "https://www.deezer.com/artist/4448485",
+   "apple": "https://music.apple.com/us/artist/lorde/602767352",
+   "image": "library/artists/lorde.jpg",
+   "color": "#657b9a",
+   "checked": "2026-11-26T20:41:17Z",
+   "verifiedAt": "2026-11-26T20:41:17Z",
+   "fans": 2096656,
+   "albums": 22
+  },
+  "Mikky Ekko": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 393373,
+   "deezer": "https://www.deezer.com/artist/393373",
+   "image": "library/artists/mikky-ekko.jpg",
+   "color": "#63769c",
+   "checked": "2026-11-26T20:41:54Z",
+   "verifiedAt": "2026-11-26T20:41:54Z",
+   "fans": 28269,
+   "albums": 38
+  },
+  "Christina Perri": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 996589,
+   "itunesId": 378346343,
+   "deezer": "https://www.deezer.com/artist/996589",
+   "apple": "https://music.apple.com/us/artist/christina-perri/378346343",
+   "image": "library/artists/christina-perri.jpg",
+   "color": "#706055",
+   "checked": "2026-11-26T20:42:20Z",
+   "verifiedAt": "2026-11-26T20:42:20Z",
+   "fans": 883962,
+   "albums": 38
+  },
+  "One Direction": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1007876,
+   "itunesId": 396754057,
+   "deezer": "https://www.deezer.com/artist/1007876",
+   "apple": "https://music.apple.com/us/artist/one-direction/396754057",
+   "image": "library/artists/one-direction.jpg",
+   "color": "#5e4b50",
+   "checked": "2026-11-26T20:42:45Z",
+   "verifiedAt": "2026-11-26T20:42:45Z",
+   "fans": 6598959,
+   "albums": 13
+  },
+  "Maroon 5": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1188,
+   "itunesId": 1798556,
+   "deezer": "https://www.deezer.com/artist/1188",
+   "apple": "https://music.apple.com/us/artist/maroon-5/1798556",
+   "image": "library/artists/maroon-5.jpg",
+   "color": "#85705f",
+   "checked": "2026-11-26T20:43:05Z",
+   "verifiedAt": "2026-11-26T20:43:05Z",
+   "fans": 11451286,
+   "albums": 64
+  },
+  "Shawn Mendes": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5962948,
+   "itunesId": 890403665,
+   "deezer": "https://www.deezer.com/artist/5962948",
+   "apple": "https://music.apple.com/us/artist/shawn-mendes/890403665",
+   "image": "library/artists/shawn-mendes.jpg",
+   "color": "#7a7973",
+   "checked": "2026-11-26T20:43:24Z",
+   "verifiedAt": "2026-11-26T20:43:24Z",
+   "fans": 6799106,
+   "albums": 44
+  },
+  "Charlie Puth": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1362735,
+   "itunesId": 336249253,
+   "deezer": "https://www.deezer.com/artist/1362735",
+   "apple": "https://music.apple.com/us/artist/charlie-puth/336249253",
+   "image": "library/artists/charlie-puth.jpg",
+   "color": "#911109",
+   "checked": "2026-11-26T20:43:49Z",
+   "verifiedAt": "2026-11-26T20:43:49Z",
+   "fans": 2316229,
+   "albums": 97
+  },
+  "Justin Timberlake": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1147,
+   "itunesId": 398128,
+   "deezer": "https://www.deezer.com/artist/1147",
+   "apple": "https://music.apple.com/us/artist/justin-timberlake/398128",
+   "image": "library/artists/justin-timberlake.jpg",
+   "color": "#ac7145",
+   "checked": "2026-11-26T20:44:38Z",
+   "verifiedAt": "2026-11-26T20:44:38Z",
+   "fans": 6724809,
+   "albums": 43
+  },
+  "Enrique Iglesias": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 2792,
+   "itunesId": 90895,
+   "deezer": "https://www.deezer.com/artist/2792",
+   "apple": "https://music.apple.com/us/artist/enrique-iglesias/90895",
+   "image": "library/artists/enrique-iglesias.jpg",
+   "color": "#00dbff",
+   "checked": "2026-11-26T20:45:07Z",
+   "verifiedAt": "2026-11-26T20:45:07Z",
+   "fans": 5964673,
+   "albums": 95
+  },
+  "Akon": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 38,
+   "itunesId": 3261325,
+   "deezer": "https://www.deezer.com/artist/38",
+   "apple": "https://music.apple.com/us/artist/akon/3261325",
+   "image": "library/artists/akon.jpg",
+   "color": "#544c3b",
+   "checked": "2026-11-26T20:45:30Z",
+   "verifiedAt": "2026-11-26T20:45:30Z",
+   "fans": 4796782,
+   "albums": 84
+  },
+  "Coolio": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 99,
+   "itunesId": 625207,
+   "deezer": "https://www.deezer.com/artist/99",
+   "apple": "https://music.apple.com/us/artist/coolio/625207",
+   "image": "library/artists/coolio.jpg",
+   "color": "#583c37",
+   "checked": "2026-11-26T20:47:12Z",
+   "verifiedAt": "2026-11-26T20:47:12Z",
+   "fans": 280365,
+   "albums": 28
+  },
+  "L.V": {
+   "aliases": [
+    "L.V."
+   ],
+   "verified": true,
+   "deezerId": 1225601,
+   "deezer": "https://www.deezer.com/artist/1225601",
+   "image": "library/artists/l-v.jpg",
+   "color": "#618786",
+   "checked": "2026-11-26T20:47:12Z",
+   "verifiedAt": "2026-11-26T20:47:12Z",
+   "fans": 2288,
+   "albums": 28
+  },
+  "2Pac": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 167095,
+   "deezer": "https://www.deezer.com/artist/167095",
+   "image": "library/artists/2pac.jpg",
+   "color": "#8f0000",
+   "checked": "2026-11-26T20:47:56Z",
+   "verifiedAt": "2026-11-26T20:47:56Z",
+   "fans": 4151969,
+   "albums": 23
+  },
+  "Talent": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 662130,
+   "deezer": "https://www.deezer.com/artist/662130",
+   "image": "library/artists/talent.jpg",
+   "color": "#d6cc29",
+   "checked": "2026-11-26T20:47:57Z",
+   "verifiedAt": "2026-11-26T20:47:57Z",
+   "fans": 217,
+   "albums": 69
   }
  },
  "songs": [
+  {
+   "id": "ba4e4f1ef4",
+   "title": "Changes",
+   "artist": "2Pac, Talent",
+   "artists": [
+    "2Pac",
+    "Talent"
+   ],
+   "album": "The Best of 2Pac",
+   "year": 2009,
+   "genre": "Hip-Hop",
+   "subgenre": "Rap/Hip Hop",
+   "moods": [
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": 111,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 268.83,
+   "src": "library/audio/ba4e4f1ef4.mp3",
+   "cover": "library/covers/ba4e4f1ef4.jpg",
+   "color": "#9b8764",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:48:06Z",
+   "mime": "audio/mpeg",
+   "size": 6453654,
+   "storage": "pages",
+   "lufs": -10.5,
+   "gain": -3.5,
+   "via": "audio",
+   "fileKey": "yt:xg3J5slvB-k",
+   "story": "library/stories/ba4e4f1ef4.jpg"
+  },
+  {
+   "id": "124caebf21",
+   "title": "Gangsta's Paradise",
+   "artist": "Coolio, L.V",
+   "artists": [
+    "Coolio",
+    "L.V"
+   ],
+   "album": "Gangsta's Paradise",
+   "year": 1995,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "motivational",
+    "sad",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.97,
+   "danceability": 1.0,
+   "bpm": 160,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 240.69,
+   "src": "library/audio/124caebf21.mp3",
+   "cover": "library/covers/124caebf21.jpg",
+   "color": "#48708b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:47:18Z",
+   "mime": "audio/mpeg",
+   "size": 5778018,
+   "storage": "pages",
+   "lufs": -13.5,
+   "gain": -0.5,
+   "via": "audio",
+   "fileKey": "yt:-5qqrMu_AZc",
+   "story": "library/stories/124caebf21.jpg"
+  },
+  {
+   "id": "3501026385",
+   "title": "Lose Yourself",
+   "artist": "Eminem",
+   "artists": [
+    "Eminem"
+   ],
+   "album": "8 Mile (Music from and Inspired By the Motion Picture)",
+   "year": 2002,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "sad",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 172,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 320.29,
+   "src": "library/audio/3501026385.mp3",
+   "cover": "library/covers/3501026385.jpg",
+   "color": "#9f7d58",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:46:34Z",
+   "mime": "audio/mpeg",
+   "size": 7688639,
+   "storage": "pages",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:zlJ0Aj9y67c",
+   "story": "library/stories/3501026385.jpg"
+  },
+  {
+   "id": "137d5bc40f",
+   "title": "Lonely",
+   "artist": "Akon",
+   "artists": [
+    "Akon"
+   ],
+   "album": "Trouble (Deluxe Edition)",
+   "year": 2004,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "sad",
+    "motivational",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 235.8,
+   "src": "library/audio/137d5bc40f.mp3",
+   "cover": "library/covers/137d5bc40f.jpg",
+   "color": "#757578",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:45:36Z",
+   "mime": "audio/mpeg",
+   "size": 5660497,
+   "storage": "pages",
+   "lufs": -11.3,
+   "gain": -2.7,
+   "via": "audio",
+   "fileKey": "yt:sek92Vt_Awc",
+   "story": "library/stories/137d5bc40f.jpg"
+  },
+  {
+   "id": "ef249349d6",
+   "title": "Hero",
+   "artist": "Enrique Iglesias",
+   "artists": [
+    "Enrique Iglesias"
+   ],
+   "album": "Escape",
+   "year": 2001,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 152,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 264.24,
+   "src": "library/audio/ef249349d6.mp3",
+   "cover": "library/covers/ef249349d6.jpg",
+   "color": "#cb8334",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:45:10Z",
+   "mime": "audio/mpeg",
+   "size": 6343049,
+   "storage": "pages",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "yt:CwTM0JfUsGs",
+   "story": "library/stories/ef249349d6.jpg"
+  },
+  {
+   "id": "58ce3d5f6c",
+   "title": "Mirrors",
+   "artist": "Justin Timberlake",
+   "artists": [
+    "Justin Timberlake"
+   ],
+   "album": "The 20/20 Experience (Deluxe Version)",
+   "year": 2013,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 154,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 484.15,
+   "src": "library/audio/58ce3d5f6c.mp3",
+   "cover": "library/covers/58ce3d5f6c.jpg",
+   "color": "#94886b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:44:45Z",
+   "mime": "audio/mpeg",
+   "size": 11620972,
+   "storage": "pages",
+   "lufs": -10.0,
+   "gain": -4.0,
+   "via": "audio",
+   "fileKey": "yt:59nAgJZ5IoE",
+   "story": "library/stories/58ce3d5f6c.jpg"
+  },
+  {
+   "id": "2d574f7178",
+   "title": "Attention",
+   "artist": "Charlie Puth",
+   "artists": [
+    "Charlie Puth"
+   ],
+   "album": "Voicenotes",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 211.48,
+   "src": "library/audio/2d574f7178.mp3",
+   "cover": "library/covers/2d574f7178.jpg",
+   "color": "#7f101e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:43:55Z",
+   "mime": "audio/mpeg",
+   "size": 5077006,
+   "storage": "pages",
+   "lufs": -7.5,
+   "gain": -6.5,
+   "via": "audio",
+   "fileKey": "yt:vxUBYHz_q1I",
+   "story": "library/stories/2d574f7178.jpg"
+  },
+  {
+   "id": "032b03389c",
+   "title": "Treat You Better",
+   "artist": "Shawn Mendes",
+   "artists": [
+    "Shawn Mendes"
+   ],
+   "album": "Illuminate",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 187.97,
+   "src": "library/audio/032b03389c.mp3",
+   "cover": "library/covers/032b03389c.jpg",
+   "color": "#5da29f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:43:28Z",
+   "mime": "audio/mpeg",
+   "size": 4513109,
+   "storage": "pages",
+   "lufs": -6.6,
+   "gain": -7.4,
+   "via": "audio",
+   "fileKey": "yt:7at-8hXTXA8",
+   "story": "library/stories/032b03389c.jpg"
+  },
+  {
+   "id": "07d2ff724c",
+   "title": "Memories",
+   "artist": "Maroon 5",
+   "artists": [
+    "Maroon 5"
+   ],
+   "album": "JORDI (Deluxe)",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "nostalgic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 189.49,
+   "src": "library/audio/07d2ff724c.mp3",
+   "cover": "library/covers/07d2ff724c.jpg",
+   "color": "#cd4932",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:43:08Z",
+   "mime": "audio/mpeg",
+   "size": 4549389,
+   "storage": "pages",
+   "lufs": -9.9,
+   "gain": -4.1,
+   "via": "audio",
+   "fileKey": "yt:lNilb-EaTOU",
+   "story": "library/stories/07d2ff724c.jpg"
+  },
+  {
+   "id": "588a3a0444",
+   "title": "Night Changes",
+   "artist": "One Direction",
+   "artists": [
+    "One Direction"
+   ],
+   "album": "FOUR (Deluxe)",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 226.6,
+   "src": "library/audio/588a3a0444.mp3",
+   "cover": "library/covers/588a3a0444.jpg",
+   "color": "#6c6b6b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:42:49Z",
+   "mime": "audio/mpeg",
+   "size": 5439894,
+   "storage": "pages",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:8BiLurrzFRw",
+   "story": "library/stories/588a3a0444.jpg"
+  },
+  {
+   "id": "bf3c3e4dbd",
+   "title": "a thousand years",
+   "artist": "Christina Perri",
+   "artists": [
+    "Christina Perri"
+   ],
+   "album": "The Twilight Saga: Breaking Dawn, Pt. 1 (Original Motion Picture Soundtrack) [Deluxe Version]",
+   "year": 2011,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "dreamy",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": 93,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 285.12,
+   "src": "library/audio/bf3c3e4dbd.mp3",
+   "cover": "library/covers/bf3c3e4dbd.jpg",
+   "color": "#825036",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:42:23Z",
+   "mime": "audio/mpeg",
+   "size": 6844274,
+   "storage": "pages",
+   "lufs": -10.0,
+   "gain": -4.0,
+   "via": "audio",
+   "fileKey": "yt:TA1W-pHNKl8",
+   "story": "library/stories/bf3c3e4dbd.jpg"
+  },
+  {
+   "id": "3f57c531e9",
+   "title": "Stay",
+   "artist": "Rihanna, Mikky Ekko",
+   "artists": [
+    "Rihanna",
+    "Mikky Ekko"
+   ],
+   "album": "Unapologetic (Deluxe Version)",
+   "year": 2012,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 112,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 240.71,
+   "src": "library/audio/3f57c531e9.mp3",
+   "cover": "library/covers/3f57c531e9.jpg",
+   "color": "#00ff00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:41:58Z",
+   "mime": "audio/mpeg",
+   "size": 5778595,
+   "storage": "pages",
+   "lufs": -11.8,
+   "gain": -2.2,
+   "via": "audio",
+   "fileKey": "yt:2aLO6Ecof4s",
+   "story": "library/stories/3f57c531e9.jpg"
+  },
+  {
+   "id": "73e22abaf2",
+   "title": "Royals",
+   "artist": "Lorde",
+   "artists": [
+    "Lorde"
+   ],
+   "album": "The Love Club EP",
+   "year": 2013,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "romantic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": 85,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 190.19,
+   "src": "library/audio/73e22abaf2.mp3",
+   "cover": "library/covers/73e22abaf2.jpg",
+   "color": "#ffff00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:41:20Z",
+   "mime": "audio/mpeg",
+   "size": 4566092,
+   "storage": "pages",
+   "lufs": -10.4,
+   "gain": -3.6,
+   "via": "audio",
+   "fileKey": "yt:cVWOEx4Xdhs",
+   "story": "library/stories/73e22abaf2.jpg"
+  },
+  {
+   "id": "d89aaf7cf6",
+   "title": "Love Yourself",
+   "artist": "Justin Bieber",
+   "artists": [
+    "Justin Bieber"
+   ],
+   "album": "Purpose (Deluxe)",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 233.72,
+   "src": "library/audio/d89aaf7cf6.mp3",
+   "cover": "library/covers/d89aaf7cf6.jpg",
+   "color": "#787675",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:40:09Z",
+   "mime": "audio/mpeg",
+   "size": 5610969,
+   "storage": "pages",
+   "lufs": -11.4,
+   "gain": -2.6,
+   "via": "audio",
+   "fileKey": "yt:p-IXgwqhfmg",
+   "story": "library/stories/d89aaf7cf6.jpg"
+  },
+  {
+   "id": "16f0a1c482",
+   "title": "Closer",
+   "artist": "The Chainsmokers, Halsey",
+   "artists": [
+    "The Chainsmokers",
+    "Halsey"
+   ],
+   "album": "Collage",
+   "year": 2016,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 245.51,
+   "src": "library/audio/16f0a1c482.mp3",
+   "cover": "library/covers/16f0a1c482.jpg",
+   "color": "#b79548",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:39:45Z",
+   "mime": "audio/mpeg",
+   "size": 5893782,
+   "storage": "pages",
+   "lufs": -7.8,
+   "gain": -6.2,
+   "via": "audio",
+   "fileKey": "yt:r7zTKRonHXM",
+   "story": "library/stories/16f0a1c482.jpg"
+  },
+  {
+   "id": "dc4926f8ec",
+   "title": "Summer",
+   "artist": "Calvin Harris",
+   "artists": [
+    "Calvin Harris"
+   ],
+   "album": "Motion",
+   "year": 2014,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 222.53,
+   "src": "library/audio/dc4926f8ec.mp3",
+   "cover": "library/covers/dc4926f8ec.jpg",
+   "color": "#616f7b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:39:20Z",
+   "mime": "audio/mpeg",
+   "size": 5342538,
+   "storage": "pages",
+   "lufs": -6.3,
+   "gain": -7.7,
+   "via": "audio",
+   "fileKey": "yt:KSgKKSny0Qo",
+   "story": "library/stories/dc4926f8ec.jpg"
+  },
+  {
+   "id": "2176656a1d",
+   "title": "Titanium",
+   "artist": "David Guetta, Sia",
+   "artists": [
+    "David Guetta",
+    "Sia"
+   ],
+   "album": "Nothing But the Beat",
+   "year": 2011,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 126,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 245.04,
+   "src": "library/audio/2176656a1d.mp3",
+   "cover": "library/covers/2176656a1d.jpg",
+   "color": "#e20025",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:38:55Z",
+   "mime": "audio/mpeg",
+   "size": 5882846,
+   "storage": "pages",
+   "lufs": -6.6,
+   "gain": -7.4,
+   "via": "audio",
+   "fileKey": "yt:LRPGqNeav_M",
+   "story": "library/stories/2176656a1d.jpg"
+  },
+  {
+   "id": "9822e7e02a",
+   "title": "The Nights",
+   "artist": "Avicii",
+   "artists": [
+    "Avicii"
+   ],
+   "album": "The Days / Nights",
+   "year": 2014,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "nostalgic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 126,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 176.66,
+   "src": "library/audio/9822e7e02a.mp3",
+   "cover": "library/covers/9822e7e02a.jpg",
+   "color": "#c1713e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:38:29Z",
+   "mime": "audio/mpeg",
+   "size": 4241234,
+   "storage": "pages",
+   "lufs": -7.0,
+   "gain": -7.0,
+   "via": "audio",
+   "fileKey": "yt:W4C-NEWrnSQ",
+   "story": "library/stories/9822e7e02a.jpg"
+  },
+  {
+   "id": "eac10d89d4",
+   "title": "Happier",
+   "artist": "Marshmello, Bastille",
+   "artists": [
+    "Marshmello",
+    "Bastille"
+   ],
+   "album": "Happier",
+   "year": 2018,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 214.29,
+   "src": "library/audio/eac10d89d4.mp3",
+   "cover": "library/covers/eac10d89d4.jpg",
+   "color": "#db9c05",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:38:09Z",
+   "mime": "audio/mpeg",
+   "size": 5144403,
+   "storage": "pages",
+   "lufs": -6.0,
+   "gain": -8.0,
+   "via": "audio",
+   "fileKey": "yt:kfCTO9PPtVo",
+   "story": "library/stories/eac10d89d4.jpg"
+  },
+  {
+   "id": "764b59f56a",
+   "title": "Counting Stars",
+   "artist": "OneRepublic",
+   "artists": [
+    "OneRepublic"
+   ],
+   "album": "Native (Deluxe)",
+   "year": 2013,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "calm",
+    "nostalgic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 122,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 257.27,
+   "src": "library/audio/764b59f56a.mp3",
+   "cover": "library/covers/764b59f56a.jpg",
+   "color": "#8a1e37",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:37:48Z",
+   "mime": "audio/mpeg",
+   "size": 6176023,
+   "storage": "pages",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:_GWKkqNoyEA",
+   "story": "library/stories/764b59f56a.jpg"
+  },
+  {
+   "id": "3c21789f2c",
+   "title": "Viva La Vida",
+   "artist": "Coldplay",
+   "artists": [
+    "Coldplay"
+   ],
+   "album": "Viva La Vida or Death and All His Friends",
+   "year": 2008,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.72,
+   "danceability": 0.77,
+   "bpm": 138,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 242.37,
+   "src": "library/audio/3c21789f2c.mp3",
+   "cover": "library/covers/3c21789f2c.jpg",
+   "color": "#67483a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:37:20Z",
+   "mime": "audio/mpeg",
+   "size": 5818350,
+   "storage": "pages",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "yt:ALsvdSA9tOU",
+   "story": "library/stories/3c21789f2c.jpg"
+  },
+  {
+   "id": "ad47a41baa",
+   "title": "Perfect",
+   "artist": "Ed Sheeran",
+   "artists": [
+    "Ed Sheeran"
+   ],
+   "album": "÷ (Deluxe)",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 263.4,
+   "src": "library/audio/ad47a41baa.mp3",
+   "cover": "library/covers/ad47a41baa.jpg",
+   "color": "#1692c9",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:37:00Z",
+   "mime": "audio/mpeg",
+   "size": 6322903,
+   "storage": "pages",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:ORrFJ63nlcA",
+   "story": "library/stories/ad47a41baa.jpg"
+  },
+  {
+   "id": "c137443f63",
+   "title": "Mockingbird",
+   "artist": "Eminem",
+   "artists": [
+    "Eminem"
+   ],
+   "album": "Encore (Deluxe Version)",
+   "year": 2004,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "motivational",
+    "sad",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.97,
+   "danceability": 1.0,
+   "bpm": 169,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 250.76,
+   "src": "library/audio/c137443f63.mp3",
+   "cover": "library/covers/c137443f63.jpg",
+   "color": "#00248f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:36:40Z",
+   "mime": "audio/mpeg",
+   "size": 6019931,
+   "storage": "pages",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:9kznlAwE-8o",
+   "story": "library/stories/c137443f63.jpg"
+  },
+  {
+   "id": "01e308fd6d",
+   "title": "Shallow",
+   "artist": "Lady Gaga, Bradley Cooper",
+   "artists": [
+    "Lady Gaga",
+    "Bradley Cooper"
+   ],
+   "album": "A Star Is Born Soundtrack",
+   "year": 2018,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "dreamy",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": 96,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 215.73,
+   "src": "library/audio/01e308fd6d.mp3",
+   "cover": "library/covers/01e308fd6d.jpg",
+   "color": "#7d7b7a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:36:08Z",
+   "mime": "audio/mpeg",
+   "size": 5178991,
+   "storage": "pages",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "yt:DPXHMBKY39M",
+   "story": "library/stories/01e308fd6d.jpg"
+  },
   {
    "id": "e119888797",
    "title": "Novvisi bor",
