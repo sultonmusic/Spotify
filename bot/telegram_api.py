@@ -57,6 +57,22 @@ class Bot:
             print(f"[telegram] {exc}")
             return None
 
+    def upload(self, method: str, field: str, path: Path, **params: Any) -> Any:
+        """Faylni yuklab yuborish (masalan sendAudio). Xato bo'lsa None qaytaradi."""
+        data = {k: str(v) for k, v in params.items() if v is not None}
+        try:
+            with open(path, "rb") as fh:
+                resp = self._session.post(self._base + method, data=data,
+                                          files={field: (Path(path).name, fh)}, timeout=300)
+            result = resp.json()
+        except (requests.RequestException, ValueError, OSError) as exc:
+            print(self._clean(f"[telegram] {method} upload: {exc}"))
+            return None
+        if not result.get("ok"):
+            print(f"[telegram] {method}: {result.get('description')}")
+            return None
+        return result["result"]
+
     def download(self, file_id: str, dest: Path) -> Path:
         info = self.call("getFile", file_id=file_id)
         file_path = info.get("file_path")

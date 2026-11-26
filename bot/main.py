@@ -24,6 +24,7 @@ from typing import Any
 import requests
 
 from . import acquire, ads, ai, audio, bigfile, config, lookup, story, youtube
+from .quick import QuickSearch
 from .artists import Artists
 from .covers import save_cover
 from .identify import Clues, identify, lyrics_payload
@@ -176,6 +177,7 @@ class Station:
         self.state_dirty = False
         self.site = config.SITE_URL
         self.later: list[dict] = []  # notices shown after the other songs of the same batch
+        self.quick = QuickSearch(self)  # nom bo'yicha raqamli ro'yxat, MP3, aniqlash (bot/quick.py)
 
     # ================================================================== plumbing
     def save(self) -> None:
@@ -346,14 +348,17 @@ class Station:
 
         media = self.pick_media(msg)
         if media and media[0] == "voice":
-            self.recognize_voice(msg, media[1])  # "what song is this?" — anyone may ask
+            self.quick.recognize(msg, media[1])  # "qaysi qo'shiq?" — hamma so'rashi mumkin
             return
         if media:
             if not self.authorized(user_id):
+                if media[0] in ("audio", "document"):
+                    self.quick.recognize(msg, media[1])  # boshqalar: aniqlash + to'liq versiyalar ro'yxati
+                    return
                 self.send(chat_id, "🔒 Bu shaxsiy musiqa stansiyasi — qo'shiq qo'shish faqat egasiga ruxsat etilgan.",
                           reply_to=msg["message_id"], markup=self.keyboard([self.app_button("🎧 Tinglash")]))
                 return
-            self.handle_song(msg, *media)
+            self.handle_song(msg, *media)  # egasi: kutubxonaga qo'shish → saytga deploy (avvalgidek)
             return
 
         document = msg.get("document") or {}
@@ -371,7 +376,7 @@ class Station:
             return
 
         if text:
-            self.search(chat_id, text, msg["message_id"], owner=self.authorized(user_id))
+            self.quick.handle_text(msg, text)  # raqamli ro'yxat (1–10, ⬅️ ➡️) yoki YouTube havolasi → MP3
             return
         self.send(chat_id, "🎵 Menga audio fayl yoki video klip yuboring — men uni stansiyaga qo'shaman.")
 
@@ -1362,7 +1367,7 @@ class Station:
                 "bitta profilga yig'iladi.",
                 "",
                 "<b>Buyruqlar</b>",
-                "Matn yozsangiz — stansiyadan qidiraman",
+                "Qo'shiq nomini yozsangiz — ro'yxat chiqaraman, raqamini bossangiz MP3 qilib beraman",
                 "/add — reklama qo'shish · /ads — reklamalar va statistika",
                 "/list — oxirgi qo'shiqlar",
                 "/all — Ijrochi — Qo'shiq ro'yxatini sayt bilan solishtirish (1000 tagacha)",
@@ -1381,7 +1386,14 @@ class Station:
             if not ai.enabled():
                 text += ["", "💡 <i>AI teglash o'chiq: ANTHROPIC_API_KEY sirini qo'shsangiz yoqiladi.</i>"]
         else:
-            text += ["Bu shaxsiy stansiya. Qo'shiqlarni tinglash uchun tugmani bosing."]
+            text += [
+                "🎵 Qo'shiq nomini yozing (masalan: <i>Sulton Somon Air</i>) — ro'yxatdan raqamini bosing, "
+                "MP3 qilib beraman.",
+                "🔗 YouTube havolasini yuborsangiz — darhol MP3.",
+                "🎧 Audio yoki ovozli xabar yuboring — qaysi qo'shiq ekanini aniqlab, to'liq versiyasini beraman.",
+                "",
+                "Stansiyadagi qo'shiqlarni tinglash uchun tugmani bosing.",
+            ]
         text += ["", "📲 Ochiq Instagram Reel linkini yuboring — qo'shiqni topib, tanlaganingizni tinglang."]
         text += ["", f"📚 Kutubxonada: <b>{count}</b> ta qo'shiq"]
         self.send(chat_id, "\n".join(text), markup=self.keyboard([self.app_button()]))
@@ -1912,6 +1924,8 @@ class Station:
         message = cq.get("message") or {}
         chat_id, message_id = (message.get("chat") or {}).get("id"), message.get("message_id")
         action = data.partition(":")[0]
+        if self.quick.handle_callback(cq):  # dl: (MP3) va pg: (sahifa) — hamma uchun
+            return
         if action in ("igpick", "igback", "iglisten"):
             self.handle_instagram_callback(cq)
             return
