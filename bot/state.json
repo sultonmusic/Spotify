@@ -30,5 +30,128 @@
   "chat": 8988775229
  },
  "instagram_jobs": {},
- "catalog_jobs": {}
+ "catalog_jobs": {},
+ "archive_chat": -1005906162341,
+ "archived": {
+  "a4403fe751": {
+   "src": "library/audio/a4403fe751.mp3",
+   "m": 8
+  },
+  "49e6479fe7": {
+   "src": "library/audio/49e6479fe7.m4a",
+   "m": 9
+  },
+  "1bd0c34ca9": {
+   "src": "library/audio/1bd0c34ca9.m4a",
+   "m": 10
+  },
+  "e80b74b5d6": {
+   "src": "library/audio/e80b74b5d6.m4a",
+   "m": 11
+  },
+  "67ef3db978": {
+   "src": "library/audio/67ef3db978.m4a",
+   "m": 12
+  },
+  "cddddd4b6b": {
+   "src": "library/audio/cddddd4b6b.m4a",
+   "m": 13
+  },
+  "327bcd1ced": {
+   "src": "library/audio/327bcd1ced.m4a",
+   "m": 14
+  },
+  "ff1dc9fb52": {
+   "src": "library/audio/ff1dc9fb52.m4a",
+   "m": 15
+  },
+  "351f581091": {
+   "src": "library/audio/351f581091.m4a",
+   "m": 16
+  },
+  "c9a51a7918": {
+   "src": "library/audio/c9a51a7918.m4a",
+   "m": 17
+  },
+  "0772d701c0": {
+   "src": "library/audio/0772d701c0.m4a",
+   "m": 18
+  },
+  "cbb4daaa27": {
+   "src": "library/audio/cbb4daaa27.m4a",
+   "m": 19
+  },
+  "a122cedd8e": {
+   "src": "library/audio/a122cedd8e.m4a",
+   "m": 20
+  },
+  "838ea5322b": {
+   "src": "library/audio/838ea5322b.m4a",
+   "m": 21
+  },
+  "00c9a3470b": {
+   "src": "library/audio/00c9a3470b.m4a",
+   "m": 22
+  },
+  "39dce5f2b2": {
+   "src": "library/audio/39dce5f2b2.m4a",
+   "m": 23
+  },
+  "a625cf7f2d": {
+   "src": "library/audio/a625cf7f2d.m4a",
+   "m": 24
+  },
+  "831fc6892b": {
+   "src": "library/audio/831fc6892b.m4a",
+   "m": 25
+  },
+  "241522af68": {
+   "src": "library/audio/241522af68.m4a",
+   "m": 26
+  },
+  "46a0a5bd42": {
+   "src": "library/audio/46a0a5bd42.m4a",
+   "m": 27
+  },
+  "d97c2d392e": {
+   "src": "library/audio/d97c2d392e.m4a",
+   "m": 28
+  },
+  "4216d6d207": {
+   "src": "library/audio/4216d6d207.m4a",
+   "m": 29
+  },
+  "0319336001": {
+   "src": "library/audio/0319336001.m4a",
+   "m": 30
+  },
+  "6036ded00a": {
+   "src": "library/audio/6036ded00a.m4a",
+   "m": 31
+  },
+  "4d6425b14f": {
+   "src": "library/audio/4d6425b14f.m4a",
+   "m": 32
+  },
+  "24a28445f8": {
+   "src": "library/audio/24a28445f8.m4a",
+   "m": 33
+  },
+  "320ad75b9d": {
+   "src": "library/audio/320ad75b9d.m4a",
+   "m": 34
+  },
+  "ec12632c50": {
+   "src": "library/audio/ec12632c50.m4a",
+   "m": 35
+  },
+  "d02fc34488": {
+   "src": "library/audio/d02fc34488.m4a",
+   "m": 36
+  },
+  "5daab1e7b2": {
+   "src": "library/audio/5daab1e7b2.m4a",
+   "m": 37
+  }
+ }
 }
