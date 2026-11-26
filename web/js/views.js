@@ -12,7 +12,7 @@ import {
 } from "./ui.js";
 import { searchSongs, searchArtists, matchCategories, norm } from "./search.js";
 import { identifyNearbySong } from "./audio-search.js";
-import { uploadStationMedia, getStationJob, searchStationMusic, searchMusicCatalog, requestDjTrack, getDjRequest } from "./music-api.js";
+import { uploadStationMedia, getStationJob, searchStationMusic, searchMusicCatalog, requestDjTrack, requestDjQuery, getDjRequest } from "./music-api.js";
 import { siteOwnerToken, createSiteOwnerConnection, waitForSiteOwnerConnection, queueRecognizedTrack } from "./site-owner-auth.js";
 import * as dj from "./dj.js";
 import { appBanner, appOffer, getApp } from "./install.js";
@@ -997,9 +997,12 @@ export function viewDJ() {
         if (result.songs.length) result.text = t("dj.searchResults", { n: result.songs.length });
         else if (remote.length) result.text = t("dj.searchRefresh");
         else if (norm(text).length >= 4) {
+          const lookup = dj.catalogQuery(text);
+          result.text = t("dj.botSearching");
+          draw();
+          if (await addViaBot(result, lookup)) return;
           result.text = t("dj.catalogSearching");
           draw();
-          const lookup = dj.catalogQuery(text);
           result.catalogCandidates = await searchMusicCatalog(lookup);
           const best = bestCatalogMatch(lookup, result.catalogCandidates);
           if (best) {
@@ -1024,6 +1027,48 @@ export function viewDJ() {
     if (djChat.length > 30) djChat.splice(0, djChat.length - 30);
     draw();
     if (answer.confident && answer.songs.length) playList(answer.songs, 0, { type: "mix", id: `dj-${Date.now()}`, title: "DJ" });
+  }
+  /** The bot's search: its first original result is added to the station as a full song, then played.
+   *  Returns false (so the official-catalog preview is tried instead) when the bot can't do it right now. */
+  async function addViaBot(entry, query) {
+    let queued;
+    try { queued = await requestDjQuery(query); } catch { return false; }
+    if (!queued.jobId) return false;
+    entry.pending = false;
+    const playById = async (id, name) => {
+      await loadLibrary().catch(() => {});
+      const song = id && getSong(id);
+      if (!song) return false;
+      entry.songs = [song];
+      entry.text = t("dj.autoReady", { name: name || `${song.artist} — ${song.title}` });
+      draw();
+      playSong(song, [song], { type: "search", id: song.id, title: song.title });
+      return true;
+    };
+    let failures = 0, named = false;
+    for (let attempt = 0; attempt < 150; attempt++) {
+      await new Promise((resolve) => setTimeout(resolve, 4000));
+      let job;
+      try { job = await getDjRequest(queued.jobId); failures = 0; }
+      catch { if (++failures >= 5) return false; continue; }
+      if (job.name && !named) {
+        named = true;
+        entry.text = t("dj.botAdding", { name: job.name });
+        draw();
+      }
+      if (["COMPLETED", "DUPLICATE"].includes(job.status)) {
+        // the site redeploys a little after the job finishes; wait until the song is in the catalog
+        for (let tries = 0; tries < 30; tries++) {
+          if (await playById(job.songId, job.name)) return true;
+          await new Promise((resolve) => setTimeout(resolve, 5000));
+        }
+        entry.text = t("dj.addTimeout");
+        draw();
+        return true;
+      }
+      if (job.status === "FAILED") return false;
+    }
+    return false;
   }
   /** The catalog result that best matches what was typed (only ones the station can add). */
   function bestCatalogMatch(text, candidates) {

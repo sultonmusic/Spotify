@@ -208,6 +208,8 @@ const S = {
   "dj.catalogNone": { ru: "В библиотеке и музыкальных каталогах не нашёл. Уточните название и исполнителя.", en: "Nothing matched the station or music catalogs. Check the title and artist.", uz: "Stansiya va musiqa kataloglaridan topilmadi. Ijrochi va nomini aniqroq yozing." },
   "dj.addPreview": { ru: "Добавить на станцию", en: "Add to station", uz: "Stansiyaga qo'shish" },
   "dj.autoAdding": { ru: "Нашёл: {name}. Добавляю на станцию — это займёт 1–3 минуты, потом включу.", en: "Found {name}. Adding it to the station — about 1–3 minutes, then I'll play it.", uz: "Topildi: {name}. Stansiyaga qo'shyapman — 1–3 daqiqa, keyin o'zim qo'yaman." },
+  "dj.botSearching": { ru: "На станции нет. Бот ищет оригинал…", en: "Not in the station. The bot is finding the original…", uz: "Stansiyada yo'q. Bot originalini qidiryapti…" },
+  "dj.botAdding": { ru: "Нашёл: {name}. Добавляю полную песню на станцию — 1–3 минуты, потом включу.", en: "Found {name}. Adding the full song to the station — about 1–3 minutes, then I'll play it.", uz: "Topildi: {name}. To'liq qo'shiqni stansiyaga qo'shyapman — 1–3 daqiqa, keyin o'zim qo'yaman." },
   "dj.autoReady": { ru: "Готово — включаю {name}.", en: "Ready — playing {name}.", uz: "Tayyor — {name} qo'yilyapti." },
   "dj.noPreview": { ru: "Превью нет", en: "No preview", uz: "Preview yo'q" },
   "dj.catalogOfficialPage": { ru: "Официальная страница", en: "Official page", uz: "Rasmiy sahifa" },

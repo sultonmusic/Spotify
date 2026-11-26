@@ -77,6 +77,17 @@ export async function requestDjTrack(candidate) {
   return body;
 }
 
+/** Any listener: the bot finds the first original for these words and the station adds the full song. */
+export async function requestDjQuery(query) {
+  const response = await fetch(`${CONFIG.statsUrl}/api/music/dj-request`, {
+    method: "POST", headers: { "Content-Type": "application/json" }, cache: "no-store",
+    body: JSON.stringify({ query }),
+  });
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok) throw Object.assign(new Error(body.error || `Music service returned HTTP ${response.status}`), body);
+  return body;
+}
+
 export async function getDjRequest(id) {
   const response = await fetch(`${CONFIG.statsUrl}/api/music/dj-request/${encodeURIComponent(id)}`, { cache: "no-store" });
   const body = await response.json().catch(() => ({}));

@@ -211,12 +211,132 @@ def process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict)
         raise
 
 
+def dl_key() -> str:
+    return hashlib.sha256(f"cavi-dl:{os.environ.get('TELEGRAM_BOT_TOKEN', '')}".encode()).hexdigest()
+
+
+def first_original(query: str) -> dict | None:
+    """The bot's search, first result that is the original song (not a remix/cover/live/karaoke/lyrics video)."""
+    from bot import quick
+    from bot.main import variant_of
+
+    results = quick.search(query)
+    asked_variant = bool(quick._VARIANT.search(query))
+    clean = [r for r in results if asked_variant or not (quick._VARIANT.search(r["title"]) or variant_of(r["title"]))]
+    official = [r for r in clean if r["kind"] in ("artist", "song")]
+    return (official or clean or [None])[0]
+
+
+def split_artist_title(r: dict) -> tuple[str, str]:
+    """YouTube Music songs carry artist and title; plain videos often have "Artist - Title" in the title."""
+    from bot import quick
+
+    title = re.sub(r"\s*[\(\[](official|music|video|audio|clip|lyric|hd|4k)[^\)\]]*[\)\]]", "", r["title"], flags=re.I).strip()
+    artist = (r.get("artist") or "").strip()
+    if " - " in title and (not artist or r["kind"] in ("video", "youtube")):
+        left, right = title.split(" - ", 1)
+        if not artist or quick._norm(artist.split(",")[0]) in quick._norm(left):
+            artist, title = left.strip(), right.strip()
+    return artist, title
+
+
+def wait_for_helper(job_id: str, minutes: int = 12) -> dict:
+    deadline = time.monotonic() + minutes * 60
+    while time.monotonic() < deadline:
+        try:
+            response = requests.get(f"{api_base()}/internal/dl/result", params={"job": job_id},
+                                    headers={"X-Relay-Key": dl_key()}, timeout=20)
+            result = response.json().get("result") if response.ok else None
+        except (requests.RequestException, ValueError):
+            result = None
+        if result:
+            return result
+        time.sleep(5)
+    raise RuntimeError("Yuklovchi qurilma vaqtida javob bermadi")
+
+
+def process_dj_query(job_id: str, result_path: Path, query: str) -> None:
+    """Site DJ: the listener typed a song; add the bot's first original result to the station as a full song."""
+    from bot import lookup
+    from bot.main import Station
+
+    update_status(job_id, "PROCESSING", "Bot qo'shiqni qidirmoqda…")
+    chosen = first_original(query)
+    if not chosen:
+        raise RuntimeError("Hech narsa topilmadi")
+    artist, title = split_artist_title(chosen)
+    name = f"{artist} - {title}" if artist else title
+    print(f"[web-music] DJ query {query!r} -> {chosen['id']} {name!r} ({chosen['kind']})")
+
+    station = Station()
+    existing = next((song for song in station.lib.songs if not song.get("previewOnly") and lookup.same_song(
+        song["title"], song["artist"], title, artist)), None) if artist else None
+    if existing:
+        outcome_song, outcome = existing, "duplicate"
+    else:
+        owner = owner_chat(station)
+        if not owner:
+            raise RuntimeError("station owner chat is unknown")
+        update_status(job_id, "PROCESSING", f"Topildi: {name}. Audio tayyorlanmoqda…",
+                      {"title": title, "artist": artist})
+        job = {"mode": "site", "job_id": job_id, "chat_id": owner, "video_id": chosen["id"], "line": name[:200]}
+        response = requests.post(f"{api_base()}/internal/dl/enqueue", json=job,
+                                 headers={"X-Relay-Key": dl_key()}, timeout=20)
+        response.raise_for_status()
+        if not response.json().get("helperOnline"):
+            raise RuntimeError("Yuklovchi qurilma o'chiq")
+        got = wait_for_helper(job_id)
+        if got.get("error") or not got.get("file_id"):
+            raise RuntimeError(f"Yuklovchi xatosi: {got.get('error') or 'fayl yo‘q'}")
+
+        with tempfile.TemporaryDirectory(prefix="cavi-dj-yt-") as temp_dir:
+            source = Path(temp_dir) / "song.mp3"
+            update_status(job_id, "PROCESSING", f"{name}: saytga qo'shilmoqda…", {"title": title, "artist": artist})
+            station.bot.download(got["file_id"], source)
+            if got.get("message_id"):
+                station.bot.safe("deleteMessage", chat_id=got.get("chat_id") or owner, message_id=got["message_id"])
+            unique = "yt:" + chosen["id"]
+            media = {"file_name": f"{name}.mp3", "file_unique_id": unique, "file_size": source.stat().st_size,
+                     "performer": artist, "title": title}
+            last = [0.0]
+
+            def progress(message: str) -> None:
+                if time.monotonic() - last[0] >= 2:
+                    last[0] = time.monotonic()
+                    try:
+                        update_status(job_id, "PROCESSING", message)
+                    except requests.RequestException:
+                        pass
+
+            known = {"title": title, "artist": artist} if artist else None
+            outcome_song, outcome = station.import_song(
+                {"message_id": 0, "caption": ""}, "audio", media, unique, progress,
+                source_path=source, accept_variant=True, known=known)
+            station.save()
+
+    result = {key: outcome_song.get(key) for key in (
+        "id", "title", "artist", "artists", "album", "duration", "src", "cover", "color")}
+    result.update({"outcome": outcome, "origin": "dj-yt", "query": query, "fullAudio": True,
+                   "telegramChatId": owner_chat(station)})
+    result_path.write_text(json.dumps(result, ensure_ascii=False), encoding="utf-8")
+    state = "DUPLICATE" if outcome == "duplicate" else "UPLOADING"
+    message = "Bu qo'shiq stansiyada allaqachon bor." if outcome == "duplicate" else "Sayt kutubxonasiga saqlanmoqda…"
+    update_status(job_id, state, message, result)
+
+
 def process(job_id: str, result_path: Path) -> None:
     if not JOB_ID_RE.fullmatch(job_id):
         raise RuntimeError("invalid job id")
     update_status(job_id, "PROCESSING", "Audio/video tahlil qilinmoqda…")
     data, meta = fetch_upload(job_id)
     if meta["kind"] == "identify":
+        try:
+            request = json.loads(data.decode("utf-8"))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            request = {}
+        if isinstance(request, dict) and request.get("origin") == "dj-yt":
+            process_dj_query(job_id, result_path, str(request.get("query") or "").strip()[:120])
+            return
         process_recognition(job_id, result_path, data, meta)
         return
     name = safe_filename(str(meta.get("fileName") or "upload"), meta["kind"])
@@ -263,6 +383,11 @@ def finalize(job_id: str, result_path: Path, workflow_outcome: str) -> None:
         message = "Qo'shiq stansiyada bor." if status == "DUPLICATE" else "Tayyor — saytda oching yoki ijro eting."
         update_status(job_id, status, message, result)
         title = f"{result.get('artist') or ''} — {result.get('title') or ''}".strip(" —")
+        if result.get("origin") == "dj-yt":
+            if status != "DUPLICATE":
+                notify_owner(result.get("telegramChatId"),
+                             f"🎧 Saytdagi DJ so'rovi: «{result.get('query') or ''}»\n\n{title} — to'liq qo'shiq saytga qo'shildi.")
+            return
         if result.get("origin") == "dj-auto":
             if status != "DUPLICATE":
                 notify_owner(result.get("telegramChatId"),

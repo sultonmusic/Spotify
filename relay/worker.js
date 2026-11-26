@@ -416,6 +416,8 @@ export class TelegramInbox extends DurableObject {
     // MP3 download jobs: the station (GitHub Actions) queues them, the owner's computer downloads them
     // (YouTube blocks downloads from GitHub's servers).
     this.sql.exec("CREATE TABLE IF NOT EXISTS dl_jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, body TEXT NOT NULL, created_at INTEGER NOT NULL)");
+    // What the helper reports back for website (DJ) downloads: the Telegram file_id of the MP3, or an error.
+    this.sql.exec("CREATE TABLE IF NOT EXISTS dl_results (job TEXT PRIMARY KEY, body TEXT NOT NULL, created_at INTEGER NOT NULL)");
   }
 
   helperOnline() {
@@ -433,6 +435,23 @@ export class TelegramInbox extends DurableObject {
       this.sql.exec("DELETE FROM dl_jobs WHERE created_at < ?", now - 60 * 60_000);
       this.sql.exec("INSERT INTO dl_jobs (body, created_at) VALUES (?, ?)", body, now);
       return Response.json({ ok: true, helperOnline: this.helperOnline() });
+    }
+    if (url.pathname === "/dl/online" && request.method === "GET") {
+      return Response.json({ online: this.helperOnline() });
+    }
+    if (url.pathname === "/dl/result" && request.method === "POST") {
+      const body = await request.text();
+      let job;
+      try { job = JSON.parse(body)?.job_id; } catch { return Response.json({ error: "invalid result" }, { status: 400 }); }
+      if (body.length > 4096 || !/^[a-f0-9-]{36}$/i.test(String(job || ""))) return Response.json({ error: "invalid result" }, { status: 400 });
+      const now = Date.now();
+      this.sql.exec("DELETE FROM dl_results WHERE created_at < ?", now - 60 * 60_000);
+      this.sql.exec("INSERT OR REPLACE INTO dl_results VALUES (?, ?, ?)", job, body, now);
+      return Response.json({ ok: true });
+    }
+    if (url.pathname === "/dl/result" && request.method === "GET") {
+      const row = this.sql.exec("SELECT body FROM dl_results WHERE job = ?", String(url.searchParams.get("job") || "")).toArray()[0];
+      return Response.json({ ok: true, result: row ? JSON.parse(row.body) : null });
     }
     if (url.pathname === "/dl/claim" && request.method === "GET") {
       const timeout = Math.max(0, Math.min(25, Number(url.searchParams.get("timeout") || 0)));
@@ -757,6 +776,7 @@ async function queueDjRequest(request, env) {
   }
   let body;
   try { body = await request.json(); } catch { return musicJson(request, { error: "invalid track" }, 400); }
+  if (typeof body?.query === "string") return queueDjQuery(request, env, body.query);
   const title = String(body?.title || "").trim().slice(0, 200);
   const artist = String(body?.artist || "").trim().slice(0, 160);
   if (!title || !artist) return musicJson(request, { error: "invalid track" }, 400);
@@ -793,12 +813,42 @@ async function queueDjRequest(request, env) {
   return musicJson(request, { jobId: id, status: "QUEUED", title: match.title, artist: match.artist }, 202);
 }
 
+// The listener's words go to the bot's search; the station adds its first original result (no covers,
+// remixes or live versions) as a full song. The MP3 is made by the owner's download helper (phone/PC),
+// so when the helper is offline the site falls back to the official catalog preview.
+async function queueDjQuery(request, env, rawQuery) {
+  const query = rawQuery.trim().replace(/\s+/g, " ").slice(0, 120);
+  if (query.length < 3) return musicJson(request, { error: "enter a song title or artist" }, 400);
+  const online = await telegramInbox(env).fetch("https://telegram-inbox/dl/online").then((r) => r.json()).catch(() => ({}));
+  if (!online.online) return musicJson(request, { error: "download helper is offline", helperOffline: true }, 503);
+  const id = crypto.randomUUID();
+  const payload = new TextEncoder().encode(JSON.stringify({ origin: "dj-yt", query }));
+  const fileKey = await sha256(`cavi-dj-yt\n${musicNorm(query)}`);
+  const meta = { id, uid: DJ_PUBLIC_UID, fileName: "dj-query.json", mime: "application/json",
+    kind: "identify", size: payload.byteLength, fileKey };
+  const stub = webMusicDO(env, id);
+  const saved = await stub.fetch("https://music-jobs/create", { method: "POST",
+    headers: { "Content-Type": "application/octet-stream", "X-Music-Meta": encodeJsonHeader(meta) }, body: payload });
+  if (!saved.ok) return musicJson(request, await saved.json().catch(() => ({ error: "could not queue this track" })), saved.status);
+  const dispatch = await github(env, "/actions/workflows/web-music.yml/dispatches", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ref: env.BRANCH, inputs: { job_id: id } }),
+  });
+  if (!dispatch.ok) {
+    await stub.fetch(`https://music-jobs/status/${id}`, { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ uid: DJ_PUBLIC_UID, status: "FAILED", message: "processor could not start" }) });
+    return musicJson(request, { error: "could not start music processing" }, 503);
+  }
+  return musicJson(request, { jobId: id, status: "QUEUED", query }, 202);
+}
+
 async function djRequestStatus(request, env, id) {
   if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
   const response = await webMusicDO(env, id).fetch(`https://music-jobs/job/${id}`, { headers: { "X-Music-Uid": DJ_PUBLIC_UID } });
   if (!response.ok) return musicJson(request, { error: "request not found" }, response.status);
   const job = await response.json();
-  return musicJson(request, { status: job.status, songId: job.result?.id || null });
+  const name = job.result?.title ? `${job.result.artist || ""} — ${job.result.title}`.replace(/^ — /, "") : "";
+  return musicJson(request, { status: job.status, songId: job.result?.id || null, message: job.message || "", name });
 }
 
 // ------------------------------------------------------------------ health (no secrets in the answer)
@@ -835,7 +885,7 @@ async function handle(request, env, ctx) {
   const url = new URL(request.url);
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
   if (url.pathname === "/telegram-webhook" && request.method === "POST") return telegramWebhook(request, env, ctx);
-  if (url.pathname === "/internal/dl/enqueue" || url.pathname === "/internal/dl/claim") {
+  if (["/internal/dl/enqueue", "/internal/dl/claim", "/internal/dl/result"].includes(url.pathname)) {
     // Station and the owner's download helper both hold the bot token; the key is derived from it.
     if (!env.TELEGRAM_BOT_TOKEN || request.headers.get("X-Relay-Key") !== await sha256(`cavi-dl:${env.TELEGRAM_BOT_TOKEN}`)) {
       return new Response("forbidden", { status: 403 });
