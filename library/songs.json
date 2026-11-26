@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T19:20:28Z",
- "count": 117,
+ "updatedAt": "2026-11-26T20:17:49Z",
+ "count": 118,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -2331,9 +2331,68 @@
     "en": "American pop rock band",
     "ru": "американская рок-группа"
    }
+  },
+  "Shohrux Mirzo": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 14790713,
+   "itunesId": 1384931577,
+   "deezer": "https://www.deezer.com/artist/14790713",
+   "apple": "https://music.apple.com/us/artist/shohrux-mirzo/1384931577",
+   "image": "library/artists/shohrux-mirzo.jpg",
+   "color": "#5d6c65",
+   "checked": "2026-11-26T20:17:48Z",
+   "verifiedAt": "2026-11-26T20:17:48Z",
+   "fans": 0,
+   "albums": 8
   }
  },
  "songs": [
+  {
+   "id": "e119888797",
+   "title": "Novvisi bor",
+   "artist": "Shohrux Mirzo",
+   "artists": [
+    "Shohrux Mirzo"
+   ],
+   "album": "Novvisi Bor",
+   "year": 2023,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 197.46,
+   "src": "library/audio/e119888797.mp3",
+   "cover": "library/covers/e119888797.jpg",
+   "color": "#707076",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T20:17:49Z",
+   "mime": "audio/mpeg",
+   "size": 4740626,
+   "storage": "pages",
+   "lufs": -7.8,
+   "gain": -6.2,
+   "via": "audio",
+   "fileKey": "yt:5HAoS-Lc5tA",
+   "story": "library/stories/e119888797.jpg"
+  },
   {
    "id": "a4403fe751",
    "title": "Believer",
