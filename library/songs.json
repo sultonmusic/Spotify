@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T21:25:15Z",
+ "updatedAt": "2026-11-26T21:29:15Z",
  "count": 170,
  "site": {
   "admins": [
@@ -3032,7 +3032,22 @@
    "albums": 58,
    "ytPhotoChecked": "2026-11-26T21:04:28Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCGvj8kfUV5Q6lzECIrGY19g"
+   "youtubeMusic": "https://music.youtube.com/channel/UCGvj8kfUV5Q6lzECIrGY19g",
+   "bioChecked": "2026-11-26T21:29:10Z",
+   "bio": {
+    "en": "Justin Drew Bieber is a Canadian singer. An influential figure in popular music, Bieber is known for his image reinventions and multi-genre performances. With estimated sales of over 150 million records, he is one of the best-selling music artists of all time.",
+    "ru": "Джа́стин Дрю Би́бер — канадский певец. Его карьера началась в 2008 году благодаря продюсеру Скутеру Брауну, который заметил юного исполнителя на YouTube. При поддержке Ашера Бибер переехал в США, где вскоре подписал контракт с лейблом RBMG Records. Дебютный мини-альбом My World (2009) мгновенно принёс ему международную известность, закрепив за ним репутацию нового кумира молодёжи.",
+    "uz": "Justin Drew Bieber kanadalik pop-qoʻshiqchidir. 2008-yili Bieberning videolarini YouTubeda koʻrib qolgan Scooter Braun unga birga ishlashni, Usher bilan duet kuylashni taklif etdi, va Justin darhol mashhurlikka erishdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Justin_Bieber",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D0%B1%D0%B5%D1%80%2C_%D0%94%D0%B6%D0%B0%D1%81%D1%82%D0%B8%D0%BD",
+    "uz": "https://uz.wikipedia.org/wiki/Justin_Bieber"
+   },
+   "desc": {
+    "en": "Canadian singer (born 1994)",
+    "ru": "канадский поп-R&B-певец, автор песен, музыкант, актёр (род. 1994)"
+   }
   },
   "Lorde": {
    "aliases": [],
@@ -3049,7 +3064,24 @@
    "albums": 22,
    "ytPhotoChecked": "2026-11-26T21:04:29Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCILoG0-vdgLDnrwtRuM_0GQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCILoG0-vdgLDnrwtRuM_0GQ",
+   "bioChecked": "2026-11-26T21:29:12Z",
+   "bio": {
+    "en": "Ella Marija Lani Yelich-O'Connor, known professionally as Lorde, is a New Zealand singer-songwriter. An influential figure in alternative pop music, she is known for her unconventional production style and introspective songwriting.",
+    "ru": "Лорд — новозеландская певица, автор песен и музыкальный продюсер. Стартом карьеры считается 2009 год, когда Элла подписала контракт с лейблом Universal Music Group в подростковом возрасте, а позже начала работу над дебютным альбомом с продюсером Джоэлом Литтлом, который является соавтором большинства песен Лорд. Её первым успехом стал мини-альбом The Love Club EP, выпущенный в марте 2013 года и дебютировавший на второй позиции в чартах Австралии и Новой Зеландии.",
+    "uz": "Ella Marija Lani Yelich-O'Konnor, professional darajada Lorde nomi bilan tanilgan, yangi zelandiyalik qo'shiqchi-qo'shiq muallifi. Muqobil pop musiqasining nufuzli arbobi, u o'zining noan'anaviy ishlab chiqarish uslubi va introspektiv qo'shiq yozishi bilan mashhur."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Lorde",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9B%D0%BE%D1%80%D0%B4_(%D0%BF%D0%B5%D0%B2%D0%B8%D1%86%D0%B0)"
+   },
+   "desc": {
+    "en": "New Zealand singer-songwriter (born 1996)",
+    "ru": "новозеландская певица"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Mikky Ekko": {
    "aliases": [],
@@ -3064,7 +3096,23 @@
    "albums": 38,
    "ytPhotoChecked": "2026-11-26T21:04:30Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCs_zPKBz1t_I64dBQg0EfBw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCs_zPKBz1t_I64dBQg0EfBw",
+   "bioChecked": "2026-11-26T21:29:15Z",
+   "bio": {
+    "en": "John Stephen Sudduth, known professionally as Mikky Ekko, is an American singer, songwriter and record producer from Nashville. He co-wrote and was featured on Rihanna's 2013 single \"Stay\", which charted in multiple countries, becoming his first-charting material. Ekko released his debut studio album, Time, in 2015 through RCA Records. Fame, his second album, was released in 2018 on Interscope Records.",
+    "ru": "Джон Стивен Саддат, более известный как Микки Экко — американский певец, автор песен и музыкальный продюсер, подписавший контракт с RCA Records. Стал известен в 2013 году, благодаря участию в песне Рианны «Stay».",
+    "uz": "Jon Stiven Suddut, professional darajada Mikki Ekko nomi bilan tanilgan, amerikalik qo'shiqchi, qo'shiq muallifi va Nashvilllik prodyuser. U Rihannaning 2013-yildagi \"Stay\" singlida hammualliflik qilgan va koʻplab mamlakatlarda xit-paradda qatnashgan va uning birinchi chart materialiga aylangan. Ekko o'zining \"Time\" debyut studiyaviy albomini 2015 yilda RCA Records orqali chiqardi. Shon-sharaf, uning ikkinchi albomi 2018 yilda Interscope Records-da chiqdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Mikky_Ekko",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9C%D0%B8%D0%BA%D0%BA%D0%B8_%D0%AD%D0%BA%D0%BA%D0%BE"
+   },
+   "desc": {
+    "en": "American singer and songwriter"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Christina Perri": {
    "aliases": [],
