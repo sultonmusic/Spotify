@@ -413,10 +413,41 @@ export class TelegramInbox extends DurableObject {
     this.sql = ctx.storage.sql;
     this.sql.exec("CREATE TABLE IF NOT EXISTS updates (update_id INTEGER PRIMARY KEY, body TEXT NOT NULL, created_at INTEGER NOT NULL)");
     this.sql.exec("CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v INTEGER NOT NULL)");
+    // MP3 download jobs: the station (GitHub Actions) queues them, the owner's computer downloads them
+    // (YouTube blocks downloads from GitHub's servers).
+    this.sql.exec("CREATE TABLE IF NOT EXISTS dl_jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, body TEXT NOT NULL, created_at INTEGER NOT NULL)");
+  }
+
+  helperOnline() {
+    const seen = this.sql.exec("SELECT v FROM meta WHERE k = 'helperSeen'").toArray()[0]?.v || 0;
+    return Date.now() - seen < 90_000;
   }
 
   async fetch(request) {
     const url = new URL(request.url);
+    if (url.pathname === "/dl/enqueue" && request.method === "POST") {
+      const body = await request.text();
+      if (body.length > 4096) return Response.json({ error: "job too large" }, { status: 413 });
+      try { JSON.parse(body); } catch { return Response.json({ error: "invalid job" }, { status: 400 }); }
+      const now = Date.now();
+      this.sql.exec("DELETE FROM dl_jobs WHERE created_at < ?", now - 60 * 60_000);
+      this.sql.exec("INSERT INTO dl_jobs (body, created_at) VALUES (?, ?)", body, now);
+      return Response.json({ ok: true, helperOnline: this.helperOnline() });
+    }
+    if (url.pathname === "/dl/claim" && request.method === "GET") {
+      const timeout = Math.max(0, Math.min(25, Number(url.searchParams.get("timeout") || 0)));
+      const until = Date.now() + timeout * 1000;
+      for (;;) {
+        this.sql.exec("INSERT OR REPLACE INTO meta VALUES ('helperSeen', ?)", Date.now());
+        const row = this.sql.exec("SELECT id, body FROM dl_jobs ORDER BY id LIMIT 1").toArray()[0];
+        if (row) {
+          this.sql.exec("DELETE FROM dl_jobs WHERE id = ?", row.id);
+          return Response.json({ ok: true, job: JSON.parse(row.body) });
+        }
+        if (Date.now() >= until) return Response.json({ ok: true, job: null });
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      }
+    }
     if (url.pathname === "/enqueue" && request.method === "POST") {
       let update;
       try { update = await request.json(); } catch { return Response.json({ error: "invalid update" }, { status: 400 }); }
@@ -827,6 +858,18 @@ async function handle(request, env, ctx) {
   const url = new URL(request.url);
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
   if (url.pathname === "/telegram-webhook" && request.method === "POST") return telegramWebhook(request, env, ctx);
+  if (url.pathname === "/internal/dl/enqueue" || url.pathname === "/internal/dl/claim") {
+    // Station and the owner's download helper both hold the bot token; the key is derived from it.
+    if (!env.TELEGRAM_BOT_TOKEN || request.headers.get("X-Relay-Key") !== await sha256(`cavi-dl:${env.TELEGRAM_BOT_TOKEN}`)) {
+      return new Response("forbidden", { status: 403 });
+    }
+    const inner = url.pathname.replace("/internal", "") + url.search;
+    return telegramInbox(env).fetch(`https://telegram-inbox${inner}`, {
+      method: request.method,
+      headers: { "Content-Type": "application/json" },
+      body: request.method === "POST" ? await request.text() : undefined,
+    });
+  }
   if (url.pathname === "/internal/telegram/updates" && request.method === "GET") {
     const expected = await sha256(`cavi-telegram-updates:${env.DISPATCH_TOKEN}`);
     if (request.headers.get("X-Relay-Key") !== expected) return new Response("forbidden", { status: 403 });
