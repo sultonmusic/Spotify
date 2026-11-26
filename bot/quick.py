@@ -244,13 +244,37 @@ class QuickSearch:
         self.send_list(chat_id, query, esc(query), msg["message_id"])
 
     # ---------- MP3
-    def send_mp3(self, chat_id: int, video_id: str, reply_to: int | None = None) -> None:
+    def library_song(self, line: str) -> dict | None:
+        """Ro'yxat qatori ("Ijrochi - Nomi") stansiya kutubxonasidagi qo'shiqqa mos kelsa — o'sha qo'shiq."""
+        if " - " not in line:
+            return None
+        artist, title = line.split(" - ", 1)
+        title = re.sub(r"\s*[\(\[].*?[\)\]]", "", title).strip()
+        for song in self.st.lib.songs:
+            if song.get("src") and lookup.same_song(song["title"], song["artist"], title, artist):
+                return song
+        return None
+
+    def send_library_song(self, chat_id: int, song: dict) -> bool:
+        """Stansiyadagi rasmiy faylni saytdan to'g'ridan-to'g'ri yuboradi (YouTube kerak emas)."""
+        src = song["src"] if song["src"].startswith("http") else (self.st.site or "") + song["src"]
+        if not src.startswith("https://"):
+            return False
+        sent = self.bot.safe("sendAudio", chat_id=chat_id, audio=src, title=song["title"],
+                             performer=song["artist"], duration=int(song.get("duration") or 0))
+        return bool(sent)
+
+    def send_mp3(self, chat_id: int, video_id: str, reply_to: int | None = None, line: str = "") -> None:
         cache = self.st.state.setdefault("yt_files", {})
         if video_id in cache:  # avval yuborilgan — darhol jo'natamiz
             if self.bot.safe("sendAudio", chat_id=chat_id, audio=cache[video_id]):
                 return
             cache.pop(video_id, None)
             self.st.state_dirty = True
+
+        song = self.library_song(line)
+        if song and self.send_library_song(chat_id, song):
+            return
 
         wait = self.st.send(chat_id, "⏳ Audio tayyorlanmoqda...")
         self.bot.safe("sendChatAction", chat_id=chat_id, action="upload_voice")
@@ -285,7 +309,13 @@ class QuickSearch:
         chat_id = (message.get("chat") or {}).get("id")
         if action == "dl":
             self.bot.safe("answerCallbackQuery", callback_query_id=cq["id"], text="⏳ Tayyorlanmoqda...")
-            self.send_mp3(chat_id, value)
+            # Bosilgan raqam bo'yicha ro'yxatdagi qatorni olamiz: "Ijrochi - Nomi"
+            number = next((b.get("text") for row in (message.get("reply_markup") or {}).get("inline_keyboard", [])
+                           for b in row if b.get("callback_data") == data), "")
+            text = message.get("caption") or message.get("text") or ""
+            line = next((ln[len(number) + 2:] for ln in text.split("\n") if number and ln.startswith(f"{number}. ")), "")
+            line = re.sub(r"\s+\d+:\d\d$", "", line).rstrip("…").strip()
+            self.send_mp3(chat_id, value, line=line)
             return True
 
         # pg — xabarning o'zini yangi sahifa bilan almashtiramiz
