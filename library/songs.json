@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T21:50:15Z",
- "count": 197,
+ "updatedAt": "2026-11-26T21:59:53Z",
+ "count": 200,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4275,9 +4275,186 @@
    "verifiedAt": "2026-11-26T21:50:05Z",
    "fans": 12885983,
    "albums": 95
+  },
+  "Roxette": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1755,
+   "itunesId": 2397346,
+   "deezer": "https://www.deezer.com/artist/1755",
+   "apple": "https://music.apple.com/us/artist/roxette/2397346",
+   "image": "library/artists/roxette.jpg",
+   "color": "#8b4c34",
+   "checked": "2026-11-26T21:58:52Z",
+   "verifiedAt": "2026-11-26T21:58:52Z",
+   "fans": 1186006,
+   "albums": 68
+  },
+  "Scorpions": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 863,
+   "deezer": "https://www.deezer.com/artist/863",
+   "image": "library/artists/scorpions.jpg",
+   "color": "#a4825b",
+   "checked": "2026-11-26T21:59:28Z",
+   "verifiedAt": "2026-11-26T21:59:28Z",
+   "fans": 3695784,
+   "albums": 51
+  },
+  "SZA": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5531258,
+   "itunesId": 605800394,
+   "deezer": "https://www.deezer.com/artist/5531258",
+   "apple": "https://music.apple.com/us/artist/sza/605800394",
+   "image": "library/artists/sza.jpg",
+   "color": "#8a8865",
+   "checked": "2026-11-26T21:59:48Z",
+   "verifiedAt": "2026-11-26T21:59:48Z",
+   "fans": 1351999,
+   "albums": 42
   }
  },
  "songs": [
+  {
+   "id": "af42833a66",
+   "title": "Kill Bill",
+   "artist": "SZA",
+   "artists": [
+    "SZA"
+   ],
+   "album": "SOS",
+   "year": 2022,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "romantic",
+    "sad",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 155.54,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/af42833a66.mp3",
+   "cover": "library/covers/af42833a66.jpg",
+   "color": "#0b3e84",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:59:53Z",
+   "mime": "audio/mpeg",
+   "size": 3734334,
+   "storage": "release",
+   "lufs": -7.8,
+   "gain": -6.2,
+   "via": "audio",
+   "fileKey": "yt:AdEKgwUqPKI",
+   "story": "library/stories/af42833a66.jpg"
+  },
+  {
+   "id": "85b2939c1a",
+   "title": "Still Loving You",
+   "artist": "Scorpions",
+   "artists": [
+    "Scorpions"
+   ],
+   "album": "Comeblack",
+   "year": 2011,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": 105,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 287.78,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/85b2939c1a.mp3",
+   "cover": "library/covers/85b2939c1a.jpg",
+   "color": "#6b6d6e",
+   "lyrics": "plain",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:59:33Z",
+   "mime": "audio/mpeg",
+   "size": 6908114,
+   "storage": "release",
+   "lufs": -15.6,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:it9bXaOYqVE",
+   "story": "library/stories/85b2939c1a.jpg"
+  },
+  {
+   "id": "709b40c870",
+   "title": "Listen To Your Heart",
+   "artist": "Roxette",
+   "artists": [
+    "Roxette"
+   ],
+   "album": "Look Sharp! 30th Anniversary Edition",
+   "year": 1988,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 172,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 303.4,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/709b40c870.mp3",
+   "cover": "library/covers/709b40c870.jpg",
+   "color": "#7e1418",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-26T21:58:57Z",
+   "mime": "audio/mpeg",
+   "size": 7283118,
+   "storage": "release",
+   "lufs": -24.8,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:0j0H482NPJI",
+   "story": "library/stories/709b40c870.jpg"
+  },
   {
    "id": "1a8ac2e595",
    "title": "Bohemian Rhapsody",
