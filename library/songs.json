@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T03:21:07Z",
- "count": 253,
+ "updatedAt": "2026-11-27T03:32:30Z",
+ "count": 268,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4704,9 +4704,806 @@
    "ytPhotoChecked": "2026-11-27T03:17:47Z",
    "imageSource": "ytmusic",
    "youtubeMusic": "https://music.youtube.com/channel/UC0guXwTSf4hAOvCSgmViojw"
+  },
+  "Majid Jordan": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5072859,
+   "deezer": "https://www.deezer.com/artist/5072859",
+   "image": "library/artists/majid-jordan.jpg",
+   "color": "#80807f",
+   "checked": "2026-11-27T03:14:33Z",
+   "verifiedAt": "2026-11-27T03:14:33Z",
+   "fans": 35730,
+   "albums": 31
+  },
+  "Lil Durk": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 3977201,
+   "deezer": "https://www.deezer.com/artist/3977201",
+   "image": "library/artists/lil-durk.jpg",
+   "color": "#d1342e",
+   "checked": "2026-11-27T03:21:13Z",
+   "verifiedAt": "2026-11-27T03:21:13Z",
+   "fans": 643165,
+   "albums": 126
+  },
+  "Wyclef Jean": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 247853152,
+   "deezer": "https://www.deezer.com/artist/247853152",
+   "image": "library/artists/wyclef-jean.jpg",
+   "color": "#7c6a95",
+   "checked": "2026-11-27T03:22:24Z",
+   "verifiedAt": "2026-11-27T03:22:24Z",
+   "fans": 28,
+   "albums": 7
+  },
+  "Alejandro Sanz": {
+   "aliases": [],
+   "verified": false
+  },
+  "El Cata": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 350043,
+   "deezer": "https://www.deezer.com/artist/350043",
+   "image": "library/artists/el-cata.jpg",
+   "color": "#a66b4b",
+   "checked": "2026-11-27T03:24:22Z",
+   "verifiedAt": "2026-11-27T03:24:22Z",
+   "fans": 7674,
+   "albums": 39
+  },
+  "Nefera DeNile": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 8310810,
+   "itunesId": 1013132199,
+   "deezer": "https://www.deezer.com/artist/8310810",
+   "apple": "https://music.apple.com/us/artist/nefera-denile/1013132199",
+   "image": "library/artists/nefera-denile.jpg",
+   "color": "#7c6a95",
+   "checked": "2026-11-27T03:25:03Z",
+   "verifiedAt": "2026-11-27T03:25:03Z",
+   "fans": 122
+  },
+  "Ramses DeNile": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 8310812,
+   "deezer": "https://www.deezer.com/artist/8310812",
+   "image": "library/artists/ramses-denile.jpg",
+   "color": "#7c6a95",
+   "checked": "2026-11-27T03:25:03Z",
+   "verifiedAt": "2026-11-27T03:25:03Z",
+   "fans": 35
+  },
+  "Monster High": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4552655,
+   "deezer": "https://www.deezer.com/artist/4552655",
+   "image": "library/artists/monster-high.jpg",
+   "color": "#751a46",
+   "checked": "2026-11-27T03:25:05Z",
+   "verifiedAt": "2026-11-27T03:25:05Z",
+   "fans": 66190,
+   "albums": 42
+  },
+  "Disney": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 9219,
+   "deezer": "https://www.deezer.com/artist/9219",
+   "image": "library/artists/disney.jpg",
+   "color": "#113e8b",
+   "checked": "2026-11-27T03:25:30Z",
+   "verifiedAt": "2026-11-27T03:25:30Z",
+   "fans": 423475,
+   "albums": 101
   }
  },
  "songs": [
+  {
+   "id": "fcd49b78a6",
+   "title": "Bad Romance",
+   "artist": "Lady Gaga",
+   "artists": [
+    "Lady Gaga"
+   ],
+   "album": "The Fame Monster (Deluxe Edition)",
+   "year": 2009,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 119,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 294.57,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/fcd49b78a6.mp3",
+   "cover": "library/covers/fcd49b78a6.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:32:30Z",
+   "mime": "audio/mpeg",
+   "size": 7071140,
+   "storage": "release",
+   "lufs": -7.5,
+   "gain": -6.5,
+   "via": "audio",
+   "fileKey": "yt:QdaG6pDOz5A",
+   "story": "library/stories/fcd49b78a6.jpg"
+  },
+  {
+   "id": "9b81e25269",
+   "title": "Can't Remember to Forget You",
+   "artist": "Shakira, Rihanna",
+   "artists": [
+    "Shakira",
+    "Rihanna"
+   ],
+   "album": "Shakira. (Expanded Edition) [Spanish Version]",
+   "year": 2014,
+   "genre": "Latin",
+   "subgenre": "Pop Latino",
+   "moods": [
+    "nostalgic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 138,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 205.91,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9b81e25269.mp3",
+   "cover": "library/covers/9b81e25269.jpg",
+   "color": "#b97a46",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:26:52Z",
+   "mime": "audio/mpeg",
+   "size": 4943434,
+   "storage": "release",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "yt:34SESav_RFU",
+   "story": "library/stories/9b81e25269.jpg"
+  },
+  {
+   "id": "b038862c7d",
+   "title": "Try Everything (From \"Zootropolis\")",
+   "artist": "Shakira, Disney",
+   "artists": [
+    "Shakira",
+    "Disney"
+   ],
+   "album": "Try Everything (From \"Zootropolis\")",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 115,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 228.76,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b038862c7d.mp3",
+   "cover": "library/covers/b038862c7d.jpg",
+   "color": "#00008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:25:35Z",
+   "mime": "audio/mpeg",
+   "size": 5491780,
+   "storage": "release",
+   "lufs": -20.1,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:BH89RNqeQZA",
+   "story": "library/stories/b038862c7d.jpg"
+  },
+  {
+   "id": "1342106764",
+   "title": "Empire",
+   "artist": "Nefera DeNile, Ramses DeNile, Monster High",
+   "artists": [
+    "Nefera DeNile",
+    "Ramses DeNile",
+    "Monster High"
+   ],
+   "album": "Boo York, Boo York (Original Motion Picture Soundtrack)",
+   "year": 2015,
+   "genre": "Children",
+   "subgenre": "Children's Music",
+   "moods": [
+    "motivational",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.7,
+   "danceability": 0.75,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 176.85,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1342106764.mp3",
+   "cover": "library/covers/1342106764.jpg",
+   "color": "#8a6159",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:25:09Z",
+   "mime": "audio/mpeg",
+   "size": 4246474,
+   "storage": "release",
+   "lufs": -9.4,
+   "gain": -4.6,
+   "via": "audio",
+   "fileKey": "yt:L_5d6MFrN3E",
+   "story": "library/stories/1342106764.jpg"
+  },
+  {
+   "id": "d444fb4ed4",
+   "title": "Loca",
+   "artist": "Shakira, El Cata",
+   "artists": [
+    "Shakira",
+    "El Cata"
+   ],
+   "album": "Sale el Sol",
+   "year": 2010,
+   "genre": "Latin",
+   "subgenre": "Pop Latino",
+   "moods": [
+    "party",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": 112,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 183.69,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d444fb4ed4.mp3",
+   "cover": "library/covers/d444fb4ed4.jpg",
+   "color": "#bc6143",
+   "lyrics": "plain",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:24:26Z",
+   "mime": "audio/mpeg",
+   "size": 4410000,
+   "storage": "release",
+   "lufs": -9.2,
+   "gain": -4.8,
+   "via": "audio",
+   "fileKey": "yt:p_uBMc7mA0c",
+   "story": "library/stories/d444fb4ed4.jpg"
+  },
+  {
+   "id": "34a0e6b9f6",
+   "title": "She Wolf",
+   "artist": "Shakira",
+   "artists": [
+    "Shakira"
+   ],
+   "album": "She Wolf (Deluxe Version)",
+   "year": 2009,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 230.03,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/34a0e6b9f6.mp3",
+   "cover": "library/covers/34a0e6b9f6.jpg",
+   "color": "#bd7442",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:24:05Z",
+   "mime": "audio/mpeg",
+   "size": 5522263,
+   "storage": "release",
+   "lufs": -12.6,
+   "gain": -1.4,
+   "via": "audio",
+   "fileKey": "yt:Fno-Akxow_c",
+   "story": "library/stories/34a0e6b9f6.jpg"
+  },
+  {
+   "id": "a52a1107cc",
+   "title": "Underneath Your Clothes",
+   "artist": "Shakira",
+   "artists": [
+    "Shakira"
+   ],
+   "album": "Laundry Service",
+   "year": 2001,
+   "genre": "Latin",
+   "subgenre": "Pop Latino",
+   "moods": [
+    "party",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 165,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 224.07,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a52a1107cc.mp3",
+   "cover": "library/covers/a52a1107cc.jpg",
+   "color": "#df9120",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:23:35Z",
+   "mime": "audio/mpeg",
+   "size": 5379422,
+   "storage": "release",
+   "lufs": -9.9,
+   "gain": -4.1,
+   "via": "audio",
+   "fileKey": "yt:41z3FqQ5V2w",
+   "story": "library/stories/a52a1107cc.jpg"
+  },
+  {
+   "id": "c1ce870668",
+   "title": "La Tortura",
+   "artist": "Shakira, Alejandro Sanz",
+   "artists": [
+    "Shakira",
+    "Alejandro Sanz"
+   ],
+   "album": "Fijación Oral Volumen 1 (Expanded Edition)",
+   "year": 2005,
+   "genre": "Latin",
+   "subgenre": "Pop Latino",
+   "moods": [
+    "party",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 224.77,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c1ce870668.mp3",
+   "cover": "library/covers/c1ce870668.jpg",
+   "color": "#8f000f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:23:10Z",
+   "mime": "audio/mpeg",
+   "size": 5396201,
+   "storage": "release",
+   "lufs": -14.2,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:GdgiSOHcswI",
+   "story": "library/stories/c1ce870668.jpg"
+  },
+  {
+   "id": "b76f9edc7f",
+   "title": "Hips Don't Lie",
+   "artist": "Shakira, Wyclef Jean",
+   "artists": [
+    "Shakira",
+    "Wyclef Jean"
+   ],
+   "album": "Oral Fixation, Vol. 2 (Expanded Edition)",
+   "year": 2005,
+   "genre": "Latin",
+   "subgenre": "Pop Latino",
+   "moods": [
+    "party",
+    "romantic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 218.21,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b76f9edc7f.mp3",
+   "cover": "library/covers/b76f9edc7f.jpg",
+   "color": "#a67159",
+   "lyrics": "plain",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:22:32Z",
+   "mime": "audio/mpeg",
+   "size": 5238907,
+   "storage": "release",
+   "lufs": -13.0,
+   "gain": -1.0,
+   "via": "audio",
+   "fileKey": "yt:nOj6d-HOw2w",
+   "story": "library/stories/b76f9edc7f.jpg"
+  },
+  {
+   "id": "38026ced6f",
+   "title": "Whenever, Wherever",
+   "artist": "Shakira",
+   "artists": [
+    "Shakira"
+   ],
+   "album": "Laundry Service",
+   "year": 2001,
+   "genre": "Latin",
+   "subgenre": "Pop Latino",
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": 108,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 196.16,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/38026ced6f.mp3",
+   "cover": "library/covers/38026ced6f.jpg",
+   "color": "#df9120",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:22:03Z",
+   "mime": "audio/mpeg",
+   "size": 4709529,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:fFW91xwQFXk",
+   "story": "library/stories/38026ced6f.jpg"
+  },
+  {
+   "id": "b78914bf66",
+   "title": "Take Care",
+   "artist": "Drake, Rihanna",
+   "artists": [
+    "Drake",
+    "Rihanna"
+   ],
+   "album": "Take Care (Deluxe Version)",
+   "year": 2011,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "sad",
+    "romantic",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 122,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 277.39,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b78914bf66.mp3",
+   "cover": "library/covers/b78914bf66.jpg",
+   "color": "#885e3e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:21:44Z",
+   "mime": "audio/mpeg",
+   "size": 6658724,
+   "storage": "release",
+   "lufs": -10.8,
+   "gain": -3.2,
+   "via": "audio",
+   "fileKey": "yt:_Y3X21XLz9s",
+   "story": "library/stories/b78914bf66.jpg"
+  },
+  {
+   "id": "850d5b5535",
+   "title": "Laugh Now Cry Later",
+   "artist": "Drake, Lil Durk",
+   "artists": [
+    "Drake",
+    "Lil Durk"
+   ],
+   "album": "Laugh Now Cry Later (feat. Lil Durk)",
+   "year": 2020,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "romantic",
+    "sad",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 261.49,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/850d5b5535.mp3",
+   "cover": "library/covers/850d5b5535.jpg",
+   "color": "#dfbf20",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:21:21Z",
+   "mime": "audio/mpeg",
+   "size": 6277433,
+   "storage": "release",
+   "lufs": -11.5,
+   "gain": -2.5,
+   "via": "audio",
+   "fileKey": "yt:YZLJ_GWJ5Ag",
+   "story": "library/stories/850d5b5535.jpg"
+  },
+  {
+   "id": "92538ab745",
+   "title": "Nice For What",
+   "artist": "Drake",
+   "artists": [
+    "Drake"
+   ],
+   "album": "Scorpion",
+   "year": 2018,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "motivational",
+    "sad",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.97,
+   "danceability": 1.0,
+   "bpm": 187,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 210.75,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/92538ab745.mp3",
+   "cover": "library/covers/92538ab745.jpg",
+   "color": "#4d4d4d",
+   "lyrics": "plain",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:20:58Z",
+   "mime": "audio/mpeg",
+   "size": 5059725,
+   "storage": "release",
+   "lufs": -10.2,
+   "gain": -3.8,
+   "via": "audio",
+   "fileKey": "yt:El2KPBO-_uk",
+   "story": "library/stories/92538ab745.jpg"
+  },
+  {
+   "id": "afc547588d",
+   "title": "Passionfruit",
+   "artist": "Drake",
+   "artists": [
+    "Drake"
+   ],
+   "album": "More Life",
+   "year": 2017,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "motivational",
+    "nostalgic",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 298.94,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/afc547588d.mp3",
+   "cover": "library/covers/afc547588d.jpg",
+   "color": "#00008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:20:29Z",
+   "mime": "audio/mpeg",
+   "size": 7175949,
+   "storage": "release",
+   "lufs": -12.0,
+   "gain": -2.0,
+   "via": "audio",
+   "fileKey": "yt:COz9lDCFHjw",
+   "story": "library/stories/afc547588d.jpg"
+  },
+  {
+   "id": "564e214e42",
+   "title": "Hold On, We're Going Home",
+   "artist": "Drake, Majid Jordan",
+   "artists": [
+    "Drake",
+    "Majid Jordan"
+   ],
+   "album": "Hold On, We're Going Home (feat. Majid Jordan)",
+   "year": 2013,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "romantic",
+    "sad",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 225.06,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/564e214e42.mp3",
+   "cover": "library/covers/564e214e42.jpg",
+   "color": "#555456",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:14:38Z",
+   "mime": "audio/mpeg",
+   "size": 5403085,
+   "storage": "release",
+   "lufs": -10.4,
+   "gain": -3.6,
+   "via": "audio",
+   "fileKey": "yt:KnkDL9lkbX8",
+   "story": "library/stories/564e214e42.jpg"
+  },
   {
    "id": "b9f5476029",
    "title": "When I Was Your Man",
