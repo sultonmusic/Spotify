@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T05:51:15Z",
- "count": 433,
+ "updatedAt": "2026-11-27T06:11:07Z",
+ "count": 453,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -5368,9 +5368,988 @@
    "verifiedAt": "2026-11-27T05:47:46Z",
    "fans": 3916602,
    "albums": 38
+  },
+  "Meghan Trainor": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1181430,
+   "deezer": "https://www.deezer.com/artist/1181430",
+   "image": "library/artists/meghan-trainor.jpg",
+   "color": "#bc436a",
+   "checked": "2026-11-27T06:01:05Z",
+   "verifiedAt": "2026-11-27T06:01:05Z",
+   "fans": 1720881,
+   "albums": 84
+  },
+  "Kehlani": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5603027,
+   "deezer": "https://www.deezer.com/artist/5603027",
+   "image": "library/artists/kehlani.jpg",
+   "color": "#9e4924",
+   "checked": "2026-11-27T06:01:30Z",
+   "verifiedAt": "2026-11-27T06:01:30Z",
+   "fans": 721670,
+   "albums": 86
+  },
+  "Jung Kook": {
+   "aliases": [
+    "JUNG KOOK"
+   ],
+   "verified": true,
+   "deezerId": 9172904,
+   "deezer": "https://www.deezer.com/artist/9172904",
+   "image": "library/artists/jung-kook.jpg",
+   "color": "#676767",
+   "checked": "2026-11-27T06:01:55Z",
+   "verifiedAt": "2026-11-27T06:01:55Z",
+   "fans": 478036,
+   "albums": 20
+  },
+  "The Scene": {
+   "aliases": [],
+   "verified": false
+  },
+  "Selena Gomez & The Scene": {
+   "aliases": [],
+   "verified": false
+  },
+  "A$AP Rocky": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1518490,
+   "deezer": "https://www.deezer.com/artist/1518490",
+   "image": "library/artists/a-ap-rocky.jpg",
+   "color": "#3b117e",
+   "checked": "2026-11-27T06:06:18Z",
+   "verifiedAt": "2026-11-27T06:06:18Z",
+   "fans": 2121636,
+   "albums": 65
   }
  },
  "songs": [
+  {
+   "id": "74533f5696",
+   "title": "We Can't Stop",
+   "artist": "Miley Cyrus",
+   "artists": [
+    "Miley Cyrus"
+   ],
+   "album": "Bangerz (Deluxe Version)",
+   "year": 2013,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 160,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 231.24,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/74533f5696.mp3",
+   "cover": "library/covers/74533f5696.jpg",
+   "color": "#5c6286",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:11:07Z",
+   "mime": "audio/mpeg",
+   "size": 5551071,
+   "storage": "release",
+   "lufs": -9.2,
+   "gain": -4.8,
+   "via": "audio",
+   "fileKey": "yt:5bUuvZkJyRI",
+   "story": "library/stories/74533f5696.jpg"
+  },
+  {
+   "id": "e9f1dc4a52",
+   "title": "Malibu",
+   "artist": "Miley Cyrus",
+   "artists": [
+    "Miley Cyrus"
+   ],
+   "album": "Younger Now",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 140,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 231.91,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e9f1dc4a52.mp3",
+   "cover": "library/covers/e9f1dc4a52.jpg",
+   "color": "#d3df01",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:10:25Z",
+   "mime": "audio/mpeg",
+   "size": 5567179,
+   "storage": "release",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "yt:_8FmUlp9rm4",
+   "story": "library/stories/e9f1dc4a52.jpg"
+  },
+  {
+   "id": "27141f25ad",
+   "title": "Angels Like You",
+   "artist": "Miley Cyrus",
+   "artists": [
+    "Miley Cyrus"
+   ],
+   "album": "Plastic Hearts (Apple Music Backyard Sessions Edition)",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 196.45,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/27141f25ad.mp3",
+   "cover": "library/covers/27141f25ad.jpg",
+   "color": "#b12460",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:09:40Z",
+   "mime": "audio/mpeg",
+   "size": 4716479,
+   "storage": "release",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "yt:QoBbN7YlRQk",
+   "story": "library/stories/27141f25ad.jpg"
+  },
+  {
+   "id": "8f63a68b5d",
+   "title": "Used To Be Young",
+   "artist": "Miley Cyrus",
+   "artists": [
+    "Miley Cyrus"
+   ],
+   "album": "Endless Summer Vacation",
+   "year": 2023,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 191.12,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8f63a68b5d.mp3",
+   "cover": "library/covers/8f63a68b5d.jpg",
+   "color": "#025d8d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:09:05Z",
+   "mime": "audio/mpeg",
+   "size": 4588577,
+   "storage": "release",
+   "lufs": -6.8,
+   "gain": -7.2,
+   "via": "audio",
+   "fileKey": "yt:omd-78TZrLY",
+   "story": "library/stories/8f63a68b5d.jpg"
+  },
+  {
+   "id": "be43f4a335",
+   "title": "Midnight Sky",
+   "artist": "Miley Cyrus",
+   "artists": [
+    "Miley Cyrus"
+   ],
+   "album": "Plastic Hearts",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 223.28,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/be43f4a335.mp3",
+   "cover": "library/covers/be43f4a335.jpg",
+   "color": "#b12460",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:08:30Z",
+   "mime": "audio/mpeg",
+   "size": 5360404,
+   "storage": "release",
+   "lufs": -7.0,
+   "gain": -7.0,
+   "via": "audio",
+   "fileKey": "yt:ytiqx4Qrias",
+   "story": "library/stories/be43f4a335.jpg"
+  },
+  {
+   "id": "edc6ba359f",
+   "title": "The Climb",
+   "artist": "Miley Cyrus",
+   "artists": [
+    "Miley Cyrus"
+   ],
+   "album": "Hannah Montana: The Movie (Original Motion Picture Soundtrack)",
+   "year": 2009,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "motivational",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 161,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 241.53,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/edc6ba359f.mp3",
+   "cover": "library/covers/edc6ba359f.jpg",
+   "color": "#d79328",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:08:02Z",
+   "mime": "audio/mpeg",
+   "size": 5798216,
+   "storage": "release",
+   "lufs": -16.0,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:W-1cW0s_sTE",
+   "story": "library/stories/edc6ba359f.jpg"
+  },
+  {
+   "id": "625ca2ee9c",
+   "title": "Party In The U.S.A.",
+   "artist": "Miley Cyrus",
+   "artists": [
+    "Miley Cyrus"
+   ],
+   "album": "Party In the U.S.A.",
+   "year": 2009,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 96,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 207.13,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/625ca2ee9c.mp3",
+   "cover": "library/covers/625ca2ee9c.jpg",
+   "color": "#62362d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:07:38Z",
+   "mime": "audio/mpeg",
+   "size": 4972768,
+   "storage": "release",
+   "lufs": -11.9,
+   "gain": -2.1,
+   "via": "audio",
+   "fileKey": "yt:R1kOdTm9FBk",
+   "story": "library/stories/625ca2ee9c.jpg"
+  },
+  {
+   "id": "75ae5749f2",
+   "title": "Wrecking Ball",
+   "artist": "Miley Cyrus",
+   "artists": [
+    "Miley Cyrus"
+   ],
+   "album": "Bangerz (Deluxe Version)",
+   "year": 2013,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 221.36,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/75ae5749f2.mp3",
+   "cover": "library/covers/75ae5749f2.jpg",
+   "color": "#5c6286",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:07:06Z",
+   "mime": "audio/mpeg",
+   "size": 5314335,
+   "storage": "release",
+   "lufs": -9.0,
+   "gain": -5.0,
+   "via": "audio",
+   "fileKey": "yt:iqXxfOnk-Z4",
+   "story": "library/stories/75ae5749f2.jpg"
+  },
+  {
+   "id": "e050ae99f5",
+   "title": "Back To You",
+   "artist": "Selena Gomez",
+   "artists": [
+    "Selena Gomez"
+   ],
+   "album": "13 Reasons Why (Season 2)",
+   "year": 2018,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 102,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 210.24,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e050ae99f5.mp3",
+   "cover": "library/covers/e050ae99f5.jpg",
+   "color": "#0e4d81",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:06:41Z",
+   "mime": "audio/mpeg",
+   "size": 5047071,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "yt:miUhh2fKVYE",
+   "story": "library/stories/e050ae99f5.jpg"
+  },
+  {
+   "id": "6581ff3d14",
+   "title": "Good For You",
+   "artist": "Selena Gomez, A$AP Rocky",
+   "artists": [
+    "Selena Gomez",
+    "A$AP Rocky"
+   ],
+   "album": "Revival (Deluxe)",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 178,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 220.69,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/6581ff3d14.mp3",
+   "cover": "library/covers/6581ff3d14.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:06:26Z",
+   "mime": "audio/mpeg",
+   "size": 5298211,
+   "storage": "release",
+   "lufs": -8.9,
+   "gain": -5.1,
+   "via": "audio",
+   "fileKey": "yt:04UZKDcjAJA",
+   "story": "library/stories/6581ff3d14.jpg"
+  },
+  {
+   "id": "5e4c2e299f",
+   "title": "The Heart Wants What It Wants",
+   "artist": "Selena Gomez",
+   "artists": [
+    "Selena Gomez"
+   ],
+   "album": "For You",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 166,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 223.06,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5e4c2e299f.mp3",
+   "cover": "library/covers/5e4c2e299f.jpg",
+   "color": "#d91762",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:05:54Z",
+   "mime": "audio/mpeg",
+   "size": 5355231,
+   "storage": "release",
+   "lufs": -14.3,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:HOMyx_730qg",
+   "story": "library/stories/5e4c2e299f.jpg"
+  },
+  {
+   "id": "d41918eba2",
+   "title": "Come & Get It",
+   "artist": "Selena Gomez",
+   "artists": [
+    "Selena Gomez"
+   ],
+   "album": "Stars Dance (Bonus Track Version)",
+   "year": 2013,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 160,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 231.05,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d41918eba2.mp3",
+   "cover": "library/covers/d41918eba2.jpg",
+   "color": "#30475f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:05:30Z",
+   "mime": "audio/mpeg",
+   "size": 5547049,
+   "storage": "release",
+   "lufs": -13.7,
+   "gain": -0.3,
+   "via": "audio",
+   "fileKey": "yt:APXB7op_aRQ",
+   "story": "library/stories/d41918eba2.jpg"
+  },
+  {
+   "id": "d6084e6e0b",
+   "title": "Hands To Myself",
+   "artist": "Selena Gomez",
+   "artists": [
+    "Selena Gomez"
+   ],
+   "album": "Revival (Deluxe)",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 111,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 227.59,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d6084e6e0b.mp3",
+   "cover": "library/covers/d6084e6e0b.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:04:34Z",
+   "mime": "audio/mpeg",
+   "size": 5463514,
+   "storage": "release",
+   "lufs": -12.4,
+   "gain": -1.6,
+   "via": "audio",
+   "fileKey": "yt:K4e4iDHOCiw",
+   "story": "library/stories/d6084e6e0b.jpg"
+  },
+  {
+   "id": "685cd7e37d",
+   "title": "Same Old Love",
+   "artist": "Selena Gomez",
+   "artists": [
+    "Selena Gomez"
+   ],
+   "album": "Revival (Deluxe)",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "nostalgic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 98,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 264.12,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/685cd7e37d.mp3",
+   "cover": "library/covers/685cd7e37d.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:04:05Z",
+   "mime": "audio/mpeg",
+   "size": 6340184,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:ZvUGidGKnBI",
+   "story": "library/stories/685cd7e37d.jpg"
+  },
+  {
+   "id": "c8a83d7829",
+   "title": "Love You Like A Love Song",
+   "artist": "Selena Gomez, The Scene, Selena Gomez & The Scene",
+   "artists": [
+    "Selena Gomez",
+    "The Scene",
+    "Selena Gomez & The Scene"
+   ],
+   "album": "When The Sun Goes Down",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 117,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 188.72,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c8a83d7829.mp3",
+   "cover": "library/covers/c8a83d7829.jpg",
+   "color": "#7e6261",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:03:19Z",
+   "mime": "audio/mpeg",
+   "size": 4531023,
+   "storage": "release",
+   "lufs": -13.5,
+   "gain": -0.5,
+   "via": "audio",
+   "fileKey": "yt:_FVB1fF5aVo",
+   "story": "library/stories/c8a83d7829.jpg"
+  },
+  {
+   "id": "4db0b43a1f",
+   "title": "Lose You To Love Me",
+   "artist": "Selena Gomez",
+   "artists": [
+    "Selena Gomez"
+   ],
+   "album": "Rare (Deluxe)",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 103,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 206.46,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/4db0b43a1f.mp3",
+   "cover": "library/covers/4db0b43a1f.jpg",
+   "color": "#ab7254",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:02:54Z",
+   "mime": "audio/mpeg",
+   "size": 4956635,
+   "storage": "release",
+   "lufs": -10.0,
+   "gain": -4.0,
+   "via": "audio",
+   "fileKey": "yt:WlA99PPNTik",
+   "story": "library/stories/4db0b43a1f.jpg"
+  },
+  {
+   "id": "a3fdfd035f",
+   "title": "Dangerously",
+   "artist": "Charlie Puth",
+   "artists": [
+    "Charlie Puth"
+   ],
+   "album": "Nine Track Mind",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 112,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 202.54,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a3fdfd035f.mp3",
+   "cover": "library/covers/a3fdfd035f.jpg",
+   "color": "#f6e509",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:02:30Z",
+   "mime": "audio/mpeg",
+   "size": 4862741,
+   "storage": "release",
+   "lufs": -16.6,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:vHhK6jhzj1c",
+   "story": "library/stories/a3fdfd035f.jpg"
+  },
+  {
+   "id": "dcddaaba23",
+   "title": "Left and Right",
+   "artist": "Charlie Puth, Jung Kook, BTS",
+   "artists": [
+    "Charlie Puth",
+    "Jung Kook",
+    "BTS"
+   ],
+   "album": "CHARLIE",
+   "year": 2022,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "nostalgic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 159.16,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/dcddaaba23.mp3",
+   "cover": "library/covers/dcddaaba23.jpg",
+   "color": "#60554f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:02:00Z",
+   "mime": "audio/mpeg",
+   "size": 3821344,
+   "storage": "release",
+   "lufs": -7.3,
+   "gain": -6.7,
+   "via": "audio",
+   "fileKey": "yt:Z2z1TbTJpdQ",
+   "story": "library/stories/dcddaaba23.jpg"
+  },
+  {
+   "id": "bfd436dc2b",
+   "title": "Done for Me",
+   "artist": "Charlie Puth, Kehlani",
+   "artists": [
+    "Charlie Puth",
+    "Kehlani"
+   ],
+   "album": "Voicenotes",
+   "year": 2018,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 112,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 180.49,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/bfd436dc2b.mp3",
+   "cover": "library/covers/bfd436dc2b.jpg",
+   "color": "#7f101e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:01:35Z",
+   "mime": "audio/mpeg",
+   "size": 4333401,
+   "storage": "release",
+   "lufs": -7.2,
+   "gain": -6.8,
+   "via": "audio",
+   "fileKey": "yt:3tYajkHNK58",
+   "story": "library/stories/bfd436dc2b.jpg"
+  },
+  {
+   "id": "3f14d4e33c",
+   "title": "Marvin Gaye",
+   "artist": "Charlie Puth, Meghan Trainor",
+   "artists": [
+    "Charlie Puth",
+    "Meghan Trainor"
+   ],
+   "album": "Nine Track Mind",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 110,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 208.92,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3f14d4e33c.mp3",
+   "cover": "library/covers/3f14d4e33c.jpg",
+   "color": "#f6e509",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:01:10Z",
+   "mime": "audio/mpeg",
+   "size": 5015973,
+   "storage": "release",
+   "lufs": -17.5,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:HlRjYI2TXUs",
+   "story": "library/stories/3f14d4e33c.jpg"
+  },
   {
    "id": "9241dc7dc5",
    "title": "How Long",
