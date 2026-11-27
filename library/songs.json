@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-26T23:40:29Z",
+ "updatedAt": "2026-11-27T00:09:38Z",
  "count": 201,
  "site": {
   "admins": [
@@ -3129,7 +3129,24 @@
    "albums": 38,
    "ytPhotoChecked": "2026-11-26T21:04:31Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCunB7BiOZ7aN6v6TgCp5dRA"
+   "youtubeMusic": "https://music.youtube.com/channel/UCunB7BiOZ7aN6v6TgCp5dRA",
+   "bioChecked": "2026-11-27T00:06:28Z",
+   "bio": {
+    "en": "Christina Judith Perri is an American singer and songwriter. After her debut single \"Jar of Hearts\" was featured on the television series So You Think You Can Dance in 2010, Perri signed with Atlantic Records and released her debut extended play, The Ocean Way Sessions. Her debut studio album, Lovestrong (2011), followed soon after and has since been certified platinum by the Recording Industry Association of America (RIAA).",
+    "ru": "Кристина Джудит Перри — американская певица и автор песен.",
+    "uz": "Kristina Judit Perri - amerikalik qo'shiqchi va qo'shiq muallifi. 2010 yilda o'zining \"Jar of Hearts\" debyut singli \"Siz raqsga tushasiz deb o'ylaysiz\" teleserialida namoyish etilganidan so'ng, Perri Atlantic Records bilan shartnoma tuzdi va o'zining \"The Ocean Way Sessions\" debyut kengaytirilgan pyesasini chiqardi. Uning \"Lovestrong\" (2011) nomli debyut studiyaviy albomi ko'p o'tmay, Amerika Yozuv Industriyasi Assotsiatsiyasi (RIAA) tomonidan platina sertifikatiga sazovor bo'ldi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Christina_Perri",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D1%80%D0%B8%2C_%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BD%D0%B0"
+   },
+   "desc": {
+    "en": "American singer-songwriter (born 1986)",
+    "ru": "американская певица и автор песен"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "One Direction": {
    "aliases": [],
@@ -3146,7 +3163,22 @@
    "albums": 13,
    "ytPhotoChecked": "2026-11-26T21:04:32Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCREhun2tPd7aQnJczZM_Mww"
+   "youtubeMusic": "https://music.youtube.com/channel/UCREhun2tPd7aQnJczZM_Mww",
+   "bioChecked": "2026-11-27T00:06:30Z",
+   "bio": {
+    "en": "One Direction, often shortened to 1D, was an English–Irish pop boy band formed in London in 2010. The group consisted of Niall Horan, Liam Payne, Harry Styles, Louis Tomlinson and Zayn Malik. The group sold over 70 million records worldwide, making them one of the best-selling boy bands of all time, before going on an indefinite hiatus in 2016.",
+    "ru": "One Direction — англо-ирландский бой-бэнд, основанный в Лондоне в 2010 году, в состав которого входили Гарри Стайлз, Луи Томлинсон, Найл Хоран, Лиам Пейн и Зейн Малик.",
+    "uz": "One Direction – 2010-yilda Londonda tashkil etilgan ingliz-irland musiqiy guruhi. Niall Horan, Liam Payne, Harry Styles, Louis Tomlinson va 2015-yilga qadar esa Zayn Malik guruhning aʼzolari boʻlishgan. Ular 2016-yilda nomaʼlum muddatga tanaffusga chiqishganini eʼlon qilishadi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/One_Direction",
+    "ru": "https://ru.wikipedia.org/wiki/One_Direction",
+    "uz": "https://uz.wikipedia.org/wiki/One_Direction"
+   },
+   "desc": {
+    "en": "English–Irish boy band (2010–2016)",
+    "ru": "англо-ирландский бой-бэнд, основанный в Лондоне (2010—2016)"
+   }
   },
   "Maroon 5": {
    "aliases": [],
@@ -3163,7 +3195,22 @@
    "albums": 64,
    "ytPhotoChecked": "2026-11-26T21:04:34Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCdFe4KkWwZ_twpo-UECR-Nw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCdFe4KkWwZ_twpo-UECR-Nw",
+   "bioChecked": "2026-11-27T00:06:32Z",
+   "bio": {
+    "en": "Maroon 5 is an American pop rock band formed in Los Angeles, California. It consists of lead vocalist and guitarist Adam Levine, rhythm guitarist and keyboardist Jesse Carmichael, lead guitarist James Valentine, drummer Matt Flynn, keyboardist PJ Morton, and bassist and keyboardist Sam Farrar. Original members Levine, Carmichael, bassist Mickey Madden, and drummer Ryan Dusick first came together as Kara's Flowers in February 1994, while they were in high school.",
+    "ru": "Maroon 5 (Мару́н Файв) — американская поп-рок-группа, родом из Лос-Анджелеса, Калифорния. В данный момент участниками группы являются вокалист Адам Левин, клавишник и ритм-гитарист Джесси Кармайкл, гитарист Джеймс Валентайн, ударник Мэтт Флинн, клавишник Пи Джей Мортон и мульти-инструменталист Сэм Фаррар.",
+    "uz": "Maroon 5 — Kaliforniya shtatining Los-Anjeles shahridagi amerika pop-rok guruhi. Hozirda guruh tarkibiga bosh vokalchi Adam Levine, pianinochi va ritm gitaristi Jesse Carmichael, bosh gitarachi James Valentin, barabanchi Matt Flynn, pianinochi PJ Morton va multi-instrumentalist hamda baschi Sam Farrar kiradi. Asl aʼzolar Levine, Carmichael, basschi Mickey Madden va barabanchi Rayan Dusick birinchi marta 1994-yilda, ular hali oʻrta maktabda oʻqib yurganlarida, Kara's Flowers sifatida birlashgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Maroon_5",
+    "ru": "https://ru.wikipedia.org/wiki/Maroon_5",
+    "uz": "https://uz.wikipedia.org/wiki/Maroon_5"
+   },
+   "desc": {
+    "en": "American pop rock band",
+    "ru": "американская поп-рок-группа"
+   }
   },
   "Shawn Mendes": {
    "aliases": [],
@@ -3894,7 +3941,12 @@
    "itunesId": 1414152307,
    "apple": "https://music.apple.com/us/artist/karolina-protsenko/1414152307",
    "checked": "2026-11-26T21:23:11Z",
-   "verifiedAt": "2026-11-26T21:23:11Z"
+   "verifiedAt": "2026-11-26T21:23:11Z",
+   "ytPhotoChecked": "2026-11-27T00:05:38Z",
+   "image": "library/artists/karolina-protsenko-yt.jpg",
+   "color": "#a87857",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCOIcW9iHcbdt0LKXpAW8Gog"
   },
   "Teddy Swims": {
    "aliases": [],
@@ -3903,12 +3955,15 @@
    "itunesId": 1462541757,
    "deezer": "https://www.deezer.com/artist/64927672",
    "apple": "https://music.apple.com/us/artist/teddy-swims/1462541757",
-   "image": "library/artists/teddy-swims.jpg",
-   "color": "#576b7f",
+   "image": "library/artists/teddy-swims-yt.jpg",
+   "color": "#7c7c7c",
    "checked": "2026-11-26T21:30:02Z",
    "verifiedAt": "2026-11-26T21:30:02Z",
    "fans": 440424,
-   "albums": 79
+   "albums": 79,
+   "ytPhotoChecked": "2026-11-27T00:05:39Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCAtlzufZmPhkiDApWM4bTRQ"
   },
   "ROSÉ": {
    "aliases": [],
@@ -3917,26 +3972,32 @@
    "itunesId": 1406242696,
    "deezer": "https://www.deezer.com/artist/126335112",
    "apple": "https://music.apple.com/us/artist/ros%C3%A9/1406242696",
-   "image": "library/artists/rose.jpg",
-   "color": "#417cbe",
+   "image": "library/artists/rose-yt.jpg",
+   "color": "#9f5a2c",
    "checked": "2026-11-26T21:30:27Z",
    "verifiedAt": "2026-11-26T21:30:27Z",
    "fans": 572035,
-   "albums": 7
+   "albums": 7,
+   "ytPhotoChecked": "2026-11-27T00:05:41Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCbpXC82cTLngSiZrysAaE-w"
   },
   "Bruno Mars": {
    "aliases": [],
    "verified": true,
    "deezerId": 429675,
    "deezer": "https://www.deezer.com/artist/429675",
-   "image": "library/artists/bruno-mars.jpg",
-   "color": "#808080",
+   "image": "library/artists/bruno-mars-yt.jpg",
+   "color": "#4b4b4b",
    "checked": "2026-11-26T21:30:28Z",
    "verifiedAt": "2026-11-26T21:30:28Z",
    "fans": 12887422,
    "albums": 38,
    "itunesId": 278873078,
-   "apple": "https://music.apple.com/us/artist/bruno-mars/278873078"
+   "apple": "https://music.apple.com/us/artist/bruno-mars/278873078",
+   "ytPhotoChecked": "2026-11-27T00:05:43Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCZn4r7heNOPY-C43YIywnVA"
   },
   "Sam Smith": {
    "aliases": [],
@@ -3945,24 +4006,30 @@
    "itunesId": 156488786,
    "deezer": "https://www.deezer.com/artist/1097709",
    "apple": "https://music.apple.com/us/artist/sam-smith/156488786",
-   "image": "library/artists/sam-smith.jpg",
-   "color": "#8b3f04",
+   "image": "library/artists/sam-smith-yt.jpg",
+   "color": "#7a4215",
    "checked": "2026-11-26T21:39:03Z",
    "verifiedAt": "2026-11-26T21:39:03Z",
    "fans": 5599171,
-   "albums": 109
+   "albums": 109,
+   "ytPhotoChecked": "2026-11-27T00:05:44Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCgpBsaDW2n_6ruzht3wvP0A"
   },
   "Kim Petras": {
    "aliases": [],
    "verified": true,
    "deezerId": 4652821,
    "deezer": "https://www.deezer.com/artist/4652821",
-   "image": "library/artists/kim-petras.jpg",
-   "color": "#787064",
+   "image": "library/artists/kim-petras-yt.jpg",
+   "color": "#226c28",
    "checked": "2026-11-26T21:39:04Z",
    "verifiedAt": "2026-11-26T21:39:04Z",
    "fans": 145977,
-   "albums": 74
+   "albums": 74,
+   "ytPhotoChecked": "2026-11-27T00:05:45Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCHG91TZ3WrWbZGD5sbkXsxg"
   },
   "Harry Styles": {
    "aliases": [],
@@ -3971,12 +4038,15 @@
    "itunesId": 471260289,
    "deezer": "https://www.deezer.com/artist/5313805",
    "apple": "https://music.apple.com/us/artist/harry-styles/471260289",
-   "image": "library/artists/harry-styles.jpg",
-   "color": "#cea731",
+   "image": "library/artists/harry-styles-yt.jpg",
+   "color": "#e2a61d",
    "checked": "2026-11-26T21:39:26Z",
    "verifiedAt": "2026-11-26T21:39:26Z",
    "fans": 2225677,
-   "albums": 7
+   "albums": 7,
+   "ytPhotoChecked": "2026-11-27T00:05:46Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCVacQ2t5GUZ2t_J3Ia9BynA"
   },
   "Miley Cyrus": {
    "aliases": [],
@@ -3985,12 +4055,15 @@
    "itunesId": 137057909,
    "deezer": "https://www.deezer.com/artist/12436",
    "apple": "https://music.apple.com/us/artist/miley-cyrus/137057909",
-   "image": "library/artists/miley-cyrus.jpg",
-   "color": "#5a5a5a",
+   "image": "library/artists/miley-cyrus-yt.jpg",
+   "color": "#5b5b5b",
    "checked": "2026-11-26T21:39:56Z",
    "verifiedAt": "2026-11-26T21:39:56Z",
    "fans": 7269569,
-   "albums": 57
+   "albums": 57,
+   "ytPhotoChecked": "2026-11-27T00:05:48Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCREdEwBdZcnQLIT0ThaAtmQ"
   },
   "Taylor Swift": {
    "aliases": [],
@@ -3999,12 +4072,15 @@
    "itunesId": 159260351,
    "deezer": "https://www.deezer.com/artist/12246",
    "apple": "https://music.apple.com/us/artist/taylor-swift/159260351",
-   "image": "library/artists/taylor-swift.jpg",
-   "color": "#715346",
+   "image": "library/artists/taylor-swift-yt.jpg",
+   "color": "#ec7d13",
    "checked": "2026-11-26T21:40:27Z",
    "verifiedAt": "2026-11-26T21:40:27Z",
    "fans": 12798460,
-   "albums": 120
+   "albums": 120,
+   "ytPhotoChecked": "2026-11-27T00:05:49Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCPC0L1d253x-KuMNwa05TpA"
   },
   "Arctic Monkeys": {
    "aliases": [],
@@ -4013,12 +4089,15 @@
    "itunesId": 62820413,
    "deezer": "https://www.deezer.com/artist/1182",
    "apple": "https://music.apple.com/us/artist/arctic-monkeys/62820413",
-   "image": "library/artists/arctic-monkeys.jpg",
-   "color": "#74786d",
+   "image": "library/artists/arctic-monkeys-yt.jpg",
+   "color": "#735d48",
    "checked": "2026-11-26T21:41:02Z",
    "verifiedAt": "2026-11-26T21:41:02Z",
    "fans": 4990074,
-   "albums": 35
+   "albums": 35,
+   "ytPhotoChecked": "2026-11-27T00:05:51Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC8Yu1_yfN5qPh601Y4btsYw"
   },
   "Linkin Park": {
    "aliases": [],
@@ -4027,12 +4106,15 @@
    "itunesId": 148662,
    "deezer": "https://www.deezer.com/artist/92",
    "apple": "https://music.apple.com/us/artist/linkin-park/148662",
-   "image": "library/artists/linkin-park.jpg",
-   "color": "#474747",
+   "image": "library/artists/linkin-park-yt.jpg",
+   "color": "#0a6384",
    "checked": "2026-11-26T21:41:22Z",
    "verifiedAt": "2026-11-26T21:41:22Z",
    "fans": 12292492,
-   "albums": 69
+   "albums": 69,
+   "ytPhotoChecked": "2026-11-27T00:05:52Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCxgN32UVVztKAQd2HkXzBtw"
   },
   "Evanescence": {
    "aliases": [],
@@ -4041,12 +4123,15 @@
    "itunesId": 42102393,
    "deezer": "https://www.deezer.com/artist/98",
    "apple": "https://music.apple.com/us/artist/evanescence/42102393",
-   "image": "library/artists/evanescence.jpg",
-   "color": "#99110e",
+   "image": "library/artists/evanescence-yt.jpg",
+   "color": "#5f606e",
    "checked": "2026-11-26T21:41:53Z",
    "verifiedAt": "2026-11-26T21:41:53Z",
    "fans": 3797905,
-   "albums": 33
+   "albums": 33,
+   "ytPhotoChecked": "2026-11-27T00:05:53Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC1ObIyFsDJn62iAZYLWcNxA"
   },
   "Hozier": {
    "aliases": [],
@@ -4055,12 +4140,15 @@
    "itunesId": 342260741,
    "deezer": "https://www.deezer.com/artist/5062414",
    "apple": "https://music.apple.com/us/artist/hozier/342260741",
-   "image": "library/artists/hozier.jpg",
-   "color": "#766d67",
+   "image": "library/artists/hozier-yt.jpg",
+   "color": "#751a2c",
    "checked": "2026-11-26T21:42:43Z",
    "verifiedAt": "2026-11-26T21:42:43Z",
    "fans": 1421716,
-   "albums": 32
+   "albums": 32,
+   "ytPhotoChecked": "2026-11-27T00:05:54Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCA3Zs9A2IeetfGT3Omi9ivw"
   },
   "Passenger": {
    "aliases": [],
@@ -4069,12 +4157,15 @@
    "itunesId": 396255033,
    "deezer": "https://www.deezer.com/artist/16398",
    "apple": "https://music.apple.com/us/artist/passenger/396255033",
-   "image": "library/artists/passenger.jpg",
-   "color": "#8a7866",
+   "image": "library/artists/passenger-yt.jpg",
+   "color": "#5c6f70",
    "checked": "2026-11-26T21:43:24Z",
    "verifiedAt": "2026-11-26T21:43:24Z",
    "fans": 1360347,
-   "albums": 51
+   "albums": 51,
+   "ytPhotoChecked": "2026-11-27T00:05:56Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCc8dIcu6C_9TcVoM--vYxYQ"
   },
   "Gotye": {
    "aliases": [],
@@ -4083,24 +4174,30 @@
    "itunesId": 161541223,
    "deezer": "https://www.deezer.com/artist/159449",
    "apple": "https://music.apple.com/us/artist/gotye/161541223",
-   "image": "library/artists/gotye.jpg",
-   "color": "#675d63",
+   "image": "library/artists/gotye-yt.jpg",
+   "color": "#2a80d5",
    "checked": "2026-11-26T21:43:55Z",
    "verifiedAt": "2026-11-26T21:43:55Z",
    "fans": 422223,
-   "albums": 5
+   "albums": 5,
+   "ytPhotoChecked": "2026-11-27T00:05:57Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCcrR-Or3AH2RKJqOntiD_Tw"
   },
   "Kimbra": {
    "aliases": [],
    "verified": true,
    "deezerId": 392150,
    "deezer": "https://www.deezer.com/artist/392150",
-   "image": "library/artists/kimbra.jpg",
-   "color": "#808080",
+   "image": "library/artists/kimbra-yt.jpg",
+   "color": "#585858",
    "checked": "2026-11-26T21:43:55Z",
    "verifiedAt": "2026-11-26T21:43:55Z",
    "fans": 190246,
-   "albums": 52
+   "albums": 52,
+   "ytPhotoChecked": "2026-11-27T00:05:58Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC97QN6WP9JlgtPwQKq5-rgQ"
   },
   "50 Cent": {
    "aliases": [],
@@ -4109,12 +4206,15 @@
    "itunesId": 112058,
    "deezer": "https://www.deezer.com/artist/66",
    "apple": "https://music.apple.com/us/artist/50-cent/112058",
-   "image": "library/artists/50-cent.jpg",
-   "color": "#8f6759",
+   "image": "library/artists/50-cent-yt.jpg",
+   "color": "#a36352",
    "checked": "2026-11-26T21:44:25Z",
    "verifiedAt": "2026-11-26T21:44:25Z",
    "fans": 7896637,
-   "albums": 59
+   "albums": 59,
+   "ytPhotoChecked": "2026-11-27T00:06:00Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCOcnYBwT1jb6EHlS0cwhNkA"
   },
   "Joji": {
    "aliases": [],
@@ -4123,12 +4223,15 @@
    "itunesId": 1258279972,
    "deezer": "https://www.deezer.com/artist/5078097",
    "apple": "https://music.apple.com/us/artist/joji/1258279972",
-   "image": "library/artists/joji.jpg",
-   "color": "#60632c",
+   "image": "library/artists/joji-yt.jpg",
+   "color": "#654829",
    "checked": "2026-11-26T21:45:18Z",
    "verifiedAt": "2026-11-26T21:45:18Z",
    "fans": 567288,
-   "albums": 31
+   "albums": 31,
+   "ytPhotoChecked": "2026-11-27T00:06:01Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCXi-Rme73-wjVK5IE78a3SQ"
   },
   "d4vd": {
    "aliases": [],
@@ -4137,12 +4240,15 @@
    "itunesId": 1599361691,
    "deezer": "https://www.deezer.com/artist/153913832",
    "apple": "https://music.apple.com/us/artist/d4vd/1599361691",
-   "image": "library/artists/d4vd.jpg",
-   "color": "#818472",
+   "image": "library/artists/d4vd-yt.jpg",
+   "color": "#867979",
    "checked": "2026-11-26T21:45:47Z",
    "verifiedAt": "2026-11-26T21:45:47Z",
    "fans": 143845,
-   "albums": 29
+   "albums": 29,
+   "ytPhotoChecked": "2026-11-27T00:06:03Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCGr1UQ4CwzRMmYoQfHQQWTg"
   },
   "Stephen Sanchez": {
    "aliases": [],
@@ -4151,12 +4257,15 @@
    "itunesId": 1276541872,
    "deezer": "https://www.deezer.com/artist/13129925",
    "apple": "https://music.apple.com/us/artist/stephen-sanchez/1276541872",
-   "image": "library/artists/stephen-sanchez.jpg",
-   "color": "#d4b52b",
+   "image": "library/artists/stephen-sanchez-yt.jpg",
+   "color": "#92726d",
    "checked": "2026-11-26T21:46:13Z",
    "verifiedAt": "2026-11-26T21:46:13Z",
    "fans": 38121,
-   "albums": 22
+   "albums": 22,
+   "ytPhotoChecked": "2026-11-27T00:06:04Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCZukHZtjqY72iSEgkBF1QYA"
   },
   "JVKE": {
    "aliases": [],
@@ -4165,12 +4274,15 @@
    "itunesId": 1439925456,
    "deezer": "https://www.deezer.com/artist/14486481",
    "apple": "https://music.apple.com/us/artist/jvke/1439925456",
-   "image": "library/artists/jvke.jpg",
-   "color": "#038c68",
+   "image": "library/artists/jvke-yt.jpg",
+   "color": "#830b1a",
    "checked": "2026-11-26T21:46:39Z",
    "verifiedAt": "2026-11-26T21:46:39Z",
    "fans": 147037,
-   "albums": 94
+   "albums": 94,
+   "ytPhotoChecked": "2026-11-27T00:06:05Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCM1rew0hxgW7e-TRfmrMung"
   },
   "Rema": {
    "aliases": [],
@@ -4179,24 +4291,30 @@
    "itunesId": 1304716885,
    "deezer": "https://www.deezer.com/artist/5259966",
    "apple": "https://music.apple.com/us/artist/rema/1304716885",
-   "image": "library/artists/rema.jpg",
-   "color": "#857d7a",
+   "image": "library/artists/rema-yt.jpg",
+   "color": "#747580",
    "checked": "2026-11-26T21:47:04Z",
    "verifiedAt": "2026-11-26T21:47:04Z",
    "fans": 580805,
-   "albums": 77
+   "albums": 77,
+   "ytPhotoChecked": "2026-11-27T00:06:06Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCy6qn2oxmoXA4_gBA5Q7zPw"
   },
   "Selena Gomez": {
    "aliases": [],
    "verified": true,
    "deezerId": 292185,
    "deezer": "https://www.deezer.com/artist/292185",
-   "image": "library/artists/selena-gomez.jpg",
-   "color": "#d3872c",
+   "image": "library/artists/selena-gomez-yt.jpg",
+   "color": "#956447",
    "checked": "2026-11-26T21:47:04Z",
    "verifiedAt": "2026-11-26T21:47:04Z",
    "fans": 5560114,
-   "albums": 70
+   "albums": 70,
+   "ytPhotoChecked": "2026-11-27T00:06:08Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCeBYRgPhy8kcRmIGQWKuqdQ"
   },
   "Wiz Khalifa": {
    "aliases": [],
@@ -4205,12 +4323,15 @@
    "itunesId": 201714418,
    "deezer": "https://www.deezer.com/artist/74804",
    "apple": "https://music.apple.com/us/artist/wiz-khalifa/201714418",
-   "image": "library/artists/wiz-xalifa.jpg",
-   "color": "#8e8e4d",
+   "image": "library/artists/wiz-xalifa-yt.jpg",
+   "color": "#85736b",
    "checked": "2026-11-26T21:47:42Z",
    "verifiedAt": "2026-11-26T21:47:42Z",
    "fans": 6917502,
-   "albums": 209
+   "albums": 209,
+   "ytPhotoChecked": "2026-11-27T00:06:09Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC3QmG1Jn9cE5fTMt14DLuZw"
   },
   "Major Lazer": {
    "aliases": [],
@@ -4219,48 +4340,60 @@
    "itunesId": 315761934,
    "deezer": "https://www.deezer.com/artist/282118",
    "apple": "https://music.apple.com/us/artist/major-lazer/315761934",
-   "image": "library/artists/major-lazer.jpg",
-   "color": "#63463d",
+   "image": "library/artists/major-lazer-yt.jpg",
+   "color": "#b36a4c",
    "checked": "2026-11-26T21:48:36Z",
    "verifiedAt": "2026-11-26T21:48:36Z",
    "fans": 7657540,
-   "albums": 126
+   "albums": 126,
+   "ytPhotoChecked": "2026-11-27T00:06:11Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCKQ-xBLhj3SkN9Wz6MwjLaA"
   },
   "MØ": {
    "aliases": [],
    "verified": true,
    "deezerId": 4333887,
    "deezer": "https://www.deezer.com/artist/4333887",
-   "image": "library/artists/m.jpg",
-   "color": "#7f807f",
+   "image": "library/artists/m-yt.jpg",
+   "color": "#cc2617",
    "checked": "2026-11-26T21:48:36Z",
    "verifiedAt": "2026-11-26T21:48:36Z",
    "fans": 372725,
-   "albums": 69
+   "albums": 69,
+   "ytPhotoChecked": "2026-11-27T00:06:12Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCRcnXWrpGwuy6GTatKAa97Q"
   },
   "Descemer Bueno": {
    "aliases": [],
    "verified": true,
    "deezerId": 1821231,
    "deezer": "https://www.deezer.com/artist/1821231",
-   "image": "library/artists/descemer-bueno.jpg",
-   "color": "#9a1527",
+   "image": "library/artists/descemer-bueno-yt.jpg",
+   "color": "#2c84d3",
    "checked": "2026-11-26T21:49:13Z",
    "verifiedAt": "2026-11-26T21:49:13Z",
    "fans": 26553,
-   "albums": 79
+   "albums": 79,
+   "ytPhotoChecked": "2026-11-27T00:06:14Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCp0C7rQ8oJ5sn_7_mDbub8A"
   },
   "Gente De Zona": {
    "aliases": [],
    "verified": true,
    "deezerId": 279489,
    "deezer": "https://www.deezer.com/artist/279489",
-   "image": "library/artists/gente-de-zona.jpg",
-   "color": "#f5d00a",
+   "image": "library/artists/gente-de-zona-yt.jpg",
+   "color": "#ae2627",
    "checked": "2026-11-26T21:49:13Z",
    "verifiedAt": "2026-11-26T21:49:13Z",
    "fans": 620063,
-   "albums": 75
+   "albums": 75,
+   "ytPhotoChecked": "2026-11-27T00:06:15Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCl2KQVc_GFH081i7b9CJQug"
   },
   "Queen": {
    "aliases": [],
@@ -4269,12 +4402,15 @@
    "itunesId": 3296287,
    "deezer": "https://www.deezer.com/artist/412",
    "apple": "https://music.apple.com/us/artist/queen/3296287",
-   "image": "library/artists/queen.jpg",
-   "color": "#123f7d",
+   "image": "library/artists/queen-yt.jpg",
+   "color": "#808080",
    "checked": "2026-11-26T21:50:05Z",
    "verifiedAt": "2026-11-26T21:50:05Z",
    "fans": 12885983,
-   "albums": 95
+   "albums": 95,
+   "ytPhotoChecked": "2026-11-27T00:06:17Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCEPMVbUzImPl4p8k4LkGevA"
   },
   "Roxette": {
    "aliases": [],
@@ -4283,24 +4419,30 @@
    "itunesId": 2397346,
    "deezer": "https://www.deezer.com/artist/1755",
    "apple": "https://music.apple.com/us/artist/roxette/2397346",
-   "image": "library/artists/roxette.jpg",
-   "color": "#8b4c34",
+   "image": "library/artists/roxette-yt.jpg",
+   "color": "#00008f",
    "checked": "2026-11-26T21:58:52Z",
    "verifiedAt": "2026-11-26T21:58:52Z",
    "fans": 1186006,
-   "albums": 68
+   "albums": 68,
+   "ytPhotoChecked": "2026-11-27T00:06:18Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCm8Brkkx9u_4J7DALxg0n1w"
   },
   "Scorpions": {
    "aliases": [],
    "verified": true,
    "deezerId": 863,
    "deezer": "https://www.deezer.com/artist/863",
-   "image": "library/artists/scorpions.jpg",
-   "color": "#a4825b",
+   "image": "library/artists/scorpions-yt.jpg",
+   "color": "#717171",
    "checked": "2026-11-26T21:59:28Z",
    "verifiedAt": "2026-11-26T21:59:28Z",
    "fans": 3695784,
-   "albums": 51
+   "albums": 51,
+   "ytPhotoChecked": "2026-11-27T00:06:20Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCL_jrFsNj-2iC9Obf5M8_uw"
   },
   "SZA": {
    "aliases": [],
@@ -4309,12 +4451,15 @@
    "itunesId": 605800394,
    "deezer": "https://www.deezer.com/artist/5531258",
    "apple": "https://music.apple.com/us/artist/sza/605800394",
-   "image": "library/artists/sza.jpg",
-   "color": "#8a8865",
+   "image": "library/artists/sza-yt.jpg",
+   "color": "#d5512a",
    "checked": "2026-11-26T21:59:48Z",
    "verifiedAt": "2026-11-26T21:59:48Z",
    "fans": 1351999,
-   "albums": 42
+   "albums": 42,
+   "ytPhotoChecked": "2026-11-27T00:06:21Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCeKDV9JgivrXehVluw5bKFA"
   },
   "Sting": {
    "aliases": [],
@@ -4323,12 +4468,15 @@
    "itunesId": 94804,
    "deezer": "https://www.deezer.com/artist/368",
    "apple": "https://music.apple.com/us/artist/sting/94804",
-   "image": "library/artists/sting.jpg",
-   "color": "#14147a",
+   "image": "library/artists/sting-yt.jpg",
+   "color": "#5a666d",
    "checked": "2026-11-26T23:40:24Z",
    "verifiedAt": "2026-11-26T23:40:24Z",
    "fans": 1798271,
-   "albums": 95
+   "albums": 95,
+   "ytPhotoChecked": "2026-11-27T00:06:22Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCHhKCdsmx9t-PSqlSfa-VKA"
   }
  },
  "songs": [
