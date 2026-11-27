@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T03:01:32Z",
- "count": 234,
+ "updatedAt": "2026-11-27T03:04:27Z",
+ "count": 253,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4610,9 +4610,363 @@
   "Swedish House Mafia": {
    "aliases": [],
    "verified": false
+  },
+  "JAŸ-Z": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1309,
+   "deezer": "https://www.deezer.com/artist/1309",
+   "image": "library/artists/jay-z.jpg",
+   "color": "#bd6342",
+   "checked": "2026-11-27T02:59:09Z",
+   "verifiedAt": "2026-11-27T02:59:09Z",
+   "fans": 3586387,
+   "albums": 73
+  },
+  "Kanye West": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 230,
+   "deezer": "https://www.deezer.com/artist/230",
+   "image": "library/artists/kanye-west.jpg",
+   "color": "#474747",
+   "checked": "2026-11-27T03:03:29Z",
+   "verifiedAt": "2026-11-27T03:03:29Z",
+   "fans": 4568709,
+   "albums": 73
+  },
+  "Paul McCartney": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1446,
+   "deezer": "https://www.deezer.com/artist/1446",
+   "image": "library/artists/paul-mccartney.jpg",
+   "color": "#787878",
+   "checked": "2026-11-27T03:03:29Z",
+   "verifiedAt": "2026-11-27T03:03:29Z",
+   "fans": 1811929,
+   "albums": 98
   }
  },
  "songs": [
+  {
+   "id": "b9f5476029",
+   "title": "When I Was Your Man",
+   "artist": "Bruno Mars",
+   "artists": [
+    "Bruno Mars"
+   ],
+   "album": "Unorthodox Jukebox",
+   "year": 2012,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 146,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 213.83,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b9f5476029.mp3",
+   "cover": "library/covers/b9f5476029.jpg",
+   "color": "#8e7462",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:04:27Z",
+   "mime": "audio/mpeg",
+   "size": 5133470,
+   "storage": "release",
+   "lufs": -10.5,
+   "gain": -3.5,
+   "via": "audio",
+   "fileKey": "yt:th92jw2CFOA",
+   "story": "library/stories/b9f5476029.jpg"
+  },
+  {
+   "id": "3cf2d4fb57",
+   "title": "Just the Way You Are",
+   "artist": "Bruno Mars",
+   "artists": [
+    "Bruno Mars"
+   ],
+   "album": "Doo-Wops & Hooligans",
+   "year": 2010,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 236.74,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3cf2d4fb57.mp3",
+   "cover": "library/covers/3cf2d4fb57.jpg",
+   "color": "#f1b10e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:04:03Z",
+   "mime": "audio/mpeg",
+   "size": 5683553,
+   "storage": "release",
+   "lufs": -8.9,
+   "gain": -5.1,
+   "via": "audio",
+   "fileKey": "yt:GnUW4AF1LZo",
+   "story": "library/stories/3cf2d4fb57.jpg"
+  },
+  {
+   "id": "97ec38e26d",
+   "title": "FourFiveSeconds",
+   "artist": "Rihanna, Kanye West, Paul McCartney",
+   "artists": [
+    "Rihanna",
+    "Kanye West",
+    "Paul McCartney"
+   ],
+   "album": "FourFiveSeconds",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "nostalgic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 103,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 188.24,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/97ec38e26d.mp3",
+   "cover": "library/covers/97ec38e26d.jpg",
+   "color": "#6c6c6c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:03:34Z",
+   "mime": "audio/mpeg",
+   "size": 4519472,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:5pvcfbf0PXY",
+   "story": "library/stories/97ec38e26d.jpg"
+  },
+  {
+   "id": "0cb892502d",
+   "title": "Kiss It Better",
+   "artist": "Rihanna",
+   "artists": [
+    "Rihanna"
+   ],
+   "album": "ANTI",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 253.08,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0cb892502d.mp3",
+   "cover": "library/covers/0cb892502d.jpg",
+   "color": "#e31c23",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:03:08Z",
+   "mime": "audio/mpeg",
+   "size": 6075208,
+   "storage": "release",
+   "lufs": -7.4,
+   "gain": -6.6,
+   "via": "audio",
+   "fileKey": "yt:Ht2O3xYjJik",
+   "story": "library/stories/0cb892502d.jpg"
+  },
+  {
+   "id": "dbac8ca33a",
+   "title": "Take A Bow",
+   "artist": "Rihanna",
+   "artists": [
+    "Rihanna"
+   ],
+   "album": "Good Girl Gone Bad: Reloaded",
+   "year": 2008,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 229.41,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/dbac8ca33a.mp3",
+   "cover": "library/covers/dbac8ca33a.jpg",
+   "color": "#609a9e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:02:44Z",
+   "mime": "audio/mpeg",
+   "size": 5507292,
+   "storage": "release",
+   "lufs": -10.2,
+   "gain": -3.8,
+   "via": "audio",
+   "fileKey": "yt:pY6Rlu0SZRc",
+   "story": "library/stories/dbac8ca33a.jpg"
+  },
+  {
+   "id": "67a3698a53",
+   "title": "S&M",
+   "artist": "Rihanna",
+   "artists": [
+    "Rihanna"
+   ],
+   "album": "Loud",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 128,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 243.6,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/67a3698a53.mp3",
+   "cover": "library/covers/67a3698a53.jpg",
+   "color": "#b82170",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:02:19Z",
+   "mime": "audio/mpeg",
+   "size": 5847677,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:q_MtePol92o",
+   "story": "library/stories/67a3698a53.jpg"
+  },
+  {
+   "id": "440e590a58",
+   "title": "Where Have You Been",
+   "artist": "Rihanna",
+   "artists": [
+    "Rihanna"
+   ],
+   "album": "Talk That Talk (Deluxe Edition)",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 242.68,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/440e590a58.mp3",
+   "cover": "library/covers/440e590a58.jpg",
+   "color": "#82807d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:01:54Z",
+   "mime": "audio/mpeg",
+   "size": 5825832,
+   "storage": "release",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:DxC-PpNdwxo",
+   "story": "library/stories/440e590a58.jpg"
+  },
   {
    "id": "9044f4ffb2",
    "title": "cardigan",
@@ -4658,6 +5012,555 @@
    "via": "audio",
    "fileKey": "yt:M_lVZIpgnjU",
    "story": "library/stories/9044f4ffb2.jpg"
+  },
+  {
+   "id": "8fda6d3a24",
+   "title": "Russian Roulette",
+   "artist": "Rihanna",
+   "artists": [
+    "Rihanna"
+   ],
+   "album": "Rated R",
+   "year": 2009,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 263.73,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8fda6d3a24.mp3",
+   "cover": "library/covers/8fda6d3a24.jpg",
+   "color": "#00008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:01:04Z",
+   "mime": "audio/mpeg",
+   "size": 6330957,
+   "storage": "release",
+   "lufs": -9.8,
+   "gain": -4.2,
+   "via": "audio",
+   "fileKey": "yt:2QGo_c7zd2M",
+   "story": "library/stories/8fda6d3a24.jpg"
+  },
+  {
+   "id": "9eb4933d3b",
+   "title": "Rude Boy",
+   "artist": "Rihanna",
+   "artists": [
+    "Rihanna"
+   ],
+   "album": "Rated R",
+   "year": 2009,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 224.85,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9eb4933d3b.mp3",
+   "cover": "library/covers/9eb4933d3b.jpg",
+   "color": "#00008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:00:34Z",
+   "mime": "audio/mpeg",
+   "size": 5397829,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:bqUsUhz41jY",
+   "story": "library/stories/9eb4933d3b.jpg"
+  },
+  {
+   "id": "038488235d",
+   "title": "SOS",
+   "artist": "Rihanna",
+   "artists": [
+    "Rihanna"
+   ],
+   "album": "A Girl Like Me (Bonus Track Version)",
+   "year": 2006,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 238.92,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/038488235d.mp3",
+   "cover": "library/covers/038488235d.jpg",
+   "color": "#91624e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:00:09Z",
+   "mime": "audio/mpeg",
+   "size": 5735389,
+   "storage": "release",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "yt:pHQvdENN8GM",
+   "story": "library/stories/038488235d.jpg"
+  },
+  {
+   "id": "4751187c1f",
+   "title": "Pon de Replay",
+   "artist": "Rihanna",
+   "artists": [
+    "Rihanna"
+   ],
+   "album": "Music of the Sun",
+   "year": 2005,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 246.96,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/4751187c1f.mp3",
+   "cover": "library/covers/4751187c1f.jpg",
+   "color": "#c67739",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:59:41Z",
+   "mime": "audio/mpeg",
+   "size": 5928339,
+   "storage": "release",
+   "lufs": -9.2,
+   "gain": -4.8,
+   "via": "audio",
+   "fileKey": "yt:9fT1CEf7Wzg",
+   "story": "library/stories/4751187c1f.jpg"
+  },
+  {
+   "id": "f63532dd8a",
+   "title": "Umbrella",
+   "artist": "Rihanna, JAŸ-Z",
+   "artists": [
+    "Rihanna",
+    "JAŸ-Z"
+   ],
+   "album": "Good Girl Gone Bad: Reloaded",
+   "year": 2007,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "calm",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 174,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 275.99,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f63532dd8a.mp3",
+   "cover": "library/covers/f63532dd8a.jpg",
+   "color": "#609a9e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:59:17Z",
+   "mime": "audio/mpeg",
+   "size": 6625330,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:xXD5tltX9Pg",
+   "story": "library/stories/f63532dd8a.jpg"
+  },
+  {
+   "id": "a8a9ea38ed",
+   "title": "I'm a Mess",
+   "artist": "Ed Sheeran",
+   "artists": [
+    "Ed Sheeran"
+   ],
+   "album": "x (Wembley Edition)",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 139,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 244.57,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a8a9ea38ed.mp3",
+   "cover": "library/covers/a8a9ea38ed.jpg",
+   "color": "#2aba52",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:58:44Z",
+   "mime": "audio/mpeg",
+   "size": 5871318,
+   "storage": "release",
+   "lufs": -10.1,
+   "gain": -3.9,
+   "via": "audio",
+   "fileKey": "yt:18Utw334no8",
+   "story": "library/stories/a8a9ea38ed.jpg"
+  },
+  {
+   "id": "da40f6e498",
+   "title": "Lego House",
+   "artist": "Ed Sheeran",
+   "artists": [
+    "Ed Sheeran"
+   ],
+   "album": "+ (Deluxe Version)",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 160,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 185.09,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/da40f6e498.mp3",
+   "cover": "library/covers/da40f6e498.jpg",
+   "color": "#c35f23",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:58:20Z",
+   "mime": "audio/mpeg",
+   "size": 4443989,
+   "storage": "release",
+   "lufs": -11.2,
+   "gain": -2.8,
+   "via": "audio",
+   "fileKey": "yt:AlnZReStfKs",
+   "story": "library/stories/da40f6e498.jpg"
+  },
+  {
+   "id": "65b6213d64",
+   "title": "Drunk",
+   "artist": "Ed Sheeran",
+   "artists": [
+    "Ed Sheeran"
+   ],
+   "album": "+ (Deluxe Version)",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 200.09,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/65b6213d64.mp3",
+   "cover": "library/covers/65b6213d64.jpg",
+   "color": "#c35f23",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:58:01Z",
+   "mime": "audio/mpeg",
+   "size": 4803984,
+   "storage": "release",
+   "lufs": -11.9,
+   "gain": -2.1,
+   "via": "audio",
+   "fileKey": "yt:igurI9sHO14",
+   "story": "library/stories/65b6213d64.jpg"
+  },
+  {
+   "id": "7cca20a9ef",
+   "title": "Give Me Love",
+   "artist": "Ed Sheeran",
+   "artists": [
+    "Ed Sheeran"
+   ],
+   "album": "+ (Deluxe Version)",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 117,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 526.39,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7cca20a9ef.mp3",
+   "cover": "library/covers/7cca20a9ef.jpg",
+   "color": "#c35f23",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:57:42Z",
+   "mime": "audio/mpeg",
+   "size": 12634711,
+   "storage": "release",
+   "lufs": -12.2,
+   "gain": -1.8,
+   "via": "audio",
+   "fileKey": "yt:Esmq8AqTly4",
+   "story": "library/stories/7cca20a9ef.jpg"
+  },
+  {
+   "id": "65c4059b10",
+   "title": "Tenerife Sea",
+   "artist": "Ed Sheeran",
+   "artists": [
+    "Ed Sheeran"
+   ],
+   "album": "x (Wembley Edition)",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 122,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 241.35,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/65c4059b10.mp3",
+   "cover": "library/covers/65c4059b10.jpg",
+   "color": "#2aba52",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:56:53Z",
+   "mime": "audio/mpeg",
+   "size": 5794136,
+   "storage": "release",
+   "lufs": -9.8,
+   "gain": -4.2,
+   "via": "audio",
+   "fileKey": "yt:4rg6puSP9ks",
+   "story": "library/stories/65c4059b10.jpg"
+  },
+  {
+   "id": "b93b82c58e",
+   "title": "Happier",
+   "artist": "Ed Sheeran",
+   "artists": [
+    "Ed Sheeran"
+   ],
+   "album": "÷ (Deluxe)",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 90,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 207.52,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b93b82c58e.mp3",
+   "cover": "library/covers/b93b82c58e.jpg",
+   "color": "#1692c9",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:56:23Z",
+   "mime": "audio/mpeg",
+   "size": 4981975,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:9fMPtkbKVYk",
+   "story": "library/stories/b93b82c58e.jpg"
+  },
+  {
+   "id": "4c869e9984",
+   "title": "Dive",
+   "artist": "Ed Sheeran",
+   "artists": [
+    "Ed Sheeran"
+   ],
+   "album": "÷ (Deluxe)",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 135,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 238.44,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/4c869e9984.mp3",
+   "cover": "library/covers/4c869e9984.jpg",
+   "color": "#1692c9",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:56:04Z",
+   "mime": "audio/mpeg",
+   "size": 5723860,
+   "storage": "release",
+   "lufs": -9.4,
+   "gain": -4.6,
+   "via": "audio",
+   "fileKey": "yt:zg95do1LTdk",
+   "story": "library/stories/4c869e9984.jpg"
   },
   {
    "id": "c436d4de55",
