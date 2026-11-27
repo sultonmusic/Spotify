@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T04:24:39Z",
- "count": 319,
+ "updatedAt": "2026-11-27T04:50:20Z",
+ "count": 351,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -2555,7 +2555,11 @@
    "image": "library/artists/beyonce-yt.jpg",
    "color": "#766962",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCoPQ_TWm8JZ5nJv4a5BzSWA"
+   "youtubeMusic": "https://music.youtube.com/channel/UCoPQ_TWm8JZ5nJv4a5BzSWA",
+   "deezerId": 145,
+   "deezer": "https://www.deezer.com/artist/145",
+   "fans": 12894717,
+   "albums": 67
   },
   "Malika Ravshanova": {
    "aliases": [],
@@ -4914,9 +4918,1574 @@
    "verifiedAt": "2026-11-27T04:22:26Z",
    "fans": 1644636,
    "albums": 72
+  },
+  "Ariana Grande": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1562681,
+   "itunesId": 412778295,
+   "deezer": "https://www.deezer.com/artist/1562681",
+   "apple": "https://music.apple.com/us/artist/ariana-grande/412778295",
+   "image": "library/artists/ariana-grande.jpg",
+   "color": "#797979",
+   "checked": "2026-11-27T04:35:11Z",
+   "verifiedAt": "2026-11-27T04:35:11Z",
+   "fans": 13483513,
+   "albums": 71
+  },
+  "Nicki Minaj": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 382937,
+   "deezer": "https://www.deezer.com/artist/382937",
+   "image": "library/artists/nicki-minaj.jpg",
+   "color": "#9b294d",
+   "checked": "2026-11-27T04:37:16Z",
+   "verifiedAt": "2026-11-27T04:37:16Z",
+   "fans": 7426387,
+   "albums": 97
+  },
+  "Iggy Azalea": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 2454271,
+   "deezer": "https://www.deezer.com/artist/2454271",
+   "image": "library/artists/iggy-azalea.jpg",
+   "color": "#5b5752",
+   "checked": "2026-11-27T04:37:39Z",
+   "verifiedAt": "2026-11-27T04:37:39Z",
+   "fans": 3404794,
+   "albums": 39
+  },
+  "The Hit Machine": {
+   "aliases": [],
+   "verified": false
+  },
+  "Inc": {
+   "aliases": [],
+   "verified": false
+  },
+  "mistah isolation": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 311582351,
+   "itunesId": 1803683251,
+   "deezer": "https://www.deezer.com/artist/311582351",
+   "apple": "https://music.apple.com/us/artist/mistah-isolation/1803683251",
+   "image": "library/artists/mistah-isolation.jpg",
+   "color": "#800f76",
+   "checked": "2026-11-27T04:39:18Z",
+   "verifiedAt": "2026-11-27T04:39:18Z",
+   "fans": 0,
+   "albums": 2
+  },
+  "Sing2Piano": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5404994,
+   "deezer": "https://www.deezer.com/artist/5404994",
+   "image": "library/artists/sing2piano.jpg",
+   "color": "#6504fb",
+   "checked": "2026-11-27T04:42:24Z",
+   "verifiedAt": "2026-11-27T04:42:24Z",
+   "fans": 2742,
+   "albums": 500
+  },
+  "Colby O'Donis": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 75438,
+   "deezer": "https://www.deezer.com/artist/75438",
+   "image": "library/artists/colby-odonis.jpg",
+   "color": "#a5765a",
+   "checked": "2026-11-27T04:42:46Z",
+   "verifiedAt": "2026-11-27T04:42:46Z",
+   "fans": 13527,
+   "albums": 14
+  },
+  "Elecro Party Inc": {
+   "aliases": [],
+   "verified": false
+  },
+  "Christina Aguilera": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 116,
+   "deezer": "https://www.deezer.com/artist/116",
+   "image": "library/artists/christina-aguilera.jpg",
+   "color": "#7f7f7e",
+   "checked": "2026-11-27T04:45:55Z",
+   "verifiedAt": "2026-11-27T04:45:55Z",
+   "fans": 3928114,
+   "albums": 29
+  },
+  "Cardi B": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 9064930,
+   "deezer": "https://www.deezer.com/artist/9064930",
+   "image": "library/artists/cardi-b.jpg",
+   "color": "#861916",
+   "checked": "2026-11-27T04:46:53Z",
+   "verifiedAt": "2026-11-27T04:46:53Z",
+   "fans": 2610831,
+   "albums": 97
   }
  },
  "songs": [
+  {
+   "id": "5c94fa1e29",
+   "title": "Secrets",
+   "artist": "OneRepublic",
+   "artists": [
+    "OneRepublic"
+   ],
+   "album": "Waking Up (Deluxe Version)",
+   "year": 2009,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 224.69,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5c94fa1e29.mp3",
+   "cover": "library/covers/5c94fa1e29.jpg",
+   "color": "#ffff00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:50:19Z",
+   "mime": "audio/mpeg",
+   "size": 5394395,
+   "storage": "release",
+   "lufs": -7.8,
+   "gain": -6.2,
+   "via": "audio",
+   "fileKey": "yt:UTRF-w-0HdA",
+   "story": "library/stories/5c94fa1e29.jpg"
+  },
+  {
+   "id": "1877518274",
+   "title": "One More Night",
+   "artist": "Maroon 5",
+   "artists": [
+    "Maroon 5"
+   ],
+   "album": "Overexposed (Deluxe Version)",
+   "year": 2012,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 186,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 222.99,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1877518274.mp3",
+   "cover": "library/covers/1877518274.jpg",
+   "color": "#a02357",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:49:44Z",
+   "mime": "audio/mpeg",
+   "size": 5353505,
+   "storage": "release",
+   "lufs": -15.1,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:bZQhz98nfhU",
+   "story": "library/stories/1877518274.jpg"
+  },
+  {
+   "id": "db0a2d54d5",
+   "title": "Animals",
+   "artist": "Maroon 5",
+   "artists": [
+    "Maroon 5"
+   ],
+   "album": "V (Deluxe)",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 230.92,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/db0a2d54d5.mp3",
+   "cover": "library/covers/db0a2d54d5.jpg",
+   "color": "#c01835",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:49:02Z",
+   "mime": "audio/mpeg",
+   "size": 5543560,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:YSWrmX4_qFA",
+   "story": "library/stories/db0a2d54d5.jpg"
+  },
+  {
+   "id": "1f1c60e639",
+   "title": "Maps",
+   "artist": "Maroon 5",
+   "artists": [
+    "Maroon 5"
+   ],
+   "album": "V",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 190.27,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1f1c60e639.mp3",
+   "cover": "library/covers/1f1c60e639.jpg",
+   "color": "#be1c38",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:48:23Z",
+   "mime": "audio/mpeg",
+   "size": 4567804,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:UDxjtx1A6ZU",
+   "story": "library/stories/1f1c60e639.jpg"
+  },
+  {
+   "id": "3bf45ffe8e",
+   "title": "This Love",
+   "artist": "Maroon 5",
+   "artists": [
+    "Maroon 5"
+   ],
+   "album": "Songs About Jane: 10th Anniversary Edition",
+   "year": 2002,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 206.2,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3bf45ffe8e.mp3",
+   "cover": "library/covers/3bf45ffe8e.jpg",
+   "color": "#801013",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:47:48Z",
+   "mime": "audio/mpeg",
+   "size": 4950314,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "yt:AqQuRw0S6b4",
+   "story": "library/stories/3bf45ffe8e.jpg"
+  },
+  {
+   "id": "1c9e08799a",
+   "title": "She Will Be Loved",
+   "artist": "Maroon 5",
+   "artists": [
+    "Maroon 5"
+   ],
+   "album": "Songs About Jane",
+   "year": 2002,
+   "genre": "Pop",
+   "subgenre": "Vocal",
+   "moods": [
+    "sad",
+    "calm",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": 102,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 257.13,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1c9e08799a.mp3",
+   "cover": "library/covers/1c9e08799a.jpg",
+   "color": "#820d0f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:47:25Z",
+   "mime": "audio/mpeg",
+   "size": 6172568,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:LHBbWBX_azA",
+   "story": "library/stories/1c9e08799a.jpg"
+  },
+  {
+   "id": "45886d6fb8",
+   "title": "Girls Like You (Cardi B Version)",
+   "artist": "Maroon 5, Cardi B",
+   "artists": [
+    "Maroon 5",
+    "Cardi B"
+   ],
+   "album": "Girls Like You",
+   "year": 2018,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 125,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 270.78,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/45886d6fb8.mp3",
+   "cover": "library/covers/45886d6fb8.jpg",
+   "color": "#123f7d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:47:00Z",
+   "mime": "audio/mpeg",
+   "size": 6500334,
+   "storage": "release",
+   "lufs": -9.8,
+   "gain": -4.2,
+   "via": "audio",
+   "fileKey": "yt:sfQGCIcpfdU",
+   "story": "library/stories/45886d6fb8.jpg"
+  },
+  {
+   "id": "56636784fe",
+   "title": "Payphone",
+   "artist": "Maroon 5, Wiz Khalifa",
+   "artists": [
+    "Maroon 5",
+    "Wiz Khalifa"
+   ],
+   "album": "Overexposed (Deluxe Version)",
+   "year": 2012,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 279.42,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/56636784fe.mp3",
+   "cover": "library/covers/56636784fe.jpg",
+   "color": "#a9205a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:46:32Z",
+   "mime": "audio/mpeg",
+   "size": 6707688,
+   "storage": "release",
+   "lufs": -17.5,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:iaHEGvMZ8cc",
+   "story": "library/stories/56636784fe.jpg"
+  },
+  {
+   "id": "8e2575e587",
+   "title": "Moves Like Jagger (Studio Recording From \"The Voice\" Performance)",
+   "artist": "Maroon 5, Christina Aguilera",
+   "artists": [
+    "Maroon 5",
+    "Christina Aguilera"
+   ],
+   "album": "20 #1's: Party Hits",
+   "year": 2010,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 128,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 202.03,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8e2575e587.mp3",
+   "cover": "library/covers/8e2575e587.jpg",
+   "color": "#d11782",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:46:00Z",
+   "mime": "audio/mpeg",
+   "size": 4850143,
+   "storage": "release",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "yt:AH5n69Z81u8",
+   "story": "library/stories/8e2575e587.jpg"
+  },
+  {
+   "id": "291185b5ee",
+   "title": "Sugar",
+   "artist": "Maroon 5",
+   "artists": [
+    "Maroon 5"
+   ],
+   "album": "V (Deluxe)",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 235.49,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/291185b5ee.mp3",
+   "cover": "library/covers/291185b5ee.jpg",
+   "color": "#c01835",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:45:34Z",
+   "mime": "audio/mpeg",
+   "size": 5653574,
+   "storage": "release",
+   "lufs": -9.2,
+   "gain": -4.8,
+   "via": "audio",
+   "fileKey": "yt:MozAXGgC1Mc",
+   "story": "library/stories/291185b5ee.jpg"
+  },
+  {
+   "id": "a8c64b7cad",
+   "title": "The Edge Of Glory (A Tribute To Lady GaGa)",
+   "artist": "Elecro Party Inc",
+   "artists": [
+    "Elecro Party Inc"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 317.52,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a8c64b7cad.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:45:04Z",
+   "mime": "audio/mpeg",
+   "size": 7621775,
+   "storage": "release",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:P6JL3-8JFjA",
+   "story": "library/stories/a8c64b7cad.jpg"
+  },
+  {
+   "id": "c7154e4128",
+   "title": "Telephone",
+   "artist": "Lady Gaga, Beyoncé",
+   "artists": [
+    "Lady Gaga",
+    "Beyoncé"
+   ],
+   "album": "The Fame Monster (Deluxe Edition)",
+   "year": 2009,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "romantic",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 122,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 220.64,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c7154e4128.mp3",
+   "cover": "library/covers/c7154e4128.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:44:35Z",
+   "mime": "audio/mpeg",
+   "size": 5297088,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "yt:XkGIneCJRlc",
+   "story": "library/stories/c7154e4128.jpg"
+  },
+  {
+   "id": "ce07c6cddc",
+   "title": "Rain On Me",
+   "artist": "Lady Gaga, Ariana Grande",
+   "artists": [
+    "Lady Gaga",
+    "Ariana Grande"
+   ],
+   "album": "Chromatica",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "calm",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 182.2,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ce07c6cddc.mp3",
+   "cover": "library/covers/ce07c6cddc.jpg",
+   "color": "#73373e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:44:02Z",
+   "mime": "audio/mpeg",
+   "size": 4374299,
+   "storage": "release",
+   "lufs": -7.4,
+   "gain": -6.6,
+   "via": "audio",
+   "fileKey": "yt:DXnS8mqUDyQ",
+   "story": "library/stories/ce07c6cddc.jpg"
+  },
+  {
+   "id": "55e81c9c7e",
+   "title": "Always Remember Us This Way",
+   "artist": "Lady Gaga",
+   "artists": [
+    "Lady Gaga"
+   ],
+   "album": "A Star Is Born Soundtrack",
+   "year": 2018,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "nostalgic"
+   ],
+   "language": "en",
+   "energy": 0.52,
+   "danceability": 0.57,
+   "bpm": 130,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 210.2,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/55e81c9c7e.mp3",
+   "cover": "library/covers/55e81c9c7e.jpg",
+   "color": "#7d7b7a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:43:43Z",
+   "mime": "audio/mpeg",
+   "size": 5046515,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:Voo86mlxZvA",
+   "story": "library/stories/55e81c9c7e.jpg"
+  },
+  {
+   "id": "8f45118a0d",
+   "title": "Paparazzi",
+   "artist": "Lady Gaga",
+   "artists": [
+    "Lady Gaga"
+   ],
+   "album": "The Fame Monster (Deluxe Edition)",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 115,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 208.31,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8f45118a0d.mp3",
+   "cover": "library/covers/8f45118a0d.jpg",
+   "color": "#7f7f7f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:43:19Z",
+   "mime": "audio/mpeg",
+   "size": 5000994,
+   "storage": "release",
+   "lufs": -7.6,
+   "gain": -6.4,
+   "via": "audio",
+   "fileKey": "yt:28jp-30w8Lg",
+   "story": "library/stories/8f45118a0d.jpg"
+  },
+  {
+   "id": "a4874abd00",
+   "title": "Just Dance",
+   "artist": "Lady Gaga, Colby O'Donis",
+   "artists": [
+    "Lady Gaga",
+    "Colby O'Donis"
+   ],
+   "album": "Just Dance (Remixes) - EP [feat. Colby O'Donis]",
+   "year": 2008,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "motivational",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 119,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 241.93,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a4874abd00.mp3",
+   "cover": "library/covers/a4874abd00.jpg",
+   "color": "#2f4076",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:42:54Z",
+   "mime": "audio/mpeg",
+   "size": 5808002,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "yt:ACNwMzZejQQ",
+   "story": "library/stories/a4874abd00.jpg"
+  },
+  {
+   "id": "353c71d13b",
+   "title": "Born This Way (Originally Performed By Lady Gaga)",
+   "artist": "Sing2Piano",
+   "artists": [
+    "Sing2Piano"
+   ],
+   "album": "Piano Backing Tracks, Vol. 1",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 239.98,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/353c71d13b.mp3",
+   "cover": "library/covers/353c71d13b.jpg",
+   "color": "#4c4347",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:42:26Z",
+   "mime": "audio/mpeg",
+   "size": 5761350,
+   "storage": "release",
+   "lufs": -14.7,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:QNmifIXgC8I",
+   "story": "library/stories/353c71d13b.jpg"
+  },
+  {
+   "id": "e9021409d4",
+   "title": "Poker Face",
+   "artist": "Lady Gaga",
+   "artists": [
+    "Lady Gaga"
+   ],
+   "album": "Hits of 2009",
+   "year": 2008,
+   "genre": "Other",
+   "subgenre": "Поп",
+   "moods": [
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 119,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 237.2,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e9021409d4.mp3",
+   "cover": "library/covers/e9021409d4.jpg",
+   "color": "#b52849",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:42:01Z",
+   "mime": "audio/mpeg",
+   "size": 5694480,
+   "storage": "release",
+   "lufs": -7.6,
+   "gain": -6.4,
+   "via": "audio",
+   "fileKey": "yt:oG-4Uvhm4lI",
+   "story": "library/stories/e9021409d4.jpg"
+  },
+  {
+   "id": "1342106764",
+   "title": "Empire",
+   "artist": "Shakira",
+   "artists": [
+    "Shakira"
+   ],
+   "album": "Shakira. (Expanded Edition) [Spanish Version]",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 160,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 242.56,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1342106764.mp3",
+   "cover": "library/covers/1342106764.jpg",
+   "color": "#b97a46",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:41:20Z",
+   "mime": "audio/mpeg",
+   "size": 5822953,
+   "storage": "release",
+   "lufs": -15.6,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:L_5d6MFrN3E",
+   "story": "library/stories/1342106764.jpg"
+  },
+  {
+   "id": "c8ac254b59",
+   "title": "Started From the Bottom",
+   "artist": "Drake",
+   "artists": [
+    "Drake"
+   ],
+   "album": "Nothing Was the Same",
+   "year": 2013,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 174.13,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c8ac254b59.mp3",
+   "cover": "library/covers/c8ac254b59.jpg",
+   "color": "#0173bc",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:40:20Z",
+   "mime": "audio/mpeg",
+   "size": 4180771,
+   "storage": "release",
+   "lufs": -10.1,
+   "gain": -3.9,
+   "via": "audio",
+   "fileKey": "yt:SLFN-XfeYXw",
+   "story": "library/stories/c8ac254b59.jpg"
+  },
+  {
+   "id": "62cc6d5df2",
+   "title": "In My Feelings",
+   "artist": "Drake",
+   "artists": [
+    "Drake"
+   ],
+   "album": "Scorpion",
+   "year": 2018,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 182,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 217.93,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/62cc6d5df2.mp3",
+   "cover": "library/covers/62cc6d5df2.jpg",
+   "color": "#4d4d4d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:39:47Z",
+   "mime": "audio/mpeg",
+   "size": 5231950,
+   "storage": "release",
+   "lufs": -9.3,
+   "gain": -4.7,
+   "via": "audio",
+   "fileKey": "yt:az6m9IE8h4o",
+   "story": "library/stories/62cc6d5df2.jpg"
+  },
+  {
+   "id": "494816b394",
+   "title": "DRAKE ONE DANCE",
+   "artist": "mistah isolation",
+   "artists": [
+    "mistah isolation"
+   ],
+   "album": "OVERLORD",
+   "year": 2025,
+   "genre": "Electronic",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 161.6,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/494816b394.mp3",
+   "cover": "library/covers/494816b394.jpg",
+   "color": "#7f1076",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:39:20Z",
+   "mime": "audio/mpeg",
+   "size": 3880093,
+   "storage": "release",
+   "lufs": -5.2,
+   "gain": -8.8,
+   "via": "audio",
+   "fileKey": "yt:6ROKQc0lxOA",
+   "story": "library/stories/494816b394.jpg"
+  },
+  {
+   "id": "5fbb8b2dd2",
+   "title": "Hotline Bling (Originally Performed by Drake)",
+   "artist": "The Hit Machine, Inc",
+   "artists": [
+    "The Hit Machine",
+    "Inc"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 229.44,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5fbb8b2dd2.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:38:55Z",
+   "mime": "audio/mpeg",
+   "size": 5508438,
+   "storage": "release",
+   "lufs": -11.4,
+   "gain": -2.6,
+   "via": "audio",
+   "fileKey": "yt:XELg0OMwWtU",
+   "story": "library/stories/5fbb8b2dd2.jpg"
+  },
+  {
+   "id": "43ce67fc32",
+   "title": "we can't be friends (wait for your love)",
+   "artist": "Ariana Grande",
+   "artists": [
+    "Ariana Grande"
+   ],
+   "album": "eternal sunshine (slightly deluxe)",
+   "year": 2024,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 229.1,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/43ce67fc32.mp3",
+   "cover": "library/covers/43ce67fc32.jpg",
+   "color": "#6f4320",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:38:37Z",
+   "mime": "audio/mpeg",
+   "size": 5499846,
+   "storage": "release",
+   "lufs": -8.2,
+   "gain": -5.8,
+   "via": "audio",
+   "fileKey": "yt:teKmHz3FkBo",
+   "story": "library/stories/43ce67fc32.jpg"
+  },
+  {
+   "id": "c90baf53d4",
+   "title": "One Last Time",
+   "artist": "Ariana Grande",
+   "artists": [
+    "Ariana Grande"
+   ],
+   "album": "My Everything (Bonus Tracks Edition)",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 197.27,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c90baf53d4.mp3",
+   "cover": "library/covers/c90baf53d4.jpg",
+   "color": "#3e3e51",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:38:06Z",
+   "mime": "audio/mpeg",
+   "size": 4736045,
+   "storage": "release",
+   "lufs": -8.0,
+   "gain": -6.0,
+   "via": "audio",
+   "fileKey": "yt:KEGZVv6KXL0",
+   "story": "library/stories/c90baf53d4.jpg"
+  },
+  {
+   "id": "3c08008c51",
+   "title": "Problem",
+   "artist": "Ariana Grande, Iggy Azalea",
+   "artists": [
+    "Ariana Grande",
+    "Iggy Azalea"
+   ],
+   "album": "My Everything (Bonus Tracks Edition)",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 193.92,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3c08008c51.mp3",
+   "cover": "library/covers/3c08008c51.jpg",
+   "color": "#3e3e51",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:37:47Z",
+   "mime": "audio/mpeg",
+   "size": 4655412,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:JxqiCA-gcPI",
+   "story": "library/stories/3c08008c51.jpg"
+  },
+  {
+   "id": "f8ac7f568d",
+   "title": "Side To Side",
+   "artist": "Ariana Grande, Nicki Minaj",
+   "artists": [
+    "Ariana Grande",
+    "Nicki Minaj"
+   ],
+   "album": "Dangerous Woman",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 226.16,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f8ac7f568d.mp3",
+   "cover": "library/covers/f8ac7f568d.jpg",
+   "color": "#6a6a6a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:37:24Z",
+   "mime": "audio/mpeg",
+   "size": 5429540,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:psuGCpXaDMU",
+   "story": "library/stories/f8ac7f568d.jpg"
+  },
+  {
+   "id": "b35d86c86f",
+   "title": "God is a woman",
+   "artist": "Ariana Grande",
+   "artists": [
+    "Ariana Grande"
+   ],
+   "album": "Sweetener",
+   "year": 2018,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 145,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 197.55,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b35d86c86f.mp3",
+   "cover": "library/covers/b35d86c86f.jpg",
+   "color": "#f37b0c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:36:56Z",
+   "mime": "audio/mpeg",
+   "size": 4742931,
+   "storage": "release",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "yt:vpohuhgqf5w",
+   "story": "library/stories/b35d86c86f.jpg"
+  },
+  {
+   "id": "ac51aae169",
+   "title": "no tears left to cry",
+   "artist": "Ariana Grande",
+   "artists": [
+    "Ariana Grande"
+   ],
+   "album": "Sweetener",
+   "year": 2018,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 122,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 205.92,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ac51aae169.mp3",
+   "cover": "library/covers/ac51aae169.jpg",
+   "color": "#f37b0c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:36:37Z",
+   "mime": "audio/mpeg",
+   "size": 4943385,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:t31xgKtLjwo",
+   "story": "library/stories/ac51aae169.jpg"
+  },
+  {
+   "id": "3b8556f6fb",
+   "title": "Into You",
+   "artist": "Ariana Grande",
+   "artists": [
+    "Ariana Grande"
+   ],
+   "album": "Dangerous Woman",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 244.45,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3b8556f6fb.mp3",
+   "cover": "library/covers/3b8556f6fb.jpg",
+   "color": "#6a6a6a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:36:09Z",
+   "mime": "audio/mpeg",
+   "size": 5868435,
+   "storage": "release",
+   "lufs": -8.2,
+   "gain": -5.8,
+   "via": "audio",
+   "fileKey": "yt:Faq-ODnfIPw",
+   "story": "library/stories/3b8556f6fb.jpg"
+  },
+  {
+   "id": "27509d3ff6",
+   "title": "positions",
+   "artist": "Ariana Grande",
+   "artists": [
+    "Ariana Grande"
+   ],
+   "album": "Positions (Deluxe Edition)",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 172.32,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/27509d3ff6.mp3",
+   "cover": "library/covers/27509d3ff6.jpg",
+   "color": "#5a796f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:35:44Z",
+   "mime": "audio/mpeg",
+   "size": 4137567,
+   "storage": "release",
+   "lufs": -7.7,
+   "gain": -6.3,
+   "via": "audio",
+   "fileKey": "yt:lzlg0e7MvYI",
+   "story": "library/stories/27509d3ff6.jpg"
+  },
+  {
+   "id": "b6bbbf1d08",
+   "title": "7 rings",
+   "artist": "Ariana Grande",
+   "artists": [
+    "Ariana Grande"
+   ],
+   "album": "thank u, next",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 140,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 178.63,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b6bbbf1d08.mp3",
+   "cover": "library/covers/b6bbbf1d08.jpg",
+   "color": "#8f7081",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:35:19Z",
+   "mime": "audio/mpeg",
+   "size": 4288464,
+   "storage": "release",
+   "lufs": -11.5,
+   "gain": -2.5,
+   "via": "audio",
+   "fileKey": "yt:XZ868t23Pb4",
+   "story": "library/stories/b6bbbf1d08.jpg"
+  },
   {
    "id": "b64a77c77d",
    "title": "One Kiss",
