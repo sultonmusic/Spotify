@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T08:24:06Z",
- "count": 460,
+ "updatedAt": "2026-11-27T08:49:51Z",
+ "count": 468,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1835,9 +1835,11 @@
    "ytPhotoChecked": "2026-11-26T21:03:35Z"
   },
   "Sara Naeini…": {
-   "aliases": [],
-   "verified": false,
-   "checked": "2026-11-12T17:48:03Z",
+   "aliases": [
+    "Sara Naeini"
+   ],
+   "verified": true,
+   "checked": "2026-11-27T08:49:25Z",
    "bioChecked": "2026-11-12T22:56:17Z",
    "bio": {
     "en": "Sara Naeini is an Iranian singer and songwriter.",
@@ -1858,7 +1860,14 @@
    "image": "library/artists/sara-naeini-yt.jpg",
    "color": "#7c1f20",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCSfTPR7Czs-Ie3-54tZ4Gog"
+   "youtubeMusic": "https://music.youtube.com/channel/UCSfTPR7Czs-Ie3-54tZ4Gog",
+   "deezerId": 6791733,
+   "deezer": "https://www.deezer.com/artist/6791733",
+   "verifiedAt": "2026-11-27T08:49:25Z",
+   "fans": 315,
+   "albums": 29,
+   "itunesId": 524815454,
+   "apple": "https://music.apple.com/us/artist/sara-naeini/524815454"
   },
   "Ziyoda": {
    "aliases": [],
@@ -5732,9 +5741,468 @@
    "color": "#808080",
    "imageSource": "ytmusic",
    "youtubeMusic": "https://music.youtube.com/channel/UCN1O0XN1xPVfTDP85WfvFtg"
+  },
+  "Arash Fouladvand": {
+   "aliases": [],
+   "verified": false
+  },
+  "Vahid Taj": {
+   "aliases": [],
+   "verified": false
+  },
+  "Viguen": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1248129,
+   "itunesId": 90366987,
+   "deezer": "https://www.deezer.com/artist/1248129",
+   "apple": "https://music.apple.com/us/artist/viguen/90366987",
+   "image": "library/artists/viguen.jpg",
+   "color": "#656962",
+   "checked": "2026-11-27T08:46:48Z",
+   "verifiedAt": "2026-11-27T08:46:48Z",
+   "fans": 2602,
+   "albums": 35
+  },
+  "Arash": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 593,
+   "itunesId": 49315081,
+   "deezer": "https://www.deezer.com/artist/593",
+   "apple": "https://music.apple.com/us/artist/arash/49315081",
+   "image": "library/artists/arash.jpg",
+   "color": "#bd6642",
+   "checked": "2026-11-27T08:47:09Z",
+   "verifiedAt": "2026-11-27T08:47:09Z",
+   "fans": 111814,
+   "albums": 45
+  },
+  "Helena (": {
+   "aliases": [
+    "Helena"
+   ],
+   "verified": true,
+   "deezerId": 16966,
+   "deezer": "https://www.deezer.com/artist/16966",
+   "image": "library/artists/helena.jpg",
+   "color": "#7c6a95",
+   "checked": "2026-11-27T08:47:09Z",
+   "verifiedAt": "2026-11-27T08:47:09Z",
+   "fans": 5467,
+   "albums": 64
+  },
+  "Arash Ap": {
+   "aliases": [
+    "Arash AP"
+   ],
+   "verified": false
+  },
+  "Masih": {
+   "aliases": [],
+   "verified": false
+  },
+  "Farzad Farzin": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1166774,
+   "itunesId": 268371642,
+   "deezer": "https://www.deezer.com/artist/1166774",
+   "apple": "https://music.apple.com/us/artist/farzad-farzin/268371642",
+   "image": "library/artists/farzad-farzin.jpg",
+   "color": "#ac6e53",
+   "checked": "2026-11-27T08:48:45Z",
+   "verifiedAt": "2026-11-27T08:48:45Z",
+   "fans": 7952,
+   "albums": 89
+  },
+  "Anoushirvan Rohani": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 827428,
+   "itunesId": 18950251,
+   "deezer": "https://www.deezer.com/artist/827428",
+   "apple": "https://music.apple.com/us/artist/anoushirvan-rohani/18950251",
+   "image": "library/artists/anoushirvan-rohani.jpg",
+   "color": "#bf7e40",
+   "checked": "2026-11-27T08:49:25Z",
+   "verifiedAt": "2026-11-27T08:49:25Z",
+   "fans": 367,
+   "albums": 25
+  },
+  "Reza Rohani": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5723035,
+   "deezer": "https://www.deezer.com/artist/5723035",
+   "image": "library/artists/reza-rohani.jpg",
+   "color": "#8d0202",
+   "checked": "2026-11-27T08:49:26Z",
+   "verifiedAt": "2026-11-27T08:49:26Z",
+   "fans": 111,
+   "albums": 25
+  },
+  "Anoushirvan Rohani, Sara Naeini & Reza Rohani": {
+   "aliases": [],
+   "verified": false
   }
  },
  "songs": [
+  {
+   "id": "644e9ca354",
+   "title": "Jane Maryam",
+   "artist": "Sara Naeini…",
+   "artists": [
+    "Sara Naeini…"
+   ],
+   "album": "Jane Maryam",
+   "year": 1983,
+   "genre": "Folk",
+   "subgenre": "Worldwide",
+   "moods": [
+    "nostalgic",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.45,
+   "danceability": 0.5,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 229.16,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/644e9ca354.mp3",
+   "cover": "library/covers/644e9ca354.jpg",
+   "color": "#e49e1b",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:49:51Z",
+   "mime": "audio/mpeg",
+   "size": 5501537,
+   "storage": "release",
+   "lufs": -14.9,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:yTJgrWNn_A4",
+   "story": "library/stories/644e9ca354.jpg"
+  },
+  {
+   "id": "3780118e67",
+   "title": "Delyar",
+   "artist": "Anoushirvan Rohani, Sara Naeini…, Reza Rohani, Anoushirvan Rohani, Sara Naeini & Reza Rohani",
+   "artists": [
+    "Anoushirvan Rohani",
+    "Sara Naeini…",
+    "Reza Rohani",
+    "Anoushirvan Rohani, Sara Naeini & Reza Rohani"
+   ],
+   "album": "Sara Naeini & Reza Rohani Performing Anoushiravan Rohani's Compositions",
+   "year": 2021,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 247.8,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3780118e67.mp3",
+   "cover": "library/covers/3780118e67.jpg",
+   "color": "#8d0202",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:49:28Z",
+   "mime": "audio/mpeg",
+   "size": 5948727,
+   "storage": "release",
+   "lufs": -13.2,
+   "gain": -0.8,
+   "via": "audio",
+   "fileKey": "yt:XySDufjLBV0",
+   "story": "library/stories/3780118e67.jpg"
+  },
+  {
+   "id": "b1801417ac",
+   "title": "Asheghaneh",
+   "artist": "Farzad Farzin",
+   "artists": [
+    "Farzad Farzin"
+   ],
+   "album": "Asheghaneh (From \"Asheghaneh\")",
+   "year": 2017,
+   "genre": "Soundtrack",
+   "subgenre": "TV Soundtrack",
+   "moods": [
+    "dreamy",
+    "calm"
+   ],
+   "language": "ar",
+   "energy": 0.52,
+   "danceability": 0.57,
+   "bpm": 165,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 231.0,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b1801417ac.mp3",
+   "cover": "library/covers/b1801417ac.jpg",
+   "color": "#b44f4b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:48:51Z",
+   "mime": "audio/mpeg",
+   "size": 5545899,
+   "storage": "release",
+   "lufs": -8.2,
+   "gain": -5.8,
+   "via": "audio",
+   "fileKey": "yt:_u_dCdqF6ak",
+   "story": "library/stories/b1801417ac.jpg"
+  },
+  {
+   "id": "a872ca51fa",
+   "title": "In To Bemiri",
+   "artist": "Arash Ap, Masih",
+   "artists": [
+    "Arash Ap",
+    "Masih"
+   ],
+   "album": "In To Bemiri",
+   "year": 2025,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 172.71,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a872ca51fa.mp3",
+   "cover": "library/covers/a872ca51fa.jpg",
+   "color": "#395356",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:48:24Z",
+   "mime": "audio/mpeg",
+   "size": 4146774,
+   "storage": "release",
+   "lufs": -7.0,
+   "gain": -7.0,
+   "via": "audio",
+   "fileKey": "yt:4h6wzxvjfJE",
+   "story": "library/stories/a872ca51fa.jpg"
+  },
+  {
+   "id": "9bdce7d397",
+   "title": "شادی آزادی",
+   "artist": "Arash Fouladvand, Vahid Taj",
+   "artists": [
+    "Arash Fouladvand",
+    "Vahid Taj"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [],
+   "language": "ar",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 331.4,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9bdce7d397.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:48:05Z",
+   "mime": "audio/mpeg",
+   "size": 7955271,
+   "storage": "release",
+   "lufs": -10.4,
+   "gain": -3.6,
+   "via": "audio",
+   "fileKey": "yt:sSnNgvfxLdA",
+   "story": "library/stories/9bdce7d397.jpg"
+  },
+  {
+   "id": "09c3f2ac89",
+   "title": "Broken Angel -",
+   "artist": "Arash, Helena (",
+   "artists": [
+    "Arash",
+    "Helena ("
+   ],
+   "album": "Broken Angel (feat. Helena)",
+   "year": 2008,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": 111,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 193.24,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/09c3f2ac89.mp3",
+   "cover": "library/covers/09c3f2ac89.jpg",
+   "color": "#45616d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:47:13Z",
+   "mime": "audio/mpeg",
+   "size": 4639271,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:xXYJpkwGgwU",
+   "story": "library/stories/09c3f2ac89.jpg"
+  },
+  {
+   "id": "e3e3396576",
+   "title": "Gole Sorkh",
+   "artist": "Viguen",
+   "artists": [
+    "Viguen"
+   ],
+   "album": "Viguen",
+   "year": 1991,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "ar",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 203.16,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e3e3396576.mp3",
+   "cover": "library/covers/e3e3396576.jpg",
+   "color": "#8e7357",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:46:53Z",
+   "mime": "audio/mpeg",
+   "size": 4877125,
+   "storage": "release",
+   "lufs": -15.4,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:KHPXPQKeNWQ",
+   "story": "library/stories/e3e3396576.jpg"
+  },
+  {
+   "id": "00183506ea",
+   "title": "آن یار می آید",
+   "artist": "Arash Fouladvand, Vahid Taj",
+   "artists": [
+    "Arash Fouladvand",
+    "Vahid Taj"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [],
+   "language": "ar",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 469.09,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/00183506ea.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:46:32Z",
+   "mime": "audio/mpeg",
+   "size": 11259789,
+   "storage": "release",
+   "lufs": -10.8,
+   "gain": -3.2,
+   "via": "audio",
+   "fileKey": "yt:ciywFAThTRk",
+   "story": "library/stories/00183506ea.jpg"
+  },
   {
    "id": "805c58e67d",
    "title": "Lost In Japan",
