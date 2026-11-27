@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T00:09:38Z",
- "count": 201,
+ "updatedAt": "2026-11-27T02:36:00Z",
+ "count": 202,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -2157,14 +2157,21 @@
   },
   "Johnny Huynh": {
    "aliases": [],
-   "verified": false,
-   "checked": "2026-11-20T13:17:36Z",
+   "verified": true,
+   "checked": "2026-11-27T02:33:37Z",
    "bioChecked": "2026-11-20T13:17:47Z",
    "ytPhotoChecked": "2026-11-26T21:03:51Z",
    "image": "library/artists/johnny-huynh-yt.jpg",
    "color": "#721d2d",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCgD26qQaJMC-ESBVfQhIVWw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCgD26qQaJMC-ESBVfQhIVWw",
+   "deezerId": 85253302,
+   "itunesId": 1708540956,
+   "deezer": "https://www.deezer.com/artist/85253302",
+   "apple": "https://music.apple.com/us/artist/johnny-huynh/1708540956",
+   "verifiedAt": "2026-11-27T02:33:37Z",
+   "fans": 14291,
+   "albums": 32
   },
   "Martin Garrix": {
    "aliases": [],
@@ -3227,7 +3234,24 @@
    "albums": 44,
    "ytPhotoChecked": "2026-11-26T21:04:35Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC6ZjlLJhqP79nqGr3Ic6Adg"
+   "youtubeMusic": "https://music.youtube.com/channel/UC6ZjlLJhqP79nqGr3Ic6Adg",
+   "bioChecked": "2026-11-27T02:35:44Z",
+   "bio": {
+    "en": "Shawn Peter Raul Mendes is a Canadian singer, songwriter, and musician. Mendes gained early recognition for posting popular song covers on the social media platforms YouTube and Vine. He later signed to Island Records and released his self-titled debut EP in 2014.",
+    "ru": "Шон Пи́тер Рау́ль Ме́ндес — канадский певец, автор песен и модель. Приобрёл известность в 2013 году благодаря кавер-версиям, которые размещал на платформе Vine. В 2014 году начал работать с арт-менеджером Эндрю Гертлером и звукозаписывающим лейблом Island Records, одноимённый мини-альбом «The Shawn Mendes EP» был выпущен в том же году. В 2015 году в свет вышел дебютный студийный альбом «Handwritten», покоривший вершину американского Billboard 200. Сингл «Stitches» занял первое место в Великобритании и вошёл в топ-10 в США и Канаде.",
+    "uz": "Shawn Peter Raul Mendes - kanadalik qo'shiqchi, qo'shiq muallifi va musiqachi. Mendes YouTube va Vine ijtimoiy media platformalarida mashhur qo'shiqlar muqovalarini joylashtirgani uchun erta e'tirofga sazovor bo'ldi. Keyinchalik u Island Records bilan shartnoma imzoladi va 2014 yilda o'zining debyut EPini chiqardi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Shawn_Mendes",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D0%BD%D0%B4%D0%B5%D1%81%2C_%D0%A8%D0%BE%D0%BD"
+   },
+   "desc": {
+    "en": "Canadian musician (born 1998)",
+    "ru": "канадский певец"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Charlie Puth": {
    "aliases": [],
@@ -3244,7 +3268,24 @@
    "albums": 97,
    "ytPhotoChecked": "2026-11-26T21:04:36Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCQ-ygxSFSlq-O2zGnXxELXQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCQ-ygxSFSlq-O2zGnXxELXQ",
+   "bioChecked": "2026-11-27T02:35:48Z",
+   "bio": {
+    "en": "Charles Otto Puth Jr. is an American singer-songwriter and record producer. His initial exposure came through the viral success of his song covers uploaded to YouTube. Puth signed with the record label eleveneleven in 2011.",
+    "ru": "Ча́рльз О́тто Пут-младший — американский певец, композитор, музыкальный продюсер. Известность получил благодаря кавер-версиям на YouTube. В 2011 году подписал контракт с лейблом eleveneleven после выступления на шоу Эллен Дедженерес, параллельно писал и продюсировал для других исполнителей.",
+    "uz": "Charlz Otto Put Jr. amerikalik qo'shiqchi-qo'shiq muallifi va prodyuser. Uning dastlabki ta'siri uning YouTube-ga yuklangan qo'shiqlaridagi virusli muvaffaqiyati orqali sodir bo'ldi. Put 2011 yilda Eleveneleven rekord yorlig'i bilan imzolangan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Charlie_Puth",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9F%D1%83%D1%82%2C_%D0%A7%D0%B0%D1%80%D0%BB%D0%B8"
+   },
+   "desc": {
+    "en": "American singer-songwriter (born 1991)",
+    "ru": "американский певец, автор песен и музыкальный продюсер"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Justin Timberlake": {
    "aliases": [],
@@ -3261,7 +3302,22 @@
    "albums": 43,
    "ytPhotoChecked": "2026-11-26T21:04:38Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC6VwktUsQQDCkHG1h6YftAQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UC6VwktUsQQDCkHG1h6YftAQ",
+   "bioChecked": "2026-11-27T02:35:49Z",
+   "bio": {
+    "en": "Justin Randall Timberlake is an American singer, songwriter, actor, and record producer. Dubbed the \"Prince of Pop\", he is known for his showmanship, tenor vocal range, versatility across the entertainment industry, and frequent collaborations with hip-hop producers such as The Neptunes and Timbaland.",
+    "ru": "Джа́стин Рэ́ндалл Ти́мберлейк — американский певец, автор песен, композитор, продюсер, танцор и актёр. Обладатель четырёх премий «Эмми» и девяти премий «Грэмми».",
+    "uz": "Justin Randall Timberlake amerikalik pop-qoʻshiqchi, qoʻshiqnavis, prodyuser va aktyordir. Timberlake olti karra Grammy mukofoti va Emmy mukofoti sohibi hisoblanib, NSYNC yoshlar guruhida ham maʼlum bir muddat qoʻshiq kuylagan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Justin_Timberlake",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D0%B8%D0%BC%D0%B1%D0%B5%D1%80%D0%BB%D0%B5%D0%B9%D0%BA%2C_%D0%94%D0%B6%D0%B0%D1%81%D1%82%D0%B8%D0%BD",
+    "uz": "https://uz.wikipedia.org/wiki/Justin_Timberlake"
+   },
+   "desc": {
+    "en": "American singer, songwriter, and actor (born 1981)",
+    "ru": "американский певец"
+   }
   },
   "Enrique Iglesias": {
    "aliases": [],
@@ -4480,6 +4536,55 @@
   }
  },
  "songs": [
+  {
+   "id": "b9ca8be7b2",
+   "title": "SAVIOR",
+   "artist": "Johnny Huynh",
+   "artists": [
+    "Johnny Huynh"
+   ],
+   "album": "SAVIOR",
+   "year": 2025,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 151.21,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b9ca8be7b2.m4a",
+   "cover": "library/covers/b9ca8be7b2.jpg",
+   "color": "#234b6c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     601,
+     602
+    ]
+   },
+   "addedAt": "2026-11-27T02:33:41Z",
+   "mime": "audio/mp4",
+   "size": 2446373,
+   "storage": "release",
+   "lufs": -11.5,
+   "gain": -2.5,
+   "via": "audio",
+   "fileKey": "b9ca8be7b2265d6d",
+   "story": "library/stories/b9ca8be7b2.jpg"
+  },
   {
    "id": "d147168b9b",
    "title": "Shape Of My Heart",
