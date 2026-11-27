@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T04:05:44Z",
- "count": 289,
+ "updatedAt": "2026-11-27T04:24:39Z",
+ "count": 319,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4854,9 +4854,1450 @@
    "verifiedAt": "2026-11-27T03:54:05Z",
    "fans": 993686,
    "albums": 30
+  },
+  "BTS": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 6982223,
+   "deezer": "https://www.deezer.com/artist/6982223",
+   "image": "library/artists/bts.jpg",
+   "color": "#808080",
+   "checked": "2026-11-27T04:12:35Z",
+   "verifiedAt": "2026-11-27T04:12:35Z",
+   "fans": 3881283,
+   "albums": 87
+  },
+  "Ludacris": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 78,
+   "deezer": "https://www.deezer.com/artist/78",
+   "image": "library/artists/ludacris.jpg",
+   "color": "#663229",
+   "checked": "2026-11-27T04:19:54Z",
+   "verifiedAt": "2026-11-27T04:19:54Z",
+   "fans": 2213338,
+   "albums": 43
+  },
+  "Daniel Caesar": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5245183,
+   "deezer": "https://www.deezer.com/artist/5245183",
+   "image": "library/artists/daniel-caesar.jpg",
+   "color": "#1de273",
+   "checked": "2026-11-27T04:20:40Z",
+   "verifiedAt": "2026-11-27T04:20:40Z",
+   "fans": 426933,
+   "albums": 27
+  },
+  "Giveon": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 48995601,
+   "deezer": "https://www.deezer.com/artist/48995601",
+   "image": "library/artists/giveon.jpg",
+   "color": "#2b4463",
+   "checked": "2026-11-27T04:20:40Z",
+   "verifiedAt": "2026-11-27T04:20:40Z",
+   "fans": 340613,
+   "albums": 23
+  },
+  "Big Sean": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 15427,
+   "deezer": "https://www.deezer.com/artist/15427",
+   "image": "library/artists/big-sean.jpg",
+   "color": "#d1752e",
+   "checked": "2026-11-27T04:22:26Z",
+   "verifiedAt": "2026-11-27T04:22:26Z",
+   "fans": 1644636,
+   "albums": 72
   }
  },
  "songs": [
+  {
+   "id": "b64a77c77d",
+   "title": "One Kiss",
+   "artist": "Calvin Harris, Dua Lipa",
+   "artists": [
+    "Calvin Harris",
+    "Dua Lipa"
+   ],
+   "album": "One Kiss",
+   "year": 2018,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 214.85,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b64a77c77d.mp3",
+   "cover": "library/covers/b64a77c77d.jpg",
+   "color": "#0434ec",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:24:39Z",
+   "mime": "audio/mpeg",
+   "size": 5157656,
+   "storage": "release",
+   "lufs": -6.8,
+   "gain": -7.2,
+   "via": "audio",
+   "fileKey": "yt:XWCPbRsMb0Q",
+   "story": "library/stories/b64a77c77d.jpg"
+  },
+  {
+   "id": "9b7f653b36",
+   "title": "Dance The Night (From Barbie The Album)",
+   "artist": "Dua Lipa",
+   "artists": [
+    "Dua Lipa"
+   ],
+   "album": "Barbie The Album",
+   "year": 2023,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "romantic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 211.46,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9b7f653b36.mp3",
+   "cover": "library/covers/9b7f653b36.jpg",
+   "color": "#e91672",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:24:04Z",
+   "mime": "audio/mpeg",
+   "size": 5077038,
+   "storage": "release",
+   "lufs": -7.8,
+   "gain": -6.2,
+   "via": "audio",
+   "fileKey": "yt:Z1yDjhXIDSc",
+   "story": "library/stories/9b7f653b36.jpg"
+  },
+  {
+   "id": "c782b182ef",
+   "title": "Physical",
+   "artist": "Dua Lipa",
+   "artists": [
+    "Dua Lipa"
+   ],
+   "album": "Future Nostalgia",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 147,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 193.83,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c782b182ef.mp3",
+   "cover": "library/covers/c782b182ef.jpg",
+   "color": "#785b5b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:23:25Z",
+   "mime": "audio/mpeg",
+   "size": 4653647,
+   "storage": "release",
+   "lufs": -7.0,
+   "gain": -7.0,
+   "via": "audio",
+   "fileKey": "yt:Yegn0dZ-BfY",
+   "story": "library/stories/c782b182ef.jpg"
+  },
+  {
+   "id": "a77d23db37",
+   "title": "Don't Start Now",
+   "artist": "Dua Lipa",
+   "artists": [
+    "Dua Lipa"
+   ],
+   "album": "Don't Start Now",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 124,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 183.29,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a77d23db37.mp3",
+   "cover": "library/covers/a77d23db37.jpg",
+   "color": "#a1795a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:22:55Z",
+   "mime": "audio/mpeg",
+   "size": 4400789,
+   "storage": "release",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:htg8v0g_4e4",
+   "story": "library/stories/a77d23db37.jpg"
+  },
+  {
+   "id": "b0e92af457",
+   "title": "As Long As You Love Me",
+   "artist": "Justin Bieber, Big Sean",
+   "artists": [
+    "Justin Bieber",
+    "Big Sean"
+   ],
+   "album": "Believe (Deluxe Edition)",
+   "year": 2012,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 140,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 229.47,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b0e92af457.mp3",
+   "cover": "library/covers/b0e92af457.jpg",
+   "color": "#8d4424",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:22:33Z",
+   "mime": "audio/mpeg",
+   "size": 5509044,
+   "storage": "release",
+   "lufs": -6.5,
+   "gain": -7.5,
+   "via": "audio",
+   "fileKey": "yt:Fy29UahP_hQ",
+   "story": "library/stories/b0e92af457.jpg"
+  },
+  {
+   "id": "d9bfb39e36",
+   "title": "Company",
+   "artist": "Justin Bieber",
+   "artists": [
+    "Justin Bieber"
+   ],
+   "album": "Purpose (Deluxe)",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 208.12,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d9bfb39e36.mp3",
+   "cover": "library/covers/d9bfb39e36.jpg",
+   "color": "#787675",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:22:07Z",
+   "mime": "audio/mpeg",
+   "size": 4996371,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:81oCkIJko5s",
+   "story": "library/stories/d9bfb39e36.jpg"
+  },
+  {
+   "id": "3ee1a39770",
+   "title": "Boyfriend",
+   "artist": "Justin Bieber",
+   "artists": [
+    "Justin Bieber"
+   ],
+   "album": "Believe (Deluxe Edition)",
+   "year": 2012,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 97,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 171.33,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3ee1a39770.mp3",
+   "cover": "library/covers/3ee1a39770.jpg",
+   "color": "#8d4424",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:21:47Z",
+   "mime": "audio/mpeg",
+   "size": 4113373,
+   "storage": "release",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "yt:mDqeNQmb4Ow",
+   "story": "library/stories/3ee1a39770.jpg"
+  },
+  {
+   "id": "d73cd6e9b2",
+   "title": "Yummy",
+   "artist": "Justin Bieber",
+   "artists": [
+    "Justin Bieber"
+   ],
+   "album": "Yummy",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 146,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 208.52,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d73cd6e9b2.mp3",
+   "cover": "library/covers/d73cd6e9b2.jpg",
+   "color": "#d02f65",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:21:23Z",
+   "mime": "audio/mpeg",
+   "size": 5006150,
+   "storage": "release",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "yt:IBIxNypW6qM",
+   "story": "library/stories/d73cd6e9b2.jpg"
+  },
+  {
+   "id": "52f8f5caea",
+   "title": "Ghost",
+   "artist": "Justin Bieber",
+   "artists": [
+    "Justin Bieber"
+   ],
+   "album": "Justice",
+   "year": 2021,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 153.19,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/52f8f5caea.mp3",
+   "cover": "library/covers/52f8f5caea.jpg",
+   "color": "#39c6a2",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:21:03Z",
+   "mime": "audio/mpeg",
+   "size": 3677896,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:v6HFc5I0hr8",
+   "story": "library/stories/52f8f5caea.jpg"
+  },
+  {
+   "id": "190f37a03d",
+   "title": "Peaches",
+   "artist": "Justin Bieber, Daniel Caesar, Giveon",
+   "artists": [
+    "Justin Bieber",
+    "Daniel Caesar",
+    "Giveon"
+   ],
+   "album": "Justice",
+   "year": 2021,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 198.08,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/190f37a03d.mp3",
+   "cover": "library/covers/190f37a03d.jpg",
+   "color": "#39c6a2",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:20:45Z",
+   "mime": "audio/mpeg",
+   "size": 4755617,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:5rnawnfK2sQ",
+   "story": "library/stories/190f37a03d.jpg"
+  },
+  {
+   "id": "b9d227edb3",
+   "title": "What Do You Mean?",
+   "artist": "Justin Bieber",
+   "artists": [
+    "Justin Bieber"
+   ],
+   "album": "Purpose (Deluxe)",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 125,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 205.68,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b9d227edb3.mp3",
+   "cover": "library/covers/b9d227edb3.jpg",
+   "color": "#787675",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:20:25Z",
+   "mime": "audio/mpeg",
+   "size": 4937629,
+   "storage": "release",
+   "lufs": -9.7,
+   "gain": -4.3,
+   "via": "audio",
+   "fileKey": "yt:DcDbKDAb7go",
+   "story": "library/stories/b9d227edb3.jpg"
+  },
+  {
+   "id": "8d8a2271e5",
+   "title": "Baby",
+   "artist": "Justin Bieber, Ludacris",
+   "artists": [
+    "Justin Bieber",
+    "Ludacris"
+   ],
+   "album": "My World 2.0 (Bonus Track Version)",
+   "year": 2010,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 219.05,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8d8a2271e5.mp3",
+   "cover": "library/covers/8d8a2271e5.jpg",
+   "color": "#686869",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:20:00Z",
+   "mime": "audio/mpeg",
+   "size": 5258476,
+   "storage": "release",
+   "lufs": -9.1,
+   "gain": -4.9,
+   "via": "audio",
+   "fileKey": "yt:GqWYJT-iMTw",
+   "story": "library/stories/8d8a2271e5.jpg"
+  },
+  {
+   "id": "49c9d3c870",
+   "title": "Sorry",
+   "artist": "Justin Bieber",
+   "artists": [
+    "Justin Bieber"
+   ],
+   "album": "Purpose (Deluxe)",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 200.79,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/49c9d3c870.mp3",
+   "cover": "library/covers/49c9d3c870.jpg",
+   "color": "#787675",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:19:34Z",
+   "mime": "audio/mpeg",
+   "size": 4820689,
+   "storage": "release",
+   "lufs": -7.6,
+   "gain": -6.4,
+   "via": "audio",
+   "fileKey": "yt:v16qZcBllUU",
+   "story": "library/stories/49c9d3c870.jpg"
+  },
+  {
+   "id": "8379661e31",
+   "title": "Sharks",
+   "artist": "Imagine Dragons",
+   "artists": [
+    "Imagine Dragons"
+   ],
+   "album": "Mercury - Acts 1 & 2",
+   "year": 2022,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 187.49,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8379661e31.mp3",
+   "cover": "library/covers/8379661e31.jpg",
+   "color": "#941f25",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:19:09Z",
+   "mime": "audio/mpeg",
+   "size": 4501594,
+   "storage": "release",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "yt:jvwDooKFMLk",
+   "story": "library/stories/8379661e31.jpg"
+  },
+  {
+   "id": "9e137de3e0",
+   "title": "Bones",
+   "artist": "Imagine Dragons",
+   "artists": [
+    "Imagine Dragons"
+   ],
+   "album": "Bones",
+   "year": 2021,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 165.26,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9e137de3e0.mp3",
+   "cover": "library/covers/9e137de3e0.jpg",
+   "color": "#a48a5b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:18:43Z",
+   "mime": "audio/mpeg",
+   "size": 3968202,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:V2SVRJ6dcE4",
+   "story": "library/stories/9e137de3e0.jpg"
+  },
+  {
+   "id": "ebaf257c9a",
+   "title": "Wrecked",
+   "artist": "Imagine Dragons",
+   "artists": [
+    "Imagine Dragons"
+   ],
+   "album": "Mercury - Acts 1 & 2",
+   "year": 2021,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "nostalgic",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 244.0,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ebaf257c9a.mp3",
+   "cover": "library/covers/ebaf257c9a.jpg",
+   "color": "#941f25",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:18:23Z",
+   "mime": "audio/mpeg",
+   "size": 5857499,
+   "storage": "release",
+   "lufs": -7.3,
+   "gain": -6.7,
+   "via": "audio",
+   "fileKey": "yt:0Y8Bk7qEyYE",
+   "story": "library/stories/ebaf257c9a.jpg"
+  },
+  {
+   "id": "da2f919d88",
+   "title": "Follow You",
+   "artist": "Imagine Dragons",
+   "artists": [
+    "Imagine Dragons"
+   ],
+   "album": "Follow You / Cutthroat",
+   "year": 2021,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 175.64,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/da2f919d88.mp3",
+   "cover": "library/covers/da2f919d88.jpg",
+   "color": "#8a8275",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:17:58Z",
+   "mime": "audio/mpeg",
+   "size": 4217056,
+   "storage": "release",
+   "lufs": -7.5,
+   "gain": -6.5,
+   "via": "audio",
+   "fileKey": "yt:zPEJDNZWKeU",
+   "story": "library/stories/da2f919d88.jpg"
+  },
+  {
+   "id": "6ffd8ad10f",
+   "title": "Mouth Of The River",
+   "artist": "Imagine Dragons",
+   "artists": [
+    "Imagine Dragons"
+   ],
+   "album": "Evolve",
+   "year": 2017,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 96,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 221.56,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/6ffd8ad10f.mp3",
+   "cover": "library/covers/6ffd8ad10f.jpg",
+   "color": "#255a6a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:17:35Z",
+   "mime": "audio/mpeg",
+   "size": 5318936,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "yt:YiZCzG4RF1M",
+   "story": "library/stories/6ffd8ad10f.jpg"
+  },
+  {
+   "id": "10cc8020e4",
+   "title": "Shots",
+   "artist": "Imagine Dragons",
+   "artists": [
+    "Imagine Dragons"
+   ],
+   "album": "Smoke + Mirrors",
+   "year": 2015,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "sad",
+    "motivational",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": 105,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 232.33,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/10cc8020e4.mp3",
+   "cover": "library/covers/10cc8020e4.jpg",
+   "color": "#a4845b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:17:16Z",
+   "mime": "audio/mpeg",
+   "size": 5577556,
+   "storage": "release",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "yt:ZHq86umoPr8",
+   "story": "library/stories/10cc8020e4.jpg"
+  },
+  {
+   "id": "c90962f5f0",
+   "title": "I Bet My Life",
+   "artist": "Imagine Dragons",
+   "artists": [
+    "Imagine Dragons"
+   ],
+   "album": "Smoke + Mirrors",
+   "year": 2014,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "nostalgic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": 108,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 192.71,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c90962f5f0.mp3",
+   "cover": "library/covers/c90962f5f0.jpg",
+   "color": "#a4845b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:16:46Z",
+   "mime": "audio/mpeg",
+   "size": 4626588,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:XDjm770j3o4",
+   "story": "library/stories/c90962f5f0.jpg"
+  },
+  {
+   "id": "316aaaf3cb",
+   "title": "Walking The Wire",
+   "artist": "Imagine Dragons",
+   "artists": [
+    "Imagine Dragons"
+   ],
+   "album": "Evolve",
+   "year": 2017,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "motivational",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 232.91,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/316aaaf3cb.mp3",
+   "cover": "library/covers/316aaaf3cb.jpg",
+   "color": "#255a6a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:13:58Z",
+   "mime": "audio/mpeg",
+   "size": 5591382,
+   "storage": "release",
+   "lufs": -6.8,
+   "gain": -7.2,
+   "via": "audio",
+   "fileKey": "yt:oB8nNlBkcEo",
+   "story": "library/stories/316aaaf3cb.jpg"
+  },
+  {
+   "id": "64ce49ee67",
+   "title": "It's Time",
+   "artist": "Imagine Dragons",
+   "artists": [
+    "Imagine Dragons"
+   ],
+   "album": "Night Visions",
+   "year": 2012,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 240.09,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/64ce49ee67.mp3",
+   "cover": "library/covers/64ce49ee67.jpg",
+   "color": "#6c6c72",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:13:28Z",
+   "mime": "audio/mpeg",
+   "size": 5763606,
+   "storage": "release",
+   "lufs": -9.4,
+   "gain": -4.6,
+   "via": "audio",
+   "fileKey": "yt:l9EhLOvxUSI",
+   "story": "library/stories/64ce49ee67.jpg"
+  },
+  {
+   "id": "4d101eab19",
+   "title": "On Top Of The World",
+   "artist": "Imagine Dragons",
+   "artists": [
+    "Imagine Dragons"
+   ],
+   "album": "Night Visions",
+   "year": 2012,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 241.92,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/4d101eab19.mp3",
+   "cover": "library/covers/4d101eab19.jpg",
+   "color": "#6c6c72",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:13:04Z",
+   "mime": "audio/mpeg",
+   "size": 5807392,
+   "storage": "release",
+   "lufs": -12.9,
+   "gain": -1.1,
+   "via": "audio",
+   "fileKey": "yt:WZNx8b9NCJw",
+   "story": "library/stories/4d101eab19.jpg"
+  },
+  {
+   "id": "a8851222dd",
+   "title": "My Universe",
+   "artist": "Coldplay, BTS",
+   "artists": [
+    "Coldplay",
+    "BTS"
+   ],
+   "album": "Music of the Spheres",
+   "year": 2021,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "happy"
+   ],
+   "language": "ko",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 228.0,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a8851222dd.mp3",
+   "cover": "library/covers/a8851222dd.jpg",
+   "color": "#16237a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:12:41Z",
+   "mime": "audio/mpeg",
+   "size": 5473883,
+   "storage": "release",
+   "lufs": -8.2,
+   "gain": -5.8,
+   "via": "audio",
+   "fileKey": "yt:TaZkqPK0sbw",
+   "story": "library/stories/a8851222dd.jpg"
+  },
+  {
+   "id": "1f83dd5646",
+   "title": "Higher Power",
+   "artist": "Coldplay",
+   "artists": [
+    "Coldplay"
+   ],
+   "album": "Higher Power",
+   "year": 2021,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 211.29,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1f83dd5646.mp3",
+   "cover": "library/covers/1f83dd5646.jpg",
+   "color": "#1c2886",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:12:15Z",
+   "mime": "audio/mpeg",
+   "size": 5072401,
+   "storage": "release",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:A3nJxEbi7Uk",
+   "story": "library/stories/1f83dd5646.jpg"
+  },
+  {
+   "id": "38db896d47",
+   "title": "Orphans",
+   "artist": "Coldplay",
+   "artists": [
+    "Coldplay"
+   ],
+   "album": "Sunset",
+   "year": 2019,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 108,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 197.53,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/38db896d47.mp3",
+   "cover": "library/covers/38db896d47.jpg",
+   "color": "#716f70",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:11:43Z",
+   "mime": "audio/mpeg",
+   "size": 4742342,
+   "storage": "release",
+   "lufs": -6.9,
+   "gain": -7.1,
+   "via": "audio",
+   "fileKey": "yt:F9rrfnNIlAc",
+   "story": "library/stories/38db896d47.jpg"
+  },
+  {
+   "id": "ec54db96eb",
+   "title": "Princess of China",
+   "artist": "Coldplay, Rihanna",
+   "artists": [
+    "Coldplay",
+    "Rihanna"
+   ],
+   "album": "Mylo Xyloto",
+   "year": 2011,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "sad",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.52,
+   "danceability": 0.57,
+   "bpm": 170,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 239.22,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ec54db96eb.mp3",
+   "cover": "library/covers/ec54db96eb.jpg",
+   "color": "#632c38",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:11:24Z",
+   "mime": "audio/mpeg",
+   "size": 5742878,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "yt:GRK14J_we5k",
+   "story": "library/stories/ec54db96eb.jpg"
+  },
+  {
+   "id": "9f11f3a299",
+   "title": "Charlie Brown",
+   "artist": "Coldplay",
+   "artists": [
+    "Coldplay"
+   ],
+   "album": "Mylo Xyloto",
+   "year": 2011,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 138,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 285.16,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9f11f3a299.mp3",
+   "cover": "library/covers/9f11f3a299.jpg",
+   "color": "#632c38",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:10:59Z",
+   "mime": "audio/mpeg",
+   "size": 6845329,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:JZwU974Qdf4",
+   "story": "library/stories/9f11f3a299.jpg"
+  },
+  {
+   "id": "47c32872e2",
+   "title": "Everglow",
+   "artist": "Coldplay",
+   "artists": [
+    "Coldplay"
+   ],
+   "album": "A Head Full of Dreams",
+   "year": 2015,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.72,
+   "danceability": 0.77,
+   "bpm": 146,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 282.69,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/47c32872e2.mp3",
+   "cover": "library/covers/47c32872e2.jpg",
+   "color": "#804351",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:10:29Z",
+   "mime": "audio/mpeg",
+   "size": 6786006,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:7pfX1OKqP80",
+   "story": "library/stories/47c32872e2.jpg"
+  },
+  {
+   "id": "5b88444fa7",
+   "title": "Magic",
+   "artist": "Coldplay",
+   "artists": [
+    "Coldplay"
+   ],
+   "album": "Ghost Stories",
+   "year": 2014,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 94,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 285.01,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5b88444fa7.mp3",
+   "cover": "library/covers/5b88444fa7.jpg",
+   "color": "#23446c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:10:05Z",
+   "mime": "audio/mpeg",
+   "size": 6841867,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:219pQObZq2I",
+   "story": "library/stories/5b88444fa7.jpg"
+  },
   {
    "id": "40cbbdb207",
    "title": "God Put a Smile upon Your Face",
