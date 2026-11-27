@@ -1041,17 +1041,8 @@ export function viewDJ() {
           result.text = t("dj.botSearching");
           draw();
           if (await addViaBot(result, lookup)) return;
-          result.text = t("dj.catalogSearching");
-          draw();
-          result.catalogCandidates = await searchMusicCatalog(lookup);
-          const best = bestCatalogMatch(lookup, result.catalogCandidates);
-          if (best) {
-            result.pending = false;
-            autoAddCatalogTrack(result, best);
-            return;
-          }
-          result.text = result.catalogCandidates.length
-            ? t("dj.catalogFound", { n: result.catalogCandidates.length }) : t("dj.catalogNone");
+          // only full songs go on the site: no 30-second catalog clips
+          result.text = t("dj.botFailed");
         } else result.text = t("dj.searchNone");
         result.pending = false;
         draw();

@@ -135,7 +135,6 @@ def owner_chat(station) -> int | None:
 def _process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict) -> None:
     try:
         payload = json.loads(data.decode("utf-8"))
-        origin = payload.get("origin") or "shazam"
         raw = payload.get("track") or {}
         title, artist = str(raw.get("title") or "").strip(), str(raw.get("subtitle") or "").strip()
         if not title or not artist:
@@ -143,56 +142,9 @@ def _process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict
     except (UnicodeDecodeError, json.JSONDecodeError, AttributeError) as exc:
         raise RuntimeError("Shazam result is invalid") from exc
 
-    from bot import lookup
-    from bot.main import Station, variant_of
-
-    fingerprint = {"title": title, "artist": artist, "album": "", "genre": "",
-                   "cover": (raw.get("images") or {}).get("coverarthq") or (raw.get("images") or {}).get("coverart")}
-    for section in raw.get("sections") or []:
-        for item in section.get("metadata") or []:
-            label, value = (item.get("title") or "").lower(), item.get("text") or ""
-            if label == "album": fingerprint["album"] = value
-            elif label == "released" and value[:4].isdigit(): fingerprint["year"] = int(value[:4])
-            elif label == "genre": fingerprint["genre"] = value
-
-    station = Station()
-    existing = next((song for song in station.lib.songs if lookup.same_song(
-        song["title"], song["artist"], title, artist)), None)
-    if existing:
-        outcome_song, outcome = existing, "duplicate"
-    else:
-        matches = lookup.search_candidates(title, artist, 0, fingerprint=fingerprint, limit=8)
-        chosen = next((candidate for candidate in matches if candidate.get("preview_url") and
-                       not variant_of(candidate.get("title", ""))), None)
-        if not chosen:
-            raise RuntimeError("Shazam found the song, but no official playable preview is available")
-
-        preview_parts = urlsplit(chosen["preview_url"])
-        extension = Path(preview_parts.path).suffix.lower()
-        with tempfile.TemporaryDirectory(prefix="cavi-shazam-") as temp_dir:
-            source = download_preview(chosen["preview_url"], Path(temp_dir) / f"preview{extension}")
-            unique = "shazam:" + meta["fileKey"]
-            media = {"file_name": f"{chosen['title']}{extension}", "file_unique_id": unique,
-                     "file_size": source.stat().st_size, "performer": chosen.get("artist"),
-                     "title": chosen.get("title")}
-            progress = lambda message: update_status(job_id, "PROCESSING", message)
-            outcome_song, outcome = station.import_song(
-                {"message_id": 0, "caption": ""}, "shazam", media, str(meta["fileKey"]), progress,
-                source_path=source, accept_variant=True, known=chosen)
-            if outcome != "duplicate":
-                station.lib.update(outcome_song, previewOnly=True,
-                                   previewOfDuration=round(float(chosen.get("duration") or 0), 2))
-            station.save()
-
-    result = {key: outcome_song.get(key) for key in (
-        "id", "title", "artist", "artists", "album", "duration", "src", "cover", "color")}
-    result["outcome"] = outcome
-    result["origin"] = origin
-    result["telegramChatId"] = owner_chat(station) if origin == "dj-auto" else meta.get("uid")
-    result_path.write_text(json.dumps(result, ensure_ascii=False), encoding="utf-8")
-    state = "DUPLICATE" if outcome == "duplicate" else "UPLOADING"
-    message = "Bu qo'shiq stansiyada allaqachon bor." if outcome == "duplicate" else "Preview sayt kutubxonasiga saqlanmoqda…"
-    update_status(job_id, state, message, result)
+    # Only full songs go on the site: the bot finds the original and the helper adds the whole song
+    # (no 30-second catalog clips any more).
+    process_dj_query(job_id, result_path, f"{artist} - {title}")
 
 
 def process_recognition(job_id: str, result_path: Path, data: bytes, meta: dict) -> None:
