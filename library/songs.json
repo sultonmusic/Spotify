@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T09:17:16Z",
+ "updatedAt": "2026-11-27T09:25:21Z",
  "count": 470,
  "site": {
   "admins": [
@@ -3537,7 +3537,24 @@
    "albums": 162,
    "ytPhotoChecked": "2026-11-26T21:17:07Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCdZLr2GYlZMZOQDPdH3J1Lw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCdZLr2GYlZMZOQDPdH3J1Lw",
+   "bioChecked": "2026-11-27T09:22:08Z",
+   "bio": {
+    "en": "Clean Bandit are an English electronic music group formed in Cambridge in 2008. They have achieved four number-one singles and six additional top-ten songs on the UK Official Singles Chart. The instrumental band, made up of Grace Chatto and brothers Jack and Luke Patterson, feature guest vocalists on their songs. Jack Patterson serves as the principal songwriter and music video director, while Grace co-produces the music, produces the music videos and manages the project.",
+    "ru": "Clean Bandit — британская электро-группа, основанная в 2008 году. Этот коллектив в 2010 году выпустил трек «Mozart's House», который был отмечен 17 местом в UK Singles Chart. А в 2014 году выпустили новый сингл «Rather Be», достигший 1 места в этом же чарте. В 2015 году композиция была удостоена премии «Грэмми» в номинации «Лучшая танцевальная запись».",
+    "uz": "Clean Bandit - 2008 yilda Kembrijda tashkil etilgan ingliz elektron musiqa guruhi. Ular Buyuk Britaniyaning rasmiy singl chartida to'rtta birinchi singl va oltita qo'shimcha o'nta qo'shiqqa erishdilar. Grace Chatto va aka-uka Jek va Lyuk Pattersonlardan tashkil topgan instrumental guruh o'z qo'shiqlarida mehmon vokalchilarni ijro etadi. Jek Patterson asosiy qo'shiq muallifi va musiqiy video rejissyori bo'lib xizmat qiladi, Greys esa musiqani birgalikda ishlab chiqaradi, kliplarni ishlab chiqaradi va loyihani boshqaradi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Clean_Bandit",
+    "ru": "https://ru.wikipedia.org/wiki/Clean_Bandit"
+   },
+   "desc": {
+    "en": "English electronic music group",
+    "ru": "британская группа"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Anne-Marie": {
    "aliases": [],
@@ -3552,7 +3569,22 @@
    "albums": 130,
    "ytPhotoChecked": "2026-11-26T21:17:08Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCkVBToGZ1PTrMN22TAKyO6Q"
+   "youtubeMusic": "https://music.youtube.com/channel/UCkVBToGZ1PTrMN22TAKyO6Q",
+   "bioChecked": "2026-11-27T09:22:10Z",
+   "bio": {
+    "en": "Anne-Marie Rose Nicholson is an English singer and songwriter. She has achieved commercial success with songs \"Alarm\" (2016), \"Ciao Adios\" (2017), \"Friends\" (2018), \"2002\" (2018), \"Rewrite The Stars\" (2018), \"Don't Play\" (2021), \"Kiss My (Uh-Oh)\" (2021), \"Psycho\" (2022), \"Baby Don't Hurt Me\" (2023), and \"Unhealthy\" (2023). She was featured on Clean Bandit's \"Rockabye\" (2016), which peaked at number one in twenty-seven territories, including the United Kingdom.",
+    "ru": "Энн-Мари́ Ро́уз Ни́колсон, более известна просто как Энн-Мари́ — британская певица и автор песен, трёхкратная чемпионка мира по каратэ Сётокан. Победительница британской музыкальной премии «MTV Brand New 2016». На протяжении трёх лет была лайв-вокалисткой британской электронной группы Rudimental, после чего занялась сольной карьерой. Исполнительница хита «Rockabye» совместно с Clean Bandit и Шоном Полом, который провел 9 недель на вершине британского чарта синглов, а также возглавил хит-парады более чем в 20 других странах.",
+    "uz": "Anne-Mari Rouz Nikolson — ingliz qoʻshiqchisi. U Buyuk Britaniyaning Singles Chart- degan joyida \"Clean Bandit \" ning \" Rockabye \" qoʻshigʻi bilan qatnashib, birinchi oʻrinni egallagan, shuningdek „Alarm“, „Ciao Adios“, „Friends“, \"2002 \", „Donʼt Play“ va „Kiss My (Uh-Oh)“ kabi qoʻshiqlari ham mashhur. Uning debyut studiyaviy albomi \"Speak Your Mind\" 2018-yilda chiqarilgan va Buyuk Britaniya albomlari jadvalida uchinchi oʻrinni egallagan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Anne-Marie",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%AD%D0%BD%D0%BD-%D0%9C%D0%B0%D1%80%D0%B8",
+    "uz": "https://uz.wikipedia.org/wiki/Anne-Marie"
+   },
+   "desc": {
+    "en": "English singer (born 1990)",
+    "ru": "британская певица и автор песен"
+   }
   },
   "DJ Snake": {
    "aliases": [],
@@ -3569,7 +3601,23 @@
    "albums": 107,
    "ytPhotoChecked": "2026-11-26T21:17:09Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC0c4bK_92XYr0YtASqqWOJg"
+   "youtubeMusic": "https://music.youtube.com/channel/UC0c4bK_92XYr0YtASqqWOJg",
+   "bioChecked": "2026-11-27T09:22:12Z",
+   "bio": {
+    "en": "William Sami Étienne Grigahcine, known by his stage name DJ Snake, is a French record producer. He was first credited with production work on several singles for other artists—including \"Shut It Down\" by Pitbull and \"Applause\" by Lady Gaga—before gaining widespread recognition for his 2013 debut single, \"Turn Down for What\".",
+    "ru": "Уильям Сами Этьен Григасин, более известен как DJ Snake — французский музыкальный продюсер и диджей. Дважды номинант на премию «Грэмми», обладатель MTV Video Music Awards в 2014 году за сингл «Turn Down for What» совместно с Лилом Джоном. В 2019 году занял 16 место в списке лучших диджеев мира по версии журнала DJ Magazine.",
+    "uz": "William Sami Étienne Grigahcine – sahna taxallusi DJ Snake nomi bilan tanilgan fransuz DJ va musiqa prodyuseri. U 2013-yilda xalqaro miqyosda tanilishga erishdi, bu Lil Jon bilan birgalikda yaratilgan „Turn Down for What“ nomli instrumental yoʻnalishga ega boʻlgan singlni chiqarishi orqali yuz berdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/DJ_Snake",
+    "ru": "https://ru.wikipedia.org/wiki/DJ_Snake",
+    "uz": "https://uz.wikipedia.org/wiki/DJ_Snake"
+   },
+   "desc": {
+    "en": "French record producer (born 1986)",
+    "ru": "франко-алжирский диджей, композитор и продюсер",
+    "uz": "DJ, bastakor, prodyuser va fransuz- jazoirlik badiiy direktor"
+   }
   },
   "Timbaland": {
    "aliases": [],
@@ -5137,7 +5185,8 @@
    "image": "library/artists/aloe-blacc-yt.jpg",
    "color": "#754733",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCqV-zKBsxwGl-1uUSIoEcUw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCqV-zKBsxwGl-1uUSIoEcUw",
+   "checked": "2026-11-27T09:21:55Z"
   },
   "Disciples": {
    "aliases": [],
@@ -5146,30 +5195,42 @@
    "image": "library/artists/disciples-yt.jpg",
    "color": "#aa515a",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCTuGvNt3an5TOvYUk87K39g"
+   "youtubeMusic": "https://music.youtube.com/channel/UCTuGvNt3an5TOvYUk87K39g",
+   "checked": "2026-11-27T09:21:56Z"
   },
   "Pharrell Williams": {
    "aliases": [],
    "verified": false,
-   "ytPhotoChecked": "2026-11-27T08:20:16Z"
+   "ytPhotoChecked": "2026-11-27T08:20:16Z",
+   "checked": "2026-11-27T09:21:57Z"
   },
   "Ellie Goulding": {
    "aliases": [],
-   "verified": false,
+   "verified": true,
    "ytPhotoChecked": "2026-11-27T08:20:16Z",
    "image": "library/artists/ellie-goulding-yt.jpg",
    "color": "#21536e",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCZSxBlUEOKgXkzaj_VlBLlg"
+   "youtubeMusic": "https://music.youtube.com/channel/UCZSxBlUEOKgXkzaj_VlBLlg",
+   "checked": "2026-11-27T09:21:58Z",
+   "verifiedAt": "2026-11-27T09:21:59Z",
+   "deezerId": 311820,
+   "deezer": "https://www.deezer.com/artist/311820",
+   "fans": 6249156
   },
   "John Newman": {
    "aliases": [],
-   "verified": false,
+   "verified": true,
    "ytPhotoChecked": "2026-11-27T08:20:17Z",
    "image": "library/artists/john-newman-yt.jpg",
    "color": "#838164",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCl1EhIbzUq6d1p2Bb1w22FA"
+   "youtubeMusic": "https://music.youtube.com/channel/UCl1EhIbzUq6d1p2Bb1w22FA",
+   "checked": "2026-11-27T09:21:59Z",
+   "verifiedAt": "2026-11-27T09:21:59Z",
+   "deezerId": 1141019,
+   "deezer": "https://www.deezer.com/artist/1141019",
+   "fans": 359611
   },
   "Rag'n'Bone Man": {
    "aliases": [],
@@ -5407,7 +5468,8 @@
    "image": "library/artists/ra-yt.jpg",
    "color": "#000a8f",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCIYvLyhPf3cg19zn7zvcEmw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCIYvLyhPf3cg19zn7zvcEmw",
+   "checked": "2026-11-27T09:21:59Z"
   },
   "Tomine Harket": {
    "aliases": [],
@@ -5658,11 +5720,39 @@
   },
   "Arash Fouladvand": {
    "aliases": [],
-   "verified": false
+   "verified": false,
+   "ytPhotoChecked": "2026-11-27T09:22:00Z",
+   "image": "library/artists/arash-fouladvand-yt.jpg",
+   "color": "#737373",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC7ePj93JE_GR57ZmesX-aKw"
   },
   "Vahid Taj": {
    "aliases": [],
-   "verified": false
+   "verified": false,
+   "ytPhotoChecked": "2026-11-27T09:22:01Z",
+   "image": "library/artists/vahid-taj-yt.jpg",
+   "color": "#43375f",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCk2NI6OWizJgx1n--LFazzg"
+  },
+  "Sara Naeini": {
+   "aliases": [],
+   "verified": false,
+   "ytPhotoChecked": "2026-11-27T09:22:02Z",
+   "image": "library/artists/sara-naeini-yt.jpg",
+   "color": "#7c1f20",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCSfTPR7Czs-Ie3-54tZ4Gog"
+  },
+  "Bahar Choir": {
+   "aliases": [],
+   "verified": false,
+   "ytPhotoChecked": "2026-11-27T09:22:03Z",
+   "image": "library/artists/bahar-choir-yt.jpg",
+   "color": "#305e5f",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC7V-h7PuuTmIDhjs2I_ZiYQ"
   }
  },
  "songs": [
