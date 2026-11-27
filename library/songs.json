@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T02:53:24Z",
- "count": 233,
+ "updatedAt": "2026-11-27T03:01:32Z",
+ "count": 234,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4613,6 +4613,52 @@
   }
  },
  "songs": [
+  {
+   "id": "9044f4ffb2",
+   "title": "cardigan",
+   "artist": "Taylor Swift",
+   "artists": [
+    "Taylor Swift"
+   ],
+   "album": "folklore",
+   "year": 2020,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "nostalgic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 239.56,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9044f4ffb2.mp3",
+   "cover": "library/covers/9044f4ffb2.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:01:31Z",
+   "mime": "audio/mpeg",
+   "size": 5750925,
+   "storage": "release",
+   "lufs": -9.1,
+   "gain": -4.9,
+   "via": "audio",
+   "fileKey": "yt:M_lVZIpgnjU",
+   "story": "library/stories/9044f4ffb2.jpg"
+  },
   {
    "id": "c436d4de55",
    "title": "Supermarket Flowers",
