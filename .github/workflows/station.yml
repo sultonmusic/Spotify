@@ -126,10 +126,14 @@ jobs:
         with:
           ref: ${{ github.ref_name }} # includes the commit the bot job just pushed
 
+      - name: Install ffmpeg (song fingerprints)
+        run: command -v ffmpeg >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+
       - name: Build site
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           APP_NAME: ${{ vars.APP_NAME }}
+          FP_BUDGET_SECONDS: "480"
         run: bash scripts/build-site.sh _site
 
       - uses: actions/configure-pages@v5

@@ -63,5 +63,12 @@ if missing:
 print(f"audio check: all {len(songs)} songs have their files")
 PY
 
+# The station's own "ovoz izi" of every song: the search microphone finds songs Shazam doesn't know.
+if command -v node >/dev/null && command -v ffmpeg >/dev/null; then
+  node scripts/fingerprints.mjs "$OUT" "${SITE_URL:-https://sultonmusic.github.io/Spotify}" || echo "fingerprints: skipped (error)"
+else
+  echo "fingerprints: skipped (node/ffmpeg missing)"
+fi
+
 touch "$OUT/.nojekyll"
 echo "Built $OUT (build $BUILD): $(find "$OUT" -type f | wc -l) files, $(du -sh "$OUT" | cut -f1)"

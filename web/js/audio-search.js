@@ -1,6 +1,9 @@
 import { CONFIG } from "./config.js";
 import { inTelegram, tg } from "./tg.js";
 import { siteOwnerHeaders } from "./site-owner-auth.js";
+import { matchStation } from "./fingerprint.js";
+import { lib, loadLibrary } from "./store.js";
+import { norm } from "./search.js";
 
 const CLIP_MS = 8_000;
 let vibraReady;
@@ -77,6 +80,17 @@ function fingerprint(mod, pcm, sampleRate) {
   }
 }
 
+async function stationMatch(uri) {
+  if (!lib.loaded) await loadLibrary();
+  const key = (id) => { const s = lib.byId.get(id); return s ? `${norm(s.artist)}|${norm(s.title)}` : id; };
+  const id = await matchStation(uri, new URL("../library/fingerprints.json", import.meta.url).href,
+    (a, b) => key(a) === key(b));
+  const song = id && lib.byId.get(id);
+  if (!song) return null;
+  return { title: song.title, subtitle: song.artist, images: song.cover ? { coverart: song.cover } : {},
+    existingId: song.id, autoAddJobId: null, station: true };
+}
+
 export async function identifyNearbySong(onStatus, signal) {
   if (!navigator.mediaDevices?.getUserMedia) throw new Error("Bu brauzer mikrofonni qo'llamaydi");
 
@@ -123,18 +137,31 @@ export async function identifyNearbySong(onStatus, signal) {
     const signature = fingerprint(mod, pcm, sampleRate);
     pcm.fill(0);
 
-    const response = await fetch(`${CONFIG.statsUrl}/identify`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json",
-        ...(inTelegram && tg?.initData ? { "X-Telegram-Init-Data": tg.initData } : {}), ...siteOwnerHeaders() },
-      body: JSON.stringify(signature),
-      signal,
-    });
-    const data = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(data.error || "Qo'shiqni aniqlashda xatolik");
-    return data.track ? { ...data.track, autoAddJobId: data.jobId || null,
-      existingId: data.existingId || null, autoAddError: data.queueError || null,
-      ownerConnectionRequired: Boolean(data.ownerConnectionRequired) } : null;
+    let data = {}, failure = null;
+    try {
+      const response = await fetch(`${CONFIG.statsUrl}/identify`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json",
+          ...(inTelegram && tg?.initData ? { "X-Telegram-Init-Data": tg.initData } : {}), ...siteOwnerHeaders() },
+        body: JSON.stringify(signature),
+        signal,
+      });
+      data = await response.json().catch(() => ({}));
+      if (!response.ok) failure = new Error(data.error || "Qo'shiqni aniqlashda xatolik");
+    } catch (error) {
+      if (error.name === "AbortError") throw error;
+      failure = error;
+    }
+    if (data.track) {
+      return { ...data.track, autoAddJobId: data.jobId || null,
+        existingId: data.existingId || null, autoAddError: data.queueError || null,
+        ownerConnectionRequired: Boolean(data.ownerConnectionRequired) };
+    }
+    // Shazam doesn't know it (new or independent releases): the station's own fingerprints of its songs
+    const own = await stationMatch(signature.uri).catch(() => null);
+    if (own) return own;
+    if (failure) throw failure;
+    return null;
   } finally {
     recorder?.disconnect();
     source?.disconnect();

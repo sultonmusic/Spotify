@@ -112,6 +112,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           APP_NAME: ${{ vars.APP_NAME }}
+          FP_BUDGET_SECONDS: "90" # a listener is waiting: only a few new songs here, the rest in the station's deploy
         run: bash site-src/scripts/build-site.sh "$GITHUB_WORKSPACE/_site"
 
       - uses: actions/upload-pages-artifact@v3
