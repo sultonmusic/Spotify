@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T02:46:07Z",
+ "updatedAt": "2026-11-27T02:46:36Z",
  "count": 202,
  "site": {
   "admins": [
@@ -3334,7 +3334,22 @@
    "albums": 95,
    "ytPhotoChecked": "2026-11-26T21:04:39Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCD-0qTYqRd4t9re9AwRydnQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCD-0qTYqRd4t9re9AwRydnQ",
+   "bioChecked": "2026-11-27T02:46:30Z",
+   "bio": {
+    "en": "Enrique Miguel Iglesias Preysler is a Spanish singer and songwriter. He started his recording career in the mid-1990s on the Mexican label Fonovisa where he released three Spanish albums: Enrique Iglesias, Vivir and Cosas del Amor, becoming the bestselling Spanish-language act of the decade. By the turn of the millennium, he made a successful crossover into the mainstream English-language market.",
+    "ru": "Энрике Мигель Иглесиас Прейслер — испанский певец, автор песен, продюсер и актёр. Иглесиас начинал свою карьеру под псевдонимом «Энрике Мартинес» и работал на неприметный мексиканский лейбл FonoMusic. Лауреат «Грэмми» и American Music Awards. За свою карьеру Энрике выпустил более 40 синглов и 10 студийных альбомов, которые 116 раз становились платиновыми, 227 золотыми, а общий объём продаж составляет 100 млн пластинок.",
+    "uz": "Enrique Miguel Iglesias Preysler ispan pop-musiqachisi, shoir va qoʻshiqchidir. Julio Iglesiasning uchinchi va kenja oʻgʻli. Iglesias musiqachilikni Meksikadagi Fonovisa leyblida boshlagan. U 1990-yillarda eng koʻp sotilgan ispanchada kuylovchi ashulachidir. XXI asrdan boshlab inglizcha kuylashga oʻtdi va Universal Music Group bilan misli koʻrilmagan $48,000,000 lik shartnoma imzoladi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Enrique_Iglesias",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%98%D0%B3%D0%BB%D0%B5%D1%81%D0%B8%D0%B0%D1%81%2C_%D0%AD%D0%BD%D1%80%D0%B8%D0%BA%D0%B5",
+    "uz": "https://uz.wikipedia.org/wiki/Enrique_Iglesias"
+   },
+   "desc": {
+    "en": "Spanish singer (born 1975)",
+    "ru": "испанский певец, автор песен, продюсер и актёр"
+   }
   },
   "Akon": {
    "aliases": [],
@@ -3351,7 +3366,24 @@
    "albums": 84,
    "ytPhotoChecked": "2026-11-26T21:04:40Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCRWV7T1N1UFFYsiiEAoUbFw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCRWV7T1N1UFFYsiiEAoUbFw",
+   "bioChecked": "2026-11-27T02:46:33Z",
+   "bio": {
+    "en": "Aliaune Damala Bouga Time Puru Nacka Lu Lu Lu Badara Akon Thiam, known professionally as Akon, is a Senegalese-American singer, songwriter, record producer, businessman, and philanthropist. An influential figure in world music, he rose to prominence in 2004 following the release of his single \"Locked Up\". Styled in hip-hop, it preceded the release of his debut studio album Trouble (2004), which became his commercial breakthrough and spawned the R&B-styled follow-up, \"Lonely\", the following year.",
+    "ru": "А́лиан Дамала Тиа́м, более известный как Э́йкон — сенегальский и американский певец, рэпер, автор песен, музыкальный продюсер, предприниматель, филантроп и актёр.",
+    "uz": "Aliaune Damala Bouga Time Puru Nacka Lu Lu Lu Badara Akon Tiam, professional sifatida Akon nomi bilan tanilgan, senegallik amerikalik qo'shiqchi, qo'shiq muallifi, prodyuser, biznesmen va xayriyachi. Jahon musiqasining nufuzli arbobi 2004-yilda o‘zining “Locked Up” singli chiqqanidan keyin mashhurlikka erishdi. Xip-xop uslubida yaratilgan bu uning debyut studiyaviy albomi Trouble (2004) chiqarilishidan oldin edi, bu uning tijorat yutug'iga aylandi va keyingi yili R&B uslubidagi \"Yolg'iz\" davomini yaratdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Akon",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%AD%D0%B9%D0%BA%D0%BE%D0%BD"
+   },
+   "desc": {
+    "en": "Senegalese-American singer (born 1973)",
+    "ru": "американо-сенегальский певец, автор песен, музыкальный продюсер, предприниматель, филантроп и актёр из Нью-Джерси"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Coolio": {
    "aliases": [],
@@ -3368,7 +3400,22 @@
    "albums": 28,
    "ytPhotoChecked": "2026-11-26T21:04:41Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC48nZNzBVu13HPwJ3upxQnQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UC48nZNzBVu13HPwJ3upxQnQ",
+   "bioChecked": "2026-11-27T02:46:36Z",
+   "bio": {
+    "en": "Artis Leon Ivey Jr., known by his stage name Coolio, was an American rapper, songwriter and record producer. He was best known for his single \"Gangsta's Paradise\" (1995), which won a Grammy Award, and was credited for changing the course of hip-hop by bringing it to a wider audience. Other singles included \"Fantastic Voyage\" (1994), \"1, 2, 3, 4 \" (1996), and \"C U When U Get There\" (1997). He released nine albums, the first three of which achieved mainstream success: It Takes a Thief (1994), Gangsta's Paradise (1995), and My Soul (1997).",
+    "ru": "Coolio — американский рэпер. Обрёл широкую известность в середине 1990-х годов благодаря своими альбомам It Takes a Thief (1994), Gangsta’s Paradise (1995) и My Soul (1997). Его песня «Gangsta’s Paradise» стала международным хитом и получила премию «Грэмми».",
+    "uz": "Artis Leon Ivey Jr. Coolio (talaffuzi: Kulio) taxallusi bilan tanilgan amerikalik rapchidir. Avvaliga WC and the Maad Circle gangsta rap guruhi tarkibida ijro etgan Coolio 1990-yillar oʻrtalarida It Takes a Thief (1994), Gangstaʼs Paradise (1995) va My Soul (1997) yakkaxon albomlari bilan tanildi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Coolio",
+    "ru": "https://ru.wikipedia.org/wiki/Coolio",
+    "uz": "https://uz.wikipedia.org/wiki/Coolio"
+   },
+   "desc": {
+    "en": "American rapper (1963–2022)",
+    "ru": "американский рэпер (1963—2022)"
+   }
   },
   "L.V": {
    "aliases": [
