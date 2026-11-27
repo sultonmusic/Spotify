@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T06:15:33Z",
- "count": 454,
+ "updatedAt": "2026-11-27T08:08:41Z",
+ "count": 459,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -5426,9 +5426,245 @@
    "verifiedAt": "2026-11-27T06:06:18Z",
    "fans": 2121636,
    "albums": 65
+  },
+  "Sophia Somajo": {
+   "aliases": [],
+   "verified": false
   }
  },
  "songs": [
+  {
+   "id": "c7e66b4d65",
+   "title": "Light Switch",
+   "artist": "Charlie Puth",
+   "artists": [
+    "Charlie Puth"
+   ],
+   "album": "CHARLIE",
+   "year": 2022,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "romantic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 185.68,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c7e66b4d65.mp3",
+   "cover": "library/covers/c7e66b4d65.jpg",
+   "color": "#60554f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:08:41Z",
+   "mime": "audio/mpeg",
+   "size": 4457806,
+   "storage": "release",
+   "lufs": -6.7,
+   "gain": -7.3,
+   "via": "audio",
+   "fileKey": "yt:ntG3GQdY_Ok",
+   "story": "library/stories/c7e66b4d65.jpg"
+  },
+  {
+   "id": "cfb3b87cd2",
+   "title": "Diamond Heart",
+   "artist": "Alan Walker, Sophia Somajo",
+   "artists": [
+    "Alan Walker",
+    "Sophia Somajo"
+   ],
+   "album": "Different World",
+   "year": 2018,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 240.33,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/cfb3b87cd2.mp3",
+   "cover": "library/covers/cfb3b87cd2.jpg",
+   "color": "#cdab32",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:08:02Z",
+   "mime": "audio/mpeg",
+   "size": 5769383,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:8RLYCeCRHis",
+   "story": "library/stories/cfb3b87cd2.jpg"
+  },
+  {
+   "id": "34e1626201",
+   "title": "Play Hard",
+   "artist": "David Guetta, Ne-Yo, Akon",
+   "artists": [
+    "David Guetta",
+    "Ne-Yo",
+    "Akon"
+   ],
+   "album": "Nothing But the Beat 2.0",
+   "year": 2012,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 130,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 201.0,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/34e1626201.mp3",
+   "cover": "library/covers/34e1626201.jpg",
+   "color": "#ad3441",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:07:34Z",
+   "mime": "audio/mpeg",
+   "size": 4825321,
+   "storage": "release",
+   "lufs": -5.8,
+   "gain": -8.2,
+   "via": "audio",
+   "fileKey": "yt:qpiilPFQtwM",
+   "story": "library/stories/34e1626201.jpg"
+  },
+  {
+   "id": "0904d6d03c",
+   "title": "thank u, next",
+   "artist": "Ariana Grande",
+   "artists": [
+    "Ariana Grande"
+   ],
+   "album": "thank u, next",
+   "year": 2018,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": 107,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 207.32,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0904d6d03c.mp3",
+   "cover": "library/covers/0904d6d03c.jpg",
+   "color": "#8f7081",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:07:10Z",
+   "mime": "audio/mpeg",
+   "size": 4977366,
+   "storage": "release",
+   "lufs": -9.0,
+   "gain": -5.0,
+   "via": "audio",
+   "fileKey": "yt:GftZ601-pXs",
+   "story": "library/stories/0904d6d03c.jpg"
+  },
+  {
+   "id": "9bf700d12b",
+   "title": "Trouble",
+   "artist": "Coldplay",
+   "artists": [
+    "Coldplay"
+   ],
+   "album": "Parachutes",
+   "year": 2000,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.72,
+   "danceability": 0.77,
+   "bpm": 140,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 273.43,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9bf700d12b.mp3",
+   "cover": "library/covers/9bf700d12b.jpg",
+   "color": "#c7700d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:06:49Z",
+   "mime": "audio/mpeg",
+   "size": 6563658,
+   "storage": "release",
+   "lufs": -10.8,
+   "gain": -3.2,
+   "via": "audio",
+   "fileKey": "yt:oSBSpSOh6lQ",
+   "story": "library/stories/9bf700d12b.jpg"
+  },
   {
    "id": "7cd5fd4b0f",
    "title": "7 Things (Single Version)",
