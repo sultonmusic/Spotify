@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T02:46:36Z",
- "count": 202,
+ "updatedAt": "2026-11-27T02:53:24Z",
+ "count": 233,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4580,9 +4580,676 @@
    "ytPhotoChecked": "2026-11-27T00:06:22Z",
    "imageSource": "ytmusic",
    "youtubeMusic": "https://music.youtube.com/channel/UCHhKCdsmx9t-PSqlSfa-VKA"
+  },
+  "British Pop All-Stars": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1377760,
+   "itunesId": 448836183,
+   "deezer": "https://www.deezer.com/artist/1377760",
+   "apple": "https://music.apple.com/us/artist/british-pop-all-stars/448836183",
+   "image": "library/artists/british-pop-all-stars.jpg",
+   "color": "#6b6b6b",
+   "checked": "2026-11-27T02:41:55Z",
+   "verifiedAt": "2026-11-27T02:41:55Z",
+   "fans": 610,
+   "albums": 3
+  },
+  "Kendrick Lamar": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 525046,
+   "deezer": "https://www.deezer.com/artist/525046",
+   "image": "library/artists/kendrick-lamar.jpg",
+   "color": "#693a26",
+   "checked": "2026-11-27T02:43:35Z",
+   "verifiedAt": "2026-11-27T02:43:35Z",
+   "fans": 6213326,
+   "albums": 35
+  },
+  "Swedish House Mafia": {
+   "aliases": [],
+   "verified": false
   }
  },
  "songs": [
+  {
+   "id": "c436d4de55",
+   "title": "Supermarket Flowers",
+   "artist": "Ed Sheeran",
+   "artists": [
+    "Ed Sheeran"
+   ],
+   "album": "÷ (Deluxe)",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "nostalgic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 90,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 221.11,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c436d4de55.mp3",
+   "cover": "library/covers/c436d4de55.jpg",
+   "color": "#1692c9",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:53:24Z",
+   "mime": "audio/mpeg",
+   "size": 5308003,
+   "storage": "release",
+   "lufs": -9.7,
+   "gain": -4.3,
+   "via": "audio",
+   "fileKey": "yt:CxSK2x5pPhk",
+   "story": "library/stories/c436d4de55.jpg"
+  },
+  {
+   "id": "b1b4dcacf0",
+   "title": "I See Fire",
+   "artist": "Ed Sheeran",
+   "artists": [
+    "Ed Sheeran"
+   ],
+   "album": "The Hobbit: The Desolation of Smaug (Original Motion Picture Soundtrack)",
+   "year": 2013,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "dreamy",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 494.21,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b1b4dcacf0.mp3",
+   "cover": "library/covers/b1b4dcacf0.jpg",
+   "color": "#737066",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:52:51Z",
+   "mime": "audio/mpeg",
+   "size": 11862930,
+   "storage": "release",
+   "lufs": -13.9,
+   "gain": -0.1,
+   "via": "audio",
+   "fileKey": "yt:_ub0Wm8UMko",
+   "story": "library/stories/b1b4dcacf0.jpg"
+  },
+  {
+   "id": "35f3eeb0f1",
+   "title": "The Joker And The Queen",
+   "artist": "Ed Sheeran, Taylor Swift",
+   "artists": [
+    "Ed Sheeran",
+    "Taylor Swift"
+   ],
+   "album": "=",
+   "year": 2021,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 186.48,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/35f3eeb0f1.mp3",
+   "cover": "library/covers/35f3eeb0f1.jpg",
+   "color": "#cf0c1c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:51:49Z",
+   "mime": "audio/mpeg",
+   "size": 4476831,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:G9_rkcsX3aY",
+   "story": "library/stories/35f3eeb0f1.jpg"
+  },
+  {
+   "id": "d2cc82efe6",
+   "title": "Fortnight",
+   "artist": "Taylor Swift, Post Malone",
+   "artists": [
+    "Taylor Swift",
+    "Post Malone"
+   ],
+   "album": "THE TORTURED POETS DEPARTMENT",
+   "year": 2024,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 265.33,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d2cc82efe6.mp3",
+   "cover": "library/covers/d2cc82efe6.jpg",
+   "color": "#807970",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:51:14Z",
+   "mime": "audio/mpeg",
+   "size": 6369582,
+   "storage": "release",
+   "lufs": -16.8,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:eXrmLd5mer4",
+   "story": "library/stories/d2cc82efe6.jpg"
+  },
+  {
+   "id": "af4dc7f168",
+   "title": "Back To December",
+   "artist": "Taylor Swift",
+   "artists": [
+    "Taylor Swift"
+   ],
+   "album": "Speak Now",
+   "year": 2010,
+   "genre": "Other",
+   "subgenre": "Country",
+   "moods": [
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 295.11,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/af4dc7f168.mp3",
+   "cover": "library/covers/af4dc7f168.jpg",
+   "color": "#8f3770",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:50:48Z",
+   "mime": "audio/mpeg",
+   "size": 7084374,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:oGkSmRlDoGQ",
+   "story": "library/stories/af4dc7f168.jpg"
+  },
+  {
+   "id": "6a5e3779cc",
+   "title": "Mine",
+   "artist": "Taylor Swift",
+   "artists": [
+    "Taylor Swift"
+   ],
+   "album": "Speak Now",
+   "year": 2010,
+   "genre": "Other",
+   "subgenre": "Country",
+   "moods": [
+    "motivational",
+    "nostalgic",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 231.87,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/6a5e3779cc.mp3",
+   "cover": "library/covers/6a5e3779cc.jpg",
+   "color": "#8f3770",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:50:15Z",
+   "mime": "audio/mpeg",
+   "size": 5566602,
+   "storage": "release",
+   "lufs": -6.8,
+   "gain": -7.2,
+   "via": "audio",
+   "fileKey": "yt:eyPulBsUAOs",
+   "story": "library/stories/6a5e3779cc.jpg"
+  },
+  {
+   "id": "834520cfee",
+   "title": "I Knew You Were Trouble.",
+   "artist": "Taylor Swift",
+   "artists": [
+    "Taylor Swift"
+   ],
+   "album": "Red (Deluxe Edition)",
+   "year": 2012,
+   "genre": "Other",
+   "subgenre": "Country",
+   "moods": [
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 219.72,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/834520cfee.mp3",
+   "cover": "library/covers/834520cfee.jpg",
+   "color": "#af1947",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:49:52Z",
+   "mime": "audio/mpeg",
+   "size": 5274601,
+   "storage": "release",
+   "lufs": -10.4,
+   "gain": -3.6,
+   "via": "audio",
+   "fileKey": "yt:VmBoTeLsKfs",
+   "story": "library/stories/834520cfee.jpg"
+  },
+  {
+   "id": "6561e14b9d",
+   "title": "The Man",
+   "artist": "Taylor Swift",
+   "artists": [
+    "Taylor Swift"
+   ],
+   "album": "Lover",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 110,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 190.36,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/6561e14b9d.mp3",
+   "cover": "library/covers/6561e14b9d.jpg",
+   "color": "#fa6b05",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:49:28Z",
+   "mime": "audio/mpeg",
+   "size": 4570119,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:1KZ6l73sJ0A",
+   "story": "library/stories/6561e14b9d.jpg"
+  },
+  {
+   "id": "c7a21a7d32",
+   "title": "Wildest Dreams",
+   "artist": "Taylor Swift",
+   "artists": [
+    "Taylor Swift"
+   ],
+   "album": "1989",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "nostalgic",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 140,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 234.67,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c7a21a7d32.mp3",
+   "cover": "library/covers/c7a21a7d32.jpg",
+   "color": "#a98856",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:49:04Z",
+   "mime": "audio/mpeg",
+   "size": 5633997,
+   "storage": "release",
+   "lufs": -10.2,
+   "gain": -3.8,
+   "via": "audio",
+   "fileKey": "yt:5izLeUM5sHo",
+   "story": "library/stories/c7a21a7d32.jpg"
+  },
+  {
+   "id": "bb787b681d",
+   "title": "the 1",
+   "artist": "Taylor Swift",
+   "artists": [
+    "Taylor Swift"
+   ],
+   "album": "folklore (deluxe version)",
+   "year": 2020,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "sad",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 210.25,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/bb787b681d.mp3",
+   "cover": "library/covers/bb787b681d.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:48:35Z",
+   "mime": "audio/mpeg",
+   "size": 5047643,
+   "storage": "release",
+   "lufs": -9.0,
+   "gain": -5.0,
+   "via": "audio",
+   "fileKey": "yt:_yHn-954iVQ",
+   "story": "library/stories/bb787b681d.jpg"
+  },
+  {
+   "id": "5cd1f1269e",
+   "title": "august",
+   "artist": "Taylor Swift",
+   "artists": [
+    "Taylor Swift"
+   ],
+   "album": "folklore",
+   "year": 2020,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "nostalgic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 261.92,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5cd1f1269e.mp3",
+   "cover": "library/covers/5cd1f1269e.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:48:11Z",
+   "mime": "audio/mpeg",
+   "size": 6287755,
+   "storage": "release",
+   "lufs": -9.9,
+   "gain": -4.1,
+   "via": "audio",
+   "fileKey": "yt:92jy750yv00",
+   "story": "library/stories/5cd1f1269e.jpg"
+  },
+  {
+   "id": "8867d9fcc3",
+   "title": "Enchanted (Taylor's Version)",
+   "artist": "Taylor Swift",
+   "artists": [
+    "Taylor Swift"
+   ],
+   "album": "Speak Now (Taylor's Version)",
+   "year": 2023,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 353.25,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8867d9fcc3.mp3",
+   "cover": "library/covers/8867d9fcc3.jpg",
+   "color": "#d4712b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:47:47Z",
+   "mime": "audio/mpeg",
+   "size": 8479475,
+   "storage": "release",
+   "lufs": -7.2,
+   "gain": -6.8,
+   "via": "audio",
+   "fileKey": "yt:7IID5YLPg7w",
+   "story": "library/stories/8867d9fcc3.jpg"
+  },
+  {
+   "id": "a5755b9643",
+   "title": "Delicate",
+   "artist": "Taylor Swift",
+   "artists": [
+    "Taylor Swift"
+   ],
+   "album": "reputation",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 232.25,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a5755b9643.mp3",
+   "cover": "library/covers/a5755b9643.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:47:07Z",
+   "mime": "audio/mpeg",
+   "size": 5575821,
+   "storage": "release",
+   "lufs": -10.3,
+   "gain": -3.7,
+   "via": "audio",
+   "fileKey": "yt:IJnjYpgSfjQ",
+   "story": "library/stories/a5755b9643.jpg"
+  },
+  {
+   "id": "5137c8df41",
+   "title": "Take My Breath",
+   "artist": "The Weeknd",
+   "artists": [
+    "The Weeknd"
+   ],
+   "album": "Dawn FM",
+   "year": 2021,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "romantic",
+    "motivational",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 339.02,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5137c8df41.mp3",
+   "cover": "library/covers/5137c8df41.jpg",
+   "color": "#00008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:46:37Z",
+   "mime": "audio/mpeg",
+   "size": 8137870,
+   "storage": "release",
+   "lufs": -9.0,
+   "gain": -5.0,
+   "via": "audio",
+   "fileKey": "yt:-ZuS0p2qRYo",
+   "story": "library/stories/5137c8df41.jpg"
+  },
   {
    "id": "8daf8249bb",
    "title": "Falling Through Me",
@@ -4627,6 +5294,779 @@
    "via": "audio",
    "fileKey": "yt:xKSLvBweIwQ",
    "story": "library/stories/8daf8249bb.jpg"
+  },
+  {
+   "id": "b18b0b90b1",
+   "title": "Less Than Zero",
+   "artist": "The Weeknd",
+   "artists": [
+    "The Weeknd"
+   ],
+   "album": "Dawn FM",
+   "year": 2022,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "motivational",
+    "romantic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 211.81,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b18b0b90b1.mp3",
+   "cover": "library/covers/b18b0b90b1.jpg",
+   "color": "#00008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:46:03Z",
+   "mime": "audio/mpeg",
+   "size": 5085070,
+   "storage": "release",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "yt:JVQxUFuvLSg",
+   "story": "library/stories/b18b0b90b1.jpg"
+  },
+  {
+   "id": "f4c4fa57bc",
+   "title": "Moth To A Flame",
+   "artist": "Swedish House Mafia, The Weeknd",
+   "artists": [
+    "Swedish House Mafia",
+    "The Weeknd"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 298.75,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f4c4fa57bc.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:45:44Z",
+   "mime": "audio/mpeg",
+   "size": 7171331,
+   "storage": "release",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:peLRPSCeppI",
+   "story": "library/stories/f4c4fa57bc.jpg"
+  },
+  {
+   "id": "a091a3f9bc",
+   "title": "The Morning",
+   "artist": "The Weeknd",
+   "artists": [
+    "The Weeknd"
+   ],
+   "album": "The Highlights",
+   "year": 2011,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "romantic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 314.11,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a091a3f9bc.mp3",
+   "cover": "library/covers/a091a3f9bc.jpg",
+   "color": "#8b0406",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:45:09Z",
+   "mime": "audio/mpeg",
+   "size": 7539986,
+   "storage": "release",
+   "lufs": -13.4,
+   "gain": -0.6,
+   "via": "audio",
+   "fileKey": "yt:wjE2YXSo2FM",
+   "story": "library/stories/a091a3f9bc.jpg"
+  },
+  {
+   "id": "2eb68b7441",
+   "title": "Reminder",
+   "artist": "The Weeknd",
+   "artists": [
+    "The Weeknd"
+   ],
+   "album": "Starboy",
+   "year": 2016,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "sad",
+    "motivational",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 218.88,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2eb68b7441.mp3",
+   "cover": "library/covers/2eb68b7441.jpg",
+   "color": "#a8042c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:44:36Z",
+   "mime": "audio/mpeg",
+   "size": 5254408,
+   "storage": "release",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:a40tAP5MC6M",
+   "story": "library/stories/2eb68b7441.jpg"
+  },
+  {
+   "id": "092c2d86a1",
+   "title": "I Feel It Coming",
+   "artist": "The Weeknd, Daft Punk",
+   "artists": [
+    "The Weeknd",
+    "Daft Punk"
+   ],
+   "album": "Starboy",
+   "year": 2016,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "romantic",
+    "sad",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 186,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 269.19,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/092c2d86a1.mp3",
+   "cover": "library/covers/092c2d86a1.jpg",
+   "color": "#a8042c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:44:09Z",
+   "mime": "audio/mpeg",
+   "size": 6462299,
+   "storage": "release",
+   "lufs": -7.7,
+   "gain": -6.3,
+   "via": "audio",
+   "fileKey": "yt:qPRNIHxLhmc",
+   "story": "library/stories/092c2d86a1.jpg"
+  },
+  {
+   "id": "35dc503f23",
+   "title": "Pray For Me",
+   "artist": "The Weeknd, Kendrick Lamar",
+   "artists": [
+    "The Weeknd",
+    "Kendrick Lamar"
+   ],
+   "album": "Black Panther: The Album",
+   "year": 2018,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "sad",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 101,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 211.44,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/35dc503f23.mp3",
+   "cover": "library/covers/35dc503f23.jpg",
+   "color": "#8f0000",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:43:39Z",
+   "mime": "audio/mpeg",
+   "size": 5075888,
+   "storage": "release",
+   "lufs": -7.7,
+   "gain": -6.3,
+   "via": "audio",
+   "fileKey": "yt:FL-0pJsDz7k",
+   "story": "library/stories/35dc503f23.jpg"
+  },
+  {
+   "id": "95c4f210c3",
+   "title": "In The Night",
+   "artist": "The Weeknd",
+   "artists": [
+    "The Weeknd"
+   ],
+   "album": "Beauty Behind the Madness",
+   "year": 2015,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "motivational",
+    "sad",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 235.65,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/95c4f210c3.mp3",
+   "cover": "library/covers/95c4f210c3.jpg",
+   "color": "#62615e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:43:15Z",
+   "mime": "audio/mpeg",
+   "size": 5657054,
+   "storage": "release",
+   "lufs": -8.2,
+   "gain": -5.8,
+   "via": "audio",
+   "fileKey": "yt:GliLQ3CnTK8",
+   "story": "library/stories/95c4f210c3.jpg"
+  },
+  {
+   "id": "ff4b795394",
+   "title": "Heartless",
+   "artist": "The Weeknd",
+   "artists": [
+    "The Weeknd"
+   ],
+   "album": "After Hours",
+   "year": 2019,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "motivational",
+    "sad",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.72,
+   "danceability": 0.77,
+   "bpm": 170,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 198.27,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ff4b795394.mp3",
+   "cover": "library/covers/ff4b795394.jpg",
+   "color": "#6b4823",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:42:51Z",
+   "mime": "audio/mpeg",
+   "size": 4760205,
+   "storage": "release",
+   "lufs": -9.2,
+   "gain": -4.8,
+   "via": "audio",
+   "fileKey": "yt:rbb-_YU2S4c",
+   "story": "library/stories/ff4b795394.jpg"
+  },
+  {
+   "id": "24cac66fb4",
+   "title": "Wicked Games",
+   "artist": "The Weeknd",
+   "artists": [
+    "The Weeknd"
+   ],
+   "album": "The Highlights",
+   "year": 2011,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 281.11,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/24cac66fb4.mp3",
+   "cover": "library/covers/24cac66fb4.jpg",
+   "color": "#8b0406",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:42:32Z",
+   "mime": "audio/mpeg",
+   "size": 6748563,
+   "storage": "release",
+   "lufs": -15.1,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:3TyKGTpc0Qs",
+   "story": "library/stories/24cac66fb4.jpg"
+  },
+  {
+   "id": "59123774a0",
+   "title": "I Found A Boy",
+   "artist": "British Pop All-Stars",
+   "artists": [
+    "British Pop All-Stars"
+   ],
+   "album": "A Tribute to Adele",
+   "year": 2011,
+   "genre": "Other",
+   "subgenre": "Tribute",
+   "moods": [
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 170,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 218.98,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/59123774a0.mp3",
+   "cover": "library/covers/59123774a0.jpg",
+   "color": "#707070",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:42:00Z",
+   "mime": "audio/mpeg",
+   "size": 5257317,
+   "storage": "release",
+   "lufs": -15.5,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:cUJIdyRT-mQ",
+   "story": "library/stories/59123774a0.jpg"
+  },
+  {
+   "id": "0341b582b6",
+   "title": "Million Years Ago",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "25",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 227.07,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0341b582b6.mp3",
+   "cover": "library/covers/0341b582b6.jpg",
+   "color": "#8c8373",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:41:35Z",
+   "mime": "audio/mpeg",
+   "size": 5451399,
+   "storage": "release",
+   "lufs": -9.9,
+   "gain": -4.1,
+   "via": "audio",
+   "fileKey": "yt:_3xmGtFGfws",
+   "story": "library/stories/0341b582b6.jpg"
+  },
+  {
+   "id": "d366418f90",
+   "title": "Don't You Remember",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "21",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "nostalgic",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 243.2,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d366418f90.mp3",
+   "cover": "library/covers/d366418f90.jpg",
+   "color": "#7a7c80",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:41:11Z",
+   "mime": "audio/mpeg",
+   "size": 5838472,
+   "storage": "release",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "yt:at-_5h2r3Vc",
+   "story": "library/stories/d366418f90.jpg"
+  },
+  {
+   "id": "e7838e87ab",
+   "title": "Turning Tables",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "21",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 250.0,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e7838e87ab.mp3",
+   "cover": "library/covers/e7838e87ab.jpg",
+   "color": "#7a7c80",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:40:42Z",
+   "mime": "audio/mpeg",
+   "size": 6001476,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:FRa2lpHWRZo",
+   "story": "library/stories/e7838e87ab.jpg"
+  },
+  {
+   "id": "99a7d3f7ca",
+   "title": "Water Under the Bridge",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "25",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 240.48,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/99a7d3f7ca.mp3",
+   "cover": "library/covers/99a7d3f7ca.jpg",
+   "color": "#8c8373",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:40:12Z",
+   "mime": "audio/mpeg",
+   "size": 5772812,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "yt:KllP4GY6q7I",
+   "story": "library/stories/99a7d3f7ca.jpg"
+  },
+  {
+   "id": "6f24afe928",
+   "title": "I Drink Wine",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "30",
+   "year": 2021,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 376.17,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/6f24afe928.mp3",
+   "cover": "library/covers/6f24afe928.jpg",
+   "color": "#30565f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:39:43Z",
+   "mime": "audio/mpeg",
+   "size": 9029506,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:GDdoEZL3vJg",
+   "story": "library/stories/6f24afe928.jpg"
+  },
+  {
+   "id": "70ac4ea26e",
+   "title": "Love In The Dark",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "25",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 285.94,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/70ac4ea26e.mp3",
+   "cover": "library/covers/70ac4ea26e.jpg",
+   "color": "#8c8373",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:39:31Z",
+   "mime": "audio/mpeg",
+   "size": 6863750,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "yt:oytOOA9sOiE",
+   "story": "library/stories/70ac4ea26e.jpg"
+  },
+  {
+   "id": "93719b45a3",
+   "title": "Hometown Glory",
+   "artist": "Adele",
+   "artists": [
+    "Adele"
+   ],
+   "album": "Hometown Glory",
+   "year": 2018,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 123,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 215.19,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/93719b45a3.mp3",
+   "cover": "library/covers/93719b45a3.jpg",
+   "color": "#6f6f6f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T02:38:55Z",
+   "mime": "audio/mpeg",
+   "size": 5166288,
+   "storage": "release",
+   "lufs": -13.0,
+   "gain": -1.0,
+   "via": "audio",
+   "fileKey": "yt:WQ0tFj296WE",
+   "story": "library/stories/93719b45a3.jpg"
   },
   {
    "id": "b9ca8be7b2",
