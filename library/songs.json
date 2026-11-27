@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T06:11:07Z",
- "count": 453,
+ "updatedAt": "2026-11-27T06:15:33Z",
+ "count": 454,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -5429,6 +5429,51 @@
   }
  },
  "songs": [
+  {
+   "id": "7cd5fd4b0f",
+   "title": "7 Things (Single Version)",
+   "artist": "Miley Cyrus",
+   "artists": [
+    "Miley Cyrus"
+   ],
+   "album": "7 Things",
+   "year": 2008,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 107,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 213.64,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7cd5fd4b0f.mp3",
+   "cover": "library/covers/7cd5fd4b0f.jpg",
+   "color": "#d0582f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T06:15:33Z",
+   "mime": "audio/mpeg",
+   "size": 5128859,
+   "storage": "release",
+   "lufs": -7.4,
+   "gain": -6.6,
+   "via": "audio",
+   "fileKey": "yt:Z75IN_Rk3E0",
+   "story": "library/stories/7cd5fd4b0f.jpg"
+  },
   {
    "id": "74533f5696",
    "title": "We Can't Stop",
