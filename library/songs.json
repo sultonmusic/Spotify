@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T05:25:11Z",
- "count": 396,
+ "updatedAt": "2026-11-27T05:51:15Z",
+ "count": 433,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4454,7 +4454,9 @@
    "albums": 70,
    "ytPhotoChecked": "2026-11-27T00:06:08Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCeBYRgPhy8kcRmIGQWKuqdQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCeBYRgPhy8kcRmIGQWKuqdQ",
+   "itunesId": 280215834,
+   "apple": "https://music.apple.com/us/artist/selena-gomez/280215834"
   },
   "Wiz Khalifa": {
    "aliases": [],
@@ -5306,9 +5308,1767 @@
    "verifiedAt": "2026-11-27T05:25:05Z",
    "fans": 388,
    "albums": 13
+  },
+  "CHVRCHES": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4052518,
+   "deezer": "https://www.deezer.com/artist/4052518",
+   "image": "library/artists/chvrches.jpg",
+   "color": "#233b6c",
+   "checked": "2026-11-27T05:36:50Z",
+   "verifiedAt": "2026-11-27T05:36:50Z",
+   "fans": 185170,
+   "albums": 46
+  },
+  "Jonas Brothers": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 412685141,
+   "deezer": "https://www.deezer.com/artist/412685141",
+   "image": "library/artists/jonas-brothers.jpg",
+   "color": "#ffff00",
+   "checked": "2026-11-27T05:37:58Z",
+   "verifiedAt": "2026-11-27T05:37:58Z",
+   "fans": 5,
+   "albums": 2
+  },
+  "Leah Culver": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 8585376,
+   "deezer": "https://www.deezer.com/artist/8585376",
+   "image": "library/artists/leah-culver.jpg",
+   "color": "#e75418",
+   "checked": "2026-11-27T05:38:13Z",
+   "verifiedAt": "2026-11-27T05:38:13Z",
+   "fans": 1302,
+   "albums": 36
+  },
+  "Normani": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 12549876,
+   "deezer": "https://www.deezer.com/artist/12549876",
+   "image": "library/artists/normani.jpg",
+   "color": "#86533f",
+   "checked": "2026-11-27T05:40:00Z",
+   "verifiedAt": "2026-11-27T05:40:00Z",
+   "fans": 427669,
+   "albums": 22
+  },
+  "Camila Cabello": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 9236850,
+   "deezer": "https://www.deezer.com/artist/9236850",
+   "image": "library/artists/camila-cabello.jpg",
+   "color": "#8c725f",
+   "checked": "2026-11-27T05:47:46Z",
+   "verifiedAt": "2026-11-27T05:47:46Z",
+   "fans": 3916602,
+   "albums": 38
   }
  },
  "songs": [
+  {
+   "id": "9241dc7dc5",
+   "title": "How Long",
+   "artist": "Charlie Puth",
+   "artists": [
+    "Charlie Puth"
+   ],
+   "album": "Voicenotes",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 110,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 198.24,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9241dc7dc5.mp3",
+   "cover": "library/covers/9241dc7dc5.jpg",
+   "color": "#7f101e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:51:15Z",
+   "mime": "audio/mpeg",
+   "size": 4759053,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:7gBadWs9Bu8",
+   "story": "library/stories/9241dc7dc5.jpg"
+  },
+  {
+   "id": "34b6dfe039",
+   "title": "One Call Away",
+   "artist": "Charlie Puth",
+   "artists": [
+    "Charlie Puth"
+   ],
+   "album": "Nine Track Mind",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 91,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 241.87,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/34b6dfe039.mp3",
+   "cover": "library/covers/34b6dfe039.jpg",
+   "color": "#f6e509",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:50:39Z",
+   "mime": "audio/mpeg",
+   "size": 5806231,
+   "storage": "release",
+   "lufs": -13.1,
+   "gain": -0.9,
+   "via": "audio",
+   "fileKey": "yt:DaVE-HWbYuQ",
+   "story": "library/stories/34b6dfe039.jpg"
+  },
+  {
+   "id": "b7e7ab484d",
+   "title": "Never Be Alone",
+   "artist": "Shawn Mendes",
+   "artists": [
+    "Shawn Mendes"
+   ],
+   "album": "Handwritten (Deluxe Edition)",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "motivational",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 215.81,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b7e7ab484d.mp3",
+   "cover": "library/covers/b7e7ab484d.jpg",
+   "color": "#967e69",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:49:59Z",
+   "mime": "audio/mpeg",
+   "size": 5181285,
+   "storage": "release",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:A9G1l8z1j-o",
+   "story": "library/stories/b7e7ab484d.jpg"
+  },
+  {
+   "id": "559f5ef0a9",
+   "title": "If I Can't Have You",
+   "artist": "Shawn Mendes",
+   "artists": [
+    "Shawn Mendes"
+   ],
+   "album": "Shawn Mendes (Deluxe)",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 190.8,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/559f5ef0a9.mp3",
+   "cover": "library/covers/559f5ef0a9.jpg",
+   "color": "#6f2f20",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:49:18Z",
+   "mime": "audio/mpeg",
+   "size": 4580515,
+   "storage": "release",
+   "lufs": -6.7,
+   "gain": -7.3,
+   "via": "audio",
+   "fileKey": "yt:ORgOsy_9WB8",
+   "story": "library/stories/559f5ef0a9.jpg"
+  },
+  {
+   "id": "9b8719b0cb",
+   "title": "Wonder",
+   "artist": "Shawn Mendes",
+   "artists": [
+    "Shawn Mendes"
+   ],
+   "album": "Wonder",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 172.69,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9b8719b0cb.mp3",
+   "cover": "library/covers/9b8719b0cb.jpg",
+   "color": "#656d81",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:48:43Z",
+   "mime": "audio/mpeg",
+   "size": 4146183,
+   "storage": "release",
+   "lufs": -6.1,
+   "gain": -7.9,
+   "via": "audio",
+   "fileKey": "yt:r2H-M3ZqaGw",
+   "story": "library/stories/9b8719b0cb.jpg"
+  },
+  {
+   "id": "1b8a0ded62",
+   "title": "Mercy",
+   "artist": "Shawn Mendes",
+   "artists": [
+    "Shawn Mendes"
+   ],
+   "album": "Illuminate (Deluxe)",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 208.73,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1b8a0ded62.mp3",
+   "cover": "library/covers/1b8a0ded62.jpg",
+   "color": "#5da29e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:48:14Z",
+   "mime": "audio/mpeg",
+   "size": 5011347,
+   "storage": "release",
+   "lufs": -7.5,
+   "gain": -6.5,
+   "via": "audio",
+   "fileKey": "yt:YfuyEdCpAp0",
+   "story": "library/stories/1b8a0ded62.jpg"
+  },
+  {
+   "id": "c1f83f0c64",
+   "title": "Señorita",
+   "artist": "Shawn Mendes, Camila Cabello",
+   "artists": [
+    "Shawn Mendes",
+    "Camila Cabello"
+   ],
+   "album": "Señorita",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 190.96,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c1f83f0c64.mp3",
+   "cover": "library/covers/c1f83f0c64.jpg",
+   "color": "#ba2a28",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:47:51Z",
+   "mime": "audio/mpeg",
+   "size": 4584561,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:VKC_hzJ3jzg",
+   "story": "library/stories/c1f83f0c64.jpg"
+  },
+  {
+   "id": "a782764a3d",
+   "title": "In My Blood",
+   "artist": "Shawn Mendes",
+   "artists": [
+    "Shawn Mendes"
+   ],
+   "album": "Shawn Mendes",
+   "year": 2018,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 140,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 211.36,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a782764a3d.mp3",
+   "cover": "library/covers/a782764a3d.jpg",
+   "color": "#6f2f20",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:47:31Z",
+   "mime": "audio/mpeg",
+   "size": 5074130,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "yt:oKIT0DkO-ac",
+   "story": "library/stories/a782764a3d.jpg"
+  },
+  {
+   "id": "0540a0f8e5",
+   "title": "There's Nothing Holdin' Me Back",
+   "artist": "Shawn Mendes",
+   "artists": [
+    "Shawn Mendes"
+   ],
+   "album": "Illuminate",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 199.44,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0540a0f8e5.mp3",
+   "cover": "library/covers/0540a0f8e5.jpg",
+   "color": "#5da29f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:47:06Z",
+   "mime": "audio/mpeg",
+   "size": 4787876,
+   "storage": "release",
+   "lufs": -7.3,
+   "gain": -6.7,
+   "via": "audio",
+   "fileKey": "yt:634YP3pUNis",
+   "story": "library/stories/0540a0f8e5.jpg"
+  },
+  {
+   "id": "3221fe6e73",
+   "title": "Stitches",
+   "artist": "Shawn Mendes",
+   "artists": [
+    "Shawn Mendes"
+   ],
+   "album": "Handwritten (Revisited)",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 206.88,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3221fe6e73.mp3",
+   "cover": "library/covers/3221fe6e73.jpg",
+   "color": "#726f69",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:46:42Z",
+   "mime": "audio/mpeg",
+   "size": 4966426,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:llSM1VZXX18",
+   "story": "library/stories/3221fe6e73.jpg"
+  },
+  {
+   "id": "40aca79330",
+   "title": "Treat People With Kindness",
+   "artist": "Harry Styles",
+   "artists": [
+    "Harry Styles"
+   ],
+   "album": "Fine Line",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 197.35,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/40aca79330.mp3",
+   "cover": "library/covers/40aca79330.jpg",
+   "color": "#8f0047",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:46:18Z",
+   "mime": "audio/mpeg",
+   "size": 4737758,
+   "storage": "release",
+   "lufs": -5.7,
+   "gain": -8.3,
+   "via": "audio",
+   "fileKey": "yt:ZjsmxKP1HMk",
+   "story": "library/stories/40aca79330.jpg"
+  },
+  {
+   "id": "d571da874a",
+   "title": "Kiwi",
+   "artist": "Harry Styles",
+   "artists": [
+    "Harry Styles"
+   ],
+   "album": "Harry Styles",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 147,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 176.39,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d571da874a.mp3",
+   "cover": "library/covers/d571da874a.jpg",
+   "color": "#956242",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:45:54Z",
+   "mime": "audio/mpeg",
+   "size": 4234891,
+   "storage": "release",
+   "lufs": -5.8,
+   "gain": -8.2,
+   "via": "audio",
+   "fileKey": "yt:5tBsgWThDa8",
+   "story": "library/stories/d571da874a.jpg"
+  },
+  {
+   "id": "00bffd6cb7",
+   "title": "Music For a Sushi Restaurant",
+   "artist": "Harry Styles",
+   "artists": [
+    "Harry Styles"
+   ],
+   "album": "Harry's House",
+   "year": 2022,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 192.81,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/00bffd6cb7.mp3",
+   "cover": "library/covers/00bffd6cb7.jpg",
+   "color": "#af8350",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:45:35Z",
+   "mime": "audio/mpeg",
+   "size": 4628900,
+   "storage": "release",
+   "lufs": -8.0,
+   "gain": -6.0,
+   "via": "audio",
+   "fileKey": "yt:8ybQKl8HMFY",
+   "story": "library/stories/00bffd6cb7.jpg"
+  },
+  {
+   "id": "17fa1f778d",
+   "title": "Golden",
+   "artist": "Harry Styles",
+   "artists": [
+    "Harry Styles"
+   ],
+   "album": "Fine Line",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 208.91,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/17fa1f778d.mp3",
+   "cover": "library/covers/17fa1f778d.jpg",
+   "color": "#8f0047",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:45:05Z",
+   "mime": "audio/mpeg",
+   "size": 5015370,
+   "storage": "release",
+   "lufs": -6.2,
+   "gain": -7.8,
+   "via": "audio",
+   "fileKey": "yt:m_zZK5ahLo4",
+   "story": "library/stories/17fa1f778d.jpg"
+  },
+  {
+   "id": "d03386c1e6",
+   "title": "Late Night Talking",
+   "artist": "Harry Styles",
+   "artists": [
+    "Harry Styles"
+   ],
+   "album": "Harry's House",
+   "year": 2022,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 176.22,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d03386c1e6.mp3",
+   "cover": "library/covers/d03386c1e6.jpg",
+   "color": "#af8350",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:44:35Z",
+   "mime": "audio/mpeg",
+   "size": 4230874,
+   "storage": "release",
+   "lufs": -7.2,
+   "gain": -6.8,
+   "via": "audio",
+   "fileKey": "yt:ls6XtAmqERc",
+   "story": "library/stories/d03386c1e6.jpg"
+  },
+  {
+   "id": "f04bc0b71a",
+   "title": "Falling",
+   "artist": "Harry Styles",
+   "artists": [
+    "Harry Styles"
+   ],
+   "album": "Fine Line",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 110,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 240.13,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f04bc0b71a.mp3",
+   "cover": "library/covers/f04bc0b71a.jpg",
+   "color": "#8f0047",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:43:45Z",
+   "mime": "audio/mpeg",
+   "size": 5764747,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:vabmziwg88U",
+   "story": "library/stories/f04bc0b71a.jpg"
+  },
+  {
+   "id": "98426bee4f",
+   "title": "Adore You",
+   "artist": "Harry Styles",
+   "artists": [
+    "Harry Styles"
+   ],
+   "album": "Fine Line",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 99,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 207.13,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/98426bee4f.mp3",
+   "cover": "library/covers/98426bee4f.jpg",
+   "color": "#8f0047",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:43:20Z",
+   "mime": "audio/mpeg",
+   "size": 4972749,
+   "storage": "release",
+   "lufs": -7.1,
+   "gain": -6.9,
+   "via": "audio",
+   "fileKey": "yt:vum2bUJwfkI",
+   "story": "library/stories/98426bee4f.jpg"
+  },
+  {
+   "id": "30dc1027b6",
+   "title": "Sign of the Times",
+   "artist": "Harry Styles",
+   "artists": [
+    "Harry Styles"
+   ],
+   "album": "Harry Styles",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 340.71,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/30dc1027b6.mp3",
+   "cover": "library/covers/30dc1027b6.jpg",
+   "color": "#956242",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:43:01Z",
+   "mime": "audio/mpeg",
+   "size": 8178776,
+   "storage": "release",
+   "lufs": -7.2,
+   "gain": -6.8,
+   "via": "audio",
+   "fileKey": "yt:oHVVoe2Vj8s",
+   "story": "library/stories/30dc1027b6.jpg"
+  },
+  {
+   "id": "af6a9040e3",
+   "title": "Watermelon Sugar",
+   "artist": "Harry Styles",
+   "artists": [
+    "Harry Styles"
+   ],
+   "album": "Fine Line",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 174.0,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/af6a9040e3.mp3",
+   "cover": "library/covers/af6a9040e3.jpg",
+   "color": "#8f0047",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:42:25Z",
+   "mime": "audio/mpeg",
+   "size": 4177300,
+   "storage": "release",
+   "lufs": -7.1,
+   "gain": -6.9,
+   "via": "audio",
+   "fileKey": "yt:KPM_BYl-EaQ",
+   "story": "library/stories/af6a9040e3.jpg"
+  },
+  {
+   "id": "4bd221d555",
+   "title": "Diamonds",
+   "artist": "Sam Smith",
+   "artists": [
+    "Sam Smith"
+   ],
+   "album": "Love Goes",
+   "year": 2020,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 213.87,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/4bd221d555.mp3",
+   "cover": "library/covers/4bd221d555.jpg",
+   "color": "#af7250",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:42:06Z",
+   "mime": "audio/mpeg",
+   "size": 5134601,
+   "storage": "release",
+   "lufs": -9.1,
+   "gain": -4.9,
+   "via": "audio",
+   "fileKey": "yt:CPQYhQlalgc",
+   "story": "library/stories/4bd221d555.jpg"
+  },
+  {
+   "id": "2aeb72b40a",
+   "title": "Like I Can",
+   "artist": "Sam Smith",
+   "artists": [
+    "Sam Smith"
+   ],
+   "album": "In the Lonely Hour",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 167.46,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2aeb72b40a.mp3",
+   "cover": "library/covers/2aeb72b40a.jpg",
+   "color": "#726f6d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:41:42Z",
+   "mime": "audio/mpeg",
+   "size": 4020628,
+   "storage": "release",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:OMGM231PwQI",
+   "story": "library/stories/2aeb72b40a.jpg"
+  },
+  {
+   "id": "eeea747729",
+   "title": "Promises",
+   "artist": "Calvin Harris, Sam Smith",
+   "artists": [
+    "Calvin Harris",
+    "Sam Smith"
+   ],
+   "album": "Promises",
+   "year": 2018,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 123,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 213.31,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/eeea747729.mp3",
+   "cover": "library/covers/eeea747729.jpg",
+   "color": "#c2503d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:41:18Z",
+   "mime": "audio/mpeg",
+   "size": 5120793,
+   "storage": "release",
+   "lufs": -9.2,
+   "gain": -4.8,
+   "via": "audio",
+   "fileKey": "yt:X8JH6npiSC4",
+   "story": "library/stories/eeea747729.jpg"
+  },
+  {
+   "id": "43665d2c6d",
+   "title": "Lay Me Down",
+   "artist": "Sam Smith",
+   "artists": [
+    "Sam Smith"
+   ],
+   "album": "In the Lonely Hour",
+   "year": 2013,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 249.93,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/43665d2c6d.mp3",
+   "cover": "library/covers/43665d2c6d.jpg",
+   "color": "#726f6d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:40:54Z",
+   "mime": "audio/mpeg",
+   "size": 5999765,
+   "storage": "release",
+   "lufs": -11.9,
+   "gain": -2.1,
+   "via": "audio",
+   "fileKey": "yt:PfJWt-J3oX0",
+   "story": "library/stories/43665d2c6d.jpg"
+  },
+  {
+   "id": "71ab214996",
+   "title": "How Do You Sleep? (Bonus Track)",
+   "artist": "Sam Smith",
+   "artists": [
+    "Sam Smith"
+   ],
+   "album": "Love Goes",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 202.2,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/71ab214996.mp3",
+   "cover": "library/covers/71ab214996.jpg",
+   "color": "#af7250",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:40:25Z",
+   "mime": "audio/mpeg",
+   "size": 4854688,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "yt:keV2ncBRCF0",
+   "story": "library/stories/71ab214996.jpg"
+  },
+  {
+   "id": "f73319eb87",
+   "title": "Dancing With A Stranger (with Normani) (Bonus Track)",
+   "artist": "Sam Smith, Normani",
+   "artists": [
+    "Sam Smith",
+    "Normani"
+   ],
+   "album": "Love Goes",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "romantic",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 103,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 171.03,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f73319eb87.mp3",
+   "cover": "library/covers/f73319eb87.jpg",
+   "color": "#af7250",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:40:04Z",
+   "mime": "audio/mpeg",
+   "size": 4106494,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:Bd24VaftoMM",
+   "story": "library/stories/f73319eb87.jpg"
+  },
+  {
+   "id": "74542ddfb0",
+   "title": "Too Good At Goodbyes",
+   "artist": "Sam Smith",
+   "artists": [
+    "Sam Smith"
+   ],
+   "album": "The Thrill of It All (Special Video Edition)",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "romantic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": 92,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 201.0,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/74542ddfb0.mp3",
+   "cover": "library/covers/74542ddfb0.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:39:45Z",
+   "mime": "audio/mpeg",
+   "size": 4825336,
+   "storage": "release",
+   "lufs": -11.2,
+   "gain": -2.8,
+   "via": "audio",
+   "fileKey": "yt:pmc93sA80HI",
+   "story": "library/stories/74542ddfb0.jpg"
+  },
+  {
+   "id": "2b0cdf7e2d",
+   "title": "Stay With Me",
+   "artist": "Sam Smith",
+   "artists": [
+    "Sam Smith"
+   ],
+   "album": "In the Lonely Hour",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 85,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 209.8,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2b0cdf7e2d.mp3",
+   "cover": "library/covers/2b0cdf7e2d.jpg",
+   "color": "#726f6d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:39:20Z",
+   "mime": "audio/mpeg",
+   "size": 5036694,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:cN5cEcXRUkM",
+   "story": "library/stories/2b0cdf7e2d.jpg"
+  },
+  {
+   "id": "46249fc3f5",
+   "title": "I'm Not The Only One",
+   "artist": "Sam Smith",
+   "artists": [
+    "Sam Smith"
+   ],
+   "album": "BBC Proms At The Royal Albert Hall",
+   "year": 2025,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.53,
+   "danceability": 0.58,
+   "bpm": 82,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 279.87,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/46249fc3f5.mp3",
+   "cover": "library/covers/46249fc3f5.jpg",
+   "color": "#6a252f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:38:51Z",
+   "mime": "audio/mpeg",
+   "size": 6718638,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:O-D0nXOanQY",
+   "story": "library/stories/46249fc3f5.jpg"
+  },
+  {
+   "id": "42179e22a2",
+   "title": "Fly",
+   "artist": "Marshmello, Leah Culver",
+   "artists": [
+    "Marshmello",
+    "Leah Culver"
+   ],
+   "album": "Fly (feat. Leah Culver)",
+   "year": 2018,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 194.42,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/42179e22a2.mp3",
+   "cover": "library/covers/42179e22a2.jpg",
+   "color": "#d7bb28",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:38:17Z",
+   "mime": "audio/mpeg",
+   "size": 4667490,
+   "storage": "release",
+   "lufs": -12.6,
+   "gain": -1.4,
+   "via": "audio",
+   "fileKey": "yt:oxmF4bULw8U",
+   "story": "library/stories/42179e22a2.jpg"
+  },
+  {
+   "id": "1ca46eb43b",
+   "title": "Leave Before You Love Me",
+   "artist": "Marshmello, Jonas Brothers",
+   "artists": [
+    "Marshmello",
+    "Jonas Brothers"
+   ],
+   "album": "The Family Business",
+   "year": 2021,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "sad",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 154.98,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1ca46eb43b.mp3",
+   "cover": "library/covers/1ca46eb43b.jpg",
+   "color": "#6b5547",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:38:03Z",
+   "mime": "audio/mpeg",
+   "size": 3721140,
+   "storage": "release",
+   "lufs": -7.8,
+   "gain": -6.2,
+   "via": "audio",
+   "fileKey": "yt:XeYpgXQQi-8",
+   "story": "library/stories/1ca46eb43b.jpg"
+  },
+  {
+   "id": "a847c16820",
+   "title": "Be Kind",
+   "artist": "Marshmello, Halsey",
+   "artists": [
+    "Marshmello",
+    "Halsey"
+   ],
+   "album": "Be Kind",
+   "year": 2020,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 172.76,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a847c16820.mp3",
+   "cover": "library/covers/a847c16820.jpg",
+   "color": "#a7585a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:37:43Z",
+   "mime": "audio/mpeg",
+   "size": 4147921,
+   "storage": "release",
+   "lufs": -9.0,
+   "gain": -5.0,
+   "via": "audio",
+   "fileKey": "yt:xT7CiURAHUI",
+   "story": "library/stories/a847c16820.jpg"
+  },
+  {
+   "id": "dce1bc8e3e",
+   "title": "Numb",
+   "artist": "Marshmello, Khalid",
+   "artists": [
+    "Marshmello",
+    "Khalid"
+   ],
+   "album": "Numb",
+   "year": 2022,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "party",
+    "romantic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 164.26,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/dce1bc8e3e.mp3",
+   "cover": "library/covers/dce1bc8e3e.jpg",
+   "color": "#ef1039",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:37:24Z",
+   "mime": "audio/mpeg",
+   "size": 3944009,
+   "storage": "release",
+   "lufs": -8.0,
+   "gain": -6.0,
+   "via": "audio",
+   "fileKey": "yt:7GC7eI9c-20",
+   "story": "library/stories/dce1bc8e3e.jpg"
+  },
+  {
+   "id": "745f968805",
+   "title": "Here With Me",
+   "artist": "Marshmello, CHVRCHES",
+   "artists": [
+    "Marshmello",
+    "CHVRCHES"
+   ],
+   "album": "Here With Me (feat. CHVRCHES)",
+   "year": 2019,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "romantic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 156.31,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/745f968805.mp3",
+   "cover": "library/covers/745f968805.jpg",
+   "color": "#8f0000",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:36:54Z",
+   "mime": "audio/mpeg",
+   "size": 3753390,
+   "storage": "release",
+   "lufs": -7.7,
+   "gain": -6.3,
+   "via": "audio",
+   "fileKey": "yt:0eYph9s6W2U",
+   "story": "library/stories/745f968805.jpg"
+  },
+  {
+   "id": "7334dee82b",
+   "title": "Wolves",
+   "artist": "Selena Gomez, Marshmello",
+   "artists": [
+    "Selena Gomez",
+    "Marshmello"
+   ],
+   "album": "Wolves",
+   "year": 2017,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 125,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 197.99,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7334dee82b.mp3",
+   "cover": "library/covers/7334dee82b.jpg",
+   "color": "#023f8d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:36:36Z",
+   "mime": "audio/mpeg",
+   "size": 4753299,
+   "storage": "release",
+   "lufs": -7.2,
+   "gain": -6.8,
+   "via": "audio",
+   "fileKey": "yt:3ZJ1PkZt3M8",
+   "story": "library/stories/7334dee82b.jpg"
+  },
+  {
+   "id": "37b30fd1f6",
+   "title": "FRIENDS",
+   "artist": "Marshmello, Anne-Marie",
+   "artists": [
+    "Marshmello",
+    "Anne-Marie"
+   ],
+   "album": "FRIENDS",
+   "year": 2018,
+   "genre": "Electronic",
+   "subgenre": "Electro",
+   "moods": [
+    "motivational",
+    "energetic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.95,
+   "danceability": 1.0,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 201.73,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/37b30fd1f6.mp3",
+   "cover": "library/covers/37b30fd1f6.jpg",
+   "color": "#cc335f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:36:17Z",
+   "mime": "audio/mpeg",
+   "size": 4843162,
+   "storage": "release",
+   "lufs": -6.7,
+   "gain": -7.3,
+   "via": "audio",
+   "fileKey": "yt:UgM1RTch8Rw",
+   "story": "library/stories/37b30fd1f6.jpg"
+  },
+  {
+   "id": "4d1094a885",
+   "title": "Silence",
+   "artist": "Marshmello, Khalid",
+   "artists": [
+    "Marshmello",
+    "Khalid"
+   ],
+   "album": "Silence (feat. Khalid)",
+   "year": 2017,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "calm",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 142,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 180.82,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/4d1094a885.mp3",
+   "cover": "library/covers/4d1094a885.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:35:50Z",
+   "mime": "audio/mpeg",
+   "size": 4341472,
+   "storage": "release",
+   "lufs": -6.2,
+   "gain": -7.8,
+   "via": "audio",
+   "fileKey": "yt:MbT_grBSt38",
+   "story": "library/stories/4d1094a885.jpg"
+  },
+  {
+   "id": "b414a8c77b",
+   "title": "Alone",
+   "artist": "Marshmello",
+   "artists": [
+    "Marshmello"
+   ],
+   "album": "Alone",
+   "year": 2016,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 273.8,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b414a8c77b.mp3",
+   "cover": "library/covers/b414a8c77b.jpg",
+   "color": "#1a4d90",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:35:30Z",
+   "mime": "audio/mpeg",
+   "size": 6572869,
+   "storage": "release",
+   "lufs": -6.6,
+   "gain": -7.4,
+   "via": "audio",
+   "fileKey": "yt:OBs1Fb8adGQ",
+   "story": "library/stories/b414a8c77b.jpg"
+  },
   {
    "id": "2847654d62",
    "title": "All Falls Down",
