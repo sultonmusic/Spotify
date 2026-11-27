@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T08:08:41Z",
- "count": 459,
+ "updatedAt": "2026-11-27T08:10:01Z",
+ "count": 460,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -5433,6 +5433,52 @@
   }
  },
  "songs": [
+  {
+   "id": "805c58e67d",
+   "title": "Lost In Japan",
+   "artist": "Shawn Mendes",
+   "artists": [
+    "Shawn Mendes"
+   ],
+   "album": "Shawn Mendes",
+   "year": 2018,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 105,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 201.2,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/805c58e67d.mp3",
+   "cover": "library/covers/805c58e67d.jpg",
+   "color": "#6f2f20",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T08:10:00Z",
+   "mime": "audio/mpeg",
+   "size": 4830484,
+   "storage": "release",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:0vGswW61i8g",
+   "story": "library/stories/805c58e67d.jpg"
+  },
   {
    "id": "c7e66b4d65",
    "title": "Light Switch",
