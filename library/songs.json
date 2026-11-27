@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T03:32:30Z",
- "count": 268,
+ "updatedAt": "2026-11-27T04:05:44Z",
+ "count": 289,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4804,9 +4804,1019 @@
    "verifiedAt": "2026-11-27T03:25:30Z",
    "fans": 423475,
    "albums": 101
+  },
+  "Settle Down With Sax": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 96226062,
+   "deezer": "https://www.deezer.com/artist/96226062",
+   "image": "library/artists/settle-down-with-sax.jpg",
+   "color": "#5c828e",
+   "checked": "2026-11-27T03:46:03Z",
+   "verifiedAt": "2026-11-27T03:46:03Z",
+   "fans": 0,
+   "albums": 2
+  },
+  "Mark Ronson": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 13204,
+   "itunesId": 14400049,
+   "deezer": "https://www.deezer.com/artist/13204",
+   "apple": "https://music.apple.com/us/artist/mark-ronson/14400049",
+   "image": "library/artists/mark-ronson.jpg",
+   "color": "#575757",
+   "checked": "2026-11-27T03:48:07Z",
+   "verifiedAt": "2026-11-27T03:48:07Z",
+   "fans": 758544,
+   "albums": 78
+  },
+  "Dido": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 143,
+   "deezer": "https://www.deezer.com/artist/143",
+   "image": "library/artists/dido.jpg",
+   "color": "#b70d1a",
+   "checked": "2026-11-27T03:51:57Z",
+   "verifiedAt": "2026-11-27T03:51:57Z",
+   "fans": 719958,
+   "albums": 69
+  },
+  "Nate Dogg": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 359,
+   "deezer": "https://www.deezer.com/artist/359",
+   "image": "library/artists/nate-dogg.jpg",
+   "color": "#808080",
+   "checked": "2026-11-27T03:54:05Z",
+   "verifiedAt": "2026-11-27T03:54:05Z",
+   "fans": 993686,
+   "albums": 30
   }
  },
  "songs": [
+  {
+   "id": "40cbbdb207",
+   "title": "God Put a Smile upon Your Face",
+   "artist": "Coldplay",
+   "artists": [
+    "Coldplay"
+   ],
+   "album": "A Rush of Blood to the Head",
+   "year": 2002,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 126,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 297.31,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/40cbbdb207.mp3",
+   "cover": "library/covers/40cbbdb207.jpg",
+   "color": "#00ffff",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:05:44Z",
+   "mime": "audio/mpeg",
+   "size": 7136818,
+   "storage": "release",
+   "lufs": -9.1,
+   "gain": -4.9,
+   "via": "audio",
+   "fileKey": "yt:lxECRgVSbE8",
+   "story": "library/stories/40cbbdb207.jpg"
+  },
+  {
+   "id": "7cc94a2543",
+   "title": "In My Place",
+   "artist": "Coldplay",
+   "artists": [
+    "Coldplay"
+   ],
+   "album": "A Rush of Blood to the Head",
+   "year": 2002,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 145,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 226.68,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7cc94a2543.mp3",
+   "cover": "library/covers/7cc94a2543.jpg",
+   "color": "#00ffff",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:55:08Z",
+   "mime": "audio/mpeg",
+   "size": 5441631,
+   "storage": "release",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:dFmO5_JeD_w",
+   "story": "library/stories/7cc94a2543.jpg"
+  },
+  {
+   "id": "96d26094c2",
+   "title": "When I'm Gone",
+   "artist": "Eminem",
+   "artists": [
+    "Eminem"
+   ],
+   "album": "Curtain Call: The Hits",
+   "year": 2005,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "romantic",
+    "sad",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 150,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 281.12,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/96d26094c2.mp3",
+   "cover": "library/covers/96d26094c2.jpg",
+   "color": "#11417e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:54:47Z",
+   "mime": "audio/mpeg",
+   "size": 6748572,
+   "storage": "release",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "yt:hWqLuSnyqbI",
+   "story": "library/stories/96d26094c2.jpg"
+  },
+  {
+   "id": "a324b87ce7",
+   "title": "Till I Collapse",
+   "artist": "Eminem, Nate Dogg",
+   "artists": [
+    "Eminem",
+    "Nate Dogg"
+   ],
+   "album": "The Eminem Show",
+   "year": 2002,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "motivational",
+    "romantic",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": 86,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 297.79,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a324b87ce7.mp3",
+   "cover": "library/covers/a324b87ce7.jpg",
+   "color": "#75191e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:54:15Z",
+   "mime": "audio/mpeg",
+   "size": 7148322,
+   "storage": "release",
+   "lufs": -6.7,
+   "gain": -7.3,
+   "via": "audio",
+   "fileKey": "yt:Obim8BYGnOE",
+   "story": "library/stories/a324b87ce7.jpg"
+  },
+  {
+   "id": "5f2d88fc90",
+   "title": "Rap God",
+   "artist": "Eminem",
+   "artists": [
+    "Eminem"
+   ],
+   "album": "The Marshall Mathers LP2 (Deluxe)",
+   "year": 2013,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 363.97,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5f2d88fc90.mp3",
+   "cover": "library/covers/5f2d88fc90.jpg",
+   "color": "#6f6362",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:53:54Z",
+   "mime": "audio/mpeg",
+   "size": 8736929,
+   "storage": "release",
+   "lufs": -7.6,
+   "gain": -6.4,
+   "via": "audio",
+   "fileKey": "yt:MBJFPq2Llps",
+   "story": "library/stories/5f2d88fc90.jpg"
+  },
+  {
+   "id": "e917ba497b",
+   "title": "Love The Way You Lie",
+   "artist": "Eminem, Rihanna",
+   "artists": [
+    "Eminem",
+    "Rihanna"
+   ],
+   "album": "Recovery",
+   "year": 2010,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "romantic",
+    "sad",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 174,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 263.37,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e917ba497b.mp3",
+   "cover": "library/covers/e917ba497b.jpg",
+   "color": "#637f9c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:53:14Z",
+   "mime": "audio/mpeg",
+   "size": 6322334,
+   "storage": "release",
+   "lufs": -9.4,
+   "gain": -4.6,
+   "via": "audio",
+   "fileKey": "yt:RnkShwdXfyc",
+   "story": "library/stories/e917ba497b.jpg"
+  },
+  {
+   "id": "c14897222d",
+   "title": "Not Afraid",
+   "artist": "Eminem",
+   "artists": [
+    "Eminem"
+   ],
+   "album": "Recovery",
+   "year": 2010,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "motivational",
+    "romantic",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.97,
+   "danceability": 1.0,
+   "bpm": 172,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 248.13,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c14897222d.mp3",
+   "cover": "library/covers/c14897222d.jpg",
+   "color": "#637f9c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:52:32Z",
+   "mime": "audio/mpeg",
+   "size": 5956555,
+   "storage": "release",
+   "lufs": -6.4,
+   "gain": -7.6,
+   "via": "audio",
+   "fileKey": "yt:-grPV-Fae6I",
+   "story": "library/stories/c14897222d.jpg"
+  },
+  {
+   "id": "a1332de508",
+   "title": "Stan",
+   "artist": "Eminem, Dido",
+   "artists": [
+    "Eminem",
+    "Dido"
+   ],
+   "album": "The Marshall Mathers LP",
+   "year": 2000,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "motivational",
+    "calm",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.97,
+   "danceability": 1.0,
+   "bpm": 160,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 404.11,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a1332de508.mp3",
+   "cover": "library/covers/a1332de508.jpg",
+   "color": "#807667",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:52:10Z",
+   "mime": "audio/mpeg",
+   "size": 9699994,
+   "storage": "release",
+   "lufs": -8.0,
+   "gain": -6.0,
+   "via": "audio",
+   "fileKey": "yt:HIqQ0PfuPo8",
+   "story": "library/stories/a1332de508.jpg"
+  },
+  {
+   "id": "8e14e3a343",
+   "title": "The Real Slim Shady",
+   "artist": "Eminem",
+   "artists": [
+    "Eminem"
+   ],
+   "album": "Curtain Call: The Hits",
+   "year": 2000,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": 104,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 284.2,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8e14e3a343.mp3",
+   "cover": "library/covers/8e14e3a343.jpg",
+   "color": "#11417e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:51:24Z",
+   "mime": "audio/mpeg",
+   "size": 6822306,
+   "storage": "release",
+   "lufs": -9.4,
+   "gain": -4.6,
+   "via": "audio",
+   "fileKey": "yt:r5MR7_INQwg",
+   "story": "library/stories/8e14e3a343.jpg"
+  },
+  {
+   "id": "e584d2a4cc",
+   "title": "Without Me",
+   "artist": "Eminem",
+   "artists": [
+    "Eminem"
+   ],
+   "album": "The Eminem Show",
+   "year": 2002,
+   "genre": "Hip-Hop",
+   "subgenre": "Hip-Hop/Rap",
+   "moods": [
+    "energetic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 112,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 290.32,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e584d2a4cc.mp3",
+   "cover": "library/covers/e584d2a4cc.jpg",
+   "color": "#75191e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:50:48Z",
+   "mime": "audio/mpeg",
+   "size": 6969170,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:tqxRidAWER8",
+   "story": "library/stories/e584d2a4cc.jpg"
+  },
+  {
+   "id": "9aad59af35",
+   "title": "Therefore I Am",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "Happier Than Ever",
+   "year": 2020,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 174.32,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9aad59af35.mp3",
+   "cover": "library/covers/9aad59af35.jpg",
+   "color": "#8a6649",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:50:12Z",
+   "mime": "audio/mpeg",
+   "size": 4185373,
+   "storage": "release",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:oDn4eKyhSH4",
+   "story": "library/stories/9aad59af35.jpg"
+  },
+  {
+   "id": "f608866832",
+   "title": "bury a friend",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+   "year": 2019,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 193.14,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f608866832.mp3",
+   "cover": "library/covers/f608866832.jpg",
+   "color": "#6e6760",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:49:51Z",
+   "mime": "audio/mpeg",
+   "size": 4636979,
+   "storage": "release",
+   "lufs": -8.9,
+   "gain": -5.1,
+   "via": "audio",
+   "fileKey": "yt:YFervpMG_sM",
+   "story": "library/stories/f608866832.jpg"
+  },
+  {
+   "id": "de7141f408",
+   "title": "bad guy",
+   "artist": "Billie Eilish",
+   "artists": [
+    "Billie Eilish"
+   ],
+   "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+   "year": 2019,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 135,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 194.09,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/de7141f408.mp3",
+   "cover": "library/covers/de7141f408.jpg",
+   "color": "#6e6760",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:49:31Z",
+   "mime": "audio/mpeg",
+   "size": 4659437,
+   "storage": "release",
+   "lufs": -8.0,
+   "gain": -6.0,
+   "via": "audio",
+   "fileKey": "yt:ZD6rXLXZOEI",
+   "story": "library/stories/de7141f408.jpg"
+  },
+  {
+   "id": "f746143afb",
+   "title": "Versace on the Floor",
+   "artist": "Bruno Mars",
+   "artists": [
+    "Bruno Mars"
+   ],
+   "album": "24K Magic",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 174,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 261.24,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f746143afb.mp3",
+   "cover": "library/covers/f746143afb.jpg",
+   "color": "#7d1619",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:49:05Z",
+   "mime": "audio/mpeg",
+   "size": 6271062,
+   "storage": "release",
+   "lufs": -10.3,
+   "gain": -3.7,
+   "via": "audio",
+   "fileKey": "yt:84cWrF3m2t0",
+   "story": "library/stories/f746143afb.jpg"
+  },
+  {
+   "id": "0112442891",
+   "title": "The Lazy Song",
+   "artist": "Bruno Mars",
+   "artists": [
+    "Bruno Mars"
+   ],
+   "album": "Doo-Wops & Hooligans (Deluxe)",
+   "year": 2010,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 199.04,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0112442891.mp3",
+   "cover": "library/covers/0112442891.jpg",
+   "color": "#f1b10e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:48:39Z",
+   "mime": "audio/mpeg",
+   "size": 4778659,
+   "storage": "release",
+   "lufs": -9.4,
+   "gain": -4.6,
+   "via": "audio",
+   "fileKey": "yt:6740Z634MX4",
+   "story": "library/stories/0112442891.jpg"
+  },
+  {
+   "id": "a853a856b7",
+   "title": "Uptown Funk",
+   "artist": "Mark Ronson, Bruno Mars",
+   "artists": [
+    "Mark Ronson",
+    "Bruno Mars"
+   ],
+   "album": "Uptown Special",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 115,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 269.67,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a853a856b7.mp3",
+   "cover": "library/covers/a853a856b7.jpg",
+   "color": "#2c5863",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:48:13Z",
+   "mime": "audio/mpeg",
+   "size": 6473823,
+   "storage": "release",
+   "lufs": -11.7,
+   "gain": -2.3,
+   "via": "audio",
+   "fileKey": "yt:tYvFa2ARD24",
+   "story": "library/stories/a853a856b7.jpg"
+  },
+  {
+   "id": "00a0664dfc",
+   "title": "24K Magic",
+   "artist": "Bruno Mars",
+   "artists": [
+    "Bruno Mars"
+   ],
+   "album": "24K Magic",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 107,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 225.98,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/00a0664dfc.mp3",
+   "cover": "library/covers/00a0664dfc.jpg",
+   "color": "#7d1619",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:47:46Z",
+   "mime": "audio/mpeg",
+   "size": 5424907,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:r7-A9NqUjRI",
+   "story": "library/stories/00a0664dfc.jpg"
+  },
+  {
+   "id": "2ac10f02ac",
+   "title": "That's What I Like",
+   "artist": "Bruno Mars",
+   "artists": [
+    "Bruno Mars"
+   ],
+   "album": "24K Magic",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 134,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 206.69,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2ac10f02ac.mp3",
+   "cover": "library/covers/2ac10f02ac.jpg",
+   "color": "#7d1619",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:47:22Z",
+   "mime": "audio/mpeg",
+   "size": 4962388,
+   "storage": "release",
+   "lufs": -9.3,
+   "gain": -4.7,
+   "via": "audio",
+   "fileKey": "yt:JucvYrdSIcM",
+   "story": "library/stories/2ac10f02ac.jpg"
+  },
+  {
+   "id": "8dae940966",
+   "title": "Grenade",
+   "artist": "Bruno Mars",
+   "artists": [
+    "Bruno Mars"
+   ],
+   "album": "Doo-Wops & Hooligans",
+   "year": 2010,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 220.65,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8dae940966.mp3",
+   "cover": "library/covers/8dae940966.jpg",
+   "color": "#f1b10e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:46:59Z",
+   "mime": "audio/mpeg",
+   "size": 5297044,
+   "storage": "release",
+   "lufs": -10.9,
+   "gain": -3.1,
+   "via": "audio",
+   "fileKey": "yt:h8slzEkObi8",
+   "story": "library/stories/8dae940966.jpg"
+  },
+  {
+   "id": "ce33f0771f",
+   "title": "Locked out of Heaven",
+   "artist": "Bruno Mars",
+   "artists": [
+    "Bruno Mars"
+   ],
+   "album": "Unorthodox Jukebox",
+   "year": 2012,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 144,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 233.48,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ce33f0771f.mp3",
+   "cover": "library/covers/ce33f0771f.jpg",
+   "color": "#8e7462",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:46:32Z",
+   "mime": "audio/mpeg",
+   "size": 5605215,
+   "storage": "release",
+   "lufs": -7.2,
+   "gain": -6.8,
+   "via": "audio",
+   "fileKey": "yt:zuaBRqUBhyw",
+   "story": "library/stories/ce33f0771f.jpg"
+  },
+  {
+   "id": "5ec5e36487",
+   "title": "I Found A Boy",
+   "artist": "Settle Down With Sax",
+   "artists": [
+    "Settle Down With Sax"
+   ],
+   "album": "Sax Rock - 15 Rocking Saxophone Instrumentals",
+   "year": 2020,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 218.88,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5ec5e36487.mp3",
+   "cover": "library/covers/5ec5e36487.jpg",
+   "color": "#5c828e",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T03:46:05Z",
+   "mime": "audio/mpeg",
+   "size": 5254462,
+   "storage": "release",
+   "lufs": -10.6,
+   "gain": -3.4,
+   "via": "audio",
+   "fileKey": "yt:jisXnyQYxsU",
+   "story": "library/stories/5ec5e36487.jpg"
+  },
   {
    "id": "fcd49b78a6",
    "title": "Bad Romance",
