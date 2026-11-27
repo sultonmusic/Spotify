@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T05:10:43Z",
- "count": 374,
+ "updatedAt": "2026-11-27T05:25:11Z",
+ "count": 396,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -5058,9 +5058,1287 @@
   "John Newman": {
    "aliases": [],
    "verified": false
+  },
+  "Rag'n'Bone Man": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4101559,
+   "deezer": "https://www.deezer.com/artist/4101559",
+   "image": "library/artists/ragnbone-man.jpg",
+   "color": "#4c576b",
+   "checked": "2026-11-27T05:15:42Z",
+   "verifiedAt": "2026-11-27T05:15:42Z",
+   "fans": 1222393,
+   "albums": 48
+  },
+  "Kelly Rowland": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 13124,
+   "deezer": "https://www.deezer.com/artist/13124",
+   "image": "library/artists/kelly-rowland.jpg",
+   "color": "#98684a",
+   "checked": "2026-11-27T05:16:29Z",
+   "verifiedAt": "2026-11-27T05:16:29Z",
+   "fans": 804433,
+   "albums": 38
+  },
+  "Usher": {
+   "aliases": [
+    "USHER"
+   ],
+   "verified": true,
+   "deezerId": 17,
+   "deezer": "https://www.deezer.com/artist/17",
+   "image": "library/artists/usher.jpg",
+   "color": "#b94217",
+   "checked": "2026-11-27T05:16:48Z",
+   "verifiedAt": "2026-11-27T05:16:48Z",
+   "fans": 7239460,
+   "albums": 66
+  },
+  "Kid Cudi": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 158706,
+   "deezer": "https://www.deezer.com/artist/158706",
+   "image": "library/artists/kid-cudi.jpg",
+   "color": "#061f89",
+   "checked": "2026-11-27T05:17:26Z",
+   "verifiedAt": "2026-11-27T05:17:26Z",
+   "fans": 1388643,
+   "albums": 49
+  },
+  "Sam Martin": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4442292,
+   "deezer": "https://www.deezer.com/artist/4442292",
+   "image": "library/artists/sam-martin.jpg",
+   "color": "#0606f6",
+   "checked": "2026-11-27T05:17:56Z",
+   "verifiedAt": "2026-11-27T05:17:56Z",
+   "fans": 7768,
+   "albums": 43
+  },
+  "Chris Willis": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 243009,
+   "deezer": "https://www.deezer.com/artist/243009",
+   "image": "library/artists/chris-willis.jpg",
+   "color": "#808080",
+   "checked": "2026-11-27T05:19:15Z",
+   "verifiedAt": "2026-11-27T05:19:15Z",
+   "fans": 595559,
+   "albums": 88
+  },
+  "Daya": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 649162,
+   "deezer": "https://www.deezer.com/artist/649162",
+   "image": "library/artists/daya.jpg",
+   "color": "#584637",
+   "checked": "2026-11-27T05:20:03Z",
+   "verifiedAt": "2026-11-27T05:20:03Z",
+   "fans": 73166,
+   "albums": 26
+  },
+  "ROZES": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 7898578,
+   "deezer": "https://www.deezer.com/artist/7898578",
+   "image": "library/artists/rozes.jpg",
+   "color": "#5c8ba3",
+   "checked": "2026-11-27T05:20:53Z",
+   "verifiedAt": "2026-11-27T05:20:53Z",
+   "fans": 2922,
+   "albums": 80
+  },
+  "Phoebe Ryan": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5341762,
+   "deezer": "https://www.deezer.com/artist/5341762",
+   "image": "library/artists/phoebe-ryan.jpg",
+   "color": "#163879",
+   "checked": "2026-11-27T05:21:42Z",
+   "verifiedAt": "2026-11-27T05:21:42Z",
+   "fans": 6553,
+   "albums": 38
+  },
+  "Kelsea Ballerini": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 6004814,
+   "deezer": "https://www.deezer.com/artist/6004814",
+   "image": "library/artists/kelsea-ballerini.jpg",
+   "color": "#a33e37",
+   "checked": "2026-11-27T05:22:17Z",
+   "verifiedAt": "2026-11-27T05:22:17Z",
+   "fans": 67042,
+   "albums": 47
+  },
+  "Illenium": {
+   "aliases": [
+    "ILLENIUM"
+   ],
+   "verified": true,
+   "deezerId": 4740968,
+   "deezer": "https://www.deezer.com/artist/4740968",
+   "image": "library/artists/illenium.jpg",
+   "color": "#12008f",
+   "checked": "2026-11-27T05:22:42Z",
+   "verifiedAt": "2026-11-27T05:22:42Z",
+   "fans": 130370,
+   "albums": 153
+  },
+  "Lennon Stella": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4438241,
+   "deezer": "https://www.deezer.com/artist/4438241",
+   "image": "library/artists/lennon-stella.jpg",
+   "color": "#7d7d7d",
+   "checked": "2026-11-27T05:22:42Z",
+   "verifiedAt": "2026-11-27T05:22:42Z",
+   "fans": 40339,
+   "albums": 34
+  },
+  "Emily Warren": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 101749,
+   "deezer": "https://www.deezer.com/artist/101749",
+   "image": "library/artists/emily-warren.jpg",
+   "color": "#c35e3c",
+   "checked": "2026-11-27T05:23:01Z",
+   "verifiedAt": "2026-11-27T05:23:01Z",
+   "fans": 5044,
+   "albums": 15
+  },
+  "5 Seconds of Summer": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4103408,
+   "deezer": "https://www.deezer.com/artist/4103408",
+   "image": "library/artists/5-seconds-of-summer.jpg",
+   "color": "#577ca8",
+   "checked": "2026-11-27T05:23:25Z",
+   "verifiedAt": "2026-11-27T05:23:25Z",
+   "fans": 1979043,
+   "albums": 61
+  },
+  "Au": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 11070000,
+   "deezer": "https://www.deezer.com/artist/11070000",
+   "image": "library/artists/au.jpg",
+   "color": "#65675a",
+   "checked": "2026-11-27T05:24:15Z",
+   "verifiedAt": "2026-11-27T05:24:15Z",
+   "fans": 100255,
+   "albums": 71
+  },
+  "Ra": {
+   "aliases": [],
+   "verified": false
+  },
+  "Tomine Harket": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 270264452,
+   "deezer": "https://www.deezer.com/artist/270264452",
+   "image": "library/artists/tomine-harket.jpg",
+   "color": "#7c6a95",
+   "checked": "2026-11-27T05:24:15Z",
+   "verifiedAt": "2026-11-27T05:24:15Z",
+   "fans": 1087,
+   "albums": 8
+  },
+  "Au/Ra": {
+   "aliases": [],
+   "verified": false
+  },
+  "Sabrina Carpenter": {
+   "aliases": [],
+   "verified": false
+  },
+  "Farruko": {
+   "aliases": [],
+   "verified": false
+  },
+  "Noah Cyrus": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4592596,
+   "deezer": "https://www.deezer.com/artist/4592596",
+   "image": "library/artists/noah-cyrus.jpg",
+   "color": "#203f6f",
+   "checked": "2026-11-27T05:25:04Z",
+   "verifiedAt": "2026-11-27T05:25:04Z",
+   "fans": 158183,
+   "albums": 58
+  },
+  "Digital Farm Animals": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 7988742,
+   "deezer": "https://www.deezer.com/artist/7988742",
+   "image": "library/artists/digital-farm-animals.jpg",
+   "color": "#008f47",
+   "checked": "2026-11-27T05:25:05Z",
+   "verifiedAt": "2026-11-27T05:25:05Z",
+   "fans": 39373,
+   "albums": 57
+  },
+  "Juliander": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 13219253,
+   "deezer": "https://www.deezer.com/artist/13219253",
+   "image": "library/artists/juliander.jpg",
+   "color": "#7a1715",
+   "checked": "2026-11-27T05:25:05Z",
+   "verifiedAt": "2026-11-27T05:25:05Z",
+   "fans": 388,
+   "albums": 13
   }
  },
  "songs": [
+  {
+   "id": "2847654d62",
+   "title": "All Falls Down",
+   "artist": "Alan Walker, Noah Cyrus, Digital Farm Animals, Juliander",
+   "artists": [
+    "Alan Walker",
+    "Noah Cyrus",
+    "Digital Farm Animals",
+    "Juliander"
+   ],
+   "album": "All Falls Down (feat. Juliander)",
+   "year": 2017,
+   "genre": "Electronic",
+   "subgenre": "Electro",
+   "moods": [
+    "energetic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": 98,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 199.11,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2847654d62.mp3",
+   "cover": "library/covers/2847654d62.jpg",
+   "color": "#e0af1f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:25:10Z",
+   "mime": "audio/mpeg",
+   "size": 4780444,
+   "storage": "release",
+   "lufs": -7.6,
+   "gain": -6.4,
+   "via": "audio",
+   "fileKey": "yt:hK9mMhcLdiY",
+   "story": "library/stories/2847654d62.jpg"
+  },
+  {
+   "id": "4ccf485621",
+   "title": "On My Way",
+   "artist": "Sabrina Carpenter, Farruko, Alan Walker",
+   "artists": [
+    "Sabrina Carpenter",
+    "Farruko",
+    "Alan Walker"
+   ],
+   "album": "On My Way",
+   "year": 2019,
+   "genre": "Electronic",
+   "subgenre": "Electro",
+   "moods": [
+    "motivational",
+    "energetic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 193.96,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/4ccf485621.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:24:39Z",
+   "mime": "audio/mpeg",
+   "size": 4656559,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:ZM8rAsTT7yE",
+   "story": "library/stories/4ccf485621.jpg"
+  },
+  {
+   "id": "d39bbc4f8d",
+   "title": "Darkside",
+   "artist": "Alan Walker, Au, Ra, Tomine Harket, Au/Ra",
+   "artists": [
+    "Alan Walker",
+    "Au",
+    "Ra",
+    "Tomine Harket",
+    "Au/Ra"
+   ],
+   "album": "Different World",
+   "year": 2018,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 170,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 211.68,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d39bbc4f8d.mp3",
+   "cover": "library/covers/d39bbc4f8d.jpg",
+   "color": "#cdab32",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:24:20Z",
+   "mime": "audio/mpeg",
+   "size": 5081649,
+   "storage": "release",
+   "lufs": -8.2,
+   "gain": -5.8,
+   "via": "audio",
+   "fileKey": "yt:CXU7Xlf8wTI",
+   "story": "library/stories/d39bbc4f8d.jpg"
+  },
+  {
+   "id": "c2910d155c",
+   "title": "Sing Me to Sleep",
+   "artist": "Alan Walker",
+   "artists": [
+    "Alan Walker"
+   ],
+   "album": "Sing Me to Sleep",
+   "year": 2016,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "calm",
+    "nostalgic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 187.8,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c2910d155c.mp3",
+   "cover": "library/covers/c2910d155c.jpg",
+   "color": "#56a98d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:23:54Z",
+   "mime": "audio/mpeg",
+   "size": 4508508,
+   "storage": "release",
+   "lufs": -7.7,
+   "gain": -6.3,
+   "via": "audio",
+   "fileKey": "yt:nWiv728Vc9k",
+   "story": "library/stories/c2910d155c.jpg"
+  },
+  {
+   "id": "687609fb9f",
+   "title": "Who Do You Love",
+   "artist": "The Chainsmokers, 5 Seconds of Summer",
+   "artists": [
+    "The Chainsmokers",
+    "5 Seconds of Summer"
+   ],
+   "album": "Who Do You Love",
+   "year": 2019,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 140,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 226.73,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/687609fb9f.mp3",
+   "cover": "library/covers/687609fb9f.jpg",
+   "color": "#677a98",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:23:30Z",
+   "mime": "audio/mpeg",
+   "size": 5443380,
+   "storage": "release",
+   "lufs": -7.3,
+   "gain": -6.7,
+   "via": "audio",
+   "fileKey": "yt:rxSby7Cn864",
+   "story": "library/stories/687609fb9f.jpg"
+  },
+  {
+   "id": "0c8aa6bbba",
+   "title": "Side Effects",
+   "artist": "The Chainsmokers, Emily Warren",
+   "artists": [
+    "The Chainsmokers",
+    "Emily Warren"
+   ],
+   "album": "Sick Boy",
+   "year": 2018,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 110,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 172.75,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0c8aa6bbba.mp3",
+   "cover": "library/covers/0c8aa6bbba.jpg",
+   "color": "#7c6262",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:23:05Z",
+   "mime": "audio/mpeg",
+   "size": 4147363,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:3L0ByIFR3Eo",
+   "story": "library/stories/0c8aa6bbba.jpg"
+  },
+  {
+   "id": "5e1751ee54",
+   "title": "Takeaway",
+   "artist": "The Chainsmokers, Illenium, Lennon Stella",
+   "artists": [
+    "The Chainsmokers",
+    "Illenium",
+    "Lennon Stella"
+   ],
+   "album": "Ascend",
+   "year": 2019,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 209.88,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5e1751ee54.mp3",
+   "cover": "library/covers/5e1751ee54.jpg",
+   "color": "#823119",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:22:46Z",
+   "mime": "audio/mpeg",
+   "size": 5038440,
+   "storage": "release",
+   "lufs": -10.8,
+   "gain": -3.2,
+   "via": "audio",
+   "fileKey": "yt:Ule9dFN5mxE",
+   "story": "library/stories/5e1751ee54.jpg"
+  },
+  {
+   "id": "6d2e884bd8",
+   "title": "This Feeling",
+   "artist": "The Chainsmokers, Kelsea Ballerini",
+   "artists": [
+    "The Chainsmokers",
+    "Kelsea Ballerini"
+   ],
+   "album": "Sick Boy",
+   "year": null,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": 105,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 197.95,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/6d2e884bd8.mp3",
+   "cover": "library/covers/6d2e884bd8.jpg",
+   "color": "#7c6262",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:22:21Z",
+   "mime": "audio/mpeg",
+   "size": 4752151,
+   "storage": "release",
+   "lufs": -10.1,
+   "gain": -3.9,
+   "via": "audio",
+   "fileKey": "yt:9LxNbCb1WsA",
+   "story": "library/stories/6d2e884bd8.jpg"
+  },
+  {
+   "id": "7529a47477",
+   "title": "All We Know",
+   "artist": "The Chainsmokers, Phoebe Ryan",
+   "artists": [
+    "The Chainsmokers",
+    "Phoebe Ryan"
+   ],
+   "album": "Collage",
+   "year": 2016,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 194.08,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7529a47477.mp3",
+   "cover": "library/covers/7529a47477.jpg",
+   "color": "#b79548",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:21:46Z",
+   "mime": "audio/mpeg",
+   "size": 4659424,
+   "storage": "release",
+   "lufs": -9.2,
+   "gain": -4.8,
+   "via": "audio",
+   "fileKey": "yt:Gr6g3-6VQoE",
+   "story": "library/stories/7529a47477.jpg"
+  },
+  {
+   "id": "b3685ec5f2",
+   "title": "Paris",
+   "artist": "The Chainsmokers",
+   "artists": [
+    "The Chainsmokers"
+   ],
+   "album": "Memories...Do Not Open",
+   "year": 2017,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 221.51,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b3685ec5f2.mp3",
+   "cover": "library/covers/b3685ec5f2.jpg",
+   "color": "#7c493a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:21:22Z",
+   "mime": "audio/mpeg",
+   "size": 5317788,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:Dfiw7EmRTC4",
+   "story": "library/stories/b3685ec5f2.jpg"
+  },
+  {
+   "id": "d1a8028dcf",
+   "title": "Roses",
+   "artist": "The Chainsmokers, ROZES",
+   "artists": [
+    "The Chainsmokers",
+    "ROZES"
+   ],
+   "album": "Bouquet",
+   "year": 2015,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 225.81,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d1a8028dcf.mp3",
+   "cover": "library/covers/d1a8028dcf.jpg",
+   "color": "#ff0000",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:20:58Z",
+   "mime": "audio/mpeg",
+   "size": 5420884,
+   "storage": "release",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:TfdFUMxRzqU",
+   "story": "library/stories/d1a8028dcf.jpg"
+  },
+  {
+   "id": "adf76cc77d",
+   "title": "Something Just Like This",
+   "artist": "The Chainsmokers, Coldplay",
+   "artists": [
+    "The Chainsmokers",
+    "Coldplay"
+   ],
+   "album": "Memories...Do Not Open",
+   "year": 2017,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 247.63,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/adf76cc77d.mp3",
+   "cover": "library/covers/adf76cc77d.jpg",
+   "color": "#7c493a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:20:33Z",
+   "mime": "audio/mpeg",
+   "size": 5944505,
+   "storage": "release",
+   "lufs": -7.6,
+   "gain": -6.4,
+   "via": "audio",
+   "fileKey": "yt:owTWCbq_nSk",
+   "story": "library/stories/adf76cc77d.jpg"
+  },
+  {
+   "id": "d204371292",
+   "title": "Don't Let Me Down",
+   "artist": "The Chainsmokers, Daya",
+   "artists": [
+    "The Chainsmokers",
+    "Daya"
+   ],
+   "album": "Collage",
+   "year": 2016,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 160,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 208.67,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d204371292.mp3",
+   "cover": "library/covers/d204371292.jpg",
+   "color": "#b79548",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:20:07Z",
+   "mime": "audio/mpeg",
+   "size": 5009631,
+   "storage": "release",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:CpTr4USXjQw",
+   "story": "library/stories/d204371292.jpg"
+  },
+  {
+   "id": "a1ab687caf",
+   "title": "Turn Me On",
+   "artist": "David Guetta, Nicki Minaj",
+   "artists": [
+    "David Guetta",
+    "Nicki Minaj"
+   ],
+   "album": "Pink Friday ... Roman Reloaded (Deluxe Edition)",
+   "year": 2011,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 128,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 199.68,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a1ab687caf.mp3",
+   "cover": "library/covers/a1ab687caf.jpg",
+   "color": "#e79f18",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:19:43Z",
+   "mime": "audio/mpeg",
+   "size": 4793665,
+   "storage": "release",
+   "lufs": -5.5,
+   "gain": -8.5,
+   "via": "audio",
+   "fileKey": "yt:L50aIoPvMoY",
+   "story": "library/stories/a1ab687caf.jpg"
+  },
+  {
+   "id": "b5f9cdb15d",
+   "title": "Love Is Gone",
+   "artist": "David Guetta, Chris Willis",
+   "artists": [
+    "David Guetta",
+    "Chris Willis"
+   ],
+   "album": "One More Love",
+   "year": 2007,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 128,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 221.65,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b5f9cdb15d.mp3",
+   "cover": "library/covers/b5f9cdb15d.jpg",
+   "color": "#9d8c62",
+   "lyrics": "plain",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:19:19Z",
+   "mime": "audio/mpeg",
+   "size": 5321250,
+   "storage": "release",
+   "lufs": -16.1,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:NoDUI2FuP-Q",
+   "story": "library/stories/b5f9cdb15d.jpg"
+  },
+  {
+   "id": "f87e58a11d",
+   "title": "Hey Mama",
+   "artist": "David Guetta, Afrojack, Bebe Rexha, Nicki Minaj",
+   "artists": [
+    "David Guetta",
+    "Afrojack",
+    "Bebe Rexha",
+    "Nicki Minaj"
+   ],
+   "album": "Listen",
+   "year": 2014,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 172,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 199.78,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f87e58a11d.mp3",
+   "cover": "library/covers/f87e58a11d.jpg",
+   "color": "#721d24",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:18:55Z",
+   "mime": "audio/mpeg",
+   "size": 4796526,
+   "storage": "release",
+   "lufs": -14.0,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:JNJgBIKeIiQ",
+   "story": "library/stories/f87e58a11d.jpg"
+  },
+  {
+   "id": "1d5a137396",
+   "title": "I'm Good (Blue)",
+   "artist": "David Guetta, Bebe Rexha",
+   "artists": [
+    "David Guetta",
+    "Bebe Rexha"
+   ],
+   "album": "I'm Good (Blue)",
+   "year": 2022,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 177.33,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1d5a137396.mp3",
+   "cover": "library/covers/1d5a137396.jpg",
+   "color": "#0790f8",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:18:25Z",
+   "mime": "audio/mpeg",
+   "size": 4257383,
+   "storage": "release",
+   "lufs": -6.5,
+   "gain": -7.5,
+   "via": "audio",
+   "fileKey": "yt:pIb7QoXdP_k",
+   "story": "library/stories/1d5a137396.jpg"
+  },
+  {
+   "id": "41479cf051",
+   "title": "Lovers on the Sun",
+   "artist": "David Guetta, Sam Martin",
+   "artists": [
+    "David Guetta",
+    "Sam Martin"
+   ],
+   "album": "Listen",
+   "year": 2014,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 125,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 223.72,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/41479cf051.mp3",
+   "cover": "library/covers/41479cf051.jpg",
+   "color": "#721d24",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:18:00Z",
+   "mime": "audio/mpeg",
+   "size": 5370784,
+   "storage": "release",
+   "lufs": -8.9,
+   "gain": -5.1,
+   "via": "audio",
+   "fileKey": "yt:sL9qtKcCwzo",
+   "story": "library/stories/41479cf051.jpg"
+  },
+  {
+   "id": "5e34b9a797",
+   "title": "Memories",
+   "artist": "David Guetta, Kid Cudi",
+   "artists": [
+    "David Guetta",
+    "Kid Cudi"
+   ],
+   "album": "One Love (Deluxe)",
+   "year": 2009,
+   "genre": "Electronic",
+   "subgenre": "Electronica",
+   "moods": [
+    "party",
+    "nostalgic",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 130,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 208.53,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5e34b9a797.mp3",
+   "cover": "library/covers/5e34b9a797.jpg",
+   "color": "#a73876",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:17:30Z",
+   "mime": "audio/mpeg",
+   "size": 5006181,
+   "storage": "release",
+   "lufs": -11.7,
+   "gain": -2.3,
+   "via": "audio",
+   "fileKey": "yt:WZRHcZSH3Ms",
+   "story": "library/stories/5e34b9a797.jpg"
+  },
+  {
+   "id": "5e34be4468",
+   "title": "Without You",
+   "artist": "David Guetta, Usher",
+   "artists": [
+    "David Guetta",
+    "Usher"
+   ],
+   "album": "Nothing But the Beat",
+   "year": 2011,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 128,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 208.13,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5e34be4468.mp3",
+   "cover": "library/covers/5e34be4468.jpg",
+   "color": "#e20025",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:16:53Z",
+   "mime": "audio/mpeg",
+   "size": 4996963,
+   "storage": "release",
+   "lufs": -7.3,
+   "gain": -6.7,
+   "via": "audio",
+   "fileKey": "yt:ylA9rOmVoP0",
+   "story": "library/stories/5e34be4468.jpg"
+  },
+  {
+   "id": "929ea1995c",
+   "title": "When Love Takes Over",
+   "artist": "David Guetta, Kelly Rowland",
+   "artists": [
+    "David Guetta",
+    "Kelly Rowland"
+   ],
+   "album": "One More Love",
+   "year": 2010,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 130,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 466.1,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/929ea1995c.mp3",
+   "cover": "library/covers/929ea1995c.jpg",
+   "color": "#9d8d62",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:16:33Z",
+   "mime": "audio/mpeg",
+   "size": 11188521,
+   "storage": "release",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "yt:zzAwSIS1QCs",
+   "story": "library/stories/929ea1995c.jpg"
+  },
+  {
+   "id": "8ed7ef52dd",
+   "title": "Giant",
+   "artist": "Calvin Harris, Rag'n'Bone Man",
+   "artists": [
+    "Calvin Harris",
+    "Rag'n'Bone Man"
+   ],
+   "album": "Giant",
+   "year": 2019,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 122,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 229.18,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8ed7ef52dd.mp3",
+   "cover": "library/covers/8ed7ef52dd.jpg",
+   "color": "#b2ab4d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:15:47Z",
+   "mime": "audio/mpeg",
+   "size": 5502104,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:E55WQGiVKko",
+   "story": "library/stories/8ed7ef52dd.jpg"
+  },
   {
    "id": "0ff5e03769",
    "title": "I'm Not Alone (2009 Remaster)",
