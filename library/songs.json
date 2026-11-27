@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T09:25:21Z",
+ "updatedAt": "2026-11-27T18:23:11Z",
  "count": 470,
  "site": {
   "admins": [
@@ -3634,7 +3634,24 @@
    "albums": 59,
    "ytPhotoChecked": "2026-11-26T21:17:10Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCStR3TnjvL7CL8ZNFPKmRXw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCStR3TnjvL7CL8ZNFPKmRXw",
+   "bioChecked": "2026-11-27T18:19:57Z",
+   "bio": {
+    "en": "Timothy Zachery Mosley, known professionally as Timbaland, is an American record producer, rapper, singer and songwriter. Born and raised in Norfolk, Virginia, he is widely acclaimed for his distinctive production work and \"stuttering\" rhythmic style. In 2007, Entertainment Weekly stated that \"just about every current pop trend can be traced back to him—from sultry, urban-edged R&B songstresses [...] to the art of incorporating avant-garde sounds into No. 1 hits.\" He has won four Grammy Awards from 22 nominations.",
+    "ru": "Тимоти Закари Мосли, более известный как Тимбалэнд — американский рэпер, музыкальный продюсер, аранжировщик и автор песен. Основатель лейбла Mosley Music Group, четырёхкратный обладатель премии «Грэмми».",
+    "uz": "Timoti Zacheri Mosli, professional sifatida Timbalend nomi bilan tanilgan, amerikalik prodyuser, repper, qo'shiqchi va qo'shiq muallifi. Virjiniya shtatining Norfolk shahrida tug‘ilib o‘sgan u o‘zining o‘ziga xos prodyuserlik ishi va “qo‘qqiz” ritmik uslubi bilan keng e’tirof etilgan. 2007 yilda Entertainment Weekly shunday dedi: \"Deyarli har bir hozirgi pop yo'nalishini kuzatish mumkin - quvnoq, shaharlik R&B qo'shiqchilaridan tortib [...] avangard tovushlarni № 1-ga kiritish san'atigacha. 1 ta urish.\" U 22 ta nominatsiya bo‘yicha to‘rtta Grammy mukofotiga sazovor bo‘lgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Timbaland",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D0%B8%D0%BC%D0%B1%D0%B0%D0%BB%D1%8D%D0%BD%D0%B4"
+   },
+   "desc": {
+    "en": "American record producer (born 1972)",
+    "ru": "американский рэпер, музыкальный продюсер, аранжировщик и автор песен"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Shakira": {
    "aliases": [],
@@ -3651,7 +3668,22 @@
    "albums": 69,
    "ytPhotoChecked": "2026-11-26T21:17:11Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCo6JijJGA3IvIiPsawDK3Ww"
+   "youtubeMusic": "https://music.youtube.com/channel/UCo6JijJGA3IvIiPsawDK3Ww",
+   "bioChecked": "2026-11-27T18:20:01Z",
+   "bio": {
+    "en": "Shakira Isabel Mebarak Ripoll is a Colombian singer-songwriter, dancer, and record producer. Referred to as the \"Queen of Latin Music\", she has had a significant impact on the musical landscape of Latin America and has been credited with popularizing Hispanophone music globally, contributing to increased learning and use of the Spanish language worldwide. She is also credited with opening the doors of the international market in popular music for other Latin artists. Her accolades include four Grammy Awards and fifteen Latin Grammy Awards.",
+    "ru": "Шаки́ра Изабе́ль Меба́рак Рипо́ль, более известная мононимно как Шакира — колумбийская певица, автор песен, танцовщица, музыкальный продюсер, хореограф и модель.",
+    "uz": "Shakira Isabel Mebarak Ripoll kolumbiyalik qoʻshiqchidir. U Barrankilya shahrida tugʻilib oʻsgan. 13 yoshida Sony Music Colombia studiyasi bilan shartnoma imzolagan. Magia (1991) va Peligro (1993) nomli ikki albomi muvaffaqiyatsizligidan soʻng, Shakira Pies Descalzos (1995) va Dónde Están los Ladrones? (1998) albomlari bilan Lotin Amerikasi mamlakatlarida mashhurlikka erishdi. 2001-yilda Laundry Service (2001) nomli ingliz tilidagi albomini ommaga havola etdi. Albom uning beshinchi studiyaviy albomi boʻlib, umumjahon boʻylab 10 milliondan ortiq nusxada sotildi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Shakira",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A8%D0%B0%D0%BA%D0%B8%D1%80%D0%B0",
+    "uz": "https://uz.wikipedia.org/wiki/Shakira"
+   },
+   "desc": {
+    "en": "Colombian singer-songwriter (born 1977)",
+    "ru": "колумбийская певица"
+   }
   },
   "Freshlyground": {
    "aliases": [],
@@ -3666,7 +3698,24 @@
    "albums": 21,
    "ytPhotoChecked": "2026-11-26T21:17:12Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCyVqG-FekUCtB1L7mHvIDLA"
+   "youtubeMusic": "https://music.youtube.com/channel/UCyVqG-FekUCtB1L7mHvIDLA",
+   "bioChecked": "2026-11-27T18:20:05Z",
+   "bio": {
+    "en": "Freshlyground is an Afro-fusion pop band formed in Cape Town, South Africa, in 2002. Freshlyground is best known for writing, performing and playing the instrumentals of the afrofusion and soca single \"Waka Waka \" alongside Colombian singer Shakira, which received worldwide recognition. The music video featuring the group has achieved over 4.2 billion views on YouTube, which has resulted in it becoming one of the most-viewed videos on the platform. After a five-year hiatus, Freshlyground announced their return in late 2024 with new lead vocalist Mbali Makhoba.",
+    "ru": "Freshlyground — южноафриканская музыкальная группа, основанная в Кейптауне в 2002 году. Члены группы имеют разное происхождение, включая ЮАР, Мозамбик и Зимбабве. Музыкальный стиль коллектива сочетает в себе традиционную южноафриканскую музыку, блюз, джаз и в особенности инди-рок.",
+    "uz": "Freshlyground - 2002-yilda Janubiy Afrikaning Keyptaun shahrida tashkil etilgan Afro-fusion pop guruhi. Freshlyground kolumbiyalik qo'shiqchi Shakira bilan birga afrofusion va soca singli \"Waka Waka\" ning instrumentallarini yozish, ijro etish va ijro etish bilan mashhur bo'lib, butun dunyoda e'tirof etilgan. Guruh ishtirokidagi musiqiy video YouTube’da 4,2 milliarddan ortiq tomoshaga erishdi, natijada u platformadagi eng ko‘p ko‘rilgan videolardan biriga aylandi. Besh yillik tanaffusdan so'ng, Freshlyground 2024 yil oxirida yangi bosh vokalchi Mbali Makhoba bilan qaytishini e'lon qildi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Freshlyground",
+    "ru": "https://ru.wikipedia.org/wiki/Freshlyground"
+   },
+   "desc": {
+    "en": "South African Afro-Fusion band",
+    "ru": "Южноафриканская музыкальная группа"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Various Artists": {
    "aliases": [],
@@ -5488,30 +5537,45 @@
   },
   "Au/Ra": {
    "aliases": [],
-   "verified": false,
+   "verified": true,
    "ytPhotoChecked": "2026-11-27T08:20:36Z",
    "image": "library/artists/au-ra-yt.jpg",
    "color": "#186ca3",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCIuastkfs1VhEWE6aBWv4kg"
+   "youtubeMusic": "https://music.youtube.com/channel/UCIuastkfs1VhEWE6aBWv4kg",
+   "checked": "2026-11-27T18:19:49Z",
+   "verifiedAt": "2026-11-27T18:19:50Z",
+   "deezerId": 11070000,
+   "deezer": "https://www.deezer.com/artist/11070000",
+   "fans": 100259
   },
   "Sabrina Carpenter": {
    "aliases": [],
-   "verified": false,
+   "verified": true,
    "ytPhotoChecked": "2026-11-27T08:20:37Z",
    "image": "library/artists/sabrina-carpenter-yt.jpg",
    "color": "#733327",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCz51ZodJbYUNfkdPHOjJKKw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCz51ZodJbYUNfkdPHOjJKKw",
+   "checked": "2026-11-27T18:19:50Z",
+   "verifiedAt": "2026-11-27T18:19:50Z",
+   "deezerId": 1176900,
+   "deezer": "https://www.deezer.com/artist/1176900",
+   "fans": 1849024
   },
   "Farruko": {
    "aliases": [],
-   "verified": false,
+   "verified": true,
    "ytPhotoChecked": "2026-11-27T08:20:39Z",
    "image": "library/artists/farruko-yt.jpg",
    "color": "#69878d",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC6QXZsAOOweLfhVPbqMyG4g"
+   "youtubeMusic": "https://music.youtube.com/channel/UC6QXZsAOOweLfhVPbqMyG4g",
+   "checked": "2026-11-27T18:19:50Z",
+   "verifiedAt": "2026-11-27T18:19:51Z",
+   "deezerId": 614223,
+   "deezer": "https://www.deezer.com/artist/614223",
+   "fans": 3315821
   },
   "Noah Cyrus": {
    "aliases": [],
@@ -5687,12 +5751,20 @@
    "image": "library/artists/the-scene-yt.jpg",
    "color": "#474747",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC1_LtUFd2ujCg7lUxDgPfSA"
+   "youtubeMusic": "https://music.youtube.com/channel/UC1_LtUFd2ujCg7lUxDgPfSA",
+   "checked": "2026-11-27T18:19:51Z"
   },
   "Selena Gomez & The Scene": {
    "aliases": [],
-   "verified": false,
-   "ytPhotoChecked": "2026-11-27T08:20:53Z"
+   "verified": true,
+   "ytPhotoChecked": "2026-11-27T08:20:53Z",
+   "checked": "2026-11-27T18:19:52Z",
+   "verifiedAt": "2026-11-27T18:19:52Z",
+   "deezerId": 294631,
+   "deezer": "https://www.deezer.com/artist/294631",
+   "fans": 868446,
+   "image": "library/artists/selena-gomez-and-the-scene.jpg",
+   "color": "#a1795e"
   },
   "A$AP Rocky": {
    "aliases": [],
@@ -5711,12 +5783,17 @@
   },
   "Sophia Somajo": {
    "aliases": [],
-   "verified": false,
+   "verified": true,
    "ytPhotoChecked": "2026-11-27T08:20:55Z",
    "image": "library/artists/sophia-somajo-yt.jpg",
    "color": "#808080",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCN1O0XN1xPVfTDP85WfvFtg"
+   "youtubeMusic": "https://music.youtube.com/channel/UCN1O0XN1xPVfTDP85WfvFtg",
+   "checked": "2026-11-27T18:19:52Z",
+   "verifiedAt": "2026-11-27T18:19:53Z",
+   "deezerId": 264388,
+   "deezer": "https://www.deezer.com/artist/264388",
+   "fans": 18243
   },
   "Arash Fouladvand": {
    "aliases": [],

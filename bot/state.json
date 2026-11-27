@@ -1,30 +1,7 @@
 {
  "setup": "0a9eade0e683982ed5a9edb9af1670b9bd833d6f",
  "owner": "336f31d9aeea55626bc39096ee1b59bd46aa9eef596af31dd77dc65bf06751b5",
- "asks": {
-  "a396e7c4": {
-   "t": 1795180469,
-   "chat": 8988775229,
-   "msg": 333,
-   "kind": "audio",
-   "caption": "\u200b\u200b\ud83d\udc49 @YuklaydiBot",
-   "media": {
-    "file_id": "CQACAgIAAxkBAAIBTWr_2pm5RwNdcePlLRHIOKT4qfqIAAJJhAACmJdgS3H756uZBICGPQQ",
-    "file_unique_id": "AgADSYQAApiXYEs",
-    "file_name": "Johnny Huynh In The Stars (garage cover).m4a",
-    "mime_type": "audio/mp4",
-    "file_size": 2527006,
-    "duration": 156,
-    "performer": "Johnny Huynh",
-    "title": "In The Stars (garage cover)"
-   },
-   "base": "In The Stars",
-   "artist": "Johnny Huynh",
-   "variant": "cover",
-   "title": "In The Stars",
-   "wait": false
-  }
- },
+ "asks": {},
  "ad_draft": {
   "t": 1794853317,
   "chat": 8988775229
@@ -1212,6 +1189,142 @@
   "2aeb72b40a": {
    "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2aeb72b40a.mp3",
    "m": 302
+  },
+  "eeea747729": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/eeea747729.mp3",
+   "m": 303
+  },
+  "43665d2c6d": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/43665d2c6d.mp3",
+   "m": 304
+  },
+  "71ab214996": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/71ab214996.mp3",
+   "m": 305
+  },
+  "f73319eb87": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f73319eb87.mp3",
+   "m": 306
+  },
+  "74542ddfb0": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/74542ddfb0.mp3",
+   "m": 307
+  },
+  "2b0cdf7e2d": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2b0cdf7e2d.mp3",
+   "m": 308
+  },
+  "46249fc3f5": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/46249fc3f5.mp3",
+   "m": 309
+  },
+  "42179e22a2": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/42179e22a2.mp3",
+   "m": 310
+  },
+  "1ca46eb43b": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1ca46eb43b.mp3",
+   "m": 311
+  },
+  "a847c16820": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a847c16820.mp3",
+   "m": 312
+  },
+  "dce1bc8e3e": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/dce1bc8e3e.mp3",
+   "m": 313
+  },
+  "745f968805": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/745f968805.mp3",
+   "m": 314
+  },
+  "7334dee82b": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7334dee82b.mp3",
+   "m": 315
+  },
+  "37b30fd1f6": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/37b30fd1f6.mp3",
+   "m": 316
+  },
+  "4d1094a885": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/4d1094a885.mp3",
+   "m": 317
+  },
+  "b414a8c77b": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b414a8c77b.mp3",
+   "m": 318
+  },
+  "2847654d62": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2847654d62.mp3",
+   "m": 319
+  },
+  "4ccf485621": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/4ccf485621.mp3",
+   "m": 320
+  },
+  "d39bbc4f8d": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d39bbc4f8d.mp3",
+   "m": 321
+  },
+  "c2910d155c": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c2910d155c.mp3",
+   "m": 322
+  },
+  "687609fb9f": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/687609fb9f.mp3",
+   "m": 323
+  },
+  "0c8aa6bbba": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0c8aa6bbba.mp3",
+   "m": 324
+  },
+  "5e1751ee54": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5e1751ee54.mp3",
+   "m": 325
+  },
+  "6d2e884bd8": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/6d2e884bd8.mp3",
+   "m": 326
+  },
+  "7529a47477": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7529a47477.mp3",
+   "m": 327
+  },
+  "b3685ec5f2": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b3685ec5f2.mp3",
+   "m": 328
+  },
+  "d1a8028dcf": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d1a8028dcf.mp3",
+   "m": 329
+  },
+  "adf76cc77d": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/adf76cc77d.mp3",
+   "m": 330
+  },
+  "d204371292": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d204371292.mp3",
+   "m": 331
+  },
+  "a1ab687caf": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a1ab687caf.mp3",
+   "m": 332
+  },
+  "b5f9cdb15d": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b5f9cdb15d.mp3",
+   "m": 333
+  },
+  "f87e58a11d": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f87e58a11d.mp3",
+   "m": 334
+  },
+  "1d5a137396": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1d5a137396.mp3",
+   "m": 335
+  },
+  "41479cf051": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/41479cf051.mp3",
+   "m": 336
   }
  }
 }
