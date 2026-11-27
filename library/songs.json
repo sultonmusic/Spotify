@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T04:50:20Z",
- "count": 351,
+ "updatedAt": "2026-11-27T05:10:43Z",
+ "count": 374,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -5030,9 +5030,1071 @@
    "verifiedAt": "2026-11-27T04:46:53Z",
    "fans": 2610831,
    "albums": 97
+  },
+  "Sandro Cavazza": {
+   "aliases": [],
+   "verified": false
+  },
+  "Nicky Romero": {
+   "aliases": [],
+   "verified": false
+  },
+  "Aloe Blacc": {
+   "aliases": [],
+   "verified": false
+  },
+  "Disciples": {
+   "aliases": [],
+   "verified": false
+  },
+  "Pharrell Williams": {
+   "aliases": [],
+   "verified": false
+  },
+  "Ellie Goulding": {
+   "aliases": [],
+   "verified": false
+  },
+  "John Newman": {
+   "aliases": [],
+   "verified": false
   }
  },
  "songs": [
+  {
+   "id": "0ff5e03769",
+   "title": "I'm Not Alone (2009 Remaster)",
+   "artist": "Calvin Harris",
+   "artists": [
+    "Calvin Harris"
+   ],
+   "album": "I'm Not Alone 2019",
+   "year": 2019,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "motivational",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 216.97,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0ff5e03769.mp3",
+   "cover": "library/covers/0ff5e03769.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:10:43Z",
+   "mime": "audio/mpeg",
+   "size": 5208941,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:NBemsJ74rx4",
+   "story": "library/stories/0ff5e03769.jpg"
+  },
+  {
+   "id": "3f1c2095cb",
+   "title": "Blame",
+   "artist": "Calvin Harris, John Newman",
+   "artists": [
+    "Calvin Harris",
+    "John Newman"
+   ],
+   "album": "Motion",
+   "year": 2014,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 212.96,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3f1c2095cb.mp3",
+   "cover": "library/covers/3f1c2095cb.jpg",
+   "color": "#616f7b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:10:05Z",
+   "mime": "audio/mpeg",
+   "size": 5112726,
+   "storage": "release",
+   "lufs": -7.0,
+   "gain": -7.0,
+   "via": "audio",
+   "fileKey": "yt:70BASPcfWVQ",
+   "story": "library/stories/3f1c2095cb.jpg"
+  },
+  {
+   "id": "04672d3c86",
+   "title": "Outside",
+   "artist": "Calvin Harris, Ellie Goulding",
+   "artists": [
+    "Calvin Harris",
+    "Ellie Goulding"
+   ],
+   "album": "Motion",
+   "year": 2014,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 227.27,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/04672d3c86.mp3",
+   "cover": "library/covers/04672d3c86.jpg",
+   "color": "#616f7b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:09:31Z",
+   "mime": "audio/mpeg",
+   "size": 5456027,
+   "storage": "release",
+   "lufs": -6.8,
+   "gain": -7.2,
+   "via": "audio",
+   "fileKey": "yt:lMQH_xmx1zE",
+   "story": "library/stories/04672d3c86.jpg"
+  },
+  {
+   "id": "bd0c19ab0b",
+   "title": "Feels",
+   "artist": "Calvin Harris, Pharrell Williams, Katy Perry, Big Sean",
+   "artists": [
+    "Calvin Harris",
+    "Pharrell Williams",
+    "Katy Perry",
+    "Big Sean"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 223.41,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/bd0c19ab0b.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:08:58Z",
+   "mime": "audio/mpeg",
+   "size": 5363280,
+   "storage": "release",
+   "lufs": -7.1,
+   "gain": -6.9,
+   "via": "audio",
+   "fileKey": "yt:fqqcXP1D0Fw",
+   "story": "library/stories/bd0c19ab0b.jpg"
+  },
+  {
+   "id": "73fcee8c46",
+   "title": "How Deep Is Your Love",
+   "artist": "Calvin Harris, Disciples",
+   "artists": [
+    "Calvin Harris",
+    "Disciples"
+   ],
+   "album": "How Deep Is Your Love",
+   "year": 2015,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 212.64,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/73fcee8c46.mp3",
+   "cover": "library/covers/73fcee8c46.jpg",
+   "color": "#385157",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:08:23Z",
+   "mime": "audio/mpeg",
+   "size": 5104691,
+   "storage": "release",
+   "lufs": -7.4,
+   "gain": -6.6,
+   "via": "audio",
+   "fileKey": "yt:o2eD7WNYqfQ",
+   "story": "library/stories/73fcee8c46.jpg"
+  },
+  {
+   "id": "4d8d07233a",
+   "title": "This Is What You Came For",
+   "artist": "Calvin Harris, Rihanna",
+   "artists": [
+    "Calvin Harris",
+    "Rihanna"
+   ],
+   "album": "This Is What You Came For",
+   "year": 2016,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 222.16,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/4d8d07233a.mp3",
+   "cover": "library/covers/4d8d07233a.jpg",
+   "color": "#08219d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:07:43Z",
+   "mime": "audio/mpeg",
+   "size": 5333369,
+   "storage": "release",
+   "lufs": -6.6,
+   "gain": -7.4,
+   "via": "audio",
+   "fileKey": "yt:inCm3ByI17o",
+   "story": "library/stories/4d8d07233a.jpg"
+  },
+  {
+   "id": "b995a95225",
+   "title": "Feel So Close (Nero Dub)",
+   "artist": "Calvin Harris",
+   "artists": [
+    "Calvin Harris"
+   ],
+   "album": "Feel So Close (Remixes)",
+   "year": 2011,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 284.96,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b995a95225.mp3",
+   "cover": "library/covers/b995a95225.jpg",
+   "color": "#557faa",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:07:21Z",
+   "mime": "audio/mpeg",
+   "size": 6840749,
+   "storage": "release",
+   "lufs": -6.9,
+   "gain": -7.1,
+   "via": "audio",
+   "fileKey": "yt:1VxXuL-0pk4",
+   "story": "library/stories/b995a95225.jpg"
+  },
+  {
+   "id": "ec1cfea733",
+   "title": "SOS",
+   "artist": "Avicii, Aloe Blacc",
+   "artists": [
+    "Avicii",
+    "Aloe Blacc"
+   ],
+   "album": "TIM",
+   "year": 2019,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 157.2,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ec1cfea733.mp3",
+   "cover": "library/covers/ec1cfea733.jpg",
+   "color": "#746a63",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:06:48Z",
+   "mime": "audio/mpeg",
+   "size": 3774665,
+   "storage": "release",
+   "lufs": -9.7,
+   "gain": -4.3,
+   "via": "audio",
+   "fileKey": "yt:CgiPuXwhhfY",
+   "story": "library/stories/ec1cfea733.jpg"
+  },
+  {
+   "id": "ac40663188",
+   "title": "City Lights",
+   "artist": "Avicii",
+   "artists": [
+    "Avicii"
+   ],
+   "album": "Stories",
+   "year": 2015,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 388.95,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ac40663188.mp3",
+   "cover": "library/covers/ac40663188.jpg",
+   "color": "#74365a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:06:29Z",
+   "mime": "audio/mpeg",
+   "size": 9336521,
+   "storage": "release",
+   "lufs": -9.1,
+   "gain": -4.9,
+   "via": "audio",
+   "fileKey": "yt:xSGaVeTfhS4",
+   "story": "library/stories/ac40663188.jpg"
+  },
+  {
+   "id": "c04eb5b1e5",
+   "title": "I Could Be The One [Avicii vs Nicky Romero] (Nicktim - Original Mix)",
+   "artist": "Avicii, Nicky Romero",
+   "artists": [
+    "Avicii",
+    "Nicky Romero"
+   ],
+   "album": "I Could Be the One (Avicii vs Nicky Romero) [Remixes]",
+   "year": 2012,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 455.63,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c04eb5b1e5.mp3",
+   "cover": "library/covers/c04eb5b1e5.jpg",
+   "color": "#704f5d",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:05:44Z",
+   "mime": "audio/mpeg",
+   "size": 10936766,
+   "storage": "release",
+   "lufs": -7.1,
+   "gain": -6.9,
+   "via": "audio",
+   "fileKey": "yt:wdt10Q6Awu8",
+   "story": "library/stories/c04eb5b1e5.jpg"
+  },
+  {
+   "id": "e4845fbbd6",
+   "title": "Addicted To You",
+   "artist": "Avicii",
+   "artists": [
+    "Avicii"
+   ],
+   "album": "True",
+   "year": 2013,
+   "genre": "Electronic",
+   "subgenre": "House",
+   "moods": [
+    "romantic",
+    "energetic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 148.39,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e4845fbbd6.mp3",
+   "cover": "library/covers/e4845fbbd6.jpg",
+   "color": "#807f80",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:00:19Z",
+   "mime": "audio/mpeg",
+   "size": 3562703,
+   "storage": "release",
+   "lufs": -7.6,
+   "gain": -6.4,
+   "via": "audio",
+   "fileKey": "yt:nYuVZPV4vTw",
+   "story": "library/stories/e4845fbbd6.jpg"
+  },
+  {
+   "id": "8e339bc61b",
+   "title": "Without You",
+   "artist": "Avicii, Sandro Cavazza",
+   "artists": [
+    "Avicii",
+    "Sandro Cavazza"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 181.67,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8e339bc61b.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T05:00:01Z",
+   "mime": "audio/mpeg",
+   "size": 4361590,
+   "storage": "release",
+   "lufs": -7.6,
+   "gain": -6.4,
+   "via": "audio",
+   "fileKey": "yt:As_4JTmHuW4",
+   "story": "library/stories/8e339bc61b.jpg"
+  },
+  {
+   "id": "ee196a977e",
+   "title": "Hey Brother",
+   "artist": "Avicii",
+   "artists": [
+    "Avicii"
+   ],
+   "album": "True",
+   "year": 2013,
+   "genre": "Electronic",
+   "subgenre": "House",
+   "moods": [
+    "motivational",
+    "energetic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.95,
+   "danceability": 1.0,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 255.09,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ee196a977e.mp3",
+   "cover": "library/covers/ee196a977e.jpg",
+   "color": "#807f80",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:59:38Z",
+   "mime": "audio/mpeg",
+   "size": 6123595,
+   "storage": "release",
+   "lufs": -7.4,
+   "gain": -6.6,
+   "via": "audio",
+   "fileKey": "yt:OjpX8ILe2N4",
+   "story": "library/stories/ee196a977e.jpg"
+  },
+  {
+   "id": "06a48d151c",
+   "title": "Waiting For Love",
+   "artist": "Avicii",
+   "artists": [
+    "Avicii"
+   ],
+   "album": "Stories",
+   "year": 2015,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 230.61,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/06a48d151c.mp3",
+   "cover": "library/covers/06a48d151c.jpg",
+   "color": "#74365a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:58:29Z",
+   "mime": "audio/mpeg",
+   "size": 5536078,
+   "storage": "release",
+   "lufs": -6.9,
+   "gain": -7.1,
+   "via": "audio",
+   "fileKey": "yt:iR1sAex__VA",
+   "story": "library/stories/06a48d151c.jpg"
+  },
+  {
+   "id": "1e10de22fe",
+   "title": "Levels",
+   "artist": "Avicii",
+   "artists": [
+    "Avicii"
+   ],
+   "album": "Levels",
+   "year": 2011,
+   "genre": "Dance",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 338.87,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1e10de22fe.mp3",
+   "cover": "library/covers/1e10de22fe.jpg",
+   "color": "#00008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:58:05Z",
+   "mime": "audio/mpeg",
+   "size": 8134403,
+   "storage": "release",
+   "lufs": -9.4,
+   "gain": -4.6,
+   "via": "audio",
+   "fileKey": "yt:wDuoOapZ9Z0",
+   "story": "library/stories/1e10de22fe.jpg"
+  },
+  {
+   "id": "12f552d959",
+   "title": "Wake Me Up",
+   "artist": "Avicii",
+   "artists": [
+    "Avicii"
+   ],
+   "album": "True",
+   "year": 2013,
+   "genre": "Electronic",
+   "subgenre": "House",
+   "moods": [
+    "motivational",
+    "romantic",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.95,
+   "danceability": 1.0,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 247.43,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/12f552d959.mp3",
+   "cover": "library/covers/12f552d959.jpg",
+   "color": "#807f80",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:57:32Z",
+   "mime": "audio/mpeg",
+   "size": 5939850,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:2NiyrtYegso",
+   "story": "library/stories/12f552d959.jpg"
+  },
+  {
+   "id": "433f00a3cd",
+   "title": "Wherever I Go",
+   "artist": "OneRepublic",
+   "artists": [
+    "OneRepublic"
+   ],
+   "album": "Oh My My (Deluxe Edition)",
+   "year": 2016,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 169.77,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/433f00a3cd.mp3",
+   "cover": "library/covers/433f00a3cd.jpg",
+   "color": "#837c7f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:57:04Z",
+   "mime": "audio/mpeg",
+   "size": 4075936,
+   "storage": "release",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:NzGbWMe7rec",
+   "story": "library/stories/433f00a3cd.jpg"
+  },
+  {
+   "id": "290f1cbddf",
+   "title": "Rescue Me",
+   "artist": "OneRepublic",
+   "artists": [
+    "OneRepublic"
+   ],
+   "album": "Human (Deluxe)",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 159.65,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/290f1cbddf.mp3",
+   "cover": "library/covers/290f1cbddf.jpg",
+   "color": "#4354aa",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:56:46Z",
+   "mime": "audio/mpeg",
+   "size": 3833425,
+   "storage": "release",
+   "lufs": -9.3,
+   "gain": -4.7,
+   "via": "audio",
+   "fileKey": "yt:jajHOxvEbXk",
+   "story": "library/stories/290f1cbddf.jpg"
+  },
+  {
+   "id": "cb4f22ac3b",
+   "title": "Run",
+   "artist": "OneRepublic",
+   "artists": [
+    "OneRepublic"
+   ],
+   "album": "Human (Deluxe)",
+   "year": 2021,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "nostalgic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 169.01,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/cb4f22ac3b.mp3",
+   "cover": "library/covers/cb4f22ac3b.jpg",
+   "color": "#4354aa",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:56:28Z",
+   "mime": "audio/mpeg",
+   "size": 4058059,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:aiMBLfDNFZE",
+   "story": "library/stories/cb4f22ac3b.jpg"
+  },
+  {
+   "id": "6e99d056b5",
+   "title": "If I Lose Myself",
+   "artist": "OneRepublic",
+   "artists": [
+    "OneRepublic"
+   ],
+   "album": "Native",
+   "year": 2013,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 241.65,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/6e99d056b5.mp3",
+   "cover": "library/covers/6e99d056b5.jpg",
+   "color": "#8a7758",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:56:07Z",
+   "mime": "audio/mpeg",
+   "size": 5801040,
+   "storage": "release",
+   "lufs": -8.0,
+   "gain": -6.0,
+   "via": "audio",
+   "fileKey": "yt:KdZ5-vrAH6Q",
+   "story": "library/stories/6e99d056b5.jpg"
+  },
+  {
+   "id": "d4b71645ba",
+   "title": "Love Runs Out",
+   "artist": "OneRepublic",
+   "artists": [
+    "OneRepublic"
+   ],
+   "album": "Native",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 228.38,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d4b71645ba.mp3",
+   "cover": "library/covers/d4b71645ba.jpg",
+   "color": "#8a7758",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:55:43Z",
+   "mime": "audio/mpeg",
+   "size": 5482509,
+   "storage": "release",
+   "lufs": -14.3,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:emDPKHO8Mco",
+   "story": "library/stories/d4b71645ba.jpg"
+  },
+  {
+   "id": "2827556db5",
+   "title": "I Lived",
+   "artist": "OneRepublic",
+   "artists": [
+    "OneRepublic"
+   ],
+   "album": "Native (Deluxe)",
+   "year": 2013,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 234.55,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2827556db5.mp3",
+   "cover": "library/covers/2827556db5.jpg",
+   "color": "#8a1e37",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:55:15Z",
+   "mime": "audio/mpeg",
+   "size": 5630544,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "yt:R9LJ2sBD0F8",
+   "story": "library/stories/2827556db5.jpg"
+  },
+  {
+   "id": "8e90aee039",
+   "title": "Good Life",
+   "artist": "OneRepublic",
+   "artists": [
+    "OneRepublic"
+   ],
+   "album": "Waking Up",
+   "year": 2009,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "party",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 253.31,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8e90aee039.mp3",
+   "cover": "library/covers/8e90aee039.jpg",
+   "color": "#00308f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T04:54:47Z",
+   "mime": "audio/mpeg",
+   "size": 6080973,
+   "storage": "release",
+   "lufs": -9.1,
+   "gain": -4.9,
+   "via": "audio",
+   "fileKey": "yt:SmXbCBAHTfo",
+   "story": "library/stories/8e90aee039.jpg"
+  },
   {
    "id": "5c94fa1e29",
    "title": "Secrets",
