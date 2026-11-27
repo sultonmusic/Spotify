@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T03:04:27Z",
+ "updatedAt": "2026-11-27T03:21:07Z",
  "count": 253,
  "site": {
   "admins": [
@@ -3432,7 +3432,24 @@
    "albums": 28,
    "ytPhotoChecked": "2026-11-26T21:04:42Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCGOQJ9L8-am6zngFFY_VEoQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCGOQJ9L8-am6zngFFY_VEoQ",
+   "bioChecked": "2026-11-27T03:17:54Z",
+   "bio": {
+    "en": "Larry J. Sanders, known professionally as L.V., is an American singer, best known for his collaboration with rapper Coolio on the worldwide hit single \"Gangsta's Paradise\". He has released five solo albums and has been a member of the gangsta rap group South Central Cartel since 1994, usually singing the choruses. In 2019, L.V. was featured by NBC News after the Los Angeles Police Department designated him as a gang member or associate for the purposes of a heavily criticized database. On July 27, 2025, L.V.",
+    "ru": "L.V. — американский певец, рэпер, автор-исполнитель.",
+    "uz": "Larri J. Professional ravishda L.V. nomi bilan tanilgan Sanders amerikalik qo'shiqchi bo'lib, u butun dunyo bo'ylab xit bo'lgan \"Gangsta's Paradise\" singlida repper Coolio bilan hamkorlik qilgani bilan tanilgan. U beshta yakkaxon albom chiqardi va 1994 yildan beri Janubiy Markaziy Kartel gangsta rap guruhining a'zosi bo'lib, odatda xorlarni kuylaydi. 2019 yilda L.V. Los-Anjeles politsiya departamenti uni qattiq tanqid qilingan ma'lumotlar bazasi uchun jinoiy guruh a'zosi yoki hamkori sifatida tayinlaganidan keyin NBC News tomonidan namoyish etildi. 2025 yil 27 iyulda L.V."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/L.V._(singer)",
+    "ru": "https://ru.wikipedia.org/wiki/L.V."
+   },
+   "desc": {
+    "en": "American singer (born 1960)",
+    "ru": "американский певец, рэпер, автор-исполнитель"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "2Pac": {
    "aliases": [],
@@ -3447,7 +3464,22 @@
    "albums": 23,
    "ytPhotoChecked": "2026-11-26T21:04:43Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC5RrGzC-JXglhFW5NhT4r6w"
+   "youtubeMusic": "https://music.youtube.com/channel/UC5RrGzC-JXglhFW5NhT4r6w",
+   "bioChecked": "2026-11-27T03:17:57Z",
+   "bio": {
+    "en": "Tupac Amaru Shakur, also known by his stage names 2Pac and Makaveli, was an American rapper and actor. He is regarded as one of the most influential musical artists of the 20th century and as a prominent political activist for Black America. His record sales exceed 75 million worldwide. Some of Shakur's music addressed social injustice, political issues, and the marginalization of African Americans, while some of his other songs were gangsta rap.",
+    "ru": "Тупа́к Ама́ру Шаку́р, также известный как 2Pac и Makaveli, при рождении Пэ́риш Лесэйн Крукс ; 16 июня 1971, Гарлем, Нью-Йорк — 13 сентября 1996, Лас-Вегас, Невада) — американский рэпер, продюсер и актёр. Считается одним из величайших хип-хоп-исполнителей в истории. По состоянию на 2015 год по всему миру было продано более 80 млн записей Тупака Шакура. Его двойной студийный альбом All Eyez on Me, а также сборник хитов входят в список самых продаваемых альбомов в США. Журнал Rolling Stone поместил Шакура на 86-ю позицию в списке 100 величайших исполнителей всех времён.",
+    "uz": "Tupac Amaru Shakur amerikalik rapper va aktyordir. Shu kungacha Shakurning 75 milliondan oshiq audioyozuvi sotilgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Tupac_Shakur",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A8%D0%B0%D0%BA%D1%83%D1%80%2C_%D0%A2%D1%83%D0%BF%D0%B0%D0%BA",
+    "uz": "https://uz.wikipedia.org/wiki/Tupac_Shakur"
+   },
+   "desc": {
+    "en": "American rapper and actor (1971–1996)",
+    "ru": "американский рэпер (1971–1996)"
+   }
   },
   "Talent": {
    "aliases": [],
@@ -3462,7 +3494,8 @@
    "albums": 69,
    "ytPhotoChecked": "2026-11-26T21:04:45Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCVpz_BuNZRx9Q8bjDEtBWtA"
+   "youtubeMusic": "https://music.youtube.com/channel/UCVpz_BuNZRx9Q8bjDEtBWtA",
+   "bioChecked": "2026-11-27T03:18:01Z"
   },
   "The Neighbourhood": {
    "aliases": [],
@@ -4588,64 +4621,89 @@
    "itunesId": 448836183,
    "deezer": "https://www.deezer.com/artist/1377760",
    "apple": "https://music.apple.com/us/artist/british-pop-all-stars/448836183",
-   "image": "library/artists/british-pop-all-stars.jpg",
-   "color": "#6b6b6b",
+   "image": "library/artists/british-pop-all-stars-yt.jpg",
+   "color": "#5c90a3",
    "checked": "2026-11-27T02:41:55Z",
    "verifiedAt": "2026-11-27T02:41:55Z",
    "fans": 610,
-   "albums": 3
+   "albums": 3,
+   "ytPhotoChecked": "2026-11-27T03:17:41Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC8zRjYr3E8DogPBOMPaWdSQ"
   },
   "Kendrick Lamar": {
    "aliases": [],
    "verified": true,
    "deezerId": 525046,
    "deezer": "https://www.deezer.com/artist/525046",
-   "image": "library/artists/kendrick-lamar.jpg",
-   "color": "#693a26",
+   "image": "library/artists/kendrick-lamar-yt.jpg",
+   "color": "#4c4c4c",
    "checked": "2026-11-27T02:43:35Z",
    "verifiedAt": "2026-11-27T02:43:35Z",
    "fans": 6213326,
-   "albums": 35
+   "albums": 35,
+   "ytPhotoChecked": "2026-11-27T03:17:42Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCprAFmT0C6O4X0ToEXpeFTQ"
   },
   "Swedish House Mafia": {
    "aliases": [],
-   "verified": false
+   "verified": true,
+   "checked": "2026-11-27T03:17:39Z",
+   "verifiedAt": "2026-11-27T03:17:40Z",
+   "deezerId": 407188,
+   "deezer": "https://www.deezer.com/artist/407188",
+   "fans": 2173896,
+   "image": "library/artists/swedish-house-mafia-yt.jpg",
+   "color": "#00008f",
+   "ytPhotoChecked": "2026-11-27T03:17:43Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCl5p1gD46TZVsoQmM8VZ2gQ"
   },
   "JAŸ-Z": {
    "aliases": [],
    "verified": true,
    "deezerId": 1309,
    "deezer": "https://www.deezer.com/artist/1309",
-   "image": "library/artists/jay-z.jpg",
-   "color": "#bd6342",
+   "image": "library/artists/jay-z-yt.jpg",
+   "color": "#634939",
    "checked": "2026-11-27T02:59:09Z",
    "verifiedAt": "2026-11-27T02:59:09Z",
    "fans": 3586387,
-   "albums": 73
+   "albums": 73,
+   "ytPhotoChecked": "2026-11-27T03:17:44Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCbJG1HvzgzaMe_15xfiUyWw"
   },
   "Kanye West": {
    "aliases": [],
    "verified": true,
    "deezerId": 230,
    "deezer": "https://www.deezer.com/artist/230",
-   "image": "library/artists/kanye-west.jpg",
+   "image": "library/artists/kanye-west-yt.jpg",
    "color": "#474747",
    "checked": "2026-11-27T03:03:29Z",
    "verifiedAt": "2026-11-27T03:03:29Z",
    "fans": 4568709,
-   "albums": 73
+   "albums": 73,
+   "ytPhotoChecked": "2026-11-27T03:17:45Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCRY5dYsbIN5TylSbd7gVnZg"
   },
   "Paul McCartney": {
    "aliases": [],
    "verified": true,
    "deezerId": 1446,
    "deezer": "https://www.deezer.com/artist/1446",
-   "image": "library/artists/paul-mccartney.jpg",
-   "color": "#787878",
+   "image": "library/artists/paul-mccartney-yt.jpg",
+   "color": "#777777",
    "checked": "2026-11-27T03:03:29Z",
    "verifiedAt": "2026-11-27T03:03:29Z",
    "fans": 1811929,
-   "albums": 98
+   "albums": 98,
+   "ytPhotoChecked": "2026-11-27T03:17:47Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC0guXwTSf4hAOvCSgmViojw"
   }
  },
  "songs": [
