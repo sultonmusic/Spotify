@@ -50,6 +50,64 @@ function greeting() {
   return t("greet.night");
 }
 
+// ------------------------------------------------------------------ home title: greeting, then rotating lines
+const ROTATE_MS = 7000;
+const L3 = (uz, en, ru) => ({ uz, en, ru }[LANG] ?? en);
+/** Short lines about the station shown in turn under the logo (the time-of-day greeting comes first). */
+function homeLines() {
+  const songs = lib.songs.filter((s) => s.src && !s.previewOnly);
+  const n = songs.length;
+  const songsTxt = t("common.songs", { n });
+  const artists = artistNames().length;
+  const hours = Math.round(songs.reduce((a, s) => a + (s.duration || 0), 0) / 3600);
+  const newest = reco.newest(1)[0];
+  const favs = Object.keys(user.favs || {}).length;
+  const played = totalPlays();
+  const today = songs.filter((s) => (s.addedAt || "").slice(0, 10) === new Date().toISOString().slice(0, 10)).length;
+  const counts = new Map();
+  for (const s of songs) for (const a of s.artists || [s.artist]) counts.set(a, (counts.get(a) || 0) + 1);
+  const topArtist = [...counts].sort((a, b) => b[1] - a[1])[0]?.[0];
+  const name = (accountName() || "").split(" ")[0];
+  const second = L3(`Stansiyada ${songsTxt}`, `${songsTxt} on the station`, `На станции ${songsTxt}`);
+  const rest = [
+    artists > 1 && L3(`${num(artists)} ta ijrochi 🎤`, `${num(artists)} artists 🎤`, `Исполнителей: ${num(artists)} 🎤`),
+    hours > 1 && L3(`${hours} soatlik musiqa ⏱`, `${hours} hours of music ⏱`, `Музыки на ${hours} ч ⏱`),
+    L3("Bugun nima tinglaymiz? 🎧", "What's playing today? 🎧", "Что слушаем сегодня? 🎧"),
+    newest && L3(`Yangi: ${newest.title}`, `New: ${newest.title}`, `Новинка: ${newest.title}`),
+    L3("Kayfiyatga mos musiqa ✨", "Music for your mood ✨", "Музыка под настроение ✨"),
+    L3("DJ sizga tanlab beradi 🎛", "Let the DJ pick 🎛", "Пусть выберет DJ 🎛"),
+    L3("Qo'shiqni ovozidan toping 🎙", "Find a song by ear 🎙", "Найдите песню по звуку 🎙"),
+    favs > 0 && L3(`Sevimlilar: ${num(favs)} ta ❤️`, `${num(favs)} liked songs ❤️`, `Любимых: ${num(favs)} ❤️`),
+    played > 0 && L3(`Siz ${num(played)} marta tingladingiz`, `You've played ${num(played)} times`, `Вы слушали ${num(played)} раз`),
+    topArtist && L3(`Eng ko'p: ${topArtist}`, `Most songs: ${topArtist}`, `Больше всех: ${topArtist}`),
+    today > 0 && L3(`Bugun +${today} ta yangi qo'shiq`, `+${today} new songs today`, `Сегодня +${today} новых песен`),
+    L3("Ovozni balandroq qiling 🔊", "Turn it up 🔊", "Сделайте погромче 🔊"),
+    L3("Musiqa — qalb ozig'i 🎶", "Music feeds the soul 🎶", "Музыка — пища для души 🎶"),
+    name && L3(`Salom, ${name} 👋`, `Hi, ${name} 👋`, `Привет, ${name} 👋`),
+    L3("Yaxshi kayfiyat tilaymiz 😊", "Have a great day 😊", "Хорошего настроения 😊"),
+  ].filter(Boolean);
+  for (let i = rest.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [rest[i], rest[j]] = [rest[j], rest[i]]; }
+  return [greeting(), ...(n ? [second] : []), ...rest];
+}
+
+let homeLine = { list: null, i: 0 };
+/** The home page title: the greeting first, then a new line every few seconds (in random order). */
+function rotatingTitle() {
+  if (!homeLine.list || homeLine.lang !== LANG) homeLine = { list: homeLines(), i: 0, lang: LANG };
+  const el = h("h1", { class: "rot-title" }, homeLine.list[homeLine.i]);
+  const fit = () => el.classList.toggle("long", el.textContent.length > 20);
+  fit();
+  const timer = setInterval(() => {
+    if (!el.isConnected) { clearInterval(timer); return; }
+    if (document.hidden) return;
+    homeLine.i += 1;
+    if (homeLine.i >= homeLine.list.length) homeLine = { list: homeLines(), i: 0, lang: LANG };
+    el.classList.add("out");
+    setTimeout(() => { el.textContent = homeLine.list[homeLine.i]; fit(); el.classList.remove("out"); }, 300);
+  }, ROTATE_MS);
+  return el;
+}
+
 /** Settings: site language (Russian / English / Uzbek). */
 export function openSettings() {
   openSheet((sheet, dismiss) => {
@@ -97,7 +155,7 @@ function addButton() {
 function topbar(title, { back = false } = {}) {
   return h("div", { class: "topbar" },
     back ? h("button", { class: "back-btn", "aria-label": t("common.back"), html: icon("back", 20), onclick: goBack }) : avatar(),
-    back ? h("div", { class: "ttl" }, title) : h("h1", null, title),
+    back ? h("div", { class: "ttl" }, title) : title instanceof Node ? title : h("h1", null, title),
     back ? null : addButton(),
     back ? null : langButton());
 }
@@ -165,7 +223,7 @@ export function viewHome() {
   }
   const color = player.current?.color || reco.newest(1)[0]?.color || "#404040";
   v.append(h("div", { class: "home-bg", style: { background: `linear-gradient(${rgba(color, 0.6)}, transparent)` } }));
-  v.append(topbar(greeting()), appBanner());
+  v.append(topbar(rotatingTitle()), appBanner());
 
   const moodCounts = new Map();
   for (const s of lib.songs) for (const m of s.moods || []) moodCounts.set(m, (moodCounts.get(m) || 0) + 1);
@@ -403,7 +461,12 @@ export function viewSearch(param) {
     results.innerHTML = "";
     if (voiceMatch) results.append(section(t("search.voiceMatch"), identifiedCard(voiceMatch)));
     if (!q) { results.append(browse()); return; }
-    const songs = searchSongs(lib.songs, q);
+    const albums = searchAlbums(q);
+    let songs = searchSongs(lib.songs, q);
+    if (albums.length) {
+      const inAlbum = new Set(albums[0].songs);
+      songs = [...albums[0].songs, ...songs.filter((s) => !inAlbum.has(s))];
+    }
     const artists = searchArtists(artistNames(), q);
     const cats = matchCategories(q);
     if (!songs.length && !artists.length && !cats.length) {
@@ -413,7 +476,19 @@ export function viewSearch(param) {
     }
     const ctx = { type: "search", id: q, title: t("search.ctx", { q }) };
     const topArtist = artists[0] && (songs.length === 0 || songs[0].artists.includes(artists[0]) || artists[0].toLowerCase().startsWith(q.toLowerCase()));
-    if (topArtist) {
+    if (albums.length) {
+      const al = albums[0];
+      const el = h("div", { class: "top-result", role: "button", onclick: () => go(`album/${encodeURIComponent(al.name)}`) },
+        h("div", { class: "art" }, art(al.songs.find((s) => s.cover) || al.songs[0])),
+        h("div", null, h("h3", null, al.name), h("div", { class: "muted" },
+          `${t("common.album")} • ${albumArtist(al.songs)} • ${t("common.songs", { n: al.songs.length })}`)),
+        h("button", { class: "play-fab", "aria-label": t("common.play"), html: icon("play", 22),
+          onclick: (e) => { e.stopPropagation(); playList(al.songs, 0, albumContext(al.name)); } }));
+      results.append(section(t("search.top"), el));
+      if (albums.length > 1) results.append(section(t("common.album"), shelf(albums.slice(1).map((x) => card({
+        artEl: art(x.songs[0]), title: x.name, sub: albumArtist(x.songs), onClick: () => go(`album/${encodeURIComponent(x.name)}`),
+        onPlay: () => playList(x.songs, 0, albumContext(x.name)) })))));
+    } else if (topArtist) {
       const a = artists[0];
       const el = h("div", { class: "top-result round", role: "button", onclick: () => go(`artist/${encodeURIComponent(a)}`) },
         h("div", { class: "art" }, artistArt(a)), h("div", null, h("h3", null, a, verifiedBadge(a, 20)), h("div", { class: "muted" }, t("common.artist"))),
@@ -733,6 +808,44 @@ export function viewMix(id) {
   });
 }
 
+// ------------------------------------------------------------------ ALBUMS
+/** Songs of an album in track order (songs without a track number by when they were added). */
+export function albumSongs(name) {
+  return lib.songs.filter((s) => s.album === name && s.src)
+    .sort((a, b) => (a.track || 999) - (b.track || 999) || String(a.addedAt).localeCompare(String(b.addedAt)));
+}
+
+/** Albums (2+ songs) whose name matches a search: [{name, songs}]. */
+function searchAlbums(query) {
+  const q = norm(query);
+  if (!q) return [];
+  const words = q.split(" ");
+  const names = new Map();
+  for (const s of lib.songs) if (s.album && s.album !== s.title && s.src) names.set(s.album, norm(s.album));
+  const out = [];
+  for (const [name, n] of names) {
+    const hit = n === q ? 3 : n.startsWith(q) ? 2 : words.every((w) => n.split(" ").some((x) => x.startsWith(w))) ? 1 : 0;
+    if (!hit) continue;
+    const songs = albumSongs(name);
+    if (songs.length >= 2) out.push({ name, songs, hit });
+  }
+  return out.sort((a, b) => b.hit - a.hit || b.songs.length - a.songs.length);
+}
+
+const albumContext = (name) => ({ type: "album", id: name, title: name });
+const albumArtist = (songs) => songs[0]?.artist || "";
+
+export function viewAlbum(name) {
+  const songs = albumSongs(name);
+  if (!songs.length) return viewNotFound();
+  const first = songs.find((s) => s.cover) || songs[0];
+  return collectionView({
+    kicker: t("common.album"), title: name, songs, artEl: art(first), color: first.color,
+    desc: h("span", null, link(`artist/${encodeURIComponent(albumArtist(songs))}`, null, albumArtist(songs))),
+    extraMeta: songs[0].year ? String(songs[0].year) : null, context: albumContext(name),
+  });
+}
+
 export function viewGenre(g) {
   const info = genre(g);
   const p = reco.profile();
@@ -792,7 +905,7 @@ export function viewArtist(name) {
   if (albums.size) {
     v.append(section(t("artist.albums"), shelf([...albums.entries()].map(([al, list]) => card({
       artEl: art(list[0]), title: al, sub: [list[0].year, t("common.songs", { n: list.length })].filter(Boolean).join(" • "),
-      onClick: () => playList(list, 0, { type: "album", id: al, title: al }), onPlay: () => playList(list, 0, { type: "album", id: al, title: al }),
+      onClick: () => go(`album/${encodeURIComponent(al)}`), onPlay: () => playList(albumSongs(al), 0, albumContext(al)),
     })))));
   }
   const bio = profile.bio ? profile.bio[LANG] || profile.bio.en || profile.bio.ru || Object.values(profile.bio)[0] : "";

@@ -185,6 +185,9 @@ def original_candidates(query: str, limit: int = 4) -> list[dict]:
     results = quick.search(query)
     asked_variant = bool(quick._VARIANT.search(query))
     clean = [r for r in results if asked_variant or not (quick._VARIANT.search(r["title"]) or variant_of(r["title"]))]
+    # only results that are the asked song: every word of the line in the result's title/artist (in any order,
+    # so "Title — Artist" works as well as "Artist — Title"; accents and small typos don't matter)
+    clean = [r for r in clean if _line_match(query, r) >= 1.0] or [r for r in clean if _line_match(query, r) >= 0.75]
     official = [r for r in clean if r["kind"] in ("artist", "song")]
     ordered = official + [r for r in clean if r not in official]
     if not ordered:
@@ -193,6 +196,26 @@ def original_candidates(query: str, limit: int = 4) -> list[dict]:
     singer = lambda r: quick._norm((split_artist_title(r)[0] or "").split(",")[0])
     want, who = base(ordered[0]), singer(ordered[0])
     return [r for r in ordered if r is ordered[0] or (want and base(r) == want and who and singer(r) == who)][:limit]
+
+
+def _fold(text: str) -> list[str]:
+    import unicodedata
+    from bot import quick
+
+    text = unicodedata.normalize("NFKD", text or "")
+    text = "".join(c for c in text if not unicodedata.combining(c))
+    return quick._words(text)
+
+
+def _line_match(query: str, r: dict) -> float:
+    """Share of the line's words found in a search result (title, artist, channel)."""
+    from bot import quick
+
+    want = [w for w in _fold(query) if w not in ("feat", "ft", "va", "and")]
+    hay = _fold(f"{r.get('title') or ''} {r.get('artist') or ''} {r.get('channel') or ''}")
+    if not want:
+        return 0.0
+    return sum(1 for w in want if quick._word_hit(w, hay)) / len(want)
 
 
 def helper_mp3(candidates: list[dict], name: str, owner, first_helper_id: str | None = None) -> tuple[dict | None, dict]:

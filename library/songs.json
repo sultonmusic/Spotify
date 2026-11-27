@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T08:49:51Z",
- "count": 468,
+ "updatedAt": "2026-11-27T09:17:16Z",
+ "count": 470,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -1759,28 +1759,6 @@
    "bioChecked": "2026-11-12T10:28:22Z",
    "ytPhotoChecked": "2026-11-26T21:03:32Z"
   },
-  "Néy Nâmé": {
-   "aliases": [],
-   "verified": false,
-   "checked": "2026-11-12T17:48:01Z",
-   "bioChecked": "2026-11-12T17:48:09Z",
-   "bio": {
-    "en": "The given name Ney may refer to:Ney Raúl Avilés, retired Ecuadorian footballer Ney Dimaculangan, Filipino musician Ney Elias (1844–1897), British explorer, geographer and diplomat Ney Fabiano, Brazilian footballer Ney Franco, Brazilian football manager and coach Ney González Sánchez, Mexican politician, former governor of Nayarit Ney Latorraca (1944–2024), Brazilian actor Ney Matogrosso, Brazilian singer Ney Santanna, Brazilian actor Ney Santos, Brazilian footballer Ney Thol, Cambodian judge",
-    "uz": "Ney nomi quyidagilarga tegishli bo'lishi mumkin: Ney Raul Avilés, nafaqadagi ekvadorlik futbolchi Ney Dimaculangan, filippinlik musiqachi Ney Elias (1844–1897), britaniyalik tadqiqotchi, geograf va diplomat Ney Fabiano, braziliyalik futbolchi Ney Franko, braziliyalik futbol menejeri va murabbiyi Ney Gonsaless, Polikan Meleks. Nayarit Ney Latorraka (1944–2024), braziliyalik aktyor Ney Matogrosso, braziliyalik qo'shiqchi Ney Santanna, braziliyalik aktyor Ney Santos, braziliyalik futbolchi Ney Thol, Kambodjalik sudya",
-    "ru": "Имя Ней может относиться к: Нею Раулю Авилесу, эквадорскому футболисту на пенсии Нею Димакулангану, филиппинскому музыканту Нею Элиасу (1844–1897), британскому исследователю, географу и дипломату Нею Фабиано, бразильскому футболисту Нею Франко, бразильскому футбольному менеджеру и тренеру Нею Гонсалесу Санчесу, мексиканскому политику, бывшему губернатору Наярита Нею Латорраке (1944–2024), бразильский актер Ней Матогроссо, бразильский певец Ней Сантана, бразильский актер Ней Сантос, бразильский футболист Ней Тол, камбоджийский судья"
-   },
-   "wiki": {
-    "en": "https://en.wikipedia.org/wiki/Ney_(given_name)"
-   },
-   "desc": {
-    "en": "Name list"
-   },
-   "bioTr": [
-    "uz",
-    "ru"
-   ],
-   "ytPhotoChecked": "2026-11-26T21:03:33Z"
-  },
   "Nigina Amonqulova": {
    "aliases": [],
    "verified": false,
@@ -1804,70 +1782,6 @@
    "color": "#d2712d",
    "imageSource": "ytmusic",
    "youtubeMusic": "https://music.youtube.com/channel/UClkjZk2vcts1RAouHUoF-4A"
-  },
-  "Sara Naeini and…": {
-   "aliases": [],
-   "verified": false,
-   "checked": "2026-11-12T17:48:02Z",
-   "bioChecked": "2026-11-12T17:48:17Z",
-   "bio": {
-    "en": "Sara Naeini is an Iranian singer and songwriter.",
-    "uz": "Sara Naeini - eronlik qo'shiqchi va qo'shiq muallifi.",
-    "ru": "Сара Наеини — иранская певица и автор песен."
-   },
-   "wiki": {
-    "en": "https://en.wikipedia.org/wiki/Sara_Naeini"
-   },
-   "desc": {
-    "en": "Iranian singer and songwriter"
-   },
-   "bioTr": [
-    "uz",
-    "ru"
-   ],
-   "ytPhotoChecked": "2026-11-26T21:03:35Z"
-  },
-  "Âshéghânéhâ": {
-   "aliases": [],
-   "verified": false,
-   "checked": "2026-11-12T17:48:03Z",
-   "bioChecked": "2026-11-12T22:56:13Z",
-   "ytPhotoChecked": "2026-11-26T21:03:35Z"
-  },
-  "Sara Naeini…": {
-   "aliases": [
-    "Sara Naeini"
-   ],
-   "verified": true,
-   "checked": "2026-11-27T08:49:25Z",
-   "bioChecked": "2026-11-12T22:56:17Z",
-   "bio": {
-    "en": "Sara Naeini is an Iranian singer and songwriter.",
-    "uz": "Sara Naeini - eronlik qo'shiqchi va qo'shiq muallifi.",
-    "ru": "Сара Наеини — иранская певица и автор песен."
-   },
-   "wiki": {
-    "en": "https://en.wikipedia.org/wiki/Sara_Naeini"
-   },
-   "desc": {
-    "en": "Iranian singer and songwriter"
-   },
-   "bioTr": [
-    "uz",
-    "ru"
-   ],
-   "ytPhotoChecked": "2026-11-26T21:03:36Z",
-   "image": "library/artists/sara-naeini-yt.jpg",
-   "color": "#7c1f20",
-   "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCSfTPR7Czs-Ie3-54tZ4Gog",
-   "deezerId": 6791733,
-   "deezer": "https://www.deezer.com/artist/6791733",
-   "verifiedAt": "2026-11-27T08:49:25Z",
-   "fans": 315,
-   "albums": 29,
-   "itunesId": 524815454,
-   "apple": "https://music.apple.com/us/artist/sara-naeini/524815454"
   },
   "Ziyoda": {
    "aliases": [],
@@ -5749,459 +5663,604 @@
   "Vahid Taj": {
    "aliases": [],
    "verified": false
-  },
-  "Viguen": {
-   "aliases": [],
-   "verified": true,
-   "deezerId": 1248129,
-   "itunesId": 90366987,
-   "deezer": "https://www.deezer.com/artist/1248129",
-   "apple": "https://music.apple.com/us/artist/viguen/90366987",
-   "image": "library/artists/viguen.jpg",
-   "color": "#656962",
-   "checked": "2026-11-27T08:46:48Z",
-   "verifiedAt": "2026-11-27T08:46:48Z",
-   "fans": 2602,
-   "albums": 35
-  },
-  "Arash": {
-   "aliases": [],
-   "verified": true,
-   "deezerId": 593,
-   "itunesId": 49315081,
-   "deezer": "https://www.deezer.com/artist/593",
-   "apple": "https://music.apple.com/us/artist/arash/49315081",
-   "image": "library/artists/arash.jpg",
-   "color": "#bd6642",
-   "checked": "2026-11-27T08:47:09Z",
-   "verifiedAt": "2026-11-27T08:47:09Z",
-   "fans": 111814,
-   "albums": 45
-  },
-  "Helena (": {
-   "aliases": [
-    "Helena"
-   ],
-   "verified": true,
-   "deezerId": 16966,
-   "deezer": "https://www.deezer.com/artist/16966",
-   "image": "library/artists/helena.jpg",
-   "color": "#7c6a95",
-   "checked": "2026-11-27T08:47:09Z",
-   "verifiedAt": "2026-11-27T08:47:09Z",
-   "fans": 5467,
-   "albums": 64
-  },
-  "Arash Ap": {
-   "aliases": [
-    "Arash AP"
-   ],
-   "verified": false
-  },
-  "Masih": {
-   "aliases": [],
-   "verified": false
-  },
-  "Farzad Farzin": {
-   "aliases": [],
-   "verified": true,
-   "deezerId": 1166774,
-   "itunesId": 268371642,
-   "deezer": "https://www.deezer.com/artist/1166774",
-   "apple": "https://music.apple.com/us/artist/farzad-farzin/268371642",
-   "image": "library/artists/farzad-farzin.jpg",
-   "color": "#ac6e53",
-   "checked": "2026-11-27T08:48:45Z",
-   "verifiedAt": "2026-11-27T08:48:45Z",
-   "fans": 7952,
-   "albums": 89
-  },
-  "Anoushirvan Rohani": {
-   "aliases": [],
-   "verified": true,
-   "deezerId": 827428,
-   "itunesId": 18950251,
-   "deezer": "https://www.deezer.com/artist/827428",
-   "apple": "https://music.apple.com/us/artist/anoushirvan-rohani/18950251",
-   "image": "library/artists/anoushirvan-rohani.jpg",
-   "color": "#bf7e40",
-   "checked": "2026-11-27T08:49:25Z",
-   "verifiedAt": "2026-11-27T08:49:25Z",
-   "fans": 367,
-   "albums": 25
-  },
-  "Reza Rohani": {
-   "aliases": [],
-   "verified": true,
-   "deezerId": 5723035,
-   "deezer": "https://www.deezer.com/artist/5723035",
-   "image": "library/artists/reza-rohani.jpg",
-   "color": "#8d0202",
-   "checked": "2026-11-27T08:49:26Z",
-   "verifiedAt": "2026-11-27T08:49:26Z",
-   "fans": 111,
-   "albums": 25
-  },
-  "Anoushirvan Rohani, Sara Naeini & Reza Rohani": {
-   "aliases": [],
-   "verified": false
   }
  },
  "songs": [
   {
-   "id": "644e9ca354",
-   "title": "Jane Maryam",
-   "artist": "Sara Naeini…",
-   "artists": [
-    "Sara Naeini…"
-   ],
-   "album": "Jane Maryam",
-   "year": 1983,
-   "genre": "Folk",
-   "subgenre": "Worldwide",
-   "moods": [
-    "nostalgic",
-    "calm"
-   ],
-   "language": "en",
-   "energy": 0.45,
-   "danceability": 0.5,
-   "bpm": null,
-   "tags": [],
-   "description": null,
-   "explicit": false,
-   "duration": 229.16,
-   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/644e9ca354.mp3",
-   "cover": "library/covers/644e9ca354.jpg",
-   "color": "#e49e1b",
-   "lyrics": null,
-   "confidence": 0.95,
-   "sources": [
-    "deezer",
-    "itunes"
-   ],
-   "tg": {
-    "msgs": []
-   },
-   "addedAt": "2026-11-27T08:49:51Z",
-   "mime": "audio/mpeg",
-   "size": 5501537,
-   "storage": "release",
-   "lufs": -14.9,
-   "gain": 0.0,
-   "via": "audio",
-   "fileKey": "yt:yTJgrWNn_A4",
-   "story": "library/stories/644e9ca354.jpg"
-  },
-  {
-   "id": "3780118e67",
-   "title": "Delyar",
-   "artist": "Anoushirvan Rohani, Sara Naeini…, Reza Rohani, Anoushirvan Rohani, Sara Naeini & Reza Rohani",
-   "artists": [
-    "Anoushirvan Rohani",
-    "Sara Naeini…",
-    "Reza Rohani",
-    "Anoushirvan Rohani, Sara Naeini & Reza Rohani"
-   ],
-   "album": "Sara Naeini & Reza Rohani Performing Anoushiravan Rohani's Compositions",
-   "year": 2021,
-   "genre": "Pop",
-   "subgenre": null,
-   "moods": [
-    "happy",
-    "romantic"
-   ],
-   "language": "en",
-   "energy": 0.65,
-   "danceability": 0.7,
-   "bpm": null,
-   "tags": [],
-   "description": null,
-   "explicit": false,
-   "duration": 247.8,
-   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3780118e67.mp3",
-   "cover": "library/covers/3780118e67.jpg",
-   "color": "#8d0202",
-   "lyrics": null,
-   "confidence": 0.95,
-   "sources": [
-    "deezer",
-    "itunes"
-   ],
-   "tg": {
-    "msgs": []
-   },
-   "addedAt": "2026-11-27T08:49:28Z",
-   "mime": "audio/mpeg",
-   "size": 5948727,
-   "storage": "release",
-   "lufs": -13.2,
-   "gain": -0.8,
-   "via": "audio",
-   "fileKey": "yt:XySDufjLBV0",
-   "story": "library/stories/3780118e67.jpg"
-  },
-  {
-   "id": "b1801417ac",
-   "title": "Asheghaneh",
-   "artist": "Farzad Farzin",
-   "artists": [
-    "Farzad Farzin"
-   ],
-   "album": "Asheghaneh (From \"Asheghaneh\")",
-   "year": 2017,
-   "genre": "Soundtrack",
-   "subgenre": "TV Soundtrack",
-   "moods": [
-    "dreamy",
-    "calm"
-   ],
-   "language": "ar",
-   "energy": 0.52,
-   "danceability": 0.57,
-   "bpm": 165,
-   "tags": [],
-   "description": null,
-   "explicit": false,
-   "duration": 231.0,
-   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b1801417ac.mp3",
-   "cover": "library/covers/b1801417ac.jpg",
-   "color": "#b44f4b",
-   "lyrics": "synced",
-   "confidence": 0.95,
-   "sources": [
-    "deezer",
-    "itunes"
-   ],
-   "tg": {
-    "msgs": []
-   },
-   "addedAt": "2026-11-27T08:48:51Z",
-   "mime": "audio/mpeg",
-   "size": 5545899,
-   "storage": "release",
-   "lufs": -8.2,
-   "gain": -5.8,
-   "via": "audio",
-   "fileKey": "yt:_u_dCdqF6ak",
-   "story": "library/stories/b1801417ac.jpg"
-  },
-  {
-   "id": "a872ca51fa",
-   "title": "In To Bemiri",
-   "artist": "Arash Ap, Masih",
-   "artists": [
-    "Arash Ap",
-    "Masih"
-   ],
-   "album": "In To Bemiri",
-   "year": 2025,
-   "genre": "Pop",
-   "subgenre": null,
-   "moods": [
-    "happy",
-    "romantic"
-   ],
-   "language": "en",
-   "energy": 0.65,
-   "danceability": 0.7,
-   "bpm": null,
-   "tags": [],
-   "description": null,
-   "explicit": false,
-   "duration": 172.71,
-   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a872ca51fa.mp3",
-   "cover": "library/covers/a872ca51fa.jpg",
-   "color": "#395356",
-   "lyrics": null,
-   "confidence": 0.95,
-   "sources": [
-    "itunes"
-   ],
-   "tg": {
-    "msgs": []
-   },
-   "addedAt": "2026-11-27T08:48:24Z",
-   "mime": "audio/mpeg",
-   "size": 4146774,
-   "storage": "release",
-   "lufs": -7.0,
-   "gain": -7.0,
-   "via": "audio",
-   "fileKey": "yt:4h6wzxvjfJE",
-   "story": "library/stories/a872ca51fa.jpg"
-  },
-  {
-   "id": "9bdce7d397",
-   "title": "شادی آزادی",
-   "artist": "Arash Fouladvand, Vahid Taj",
+   "id": "8b883546b5",
+   "title": "Ney Name",
+   "artist": "Arash Fouladvand",
    "artists": [
     "Arash Fouladvand",
+    "Nigina Amonqulova",
+    "Sara Naeini",
     "Vahid Taj"
    ],
-   "album": null,
-   "year": null,
-   "genre": "Other",
-   "subgenre": null,
-   "moods": [],
-   "language": "ar",
+   "album": "Mawlana — Live at UNESCO, Paris 2024",
+   "track": 1,
+   "year": 2024,
+   "genre": "Classical",
+   "subgenre": "Persian / Sufi",
+   "moods": [
+    "calm",
+    "melancholic"
+   ],
+   "language": "fa",
    "energy": 0.5,
-   "danceability": 0.55,
+   "danceability": 0.4,
    "bpm": null,
-   "tags": [],
+   "tags": [
+    "Rumi",
+    "UNESCO"
+   ],
    "description": null,
    "explicit": false,
-   "duration": 331.4,
-   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9bdce7d397.mp3",
-   "cover": null,
-   "color": null,
-   "lyrics": null,
-   "confidence": 0.95,
-   "sources": [],
+   "duration": 696.71,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8b883546b5.m4a",
+   "cover": "library/covers/8b883546b5.jpg",
+   "color": "#6b5a4b",
+   "lyrics": "synced",
+   "confidence": 1.0,
+   "sources": [
+    "youtube"
+   ],
    "tg": {
     "msgs": []
    },
-   "addedAt": "2026-11-27T08:48:05Z",
-   "mime": "audio/mpeg",
-   "size": 7955271,
+   "addedAt": "2026-11-27T09:17:13Z",
+   "mime": "audio/mp4",
+   "size": 11268556,
    "storage": "release",
-   "lufs": -10.4,
-   "gain": -3.6,
+   "lufs": -17.2,
+   "gain": 0.0,
    "via": "audio",
-   "fileKey": "yt:sSnNgvfxLdA",
-   "story": "library/stories/9bdce7d397.jpg"
+   "fileKey": "yt:sbSCUOTLZBo",
+   "story": "library/stories/8b883546b5.jpg"
   },
   {
-   "id": "09c3f2ac89",
-   "title": "Broken Angel -",
-   "artist": "Arash, Helena (",
+   "id": "220bd973bf",
+   "title": "Gole Sorkh",
+   "artist": "Arash Fouladvand",
    "artists": [
-    "Arash",
-    "Helena ("
+    "Arash Fouladvand",
+    "Nigina Amonqulova"
    ],
-   "album": "Broken Angel (feat. Helena)",
-   "year": 2008,
-   "genre": "Pop",
-   "subgenre": null,
+   "album": "Mawlana — Live at UNESCO, Paris 2024",
+   "track": 2,
+   "year": 2024,
+   "genre": "Classical",
+   "subgenre": "Persian / Sufi",
    "moods": [
-    "sad",
     "romantic",
+    "dreamy"
+   ],
+   "language": "fa",
+   "energy": 0.5,
+   "danceability": 0.4,
+   "bpm": null,
+   "tags": [
+    "Rumi",
+    "UNESCO"
+   ],
+   "description": null,
+   "explicit": false,
+   "duration": 519.5,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/220bd973bf.m4a",
+   "cover": "library/covers/220bd973bf.jpg",
+   "color": "#765549",
+   "lyrics": "synced",
+   "confidence": 1.0,
+   "sources": [
+    "youtube"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T09:17:13Z",
+   "mime": "audio/mp4",
+   "size": 8402583,
+   "storage": "release",
+   "lufs": -16.8,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:Tr4QN45QCNM",
+   "story": "library/stories/220bd973bf.jpg"
+  },
+  {
+   "id": "1d2a560b2d",
+   "title": "Resid Aan Shah 1",
+   "artist": "Arash Fouladvand",
+   "artists": [
+    "Arash Fouladvand",
+    "Sara Naeini",
+    "Vahid Taj"
+   ],
+   "album": "Mawlana — Live at UNESCO, Paris 2024",
+   "track": 3,
+   "year": 2024,
+   "genre": "Classical",
+   "subgenre": "Persian / Sufi",
+   "moods": [
+    "happy",
+    "energetic"
+   ],
+   "language": "fa",
+   "energy": 0.5,
+   "danceability": 0.4,
+   "bpm": null,
+   "tags": [
+    "Rumi",
+    "UNESCO"
+   ],
+   "description": null,
+   "explicit": false,
+   "duration": 357.4,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1d2a560b2d.m4a",
+   "cover": "library/covers/1d2a560b2d.jpg",
+   "color": "#8f4700",
+   "lyrics": "synced",
+   "confidence": 1.0,
+   "sources": [
+    "youtube"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T09:17:13Z",
+   "mime": "audio/mp4",
+   "size": 5781081,
+   "storage": "release",
+   "lufs": -16.5,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:CDQ1SwRvYY0",
+   "story": "library/stories/1d2a560b2d.jpg"
+  },
+  {
+   "id": "2b83d1b546",
+   "title": "Resid Aan Shah 2",
+   "artist": "Arash Fouladvand",
+   "artists": [
+    "Arash Fouladvand",
+    "Bahar Choir"
+   ],
+   "album": "Mawlana — Live at UNESCO, Paris 2024",
+   "track": 4,
+   "year": 2024,
+   "genre": "Classical",
+   "subgenre": "Persian / Sufi",
+   "moods": [
+    "energetic",
     "happy"
    ],
-   "language": "en",
-   "energy": 0.55,
-   "danceability": 0.6,
-   "bpm": 111,
-   "tags": [],
-   "description": null,
-   "explicit": false,
-   "duration": 193.24,
-   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/09c3f2ac89.mp3",
-   "cover": "library/covers/09c3f2ac89.jpg",
-   "color": "#45616d",
-   "lyrics": "synced",
-   "confidence": 0.95,
-   "sources": [
-    "deezer",
-    "itunes"
-   ],
-   "tg": {
-    "msgs": []
-   },
-   "addedAt": "2026-11-27T08:47:13Z",
-   "mime": "audio/mpeg",
-   "size": 4639271,
-   "storage": "release",
-   "lufs": -8.3,
-   "gain": -5.7,
-   "via": "audio",
-   "fileKey": "yt:xXYJpkwGgwU",
-   "story": "library/stories/09c3f2ac89.jpg"
-  },
-  {
-   "id": "e3e3396576",
-   "title": "Gole Sorkh",
-   "artist": "Viguen",
-   "artists": [
-    "Viguen"
-   ],
-   "album": "Viguen",
-   "year": 1991,
-   "genre": "Pop",
-   "subgenre": null,
-   "moods": [
-    "happy",
-    "romantic"
-   ],
-   "language": "ar",
-   "energy": 0.65,
-   "danceability": 0.7,
+   "language": "fa",
+   "energy": 0.5,
+   "danceability": 0.4,
    "bpm": null,
-   "tags": [],
+   "tags": [
+    "Rumi",
+    "UNESCO"
+   ],
    "description": null,
    "explicit": false,
-   "duration": 203.16,
-   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e3e3396576.mp3",
-   "cover": "library/covers/e3e3396576.jpg",
-   "color": "#8e7357",
-   "lyrics": "synced",
-   "confidence": 0.95,
+   "duration": 180.12,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2b83d1b546.m4a",
+   "cover": "library/covers/2b83d1b546.jpg",
+   "color": "#7f4f10",
+   "lyrics": "plain",
+   "confidence": 1.0,
    "sources": [
-    "deezer",
-    "itunes"
+    "youtube"
    ],
    "tg": {
     "msgs": []
    },
-   "addedAt": "2026-11-27T08:46:53Z",
-   "mime": "audio/mpeg",
-   "size": 4877125,
+   "addedAt": "2026-11-27T09:17:13Z",
+   "mime": "audio/mp4",
+   "size": 2913980,
    "storage": "release",
-   "lufs": -15.4,
+   "lufs": -22.0,
    "gain": 0.0,
    "via": "audio",
-   "fileKey": "yt:KHPXPQKeNWQ",
-   "story": "library/stories/e3e3396576.jpg"
+   "fileKey": "yt:9uIKNsXriQI",
+   "story": "library/stories/2b83d1b546.jpg"
   },
   {
-   "id": "00183506ea",
-   "title": "آن یار می آید",
-   "artist": "Arash Fouladvand, Vahid Taj",
+   "id": "d1437c9e35",
+   "title": "Neshane To",
+   "artist": "Arash Fouladvand",
    "artists": [
     "Arash Fouladvand",
-    "Vahid Taj"
+    "Sara Naeini",
+    "Nigina Amonqulova"
    ],
-   "album": null,
-   "year": null,
-   "genre": "Other",
-   "subgenre": null,
-   "moods": [],
-   "language": "ar",
+   "album": "Mawlana — Live at UNESCO, Paris 2024",
+   "track": 5,
+   "year": 2024,
+   "genre": "Classical",
+   "subgenre": "Persian / Sufi",
+   "moods": [
+    "melancholic",
+    "romantic"
+   ],
+   "language": "fa",
    "energy": 0.5,
-   "danceability": 0.55,
+   "danceability": 0.4,
    "bpm": null,
-   "tags": [],
+   "tags": [
+    "Rumi",
+    "UNESCO"
+   ],
    "description": null,
    "explicit": false,
-   "duration": 469.09,
-   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/00183506ea.mp3",
-   "cover": null,
-   "color": null,
-   "lyrics": null,
-   "confidence": 0.95,
-   "sources": [],
+   "duration": 312.12,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d1437c9e35.m4a",
+   "cover": "library/covers/d1437c9e35.jpg",
+   "color": "#5c3833",
+   "lyrics": "synced",
+   "confidence": 1.0,
+   "sources": [
+    "youtube"
+   ],
    "tg": {
     "msgs": []
    },
-   "addedAt": "2026-11-27T08:46:32Z",
-   "mime": "audio/mpeg",
-   "size": 11259789,
+   "addedAt": "2026-11-27T09:17:13Z",
+   "mime": "audio/mp4",
+   "size": 5048821,
    "storage": "release",
    "lufs": -10.8,
    "gain": -3.2,
    "via": "audio",
-   "fileKey": "yt:ciywFAThTRk",
-   "story": "library/stories/00183506ea.jpg"
+   "fileKey": "yt:kbo_mQiie3s",
+   "story": "library/stories/d1437c9e35.jpg"
+  },
+  {
+   "id": "bd30e5ca0a",
+   "title": "Eshgh Mara Bar Hamegan Bargozid",
+   "artist": "Arash Fouladvand",
+   "artists": [
+    "Arash Fouladvand",
+    "Bahar Choir"
+   ],
+   "album": "Mawlana — Live at UNESCO, Paris 2024",
+   "track": 6,
+   "year": 2024,
+   "genre": "Classical",
+   "subgenre": "Persian / Sufi",
+   "moods": [
+    "energetic",
+    "motivational"
+   ],
+   "language": "fa",
+   "energy": 0.5,
+   "danceability": 0.4,
+   "bpm": null,
+   "tags": [
+    "Rumi",
+    "UNESCO"
+   ],
+   "description": null,
+   "explicit": false,
+   "duration": 328.01,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/bd30e5ca0a.m4a",
+   "cover": "library/covers/bd30e5ca0a.jpg",
+   "color": "#1b0b83",
+   "lyrics": "synced",
+   "confidence": 1.0,
+   "sources": [
+    "youtube"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T09:17:13Z",
+   "mime": "audio/mp4",
+   "size": 5305701,
+   "storage": "release",
+   "lufs": -16.4,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:gsCRpIjX1A4",
+   "story": "library/stories/bd30e5ca0a.jpg"
+  },
+  {
+   "id": "bb7d715396",
+   "title": "Shadi",
+   "artist": "Arash Fouladvand",
+   "artists": [
+    "Arash Fouladvand",
+    "Sara Naeini"
+   ],
+   "album": "Mawlana — Live at UNESCO, Paris 2024",
+   "track": 7,
+   "year": 2024,
+   "genre": "Classical",
+   "subgenre": "Persian / Sufi",
+   "moods": [
+    "happy",
+    "party"
+   ],
+   "language": "fa",
+   "energy": 0.5,
+   "danceability": 0.4,
+   "bpm": null,
+   "tags": [
+    "Rumi",
+    "UNESCO"
+   ],
+   "description": null,
+   "explicit": false,
+   "duration": 325.75,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/bb7d715396.m4a",
+   "cover": "library/covers/bb7d715396.jpg",
+   "color": "#835c50",
+   "lyrics": "synced",
+   "confidence": 1.0,
+   "sources": [
+    "youtube"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T09:17:13Z",
+   "mime": "audio/mp4",
+   "size": 5269245,
+   "storage": "release",
+   "lufs": -16.7,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:QJACAfbp4io",
+   "story": "library/stories/bb7d715396.jpg"
+  },
+  {
+   "id": "79355956b1",
+   "title": "Bemirid Bemirid",
+   "artist": "Arash Fouladvand",
+   "artists": [
+    "Arash Fouladvand",
+    "Sara Naeini",
+    "Vahid Taj"
+   ],
+   "album": "Mawlana — Live at UNESCO, Paris 2024",
+   "track": 8,
+   "year": 2024,
+   "genre": "Classical",
+   "subgenre": "Persian / Sufi",
+   "moods": [
+    "energetic",
+    "motivational"
+   ],
+   "language": "fa",
+   "energy": 0.5,
+   "danceability": 0.4,
+   "bpm": null,
+   "tags": [
+    "Rumi",
+    "UNESCO"
+   ],
+   "description": null,
+   "explicit": false,
+   "duration": 262.66,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/79355956b1.m4a",
+   "cover": "library/covers/79355956b1.jpg",
+   "color": "#6d2322",
+   "lyrics": "synced",
+   "confidence": 1.0,
+   "sources": [
+    "youtube"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T09:17:13Z",
+   "mime": "audio/mp4",
+   "size": 4248970,
+   "storage": "release",
+   "lufs": -16.0,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:0t4D1K_pj0s",
+   "story": "library/stories/79355956b1.jpg"
+  },
+  {
+   "id": "17d557429d",
+   "title": "Asheghaneha",
+   "artist": "Arash Fouladvand",
+   "artists": [
+    "Arash Fouladvand",
+    "Nigina Amonqulova",
+    "Sara Naeini",
+    "Vahid Taj"
+   ],
+   "album": "Mawlana — Live at UNESCO, Paris 2024",
+   "track": 9,
+   "year": 2024,
+   "genre": "Classical",
+   "subgenre": "Persian / Sufi",
+   "moods": [
+    "romantic",
+    "calm"
+   ],
+   "language": "fa",
+   "energy": 0.5,
+   "danceability": 0.4,
+   "bpm": null,
+   "tags": [
+    "Rumi",
+    "UNESCO"
+   ],
+   "description": null,
+   "explicit": false,
+   "duration": 658.7,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/17d557429d.m4a",
+   "cover": "library/covers/17d557429d.jpg",
+   "color": "#52147a",
+   "lyrics": "synced",
+   "confidence": 1.0,
+   "sources": [
+    "youtube"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T09:17:13Z",
+   "mime": "audio/mp4",
+   "size": 10653882,
+   "storage": "release",
+   "lufs": -15.9,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:9H5jDcN2cGQ",
+   "story": "library/stories/17d557429d.jpg"
+  },
+  {
+   "id": "9214f6dc80",
+   "title": "Aan Yaar Miayad",
+   "artist": "Arash Fouladvand",
+   "artists": [
+    "Arash Fouladvand",
+    "Vahid Taj"
+   ],
+   "album": "Mawlana — Live at UNESCO, Paris 2024",
+   "track": 10,
+   "year": 2024,
+   "genre": "Classical",
+   "subgenre": "Persian / Sufi",
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "fa",
+   "energy": 0.5,
+   "danceability": 0.4,
+   "bpm": null,
+   "tags": [
+    "Rumi",
+    "UNESCO"
+   ],
+   "description": null,
+   "explicit": false,
+   "duration": 523.35,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9214f6dc80.m4a",
+   "cover": "library/covers/9214f6dc80.jpg",
+   "color": "#8c614b",
+   "lyrics": "synced",
+   "confidence": 1.0,
+   "sources": [
+    "youtube"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T09:17:13Z",
+   "mime": "audio/mp4",
+   "size": 8464924,
+   "storage": "release",
+   "lufs": -10.3,
+   "gain": -3.7,
+   "via": "audio",
+   "fileKey": "yt:-axiHfaRZdE",
+   "story": "library/stories/9214f6dc80.jpg"
+  },
+  {
+   "id": "fba6518931",
+   "title": "Delyar",
+   "artist": "Arash Fouladvand",
+   "artists": [
+    "Arash Fouladvand",
+    "Sara Naeini"
+   ],
+   "album": "Mawlana — Live at UNESCO, Paris 2024",
+   "track": 11,
+   "year": 2024,
+   "genre": "Classical",
+   "subgenre": "Persian / Sufi",
+   "moods": [
+    "romantic",
+    "melancholic"
+   ],
+   "language": "fa",
+   "energy": 0.5,
+   "danceability": 0.4,
+   "bpm": null,
+   "tags": [
+    "Rumi",
+    "UNESCO"
+   ],
+   "description": null,
+   "explicit": false,
+   "duration": 344.51,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/fba6518931.m4a",
+   "cover": "library/covers/fba6518931.jpg",
+   "color": "#6e5346",
+   "lyrics": "synced",
+   "confidence": 1.0,
+   "sources": [
+    "youtube"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T09:17:13Z",
+   "mime": "audio/mp4",
+   "size": 5572658,
+   "storage": "release",
+   "lufs": -16.8,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:o5zSt1PczDA",
+   "story": "library/stories/fba6518931.jpg"
+  },
+  {
+   "id": "f65e5f7405",
+   "title": "Jane Maryam",
+   "artist": "Arash Fouladvand",
+   "artists": [
+    "Arash Fouladvand",
+    "Nigina Amonqulova",
+    "Sara Naeini"
+   ],
+   "album": "Mawlana — Live at UNESCO, Paris 2024",
+   "track": 12,
+   "year": 2024,
+   "genre": "Classical",
+   "subgenre": "Persian / Sufi",
+   "moods": [
+    "nostalgic",
+    "romantic"
+   ],
+   "language": "fa",
+   "energy": 0.5,
+   "danceability": 0.4,
+   "bpm": null,
+   "tags": [
+    "Rumi",
+    "UNESCO"
+   ],
+   "description": null,
+   "explicit": false,
+   "duration": 495.77,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f65e5f7405.m4a",
+   "cover": "library/covers/f65e5f7405.jpg",
+   "color": "#561e72",
+   "lyrics": "synced",
+   "confidence": 1.0,
+   "sources": [
+    "youtube"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-27T09:17:13Z",
+   "mime": "audio/mp4",
+   "size": 8018828,
+   "storage": "release",
+   "lufs": -17.9,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:oKoIErWfKSA",
+   "story": "library/stories/f65e5f7405.jpg"
   },
   {
    "id": "805c58e67d",
@@ -23189,94 +23248,6 @@
    "via": "audio",
    "fileKey": "6036ded00a1ef868",
    "story": "library/stories/6036ded00a.jpg"
-  },
-  {
-   "id": "4d6425b14f",
-   "title": "عاشقانه‌ها (Arash Fouladvand",
-   "artist": "Âshéghânéhâ, Nigina Amonqulova, Sara Naeini…",
-   "artists": [
-    "Âshéghânéhâ",
-    "Nigina Amonqulova",
-    "Sara Naeini…"
-   ],
-   "album": null,
-   "year": null,
-   "genre": "Other",
-   "subgenre": null,
-   "moods": [],
-   "language": "ar",
-   "energy": 0.5,
-   "danceability": 0.55,
-   "bpm": null,
-   "tags": [],
-   "description": null,
-   "explicit": false,
-   "duration": 658.7,
-   "src": "library/audio/4d6425b14f.m4a",
-   "cover": null,
-   "color": null,
-   "lyrics": null,
-   "confidence": 0.4,
-   "sources": [],
-   "tg": {
-    "msgs": [
-     284,
-     288
-    ]
-   },
-   "addedAt": "2026-11-12T17:45:58Z",
-   "mime": "audio/mp4",
-   "size": 10653819,
-   "storage": "pages",
-   "lufs": -15.9,
-   "gain": 0.0,
-   "via": "audio",
-   "fileKey": "4d6425b14f88f02b",
-   "story": "library/stories/4d6425b14f.jpg"
-  },
-  {
-   "id": "24a28445f8",
-   "title": "نی نامه (Arash Fouladvand",
-   "artist": "Néy Nâmé, Nigina Amonqulova, Sara Naeini and…",
-   "artists": [
-    "Néy Nâmé",
-    "Nigina Amonqulova",
-    "Sara Naeini and…"
-   ],
-   "album": null,
-   "year": null,
-   "genre": "Other",
-   "subgenre": null,
-   "moods": [],
-   "language": "ar",
-   "energy": 0.5,
-   "danceability": 0.55,
-   "bpm": null,
-   "tags": [],
-   "description": null,
-   "explicit": false,
-   "duration": 696.71,
-   "src": "library/audio/24a28445f8.m4a",
-   "cover": null,
-   "color": null,
-   "lyrics": null,
-   "confidence": 0.4,
-   "sources": [],
-   "tg": {
-    "msgs": [
-     283,
-     287
-    ]
-   },
-   "addedAt": "2026-11-12T17:45:06Z",
-   "mime": "audio/mp4",
-   "size": 11268487,
-   "storage": "pages",
-   "lufs": -17.2,
-   "gain": 0.0,
-   "via": "audio",
-   "fileKey": "24a28445f85e3cc9",
-   "story": "library/stories/24a28445f8.jpg"
   },
   {
    "id": "320ad75b9d",

@@ -23,6 +23,7 @@ const ROUTES = [
   [/^\/library(?:\/(\w+))?$/, (t) => V.viewLibrary(t || "favs"), "library"],
   [/^\/liked$/, () => V.viewLiked(), "library"],
   [/^\/artist\/(.+)$/, (a) => V.viewArtist(a)],
+  [/^\/album\/(.+)$/, (a) => V.viewAlbum(a)],
   [/^\/genre\/(.+)$/, (g) => V.viewGenre(g)],
   [/^\/mood\/(.+)$/, (m) => V.viewMood(m)],
   [/^\/lang\/(.+)$/, (l) => V.viewLang(l)],
