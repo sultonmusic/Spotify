@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T10:18:38Z",
- "count": 570,
+ "updatedAt": "2026-11-28T10:38:23Z",
+ "count": 588,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4923,7 +4923,9 @@
    "albums": 51,
    "ytPhotoChecked": "2026-11-27T00:06:20Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCL_jrFsNj-2iC9Obf5M8_uw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCL_jrFsNj-2iC9Obf5M8_uw",
+   "itunesId": 602212,
+   "apple": "https://music.apple.com/us/artist/scorpions/602212"
   },
   "SZA": {
    "aliases": [],
@@ -6264,6 +6266,825 @@
   }
  },
  "songs": [
+  {
+   "id": "8863b10eeb",
+   "title": "No One Like You",
+   "artist": "Scorpions",
+   "artists": [
+    "Scorpions"
+   ],
+   "album": "Blackout",
+   "year": 1982,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": 118,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 234.84,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8863b10eeb.mp3",
+   "cover": "library/covers/8863b10eeb.jpg",
+   "color": "#465b93",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:38:23Z",
+   "mime": "audio/mpeg",
+   "size": 5637456,
+   "storage": "release",
+   "lufs": -6.9,
+   "gain": -7.1,
+   "via": "audio",
+   "fileKey": "yt:qKhorc1aYro",
+   "story": "library/stories/8863b10eeb.jpg"
+  },
+  {
+   "id": "8806e1e970",
+   "title": "Send Me An Angel",
+   "artist": "Scorpions",
+   "artists": [
+    "Scorpions"
+   ],
+   "album": "Crazy World",
+   "year": 1990,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 273.33,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8806e1e970.mp3",
+   "cover": "library/covers/8806e1e970.jpg",
+   "color": "#656868",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:37:21Z",
+   "mime": "audio/mpeg",
+   "size": 6561364,
+   "storage": "release",
+   "lufs": -15.0,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:K9RKlz1qpQY",
+   "story": "library/stories/8806e1e970.jpg"
+  },
+  {
+   "id": "c79fcca084",
+   "title": "Rock You Like A Hurricane",
+   "artist": "Scorpions",
+   "artists": [
+    "Scorpions"
+   ],
+   "album": "Love at First Sting",
+   "year": 1984,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "romantic",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 125,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 252.81,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c79fcca084.mp3",
+   "cover": "library/covers/c79fcca084.jpg",
+   "color": "#5f5f5f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:36:35Z",
+   "mime": "audio/mpeg",
+   "size": 6068901,
+   "storage": "release",
+   "lufs": -10.9,
+   "gain": -3.1,
+   "via": "audio",
+   "fileKey": "yt:bNawbNsx52A",
+   "story": "library/stories/c79fcca084.jpg"
+  },
+  {
+   "id": "2673eec5c0",
+   "title": "Wind Of Change",
+   "artist": "Scorpions",
+   "artists": [
+    "Scorpions"
+   ],
+   "album": "20th Century Masters - The Millennium Collection: The Best of Scorpions",
+   "year": 1990,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "motivational",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 151,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 312.36,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2673eec5c0.mp3",
+   "cover": "library/covers/2673eec5c0.jpg",
+   "color": "#726c61",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:35:55Z",
+   "mime": "audio/mpeg",
+   "size": 7497998,
+   "storage": "release",
+   "lufs": -14.1,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:Ukh1zoiV304",
+   "story": "library/stories/2673eec5c0.jpg"
+  },
+  {
+   "id": "943ac2da95",
+   "title": "Hello",
+   "artist": "Evanescence",
+   "artists": [
+    "Evanescence"
+   ],
+   "album": "Fallen",
+   "year": 2003,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 140,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 229.15,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/943ac2da95.mp3",
+   "cover": "library/covers/943ac2da95.jpg",
+   "color": "#4b789b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:35:09Z",
+   "mime": "audio/mpeg",
+   "size": 5500934,
+   "storage": "release",
+   "lufs": -14.4,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:5OzOTjr3eds",
+   "story": "library/stories/943ac2da95.jpg"
+  },
+  {
+   "id": "534c3b71ef",
+   "title": "Good Enough",
+   "artist": "Evanescence",
+   "artists": [
+    "Evanescence"
+   ],
+   "album": "The Open Door",
+   "year": 2006,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": 115,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 331.36,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/534c3b71ef.mp3",
+   "cover": "library/covers/534c3b71ef.jpg",
+   "color": "#838778",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:34:41Z",
+   "mime": "audio/mpeg",
+   "size": 7954132,
+   "storage": "release",
+   "lufs": -13.0,
+   "gain": -1.0,
+   "via": "audio",
+   "fileKey": "yt:9sbMFi7uKZY",
+   "story": "library/stories/534c3b71ef.jpg"
+  },
+  {
+   "id": "fb27f32a92",
+   "title": "Sweet Sacrifice",
+   "artist": "Evanescence",
+   "artists": [
+    "Evanescence"
+   ],
+   "album": "The Open Door",
+   "year": 2006,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 97,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 185.53,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/fb27f32a92.mp3",
+   "cover": "library/covers/fb27f32a92.jpg",
+   "color": "#838778",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:34:06Z",
+   "mime": "audio/mpeg",
+   "size": 4454360,
+   "storage": "release",
+   "lufs": -7.7,
+   "gain": -6.3,
+   "via": "audio",
+   "fileKey": "yt:RvcZoD15jB8",
+   "story": "library/stories/fb27f32a92.jpg"
+  },
+  {
+   "id": "c6ffbcdacc",
+   "title": "Haunted",
+   "artist": "Evanescence",
+   "artists": [
+    "Evanescence"
+   ],
+   "album": "Fallen",
+   "year": 2003,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 155,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 196.82,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c6ffbcdacc.mp3",
+   "cover": "library/covers/c6ffbcdacc.jpg",
+   "color": "#4b789b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:33:47Z",
+   "mime": "audio/mpeg",
+   "size": 4725064,
+   "storage": "release",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "yt:SM_oYAeQOGw",
+   "story": "library/stories/c6ffbcdacc.jpg"
+  },
+  {
+   "id": "54b081ff2e",
+   "title": "Everybody's Fool",
+   "artist": "Evanescence",
+   "artists": [
+    "Evanescence"
+   ],
+   "album": "Fallen",
+   "year": 2003,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "motivational",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 195.93,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/54b081ff2e.mp3",
+   "cover": "library/covers/54b081ff2e.jpg",
+   "color": "#4b789b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:33:17Z",
+   "mime": "audio/mpeg",
+   "size": 4703761,
+   "storage": "release",
+   "lufs": -14.7,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:AgMqrGrUpcU",
+   "story": "library/stories/54b081ff2e.jpg"
+  },
+  {
+   "id": "50d13b0db3",
+   "title": "Lithium",
+   "artist": "Evanescence",
+   "artists": [
+    "Evanescence"
+   ],
+   "album": "The Open Door",
+   "year": 2006,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 118,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 224.11,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/50d13b0db3.mp3",
+   "cover": "library/covers/50d13b0db3.jpg",
+   "color": "#838778",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:32:06Z",
+   "mime": "audio/mpeg",
+   "size": 5379982,
+   "storage": "release",
+   "lufs": -6.9,
+   "gain": -7.1,
+   "via": "audio",
+   "fileKey": "yt:8zotMMbK0bE",
+   "story": "library/stories/50d13b0db3.jpg"
+  },
+  {
+   "id": "c88b626972",
+   "title": "Call Me When You're Sober",
+   "artist": "Evanescence",
+   "artists": [
+    "Evanescence"
+   ],
+   "album": "The Open Door",
+   "year": 2006,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "sad",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 94,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 214.71,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c88b626972.mp3",
+   "cover": "library/covers/c88b626972.jpg",
+   "color": "#838778",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:31:16Z",
+   "mime": "audio/mpeg",
+   "size": 5154784,
+   "storage": "release",
+   "lufs": -7.4,
+   "gain": -6.6,
+   "via": "audio",
+   "fileKey": "yt:2v0xrVU0tFk",
+   "story": "library/stories/c88b626972.jpg"
+  },
+  {
+   "id": "ddcbe967fd",
+   "title": "Going Under",
+   "artist": "Evanescence",
+   "artists": [
+    "Evanescence"
+   ],
+   "album": "Fallen",
+   "year": 2003,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "romantic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 175,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 218.09,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ddcbe967fd.mp3",
+   "cover": "library/covers/ddcbe967fd.jpg",
+   "color": "#4b789b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:30:36Z",
+   "mime": "audio/mpeg",
+   "size": 5235980,
+   "storage": "release",
+   "lufs": -12.1,
+   "gain": -1.9,
+   "via": "audio",
+   "fileKey": "yt:ysJ82L-1rEc",
+   "story": "library/stories/ddcbe967fd.jpg"
+  },
+  {
+   "id": "2ad355b44f",
+   "title": "My Immortal (Band Version)",
+   "artist": "Evanescence",
+   "artists": [
+    "Evanescence"
+   ],
+   "album": "Fallen",
+   "year": 2003,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "sad",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.82,
+   "danceability": 0.87,
+   "bpm": 150,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 271.58,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2ad355b44f.mp3",
+   "cover": "library/covers/2ad355b44f.jpg",
+   "color": "#4b789b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:29:57Z",
+   "mime": "audio/mpeg",
+   "size": 6519323,
+   "storage": "release",
+   "lufs": -10.6,
+   "gain": -3.4,
+   "via": "audio",
+   "fileKey": "yt:Cgasz7W9DVA",
+   "story": "library/stories/2ad355b44f.jpg"
+  },
+  {
+   "id": "f77eb6a22f",
+   "title": "Fuel",
+   "artist": "Metallica",
+   "artists": [
+    "Metallica"
+   ],
+   "album": "Fuel (Take 2 - May 18th, 1995)",
+   "year": 2026,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 269.73,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f77eb6a22f.mp3",
+   "cover": "library/covers/f77eb6a22f.jpg",
+   "color": "#f0af0f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:28:49Z",
+   "mime": "audio/mpeg",
+   "size": 6474971,
+   "storage": "release",
+   "lufs": -7.5,
+   "gain": -6.5,
+   "via": "audio",
+   "fileKey": "yt:UnfL0JGE2_4",
+   "story": "library/stories/f77eb6a22f.jpg"
+  },
+  {
+   "id": "38ab3604ba",
+   "title": "The Day That Never Comes",
+   "artist": "Metallica",
+   "artists": [
+    "Metallica"
+   ],
+   "album": "Death Magnetic",
+   "year": 2008,
+   "genre": "Metal",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "angry",
+    "dark"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 132,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 476.27,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/38ab3604ba.mp3",
+   "cover": "library/covers/38ab3604ba.jpg",
+   "color": "#584437",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:27:36Z",
+   "mime": "audio/mpeg",
+   "size": 11432032,
+   "storage": "release",
+   "lufs": -3.8,
+   "gain": -10.2,
+   "via": "audio",
+   "fileKey": "yt:RD83oy7ksUE",
+   "story": "library/stories/38ab3604ba.jpg"
+  },
+  {
+   "id": "a34df2baa1",
+   "title": "Wherever I May Roam",
+   "artist": "Metallica",
+   "artists": [
+    "Metallica"
+   ],
+   "album": "Metallica (Remastered)",
+   "year": 1991,
+   "genre": "Metal",
+   "subgenre": null,
+   "moods": [
+    "angry",
+    "dark"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 131,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 404.33,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a34df2baa1.mp3",
+   "cover": "library/covers/a34df2baa1.jpg",
+   "color": "#8f008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:25:52Z",
+   "mime": "audio/mpeg",
+   "size": 9705763,
+   "storage": "release",
+   "lufs": -10.8,
+   "gain": -3.2,
+   "via": "audio",
+   "fileKey": "yt:Z-cEyiM9adE",
+   "story": "library/stories/a34df2baa1.jpg"
+  },
+  {
+   "id": "a309ae91dc",
+   "title": "Sad But True",
+   "artist": "Metallica",
+   "artists": [
+    "Metallica"
+   ],
+   "album": "Metallica (Deluxe Box Set)",
+   "year": 1991,
+   "genre": "Metal",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "motivational",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": 89,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 324.56,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a309ae91dc.mp3",
+   "cover": "library/covers/a309ae91dc.jpg",
+   "color": "#8f008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:24:56Z",
+   "mime": "audio/mpeg",
+   "size": 7791136,
+   "storage": "release",
+   "lufs": -11.9,
+   "gain": -2.1,
+   "via": "audio",
+   "fileKey": "yt:Gfikhqr-M84",
+   "story": "library/stories/a309ae91dc.jpg"
+  },
+  {
+   "id": "a2f42a8f55",
+   "title": "Master of Puppets",
+   "artist": "Metallica",
+   "artists": [
+    "Metallica"
+   ],
+   "album": "Master of Puppets (Deluxe Box Set)",
+   "year": 1986,
+   "genre": "Metal",
+   "subgenre": null,
+   "moods": [
+    "angry",
+    "dark"
+   ],
+   "language": "en",
+   "energy": 0.95,
+   "danceability": 1.0,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 515.39,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a2f42a8f55.mp3",
+   "cover": "library/covers/a2f42a8f55.jpg",
+   "color": "#a5644a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:24:15Z",
+   "mime": "audio/mpeg",
+   "size": 12370925,
+   "storage": "release",
+   "lufs": -11.3,
+   "gain": -2.7,
+   "via": "audio",
+   "fileKey": "yt:E0ozmU9cJDg",
+   "story": "library/stories/a2f42a8f55.jpg"
+  },
   {
    "id": "785cd07496",
    "title": "One",
