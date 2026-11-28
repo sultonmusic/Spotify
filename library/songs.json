@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T10:58:31Z",
- "count": 604,
+ "updatedAt": "2026-11-28T11:15:49Z",
+ "count": 610,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -6266,6 +6266,280 @@
   }
  },
  "songs": [
+  {
+   "id": "c5c69d4464",
+   "title": "K.",
+   "artist": "Cigarettes After Sex",
+   "artists": [
+    "Cigarettes After Sex"
+   ],
+   "album": "Cigarettes After Sex",
+   "year": 2016,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 94,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 319.56,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c5c69d4464.mp3",
+   "cover": "library/covers/c5c69d4464.jpg",
+   "color": "#444b47",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T11:15:49Z",
+   "mime": "audio/mpeg",
+   "size": 7670747,
+   "storage": "release",
+   "lufs": -10.4,
+   "gain": -3.6,
+   "via": "audio",
+   "fileKey": "yt:26Uo_l5Iipo",
+   "story": "library/stories/c5c69d4464.jpg"
+  },
+  {
+   "id": "fd83b17307",
+   "title": "Wires",
+   "artist": "The Neighbourhood",
+   "artists": [
+    "The Neighbourhood"
+   ],
+   "album": "I Love You. (10th Anniversary Edition)",
+   "year": 2012,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 146,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 192.6,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/fd83b17307.mp3",
+   "cover": "library/covers/fd83b17307.jpg",
+   "color": "#787878",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T11:13:59Z",
+   "mime": "audio/mpeg",
+   "size": 4623725,
+   "storage": "release",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:w-0XOTVFs2k",
+   "story": "library/stories/fd83b17307.jpg"
+  },
+  {
+   "id": "34ff29665f",
+   "title": "Stargazing",
+   "artist": "The Neighbourhood",
+   "artists": [
+    "The Neighbourhood"
+   ],
+   "album": "Chip Chrome & The Mono-Tones (Deluxe)",
+   "year": 2020,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 217.03,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/34ff29665f.mp3",
+   "cover": "library/covers/34ff29665f.jpg",
+   "color": "#00ffff",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T11:08:07Z",
+   "mime": "audio/mpeg",
+   "size": 5210097,
+   "storage": "release",
+   "lufs": -8.5,
+   "gain": -5.5,
+   "via": "audio",
+   "fileKey": "yt:NhO5-OUecvY",
+   "story": "library/stories/34ff29665f.jpg"
+  },
+  {
+   "id": "ba5e1705b1",
+   "title": "Reflections",
+   "artist": "The Neighbourhood",
+   "artists": [
+    "The Neighbourhood"
+   ],
+   "album": "Hard To Imagine The Neighbourhood Ever Changing",
+   "year": 2018,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": 114,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 244.01,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ba5e1705b1.mp3",
+   "cover": "library/covers/ba5e1705b1.jpg",
+   "color": "#753b1a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T11:07:26Z",
+   "mime": "audio/mpeg",
+   "size": 5858108,
+   "storage": "release",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "yt:nhys3nF4ZDU",
+   "story": "library/stories/ba5e1705b1.jpg"
+  },
+  {
+   "id": "076e0f66ce",
+   "title": "R.I.P. 2 My Youth",
+   "artist": "The Neighbourhood",
+   "artists": [
+    "The Neighbourhood"
+   ],
+   "album": "Wiped Out!",
+   "year": 2015,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "sad",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 205.28,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/076e0f66ce.mp3",
+   "cover": "library/covers/076e0f66ce.jpg",
+   "color": "#8f0000",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T11:07:00Z",
+   "mime": "audio/mpeg",
+   "size": 4928413,
+   "storage": "release",
+   "lufs": -8.0,
+   "gain": -6.0,
+   "via": "audio",
+   "fileKey": "yt:K9AAD-3Xpds",
+   "story": "library/stories/076e0f66ce.jpg"
+  },
+  {
+   "id": "ad38be9989",
+   "title": "The Beach",
+   "artist": "The Neighbourhood",
+   "artists": [
+    "The Neighbourhood"
+   ],
+   "album": "Wiped Out!",
+   "year": 2015,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.72,
+   "danceability": 0.77,
+   "bpm": 136,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 255.13,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ad38be9989.mp3",
+   "cover": "library/covers/ad38be9989.jpg",
+   "color": "#8f0000",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T11:04:37Z",
+   "mime": "audio/mpeg",
+   "size": 6124757,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:bShFqyt6Ad8",
+   "story": "library/stories/ad38be9989.jpg"
+  },
   {
    "id": "2f8f363a1e",
    "title": "Softcore",
