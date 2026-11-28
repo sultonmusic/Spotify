@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T09:56:57Z",
- "count": 550,
+ "updatedAt": "2026-11-28T10:18:38Z",
+ "count": 570,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4577,7 +4577,9 @@
    "youtubeMusic": "https://music.youtube.com/channel/UC8Yu1_yfN5qPh601Y4btsYw"
   },
   "Linkin Park": {
-   "aliases": [],
+   "aliases": [
+    "LINKIN PARK"
+   ],
    "verified": true,
    "deezerId": 92,
    "itunesId": 148662,
@@ -6262,6 +6264,918 @@
   }
  },
  "songs": [
+  {
+   "id": "785cd07496",
+   "title": "One",
+   "artist": "Metallica",
+   "artists": [
+    "Metallica"
+   ],
+   "album": "...And Justice for All (Deluxe Box Set)",
+   "year": 1988,
+   "genre": "Metal",
+   "subgenre": null,
+   "moods": [
+    "angry",
+    "dark"
+   ],
+   "language": "en",
+   "energy": 0.95,
+   "danceability": 1.0,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 447.44,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/785cd07496.mp3",
+   "cover": "library/covers/785cd07496.jpg",
+   "color": "#c1a23e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:18:37Z",
+   "mime": "audio/mpeg",
+   "size": 10740260,
+   "storage": "release",
+   "lufs": -11.0,
+   "gain": -3.0,
+   "via": "audio",
+   "fileKey": "yt:tlO3lZhDukU",
+   "story": "library/stories/785cd07496.jpg"
+  },
+  {
+   "id": "150e7710bf",
+   "title": "The Unforgiven",
+   "artist": "Metallica",
+   "artists": [
+    "Metallica"
+   ],
+   "album": "Metallica (Remastered)",
+   "year": 1991,
+   "genre": "Metal",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "angry",
+    "dark"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 139,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 387.13,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/150e7710bf.mp3",
+   "cover": "library/covers/150e7710bf.jpg",
+   "color": "#8f008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:15:38Z",
+   "mime": "audio/mpeg",
+   "size": 9292766,
+   "storage": "release",
+   "lufs": -13.3,
+   "gain": -0.7,
+   "via": "audio",
+   "fileKey": "yt:IKhscaE_9Ks",
+   "story": "library/stories/150e7710bf.jpg"
+  },
+  {
+   "id": "8c49f605e9",
+   "title": "Enter Sandman",
+   "artist": "Metallica",
+   "artists": [
+    "Metallica"
+   ],
+   "album": "Metallica (Deluxe Box Set)",
+   "year": 1991,
+   "genre": "Metal",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "calm",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 125,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 331.57,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8c49f605e9.mp3",
+   "cover": "library/covers/8c49f605e9.jpg",
+   "color": "#8f008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:13:11Z",
+   "mime": "audio/mpeg",
+   "size": 7959329,
+   "storage": "release",
+   "lufs": -12.2,
+   "gain": -1.8,
+   "via": "audio",
+   "fileKey": "yt:CHIWNDAwTqQ",
+   "story": "library/stories/8c49f605e9.jpg"
+  },
+  {
+   "id": "bc1757c1a8",
+   "title": "BURN IT DOWN",
+   "artist": "Linkin Park",
+   "artists": [
+    "Linkin Park"
+   ],
+   "album": "LIVING THINGS",
+   "year": 2012,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "motivational",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": 110,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 230.25,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/bc1757c1a8.mp3",
+   "cover": "library/covers/bc1757c1a8.jpg",
+   "color": "#7b7577",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:09:47Z",
+   "mime": "audio/mpeg",
+   "size": 5527444,
+   "storage": "release",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:vIOO_7DLr3M",
+   "story": "library/stories/bc1757c1a8.jpg"
+  },
+  {
+   "id": "a1e7c25179",
+   "title": "New Divide",
+   "artist": "Linkin Park",
+   "artists": [
+    "Linkin Park"
+   ],
+   "album": "Transformers: Revenge of the Fallen (The Album)",
+   "year": 2009,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "dreamy",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 118,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 268.9,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a1e7c25179.mp3",
+   "cover": "library/covers/a1e7c25179.jpg",
+   "color": "#233d6c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:09:23Z",
+   "mime": "audio/mpeg",
+   "size": 6455418,
+   "storage": "release",
+   "lufs": -7.7,
+   "gain": -6.3,
+   "via": "audio",
+   "fileKey": "yt:GVakVXR1RIg",
+   "story": "library/stories/a1e7c25179.jpg"
+  },
+  {
+   "id": "70044fb9b3",
+   "title": "Somewhere I Belong",
+   "artist": "Linkin Park",
+   "artists": [
+    "Linkin Park"
+   ],
+   "album": "Meteora (Deluxe Edition)",
+   "year": 2003,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "sad",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.7,
+   "danceability": 0.75,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 213.93,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/70044fb9b3.mp3",
+   "cover": "library/covers/70044fb9b3.jpg",
+   "color": "#8f4c00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:08:50Z",
+   "mime": "audio/mpeg",
+   "size": 5135781,
+   "storage": "release",
+   "lufs": -6.6,
+   "gain": -7.4,
+   "via": "audio",
+   "fileKey": "yt:-YQ8IbVIwPM",
+   "story": "library/stories/70044fb9b3.jpg"
+  },
+  {
+   "id": "faa230d1a2",
+   "title": "One Step Closer",
+   "artist": "Linkin Park",
+   "artists": [
+    "Linkin Park"
+   ],
+   "album": "Hybrid Theory (Deluxe Edition)",
+   "year": 2000,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 157.33,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/faa230d1a2.mp3",
+   "cover": "library/covers/faa230d1a2.jpg",
+   "color": "#751920",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:08:26Z",
+   "mime": "audio/mpeg",
+   "size": 3777577,
+   "storage": "release",
+   "lufs": -6.6,
+   "gain": -7.4,
+   "via": "audio",
+   "fileKey": "yt:KwN_f0fTHoE",
+   "story": "library/stories/faa230d1a2.jpg"
+  },
+  {
+   "id": "b7c2f6fa9e",
+   "title": "Breaking the Habit",
+   "artist": "Linkin Park",
+   "artists": [
+    "Linkin Park"
+   ],
+   "album": "Meteora (Deluxe Edition)",
+   "year": 2003,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "motivational",
+    "party",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 196.13,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b7c2f6fa9e.mp3",
+   "cover": "library/covers/b7c2f6fa9e.jpg",
+   "color": "#8f4c00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:08:09Z",
+   "mime": "audio/mpeg",
+   "size": 4708965,
+   "storage": "release",
+   "lufs": -6.9,
+   "gain": -7.1,
+   "via": "audio",
+   "fileKey": "yt:_e7bqZGPyFI",
+   "story": "library/stories/b7c2f6fa9e.jpg"
+  },
+  {
+   "id": "32947737c9",
+   "title": "Faint",
+   "artist": "Linkin Park",
+   "artists": [
+    "Linkin Park"
+   ],
+   "album": "Meteora (Deluxe Edition)",
+   "year": 2003,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "motivational",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 168.17,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/32947737c9.mp3",
+   "cover": "library/covers/32947737c9.jpg",
+   "color": "#8f4c00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:07:45Z",
+   "mime": "audio/mpeg",
+   "size": 4037912,
+   "storage": "release",
+   "lufs": -7.7,
+   "gain": -6.3,
+   "via": "audio",
+   "fileKey": "yt:vwxDtaDBP_I",
+   "story": "library/stories/32947737c9.jpg"
+  },
+  {
+   "id": "cf054dd951",
+   "title": "What I've Done",
+   "artist": "Linkin Park",
+   "artists": [
+    "Linkin Park"
+   ],
+   "album": "Minutes to Midnight (Deluxe Edition)",
+   "year": 2007,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 205.23,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/cf054dd951.mp3",
+   "cover": "library/covers/cf054dd951.jpg",
+   "color": "#ffaa00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:07:17Z",
+   "mime": "audio/mpeg",
+   "size": 4927277,
+   "storage": "release",
+   "lufs": -7.6,
+   "gain": -6.4,
+   "via": "audio",
+   "fileKey": "yt:qu0k38VMaV4",
+   "story": "library/stories/cf054dd951.jpg"
+  },
+  {
+   "id": "c977025432",
+   "title": "Crawling",
+   "artist": "Linkin Park",
+   "artists": [
+    "Linkin Park"
+   ],
+   "album": "Hybrid Theory (Deluxe Edition)",
+   "year": 2000,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 105,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 208.96,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c977025432.mp3",
+   "cover": "library/covers/c977025432.jpg",
+   "color": "#751920",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:06:53Z",
+   "mime": "audio/mpeg",
+   "size": 5016546,
+   "storage": "release",
+   "lufs": -7.3,
+   "gain": -6.7,
+   "via": "audio",
+   "fileKey": "yt:I6NU3kWqnDE",
+   "story": "library/stories/c977025432.jpg"
+  },
+  {
+   "id": "8ee81caf57",
+   "title": "In the End",
+   "artist": "Linkin Park",
+   "artists": [
+    "Linkin Park"
+   ],
+   "album": "Hybrid Theory (Deluxe Edition)",
+   "year": 2000,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 105,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 216.93,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8ee81caf57.mp3",
+   "cover": "library/covers/8ee81caf57.jpg",
+   "color": "#751920",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:06:30Z",
+   "mime": "audio/mpeg",
+   "size": 5207780,
+   "storage": "release",
+   "lufs": -8.9,
+   "gain": -5.1,
+   "via": "audio",
+   "fileKey": "yt:BLZWkjBXfN8",
+   "story": "library/stories/8ee81caf57.jpg"
+  },
+  {
+   "id": "3d4f56426e",
+   "title": "Keep The Faith",
+   "artist": "Bon Jovi",
+   "artists": [
+    "Bon Jovi"
+   ],
+   "album": "Keep the Faith",
+   "year": 1992,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 346.53,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3d4f56426e.mp3",
+   "cover": "library/covers/3d4f56426e.jpg",
+   "color": "#807067",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:06:11Z",
+   "mime": "audio/mpeg",
+   "size": 8318163,
+   "storage": "release",
+   "lufs": -7.7,
+   "gain": -6.3,
+   "via": "audio",
+   "fileKey": "yt:59ek3pN_dxc",
+   "story": "library/stories/3d4f56426e.jpg"
+  },
+  {
+   "id": "cd2dcc2520",
+   "title": "Runaway",
+   "artist": "Bon Jovi",
+   "artists": [
+    "Bon Jovi"
+   ],
+   "album": "Bon Jovi",
+   "year": 1984,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 230.67,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/cd2dcc2520.mp3",
+   "cover": "library/covers/cd2dcc2520.jpg",
+   "color": "#db9724",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:05:34Z",
+   "mime": "audio/mpeg",
+   "size": 5537799,
+   "storage": "release",
+   "lufs": -7.5,
+   "gain": -6.5,
+   "via": "audio",
+   "fileKey": "yt:kb2DgAF3egQ",
+   "story": "library/stories/cd2dcc2520.jpg"
+  },
+  {
+   "id": "06370b0796",
+   "title": "I'll Be There For You",
+   "artist": "Bon Jovi",
+   "artists": [
+    "Bon Jovi"
+   ],
+   "album": "New Jersey (Deluxe Edition)",
+   "year": 1988,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "romantic",
+    "sad",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 145,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 346.59,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/06370b0796.mp3",
+   "cover": "library/covers/06370b0796.jpg",
+   "color": "#6d7a81",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:05:07Z",
+   "mime": "audio/mpeg",
+   "size": 8319912,
+   "storage": "release",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "yt:fhnfcHSPrfw",
+   "story": "library/stories/06370b0796.jpg"
+  },
+  {
+   "id": "a14d118398",
+   "title": "Have A Nice Day",
+   "artist": "Bon Jovi",
+   "artists": [
+    "Bon Jovi"
+   ],
+   "album": "Have a Nice Day",
+   "year": 2006,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 130,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 229.11,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a14d118398.mp3",
+   "cover": "library/covers/a14d118398.jpg",
+   "color": "#bf311b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:04:32Z",
+   "mime": "audio/mpeg",
+   "size": 5500374,
+   "storage": "release",
+   "lufs": -7.6,
+   "gain": -6.4,
+   "via": "audio",
+   "fileKey": "yt:_GorjQ1K8-U",
+   "story": "library/stories/a14d118398.jpg"
+  },
+  {
+   "id": "76f423297e",
+   "title": "Wanted Dead Or Alive",
+   "artist": "Bon Jovi",
+   "artists": [
+    "Bon Jovi"
+   ],
+   "album": "Slippery When Wet",
+   "year": 1986,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 151,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 308.67,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/76f423297e.mp3",
+   "cover": "library/covers/76f423297e.jpg",
+   "color": "#88777c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:04:03Z",
+   "mime": "audio/mpeg",
+   "size": 7409821,
+   "storage": "release",
+   "lufs": -8.3,
+   "gain": -5.7,
+   "via": "audio",
+   "fileKey": "yt:xNRaDavYo1M",
+   "story": "library/stories/76f423297e.jpg"
+  },
+  {
+   "id": "1a04eb293f",
+   "title": "Bed Of Roses",
+   "artist": "Bon Jovi",
+   "artists": [
+    "Bon Jovi"
+   ],
+   "album": "Cross Road",
+   "year": 1983,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 394.4,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1a04eb293f.mp3",
+   "cover": "library/covers/1a04eb293f.jpg",
+   "color": "#008f8f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:03:34Z",
+   "mime": "audio/mpeg",
+   "size": 9467277,
+   "storage": "release",
+   "lufs": -9.1,
+   "gain": -4.9,
+   "via": "audio",
+   "fileKey": "yt:ZYc1jps3JWI",
+   "story": "library/stories/1a04eb293f.jpg"
+  },
+  {
+   "id": "f296061fa4",
+   "title": "You Give Love A Bad Name",
+   "artist": "Bon Jovi",
+   "artists": [
+    "Bon Jovi"
+   ],
+   "album": "Slippery When Wet",
+   "year": 1986,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": 123,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 222.71,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f296061fa4.mp3",
+   "cover": "library/covers/f296061fa4.jpg",
+   "color": "#88777c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:02:47Z",
+   "mime": "audio/mpeg",
+   "size": 5346593,
+   "storage": "release",
+   "lufs": -7.1,
+   "gain": -6.9,
+   "via": "audio",
+   "fileKey": "yt:Aqc3VTpz9HQ",
+   "story": "library/stories/f296061fa4.jpg"
+  },
+  {
+   "id": "8c0ce79579",
+   "title": "Always",
+   "artist": "Bon Jovi",
+   "artists": [
+    "Bon Jovi"
+   ],
+   "album": "Cross Road",
+   "year": 1994,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "nostalgic"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 143,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 365.8,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8c0ce79579.mp3",
+   "cover": "library/covers/8c0ce79579.jpg",
+   "color": "#008f8f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:01:47Z",
+   "mime": "audio/mpeg",
+   "size": 8780679,
+   "storage": "release",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "yt:5Ot4n64Jpbw",
+   "story": "library/stories/8c0ce79579.jpg"
+  },
   {
    "id": "959281140f",
    "title": "Livin' On A Prayer",
