@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T20:32:04Z",
+ "updatedAt": "2026-11-28T20:38:44Z",
  "count": 614,
  "site": {
   "admins": [
@@ -4675,7 +4675,22 @@
    "albums": 109,
    "ytPhotoChecked": "2026-11-27T00:05:44Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCgpBsaDW2n_6ruzht3wvP0A"
+   "youtubeMusic": "https://music.youtube.com/channel/UCgpBsaDW2n_6ruzht3wvP0A",
+   "bioChecked": "2026-11-28T20:38:39Z",
+   "bio": {
+    "en": "Samuel Frederick Smith is an English singer and songwriter. In 2012, they rose to prominence when they featured on electronic music duo Disclosure's breakthrough single \"Latch\", which peaked at No. 11 on the UK singles chart. The following year, they featured on record producer Naughty Boy's single \"La La La\", which became a number one single in the UK.",
+    "ru": "Сэмюель Фредерик (Сэм) Смит — британский певец и автор-исполнитель.",
+    "uz": "Samuel Frederik (Sem) Smith — britaniyalik qoʻshiqchi va qoʻshiq muallifi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Sam_Smith",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A1%D0%BC%D0%B8%D1%82%2C_%D0%A1%D1%8D%D0%BC",
+    "uz": "https://uz.wikipedia.org/wiki/Samuel_Smith"
+   },
+   "desc": {
+    "en": "English singer and songwriter (born 1992)",
+    "ru": "британский певец и автор-исполнитель"
+   }
   },
   "Kim Petras": {
    "aliases": [],
@@ -4690,7 +4705,24 @@
    "albums": 74,
    "ytPhotoChecked": "2026-11-27T00:05:45Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCHG91TZ3WrWbZGD5sbkXsxg"
+   "youtubeMusic": "https://music.youtube.com/channel/UCHG91TZ3WrWbZGD5sbkXsxg",
+   "bioChecked": "2026-11-28T20:38:43Z",
+   "bio": {
+    "en": "Kim Petras is a German singer and songwriter based in Los Angeles. After gaining international media attention for transitioning as a teenager, she released her debut EP, One Piece of Tape (2011), and wrote tracks for Fergie, JoJo, Skylar Simone, and Twice. In 2017, Petras released her debut single \"I Don't Want It at All\", which charted at No. 54 on Billboard's Dance Club Songs chart. She followed this with her second EP, Turn Off the Light, Vol.",
+    "ru": "Ким Петрас — немецкая певица и автор песен. Дебютный EP Ким, который позже был удалён с площадок, вышел 11 марта 2011 года и получил название One Piece Of Tape. Позже начинающую поп-звезду заметил Лукаш Готвальд и подписал её на свой лейбл. 1 августа 2017 года состоялась премьера дебютного сингла «I Don’t Want It All», а дебютный альбом Feed The Beast вышел 23 июня 2023 года. Дискография у Петрас богатая, помимо дебютных работ в неё входят микстейпы и EP: TURN OFF THE LIGHT, VOL.",
+    "uz": "Kim Petras - Los-Anjelesda joylashgan nemis qo'shiqchisi va qo'shiq muallifi. O'smirlik davridagi o'tish davri uchun xalqaro ommaviy axborot vositalarining e'tiborini qozonganidan so'ng, u o'zining debyut EP, One Piece of Tape (2011) ni chiqardi va Fergie, JoJo, Skylar Simone va Twice uchun treklarni yozdi. 2017 yilda Petras o'zining \"Men buni umuman xohlamayman\" debyut singlini chiqardi va u 1-o'rinni egalladi. Billboard's Dance Club qo'shiqlari jadvalida 54-o'rin. U o'zining ikkinchi EP, Turn Off the Light, Vol."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Kim_Petras",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%82%D1%80%D0%B0%D1%81%2C_%D0%9A%D0%B8%D0%BC"
+   },
+   "desc": {
+    "en": "German singer and songwriter (born 1992)",
+    "ru": "немецкая певица и автор песен"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Harry Styles": {
    "aliases": [],
@@ -4707,7 +4739,22 @@
    "albums": 7,
    "ytPhotoChecked": "2026-11-27T00:05:46Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCVacQ2t5GUZ2t_J3Ia9BynA"
+   "youtubeMusic": "https://music.youtube.com/channel/UCVacQ2t5GUZ2t_J3Ia9BynA",
+   "bioChecked": "2026-11-28T20:38:44Z",
+   "bio": {
+    "en": "Harry Edward Styles is an English singer, songwriter, and actor. An influential figure in popular culture, he is known for his showmanship, artistry, and flamboyant fashion. Styles's musical career began in 2010 as part of One Direction, a boy band formed on the British music competition series The X Factor after each member of the band had been eliminated from the solo contest. They became one of the best-selling boy bands of all time before going on an indefinite hiatus in 2016.",
+    "ru": "Га́рри Э́двард Стайлз — английский певец, автор песен и актёр.",
+    "uz": "Harry Edward Styles — ingliz qoʻshiqchisi, qoʻshiqnavis va aktyor. Uning musiqiy karyerasi 2010-yilda Britaniyaning „X Factor“ musiqiy tanlovi seriyasida yakkaxon ishtirokchi sifatida boshlangan. U 2016-yilda nomaʼlum tanaffusga chiqishdan oldin barcha davrlarning eng koʻp sotilgan bolalar guruhlaridan biriga aylangan One Direction guruhiga qoʻshilish uchun qaytarilgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Harry_Styles",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D0%B9%D0%BB%D0%B7%2C_%D0%93%D0%B0%D1%80%D1%80%D0%B8",
+    "uz": "https://uz.wikipedia.org/wiki/Harry_Styles"
+   },
+   "desc": {
+    "en": "English singer, songwriter, and actor (born 1994)",
+    "ru": "британский певец и актёр"
+   }
   },
   "Miley Cyrus": {
    "aliases": [],
@@ -31916,7 +31963,10 @@
    "tg": {
     "msgs": [
      207,
-     208
+     208,
+     1037,
+     1038,
+     1039
     ]
    },
    "addedAt": "2026-10-02T16:39:44Z",
@@ -31927,7 +31977,12 @@
    "gain": -4.5,
    "via": "audio",
    "fileKey": "1cefe178735f2b1f",
-   "story": "library/stories/1cefe17873.jpg"
+   "story": "library/stories/1cefe17873.jpg",
+   "video": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1cefe17873-v1795898194.mp4",
+   "videoSize": 11004540,
+   "videoOffset": 0.0,
+   "videoKey": "6ee9c3b32bc807ee",
+   "updatedAt": "2026-11-28T20:36:36Z"
   },
   {
    "id": "6785fab441",
