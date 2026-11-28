@@ -1,7 +1,30 @@
 {
  "setup": "0a9eade0e683982ed5a9edb9af1670b9bd833d6f",
  "owner": "336f31d9aeea55626bc39096ee1b59bd46aa9eef596af31dd77dc65bf06751b5",
- "asks": {},
+ "asks": {
+  "09c5112c": {
+   "t": 1795896574,
+   "chat": 8988775229,
+   "msg": 1030,
+   "kind": "audio",
+   "caption": "\u200b\u200b\ud83d\udc49 @YuklaydiBot",
+   "media": {
+    "file_id": "CQACAgIAAxkBAAIEBmsLNMMnuh0XkGq2FxNR3xGBcQPFAAIxZQACa8CoS8L7MNWy9r1lPQQ",
+    "file_unique_id": "AgADMWUAAmvAqEs",
+    "file_name": "u3ijs6mbiqzgzl16yipp.m4a",
+    "mime_type": "audio/mp4",
+    "file_size": 3220583,
+    "duration": 199,
+    "performer": "LONOWN",
+    "title": "AVANGARD (SLOWED) [Official Visualizer]"
+   },
+   "base": "Avangard",
+   "artist": "LONOWN",
+   "variant": "slowed",
+   "title": "Avangard (Slowed)",
+   "wait": false
+  }
+ },
  "ad_draft": {
   "t": 1794853317,
   "chat": 8988775229
@@ -2281,6 +2304,122 @@
   "1b9bf179ab": {
    "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1b9bf179ab.mp3",
    "m": 575
+  },
+  "87840c9f4f": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/87840c9f4f.mp3",
+   "m": 576
+  },
+  "14fd39b184": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/14fd39b184.mp3",
+   "m": 577
+  },
+  "eccf67ec8c": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/eccf67ec8c.mp3",
+   "m": 578
+  },
+  "de2a7d612e": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/de2a7d612e.mp3",
+   "m": 579
+  },
+  "a8830b0cb8": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a8830b0cb8.mp3",
+   "m": 580
+  },
+  "790fa13021": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/790fa13021.mp3",
+   "m": 581
+  },
+  "35c4d5b9a1": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/35c4d5b9a1.mp3",
+   "m": 582
+  },
+  "3fb54e2b37": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3fb54e2b37.mp3",
+   "m": 583
+  },
+  "5bceac60fc": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5bceac60fc.mp3",
+   "m": 584
+  },
+  "c8009b0d76": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c8009b0d76.mp3",
+   "m": 585
+  },
+  "8d14475974": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8d14475974.mp3",
+   "m": 586
+  },
+  "a157f9d29f": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a157f9d29f.mp3",
+   "m": 587
+  },
+  "651d557c89": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/651d557c89.mp3",
+   "m": 588
+  },
+  "94710bbc1c": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/94710bbc1c.mp3",
+   "m": 589
+  },
+  "d0ca3dd081": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d0ca3dd081.mp3",
+   "m": 590
+  },
+  "d2d48a5129": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d2d48a5129.mp3",
+   "m": 591
+  },
+  "7bf54a28b7": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7bf54a28b7.mp3",
+   "m": 592
+  },
+  "1f1b0a76c2": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1f1b0a76c2.mp3",
+   "m": 593
+  },
+  "3454cf7af9": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3454cf7af9.mp3",
+   "m": 594
+  },
+  "8171a51b81": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8171a51b81.mp3",
+   "m": 595
+  },
+  "e69b179cae": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e69b179cae.mp3",
+   "m": 596
+  },
+  "ddff2363ed": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ddff2363ed.mp3",
+   "m": 597
+  },
+  "efb4f5ab35": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/efb4f5ab35.mp3",
+   "m": 598
+  },
+  "247f70934f": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/247f70934f.mp3",
+   "m": 599
+  },
+  "f526e9a8e0": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f526e9a8e0.mp3",
+   "m": 600
+  },
+  "0324277225": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0324277225.mp3",
+   "m": 601
+  },
+  "91bb08359d": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/91bb08359d.mp3",
+   "m": 602
+  },
+  "d64f48e709": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d64f48e709.mp3",
+   "m": 603
+  },
+  "218d116654": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/218d116654.mp3",
+   "m": 604
   }
  }
 }

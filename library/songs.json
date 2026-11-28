@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T17:49:19Z",
+ "updatedAt": "2026-11-28T20:14:47Z",
  "count": 613,
  "site": {
   "admins": [
@@ -4483,7 +4483,22 @@
    "albums": 97,
    "ytPhotoChecked": "2026-11-26T21:17:41Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCU6cE7pdJPc6DU2jSrKEsdQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCU6cE7pdJPc6DU2jSrKEsdQ",
+   "bioChecked": "2026-11-28T20:11:37Z",
+   "bio": {
+    "en": "Aubrey Drake Graham is a Canadian rapper, singer and actor. He is considered as one of the greatest rappers of all time and is credited with popularizing R&B sensibilities in hip-hop. Drake first gained recognition as Jimmy Brooks in the CTV teen drama series Degrassi: The Next Generation (2001–2008) and began his music career by independently releasing the mixtapes Room for Improvement (2006), Comeback Season (2007), and So Far Gone (2009), before signing with Young Money Entertainment.",
+    "ru": "О́бри Дрейк Грэм, более известный мононимно как Дрейк — канадский рэпер, певец, автор песен, музыкальный продюсер, актёр и предприниматель.",
+    "uz": "Aubrey Drake Graham — kanadalik reper, qoʻshiqchi, qoʻshiq muallifi, aktyor, prodyuser va tadbirkor."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Drake_(musician)",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%94%D1%80%D0%B5%D0%B9%D0%BA_(%D1%80%D1%8D%D0%BF%D0%B5%D1%80)",
+    "uz": "https://uz.wikipedia.org/wiki/Drake"
+   },
+   "desc": {
+    "en": "Canadian rapper and singer (born 1986)",
+    "ru": "канадский рэпер, певец и актёр"
+   }
   },
   "Travis Scott": {
    "aliases": [],
@@ -4500,7 +4515,22 @@
    "albums": 66,
    "ytPhotoChecked": "2026-11-26T21:17:42Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCf_gP4AMRSgAfyzbkeS9k4g"
+   "youtubeMusic": "https://music.youtube.com/channel/UCf_gP4AMRSgAfyzbkeS9k4g",
+   "bioChecked": "2026-11-28T20:11:39Z",
+   "bio": {
+    "en": "Jacques Bermon Webster II, known professionally as Travis Scott, is an American rapper, singer-songwriter, and record producer. Scott has had five number-one hits on the U.S. Billboard Hot 100 chart, along with a total of over one hundred charting songs. In addition to ten Grammy Award nominations, he has won a Latin Grammy Award, Billboard Music Award, MTV Video Music Award, and several BET Hip Hop Awards. Scott is known for his dynamic live performances, eclectic musical style and fashion, while taking influences from artists including Kanye West and Kid Cudi.",
+    "ru": "Трэ́вис Скотт — американский рэпер, певец, автор песен и музыкальный продюсер.",
+    "uz": "Travis Skott — 1991-yil 31-aprelda Xyuston chekkasida joylashgan Missuri shahrida dunyoga kelgan. Asl ismi — Jak Berman Vebster. Mashhur reper."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Travis_Scott",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D1%80%D1%8D%D0%B2%D0%B8%D1%81_%D0%A1%D0%BA%D0%BE%D1%82%D1%82_(%D1%80%D1%8D%D0%BF%D0%B5%D1%80)",
+    "uz": "https://uz.wikipedia.org/wiki/Travis_Scott"
+   },
+   "desc": {
+    "en": "American rapper (born 1991)",
+    "ru": "Американский трэп-исполнитель"
+   }
   },
   "Karolina Protsenko": {
    "aliases": [],
@@ -4513,7 +4543,23 @@
    "image": "library/artists/karolina-protsenko-yt.jpg",
    "color": "#a87857",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCOIcW9iHcbdt0LKXpAW8Gog"
+   "youtubeMusic": "https://music.youtube.com/channel/UCOIcW9iHcbdt0LKXpAW8Gog",
+   "bioChecked": "2026-11-28T20:11:41Z",
+   "bio": {
+    "en": "Karolina Mykolayivna Protsenko, known since July 2025 as Karolina Rose, is a Ukrainian violinist and pianist performing contemporary pop music in the United States. She is an internet celebrity, and records street performance of music, primarily at Third Street Promenade in Santa Monica, California.",
+    "uz": "Karolina Mikolayivna Protsenko, 2025-yil iyulidan Karolina Rouz nomi bilan tanilgan, AQShda zamonaviy pop musiqasini ijro etuvchi ukrainalik skripkachi va pianinochi. U internetda mashhur bo'lib, asosan Kaliforniya shtati Santa-Monika shahridagi Third Street Promenade-da musiqa ijrosini yozib boradi.",
+    "ru": "Каролина Николаевна Проценко, известная с июля 2025 года как Каролина Роуз, — украинская скрипачка и пианистка, исполняющая современную поп-музыку в США. Она интернет-знаменитость и записывает уличные музыкальные исполнения, в основном на набережной Третьей улицы в Санта-Монике, Калифорния."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Karolina_Protsenko"
+   },
+   "desc": {
+    "en": "Ukrainian-born violinist, pianist, guitarist and singer (born 2008)"
+   },
+   "bioTr": [
+    "uz",
+    "ru"
+   ]
   },
   "Teddy Swims": {
    "aliases": [],
