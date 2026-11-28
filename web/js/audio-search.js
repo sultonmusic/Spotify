@@ -5,7 +5,7 @@ import { matchStation } from "./fingerprint.js";
 import { lib, loadLibrary } from "./store.js";
 import { norm } from "./search.js";
 
-const CLIP_MS = 8_000;
+const CLIP_MS = 12_000; // the window the Shazam app sends: shorter clips miss songs under talking or noise
 let vibraReady;
 
 function wait(ms, signal) {
@@ -23,7 +23,7 @@ function wait(ms, signal) {
   });
 }
 
-function loadVibra() {
+export function loadVibra() {
   if (window.Module?.HEAPU8 && window.Module?._malloc && window.Module?.ccall) {
     return Promise.resolve(window.Module);
   }
@@ -61,7 +61,7 @@ function loadVibra() {
   return vibraReady;
 }
 
-function fingerprint(mod, pcm, sampleRate) {
+export function fingerprint(mod, pcm, sampleRate) {
   const raw = new Uint8Array(pcm.buffer, pcm.byteOffset, pcm.byteLength);
   const input = mod._malloc(raw.byteLength);
   let signature = 0;
@@ -80,7 +80,7 @@ function fingerprint(mod, pcm, sampleRate) {
   }
 }
 
-async function stationMatch(uri) {
+export async function stationMatch(uri) {
   if (!lib.loaded) await loadLibrary();
   const key = (id) => { const s = lib.byId.get(id); return s ? `${norm(s.artist)}|${norm(s.title)}` : id; };
   const id = await matchStation(uri, new URL("../library/fingerprints.json", import.meta.url).href,

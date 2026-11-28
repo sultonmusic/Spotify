@@ -8,6 +8,7 @@ import { norm } from "./search.js";
 import { requestDjBatch, getDjRequest } from "./music-api.js";
 import { t } from "./i18n.js";
 import { haptic } from "./tg.js";
+import { reelUrl, runReel, reelCard, resumeReels } from "./reel.js";
 
 const KEY = "ms.addchat.v1";
 const FILE_LINES = 5; // more lines than this → sent as a .txt file
@@ -105,9 +106,38 @@ function ensurePolling() {
   if (!poller && chat.some((e) => !e.me && e.status === "running")) poller = setInterval(pollOnce, 6000);
 }
 
+// Instagram Reels: the song in the Reel is recognised and the listener is asked whether to add it
+const persist = () => { save(); redraw(); };
+function sendReel(url, at) {
+  chat.push({ id: `m${at}`, me: true, kind: "text", text: url, at });
+  const entry = { id: `g${at}`, me: false, kind: "reel", reel: { url, status: "sending" }, at };
+  chat.push(entry);
+  persist();
+  runReel(entry.reel, persist);
+}
+function reelActions(entry) {
+  return {
+    add: () => {
+      const tr = entry.reel.track || {};
+      entry.reel.status = "added";
+      persist();
+      send(tr.artist ? `${tr.artist} - ${tr.title}` : tr.title);
+    },
+    no: () => { entry.reel.status = "declined"; persist(); },
+    play: (id) => { const s = getSong(id); if (s) playSong(s, [s], { type: "search", id: s.id, title: s.title }); },
+    retry: () => { entry.reel = { url: entry.reel.url, status: "sending" }; persist(); runReel(entry.reel, persist); },
+  };
+}
+
 function send(text) {
-  const lines = String(text || "").split(/\r?\n/).map((l) => l.replace(/^\s*(?:\d{1,3}[.)]|[-•*–])\s+/, "").trim()).filter(Boolean);
+  let lines = String(text || "").split(/\r?\n/).map((l) => l.replace(/^\s*(?:\d{1,3}[.)]|[-•*–])\s+/, "").trim()).filter(Boolean);
   if (!lines.length) return false;
+  const reels = lines.map(reelUrl).filter(Boolean);
+  if (reels.length) {
+    reels.slice(0, 5).forEach((url, i) => sendReel(url, Date.now() + i));
+    lines = lines.filter((l) => !reelUrl(l));
+    if (!lines.length) return true;
+  }
   if (lines.length > MAX_LINES) { toast(t("addchat.tooMany", { n: MAX_LINES })); return false; }
   const at = Date.now();
   const content = lines.join("\n");
@@ -225,7 +255,7 @@ export function viewAddChat() {
   redraw = () => {
     if (!v.isConnected && log.childElementCount) return;
     log.replaceChildren(...chat.map((e) => (e.me ? (e.kind === "file" ? fileCard(e) : h("div", { class: "dj-msg me ac-me" }, e.text))
-      : botBubble(e))));
+      : e.kind === "reel" ? reelCard(e.reel, reelActions(e)) : botBubble(e))));
     hello.hidden = chat.length > 0;
   };
   redraw();
@@ -235,5 +265,6 @@ export function viewAddChat() {
   return v;
 }
 
-// keep following lists that are still being added after a reload
+// keep following lists that are still being added (and Reels still waiting for the phone) after a reload
 ensurePolling();
+resumeReels(chat.filter((e) => e.kind === "reel").map((e) => e.reel), persist);

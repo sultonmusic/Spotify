@@ -5,18 +5,26 @@ stansiya ishni Cloudflare navbatiga qo'yadi, bu dastur esa uni uy internetida yu
 qo'shiqni foydalanuvchiga o'zi yuboradi.
 
 Saytdagi DJ so'rovlari ham shu yerdan o'tadi: MP3 egasining chatiga jim yuboriladi,
-stansiya uni o'sha yerdan olib saytga qo'shadi.
+stansiya uni o'sha yerdan olib saytga qo'shadi. Saytga yuborilgan Instagram Reel havolalari ham shu yerda
+ochiladi (Instagram serverlarga bermaydi): rolik ovozidan 24 soniya saytga qaytadi, sayt qo'shiqni aniqlaydi.
+
+Telefonda (Termux) ekran o'chganda ham ishlashi uchun dastur o'zi wake-lock oladi; telefon uxlab qolsa
+yoki tarmoq uzilsa, ulanishni yangidan ochadi.
 
 Ishga tushirish:  python helper.py   (yoki run_helper.bat — to'xtasa o'zi qayta yoqiladi)
 Token .env faylida:  BOT_TOKEN=...
 Yangilanish: har ishga tushganda GitHub'dagi eng so'nggi helper.py tekshiriladi.
 """
+import base64
 import hashlib
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 import tempfile
+import threading
 import time
 from pathlib import Path
 
@@ -125,7 +133,7 @@ def report(job_id: str, **result) -> None:
     for _ in range(5):
         try:
             r = session.post(f"{RELAY}/internal/dl/result", json={"job_id": job_id, **result},
-                             headers={"X-Relay-Key": KEY}, timeout=20)
+                             headers={"X-Relay-Key": KEY}, timeout=60)
             if r.ok:
                 return
         except requests.RequestException:
@@ -199,7 +207,70 @@ def handle_site(job: dict) -> None:
         report(job_id, error=reason)
 
 
+REEL_PIECE, REEL_PIECES = 12, 3
+
+
+def reel_duration(path: Path) -> float:
+    try:
+        out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)],
+                             capture_output=True, text=True, timeout=60).stdout.strip()
+        return float(out)
+    except (ValueError, OSError, subprocess.SubprocessError):
+        return 0.0
+
+
+def handle_reel(job: dict) -> None:
+    """Saytga yuborilgan Instagram Reel: rolik ovozidan bir bo'lagi (16 kHz) saytga qaytadi, sayt aniqlaydi."""
+    job_id, url = job["job_id"], job["url"]
+    log("reel:", url)
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            opts = {"format": "bestaudio/best[height<=480]/best", "outtmpl": str(Path(tmp) / "reel.%(ext)s"),
+                    "noplaylist": True, "quiet": True, "no_warnings": True, "noprogress": True,
+                    "socket_timeout": 20, "retries": 2, "max_filesize": 100 * 1024 * 1024}
+            with yt_dlp.YoutubeDL(opts) as ydl:
+                info = ydl.extract_info(url, download=True)
+            src = next((p for p in Path(tmp).glob("reel.*") if p.is_file()), None)
+            if src is None:
+                raise RuntimeError("Rolik yuklanmadi")
+            duration = reel_duration(src) or float(info.get("duration") or 0)
+            # 12 soniyalik bo'laklar (Shazam ilovasi yuboradigan uzunlik): boshidan, o'rtasidan va oxiridan (gap yoki shovqin bir joyda bo'lsa ham topiladi)
+            if duration <= REEL_PIECE * REEL_PIECES:
+                starts = [0.0]
+                length = REEL_PIECE * REEL_PIECES
+            else:
+                starts = [round((duration - REEL_PIECE) * k / (REEL_PIECES - 1), 2) for k in range(REEL_PIECES)]
+                length = REEL_PIECE
+            pcm = b""
+            for start in starts:
+                proc = subprocess.run(["ffmpeg", "-loglevel", "error", "-ss", str(start), "-i", str(src),
+                                       "-t", str(length), "-vn", "-ac", "1", "-ar", "16000", "-f", "s16le", "pipe:1"],
+                                      capture_output=True, timeout=180)
+                piece = proc.stdout
+                if length == REEL_PIECE:  # bo'laklar sayt kutgan joyda boshlansin (har 12 soniyada)
+                    piece = piece[:REEL_PIECE * 32000].ljust(REEL_PIECE * 32000, b"\0")
+                pcm += piece
+        if len(pcm) < 16000 * 2 * 3:
+            raise RuntimeError("Bu rolikda ovoz topilmadi")
+        # Instagram o'zi yozgan qo'shiq nomi (bo'lsa): Shazam topolmasa sayt shuni taklif qiladi
+        report(job_id, pcm=base64.b64encode(pcm).decode(), rate=16000,
+               track=(info.get("track") or "")[:200], artist=(info.get("artist") or "")[:200])
+        log("reel tayyor:", url, f"{len(pcm) // 32000} s")
+    except Exception as exc:
+        text = re.sub(r"\x1b\[[0-9;]*m", "", str(exc)).strip().split("\n")[0]
+        low = text.lower()
+        if any(w in low for w in ("login", "private", "rate", "not available", "unavailable")):
+            reason = "Instagram bu rolikni bermadi (yopiq akkaunt yoki vaqtincha cheklov). Ochiq Reel yuboring."
+        else:
+            reason = text[:250] or "Rolikni ochib bo'lmadi"
+        log("reel xatosi:", url, text[:200])
+        report(job_id, error=reason)
+
+
 def handle(job: dict) -> None:
+    if job.get("mode") == "reel":
+        handle_reel(job)
+        return
     if job.get("mode") == "site":
         handle_site(job)
         return
@@ -235,13 +306,51 @@ def self_update() -> None:
         log("yangilanishni tekshirib bo'lmadi:", exc)
 
 
+def keep_awake() -> None:
+    """Termux: ekran o'chganda ham protsessor va tarmoq ishlashi uchun wake-lock (Termux bildirishnomasida ko'rinadi)."""
+    if "com.termux" in os.environ.get("PREFIX", "") and shutil.which("termux-wake-lock"):
+        try:
+            subprocess.run(["termux-wake-lock"], timeout=15)
+        except Exception as exc:
+            log("wake-lock olinmadi:", exc)
+
+
+alive = time.monotonic()
+
+
+def watchdog() -> None:
+    """Asosiy sikl 15 daqiqa jim qolsa (osilib qolgan ulanish), dastur chiqadi: run.sh uni qayta yoqadi."""
+    while True:
+        time.sleep(60)
+        if time.monotonic() - alive > 900:
+            log("Yordamchi osilib qoldi, qayta ishga tushirilmoqda.")
+            os._exit(3)
+
+
 def main() -> None:
+    global session, alive
     if not TOKEN:
         raise SystemExit(".env faylida BOT_TOKEN topilmadi.")
+    keep_awake()
     self_update()
+    threading.Thread(target=watchdog, daemon=True).start()
     log("Yordamchi ishga tushdi. Navbat kutilmoqda...")
     next_update = time.monotonic() + 1800
+    next_lock = time.monotonic() + 600
+    errors = 0
+    wall, mono = time.time(), time.monotonic()
     while True:
+        alive = time.monotonic()
+        # Android protsessni to'xtatib qo'ygan bo'lsa (soat oldinga ketgan, sikl yurmagan): logga yozadi, ulanishni yangilaydi
+        slept = (time.time() - wall) - (time.monotonic() - mono)
+        if slept > 60:
+            log(f"Telefon {int(slept // 60)} daqiqa uxlab qoldi (Android dasturni to'xtatgan). Ulanish yangilandi.")
+            session = requests.Session()
+            keep_awake()
+        wall, mono = time.time(), time.monotonic()
+        if time.monotonic() > next_lock:  # wake-lock har 10 daqiqada yangilanadi
+            next_lock = time.monotonic() + 600
+            keep_awake()
         if time.monotonic() > next_update:  # har 30 daqiqada yangi versiyani tekshiradi (ish bo'lmagan paytda)
             next_update = time.monotonic() + 1800
             self_update()
@@ -254,9 +363,17 @@ def main() -> None:
                 continue
             r.raise_for_status()
             job = r.json().get("job")
+            errors = 0
         except (requests.RequestException, ValueError) as exc:
+            errors += 1
             log("ulanish xatosi:", exc)
-            time.sleep(5)
+            if errors >= 3:  # eski (uxlab qolgan) ulanishlar o'rniga yangisi
+                session = requests.Session()
+            time.sleep(min(30, 5 * errors))
+            continue
+        if isinstance(job, dict) and job.get("mode") == "reel":
+            if job.get("job_id") and job.get("url"):
+                handle_reel(job)
             continue
         if isinstance(job, dict) and job.get("chat_id") and job.get("video_id"):
             if job.get("mode") == "site" and not job.get("job_id"):

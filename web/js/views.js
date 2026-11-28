@@ -15,6 +15,7 @@ import { identifyNearbySong } from "./audio-search.js";
 import { uploadStationMedia, getStationJob, searchStationMusic, searchMusicCatalog, requestDjTrack, requestDjQuery, getDjRequest } from "./music-api.js";
 import { siteOwnerToken, createSiteOwnerConnection, waitForSiteOwnerConnection, queueRecognizedTrack } from "./site-owner-auth.js";
 import * as dj from "./dj.js";
+import { reelUrl, runReel, reelCard } from "./reel.js";
 import { appBanner, appOffer, getApp } from "./install.js";
 import { MOODS, genre, mood, lang, t, describe, LANG, LANGS_UI, setLang } from "./i18n.js";
 import { canDownload, inTelegram, tg, isAdmin, haptic } from "./tg.js";
@@ -1088,6 +1089,7 @@ export function viewDJ() {
 
   const bubble = (entry) => {
     if (entry.me) return h("div", { class: "dj-msg me" }, entry.text);
+    if (entry.reel) return reelCard(entry.reel, reelActions(entry));
     const box = h("div", { class: `dj-msg${entry.pending ? " pending" : ""}` }, h("div", { class: "dj-text" }, entry.text));
     if (entry.catalogStatus) box.append(h("div", { class: "dj-text dj-catalog-status" }, entry.catalogStatus));
     if (entry.songs.length) {
@@ -1133,11 +1135,41 @@ export function viewDJ() {
     hello.hidden = djChat.length > 0;
     requestAnimationFrame(() => document.getElementById("main")?.scrollTo({ top: 1e9, behavior: "smooth" }));
   };
+  // An Instagram Reel: its song is recognised (by the owner's phone + Shazam) and the listener decides to add it
+  function reelActions(entry) {
+    return {
+      add: () => {
+        const tr = entry.reel.track || {};
+        entry.reel.status = "asked";
+        const result = { text: t("dj.botSearching"), songs: [], at: Date.now(), pending: true };
+        djChat.push(result);
+        draw();
+        addViaBot(result, `${tr.artist || ""} ${tr.title || ""}`.trim()).then((ok) => {
+          if (ok) return;
+          result.text = result.offline ? t("dj.helperOffline") : t("dj.botFailed");
+          result.pending = false;
+          draw();
+        });
+      },
+      no: () => { entry.reel.status = "declined"; draw(); },
+      play: (id) => { const s = getSong(id); if (s) playSong(s, [s], { type: "search", id: s.id, title: s.title }); },
+      retry: () => { entry.reel = { url: entry.reel.url, status: "sending" }; draw(); runReel(entry.reel, draw); },
+    };
+  }
   function send(text) {
     text = String(text || "").trim();
     if (!text) return;
     input.value = "";
     haptic("light");
+    const reel = reelUrl(text);
+    if (reel) {
+      const entry = { text: "", songs: [], at: Date.now(), reel: { url: reel, status: "sending" } };
+      djChat.push({ me: true, text }, entry);
+      if (djChat.length > 30) djChat.splice(0, djChat.length - 30);
+      draw();
+      runReel(entry.reel, draw);
+      return;
+    }
     const answer = dj.ask(text);
     if (dj.shouldSearchStation(text)) {
       const result = { text: t("dj.searching"), songs: [], at: Date.now(), pending: true };
@@ -1155,7 +1187,7 @@ export function viewDJ() {
           draw();
           if (await addViaBot(result, lookup)) return;
           // only full songs go on the site: no 30-second catalog clips
-          result.text = t("dj.botFailed");
+          result.text = result.offline ? t("dj.helperOffline") : t("dj.botFailed");
         } else result.text = t("dj.searchNone");
         result.pending = false;
         draw();
@@ -1176,7 +1208,7 @@ export function viewDJ() {
    *  Returns false (so the official-catalog preview is tried instead) when the bot can't do it right now. */
   async function addViaBot(entry, query) {
     let queued;
-    try { queued = await requestDjQuery(query); } catch { return false; }
+    try { queued = await requestDjQuery(query); } catch (error) { entry.offline = Boolean(error.helperOffline); return false; }
     if (!queued.jobId) return false;
     entry.pending = false;
     const playById = async (id, name) => {

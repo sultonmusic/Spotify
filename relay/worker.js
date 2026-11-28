@@ -432,7 +432,9 @@ export class TelegramInbox extends DurableObject {
       if (body.length > 4096) return Response.json({ error: "job too large" }, { status: 413 });
       try { JSON.parse(body); } catch { return Response.json({ error: "invalid job" }, { status: 400 }); }
       const now = Date.now();
-      this.sql.exec("DELETE FROM dl_jobs WHERE created_at < ?", now - 60 * 60_000);
+      // Reel jobs wait for the phone longer (it may be asleep); downloads for a chat go stale after an hour.
+      this.sql.exec("DELETE FROM dl_jobs WHERE created_at < ? AND body NOT LIKE '%\"mode\":\"reel\"%'", now - 60 * 60_000);
+      this.sql.exec("DELETE FROM dl_jobs WHERE created_at < ?", now - 12 * 60 * 60_000);
       this.sql.exec("INSERT INTO dl_jobs (body, created_at) VALUES (?, ?)", body, now);
       return Response.json({ ok: true, helperOnline: this.helperOnline() });
     }
@@ -443,15 +445,19 @@ export class TelegramInbox extends DurableObject {
       const body = await request.text();
       let job;
       try { job = JSON.parse(body)?.job_id; } catch { return Response.json({ error: "invalid result" }, { status: 400 }); }
-      if (body.length > 4096 || !/^[a-f0-9-]{36}$/i.test(String(job || ""))) return Response.json({ error: "invalid result" }, { status: 400 });
+      // a Reel result carries 3 × 12 s of 16 kHz audio (the site makes the Shazam signature from it)
+      if (body.length > 1_900_000 || !/^[a-f0-9-]{36}$/i.test(String(job || ""))) return Response.json({ error: "invalid result" }, { status: 400 });
       const now = Date.now();
-      this.sql.exec("DELETE FROM dl_results WHERE created_at < ?", now - 60 * 60_000);
+      this.sql.exec("DELETE FROM dl_results WHERE created_at < ?", now - 12 * 60 * 60_000);
       this.sql.exec("INSERT OR REPLACE INTO dl_results VALUES (?, ?, ?)", job, body, now);
       return Response.json({ ok: true });
     }
     if (url.pathname === "/dl/result" && request.method === "GET") {
-      const row = this.sql.exec("SELECT body FROM dl_results WHERE job = ?", String(url.searchParams.get("job") || "")).toArray()[0];
-      return Response.json({ ok: true, result: row ? JSON.parse(row.body) : null });
+      const job = String(url.searchParams.get("job") || "");
+      const row = this.sql.exec("SELECT body FROM dl_results WHERE job = ?", job).toArray()[0];
+      const queued = !row && /^[a-f0-9-]{36}$/i.test(job) &&
+        this.sql.exec("SELECT COUNT(*) AS n FROM dl_jobs WHERE body LIKE ?", `%${job}%`).toArray()[0].n > 0;
+      return Response.json({ ok: true, result: row ? JSON.parse(row.body) : null, queued, online: this.helperOnline() });
     }
     if (url.pathname === "/dl/claim" && request.method === "GET") {
       const timeout = Math.max(0, Math.min(25, Number(url.searchParams.get("timeout") || 0)));
@@ -881,6 +887,39 @@ async function queueDjBatch(request, env) {
   return musicJson(request, { jobId: id, status: "QUEUED", count: queries.length }, 202);
 }
 
+// ------------------------------------------------------------------ Instagram Reels from the site (DJ, Add chat)
+// Instagram doesn't serve Reels to GitHub's or Cloudflare's servers, so the owner's phone (the download helper)
+// fetches the Reel and sends back a short piece of its audio; the site makes the Shazam signature from it
+// (like the microphone search) and asks the listener whether to add the song. The job waits in the queue
+// while the phone is asleep or off.
+const REEL_URL_RE = /^https:\/\/(?:www\.|m\.)?instagram\.com\/(?:reel|reels|p)\/([A-Za-z0-9_-]{5,40})\/?(?:[?#].*)?$/i;
+async function queueReel(request, env) {
+  if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  if (!await stats(env).claimIdentify(await sha256(`cavi-reel:${ip}`), 4)) {
+    return musicJson(request, { error: "too many requests; wait a minute" }, 429);
+  }
+  let body;
+  try { body = await request.json(); } catch { return musicJson(request, { error: "invalid link" }, 400); }
+  const match = REEL_URL_RE.exec(String(body?.url || "").trim());
+  if (!match) return musicJson(request, { error: "send a public Instagram Reel link" }, 400);
+  const jobId = crypto.randomUUID();
+  const job = { mode: "reel", job_id: jobId, url: `https://www.instagram.com/reel/${match[1]}/` };
+  const saved = await telegramInbox(env).fetch("https://telegram-inbox/dl/enqueue", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(job) });
+  if (!saved.ok) return musicJson(request, { error: "could not queue this Reel" }, 503);
+  const { helperOnline } = await saved.json();
+  return musicJson(request, { jobId, helperOnline: Boolean(helperOnline) }, 202);
+}
+
+async function reelStatus(request, env, id) {
+  if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
+  const res = await telegramInbox(env).fetch(`https://telegram-inbox/dl/result?job=${encodeURIComponent(id)}`);
+  const { result, queued, online } = await res.json();
+  if (result) return musicJson(request, { status: result.error ? "failed" : "done", ...result, job_id: undefined });
+  return musicJson(request, { status: queued ? "waiting" : "working", helperOnline: Boolean(online) });
+}
+
 async function djRequestStatus(request, env, id) {
   if (!musicCors(request)["Access-Control-Allow-Origin"]) return musicJson(request, { error: "origin not allowed" }, 403);
   const response = await webMusicDO(env, id).fetch(`https://music-jobs/job/${id}`, { headers: { "X-Music-Uid": DJ_PUBLIC_UID } });
@@ -983,6 +1022,9 @@ async function handle(request, env, ctx) {
   if (url.pathname === "/api/music/catalog" && request.method === "GET") return searchCatalog(request, env, url);
   if (url.pathname === "/api/music/dj-request" && request.method === "POST") return queueDjRequest(request, env);
   if (url.pathname === "/api/music/dj-batch" && request.method === "POST") return queueDjBatch(request, env);
+  if (url.pathname === "/api/music/reel" && request.method === "POST") return queueReel(request, env);
+  const reelJob = url.pathname.match(/^\/api\/music\/reel\/([a-f0-9-]{36})$/i);
+  if (reelJob && request.method === "GET") return reelStatus(request, env, reelJob[1]);
   const djRequest = url.pathname.match(/^\/api\/music\/dj-request\/([a-f0-9-]{36})$/i);
   if (djRequest && request.method === "GET") return djRequestStatus(request, env, djRequest[1]);
   if (url.pathname === "/api/music/upload" && request.method === "POST") return createMusicUpload(request, env);
@@ -1037,6 +1079,7 @@ async function handle(request, env, ctx) {
       const result = await match.json();
       const track = result?.track || null;
       if (!track) return reply({ track: null });
+      if (body.recognizeOnly) return reply({ track });
       const identity = await requireStationOwner(request, env);
       if (!identity) return reply({ track, ownerConnectionRequired: true });
       try {
