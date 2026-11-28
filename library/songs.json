@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T02:49:34Z",
- "count": 472,
+ "updatedAt": "2026-11-28T05:55:58Z",
+ "count": 473,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4098,7 +4098,22 @@
    "albums": 90,
    "ytPhotoChecked": "2026-11-26T21:17:26Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCttp1DF4y8BMlW9il_V3pcw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCttp1DF4y8BMlW9il_V3pcw",
+   "bioChecked": "2026-11-28T05:53:36Z",
+   "bio": {
+    "en": "James Roy Horner was an American film composer and conductor. He is known for the integration of choral and electronic elements alongside traditional orchestrations, and for his use of motifs associated with Celtic music.",
+    "ru": "Джеймс Рой Хорнер — американский кинокомпозитор. Обладатель двух премий «Оскар» 1998 года — за музыку и песню для фильма «Титаник».",
+    "uz": "James Roy Horner – amerikalik bastakor, dirijyor va uchuvchi. Ikkita Oscar, ikkita Oltin globus, uchta Saturn va oltita Grammy mukofotlari sovrindori. „Jumanji“, „Unutilgan“, „Balto“, „Tafakkur oʻyinlari“, „Titanic“, \"Apollon 13\", „Zorro niqobi“, „Troya“ \"Apokalipsis\", \"Avatar\", „Yangi Oʻrgimchak-odam“ va boshqa yuzlab filmlarga musiqa bastalagan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/James_Horner",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A5%D0%BE%D1%80%D0%BD%D0%B5%D1%80%2C_%D0%94%D0%B6%D0%B5%D0%B9%D0%BC%D1%81",
+    "uz": "https://uz.wikipedia.org/wiki/James_Horner"
+   },
+   "desc": {
+    "en": "American film composer (1953–2015)",
+    "ru": "американский кинокомпозитор (1953—2015)"
+   }
   },
   "Whitney Houston": {
    "aliases": [],
@@ -4115,7 +4130,22 @@
    "albums": 54,
    "ytPhotoChecked": "2026-11-26T21:17:27Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCcoxwwIh_afLwJHVBEQw62Q"
+   "youtubeMusic": "https://music.youtube.com/channel/UCcoxwwIh_afLwJHVBEQw62Q",
+   "bioChecked": "2026-11-28T05:53:38Z",
+   "bio": {
+    "en": "Whitney Elizabeth Houston was an American singer, actress, film producer, and record producer. Commonly referred to as \"the Voice\", Houston is one of the best-selling music artists of all time, with sales of more than 220 million records worldwide. She is among the most awarded entertainers of all time. A cultural icon, Houston broke down gender and racial barriers through her artistic achievements, Hollywood crossover, and music videos.",
+    "ru": "Уи́тни Эли́забет Хью́стон — американская актриса кино и телевидения, поп-, соул- и ритм-энд-блюзовая певица, продюсер и фотомодель. Одна из самых коммерчески успешных исполнительниц в истории мировой музыки. Известна своими музыкальными достижениями, вокальными способностями и скандальной личной жизнью.",
+    "uz": "Whitney Elizabeth Houston amerikalik qoʻshiqchi, aktrisa, produser va model boʻlgan. Guinness Dunyo Rekordlari kitobiga eng koʻp taqdirlangan ayol sifatida kirgan. Uning jami 415 mukofotlari orasida ikkita Emmy, oltita Grammy, 30 ta Billboard Music Awards, 22 ta American Music Awards va boshqa nufuzli mukofotlar bor. Houston shuningdek 170 milliondan ortiq albom va singl sotib, eng muvaffaqiyatli artistlar qatoriga kirgan. Houston jami yettita studiyaviy va uchta soundtrack albomlar chiqargan, ularning hammasi kamida platina yoki oltin sertifikatlari olgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Whitney_Houston",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A5%D1%8C%D1%8E%D1%81%D1%82%D0%BE%D0%BD%2C_%D0%A3%D0%B8%D1%82%D0%BD%D0%B8",
+    "uz": "https://uz.wikipedia.org/wiki/Whitney_Houston"
+   },
+   "desc": {
+    "en": "American singer and actress (1963–2012)",
+    "ru": "американская певица и актриса (1963–2012)"
+   }
   },
   "Frank Sinatra": {
    "aliases": [],
@@ -4130,7 +4160,22 @@
    "albums": 89,
    "ytPhotoChecked": "2026-11-26T21:17:29Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC1zsfp3OD8qWQ0HfLbz2TXg"
+   "youtubeMusic": "https://music.youtube.com/channel/UC1zsfp3OD8qWQ0HfLbz2TXg",
+   "bioChecked": "2026-11-28T05:53:39Z",
+   "bio": {
+    "en": "Francis Albert Sinatra was an American singer, conductor, and actor. Nicknamed the \"Ol' Blue Eyes\" and \"Chairman of the Board\", he is regarded as one of the most influential entertainers of the 20th century.",
+    "ru": "Фрэ́нсис А́льберт Сина́тра — американский певец (крунер) итальянского происхождения, киноактёр, кинорежиссёр, продюсер, шоумен, дирижёр, политический активист. Лауреат кинопремии «Оскар», одиннадцатикратный лауреат музыкальной премии «Грэмми», четырёхкратный обладатель премии «Золотой глобус». Был удостоен высшей гражданской награды США — Золотой медали Конгресса (1997).",
+    "uz": "Francis Albert Sinatra – amerikalik qoʻshiqchi (kroner), kinoaktyor, rejissyor, prodyuser, shoumen, dirijyor, siyosiy faol. Oskar kino mukofoti sovrindori. Oʻn bir marta Grammy mukofoti gʻolibi boʻlgan Frensis qoʻshiqlarni ijro etishdagi yuksak mahorati, intonatsion iboraning virtuoz texnikasi, har bir soʻz va boʻgʻinning aniq ifodalanishi, ovozining „baxmal“ tembri bilan mashhur edi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Frank_Sinatra",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D0%BD%D0%B0%D1%82%D1%80%D0%B0%2C_%D0%A4%D1%80%D1%8D%D0%BD%D0%BA",
+    "uz": "https://uz.wikipedia.org/wiki/Frank_Sinatra"
+   },
+   "desc": {
+    "en": "American singer and actor (1915–1998)",
+    "ru": "американский актёр, певец и шоумэн"
+   }
   },
   "Elvis Presley": {
    "aliases": [],
@@ -6032,9 +6077,93 @@
    "ytPhotoChecked": "2026-11-28T02:30:22Z",
    "imageSource": "ytmusic",
    "youtubeMusic": "https://music.youtube.com/channel/UCoXUei82oXmv4HJW4of7KuA"
+  },
+  "RADWIMPS": {
+   "aliases": [
+    "Radwimps"
+   ],
+   "verified": true,
+   "deezerId": 211087,
+   "itunesId": 91160335,
+   "deezer": "https://www.deezer.com/artist/211087",
+   "apple": "https://music.apple.com/us/artist/radwimps/91160335",
+   "image": "library/artists/radwimps-yt.jpg",
+   "color": "#ffe700",
+   "checked": "2026-11-28T05:51:27Z",
+   "verifiedAt": "2026-11-28T05:51:27Z",
+   "fans": 74033,
+   "albums": 59,
+   "ytPhotoChecked": "2026-11-28T05:53:31Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCT418-ChE6rgGuQlqzFsKZA"
+  },
+  "Toaka": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 137872082,
+   "deezer": "https://www.deezer.com/artist/137872082",
+   "image": "library/artists/toaka-yt.jpg",
+   "color": "#d0c12f",
+   "checked": "2026-11-28T05:51:27Z",
+   "verifiedAt": "2026-11-28T05:51:27Z",
+   "fans": 935,
+   "albums": 50,
+   "ytPhotoChecked": "2026-11-28T05:53:32Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCaBbPiMpdL5z86bWCFgCItA"
   }
  },
  "songs": [
+  {
+   "id": "111c06cd22",
+   "title": "Suzume",
+   "artist": "RADWIMPS, Toaka",
+   "artists": [
+    "RADWIMPS",
+    "Toaka"
+   ],
+   "album": "Suzume (Motion Picture Soundtrack)",
+   "year": 2022,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 236.45,
+   "src": "library/audio/111c06cd22.m4a",
+   "cover": "library/covers/111c06cd22.jpg",
+   "color": "#239fdc",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     885,
+     886
+    ]
+   },
+   "addedAt": "2026-11-28T05:51:31Z",
+   "mime": "audio/mp4",
+   "size": 3824940,
+   "storage": "pages",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "111c06cd226000bd",
+   "story": "library/stories/111c06cd22.jpg"
+  },
   {
    "id": "a2aeb95812",
    "title": "Love Story",

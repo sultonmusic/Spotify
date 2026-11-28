@@ -201,6 +201,113 @@
      "source": "Deezer"
     }
    ]
+  },
+  "54831ba3": {
+   "t": 1795844961.23544,
+   "h": "27d066880500001099070aadc0102482bcab24b554dbf6376e2965e4d2875699",
+   "chat": 8988775229,
+   "candidates": [
+    {
+     "title": "Suzume (feat. Toaka)",
+     "artist": "RADWIMPS",
+     "genre": "Rock",
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/1a/e2/74/1ae2740f-eacb-19b8-0c0a-fab4ce391052/0602448736116_Cover.jpg/800x800cc.jpg",
+     "isrc": "JPV972200075",
+     "album": "Suzume (Motion Picture Soundtrack)",
+     "label": "voque ting",
+     "year": 2022,
+     "source": "Shazam",
+     "score": 1.0,
+     "duration": 236.391,
+     "artist_id": 91160335,
+     "artist_url": "https://music.apple.com/us/artist/radwimps/91160335",
+     "track_url": "https://music.apple.com/us/album/suzume-feat-toaka/1647111945",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1b/91/c6/1b91c682-1f1d-f678-6fb6-e16bffc22beb/mzaf_8572139935794413888.plus.aac.p.m4a",
+     "sources": [
+      "Apple Music",
+      "Deezer",
+      "Shazam"
+     ],
+     "id": 1995625867,
+     "album_id": 372101037,
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/50a3e7af77e5ce620f7c7cab3c7cebb5/1000x1000-000000-80-0-0.jpg",
+     "rank": 701003
+    },
+    {
+     "score": 0.6709677419354838,
+     "id": 1995625757,
+     "title": "Sky Over Tokyo",
+     "artist": "Radwimps",
+     "album": "Suzume (Motion Picture Soundtrack)",
+     "album_id": 372101037,
+     "duration": 254,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/cb87713e4ed81ffb4b6aa955e7c52319/1000x1000-000000-80-0-0.jpg",
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/50a3e7af77e5ce620f7c7cab3c7cebb5/1000x1000-000000-80-0-0.jpg",
+     "artist_id": 211087,
+     "explicit": false,
+     "rank": 470764,
+     "track_url": "https://www.deezer.com/track/1995625757",
+     "preview_url": "https://cdnt-preview.dzcdn.net/api/1/1/6/e/5/0/6e5f6fdaab452ac288e43b5e5a53e866.mp3?hdnea=exp=1795845861~acl=/api/1/1/6/e/5/0/6e5f6fdaab452ac288e43b5e5a53e866.mp3*~data=user_id=0,application_id=42~hmac=b3bd6aa562a3bf44e1ef500a5438385dd697132e4cd4b802dda11918a3bd6c5e",
+     "source": "Deezer"
+    },
+    {
+     "score": 0.6309523809523809,
+     "title": "Suzume",
+     "artist": "Hayato Sumino",
+     "album": "Suzume",
+     "genre": "Classical Crossover",
+     "year": 2025,
+     "duration": 222.373,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/79/0e/7d/790e7df5-4232-b9fc-8cdb-c0b1046a5c95/196873805375.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1465878637,
+     "artist_url": "https://music.apple.com/us/artist/hayato-sumino/1465878637",
+     "track_url": "https://music.apple.com/us/album/suzume/1852051969",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/06/d1/0f/06d10f87-d8fd-b033-d62e-89e9863b6145/mzaf_5914309999956508962.plus.aac.p.m4a",
+     "source": "Apple Music",
+     "sources": [
+      "Apple Music"
+     ]
+    },
+    {
+     "score": 0.6055555555555555,
+     "title": "SUZUME No Guide melody Original by RADWIMPS (feat. toaka)",
+     "artist": "Uta-Cha-Oh",
+     "album": "SUZUME No Guide melody Original by RADWIMPS",
+     "genre": "Karaoke",
+     "year": 2022,
+     "duration": 235.392,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/64/44/0d/64440dd8-5505-e766-02ba-b3144b8daff9/4582648946095.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1186533981,
+     "artist_url": "https://music.apple.com/us/artist/uta-cha-oh/1186533981",
+     "track_url": "https://music.apple.com/us/album/suzume-no-guide-melody-original-by-radwimps-feat-toaka/1659006298",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/35/42/a1/3542a103-67ff-583f-8a06-c361a0cff4cf/mzaf_14267504019079051316.plus.aac.p.m4a",
+     "source": "Apple Music",
+     "sources": [
+      "Apple Music"
+     ]
+    },
+    {
+     "score": 0.565983193277311,
+     "title": "Suzume (feat. Akano)",
+     "artist": "Musicality & AndrezoWorks",
+     "album": "Suzume (feat. Akano)",
+     "genre": "Jungle/Drum'n'bass",
+     "year": 2023,
+     "duration": 172.332,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/0f/af/ee/0fafee86-f77e-b024-deea-8d4d8f41fa56/artwork.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 386589744,
+     "artist_url": "https://music.apple.com/us/artist/musicality/386589744",
+     "track_url": "https://music.apple.com/us/album/suzume-feat-akano/1722646361",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/3c/b5/46/3cb54697-fdda-41af-7edb-1fe1cd269db5/mzaf_5811270313444732480.plus.aac.p.m4a",
+     "source": "Apple Music",
+     "sources": [
+      "Apple Music"
+     ]
+    }
+   ]
   }
  },
  "catalog_jobs": {},
@@ -1997,6 +2104,106 @@
   "b76f9edc7f": {
    "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b76f9edc7f.mp3",
    "m": 455
+  },
+  "a2aeb95812": {
+   "src": "library/audio/a2aeb95812.m4a",
+   "m": 456
+  },
+  "38026ced6f": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/38026ced6f.mp3",
+   "m": 457
+  },
+  "b78914bf66": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b78914bf66.mp3",
+   "m": 458
+  },
+  "850d5b5535": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/850d5b5535.mp3",
+   "m": 459
+  },
+  "92538ab745": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/92538ab745.mp3",
+   "m": 460
+  },
+  "afc547588d": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/afc547588d.mp3",
+   "m": 461
+  },
+  "564e214e42": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/564e214e42.mp3",
+   "m": 462
+  },
+  "8daf8249bb": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8daf8249bb.mp3",
+   "m": 463
+  },
+  "b18b0b90b1": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b18b0b90b1.mp3",
+   "m": 464
+  },
+  "f4c4fa57bc": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f4c4fa57bc.mp3",
+   "m": 465
+  },
+  "a091a3f9bc": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a091a3f9bc.mp3",
+   "m": 466
+  },
+  "2eb68b7441": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2eb68b7441.mp3",
+   "m": 467
+  },
+  "092c2d86a1": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/092c2d86a1.mp3",
+   "m": 468
+  },
+  "35dc503f23": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/35dc503f23.mp3",
+   "m": 469
+  },
+  "95c4f210c3": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/95c4f210c3.mp3",
+   "m": 470
+  },
+  "ff4b795394": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ff4b795394.mp3",
+   "m": 471
+  },
+  "24cac66fb4": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/24cac66fb4.mp3",
+   "m": 472
+  },
+  "59123774a0": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/59123774a0.mp3",
+   "m": 473
+  },
+  "0341b582b6": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0341b582b6.mp3",
+   "m": 474
+  },
+  "d366418f90": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d366418f90.mp3",
+   "m": 475
+  },
+  "e7838e87ab": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e7838e87ab.mp3",
+   "m": 476
+  },
+  "99a7d3f7ca": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/99a7d3f7ca.mp3",
+   "m": 477
+  },
+  "6f24afe928": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/6f24afe928.mp3",
+   "m": 478
+  },
+  "70ac4ea26e": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/70ac4ea26e.mp3",
+   "m": 479
+  },
+  "93719b45a3": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/93719b45a3.mp3",
+   "m": 480
   }
  }
 }
