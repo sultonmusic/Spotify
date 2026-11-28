@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T07:47:53Z",
- "count": 474,
+ "updatedAt": "2026-11-28T08:58:30Z",
+ "count": 486,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -6128,6 +6128,555 @@
   }
  },
  "songs": [
+  {
+   "id": "d7c3e0fbff",
+   "title": "La Isla Bonita",
+   "artist": "Madonna",
+   "artists": [
+    "Madonna"
+   ],
+   "album": "True Blue",
+   "year": 1986,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "nostalgic",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 242.73,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d7c3e0fbff.mp3",
+   "cover": "library/covers/d7c3e0fbff.jpg",
+   "color": "#3d3658",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T08:58:30Z",
+   "mime": "audio/mpeg",
+   "size": 5826957,
+   "storage": "release",
+   "lufs": -9.0,
+   "gain": -5.0,
+   "via": "audio",
+   "fileKey": "yt:JZZWHnK6piM",
+   "story": "library/stories/d7c3e0fbff.jpg"
+  },
+  {
+   "id": "31cab1a08e",
+   "title": "Material Girl",
+   "artist": "Madonna",
+   "artists": [
+    "Madonna"
+   ],
+   "album": "Like a Virgin",
+   "year": 1984,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 136,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 240.71,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/31cab1a08e.mp3",
+   "cover": "library/covers/31cab1a08e.jpg",
+   "color": "#786459",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T08:57:50Z",
+   "mime": "audio/mpeg",
+   "size": 5778576,
+   "storage": "release",
+   "lufs": -17.4,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:IlPCW6nLheM",
+   "story": "library/stories/31cab1a08e.jpg"
+  },
+  {
+   "id": "bbbd3c67d0",
+   "title": "Hung Up",
+   "artist": "Madonna",
+   "artists": [
+    "Madonna"
+   ],
+   "album": "Confessions on a Dance Floor",
+   "year": 2005,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 125,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 337.73,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/bbbd3c67d0.mp3",
+   "cover": "library/covers/bbbd3c67d0.jpg",
+   "color": "#80333e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T08:57:10Z",
+   "mime": "audio/mpeg",
+   "size": 8107353,
+   "storage": "release",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "yt:20OGm_-RebE",
+   "story": "library/stories/bbbd3c67d0.jpg"
+  },
+  {
+   "id": "16feefbf3b",
+   "title": "Vogue",
+   "artist": "Madonna",
+   "artists": [
+    "Madonna"
+   ],
+   "album": "The Immaculate Collection",
+   "year": 1990,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 116,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 293.34,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/16feefbf3b.mp3",
+   "cover": "library/covers/16feefbf3b.jpg",
+   "color": "#785716",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T08:56:25Z",
+   "mime": "audio/mpeg",
+   "size": 7041748,
+   "storage": "release",
+   "lufs": -19.4,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:QJ1LOC_4n0g",
+   "story": "library/stories/16feefbf3b.jpg"
+  },
+  {
+   "id": "d5d9afa5bb",
+   "title": "Like a Prayer",
+   "artist": "Madonna",
+   "artists": [
+    "Madonna"
+   ],
+   "album": "Like a Prayer",
+   "year": 1989,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 112,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 340.87,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d5d9afa5bb.mp3",
+   "cover": "library/covers/d5d9afa5bb.jpg",
+   "color": "#ba6945",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T08:55:48Z",
+   "mime": "audio/mpeg",
+   "size": 8182224,
+   "storage": "release",
+   "lufs": -17.0,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:ilottRbDnGY",
+   "story": "library/stories/d5d9afa5bb.jpg"
+  },
+  {
+   "id": "ae5605ad3b",
+   "title": "I'm a Slave 4 U",
+   "artist": "Britney Spears",
+   "artists": [
+    "Britney Spears"
+   ],
+   "album": "Britney (Deluxe Version)",
+   "year": 2001,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "romantic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 110,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 203.6,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ae5605ad3b.mp3",
+   "cover": "library/covers/ae5605ad3b.jpg",
+   "color": "#0b73b6",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T08:55:13Z",
+   "mime": "audio/mpeg",
+   "size": 4888100,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:cXmwRH2PuWk",
+   "story": "library/stories/ae5605ad3b.jpg"
+  },
+  {
+   "id": "cb64a76892",
+   "title": "Lucky",
+   "artist": "Britney Spears",
+   "artists": [
+    "Britney Spears"
+   ],
+   "album": "Oops!...I Did It Again",
+   "year": 2000,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "romantic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.55,
+   "danceability": 0.6,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 206.23,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/cb64a76892.mp3",
+   "cover": "library/covers/cb64a76892.jpg",
+   "color": "#9b6845",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T08:54:46Z",
+   "mime": "audio/mpeg",
+   "size": 4950872,
+   "storage": "release",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:re0KCMqG28Y",
+   "story": "library/stories/cb64a76892.jpg"
+  },
+  {
+   "id": "26b20ad91e",
+   "title": "Circus",
+   "artist": "Britney Spears",
+   "artists": [
+    "Britney Spears"
+   ],
+   "album": "Circus (Deluxe Version)",
+   "year": 2008,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 115,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 192.36,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/26b20ad91e.mp3",
+   "cover": "library/covers/26b20ad91e.jpg",
+   "color": "#b4533f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T08:54:28Z",
+   "mime": "audio/mpeg",
+   "size": 4617946,
+   "storage": "release",
+   "lufs": -10.0,
+   "gain": -4.0,
+   "via": "audio",
+   "fileKey": "yt:7tVmLQFedxc",
+   "story": "library/stories/26b20ad91e.jpg"
+  },
+  {
+   "id": "cdc7184bcb",
+   "title": "Everytime",
+   "artist": "Britney Spears",
+   "artists": [
+    "Britney Spears"
+   ],
+   "album": "In the Zone",
+   "year": 2003,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 110,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 230.31,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/cdc7184bcb.mp3",
+   "cover": "library/covers/cdc7184bcb.jpg",
+   "color": "#0e77a0",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T08:54:04Z",
+   "mime": "audio/mpeg",
+   "size": 5529169,
+   "storage": "release",
+   "lufs": -12.2,
+   "gain": -1.8,
+   "via": "audio",
+   "fileKey": "yt:PyoJsKrb5N0",
+   "story": "library/stories/cdc7184bcb.jpg"
+  },
+  {
+   "id": "10c75ffecd",
+   "title": "Stronger",
+   "artist": "Britney Spears",
+   "artists": [
+    "Britney Spears"
+   ],
+   "album": "Oops!...I Did It Again",
+   "year": 2000,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "nostalgic",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 108,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 203.0,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/10c75ffecd.mp3",
+   "cover": "library/covers/10c75ffecd.jpg",
+   "color": "#9b6845",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T08:53:40Z",
+   "mime": "audio/mpeg",
+   "size": 4873691,
+   "storage": "release",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "yt:BprKN1ffH3k",
+   "story": "library/stories/10c75ffecd.jpg"
+  },
+  {
+   "id": "f683b39f7c",
+   "title": "Womanizer",
+   "artist": "Britney Spears",
+   "artists": [
+    "Britney Spears"
+   ],
+   "album": "Circus (Deluxe Version)",
+   "year": 2008,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 139,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 224.4,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f683b39f7c.mp3",
+   "cover": "library/covers/f683b39f7c.jpg",
+   "color": "#b4533f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T08:53:16Z",
+   "mime": "audio/mpeg",
+   "size": 5386909,
+   "storage": "release",
+   "lufs": -8.6,
+   "gain": -5.4,
+   "via": "audio",
+   "fileKey": "yt:x9xQZQn-3ok",
+   "story": "library/stories/f683b39f7c.jpg"
+  },
+  {
+   "id": "47593a4e77",
+   "title": "Oops!...I Did It Again",
+   "artist": "Britney Spears",
+   "artists": [
+    "Britney Spears"
+   ],
+   "album": "Oops!... I Did It Again (25th Anniversary Edition)",
+   "year": 2000,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 211.16,
+   "src": "library/audio/47593a4e77.mp3",
+   "cover": "library/covers/47593a4e77.jpg",
+   "color": "#c1773e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T08:48:45Z",
+   "mime": "audio/mpeg",
+   "size": 5069573,
+   "storage": "pages",
+   "lufs": -9.4,
+   "gain": -4.6,
+   "via": "audio",
+   "fileKey": "yt:wsHbHR3Os6U",
+   "story": "library/stories/47593a4e77.jpg"
+  },
   {
    "id": "7b3bd614c0",
    "title": "AINSI BAS LA VIDA - HARDTEKK (SUPER SLOWED)",
