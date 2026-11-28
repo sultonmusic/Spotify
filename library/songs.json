@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T20:14:47Z",
- "count": 613,
+ "updatedAt": "2026-11-28T20:32:04Z",
+ "count": 614,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4576,7 +4576,24 @@
    "albums": 79,
    "ytPhotoChecked": "2026-11-27T00:05:39Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCAtlzufZmPhkiDApWM4bTRQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCAtlzufZmPhkiDApWM4bTRQ",
+   "bioChecked": "2026-11-28T20:29:58Z",
+   "bio": {
+    "en": "Jaten Collin Dimsdale, known professionally as Teddy Swims, is an American singer and songwriter. Known for creating genre-blending music that includes elements of R&B, soul, hip-hop, and contemporary pop, Swims originally began to attract fans by posting song covers on YouTube during 2019 and 2020. Swims' third extended play, Tough Love (2022), became his first entry on the Billboard 200.",
+    "ru": "Тедди Свимс — американский музыкант, певец и автор песен, соединяющий в своём творчестве R&B, соул, блюз, кантри, хип-хоп и поп-музыку. «Творчество Свимса находится где-то между винтажным соулом, классическим роком и современной поп-балладой с небольшим оттенком кантри». Сингл 2023 года Lose Control возглавил Billboard Hot 100.",
+    "uz": "Jaten Kollin Dimsdeyl, professional ravishda Teddy Swims nomi bilan tanilgan, amerikalik qo'shiqchi va qo'shiq muallifi. R&B, soul, xip-xop va zamonaviy pop elementlarini o‘z ichiga olgan janrlarni uyg‘unlashtiradigan musiqa yaratish bilan tanilgan Swims dastlab 2019 va 2020 yillarda YouTube’da qo‘shiq muqovalarini joylash orqali muxlislarni jalb qila boshladi. Swimsning uchinchi kengaytirilgan spektakli, \"Qattiq sevgi\" (2022) uning Billboard 200-dagi birinchi ishtiroki bo'ldi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Teddy_Swims",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%B4%D0%B4%D0%B8_%D0%A1%D0%B2%D0%B8%D0%BC%D1%81"
+   },
+   "desc": {
+    "en": "American singer and songwriter (born 1992)",
+    "ru": "американский музыкант, певец и автор песен"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "ROSÉ": {
    "aliases": [],
@@ -4593,7 +4610,23 @@
    "albums": 7,
    "ytPhotoChecked": "2026-11-27T00:05:41Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCbpXC82cTLngSiZrysAaE-w"
+   "youtubeMusic": "https://music.youtube.com/channel/UCbpXC82cTLngSiZrysAaE-w",
+   "bioChecked": "2026-11-28T20:29:59Z",
+   "bio": {
+    "en": "Roseanne Park, known mononymously as Rosé (Korean: 로제), is a New Zealand and South Korean singer. Born in New Zealand and raised in Australia, Rosé moved to South Korea and signed with label YG Entertainment following a successful audition in 2012. She rose to prominence as a member of the South Korean girl group Blackpink, which debuted in August 2016 and became one of the best-selling girl groups of all time.",
+    "ru": "Роза́нна Пак или Пак Чхэён, более известная как Розэ́ , — новозеландская и южнокорейская певица и танцовщица. Является участницей южнокорейской гёрл-группы Blackpink, сформированной в 2016 году лейблом YG Entertainment. Как сольный артист с 2023 года подписана на The Black Label.",
+    "uz": "Roseanne Park — koreys-yangi zelandiyalik qoʻshiqchi va raqqosa. Yangi Zelandiyada tugʻilgan va Avstraliyada oʻsgan ROSÉ 2012-yilda muvaffaqiyatli tinglovdan soʻng Janubiy Koreyaning YG Entertainment leybl bilan shartnoma tuzdi va 2016-yil avgust oyida BLACKPINK qizlar guruhi aʼzosi sifatida debyut qilishdan oldin toʻrt yil davomida taʼlim oldi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Ros%C3%A9_(singer)",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A0%D0%BE%D0%B7%D1%8D",
+    "uz": "https://uz.wikipedia.org/wiki/Ros%C3%A9"
+   },
+   "desc": {
+    "en": "New Zealand and South Korean singer (born 1997)",
+    "ru": "новозеландская и южнокорейская певица и танцовщица",
+    "uz": "Janubiy Koreyalik qo'shiqchi va raqqosa (BLACKPINK a'zosi)"
+   }
   },
   "Bruno Mars": {
    "aliases": [],
@@ -4610,7 +4643,22 @@
    "apple": "https://music.apple.com/us/artist/bruno-mars/278873078",
    "ytPhotoChecked": "2026-11-27T00:05:43Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCZn4r7heNOPY-C43YIywnVA"
+   "youtubeMusic": "https://music.youtube.com/channel/UCZn4r7heNOPY-C43YIywnVA",
+   "bioChecked": "2026-11-28T20:30:02Z",
+   "bio": {
+    "en": "Peter Gene Hernandez, known professionally as Bruno Mars, is an American singer-songwriter, record producer, and dancer. Regarded as a pop icon, he is known for his three-octave tenor vocal range, retro showmanship, musical versatility, and live performances, accompanied by his band, the Hooligans. Raised in Honolulu, Mars gained recognition in Hawaii as a child for his impersonation of Elvis Presley, before moving to Los Angeles in 2003 to pursue a musical career.",
+    "ru": "Пи́тер Джин Эрна́ндес, известный под псевдонимом Бру́но Марс, — американский певец, автор песен и продюсер. Считается поп-иконой, он известен своим трехоктавным теноровым вокалом, живыми выступлениями, ретро-шоу и музыкальной универсальностью. Его сопровождает его группа The Hooligans. Выросший в Гонолулу, Бруно получил признание на Гавайях в детстве за то, что олицетворял себя с Элвисом Пресли, прежде чем переехать в Лос-Анджелес в 2003 году, чтобы продолжить музыкальную карьеру.",
+    "uz": "Peter Gene Hernandez, professional sifatida Bruno Mars nomi bilan tanilgan, amerikalik qoʻshiqchi, qoʻshiq yozuvchisi, prodyuser, musiqachi, raqqos va klip rejissori. Gavayi orollaridagi Honolulu shahrida tugʻilib oʻsgan, Mars musiqiy kariyerasini davom ettirish uchun 2003-yilda Los Anjelesga koʻchib oʻtgan. 2009-yilda u The Smeezingtons prodyuserlik guruhiga asos solgan. U 2010-yilda B.o.Bning „Nothinʼ on You“ va Travie McCoyning „Billionaire“ qoʻshiqlari muvaffaqiyati tufayli shon-sharafga erishdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Bruno_Mars",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%91%D1%80%D1%83%D0%BD%D0%BE_%D0%9C%D0%B0%D1%80%D1%81",
+    "uz": "https://uz.wikipedia.org/wiki/Bruno_Mars"
+   },
+   "desc": {
+    "en": "American singer-songwriter (born 1985)",
+    "ru": "американский певец, автор песен и музыкальный продюсер"
+   }
   },
   "Sam Smith": {
    "aliases": [],
@@ -6105,7 +6153,9 @@
    "albums": 38,
    "ytPhotoChecked": "2026-11-27T08:20:47Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCsZIVNwBqtPBX-41kO_rQzQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCsZIVNwBqtPBX-41kO_rQzQ",
+   "itunesId": 935727853,
+   "apple": "https://music.apple.com/us/artist/camila-cabello/935727853"
   },
   "Meghan Trainor": {
    "aliases": [],
@@ -6448,6 +6498,56 @@
   }
  },
  "songs": [
+  {
+   "id": "054a4cec03",
+   "title": "Shameless",
+   "artist": "Camila Cabello",
+   "artists": [
+    "Camila Cabello"
+   ],
+   "album": "Romance",
+   "year": 2019,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 130,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 218.85,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/054a4cec03.m4a",
+   "cover": "library/covers/054a4cec03.jpg",
+   "color": "#921a11",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     1034,
+     1036
+    ]
+   },
+   "addedAt": "2026-11-28T20:27:53Z",
+   "mime": "audio/mp4",
+   "size": 3540271,
+   "storage": "release",
+   "lufs": -8.0,
+   "gain": -6.0,
+   "via": "audio",
+   "fileKey": "054a4cec033c803e",
+   "story": "library/stories/054a4cec03.jpg"
+  },
   {
    "id": "be96a7ab0c",
    "title": "Frozen",

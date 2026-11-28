@@ -29,7 +29,116 @@
   "t": 1794853317,
   "chat": 8988775229
  },
- "instagram_jobs": {},
+ "instagram_jobs": {
+  "cda25137": {
+   "t": 1795897662.8597116,
+   "h": "231d12a8ef86cc35ce01205dbca4c3fce1a4b0c418b50e36ebbb9666df69f104",
+   "chat": 8988775229,
+   "candidates": [
+    {
+     "title": "Shameless",
+     "artist": "Camila Cabello",
+     "genre": "Pop",
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c5/d5/7e/c5d57e36-4270-8730-d009-5e82a71016f7/886448121220.jpg/800x800cc.jpg",
+     "isrc": "USSM11905431",
+     "album": "Romance",
+     "label": "Syco Music/Epic",
+     "year": 2019,
+     "source": "Shazam",
+     "score": 1.0,
+     "duration": 219.733,
+     "artist_id": 935727853,
+     "artist_url": "https://music.apple.com/us/artist/camila-cabello/935727853",
+     "track_url": "https://music.apple.com/us/album/shameless/1487577356",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ce/59/7d/ce597d1a-1c55-7a0c-a19e-0b052a4250a8/mzaf_6182093257318354435.plus.aac.p.m4a",
+     "sources": [
+      "Apple Music",
+      "Deezer",
+      "Shazam"
+     ],
+     "id": 744266542,
+     "album_id": 109617692,
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/4591e8a49868c2494652767f47695a90/1000x1000-000000-80-0-0.jpg",
+     "rank": 828199
+    },
+    {
+     "score": 0.6885185185185185,
+     "id": 768750232,
+     "title": "Shameless (16-Bit Camila Cabello Emulation)",
+     "artist": "Arcade Player",
+     "album": "The Impossible Game Soundtrack, Vol. 21",
+     "album_id": 113621492,
+     "duration": 218,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/f3537e50ca9a795789dcd66274318326/1000x1000-000000-80-0-0.jpg",
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/79f4330aa9257cf91e2b64110fe713d2/1000x1000-000000-80-0-0.jpg",
+     "artist_id": 14605457,
+     "explicit": false,
+     "rank": 6946,
+     "track_url": "https://www.deezer.com/track/768750232",
+     "preview_url": "https://cdnt-preview.dzcdn.net/api/1/1/1/e/2/0/1e2f338530b7fc59c647eb168dba4c7e.mp3?hdnea=exp=1795898562~acl=/api/1/1/1/e/2/0/1e2f338530b7fc59c647eb168dba4c7e.mp3*~data=user_id=0,application_id=42~hmac=2c4de0e7889a2b5035120661a845d6043d1ad516bd00095b1326795451fe26e1",
+     "source": "Deezer"
+    },
+    {
+     "score": 0.6505263157894736,
+     "title": "Shameless",
+     "artist": "Diamond String Orchestra",
+     "album": "Orchestral String Versions of Camila Cabello",
+     "genre": "Pop",
+     "year": 2021,
+     "duration": 301.137,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a1/19/c0/a119c01f-37ec-263c-5a2c-b759e623e967/AMBORCH063.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1482459596,
+     "artist_url": "https://music.apple.com/us/artist/diamond-string-orchestra/1482459596",
+     "track_url": "https://music.apple.com/us/album/shameless/1746501201",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4e/a5/16/4ea51627-a538-c313-1089-87a3393df75f/mzaf_14299008429204698450.plus.aac.p.m4a",
+     "source": "Apple Music",
+     "id": 2802740492,
+     "album_id": 587164222,
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/8f1c7cb08d3b163391fc195361d46d8c/1000x1000-000000-80-0-0.jpg",
+     "rank": 1460,
+     "sources": [
+      "Apple Music",
+      "Deezer"
+     ]
+    },
+    {
+     "score": 0.6438461538461538,
+     "id": 759176292,
+     "title": "Shameless (8-Bit Camila Cabello Emulation)",
+     "artist": "8-Bit Arcade",
+     "album": "By Request, Vol. 50",
+     "album_id": 111885962,
+     "duration": 213,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/a339057cf14b43611f62b5907fb8044f/1000x1000-000000-80-0-0.jpg",
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/65b60c8015a399aa8892ac557c0b7181/1000x1000-000000-80-0-0.jpg",
+     "artist_id": 5845951,
+     "explicit": false,
+     "rank": 639,
+     "track_url": "https://www.deezer.com/track/759176292",
+     "preview_url": "https://cdnt-preview.dzcdn.net/api/1/1/f/4/6/0/f46eb2fed885cc9af0bb6956f85cb167.mp3?hdnea=exp=1795898562~acl=/api/1/1/f/4/6/0/f46eb2fed885cc9af0bb6956f85cb167.mp3*~data=user_id=0,application_id=42~hmac=589dcc5dfcfe76643fb39ca218e6444aa006fa31d3019c4fda195c20f91b292c",
+     "source": "Deezer"
+    },
+    {
+     "score": 0.5846153846153846,
+     "id": 447098062,
+     "title": "Never Be the Same",
+     "artist": "Camila Cabello",
+     "album": "Camila",
+     "album_id": 54496412,
+     "duration": 227,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/824145a71e397185d8a1abe57842430c/1000x1000-000000-80-0-0.jpg",
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/4591e8a49868c2494652767f47695a90/1000x1000-000000-80-0-0.jpg",
+     "artist_id": 9236850,
+     "explicit": false,
+     "rank": 794813,
+     "track_url": "https://www.deezer.com/track/447098062",
+     "preview_url": "https://cdnt-preview.dzcdn.net/api/1/1/f/f/e/0/ffed8df7e9197f02facc234beced00bc.mp3?hdnea=exp=1795898562~acl=/api/1/1/f/f/e/0/ffed8df7e9197f02facc234beced00bc.mp3*~data=user_id=0,application_id=42~hmac=3b99c7803293f80aae87271664e9aa0662eddafa80c36aa3726fd132f0ec67ba",
+     "source": "Deezer"
+    }
+   ]
+  }
+ },
  "catalog_jobs": {},
  "archive_chat": -1005906162341,
  "archived": {
@@ -2420,6 +2529,82 @@
   "218d116654": {
    "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/218d116654.mp3",
    "m": 604
+  },
+  "054a4cec03": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/054a4cec03.m4a",
+   "m": 605
+  },
+  "e0bc1ba38a": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e0bc1ba38a.mp3",
+   "m": 606
+  },
+  "3d062e0f49": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3d062e0f49.mp3",
+   "m": 607
+  },
+  "a2c63c50b4": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a2c63c50b4.mp3",
+   "m": 608
+  },
+  "96e2ef81a8": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/96e2ef81a8.mp3",
+   "m": 609
+  },
+  "bec82765e2": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/bec82765e2.mp3",
+   "m": 610
+  },
+  "31cab1a08e": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/31cab1a08e.mp3",
+   "m": 611
+  },
+  "bbbd3c67d0": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/bbbd3c67d0.mp3",
+   "m": 612
+  },
+  "16feefbf3b": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/16feefbf3b.mp3",
+   "m": 613
+  },
+  "d5d9afa5bb": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d5d9afa5bb.mp3",
+   "m": 614
+  },
+  "ae5605ad3b": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ae5605ad3b.mp3",
+   "m": 615
+  },
+  "cb64a76892": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/cb64a76892.mp3",
+   "m": 616
+  },
+  "26b20ad91e": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/26b20ad91e.mp3",
+   "m": 617
+  },
+  "cdc7184bcb": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/cdc7184bcb.mp3",
+   "m": 618
+  },
+  "10c75ffecd": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/10c75ffecd.mp3",
+   "m": 619
+  },
+  "f683b39f7c": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f683b39f7c.mp3",
+   "m": 620
+  },
+  "47593a4e77": {
+   "src": "library/audio/47593a4e77.mp3",
+   "m": 621
+  },
+  "7b3bd614c0": {
+   "src": "library/audio/7b3bd614c0.mp3",
+   "m": 622
+  },
+  "111c06cd22": {
+   "src": "library/audio/111c06cd22.m4a",
+   "m": 623
   }
  }
 }
