@@ -101,6 +101,106 @@
      "source": "Apple Music"
     }
    ]
+  },
+  "eee231fa": {
+   "t": 1795833807.7585742,
+   "h": "85aaad61bd92c522646f0674490fc2380b8171fdf33cfc730a8ff958a2b98f18",
+   "chat": 8988775229,
+   "candidates": [
+    {
+     "title": "Love Story",
+     "artist": "Indila",
+     "genre": "French Pop",
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/49/58/30/49583018-308b-431d-c691-4a28e78be8cd/14UMGIM01109.rgb.jpg/800x800cc.jpg",
+     "isrc": "FRUM71400048",
+     "album": "Mini World",
+     "label": "Universal Music Division Polydor France",
+     "year": 2014,
+     "source": "Shazam",
+     "score": 1.0,
+     "duration": 316.28,
+     "artist_id": 365001429,
+     "artist_url": "https://music.apple.com/us/artist/indila/365001429",
+     "track_url": "https://music.apple.com/us/album/love-story/1440830382",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e7/f7/3c/e7f73c7f-a44a-3335-2ffc-6053421d52b8/mzaf_905099833742291369.plus.aac.p.m4a",
+     "sources": [
+      "Apple Music",
+      "Deezer",
+      "Shazam"
+     ],
+     "id": 74427069,
+     "album_id": 7350949,
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/d24d498af970c6feda6c2069cfdff56b/1000x1000-000000-80-0-0.jpg",
+     "rank": 885674
+    },
+    {
+     "score": 0.7047368421052631,
+     "id": 2681332602,
+     "title": "Love Story - Indila",
+     "artist": "Penguin Piano",
+     "album": "Experience",
+     "album_id": 553637412,
+     "duration": 109,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/4371f97c9b1956ad5283c469892a0bc9/1000x1000-000000-80-0-0.jpg",
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/46aa4818c653d1c63a5f372479a71fd9/1000x1000-000000-80-0-0.jpg",
+     "artist_id": 234057781,
+     "explicit": false,
+     "rank": 578916,
+     "track_url": "https://www.deezer.com/track/2681332602",
+     "preview_url": "https://cdnt-preview.dzcdn.net/api/1/1/2/e/6/0/2e6830edda88a2bf90936a3cc2738708.mp3?hdnea=exp=1795834707~acl=/api/1/1/2/e/6/0/2e6830edda88a2bf90936a3cc2738708.mp3*~data=user_id=0,application_id=42~hmac=39289457348ad0433eddefd84e2b8775834ecca1e3d686a92772671b71e18313",
+     "source": "Deezer"
+    },
+    {
+     "score": 0.6882758620689655,
+     "id": 3631963852,
+     "title": "Love Story",
+     "artist": "ViOLiNiA Zhanna Stelmakh",
+     "album": "Love Story",
+     "album_id": 848100692,
+     "duration": 204,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/51b967707b980f9388caff2a0e301598/1000x1000-000000-80-0-0.jpg",
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/e2e00966ae82662071e6d608b197410e/1000x1000-000000-80-0-0.jpg",
+     "artist_id": 117804812,
+     "explicit": false,
+     "rank": 464149,
+     "track_url": "https://www.deezer.com/track/3631963852",
+     "preview_url": "https://cdnt-preview.dzcdn.net/api/1/1/7/2/7/0/72792eeb1785ff5002b3ba80e50fdf48.mp3?hdnea=exp=1795834707~acl=/api/1/1/7/2/7/0/72792eeb1785ff5002b3ba80e50fdf48.mp3*~data=user_id=0,application_id=42~hmac=40956f23708f83a3450657e1875dfe653c6f27d395e05e8326548676a617e2bf",
+     "source": "Deezer"
+    },
+    {
+     "score": 0.6829411764705882,
+     "title": "Love Story (feat. Cassidi)",
+     "artist": "Disco Lines",
+     "album": "Love Story (feat. Cassidi)",
+     "genre": "Dance",
+     "year": 2020,
+     "duration": 222.957,
+     "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/67/00/79/670079db-e822-55b5-8cbe-bac0645c7b42/20UMGIM82858.rgb.jpg/600x600bb.jpg",
+     "explicit": false,
+     "artist_id": 1462793893,
+     "artist_url": "https://music.apple.com/us/artist/disco-lines/1462793893",
+     "track_url": "https://music.apple.com/us/album/love-story-feat-cassidi/1532847417",
+     "preview_url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/89/da/76/89da76d0-b6d6-d474-438e-965cbe84704f/mzaf_3438350851102866308.plus.aac.p.m4a",
+     "source": "Apple Music"
+    },
+    {
+     "score": 0.6684615384615384,
+     "id": 3039184501,
+     "title": "Love Story - Indila",
+     "artist": "Clavier",
+     "album": "Love Story - Indila (Piano Version)",
+     "album_id": 654749581,
+     "duration": 104,
+     "cover": "https://cdn-images.dzcdn.net/images/cover/ac15b6cb6ea1e588646bf638f987497d/1000x1000-000000-80-0-0.jpg",
+     "artist_picture": "https://cdn-images.dzcdn.net/images/artist/9d8536133f026965a5b3cecfeb373a1a/1000x1000-000000-80-0-0.jpg",
+     "artist_id": 5997772,
+     "explicit": false,
+     "rank": 317527,
+     "track_url": "https://www.deezer.com/track/3039184501",
+     "preview_url": "https://cdnt-preview.dzcdn.net/api/1/1/3/1/5/0/315bfd42a373909375a336ee8395ec49.mp3?hdnea=exp=1795834707~acl=/api/1/1/3/1/5/0/315bfd42a373909375a336ee8395ec49.mp3*~data=user_id=0,application_id=42~hmac=e0193fb9a4b95f01ab8e00a9a4da861d5a8beea558f15e5306fec4ccde4a2437",
+     "source": "Deezer"
+    }
+   ]
   }
  },
  "catalog_jobs": {},
@@ -1769,6 +1869,134 @@
   "ec54db96eb": {
    "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ec54db96eb.mp3",
    "m": 423
+  },
+  "9f11f3a299": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9f11f3a299.mp3",
+   "m": 424
+  },
+  "47c32872e2": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/47c32872e2.mp3",
+   "m": 425
+  },
+  "5b88444fa7": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5b88444fa7.mp3",
+   "m": 426
+  },
+  "40cbbdb207": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/40cbbdb207.mp3",
+   "m": 427
+  },
+  "7cc94a2543": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7cc94a2543.mp3",
+   "m": 428
+  },
+  "96d26094c2": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/96d26094c2.mp3",
+   "m": 429
+  },
+  "a324b87ce7": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a324b87ce7.mp3",
+   "m": 430
+  },
+  "5f2d88fc90": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5f2d88fc90.mp3",
+   "m": 431
+  },
+  "e917ba497b": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e917ba497b.mp3",
+   "m": 432
+  },
+  "c14897222d": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c14897222d.mp3",
+   "m": 433
+  },
+  "a1332de508": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a1332de508.mp3",
+   "m": 434
+  },
+  "8e14e3a343": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8e14e3a343.mp3",
+   "m": 435
+  },
+  "e584d2a4cc": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e584d2a4cc.mp3",
+   "m": 436
+  },
+  "9aad59af35": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9aad59af35.mp3",
+   "m": 437
+  },
+  "f608866832": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f608866832.mp3",
+   "m": 438
+  },
+  "de7141f408": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/de7141f408.mp3",
+   "m": 439
+  },
+  "f746143afb": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f746143afb.mp3",
+   "m": 440
+  },
+  "0112442891": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0112442891.mp3",
+   "m": 441
+  },
+  "a853a856b7": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a853a856b7.mp3",
+   "m": 442
+  },
+  "00a0664dfc": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/00a0664dfc.mp3",
+   "m": 443
+  },
+  "2ac10f02ac": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2ac10f02ac.mp3",
+   "m": 444
+  },
+  "8dae940966": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8dae940966.mp3",
+   "m": 445
+  },
+  "ce33f0771f": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ce33f0771f.mp3",
+   "m": 446
+  },
+  "5ec5e36487": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5ec5e36487.mp3",
+   "m": 447
+  },
+  "fcd49b78a6": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/fcd49b78a6.mp3",
+   "m": 448
+  },
+  "9b81e25269": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/9b81e25269.mp3",
+   "m": 449
+  },
+  "b038862c7d": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b038862c7d.mp3",
+   "m": 450
+  },
+  "d444fb4ed4": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d444fb4ed4.mp3",
+   "m": 451
+  },
+  "34a0e6b9f6": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/34a0e6b9f6.mp3",
+   "m": 452
+  },
+  "a52a1107cc": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a52a1107cc.mp3",
+   "m": 453
+  },
+  "c1ce870668": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c1ce870668.mp3",
+   "m": 454
+  },
+  "b76f9edc7f": {
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b76f9edc7f.mp3",
+   "m": 455
   }
  }
 }

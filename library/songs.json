@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T02:41:07Z",
- "count": 471,
+ "updatedAt": "2026-11-28T02:49:34Z",
+ "count": 472,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4002,7 +4002,22 @@
    "albums": 108,
    "ytPhotoChecked": "2026-11-26T21:17:23Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCn9i4cdLe14CbsOycTbKMoA"
+   "youtubeMusic": "https://music.youtube.com/channel/UCn9i4cdLe14CbsOycTbKMoA",
+   "bioChecked": "2026-11-28T02:46:26Z",
+   "bio": {
+    "en": "Sir Elton Hercules John is a British singer, composer and pianist. An influential figure in popular culture, he is known for his flamboyant fashion, showmanship and songwriting partnership with the lyricist Bernie Taupin. With over 300 million records sold worldwide, he is one of the best-selling music artists of all time. An EGOT winner, John's accolades include five Grammy Awards, two Academy Awards, a Primetime Emmy Award, a Tony Award, two Golden Globe Awards, a Laurence Olivier Award and the Kennedy Center Honors.",
+    "ru": "Э́лтон Геркуле́с Джон — британский певец, пианист и композитор.",
+    "uz": "Sir Elton Hercules John ingliz qoʻshiqchisi, qoʻshiqnavisi, pianinochisi va bastakoridir. 1967-yildan beri Bernie Taupin bilan 30 dan oshiq musiqiy albomlarda hamkorlik qilib, shu kunga qadar 300 milliondan oshiq yozuvlarini sotgan hamda bu natija uni eng koʻp sotilgan musiqa albomlaridan biriga aylantirgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Elton_John",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%94%D0%B6%D0%BE%D0%BD%2C_%D0%AD%D0%BB%D1%82%D0%BE%D0%BD",
+    "uz": "https://uz.wikipedia.org/wiki/Elton_John"
+   },
+   "desc": {
+    "en": "British musician and songwriter (born 1947)",
+    "ru": "Английский рок-певец и автор песен, композитор и пианист"
+   }
   },
   "Bryan Adams": {
    "aliases": [],
@@ -4019,7 +4034,22 @@
    "albums": 80,
    "ytPhotoChecked": "2026-11-26T21:17:24Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCSoZk6OcvRneFfAZH3I3-gQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCSoZk6OcvRneFfAZH3I3-gQ",
+   "bioChecked": "2026-11-28T02:46:28Z",
+   "bio": {
+    "en": "Bryan Guy Adams is a Canadian singer-songwriter, musician, record producer, and photographer. He is estimated to have sold between 75 million and more than 100 million records and singles worldwide, placing him among the best-selling music artists. Adams was the most played artist on Canadian radio in the 2010s and has had 25 top 15 singles in Canada and over a dozen in the U.S., UK, and Australia.",
+    "ru": "Бра́йан Гай А́дамс — канадский рок-музыкант, фотограф, гитарист, автор и исполнитель песен, который начал свою карьеру в шоу-бизнесе в 1976 году, первоначально в составе рок-групп. Его дебютный сольный альбом был выпущен в 1980 году, а в 1985 году он впервые возглавил Billboard Hot 100 с рок-балладой «Heaven». Именно этот жанр принёс ему успех по всему миру.",
+    "uz": "Bryan Guy Adams — Kanada rok qoʻshiqchi-yozuvchi, musiqachi, gitarist va suratchisi. U shou biznesdagi karyerasini 1976-yilda rok guruhi tarkibida boshlaydi. Uning ilk albomi 1980-yilda sotuvga chiqariladi. Bryan Adams filmlar uchun yozgan qoʻshiqlari uchun 3 marotaba Academy Awards nomzodi boʻlgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Bryan_Adams",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%90%D0%B4%D0%B0%D0%BC%D1%81%2C_%D0%91%D1%80%D0%B0%D0%B9%D0%B0%D0%BD",
+    "uz": "https://uz.wikipedia.org/wiki/Bryan_Adams"
+   },
+   "desc": {
+    "en": "Canadian singer-songwriter and musician (born 1959)",
+    "ru": "канадский рок-музыкант, фотограф, гитарист, автор и исполнитель песен"
+   }
   },
   "Celine Dion": {
    "aliases": [
@@ -4038,7 +4068,22 @@
    "albums": 64,
    "ytPhotoChecked": "2026-11-26T21:17:25Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCFTaSsjx_HiiQrkPXUPiWBg"
+   "youtubeMusic": "https://music.youtube.com/channel/UCFTaSsjx_HiiQrkPXUPiWBg",
+   "bioChecked": "2026-11-28T02:46:31Z",
+   "bio": {
+    "en": "Céline Marie Claudette Dion is a Canadian singer, entrepreneur and philanthropist. Dubbed the \"Queen of Power Ballads\", she is known for her impact on popular music through powerful, technically skilled vocals and commercially successful works. With over 200 million records sold worldwide, Dion is the best-selling Canadian recording artist, the best-selling French-language artist, and one of the best-selling musical artists of all time.",
+    "ru": "Сели́н Мари́ Клоде́тт Дио́н — канадская певица, автор песен, актриса и композитор. Родившаяся в многодетной семье в провинции Квебек, Селин Дион в подростковом возрасте стала звездой во франкоязычном мире после того, как её менеджер и будущий муж Рене Анжелил заложил свой дом, чтобы профинансировать её первую запись. В 1990 году она выпустила англоязычный альбом Unison и утвердилась как певица в Северной Америке и других англоязычных регионах мира.",
+    "uz": "Céline Marie Claudette Dion, Kanada pop qoʻshiqchidir va aktrisa. 1988-yil 30-aprelda Irlandiyaning Dublin shahrida oʻtkazilgan Eurovision qoʻshiq tanlovida Shveysariya vakil boʻlib, „Ne partez pas sans moi“ ashulasi bilan birinchilikni qoʻlga kiritdi. Dionʼning shuningdek 200 milliondan ortiq albom va singl sotib, eng muvaffaqiyatli artistlar va Sony Music Entertainment."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Celine_Dion",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BE%D0%BD%2C_%D0%A1%D0%B5%D0%BB%D0%B8%D0%BD",
+    "uz": "https://uz.wikipedia.org/wiki/Celine_Dion"
+   },
+   "desc": {
+    "en": "Canadian singer (born 1968)",
+    "ru": "канадская певица"
+   }
   },
   "James Horner": {
    "aliases": [],
@@ -5990,6 +6035,62 @@
   }
  },
  "songs": [
+  {
+   "id": "a2aeb95812",
+   "title": "Love Story",
+   "artist": "Indila",
+   "artists": [
+    "Indila"
+   ],
+   "album": "Mini World",
+   "year": 2014,
+   "genre": "Pop",
+   "subgenre": "French Pop",
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 96,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 284.51,
+   "src": "library/audio/a2aeb95812.m4a",
+   "cover": "library/covers/a2aeb95812.jpg",
+   "color": "#7b7a85",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     878,
+     881,
+     879,
+     882
+    ]
+   },
+   "addedAt": "2026-11-28T02:43:34Z",
+   "mime": "audio/mp4",
+   "size": 4602239,
+   "storage": "pages",
+   "lufs": -13.3,
+   "gain": -0.7,
+   "via": "audio",
+   "fileKey": "a2aeb958127f1c6b",
+   "story": "library/stories/a2aeb95812.jpg",
+   "video": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a2aeb95812-v1795833861.mp4",
+   "videoSize": 17407042,
+   "videoOffset": 0.0,
+   "videoKey": "82b2bbe0df638640",
+   "updatedAt": "2026-11-28T02:44:23Z"
+  },
   {
    "id": "b458a2be77",
    "title": "SNAP",
