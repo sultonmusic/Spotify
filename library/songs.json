@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T05:55:58Z",
- "count": 473,
+ "updatedAt": "2026-11-28T07:47:53Z",
+ "count": 474,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -6111,9 +6111,69 @@
    "ytPhotoChecked": "2026-11-28T05:53:32Z",
    "imageSource": "ytmusic",
    "youtubeMusic": "https://music.youtube.com/channel/UCaBbPiMpdL5z86bWCFgCItA"
+  },
+  "Riogeovn": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 366147992,
+   "itunesId": 1865668667,
+   "deezer": "https://www.deezer.com/artist/366147992",
+   "apple": "https://music.apple.com/us/artist/riogeovn/1865668667",
+   "image": "library/artists/riogeovn.jpg",
+   "color": "#808080",
+   "checked": "2026-11-28T07:47:52Z",
+   "verifiedAt": "2026-11-28T07:47:52Z",
+   "fans": 38,
+   "albums": 38
   }
  },
  "songs": [
+  {
+   "id": "7b3bd614c0",
+   "title": "AINSI BAS LA VIDA - HARDTEKK (SUPER SLOWED)",
+   "artist": "Riogeovn",
+   "artists": [
+    "Riogeovn"
+   ],
+   "album": "AINSI BAS LA VIDA (HARDTEKK)",
+   "year": 2026,
+   "genre": "Electronic",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.85,
+   "danceability": 0.9,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 155.67,
+   "src": "library/audio/7b3bd614c0.mp3",
+   "cover": "library/covers/7b3bd614c0.jpg",
+   "color": "#808080",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T07:47:53Z",
+   "mime": "audio/mpeg",
+   "size": 3737861,
+   "storage": "pages",
+   "lufs": -7.8,
+   "gain": -6.2,
+   "via": "audio",
+   "fileKey": "yt:Wl1ptuXnls8",
+   "variant": "slowed",
+   "story": "library/stories/7b3bd614c0.jpg"
+  },
   {
    "id": "111c06cd22",
    "title": "Suzume",
