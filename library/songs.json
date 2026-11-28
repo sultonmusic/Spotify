@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T09:17:27Z",
+ "updatedAt": "2026-11-28T09:30:48Z",
  "count": 514,
  "site": {
   "admins": [
@@ -4196,7 +4196,22 @@
    "albums": 75,
    "ytPhotoChecked": "2026-11-26T21:17:30Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UChgxarBUCnPJV871-46bJ2g"
+   "youtubeMusic": "https://music.youtube.com/channel/UChgxarBUCnPJV871-46bJ2g",
+   "bioChecked": "2026-11-28T09:27:39Z",
+   "bio": {
+    "en": "Elvis Aaron Presley was an American singer and actor. Referred to as the \"King of Rock and Roll\", Presley's energetic and sexually provocative performance style, combined with a mixture of influences across color lines during a transformative era in race relations, brought both great success and initial controversy.",
+    "ru": "Э́лвис А́арон Пре́сли — американский певец и актёр, один из самых коммерчески успешных исполнителей популярной музыки XX века. Также известен как «король рок-н-ролла».",
+    "uz": "Elvis Aaron Presley – Amerikalik qoʻshiqchi va aktyor. Rok musiqa asoschilaridan. Oʻlimidan 3 oʻnyillik oʻtgan boʻlsada, Elvis XX asrning eng muvaffaqiyatli qoʻshiqchisi boʻlishni davom ettiryapti. Uning mashhurligi shunchalik kengki, hatto koʻpchilik odamlar uni faqatgina oti bilan – „Elvis“ deb chaqiradilar. Elvis shuningdek, Gospelz, blyuz, kantri kabi amerika ommabop musiqa janrlari negizida oʻziga xos, joʻshqin va ehtirosli ijro uslubini yaratgan, \"Rock’nʼroll qiroli\" unvoniga sazovor boʻlgan"
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Elvis_Presley",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%B5%D1%81%D0%BB%D0%B8%2C_%D0%AD%D0%BB%D0%B2%D0%B8%D1%81",
+    "uz": "https://uz.wikipedia.org/wiki/Elvis_Presley"
+   },
+   "desc": {
+    "en": "American singer and actor (1935–1977)",
+    "ru": "американский певец и актёр (1935—1977)"
+   }
   },
   "The Jordanaires": {
    "aliases": [],
@@ -4211,7 +4226,23 @@
    "albums": 39,
    "ytPhotoChecked": "2026-11-26T21:17:31Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCI_e1PF2qXQ4QP80id-zc8A"
+   "youtubeMusic": "https://music.youtube.com/channel/UCI_e1PF2qXQ4QP80id-zc8A",
+   "bioChecked": "2026-11-28T09:27:43Z",
+   "bio": {
+    "en": "The Jordanaires were an American vocal quartet that formed as a gospel group in 1948. Over the years, they recorded both sacred and secular music for recording companies such as Capitol Records, RCA Victor, Columbia Records, Decca Records, Vocalion Records, Stop Records, and many other smaller independent labels.",
+    "ru": "The Jordanaires — американская вокальная группа, появившаяся в 1948 году в Спрингфилде, штат Миссури. В оригинальный состав группы входили Боб Хаббард, Билл Мэттьюс, Монти Мэттьюс и Кулли Холт. С начала 1950-х годов состав группы неоднократно менялся. The Jordanaires исполнили более 100 песен, аккомпанируя Элвису Пресли и исполняя музыку для кинолент, в которых снимался певец. Группа совершала концертные турне по всему миру, исполняя песни из альбомов, записанных ими самостоятельно. The Jordanaires были также удостоены премии «Грэмми».",
+    "uz": "Jordanaires 1948 yilda xushxabar guruhi sifatida tashkil topgan Amerika vokal kvarteti edi. Yillar davomida ular Capitol Records, RCA Victor, Columbia Records, Decca Records, Vocalion Records, Stop Records va boshqa ko'plab mustaqil yorliqlar kabi ovoz yozish kompaniyalari uchun muqaddas va dunyoviy musiqalarni yozib olishdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/The_Jordanaires",
+    "ru": "https://ru.wikipedia.org/wiki/The_Jordanaires"
+   },
+   "desc": {
+    "en": "1948–2013 American vocal group; back-up singers for Elvis Presley and other artists"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "George Michael": {
    "aliases": [],
@@ -4228,7 +4259,24 @@
    "albums": 45,
    "ytPhotoChecked": "2026-11-26T21:17:33Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCgNivrx0yqbFoAEgf2AsRXg"
+   "youtubeMusic": "https://music.youtube.com/channel/UCgNivrx0yqbFoAEgf2AsRXg",
+   "bioChecked": "2026-11-28T09:27:46Z",
+   "bio": {
+    "en": "George Michael was an English singer-songwriter and record producer. Regarded as a pop culture icon, he is one of the best-selling recording artists of all time. Michael has been widely recognised as a creative force in songwriting, vocal performance, and visual presentation. He was inducted into the Rock and Roll Hall of Fame in 2023. The Radio Academy named him the most played artist on British radio during the period 1984–2004.",
+    "ru": "Джордж Майкл — британский певец, автор песен, музыкальный продюсер. За время музыкальной карьеры было продано около 110 миллионов экземпляров его записей, что делает Майкла одним из самых успешных поп-певцов. Обладатель двух премий «Грэмми» — в категории «Альбом года» и за лучший R&B дуэт. В 2023 году был посмертно включён в Зал славы рок-н-ролла.",
+    "uz": "Jorj Maykl ingliz qo'shiqchisi-qo'shiq muallifi va prodyuser edi. Pop madaniyat belgisi sifatida u barcha davrlarning eng ko'p sotilgan yozuvchilaridan biri hisoblanadi. Maykl qo'shiq yozish, vokal ijrosi va vizual taqdimotda ijodiy kuch sifatida keng tan olingan. U 2023 yilda Rok-n-Roll shon-shuhrat zaliga kiritilgan. Radio akademiyasi uni 1984-2004 yillar davomida Britaniya radiosida eng ko'p o'ynagan rassom deb atadi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/George_Michael",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%94%D0%B6%D0%BE%D1%80%D0%B4%D0%B6_%D0%9C%D0%B0%D0%B9%D0%BA%D0%BB"
+   },
+   "desc": {
+    "en": "English singer-songwriter (1963–2016)",
+    "ru": "британский певец, поэт и композитор"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Bon Jovi": {
    "aliases": [],
@@ -6123,24 +6171,30 @@
    "itunesId": 1865668667,
    "deezer": "https://www.deezer.com/artist/366147992",
    "apple": "https://music.apple.com/us/artist/riogeovn/1865668667",
-   "image": "library/artists/riogeovn.jpg",
-   "color": "#808080",
+   "image": "library/artists/riogeovn-yt.jpg",
+   "color": "#515151",
    "checked": "2026-11-28T07:47:52Z",
    "verifiedAt": "2026-11-28T07:47:52Z",
    "fans": 38,
-   "albums": 38
+   "albums": 38,
+   "ytPhotoChecked": "2026-11-28T09:27:34Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCWQC-w1qgbHUvaohr4UkXzw"
   },
   "David Bowie": {
    "aliases": [],
    "verified": true,
    "deezerId": 997,
    "deezer": "https://www.deezer.com/artist/997",
-   "image": "library/artists/david-bowie.jpg",
-   "color": "#5b5b5b",
+   "image": "library/artists/david-bowie-yt.jpg",
+   "color": "#4e4441",
    "checked": "2026-11-28T09:12:15Z",
    "verifiedAt": "2026-11-28T09:12:15Z",
    "fans": 2492050,
-   "albums": 166
+   "albums": 166,
+   "ytPhotoChecked": "2026-11-28T09:27:36Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCvY1eVE6lTebXsdFbbXUtkQ"
   }
  },
  "songs": [
