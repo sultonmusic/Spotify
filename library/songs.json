@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T10:38:23Z",
- "count": 588,
+ "updatedAt": "2026-11-28T10:58:31Z",
+ "count": 604,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -6266,6 +6266,734 @@
   }
  },
  "songs": [
+  {
+   "id": "2f8f363a1e",
+   "title": "Softcore",
+   "artist": "The Neighbourhood",
+   "artists": [
+    "The Neighbourhood"
+   ],
+   "album": "Hard To Imagine The Neighbourhood Ever Changing",
+   "year": 2018,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "sad",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 94,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 206.28,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2f8f363a1e.mp3",
+   "cover": "library/covers/2f8f363a1e.jpg",
+   "color": "#753b1a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:58:30Z",
+   "mime": "audio/mpeg",
+   "size": 4952057,
+   "storage": "release",
+   "lufs": -7.2,
+   "gain": -6.8,
+   "via": "audio",
+   "fileKey": "yt:NIma5XOxBq0",
+   "story": "library/stories/2f8f363a1e.jpg"
+  },
+  {
+   "id": "23c555d7e2",
+   "title": "Afraid",
+   "artist": "The Neighbourhood",
+   "artists": [
+    "The Neighbourhood"
+   ],
+   "album": "I Love You.",
+   "year": 2013,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.72,
+   "danceability": 0.77,
+   "bpm": 168,
+   "tags": [],
+   "description": null,
+   "explicit": true,
+   "duration": 251.19,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/23c555d7e2.mp3",
+   "cover": "library/covers/23c555d7e2.jpg",
+   "color": "#777777",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:57:13Z",
+   "mime": "audio/mpeg",
+   "size": 6030291,
+   "storage": "release",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "yt:6o9Cy7Zv7aY",
+   "story": "library/stories/23c555d7e2.jpg"
+  },
+  {
+   "id": "fa4217ef04",
+   "title": "Daddy Issues",
+   "artist": "The Neighbourhood",
+   "artists": [
+    "The Neighbourhood"
+   ],
+   "album": "Wiped Out!",
+   "year": 2015,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "sad",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": 85,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 260.17,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/fa4217ef04.mp3",
+   "cover": "library/covers/fa4217ef04.jpg",
+   "color": "#8f0000",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:56:34Z",
+   "mime": "audio/mpeg",
+   "size": 6245720,
+   "storage": "release",
+   "lufs": -10.3,
+   "gain": -3.7,
+   "via": "audio",
+   "fileKey": "yt:lqSgsq4Bn2c",
+   "story": "library/stories/fa4217ef04.jpg"
+  },
+  {
+   "id": "05d777baa4",
+   "title": "Mardy Bum",
+   "artist": "Arctic Monkeys",
+   "artists": [
+    "Arctic Monkeys"
+   ],
+   "album": "Whatever People Say I Am, That's What I'm Not",
+   "year": 2006,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "nostalgic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": 112,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 172.08,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/05d777baa4.mp3",
+   "cover": "library/covers/05d777baa4.jpg",
+   "color": "#345b5b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:52:56Z",
+   "mime": "audio/mpeg",
+   "size": 4131829,
+   "storage": "release",
+   "lufs": -5.9,
+   "gain": -8.1,
+   "via": "audio",
+   "fileKey": "yt:dO368WjwyFs",
+   "story": "library/stories/05d777baa4.jpg"
+  },
+  {
+   "id": "83e25652f2",
+   "title": "Crying Lightning",
+   "artist": "Arctic Monkeys",
+   "artists": [
+    "Arctic Monkeys"
+   ],
+   "album": "Humbug (Bonus Track Version)",
+   "year": 2009,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 106,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 380.2,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/83e25652f2.mp3",
+   "cover": "library/covers/83e25652f2.jpg",
+   "color": "#800e6a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:49:51Z",
+   "mime": "audio/mpeg",
+   "size": 9126315,
+   "storage": "release",
+   "lufs": -16.4,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:1m51XbfT_tw",
+   "story": "library/stories/83e25652f2.jpg"
+  },
+  {
+   "id": "db66415325",
+   "title": "Snap Out Of It",
+   "artist": "Arctic Monkeys",
+   "artists": [
+    "Arctic Monkeys"
+   ],
+   "album": "AM",
+   "year": 2013,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.62,
+   "danceability": 0.67,
+   "bpm": 130,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 196.05,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/db66415325.mp3",
+   "cover": "library/covers/db66415325.jpg",
+   "color": "#30565f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:49:00Z",
+   "mime": "audio/mpeg",
+   "size": 4706639,
+   "storage": "release",
+   "lufs": -10.2,
+   "gain": -3.8,
+   "via": "audio",
+   "fileKey": "yt:yfrEMQgBc2Y",
+   "story": "library/stories/db66415325.jpg"
+  },
+  {
+   "id": "c34375d7f3",
+   "title": "Arabella",
+   "artist": "Arctic Monkeys",
+   "artists": [
+    "Arctic Monkeys"
+   ],
+   "album": "AM",
+   "year": 2013,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 90,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 207.37,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c34375d7f3.mp3",
+   "cover": "library/covers/c34375d7f3.jpg",
+   "color": "#30565f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:48:36Z",
+   "mime": "audio/mpeg",
+   "size": 4978505,
+   "storage": "release",
+   "lufs": -9.2,
+   "gain": -4.8,
+   "via": "audio",
+   "fileKey": "yt:80oOFk5tYps",
+   "story": "library/stories/c34375d7f3.jpg"
+  },
+  {
+   "id": "883462e583",
+   "title": "Fluorescent Adolescent",
+   "artist": "Arctic Monkeys",
+   "artists": [
+    "Arctic Monkeys"
+   ],
+   "album": "Favourite Worst Nightmare",
+   "year": 2007,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "nostalgic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": 112,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 195.18,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/883462e583.mp3",
+   "cover": "library/covers/883462e583.jpg",
+   "color": "#6e684a",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:48:06Z",
+   "mime": "audio/mpeg",
+   "size": 4685934,
+   "storage": "release",
+   "lufs": -9.7,
+   "gain": -4.3,
+   "via": "audio",
+   "fileKey": "yt:Th8v0EZiDik",
+   "story": "library/stories/883462e583.jpg"
+  },
+  {
+   "id": "2c278131a9",
+   "title": "Why'd You Only Call Me When You're High?",
+   "artist": "Arctic Monkeys",
+   "artists": [
+    "Arctic Monkeys"
+   ],
+   "album": "AM (Live EP Bonus Edition)",
+   "year": 2013,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 92,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 288.31,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2c278131a9.mp3",
+   "cover": "library/covers/2c278131a9.jpg",
+   "color": "#2c5e62",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:47:37Z",
+   "mime": "audio/mpeg",
+   "size": 6920833,
+   "storage": "release",
+   "lufs": -9.3,
+   "gain": -4.7,
+   "via": "audio",
+   "fileKey": "yt:VsxlqmSDmBU",
+   "story": "library/stories/2c278131a9.jpg"
+  },
+  {
+   "id": "49f8828bc5",
+   "title": "R U Mine?",
+   "artist": "Arctic Monkeys",
+   "artists": [
+    "Arctic Monkeys"
+   ],
+   "album": "AM",
+   "year": 2012,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 97,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 223.9,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/49f8828bc5.mp3",
+   "cover": "library/covers/49f8828bc5.jpg",
+   "color": "#30565f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:47:02Z",
+   "mime": "audio/mpeg",
+   "size": 5375370,
+   "storage": "release",
+   "lufs": -10.5,
+   "gain": -3.5,
+   "via": "audio",
+   "fileKey": "yt:giLpYG11qxQ",
+   "story": "library/stories/49f8828bc5.jpg"
+  },
+  {
+   "id": "eab387e80e",
+   "title": "I Wanna Be Yours",
+   "artist": "Arctic Monkeys",
+   "artists": [
+    "Arctic Monkeys"
+   ],
+   "album": "AM",
+   "year": 2013,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "motivational",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.72,
+   "danceability": 0.77,
+   "bpm": 135,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 184.19,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/eab387e80e.mp3",
+   "cover": "library/covers/eab387e80e.jpg",
+   "color": "#30565f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:46:22Z",
+   "mime": "audio/mpeg",
+   "size": 4422097,
+   "storage": "release",
+   "lufs": -11.5,
+   "gain": -2.5,
+   "via": "audio",
+   "fileKey": "yt:nyuo9-OjNNg",
+   "story": "library/stories/eab387e80e.jpg"
+  },
+  {
+   "id": "6773623ce1",
+   "title": "When The Smoke Is Going Down",
+   "artist": "Scorpions",
+   "artists": [
+    "Scorpions"
+   ],
+   "album": "Blackout",
+   "year": 1982,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 230.74,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/6773623ce1.mp3",
+   "cover": "library/covers/6773623ce1.jpg",
+   "color": "#465b93",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:45:36Z",
+   "mime": "audio/mpeg",
+   "size": 5539549,
+   "storage": "release",
+   "lufs": -8.9,
+   "gain": -5.1,
+   "via": "audio",
+   "fileKey": "yt:Mpd9YH-Rvp0",
+   "story": "library/stories/6773623ce1.jpg"
+  },
+  {
+   "id": "77d4bfa771",
+   "title": "You & I",
+   "artist": "Scorpions",
+   "artists": [
+    "Scorpions"
+   ],
+   "album": "From The First Sting",
+   "year": 2026,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 375.88,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/77d4bfa771.mp3",
+   "cover": "library/covers/77d4bfa771.jpg",
+   "color": "#cd9e32",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:45:01Z",
+   "mime": "audio/mpeg",
+   "size": 9022612,
+   "storage": "release",
+   "lufs": -6.6,
+   "gain": -7.4,
+   "via": "audio",
+   "fileKey": "yt:qZ4seRFMhj4",
+   "story": "library/stories/77d4bfa771.jpg"
+  },
+  {
+   "id": "2da3b0a610",
+   "title": "Big City Nights",
+   "artist": "Scorpions",
+   "artists": [
+    "Scorpions"
+   ],
+   "album": "20th Century Masters - The Millennium Collection: The Best of Scorpions",
+   "year": 1984,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "motivational",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 137,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 292.22,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2da3b0a610.mp3",
+   "cover": "library/covers/2da3b0a610.jpg",
+   "color": "#726c61",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:44:25Z",
+   "mime": "audio/mpeg",
+   "size": 7014735,
+   "storage": "release",
+   "lufs": -12.2,
+   "gain": -1.8,
+   "via": "audio",
+   "fileKey": "yt:GsMiTssfoVs",
+   "story": "library/stories/2da3b0a610.jpg"
+  },
+  {
+   "id": "1b856b5e47",
+   "title": "Holiday",
+   "artist": "Scorpions",
+   "artists": [
+    "Scorpions"
+   ],
+   "album": "Lovedrive",
+   "year": 1979,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 394.01,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1b856b5e47.mp3",
+   "cover": "library/covers/1b856b5e47.jpg",
+   "color": "#79575f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:43:50Z",
+   "mime": "audio/mpeg",
+   "size": 9457481,
+   "storage": "release",
+   "lufs": -11.8,
+   "gain": -2.2,
+   "via": "audio",
+   "fileKey": "yt:O5vV8-mLl4Y",
+   "story": "library/stories/1b856b5e47.jpg"
+  },
+  {
+   "id": "39ee49ab3c",
+   "title": "Always Somewhere",
+   "artist": "Scorpions",
+   "artists": [
+    "Scorpions"
+   ],
+   "album": "Lovedrive",
+   "year": 1979,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "romantic",
+    "sad",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 296.28,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/39ee49ab3c.mp3",
+   "cover": "library/covers/39ee49ab3c.jpg",
+   "color": "#79575f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T10:43:06Z",
+   "mime": "audio/mpeg",
+   "size": 7112018,
+   "storage": "release",
+   "lufs": -9.2,
+   "gain": -4.8,
+   "via": "audio",
+   "fileKey": "yt:Y1KlqFBqOh8",
+   "story": "library/stories/39ee49ab3c.jpg"
+  },
   {
    "id": "8863b10eeb",
    "title": "No One Like You",
