@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T02:33:36Z",
+ "updatedAt": "2026-11-28T02:41:07Z",
  "count": 471,
  "site": {
   "admins": [
@@ -3910,7 +3910,22 @@
    "albums": 149,
    "ytPhotoChecked": "2026-11-26T21:17:20Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCo4CrqhIV_tSOGdDWfVyCsg"
+   "youtubeMusic": "https://music.youtube.com/channel/UCo4CrqhIV_tSOGdDWfVyCsg",
+   "bioChecked": "2026-11-28T02:37:58Z",
+   "bio": {
+    "en": "Madonna Louise Ciccone is an American singer, songwriter, record producer, and actress. Dubbed the \"Queen of Pop\", she is known for her continual reinvention and versatility in music production, songwriting, and visual presentation. Her works, which concern social, political, sexual, and religious themes, have drawn acclaim and controversy. Regarded as one of the most influential musicians in history, Madonna broke gender barriers in popular music and has had a significant socio-cultural impact across her career.",
+    "ru": "Мадонна, полное имя — Мадо́нна Луи́з(а) Чикко́не , — американская автор-исполнительница, поп-певица, танцовщица, музыкальный продюсер, а также актриса, режиссёр и детская писательница. Самая коммерчески успешная исполнительница в истории по версии «Книги рекордов Гиннесса».",
+    "uz": "Madonna — amerikalik qoʻshiqchi, produser, raqqosa, aktrisa va yozuvchi. U koʻproq ziddiyatli kliplari, miqyosli sahna chiqishlari, oʻz ijodida siyosiy, seksual va diniy obrazlarni ishlatganligi tufayli mashhurlikka erishgan. Ommaviy axborot vositalari uni baʼzida \"Material Girl\" va \"Queen Of Pop\" deb ataydilar."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Madonna",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%B4%D0%BE%D0%BD%D0%BD%D0%B0_(%D0%BF%D0%B5%D0%B2%D0%B8%D1%86%D0%B0)",
+    "uz": "https://uz.wikipedia.org/wiki/Madonna"
+   },
+   "desc": {
+    "en": "American singer and songwriter (born 1958)",
+    "ru": "американская певица, автор песен и актриса (род. 1958)"
+   }
   },
   "Michael Jackson": {
    "aliases": [],
@@ -3927,7 +3942,22 @@
    "albums": 38,
    "ytPhotoChecked": "2026-11-26T21:17:21Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCoIOOL7QKuBhQHVKL8y7BEQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCoIOOL7QKuBhQHVKL8y7BEQ",
+   "bioChecked": "2026-11-28T02:37:59Z",
+   "bio": {
+    "en": "Michael Joseph Jackson was an American singer, songwriter, dancer, and philanthropist. Dubbed the \"King of Pop\", he is widely regarded as one of the most significant cultural figures of the 20th century. His musical achievements broke American racial barriers and made him a dominant figure worldwide. Through his songs, music videos, concerts, and fashion, he transformed visual performance in popular music, popularizing street dance moves such as the moonwalk, the robot, and the anti-gravity lean. Jackson is often deemed the greatest entertainer of all time.",
+    "ru": "Майкл Джо́зеф Дже́ксон — американский певец, автор песен, танцор и филантроп. Внёс значительный вклад в развитие популярной музыки, видеоклипов, танца и моды. Считается одной из наиболее значимых фигур XX века, известен как «король поп-музыки». По совокупности достижений и общему признанию, он часто называется величайшим артистом в истории шоу-бизнеса. Самый известный представитель семьи Джексонов.",
+    "uz": "Michael Joseph Jackson pop-qoʻshiqchi, boshlovchi va raqqosdir. Ayrimlar M. Jeksonni „pop janrining qiroli“ deb hisoblaydi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Michael_Jackson",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%94%D0%B6%D0%B5%D0%BA%D1%81%D0%BE%D0%BD%2C_%D0%9C%D0%B0%D0%B9%D0%BA%D0%BB",
+    "uz": "https://uz.wikipedia.org/wiki/Michael_Jackson"
+   },
+   "desc": {
+    "en": "American singer and songwriter (1958–2009)",
+    "ru": "американский певец, автор песен и танцор (1958—2009)"
+   }
   },
   "The Beatles": {
    "aliases": [],
@@ -3940,7 +3970,22 @@
    "image": "library/artists/the-beatles-yt.jpg",
    "color": "#632c31",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC2XdaAVUannpujzv32jcouQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UC2XdaAVUannpujzv32jcouQ",
+   "bioChecked": "2026-11-28T02:38:01Z",
+   "bio": {
+    "en": "The Beatles were an English rock band formed in Liverpool in 1960. The band comprised John Lennon, Paul McCartney, George Harrison and Ringo Starr. They are regarded as the most influential band in popular music and were integral to the development of 1960s counterculture and the recognition of popular music as an art form. Rooted in skiffle, beat and 1950s rock 'n' roll, their sound incorporated elements of classical music and traditional pop in innovative ways. They also explored styles ranging from folk and Indian music to psychedelia and hard rock.",
+    "ru": "The Beatles — британская рок-группа из Ливерпуля, основанная в 1960 году, в составе которой играли Джон Леннон, Пол Маккартни, Джордж Харрисон и Ринго Старр. Также в разное время в составе группы выступали Стюарт Сатклифф, Пит Бест и Джимми Никол. Большинство композиций The Beatles создано в соавторстве и подписано именами Джона Леннона и Пола Маккартни. Дискография группы включает 13 официальных студийных альбомов, изданных в 1963—1970 годах, и 211 песен.",
+    "uz": "The Beatles yoki Beatles — ingliz vokal cholgʻu ansambli. Rok musiqasi asoschilaridan. 1950-yillar oxirida Liverpulda kvartet tarzida tashkil etilgan. Asarlarni asosan P. Makkartni bilan J. Lennon ijod qilgan. „B.“ dastlab oʻyinbop qoʻshiqlarni ijro etgan. Keyinchalik, kelt folklori, ingliz balladasi uslublari hamda zamonaviy ritmlardan ijodiy foydalanib, oʻziga xos uslub yaratgan. 1966-yilgacha jahon boʻylab katta sahnalarda konsertlar bergan. 1967-yildan boshlab asosan ovoz yozish studiyalarida ishlab, 10 dan oshiq gramplastinka chiqargan, 3 filmga musiqa yozgan. 1970-yilda tarqalib ketgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/The_Beatles",
+    "ru": "https://ru.wikipedia.org/wiki/The_Beatles",
+    "uz": "https://uz.wikipedia.org/wiki/The_Beatles"
+   },
+   "desc": {
+    "en": "English rock band (1960–1970)",
+    "ru": "британская рок-группа"
+   }
   },
   "Elton John": {
    "aliases": [],
