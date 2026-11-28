@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T09:37:00Z",
- "count": 532,
+ "updatedAt": "2026-11-28T09:56:57Z",
+ "count": 550,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -6207,9 +6207,847 @@
    "verifiedAt": "2026-11-28T09:26:29Z",
    "fans": 30717,
    "albums": 3
+  },
+  "Party Tyme Karaoke": {
+   "aliases": [],
+   "verified": false
+  },
+  "ZZang KARAOKE": {
+   "aliases": [],
+   "verified": false
+  },
+  "Chart Collective": {
+   "aliases": [],
+   "verified": false
+  },
+  "Various Artists - Celine Dion Tribute": {
+   "aliases": [],
+   "verified": false
+  },
+  "Cooltone Karaoke": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 5387169,
+   "deezer": "https://www.deezer.com/artist/5387169",
+   "image": "library/artists/cooltone-karaoke.jpg",
+   "color": "#d82732",
+   "checked": "2026-11-28T09:47:01Z",
+   "verifiedAt": "2026-11-28T09:47:01Z",
+   "fans": 98,
+   "albums": 500
+  },
+  "Melanie C": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 4582,
+   "deezer": "https://www.deezer.com/artist/4582",
+   "image": "library/artists/melanie-c.jpg",
+   "color": "#688e97",
+   "checked": "2026-11-28T09:53:27Z",
+   "verifiedAt": "2026-11-28T09:53:27Z",
+   "fans": 39317,
+   "albums": 55
+  },
+  "Rod Stewart": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 1440,
+   "deezer": "https://www.deezer.com/artist/1440",
+   "image": "library/artists/rod-stewart.jpg",
+   "color": "#40721d",
+   "checked": "2026-11-28T09:55:03Z",
+   "verifiedAt": "2026-11-28T09:55:03Z",
+   "fans": 1468307,
+   "albums": 91
   }
  },
  "songs": [
+  {
+   "id": "959281140f",
+   "title": "Livin' On A Prayer",
+   "artist": "Bon Jovi",
+   "artists": [
+    "Bon Jovi"
+   ],
+   "album": "Slippery When Wet",
+   "year": 1986,
+   "genre": "Rock",
+   "subgenre": "Hard Rock",
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": 122,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 249.29,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/959281140f.mp3",
+   "cover": "library/covers/959281140f.jpg",
+   "color": "#88777c",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:56:57Z",
+   "mime": "audio/mpeg",
+   "size": 5984795,
+   "storage": "release",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "yt:YBdyc1WDlBQ",
+   "story": "library/stories/959281140f.jpg"
+  },
+  {
+   "id": "fae6d19109",
+   "title": "All for Love",
+   "artist": "Bryan Adams, Rod Stewart, Sting",
+   "artists": [
+    "Bryan Adams",
+    "Rod Stewart",
+    "Sting"
+   ],
+   "album": "Anthology",
+   "year": 1993,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.52,
+   "danceability": 0.57,
+   "bpm": 150,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 281.2,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/fae6d19109.mp3",
+   "cover": "library/covers/fae6d19109.jpg",
+   "color": "#ffbf00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:55:10Z",
+   "mime": "audio/mpeg",
+   "size": 6750314,
+   "storage": "release",
+   "lufs": -14.0,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:hbbSbj8Jvh4",
+   "story": "library/stories/fae6d19109.jpg"
+  },
+  {
+   "id": "1b9bf179ab",
+   "title": "When You're Gone",
+   "artist": "Bryan Adams, Melanie C",
+   "artists": [
+    "Bryan Adams",
+    "Melanie C"
+   ],
+   "album": "On a Day Like Today",
+   "year": 1998,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "nostalgic",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 126,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 204.89,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1b9bf179ab.mp3",
+   "cover": "library/covers/1b9bf179ab.jpg",
+   "color": "#db9224",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:53:31Z",
+   "mime": "audio/mpeg",
+   "size": 4919209,
+   "storage": "release",
+   "lufs": -9.3,
+   "gain": -4.7,
+   "via": "audio",
+   "fileKey": "yt:Iu8elWPSUwE",
+   "story": "library/stories/1b9bf179ab.jpg"
+  },
+  {
+   "id": "87840c9f4f",
+   "title": "Straight From The Heart (Classic Version)",
+   "artist": "Bryan Adams",
+   "artists": [
+    "Bryan Adams"
+   ],
+   "album": "Classic",
+   "year": 2022,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 208.81,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/87840c9f4f.mp3",
+   "cover": "library/covers/87840c9f4f.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:51:29Z",
+   "mime": "audio/mpeg",
+   "size": 5013099,
+   "storage": "release",
+   "lufs": -10.4,
+   "gain": -3.6,
+   "via": "audio",
+   "fileKey": "yt:rHvGwXCgqmE",
+   "story": "library/stories/87840c9f4f.jpg"
+  },
+  {
+   "id": "14fd39b184",
+   "title": "Cuts Like A Knife (Classic Version)",
+   "artist": "Bryan Adams",
+   "artists": [
+    "Bryan Adams"
+   ],
+   "album": "Classic",
+   "year": 2022,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 323.27,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/14fd39b184.mp3",
+   "cover": "library/covers/14fd39b184.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:50:48Z",
+   "mime": "audio/mpeg",
+   "size": 7760037,
+   "storage": "release",
+   "lufs": -8.0,
+   "gain": -6.0,
+   "via": "audio",
+   "fileKey": "yt:sjRlVjOZsGI",
+   "story": "library/stories/14fd39b184.jpg"
+  },
+  {
+   "id": "eccf67ec8c",
+   "title": "Have You Ever Really Loved A Woman? (Classic Version)",
+   "artist": "Bryan Adams",
+   "artists": [
+    "Bryan Adams"
+   ],
+   "album": "Classic",
+   "year": 2022,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 288.56,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/eccf67ec8c.mp3",
+   "cover": "library/covers/eccf67ec8c.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:50:13Z",
+   "mime": "audio/mpeg",
+   "size": 6927159,
+   "storage": "release",
+   "lufs": -8.7,
+   "gain": -5.3,
+   "via": "audio",
+   "fileKey": "yt:QfUc4zc4kTY",
+   "story": "library/stories/eccf67ec8c.jpg"
+  },
+  {
+   "id": "de2a7d612e",
+   "title": "Run To You (Classic Version)",
+   "artist": "Bryan Adams",
+   "artists": [
+    "Bryan Adams"
+   ],
+   "album": "Classic",
+   "year": 2022,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 257.83,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/de2a7d612e.mp3",
+   "cover": "library/covers/de2a7d612e.jpg",
+   "color": "#808080",
+   "lyrics": "plain",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:49:43Z",
+   "mime": "audio/mpeg",
+   "size": 6189854,
+   "storage": "release",
+   "lufs": -7.9,
+   "gain": -6.1,
+   "via": "audio",
+   "fileKey": "yt:UfK56xbHLVE",
+   "story": "library/stories/de2a7d612e.jpg"
+  },
+  {
+   "id": "a8830b0cb8",
+   "title": "Please Forgive Me (Classic Version)",
+   "artist": "Bryan Adams",
+   "artists": [
+    "Bryan Adams"
+   ],
+   "album": "Classic",
+   "year": 2022,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "nostalgic",
+    "sad"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 312.98,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a8830b0cb8.mp3",
+   "cover": "library/covers/a8830b0cb8.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:49:18Z",
+   "mime": "audio/mpeg",
+   "size": 7512933,
+   "storage": "release",
+   "lufs": -9.5,
+   "gain": -4.5,
+   "via": "audio",
+   "fileKey": "yt:g4e1CyQKy2I",
+   "story": "library/stories/a8830b0cb8.jpg"
+  },
+  {
+   "id": "790fa13021",
+   "title": "(Everything I Do) I Do It For You (Classic Version)",
+   "artist": "Bryan Adams",
+   "artists": [
+    "Bryan Adams"
+   ],
+   "album": "Classic",
+   "year": 2022,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 387.16,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/790fa13021.mp3",
+   "cover": "library/covers/790fa13021.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:48:48Z",
+   "mime": "audio/mpeg",
+   "size": 9293365,
+   "storage": "release",
+   "lufs": -9.0,
+   "gain": -5.0,
+   "via": "audio",
+   "fileKey": "yt:qTT1wlXOIiA",
+   "story": "library/stories/790fa13021.jpg"
+  },
+  {
+   "id": "35c4d5b9a1",
+   "title": "Summer of 69 (Classic Version)",
+   "artist": "Bryan Adams",
+   "artists": [
+    "Bryan Adams"
+   ],
+   "album": "Classic",
+   "year": 2022,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "nostalgic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 248.55,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/35c4d5b9a1.mp3",
+   "cover": "library/covers/35c4d5b9a1.jpg",
+   "color": "#808080",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:48:03Z",
+   "mime": "audio/mpeg",
+   "size": 5966944,
+   "storage": "release",
+   "lufs": -9.4,
+   "gain": -4.6,
+   "via": "audio",
+   "fileKey": "yt:IOqXiyqNAnU",
+   "story": "library/stories/35c4d5b9a1.jpg"
+  },
+  {
+   "id": "3fb54e2b37",
+   "title": "Pour que tu m'aimes encore",
+   "artist": "Celine Dion",
+   "artists": [
+    "Celine Dion"
+   ],
+   "album": "The Collector's Series: Celine Dion, Vol. 1",
+   "year": 1995,
+   "genre": "Pop",
+   "subgenre": "Vocal",
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 250.36,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3fb54e2b37.mp3",
+   "cover": "library/covers/3fb54e2b37.jpg",
+   "color": "#887860",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:47:38Z",
+   "mime": "audio/mpeg",
+   "size": 6010175,
+   "storage": "release",
+   "lufs": -12.4,
+   "gain": -1.6,
+   "via": "audio",
+   "fileKey": "yt:hNakp3gZtUw",
+   "story": "library/stories/3fb54e2b37.jpg"
+  },
+  {
+   "id": "5bceac60fc",
+   "title": "I'm Your Angel (Originally Performed by Celine Dion)",
+   "artist": "Cooltone Karaoke",
+   "artists": [
+    "Cooltone Karaoke"
+   ],
+   "album": "Greatest Hits Karaoke: Céline Dion, Vol. 2",
+   "year": 2015,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 323.65,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5bceac60fc.mp3",
+   "cover": "library/covers/5bceac60fc.jpg",
+   "color": "#d82732",
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:47:03Z",
+   "mime": "audio/mpeg",
+   "size": 7769354,
+   "storage": "release",
+   "lufs": -18.2,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:rGo8vRgPX_Q",
+   "story": "library/stories/5bceac60fc.jpg"
+  },
+  {
+   "id": "c8009b0d76",
+   "title": "All By Myself (By Celine Dion)",
+   "artist": "ZZang KARAOKE",
+   "artists": [
+    "ZZang KARAOKE"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 318.56,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c8009b0d76.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:45:00Z",
+   "mime": "audio/mpeg",
+   "size": 7647104,
+   "storage": "release",
+   "lufs": -14.1,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:qCarRMBxyog",
+   "story": "library/stories/c8009b0d76.jpg"
+  },
+  {
+   "id": "8d14475974",
+   "title": "That's The Way It Is",
+   "artist": "Various Artists - Celine Dion Tribute",
+   "artists": [
+    "Various Artists - Celine Dion Tribute"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 240.67,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8d14475974.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:44:27Z",
+   "mime": "audio/mpeg",
+   "size": 5777422,
+   "storage": "release",
+   "lufs": -14.9,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:KjDQaaMGdJQ",
+   "story": "library/stories/8d14475974.jpg"
+  },
+  {
+   "id": "a157f9d29f",
+   "title": "New Day Has Come (Originally Performed By Celine Dion) [Full Vocal Version]",
+   "artist": "Chart Collective",
+   "artists": [
+    "Chart Collective"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 346.53,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a157f9d29f.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:44:03Z",
+   "mime": "audio/mpeg",
+   "size": 8318192,
+   "storage": "release",
+   "lufs": -10.2,
+   "gain": -3.8,
+   "via": "audio",
+   "fileKey": "yt:5A1EU8t7L5k",
+   "story": "library/stories/a157f9d29f.jpg"
+  },
+  {
+   "id": "651d557c89",
+   "title": "I'm Alive (By Celine Dion)",
+   "artist": "ZZang KARAOKE",
+   "artists": [
+    "ZZang KARAOKE"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 214.07,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/651d557c89.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:43:25Z",
+   "mime": "audio/mpeg",
+   "size": 5139196,
+   "storage": "release",
+   "lufs": -12.6,
+   "gain": -1.4,
+   "via": "audio",
+   "fileKey": "yt:zoV5gZfVAu0",
+   "story": "library/stories/651d557c89.jpg"
+  },
+  {
+   "id": "94710bbc1c",
+   "title": "It's All Coming Back To Me Now (Made Popular By Celine Dion) [Vocal Version]",
+   "artist": "Party Tyme Karaoke",
+   "artists": [
+    "Party Tyme Karaoke"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 318.98,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/94710bbc1c.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:43:02Z",
+   "mime": "audio/mpeg",
+   "size": 7656947,
+   "storage": "release",
+   "lufs": -12.3,
+   "gain": -1.7,
+   "via": "audio",
+   "fileKey": "yt:1jNjzjpXfp8",
+   "story": "library/stories/94710bbc1c.jpg"
+  },
+  {
+   "id": "d0ca3dd081",
+   "title": "Because You Loved Me by Celine Dion",
+   "artist": "Various Artists",
+   "artists": [
+    "Various Artists"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 269.01,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d0ca3dd081.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:41:48Z",
+   "mime": "audio/mpeg",
+   "size": 6457671,
+   "storage": "release",
+   "lufs": -16.9,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:xVWfI34tJxU",
+   "story": "library/stories/d0ca3dd081.jpg"
+  },
   {
    "id": "d2d48a5129",
    "title": "The Power Of Love by Celine Dion",
