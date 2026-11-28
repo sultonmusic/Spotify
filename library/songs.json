@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T09:30:48Z",
- "count": 514,
+ "updatedAt": "2026-11-28T09:37:00Z",
+ "count": 532,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -6195,9 +6195,883 @@
    "ytPhotoChecked": "2026-11-28T09:27:36Z",
    "imageSource": "ytmusic",
    "youtubeMusic": "https://music.youtube.com/channel/UCvY1eVE6lTebXsdFbbXUtkQ"
+  },
+  "Kiki Dee": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 133204,
+   "deezer": "https://www.deezer.com/artist/133204",
+   "image": "library/artists/kiki-dee.jpg",
+   "color": "#7d211e",
+   "checked": "2026-11-28T09:26:29Z",
+   "verifiedAt": "2026-11-28T09:26:29Z",
+   "fans": 30717,
+   "albums": 3
   }
  },
  "songs": [
+  {
+   "id": "d2d48a5129",
+   "title": "The Power Of Love by Celine Dion",
+   "artist": "Various Artists",
+   "artists": [
+    "Various Artists"
+   ],
+   "album": null,
+   "year": null,
+   "genre": "Other",
+   "subgenre": null,
+   "moods": [],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 363.91,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d2d48a5129.mp3",
+   "cover": null,
+   "color": null,
+   "lyrics": null,
+   "confidence": 0.95,
+   "sources": [],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:37:00Z",
+   "mime": "audio/mpeg",
+   "size": 8735172,
+   "storage": "release",
+   "lufs": -17.8,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:sBkjtG2QjEM",
+   "story": "library/stories/d2d48a5129.jpg"
+  },
+  {
+   "id": "7bf54a28b7",
+   "title": "I'm Every Woman",
+   "artist": "Whitney Houston",
+   "artists": [
+    "Whitney Houston"
+   ],
+   "album": "The Bodyguard (Original Soundtrack Album)",
+   "year": 1992,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "dreamy",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.4,
+   "danceability": 0.45,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 285.11,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7bf54a28b7.mp3",
+   "cover": "library/covers/7bf54a28b7.jpg",
+   "color": "#b46e4b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:36:14Z",
+   "mime": "audio/mpeg",
+   "size": 6844221,
+   "storage": "release",
+   "lufs": -11.9,
+   "gain": -2.1,
+   "via": "audio",
+   "fileKey": "yt:rY_VwPUqcGQ",
+   "story": "library/stories/7bf54a28b7.jpg"
+  },
+  {
+   "id": "1f1b0a76c2",
+   "title": "My Love Is Your Love",
+   "artist": "Whitney Houston",
+   "artists": [
+    "Whitney Houston"
+   ],
+   "album": "My Love Is Your Love",
+   "year": 1998,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 165,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 261.57,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1f1b0a76c2.mp3",
+   "cover": "library/covers/1f1b0a76c2.jpg",
+   "color": "#3c246b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:35:32Z",
+   "mime": "audio/mpeg",
+   "size": 6279142,
+   "storage": "release",
+   "lufs": -10.5,
+   "gain": -3.5,
+   "via": "audio",
+   "fileKey": "yt:gY0NBCgxiVI",
+   "story": "library/stories/1f1b0a76c2.jpg"
+  },
+  {
+   "id": "3454cf7af9",
+   "title": "One Moment in Time",
+   "artist": "Whitney Houston",
+   "artists": [
+    "Whitney Houston"
+   ],
+   "album": "I Will Always Love You: The Best Of Whitney Houston",
+   "year": 1988,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "motivational",
+    "romantic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.72,
+   "danceability": 0.77,
+   "bpm": 156,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 284.64,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3454cf7af9.mp3",
+   "cover": "library/covers/3454cf7af9.jpg",
+   "color": "#403d52",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:34:49Z",
+   "mime": "audio/mpeg",
+   "size": 6832707,
+   "storage": "release",
+   "lufs": -10.3,
+   "gain": -3.7,
+   "via": "audio",
+   "fileKey": "yt:5iyGi_pyFIk",
+   "story": "library/stories/3454cf7af9.jpg"
+  },
+  {
+   "id": "8171a51b81",
+   "title": "Saving All My Love for You",
+   "artist": "Whitney Houston",
+   "artists": [
+    "Whitney Houston"
+   ],
+   "album": "Whitney Houston",
+   "year": 1985,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 99,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 237.74,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8171a51b81.mp3",
+   "cover": "library/covers/8171a51b81.jpg",
+   "color": "#d85627",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:34:20Z",
+   "mime": "audio/mpeg",
+   "size": 5707175,
+   "storage": "release",
+   "lufs": -17.2,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:GpQbMAIZVn8",
+   "story": "library/stories/8171a51b81.jpg"
+  },
+  {
+   "id": "e69b179cae",
+   "title": "Run to You",
+   "artist": "Whitney Houston",
+   "artists": [
+    "Whitney Houston"
+   ],
+   "album": "The Bodyguard (Original Soundtrack Album)",
+   "year": 1992,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "dreamy",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.42,
+   "danceability": 0.47,
+   "bpm": 154,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 264.51,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e69b179cae.mp3",
+   "cover": "library/covers/e69b179cae.jpg",
+   "color": "#b46e4b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:33:49Z",
+   "mime": "audio/mpeg",
+   "size": 6350008,
+   "storage": "release",
+   "lufs": -11.1,
+   "gain": -2.9,
+   "via": "audio",
+   "fileKey": "yt:tvVeb05de6U",
+   "story": "library/stories/e69b179cae.jpg"
+  },
+  {
+   "id": "ddff2363ed",
+   "title": "I Have Nothing",
+   "artist": "Whitney Houston",
+   "artists": [
+    "Whitney Houston"
+   ],
+   "album": "The Bodyguard (Original Soundtrack Album)",
+   "year": 1992,
+   "genre": "Soundtrack",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "sad",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.52,
+   "danceability": 0.57,
+   "bpm": 153,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 287.93,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ddff2363ed.mp3",
+   "cover": "library/covers/ddff2363ed.jpg",
+   "color": "#b46e4b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:33:27Z",
+   "mime": "audio/mpeg",
+   "size": 6912188,
+   "storage": "release",
+   "lufs": -11.4,
+   "gain": -2.6,
+   "via": "audio",
+   "fileKey": "yt:pKnRHLqh4PY",
+   "story": "library/stories/ddff2363ed.jpg"
+  },
+  {
+   "id": "efb4f5ab35",
+   "title": "Greatest Love of All",
+   "artist": "Whitney Houston",
+   "artists": [
+    "Whitney Houston"
+   ],
+   "album": "Whitney Houston (The Deluxe Anniversary Edition)",
+   "year": 1985,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 131,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 297.88,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/efb4f5ab35.mp3",
+   "cover": "library/covers/efb4f5ab35.jpg",
+   "color": "#dc6923",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:28:26Z",
+   "mime": "audio/mpeg",
+   "size": 7150658,
+   "storage": "release",
+   "lufs": -17.9,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:YohL_QJhFaw",
+   "story": "library/stories/efb4f5ab35.jpg"
+  },
+  {
+   "id": "247f70934f",
+   "title": "I Wanna Dance with Somebody (Who Loves Me)",
+   "artist": "Whitney Houston",
+   "artists": [
+    "Whitney Houston"
+   ],
+   "album": "Whitney",
+   "year": 1987,
+   "genre": "R&B",
+   "subgenre": "R&B/Soul",
+   "moods": [
+    "party",
+    "romantic",
+    "dreamy"
+   ],
+   "language": "en",
+   "energy": 0.6,
+   "danceability": 0.65,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 291.29,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/247f70934f.mp3",
+   "cover": "library/covers/247f70934f.jpg",
+   "color": "#bb5744",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:27:54Z",
+   "mime": "audio/mpeg",
+   "size": 6992815,
+   "storage": "release",
+   "lufs": -12.8,
+   "gain": -1.2,
+   "via": "audio",
+   "fileKey": "yt:6xzN8Nt0Pok",
+   "story": "library/stories/247f70934f.jpg"
+  },
+  {
+   "id": "f526e9a8e0",
+   "title": "Don't Go Breaking My Heart",
+   "artist": "Elton John, Kiki Dee",
+   "artists": [
+    "Elton John",
+    "Kiki Dee"
+   ],
+   "album": "Rock of the Westies (Remastered)",
+   "year": 1975,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 132,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 275.44,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/f526e9a8e0.mp3",
+   "cover": "library/covers/f526e9a8e0.jpg",
+   "color": "#b0a14f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:26:35Z",
+   "mime": "audio/mpeg",
+   "size": 6612093,
+   "storage": "release",
+   "lufs": -12.3,
+   "gain": -1.7,
+   "via": "audio",
+   "fileKey": "yt:VHK5k2ieudc",
+   "story": "library/stories/f526e9a8e0.jpg"
+  },
+  {
+   "id": "0324277225",
+   "title": "Candle In The Wind",
+   "artist": "Elton John",
+   "artists": [
+    "Elton John"
+   ],
+   "album": "Goodbye Yellow Brick Road (40th Anniversary Celebration / Super Deluxe Edition) [2014 Remaster]",
+   "year": 1973,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "sad",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 126,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 228.93,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0324277225.mp3",
+   "cover": "library/covers/0324277225.jpg",
+   "color": "#fbdf04",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:26:07Z",
+   "mime": "audio/mpeg",
+   "size": 5495851,
+   "storage": "release",
+   "lufs": -12.8,
+   "gain": -1.2,
+   "via": "audio",
+   "fileKey": "yt:MYU3F8uUGiw",
+   "story": "library/stories/0324277225.jpg"
+  },
+  {
+   "id": "91bb08359d",
+   "title": "Bennie And The Jets",
+   "artist": "Elton John",
+   "artists": [
+    "Elton John"
+   ],
+   "album": "Goodbye Yellow Brick Road (40th Anniversary Celebration / Super Deluxe Edition) [2014 Remaster]",
+   "year": 1973,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 322.55,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/91bb08359d.mp3",
+   "cover": "library/covers/91bb08359d.jpg",
+   "color": "#fbdf04",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:25:41Z",
+   "mime": "audio/mpeg",
+   "size": 7742828,
+   "storage": "release",
+   "lufs": -11.5,
+   "gain": -2.5,
+   "via": "audio",
+   "fileKey": "yt:ZBUW433Porw",
+   "story": "library/stories/91bb08359d.jpg"
+  },
+  {
+   "id": "d64f48e709",
+   "title": "Goodbye Yellow Brick Road",
+   "artist": "Elton John",
+   "artists": [
+    "Elton John"
+   ],
+   "album": "To Be Continued (Box Set)",
+   "year": 1973,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "nostalgic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 192.83,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d64f48e709.mp3",
+   "cover": "library/covers/d64f48e709.jpg",
+   "color": "#7f5b55",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:25:04Z",
+   "mime": "audio/mpeg",
+   "size": 4629484,
+   "storage": "release",
+   "lufs": -11.5,
+   "gain": -2.5,
+   "via": "audio",
+   "fileKey": "yt:wy709iNG6i8",
+   "story": "library/stories/d64f48e709.jpg"
+  },
+  {
+   "id": "218d116654",
+   "title": "Can You Feel The Love Tonight",
+   "artist": "Elton John",
+   "artists": [
+    "Elton John"
+   ],
+   "album": "The Lion King (Original Motion Picture Soundtrack)",
+   "year": 1994,
+   "genre": "Other",
+   "subgenre": "Musicals",
+   "moods": [
+    "party",
+    "romantic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.72,
+   "danceability": 0.77,
+   "bpm": 127,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 229.63,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/218d116654.mp3",
+   "cover": "library/covers/218d116654.jpg",
+   "color": "#3a74af",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:24:17Z",
+   "mime": "audio/mpeg",
+   "size": 5512522,
+   "storage": "release",
+   "lufs": -17.0,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:w2nwP3OSH2A",
+   "story": "library/stories/218d116654.jpg"
+  },
+  {
+   "id": "e0bc1ba38a",
+   "title": "I'm Still Standing",
+   "artist": "Elton John",
+   "artists": [
+    "Elton John"
+   ],
+   "album": "Too Low For Zero (Bonus Track Version)",
+   "year": 1983,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 177,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 183.44,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e0bc1ba38a.mp3",
+   "cover": "library/covers/e0bc1ba38a.jpg",
+   "color": "#00ffff",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:23:47Z",
+   "mime": "audio/mpeg",
+   "size": 4404273,
+   "storage": "release",
+   "lufs": -10.5,
+   "gain": -3.5,
+   "via": "audio",
+   "fileKey": "yt:Ye9hGotPPVk",
+   "story": "library/stories/e0bc1ba38a.jpg"
+  },
+  {
+   "id": "3d062e0f49",
+   "title": "Tiny Dancer",
+   "artist": "Elton John",
+   "artists": [
+    "Elton John"
+   ],
+   "album": "To Be Continued (Box Set)",
+   "year": 1971,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 145,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 377.09,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3d062e0f49.mp3",
+   "cover": "library/covers/3d062e0f49.jpg",
+   "color": "#7f5b55",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:23:26Z",
+   "mime": "audio/mpeg",
+   "size": 9051998,
+   "storage": "release",
+   "lufs": -12.9,
+   "gain": -1.1,
+   "via": "audio",
+   "fileKey": "yt:aqlGlaNlcWE",
+   "story": "library/stories/3d062e0f49.jpg"
+  },
+  {
+   "id": "a2c63c50b4",
+   "title": "Your Song",
+   "artist": "Elton John",
+   "artists": [
+    "Elton John"
+   ],
+   "album": "Elton John",
+   "year": 1970,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 128,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 241.79,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a2c63c50b4.mp3",
+   "cover": "library/covers/a2c63c50b4.jpg",
+   "color": "#303f5f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:22:15Z",
+   "mime": "audio/mpeg",
+   "size": 5804492,
+   "storage": "release",
+   "lufs": -13.0,
+   "gain": -1.0,
+   "via": "audio",
+   "fileKey": "yt:FT3D1Cu6g10",
+   "story": "library/stories/a2c63c50b4.jpg"
+  },
+  {
+   "id": "96e2ef81a8",
+   "title": "All You Need Is Love (Remastered 2009)",
+   "artist": "The Beatles",
+   "artists": [
+    "The Beatles"
+   ],
+   "album": "Magical Mystery Tour (Remastered)",
+   "year": 1967,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": 104,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 231.21,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/96e2ef81a8.mp3",
+   "cover": "library/covers/96e2ef81a8.jpg",
+   "color": "#eab215",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:21:50Z",
+   "mime": "audio/mpeg",
+   "size": 5550530,
+   "storage": "release",
+   "lufs": -11.5,
+   "gain": -2.5,
+   "via": "audio",
+   "fileKey": "yt:_7xMfIp-irg",
+   "story": "library/stories/96e2ef81a8.jpg"
+  },
+  {
+   "id": "bec82765e2",
+   "title": "A Hard Day's Night (Remastered 2009)",
+   "artist": "The Beatles",
+   "artists": [
+    "The Beatles"
+   ],
+   "album": "A Hard Day's Night (Remastered)",
+   "year": 1964,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "nostalgic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 138,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 154.2,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/bec82765e2.mp3",
+   "cover": "library/covers/bec82765e2.jpg",
+   "color": "#0f4684",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:21:23Z",
+   "mime": "audio/mpeg",
+   "size": 3702142,
+   "storage": "release",
+   "lufs": -10.2,
+   "gain": -3.8,
+   "via": "audio",
+   "fileKey": "yt:zx2TFk0vh1I",
+   "story": "library/stories/bec82765e2.jpg"
+  },
   {
    "id": "2c9031cc97",
    "title": "Something (Remastered 2009)",
@@ -14647,51 +15521,6 @@
    "via": "audio",
    "fileKey": "yt:oG-4Uvhm4lI",
    "story": "library/stories/e9021409d4.jpg"
-  },
-  {
-   "id": "1342106764",
-   "title": "Empire",
-   "artist": "Shakira",
-   "artists": [
-    "Shakira"
-   ],
-   "album": "Shakira. (Expanded Edition) [Spanish Version]",
-   "year": 2014,
-   "genre": "Pop",
-   "subgenre": null,
-   "moods": [
-    "romantic",
-    "happy"
-   ],
-   "language": "en",
-   "energy": 0.77,
-   "danceability": 0.82,
-   "bpm": 160,
-   "tags": [],
-   "description": null,
-   "explicit": false,
-   "duration": 242.56,
-   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1342106764.mp3",
-   "cover": "library/covers/1342106764.jpg",
-   "color": "#b97a46",
-   "lyrics": "synced",
-   "confidence": 0.95,
-   "sources": [
-    "deezer",
-    "itunes"
-   ],
-   "tg": {
-    "msgs": []
-   },
-   "addedAt": "2026-11-27T04:41:20Z",
-   "mime": "audio/mpeg",
-   "size": 5822953,
-   "storage": "release",
-   "lufs": -15.6,
-   "gain": 0.0,
-   "via": "audio",
-   "fileKey": "yt:L_5d6MFrN3E",
-   "story": "library/stories/1342106764.jpg"
   },
   {
    "id": "c8ac254b59",
