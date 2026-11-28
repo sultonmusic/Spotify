@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T11:25:40Z",
- "count": 612,
+ "updatedAt": "2026-11-28T14:20:38Z",
+ "count": 613,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -4293,7 +4293,22 @@
    "albums": 69,
    "ytPhotoChecked": "2026-11-26T21:17:34Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCCL-yoaPLR-7bxZM1xlcQcQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCCL-yoaPLR-7bxZM1xlcQcQ",
+   "bioChecked": "2026-11-28T14:17:30Z",
+   "bio": {
+    "en": "Bon Jovi is an American rock band formed in Sayreville, New Jersey in 1983. The band consists of singer Jon Bon Jovi, keyboardist David Bryan, drummer Tico Torres, guitarists John Shanks and Phil X, percussionist Everett Bradley, and bassist Hugh McDonald. Original bassist Alec John Such left the band in 1994, and longtime guitarist and co-songwriter Richie Sambora left in 2013.",
+    "ru": "Bon Jovi — американская рок-группа из Нью-Джерси, образованная в 1983 году. В состав коллектива входят вокалист Джон Бон Джови, клавишник Дэвид Брайан, бас-гитарист Хью Макдональд, гитарист Фил Икс и барабанщик Тико Торрес. На протяжении многих лет состав группы практически не менялся, лишь в 1994 году от них ушёл басист Алек Джон Сач, которого заменил Хью Макдональд, а в 2013 году группу покинул гитарист Ричи Самбора. В 2016 году Хью Макдональд и Фил Икс стали полноправными участниками коллектива. Всемирной популярности Bon Jovi поспособствовал альбом Slippery When Wet (1986).",
+    "uz": "Bon Jovi — hard-rok va ommaviy musiqaning jipslashuvida ishlaydigan amerikalik rok-guruh. Tarkibi: Jon Bon Jovi (vokal), Richi Sambora (gitara), Tiko Torres (barabanlar), Devid Brayan (klavishlar)."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Bon_Jovi",
+    "ru": "https://ru.wikipedia.org/wiki/Bon_Jovi",
+    "uz": "https://uz.wikipedia.org/wiki/Bon_Jovi"
+   },
+   "desc": {
+    "en": "American rock band",
+    "ru": "Американская рок-группа"
+   }
   },
   "Metallica": {
    "aliases": [],
@@ -4310,7 +4325,22 @@
    "albums": 69,
    "ytPhotoChecked": "2026-11-26T21:17:35Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCGexNm_Kw4rdQjLxmpb2EKw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCGexNm_Kw4rdQjLxmpb2EKw",
+   "bioChecked": "2026-11-28T14:17:32Z",
+   "bio": {
+    "en": "Metallica is an American heavy metal band. It was formed in Los Angeles in 1981 by vocalist/guitarist James Hetfield and drummer Lars Ulrich, and has been based in San Francisco for most of its career. The band's fast tempos, instrumentals and aggressive musicianship made them one of the founding \"big four\" bands of thrash metal, alongside Megadeth, Anthrax and Slayer. Metallica's current lineup comprises founding members and primary songwriters Hetfield and Ulrich, longtime lead guitarist Kirk Hammett and bassist Robert Trujillo.",
+    "ru": "Metallica («Мета́ллика») — американская метал-группа, созданная вокалистом и гитаристом Джеймсом Хетфилдом и барабанщиком Ларсом Ульрихом в Лос-Анджелесе, штат Калифорния, в 1981 году. Одна из наиболее популярных и влиятельных команд в истории рока, Metallica входит в так называемую «большую четвёрку» основоположников и ключевых коллективов жанра трэш-метал, оказавших определяющее влияние на его развитие, и считается, что творчество этих коллективов положило начало развитию данного направления в музыке.",
+    "uz": "Metallica (talaffuzi: Metallika) AQShda tuzilgan heavy metal guruhidir. Guruhga 1981-yil vokalchi/gitarachi James Hetfield va dovulchi Lars Ulrich Los Angeles shahrida asos solishgan. Tezkor tempi va agressiv musiqasi ortidan tanilgan ushbu guruh Megadeth, Anthrax va Slayer guruhlari bilan bir qatorda thrash metalning „katta toʻrtligi“dan biri hisoblanadi. Guruhning hozirgi tarkibi vokalchi va ritm-gitarachi Hetfield, dovulchi Ulrich, solo-gitarachi Kirk Hammett va bas-gitarachi Robert Trujillodan iborat."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Metallica",
+    "ru": "https://ru.wikipedia.org/wiki/Metallica",
+    "uz": "https://uz.wikipedia.org/wiki/Metallica"
+   },
+   "desc": {
+    "en": "American heavy metal band",
+    "ru": "американская трэш-метал группа"
+   }
   },
   "The Cranberries": {
    "aliases": [],
@@ -4327,7 +4357,22 @@
    "albums": 55,
    "ytPhotoChecked": "2026-11-26T21:17:36Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCE5eDJ9T05bGzDvJ5QYsdJQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCE5eDJ9T05bGzDvJ5QYsdJQ",
+   "bioChecked": "2026-11-28T14:17:34Z",
+   "bio": {
+    "en": "The Cranberries were an Irish rock band formed in Limerick in 1989. The band was composed of lead vocalist/guitarist Dolores O'Riordan, guitarist Noel Hogan, bassist Mike Hogan and drummer Fergal Lawler; O'Riordan replaced founding member Niall Quinn in 1990. The band classified themselves as an alternative rock group, but their sound blended elements of indie rock, jangle pop, dream pop, folk rock, post-punk, and pop rock.",
+    "ru": "The Cranberries — ирландская рок-группа, созданная в 1989 году и добившаяся мировой известности в 1990-х.",
+    "uz": "The Cranberries — 1989-yili tashkil topgan irlandiyalik rock guruh. 1990-yillarda xalqaro mashhurlikka erishgan. Rasman guruh tarqalmagan boʻlsa ham, 2003-yildan uning faoliyati toʻxtab qolgan. The Cranberriesning albomlari butun dunyo boʻylab 43 million nushada sotilgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/The_Cranberries",
+    "ru": "https://ru.wikipedia.org/wiki/The_Cranberries",
+    "uz": "https://uz.wikipedia.org/wiki/The_Cranberries"
+   },
+   "desc": {
+    "en": "Irish rock band",
+    "ru": "ирландская рок-группа"
+   }
   },
   "Radiohead": {
    "aliases": [],
@@ -6205,67 +6250,164 @@
    "verified": true,
    "deezerId": 133204,
    "deezer": "https://www.deezer.com/artist/133204",
-   "image": "library/artists/kiki-dee.jpg",
-   "color": "#7d211e",
+   "image": "library/artists/kiki-dee-yt.jpg",
+   "color": "#666728",
    "checked": "2026-11-28T09:26:29Z",
    "verifiedAt": "2026-11-28T09:26:29Z",
    "fans": 30717,
-   "albums": 3
+   "albums": 3,
+   "ytPhotoChecked": "2026-11-28T14:17:19Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC22V3hRwVnPIT90xepSN8tA"
   },
   "Party Tyme Karaoke": {
    "aliases": [],
-   "verified": false
+   "verified": false,
+   "checked": "2026-11-28T14:17:17Z",
+   "ytPhotoChecked": "2026-11-28T14:17:20Z",
+   "image": "library/artists/party-tyme-karaoke-yt.jpg",
+   "color": "#10abee",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC20ZbpYgVBCMv0C6dKKjzEQ"
   },
   "ZZang KARAOKE": {
    "aliases": [],
-   "verified": false
+   "verified": false,
+   "checked": "2026-11-28T14:17:17Z",
+   "ytPhotoChecked": "2026-11-28T14:17:21Z"
   },
   "Chart Collective": {
    "aliases": [],
-   "verified": false
+   "verified": false,
+   "checked": "2026-11-28T14:17:18Z",
+   "ytPhotoChecked": "2026-11-28T14:17:22Z",
+   "image": "library/artists/chart-collective-yt.jpg",
+   "color": "#0086fc",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UC0ah7GiTSqpWilYTmY2rZmA"
   },
   "Various Artists - Celine Dion Tribute": {
    "aliases": [],
-   "verified": false
+   "verified": true,
+   "checked": "2026-11-28T14:17:18Z",
+   "verifiedAt": "2026-11-28T14:17:19Z",
+   "itunesId": 63729,
+   "apple": "https://music.apple.com/us/artist/c%C3%A9line-dion/63729",
+   "ytPhotoChecked": "2026-11-28T14:17:23Z"
   },
   "Cooltone Karaoke": {
    "aliases": [],
    "verified": true,
    "deezerId": 5387169,
    "deezer": "https://www.deezer.com/artist/5387169",
-   "image": "library/artists/cooltone-karaoke.jpg",
-   "color": "#d82732",
+   "image": "library/artists/cooltone-karaoke-yt.jpg",
+   "color": "#d82731",
    "checked": "2026-11-28T09:47:01Z",
    "verifiedAt": "2026-11-28T09:47:01Z",
    "fans": 98,
-   "albums": 500
+   "albums": 500,
+   "ytPhotoChecked": "2026-11-28T14:17:24Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCxWily2l70R1rZFTHjw9cow"
   },
   "Melanie C": {
    "aliases": [],
    "verified": true,
    "deezerId": 4582,
    "deezer": "https://www.deezer.com/artist/4582",
-   "image": "library/artists/melanie-c.jpg",
-   "color": "#688e97",
+   "image": "library/artists/melanie-c-yt.jpg",
+   "color": "#b16c4e",
    "checked": "2026-11-28T09:53:27Z",
    "verifiedAt": "2026-11-28T09:53:27Z",
    "fans": 39317,
-   "albums": 55
+   "albums": 55,
+   "ytPhotoChecked": "2026-11-28T14:17:25Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCT0jI66GyAHD7GMu8iQpszQ"
   },
   "Rod Stewart": {
    "aliases": [],
    "verified": true,
    "deezerId": 1440,
    "deezer": "https://www.deezer.com/artist/1440",
-   "image": "library/artists/rod-stewart.jpg",
-   "color": "#40721d",
+   "image": "library/artists/rod-stewart-yt.jpg",
+   "color": "#846d62",
    "checked": "2026-11-28T09:55:03Z",
    "verifiedAt": "2026-11-28T09:55:03Z",
    "fans": 1468307,
-   "albums": 91
+   "albums": 91,
+   "ytPhotoChecked": "2026-11-28T14:17:26Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCE5MST8NSGuWr88dQcNZ0fw"
+  },
+  "Sickick": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 6987971,
+   "deezer": "https://www.deezer.com/artist/6987971",
+   "image": "library/artists/sickick-yt.jpg",
+   "color": "#007c8f",
+   "checked": "2026-11-28T14:15:12Z",
+   "verifiedAt": "2026-11-28T14:15:12Z",
+   "fans": 44454,
+   "albums": 91,
+   "ytPhotoChecked": "2026-11-28T14:17:27Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCCI-BD-LAIMQ3QGwm_1x2VQ"
   }
  },
  "songs": [
+  {
+   "id": "be96a7ab0c",
+   "title": "Frozen",
+   "artist": "Madonna, Sickick",
+   "artists": [
+    "Madonna",
+    "Sickick"
+   ],
+   "album": "Frozen - Single",
+   "year": 2021,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 120.65,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/be96a7ab0c.m4a",
+   "cover": "library/covers/be96a7ab0c.jpg",
+   "color": "#1f3870",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     1028,
+     1029
+    ]
+   },
+   "addedAt": "2026-11-28T14:15:16Z",
+   "mime": "audio/mp4",
+   "size": 1952187,
+   "storage": "release",
+   "lufs": -8.4,
+   "gain": -5.6,
+   "via": "audio",
+   "fileKey": "be96a7ab0c061a8f",
+   "story": "library/stories/be96a7ab0c.jpg"
+  },
   {
    "id": "e1ed074105",
    "title": "Heavenly",
