@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T14:20:38Z",
+ "updatedAt": "2026-11-28T17:49:19Z",
  "count": 613,
  "site": {
   "admins": [
@@ -4389,7 +4389,22 @@
    "albums": 45,
    "ytPhotoChecked": "2026-11-26T21:17:37Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCr_iyUANcn9OX_yy9piYoLw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCr_iyUANcn9OX_yy9piYoLw",
+   "bioChecked": "2026-11-28T17:46:09Z",
+   "bio": {
+    "en": "Radiohead are an English rock band formed in Abingdon, Oxfordshire, in 1985. The members are Thom Yorke ; brothers Jonny Greenwood and Colin Greenwood (bass); Ed O'Brien ; and Philip Selway (drums). They have worked with the producer Nigel Godrich and the cover artist Stanley Donwood since 1994. Radiohead's experimental approach is credited with advancing the sound of alternative rock.",
+    "ru": "Radiohead — британская рок-группа, основанная в Абингдоне в 1985 году. На протяжении всего периода существования в Radiohead играют пять музыкантов: Том Йорк, Джонни Гринвуд, его брат Колин Гринвуд (бас-гитара), Эд О’Брайен (гитара) и Фил Селуэй (ударные).",
+    "uz": "Radiohead (talaffuzi: reydiyohed) 1985-yil Oksfordshirda asos solingan ingliz rok guruhidir. Guruh Thom Yorke ; aka-uka Jonny Greenwood va Colin Greenwood (bas); Ed OʻBrien ; Phillip Selway kabi musiqachilardan tashkil topgan. 1994-yildan buyon prodyuser Nigel Godrich va albomlar uchun kaver-surat chizuvchi rassom Stanley Donwood bilan hamkorlik qilib keladi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Radiohead",
+    "ru": "https://ru.wikipedia.org/wiki/Radiohead",
+    "uz": "https://uz.wikipedia.org/wiki/Radiohead"
+   },
+   "desc": {
+    "en": "English rock band",
+    "ru": "британская рок-группа из Оксфордшира"
+   }
   },
   "Daft Punk": {
    "aliases": [],
@@ -4404,7 +4419,22 @@
    "albums": 38,
    "ytPhotoChecked": "2026-11-26T21:17:39Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCRr1xG_2WIDs18a6cIiCxeA"
+   "youtubeMusic": "https://music.youtube.com/channel/UCRr1xG_2WIDs18a6cIiCxeA",
+   "bioChecked": "2026-11-28T17:46:11Z",
+   "bio": {
+    "en": "Daft Punk were a French electronic music duo formed in 1993 in Paris by Thomas Bangalter and Guy-Manuel de Homem-Christo. They achieved popularity in the late 1990s as part of the French house movement, combining elements of house, funk, disco, techno and rock. They are regarded as one of the most influential acts in electronic dance music (EDM).",
+    "ru": "Daft Punk — французский музыкальный электронный дуэт, образованный в 1993 году Тома Бангальтером и Ги-Манюэлем де Омем-Кристо.",
+    "uz": "Daft Punk fransiyalik elektron musiqa dueti boʻlib, Guy-Manuel de Homem-Christo va Thomas Bangalter'lardan tuzilgan. Daft Punk 1990-yillar oxiriga kelib Fransiyada house musiqa janrining yirik namoyondalariga aylandi va keyinchalik ular synthpop yoʻnalishi bilan tajriba qilishga oʻtishdi. Duet French house janrining yorqin namunalari yaratgan, deb hisoblanadi. Ijodining erta yillarida Daft Punk aʼzolari The Beach Boys va The Rolling Stones guruhlaridan ilhomlanishgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Daft_Punk",
+    "ru": "https://ru.wikipedia.org/wiki/Daft_Punk",
+    "uz": "https://uz.wikipedia.org/wiki/Daft_Punk"
+   },
+   "desc": {
+    "en": "French electronic music duo (1993–2021)",
+    "ru": "французский дуэт в жанре электронной музыки"
+   }
   },
   "Post Malone": {
    "aliases": [],
@@ -4421,7 +4451,22 @@
    "albums": 40,
    "ytPhotoChecked": "2026-11-26T21:17:40Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCyD3XWRK9ko-izf2nBSFitw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCyD3XWRK9ko-izf2nBSFitw",
+   "bioChecked": "2026-11-28T17:46:14Z",
+   "bio": {
+    "en": "Austin Richard Post, known professionally as Post Malone, is an American singer, rapper, songwriter, record producer, and actor. His music blends various genres including pop, hip-hop, trap, country, R&B, and rock.",
+    "ru": "О́стин Ри́чард Пост, более известен как Post Malone — американский рэпер, певец и автор песен. Свой псевдоним придумал просто — вбил в генератор рэп-имён своё имя и получилось Post Malone.",
+    "uz": "Austin Richard Post – amerikalik qoʻshiqchi, reper, qoʻshiqnavis va aktyor."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Post_Malone",
+    "ru": "https://ru.wikipedia.org/wiki/Post_Malone",
+    "uz": "https://uz.wikipedia.org/wiki/Post_Malone"
+   },
+   "desc": {
+    "en": "American singer and rapper (born 1995)",
+    "ru": "американский рэпер"
+   }
   },
   "Drake": {
    "aliases": [],
