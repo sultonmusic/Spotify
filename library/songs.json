@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updatedAt": "2026-11-27T18:23:11Z",
+ "updatedAt": "2026-11-28T01:37:26Z",
  "count": 470,
  "site": {
   "admins": [
@@ -3729,7 +3729,8 @@
    "fans": 205102,
    "ytPhotoChecked": "2026-11-26T21:17:13Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC6YgJAvyCli8_5Wl38X6K6w"
+   "youtubeMusic": "https://music.youtube.com/channel/UC6YgJAvyCli8_5Wl38X6K6w",
+   "bioChecked": "2026-11-28T01:34:12Z"
   },
   "Pitbull": {
    "aliases": [],
@@ -3746,7 +3747,24 @@
    "albums": 185,
    "ytPhotoChecked": "2026-11-26T21:17:14Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC03jIQv4WXBSHdr1DlCLYDw"
+   "youtubeMusic": "https://music.youtube.com/channel/UC03jIQv4WXBSHdr1DlCLYDw",
+   "bioChecked": "2026-11-28T01:34:17Z",
+   "bio": {
+    "en": "Armando Christian Pérez, known professionally as Pitbull, is an American rapper, singer, songwriter, and actor. He began his career in the early 2000s as a reggaeton, Latin hip-hop, and crunk performer, and signed with TVT Records to release his debut album, M.I.A.M.I. (2004). Executive produced by Lil Jon, the album entered the Billboard 200 along with his second and third albums, El Mariel (2006) and The Boatlift (2007).",
+    "ru": "Арма́ндо Кристиа́н Пе́рес Ако́ста, более известный под сценическим псевдонимом Pitbull , — американский рэпер, певец, автор песен и музыкальный продюсер кубинского происхождения. Он начал свою карьеру в начале 2000-х, записывая реггетон, латиноамериканский хип-хоп и кранк под началом разных лейблов. В 2004 году он выпустил свой дебютный альбом M.I.A.M.I. под лейблом TVT Records и исполнительным продюсированием Лила Джона. Позже Питбуль выпустил свой второй альбом, El Mariel, в 2006 году, и третий, The Boatlift, в 2007 году.",
+    "uz": "Armando Kristian Peres, professional sifatida Pitbull nomi bilan tanilgan, amerikalik repper, qo'shiqchi, qo'shiq muallifi va aktyor. U o'z faoliyatini 2000-yillarning boshida reggaeton, lotin hip-hop va krank ijrochisi sifatida boshlagan va o'zining M.I.A.M.I debyut albomini chiqarish uchun TVT Records bilan shartnoma tuzgan. (2004). Lil Jon tomonidan ijrochi prodyuserlik qilgan albom Billboard 200-ga uning ikkinchi va uchinchi albomlari El Mariel (2006) va The Boatlift (2007) bilan kirdi."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Pitbull_(rapper)",
+    "ru": "https://ru.wikipedia.org/wiki/Pitbull"
+   },
+   "desc": {
+    "en": "American rapper (born 1981)",
+    "ru": "американский рэпер, певец и музыкальный продюсер кубинского происхождения"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Afrojack": {
    "aliases": [
@@ -3763,7 +3781,24 @@
    "albums": 226,
    "ytPhotoChecked": "2026-11-26T21:17:15Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCgJqds2cC7CBJAaUchpdJFQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCgJqds2cC7CBJAaUchpdJFQ",
+   "bioChecked": "2026-11-28T01:34:20Z",
+   "bio": {
+    "en": "Nick Leonardus van de Wall, known professionally as Afrojack, is a Dutch DJ, record producer and remixer. In 2007, he founded the record label Wall Recordings; his debut album Forget the World was released in 2014. Afrojack regularly features as one of the ten best artists in the Top 100 DJs published by DJ Mag. He is also the CEO of LDH Europe.",
+    "ru": "Ник ван де Валл, более известный как Афродже́к — нидерландский музыкальный продюсер и диджей. Один из известных синглов, «Take Over Control», записанный совместно с Евой Симонс, попал в чарты многих стран. Он занимал 19-е место на DJ MAG’s TOP 100 DJs 2010. Это был почти один из самых высоких подъёмов в 2010 году, уступив лишь Dash Berlin. В декабре 2010 года Афроджек объявил на своём официальном сайте о выпуске альбома Lost & Found. Альбом был выпущен 22 декабря 2010 года.",
+    "uz": "Nik Leonardus van de Wall, professional sifatida Afrojack nomi bilan tanilgan, gollandiyalik DJ, rekord prodyuser va remikser. 2007 yilda u Wall Recordings rekord yorlig'iga asos solgan; uning debyut albomi Forget the World 2014 yilda chiqdi. Afrojack muntazam ravishda DJ Mag tomonidan nashr etilgan 100 ta eng yaxshi DJlar orasida eng yaxshi o'nta rassomdan biri sifatida namoyon bo'ladi. U, shuningdek, LDH Europe bosh direktori."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Afrojack",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%90%D1%84%D1%80%D0%BE%D0%B4%D0%B6%D0%B5%D0%BA"
+   },
+   "desc": {
+    "en": "Dutch DJ and record producer (born 1987)",
+    "ru": "нидерландский музыкальный продюсер и диджей"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Ne-Yo": {
    "aliases": [],
@@ -5797,12 +5832,17 @@
   },
   "Arash Fouladvand": {
    "aliases": [],
-   "verified": false,
+   "verified": true,
    "ytPhotoChecked": "2026-11-27T09:22:00Z",
    "image": "library/artists/arash-fouladvand-yt.jpg",
    "color": "#737373",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC7ePj93JE_GR57ZmesX-aKw"
+   "youtubeMusic": "https://music.youtube.com/channel/UC7ePj93JE_GR57ZmesX-aKw",
+   "checked": "2026-11-28T01:34:04Z",
+   "verifiedAt": "2026-11-28T01:34:05Z",
+   "deezerId": 8607926,
+   "deezer": "https://www.deezer.com/artist/8607926",
+   "fans": 101
   },
   "Vahid Taj": {
    "aliases": [],
@@ -5811,16 +5851,22 @@
    "image": "library/artists/vahid-taj-yt.jpg",
    "color": "#43375f",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCk2NI6OWizJgx1n--LFazzg"
+   "youtubeMusic": "https://music.youtube.com/channel/UCk2NI6OWizJgx1n--LFazzg",
+   "checked": "2026-11-28T01:34:05Z"
   },
   "Sara Naeini": {
    "aliases": [],
-   "verified": false,
+   "verified": true,
    "ytPhotoChecked": "2026-11-27T09:22:02Z",
    "image": "library/artists/sara-naeini-yt.jpg",
    "color": "#7c1f20",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCSfTPR7Czs-Ie3-54tZ4Gog"
+   "youtubeMusic": "https://music.youtube.com/channel/UCSfTPR7Czs-Ie3-54tZ4Gog",
+   "checked": "2026-11-28T01:34:06Z",
+   "verifiedAt": "2026-11-28T01:34:07Z",
+   "deezerId": 6791733,
+   "deezer": "https://www.deezer.com/artist/6791733",
+   "fans": 316
   },
   "Bahar Choir": {
    "aliases": [],
@@ -5829,7 +5875,8 @@
    "image": "library/artists/bahar-choir-yt.jpg",
    "color": "#305e5f",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UC7V-h7PuuTmIDhjs2I_ZiYQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UC7V-h7PuuTmIDhjs2I_ZiYQ",
+   "checked": "2026-11-28T01:34:07Z"
   }
  },
  "songs": [
