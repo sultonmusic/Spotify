@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T11:15:49Z",
- "count": 610,
+ "updatedAt": "2026-11-28T11:25:40Z",
+ "count": 612,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -6266,6 +6266,98 @@
   }
  },
  "songs": [
+  {
+   "id": "e1ed074105",
+   "title": "Heavenly",
+   "artist": "Cigarettes After Sex",
+   "artists": [
+    "Cigarettes After Sex"
+   ],
+   "album": "Cry",
+   "year": 2019,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 286.77,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e1ed074105.mp3",
+   "cover": "library/covers/e1ed074105.jpg",
+   "color": "#747474",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T11:25:40Z",
+   "mime": "audio/mpeg",
+   "size": 6883920,
+   "storage": "release",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "yt:_nbTztJARrg",
+   "story": "library/stories/e1ed074105.jpg"
+  },
+  {
+   "id": "54457b9763",
+   "title": "Sweet",
+   "artist": "Cigarettes After Sex",
+   "artists": [
+    "Cigarettes After Sex"
+   ],
+   "album": "Cigarettes After Sex",
+   "year": 2017,
+   "genre": "Indie",
+   "subgenre": "Alternative",
+   "moods": [
+    "romantic",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": 96,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 291.64,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/54457b9763.mp3",
+   "cover": "library/covers/54457b9763.jpg",
+   "color": "#444b47",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T11:25:15Z",
+   "mime": "audio/mpeg",
+   "size": 7000862,
+   "storage": "release",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:z1N52_9FSOs",
+   "story": "library/stories/54457b9763.jpg"
+  },
   {
    "id": "c5c69d4464",
    "title": "K.",
