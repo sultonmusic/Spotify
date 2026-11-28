@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T01:37:26Z",
- "count": 470,
+ "updatedAt": "2026-11-28T02:33:36Z",
+ "count": 471,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -3813,7 +3813,24 @@
    "albums": 87,
    "ytPhotoChecked": "2026-11-26T21:17:17Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCOHN2Rba82QVQTLJ3Gumx_g"
+   "youtubeMusic": "https://music.youtube.com/channel/UCOHN2Rba82QVQTLJ3Gumx_g",
+   "bioChecked": "2026-11-28T02:30:27Z",
+   "bio": {
+    "en": "Shaffer Chimere Smith, known professionally as Ne-Yo, is an American singer, songwriter, record producer, and actor. Regarded as a prominent figure in 2000s R&B music, he is the recipient of numerous accolades, including three Grammy Awards.",
+    "ru": "Ни-Йо — американский певец, автор песен, продюсер, актёр. Обладатель трёх премий Грэмми.",
+    "uz": "Shaffer Chimere Smit, professional ravishda Ne-Yo nomi bilan tanilgan, amerikalik qo'shiqchi, qo'shiq muallifi, prodyuser va aktyor. 2000-yillarning R&B musiqasining taniqli shaxsi sifatida u ko'plab mukofotlarga, jumladan uchta Grammy mukofotiga sazovor bo'lgan."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Ne-Yo",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9D%D0%B8-%D0%99%D0%BE"
+   },
+   "desc": {
+    "en": "American singer (born 1979)",
+    "ru": "американский певец"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Nayer": {
    "aliases": [],
@@ -3828,7 +3845,23 @@
    "albums": 2,
    "ytPhotoChecked": "2026-11-26T21:17:18Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCt-CrXgael4KlbWNHRVkYsQ"
+   "youtubeMusic": "https://music.youtube.com/channel/UCt-CrXgael4KlbWNHRVkYsQ",
+   "bioChecked": "2026-11-28T02:30:31Z",
+   "bio": {
+    "en": "Nayer Regalado, known mononymously as Nayer, is an American singer. She gained recognition in 2011 after being featured on Pitbull's hit single \"Give Me Everything\", and releasing her single \"Suave \" featuring Pitbull and Mohombi which was a success in Europe and the Middle East. Her other known collaborations include songs with Ne-Yo, Enrique Iglesias, Lil Wayne, Usher, Fonseca, Juan Magan, Yomil, Jean-Roch and Melissa.",
+    "ru": "Найер Регаладо более известная как Найер — американская певица и модель.",
+    "uz": "Nayer Regalado, mononim sifatida Nayer nomi bilan tanilgan, amerikalik qo'shiqchi. U 2011 yilda Pitbullning \"Give Me Everything\" singlida qatnashganidan so'ng tan olingan va Evropa va Yaqin Sharqda muvaffaqiyat qozongan Pitbull va Mohombi ishtirokidagi \"Suave\" singlini chiqarganidan keyin tan olingan. Uning boshqa mashhur hamkorliklari orasida Ne-Yo, Enrike Iglesias, Lil Ueyn, Usher, Fonseka, Xuan Magan, Yomil, Jan-Roch va Melissa bilan qo'shiqlar bor."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Nayer",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%9D%D0%B0%D0%B9%D0%B5%D1%80"
+   },
+   "desc": {
+    "en": "American singer"
+   },
+   "bioTr": [
+    "uz"
+   ]
   },
   "Britney Spears": {
    "aliases": [],
@@ -3845,7 +3878,22 @@
    "albums": 32,
    "ytPhotoChecked": "2026-11-26T21:17:19Z",
    "imageSource": "ytmusic",
-   "youtubeMusic": "https://music.youtube.com/channel/UCIOdfgVAkc_8rxhRAz9WRDw"
+   "youtubeMusic": "https://music.youtube.com/channel/UCIOdfgVAkc_8rxhRAz9WRDw",
+   "bioChecked": "2026-11-28T02:30:35Z",
+   "bio": {
+    "en": "Britney Jean Spears is an American singer. Referred to as the \"Princess of Pop\", she is known for her unique vocal style and energetic stage performances. Spears's role in reviving teen pop music established her as the best-selling teenage artist of all time and one of the most influential entertainers of the early 21st century.",
+    "ru": "Бри́тни Джин Спирс — американская поп-певица, танцовщица, автор песен, актриса кино и телевидения. Лауреат премии «Грэмми» в категории «Лучшая танцевальная запись».",
+    "uz": "Britney Jean Spears - amerikalik qoʻshiqchi, qoʻshiqnavis, raqqosa va aktrisadir. U 1990-yillar oxiri va 2000-yillar boshlarida oʻsmirlar pop-musiqasining tiklanishiga taʼsir koʻrsatgan, shu sababdan ham uni „Pop malikasi“ deb atashgan. Turli sahnalar va teleseriallarda paydo boʻla boshlagan Spears 1997-yilda 15 yoshida Jive Records bilan shartnoma imzoladi. Uning AQShdagi diamond (olmos) sertifikatiga ega boʻlishga musharraq boʻlgan ilk ikkita studiyaviy albomi — ...Baby One More Time (1999) Oops!..."
+   },
+   "wiki": {
+    "en": "https://en.wikipedia.org/wiki/Britney_Spears",
+    "ru": "https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%80%D1%81%2C_%D0%91%D1%80%D0%B8%D1%82%D0%BD%D0%B8",
+    "uz": "https://uz.wikipedia.org/wiki/Britney_Spears"
+   },
+   "desc": {
+    "en": "American singer (born 1981)",
+    "ru": "американская певица (род. 1981)"
+   }
   },
   "Madonna": {
    "aliases": [],
@@ -5877,9 +5925,76 @@
    "imageSource": "ytmusic",
    "youtubeMusic": "https://music.youtube.com/channel/UC7V-h7PuuTmIDhjs2I_ZiYQ",
    "checked": "2026-11-28T01:34:07Z"
+  },
+  "Rosa Linn": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 142015162,
+   "itunesId": 1580652660,
+   "deezer": "https://www.deezer.com/artist/142015162",
+   "apple": "https://music.apple.com/us/artist/rosa-linn/1580652660",
+   "image": "library/artists/rosa-linn-yt.jpg",
+   "color": "#747270",
+   "checked": "2026-11-28T02:26:52Z",
+   "verifiedAt": "2026-11-28T02:26:52Z",
+   "fans": 34561,
+   "albums": 16,
+   "ytPhotoChecked": "2026-11-28T02:30:22Z",
+   "imageSource": "ytmusic",
+   "youtubeMusic": "https://music.youtube.com/channel/UCoXUei82oXmv4HJW4of7KuA"
   }
  },
  "songs": [
+  {
+   "id": "b458a2be77",
+   "title": "SNAP",
+   "artist": "Rosa Linn",
+   "artists": [
+    "Rosa Linn"
+   ],
+   "album": "SNAP PACK",
+   "year": 2022,
+   "genre": "Indie",
+   "subgenre": "Indie Pop",
+   "moods": [
+    "romantic",
+    "dreamy",
+    "melancholic"
+   ],
+   "language": "en",
+   "energy": 0.5,
+   "danceability": 0.55,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 184.58,
+   "src": "library/audio/b458a2be77.m4a",
+   "cover": "library/covers/b458a2be77.jpg",
+   "color": "#82706e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes",
+    "shazam"
+   ],
+   "tg": {
+    "msgs": [
+     872,
+     873
+    ]
+   },
+   "addedAt": "2026-11-28T02:26:55Z",
+   "mime": "audio/mp4",
+   "size": 2985994,
+   "storage": "pages",
+   "lufs": -10.4,
+   "gain": -3.6,
+   "via": "audio",
+   "fileKey": "b458a2be7761504c",
+   "story": "library/stories/b458a2be77.jpg"
+  },
   {
    "id": "8b883546b5",
    "title": "Ney Name",
