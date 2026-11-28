@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updatedAt": "2026-11-28T08:58:30Z",
- "count": 486,
+ "updatedAt": "2026-11-28T09:17:27Z",
+ "count": 514,
  "site": {
   "admins": [
    "7c6f836fcd3926deb5c15a5b3c0a7f496d792e1113684e3fc2de5ec03abf434a"
@@ -3985,7 +3985,11 @@
    "desc": {
     "en": "English rock band (1960–1970)",
     "ru": "британская рок-группа"
-   }
+   },
+   "deezerId": 1,
+   "deezer": "https://www.deezer.com/artist/1",
+   "fans": 8187170,
+   "albums": 52
   },
   "Elton John": {
    "aliases": [],
@@ -6125,9 +6129,1300 @@
    "verifiedAt": "2026-11-28T07:47:52Z",
    "fans": 38,
    "albums": 38
+  },
+  "David Bowie": {
+   "aliases": [],
+   "verified": true,
+   "deezerId": 997,
+   "deezer": "https://www.deezer.com/artist/997",
+   "image": "library/artists/david-bowie.jpg",
+   "color": "#5b5b5b",
+   "checked": "2026-11-28T09:12:15Z",
+   "verifiedAt": "2026-11-28T09:12:15Z",
+   "fans": 2492050,
+   "albums": 166
   }
  },
  "songs": [
+  {
+   "id": "2c9031cc97",
+   "title": "Something (Remastered 2009)",
+   "artist": "The Beatles",
+   "artists": [
+    "The Beatles"
+   ],
+   "album": "Abbey Road (Remastered 2009)",
+   "year": 1969,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 1.0,
+   "danceability": 1.0,
+   "bpm": 132,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 182.29,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2c9031cc97.mp3",
+   "cover": "library/covers/2c9031cc97.jpg",
+   "color": "#2d4a62",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:17:26Z",
+   "mime": "audio/mpeg",
+   "size": 4376626,
+   "storage": "release",
+   "lufs": -13.2,
+   "gain": -0.8,
+   "via": "audio",
+   "fileKey": "yt:VWO3nEuWo4k",
+   "story": "library/stories/2c9031cc97.jpg"
+  },
+  {
+   "id": "28b43eb187",
+   "title": "Help! (Remastered 2009)",
+   "artist": "The Beatles",
+   "artists": [
+    "The Beatles"
+   ],
+   "album": "Help! (Remastered 2009)",
+   "year": 1965,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 95,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 139.56,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/28b43eb187.mp3",
+   "cover": "library/covers/28b43eb187.jpg",
+   "color": "#184d77",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:16:51Z",
+   "mime": "audio/mpeg",
+   "size": 3350760,
+   "storage": "release",
+   "lufs": -11.1,
+   "gain": -2.9,
+   "via": "audio",
+   "fileKey": "yt:MKUex3fci5c",
+   "story": "library/stories/28b43eb187.jpg"
+  },
+  {
+   "id": "ab0ac5ac34",
+   "title": "Here Comes The Sun (Remastered 2009)",
+   "artist": "The Beatles",
+   "artists": [
+    "The Beatles"
+   ],
+   "album": "Abbey Road (Remastered 2009)",
+   "year": 1969,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 128,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 185.73,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ab0ac5ac34.mp3",
+   "cover": "library/covers/ab0ac5ac34.jpg",
+   "color": "#2d4a62",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:16:22Z",
+   "mime": "audio/mpeg",
+   "size": 4459003,
+   "storage": "release",
+   "lufs": -12.1,
+   "gain": -1.9,
+   "via": "audio",
+   "fileKey": "yt:xUNqsfFUwhY",
+   "story": "library/stories/ab0ac5ac34.jpg"
+  },
+  {
+   "id": "5f7cbbe062",
+   "title": "Come Together (Remastered 2009)",
+   "artist": "The Beatles",
+   "artists": [
+    "The Beatles"
+   ],
+   "album": "Abbey Road (Remastered 2009)",
+   "year": 1969,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 164,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 259.95,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/5f7cbbe062.mp3",
+   "cover": "library/covers/5f7cbbe062.jpg",
+   "color": "#2d4a62",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:15:47Z",
+   "mime": "audio/mpeg",
+   "size": 6240566,
+   "storage": "release",
+   "lufs": -12.7,
+   "gain": -1.3,
+   "via": "audio",
+   "fileKey": "yt:oolpPmuK2I8",
+   "story": "library/stories/5f7cbbe062.jpg"
+  },
+  {
+   "id": "d0fa92d5fc",
+   "title": "Yesterday (Remastered 2009)",
+   "artist": "The Beatles",
+   "artists": [
+    "The Beatles"
+   ],
+   "album": "Help! (Remastered 2009)",
+   "year": 1965,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "nostalgic",
+    "motivational",
+    "energetic"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": 97,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 125.67,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/d0fa92d5fc.mp3",
+   "cover": "library/covers/d0fa92d5fc.jpg",
+   "color": "#184d77",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:15:06Z",
+   "mime": "audio/mpeg",
+   "size": 3017837,
+   "storage": "release",
+   "lufs": -13.3,
+   "gain": -0.7,
+   "via": "audio",
+   "fileKey": "yt:NrgmdOz227I",
+   "story": "library/stories/d0fa92d5fc.jpg"
+  },
+  {
+   "id": "b231f8dbe7",
+   "title": "Hey Jude",
+   "artist": "The Beatles",
+   "artists": [
+    "The Beatles"
+   ],
+   "album": "1",
+   "year": 1968,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "nostalgic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.92,
+   "danceability": 0.97,
+   "bpm": 148,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 425.65,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b231f8dbe7.mp3",
+   "cover": "library/covers/b231f8dbe7.jpg",
+   "color": "#e41b13",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:14:48Z",
+   "mime": "audio/mpeg",
+   "size": 10217220,
+   "storage": "release",
+   "lufs": -11.1,
+   "gain": -2.9,
+   "via": "audio",
+   "fileKey": "yt:mQER0A0ej0M",
+   "story": "library/stories/b231f8dbe7.jpg"
+  },
+  {
+   "id": "b18c728c96",
+   "title": "Don't Stop Me Now",
+   "artist": "Queen",
+   "artists": [
+    "Queen"
+   ],
+   "album": "Bohemian Rhapsody (The Original Soundtrack)",
+   "year": 2018,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 218.65,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b18c728c96.mp3",
+   "cover": "library/covers/b18c728c96.jpg",
+   "color": "#ef8f10",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:13:53Z",
+   "mime": "audio/mpeg",
+   "size": 5249265,
+   "storage": "release",
+   "lufs": -9.9,
+   "gain": -4.1,
+   "via": "audio",
+   "fileKey": "yt:1UjLFMg18cY",
+   "story": "library/stories/b18c728c96.jpg"
+  },
+  {
+   "id": "0f00c91272",
+   "title": "Tie Your Mother Down",
+   "artist": "Queen",
+   "artists": [
+    "Queen"
+   ],
+   "album": "A Day At The Races (Deluxe Edition)",
+   "year": 1976,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 300.09,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/0f00c91272.mp3",
+   "cover": "library/covers/0f00c91272.jpg",
+   "color": "#4d4b41",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:13:26Z",
+   "mime": "audio/mpeg",
+   "size": 7203628,
+   "storage": "release",
+   "lufs": -9.6,
+   "gain": -4.4,
+   "via": "audio",
+   "fileKey": "yt:qyu0ubOLgO0",
+   "story": "library/stories/0f00c91272.jpg"
+  },
+  {
+   "id": "2db332d346",
+   "title": "Bicycle Race",
+   "artist": "Queen",
+   "artists": [
+    "Queen"
+   ],
+   "album": "Jazz (Deluxe Edition)",
+   "year": 1978,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 183.7,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/2db332d346.mp3",
+   "cover": "library/covers/2db332d346.jpg",
+   "color": "#635d62",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:12:50Z",
+   "mime": "audio/mpeg",
+   "size": 4410582,
+   "storage": "release",
+   "lufs": -11.7,
+   "gain": -2.3,
+   "via": "audio",
+   "fileKey": "yt:FsfDz6jXZ6s",
+   "story": "library/stories/2db332d346.jpg"
+  },
+  {
+   "id": "a373c8e04f",
+   "title": "Under Pressure",
+   "artist": "Queen, David Bowie",
+   "artists": [
+    "Queen",
+    "David Bowie"
+   ],
+   "album": "Hot Space (Deluxe Edition)",
+   "year": 1981,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "romantic",
+    "party"
+   ],
+   "language": "en",
+   "energy": 0.9,
+   "danceability": 0.95,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 248.72,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/a373c8e04f.mp3",
+   "cover": "library/covers/a373c8e04f.jpg",
+   "color": "#0092cb",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:12:20Z",
+   "mime": "audio/mpeg",
+   "size": 5970986,
+   "storage": "release",
+   "lufs": -11.2,
+   "gain": -2.8,
+   "via": "audio",
+   "fileKey": "yt:BaxnrepwXck",
+   "story": "library/stories/a373c8e04f.jpg"
+  },
+  {
+   "id": "c49a6d61b4",
+   "title": "I Want It All",
+   "artist": "Queen",
+   "artists": [
+    "Queen"
+   ],
+   "album": "Greatest Hits II",
+   "year": 1989,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "sad",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.7,
+   "danceability": 0.75,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 238.7,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c49a6d61b4.mp3",
+   "cover": "library/covers/c49a6d61b4.jpg",
+   "color": "#086087",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:11:45Z",
+   "mime": "audio/mpeg",
+   "size": 5730194,
+   "storage": "release",
+   "lufs": -9.4,
+   "gain": -4.6,
+   "via": "audio",
+   "fileKey": "yt:HwbDXredxRk",
+   "story": "library/stories/c49a6d61b4.jpg"
+  },
+  {
+   "id": "29a1809999",
+   "title": "We Are the Champions",
+   "artist": "Queen",
+   "artists": [
+    "Queen"
+   ],
+   "album": "News Of The World (Deluxe Edition)",
+   "year": 1977,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 180.52,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/29a1809999.mp3",
+   "cover": "library/covers/29a1809999.jpg",
+   "color": "#6a8251",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:11:14Z",
+   "mime": "audio/mpeg",
+   "size": 4333995,
+   "storage": "release",
+   "lufs": -13.5,
+   "gain": -0.5,
+   "via": "audio",
+   "fileKey": "yt:32C0ohT-JFU",
+   "story": "library/stories/29a1809999.jpg"
+  },
+  {
+   "id": "e21b554d11",
+   "title": "Love of My Life",
+   "artist": "Queen",
+   "artists": [
+    "Queen"
+   ],
+   "album": "A Night At The Opera",
+   "year": 1975,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 264.25,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/e21b554d11.mp3",
+   "cover": "library/covers/e21b554d11.jpg",
+   "color": "#ffff00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:10:45Z",
+   "mime": "audio/mpeg",
+   "size": 6343640,
+   "storage": "release",
+   "lufs": -13.1,
+   "gain": -0.9,
+   "via": "audio",
+   "fileKey": "yt:_IL77qFKgRw",
+   "story": "library/stories/e21b554d11.jpg"
+  },
+  {
+   "id": "fcc4d8c448",
+   "title": "You're My Best Friend",
+   "artist": "Queen",
+   "artists": [
+    "Queen"
+   ],
+   "album": "A Night At The Opera (Deluxe Edition)",
+   "year": 1975,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 172.15,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/fcc4d8c448.mp3",
+   "cover": "library/covers/fcc4d8c448.jpg",
+   "color": "#00ffff",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:10:10Z",
+   "mime": "audio/mpeg",
+   "size": 4133551,
+   "storage": "release",
+   "lufs": -13.4,
+   "gain": -0.6,
+   "via": "audio",
+   "fileKey": "yt:MhMFTuK8fg4",
+   "story": "library/stories/fcc4d8c448.jpg"
+  },
+  {
+   "id": "fc8e896fa7",
+   "title": "Killer Queen",
+   "artist": "Queen",
+   "artists": [
+    "Queen"
+   ],
+   "album": "Sheer Heart Attack (Deluxe Edition)",
+   "year": 1974,
+   "genre": "Rock",
+   "subgenre": null,
+   "moods": [
+    "energetic",
+    "angry"
+   ],
+   "language": "en",
+   "energy": 0.8,
+   "danceability": 0.85,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 123.08,
+   "src": "library/audio/fc8e896fa7.mp3",
+   "cover": "library/covers/fc8e896fa7.jpg",
+   "color": "#ab3e2f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:09:35Z",
+   "mime": "audio/mpeg",
+   "size": 2955620,
+   "storage": "pages",
+   "lufs": -15.7,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:cC_9nc4QOgQ",
+   "story": "library/stories/fc8e896fa7.jpg"
+  },
+  {
+   "id": "ca4b43fb2e",
+   "title": "They Don't Care About Us",
+   "artist": "Michael Jackson",
+   "artists": [
+    "Michael Jackson"
+   ],
+   "album": "HIStory - PAST, PRESENT AND FUTURE - BOOK I",
+   "year": 1995,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 180,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 284.16,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/ca4b43fb2e.mp3",
+   "cover": "library/covers/ca4b43fb2e.jpg",
+   "color": "#711d2e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:09:13Z",
+   "mime": "audio/mpeg",
+   "size": 6821185,
+   "storage": "release",
+   "lufs": -10.4,
+   "gain": -3.6,
+   "via": "audio",
+   "fileKey": "yt:-_OPJ2d86kE",
+   "story": "library/stories/ca4b43fb2e.jpg"
+  },
+  {
+   "id": "7891f17609",
+   "title": "Remember the Time",
+   "artist": "Michael Jackson",
+   "artists": [
+    "Michael Jackson"
+   ],
+   "album": "Dangerous",
+   "year": 1991,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "nostalgic",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 239.63,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/7891f17609.mp3",
+   "cover": "library/covers/7891f17609.jpg",
+   "color": "#89644b",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:08:41Z",
+   "mime": "audio/mpeg",
+   "size": 5752664,
+   "storage": "release",
+   "lufs": -10.2,
+   "gain": -3.8,
+   "via": "audio",
+   "fileKey": "yt:q9YyV-4mM94",
+   "story": "library/stories/7891f17609.jpg"
+  },
+  {
+   "id": "457d9dd595",
+   "title": "Earth Song",
+   "artist": "Michael Jackson",
+   "artists": [
+    "Michael Jackson"
+   ],
+   "album": "HIStory - PAST, PRESENT AND FUTURE - BOOK I",
+   "year": 1995,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.77,
+   "danceability": 0.82,
+   "bpm": 138,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 406.04,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/457d9dd595.mp3",
+   "cover": "library/covers/457d9dd595.jpg",
+   "color": "#711d2e",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:08:14Z",
+   "mime": "audio/mpeg",
+   "size": 9746675,
+   "storage": "release",
+   "lufs": -9.0,
+   "gain": -5.0,
+   "via": "audio",
+   "fileKey": "yt:gbAd62jzrNI",
+   "story": "library/stories/457d9dd595.jpg"
+  },
+  {
+   "id": "1556f96a7f",
+   "title": "Black or White",
+   "artist": "Michael Jackson",
+   "artists": [
+    "Michael Jackson"
+   ],
+   "album": "The Essential Michael Jackson",
+   "year": 1991,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 254.93,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/1556f96a7f.mp3",
+   "cover": "library/covers/1556f96a7f.jpg",
+   "color": "#583739",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:07:17Z",
+   "mime": "audio/mpeg",
+   "size": 6120169,
+   "storage": "release",
+   "lufs": -9.0,
+   "gain": -5.0,
+   "via": "audio",
+   "fileKey": "yt:m-y_IxPcx8U",
+   "story": "library/stories/1556f96a7f.jpg"
+  },
+  {
+   "id": "aa0d3928a0",
+   "title": "Bad",
+   "artist": "Michael Jackson",
+   "artists": [
+    "Michael Jackson"
+   ],
+   "album": "Bad",
+   "year": 1987,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 114,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 247.36,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/aa0d3928a0.mp3",
+   "cover": "library/covers/aa0d3928a0.jpg",
+   "color": "#00ff00",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:06:51Z",
+   "mime": "audio/mpeg",
+   "size": 5938116,
+   "storage": "release",
+   "lufs": -8.8,
+   "gain": -5.2,
+   "via": "audio",
+   "fileKey": "yt:-DlMoJ2V6uk",
+   "story": "library/stories/aa0d3928a0.jpg"
+  },
+  {
+   "id": "b8af385c20",
+   "title": "Man in the Mirror",
+   "artist": "Michael Jackson",
+   "artists": [
+    "Michael Jackson"
+   ],
+   "album": "The Essential Michael Jackson",
+   "year": 1987,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "sad",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 100,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 319.31,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b8af385c20.mp3",
+   "cover": "library/covers/b8af385c20.jpg",
+   "color": "#583739",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:06:21Z",
+   "mime": "audio/mpeg",
+   "size": 7665004,
+   "storage": "release",
+   "lufs": -10.0,
+   "gain": -4.0,
+   "via": "audio",
+   "fileKey": "yt:BbnV1x7cHjs",
+   "story": "library/stories/b8af385c20.jpg"
+  },
+  {
+   "id": "bc53d9c865",
+   "title": "Smooth Criminal",
+   "artist": "Michael Jackson",
+   "artists": [
+    "Michael Jackson"
+   ],
+   "album": "The Essential Michael Jackson",
+   "year": 1987,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 257.76,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/bc53d9c865.mp3",
+   "cover": "library/covers/bc53d9c865.jpg",
+   "color": "#583739",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:05:49Z",
+   "mime": "audio/mpeg",
+   "size": 6187562,
+   "storage": "release",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:XzNWRmqibNE",
+   "story": "library/stories/bc53d9c865.jpg"
+  },
+  {
+   "id": "70af7c597d",
+   "title": "Beat It",
+   "artist": "Michael Jackson",
+   "artists": [
+    "Michael Jackson"
+   ],
+   "album": "Thriller",
+   "year": 1982,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "motivational",
+    "happy",
+    "romantic"
+   ],
+   "language": "en",
+   "energy": 0.87,
+   "danceability": 0.92,
+   "bpm": 139,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 258.4,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/70af7c597d.mp3",
+   "cover": "library/covers/70af7c597d.jpg",
+   "color": "#6b5a4d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:05:22Z",
+   "mime": "audio/mpeg",
+   "size": 6203085,
+   "storage": "release",
+   "lufs": -12.6,
+   "gain": -1.4,
+   "via": "audio",
+   "fileKey": "yt:kOn-HdEg6AQ",
+   "story": "library/stories/70af7c597d.jpg"
+  },
+  {
+   "id": "3b7fa54ff4",
+   "title": "Thriller",
+   "artist": "Michael Jackson",
+   "artists": [
+    "Michael Jackson"
+   ],
+   "album": "Thriller",
+   "year": 1982,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 118,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 357.8,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/3b7fa54ff4.mp3",
+   "cover": "library/covers/3b7fa54ff4.jpg",
+   "color": "#6b5a4d",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:04:52Z",
+   "mime": "audio/mpeg",
+   "size": 8588878,
+   "storage": "release",
+   "lufs": -14.3,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:Z85lxckrtzg",
+   "story": "library/stories/3b7fa54ff4.jpg"
+  },
+  {
+   "id": "28ce43167b",
+   "title": "Music",
+   "artist": "Madonna",
+   "artists": [
+    "Madonna"
+   ],
+   "album": "Music",
+   "year": 2000,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "party",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 286.7,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/28ce43167b.mp3",
+   "cover": "library/covers/28ce43167b.jpg",
+   "color": "#8f008f",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:03:59Z",
+   "mime": "audio/mpeg",
+   "size": 6882176,
+   "storage": "release",
+   "lufs": -15.0,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:A9EvnyhUZrA",
+   "story": "library/stories/28ce43167b.jpg"
+  },
+  {
+   "id": "8b8683af01",
+   "title": "Into the Groove",
+   "artist": "Madonna",
+   "artists": [
+    "Madonna"
+   ],
+   "album": "Angel",
+   "year": 1985,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "party",
+    "romantic",
+    "motivational"
+   ],
+   "language": "en",
+   "energy": 0.75,
+   "danceability": 0.8,
+   "bpm": 116,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 249.8,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/8b8683af01.mp3",
+   "cover": "library/covers/8b8683af01.jpg",
+   "color": "#3d446d",
+   "lyrics": "plain",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:02:52Z",
+   "mime": "audio/mpeg",
+   "size": 5996874,
+   "storage": "release",
+   "lufs": -13.2,
+   "gain": -0.8,
+   "via": "audio",
+   "fileKey": "yt:HjOlnZ8aPdg",
+   "story": "library/stories/8b8683af01.jpg"
+  },
+  {
+   "id": "b9e9779dd1",
+   "title": "Papa Don't Preach",
+   "artist": "Madonna",
+   "artists": [
+    "Madonna"
+   ],
+   "album": "True Blue",
+   "year": 1986,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "motivational",
+    "calm"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": null,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 268.53,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/b9e9779dd1.mp3",
+   "cover": "library/covers/b9e9779dd1.jpg",
+   "color": "#3d3658",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:02:16Z",
+   "mime": "audio/mpeg",
+   "size": 6446160,
+   "storage": "release",
+   "lufs": -8.1,
+   "gain": -5.9,
+   "via": "audio",
+   "fileKey": "yt:6CuZARbr8o4",
+   "story": "library/stories/b9e9779dd1.jpg"
+  },
+  {
+   "id": "c09cbfd8f9",
+   "title": "Like a Virgin",
+   "artist": "Madonna",
+   "artists": [
+    "Madonna"
+   ],
+   "album": "Like a Virgin",
+   "year": 1984,
+   "genre": "Pop",
+   "subgenre": null,
+   "moods": [
+    "romantic",
+    "happy"
+   ],
+   "language": "en",
+   "energy": 0.65,
+   "danceability": 0.7,
+   "bpm": 120,
+   "tags": [],
+   "description": null,
+   "explicit": false,
+   "duration": 218.63,
+   "src": "https://github.com/sultonmusic/Spotify/releases/download/audio-library/c09cbfd8f9.mp3",
+   "cover": "library/covers/c09cbfd8f9.jpg",
+   "color": "#786459",
+   "lyrics": "synced",
+   "confidence": 0.95,
+   "sources": [
+    "deezer",
+    "itunes"
+   ],
+   "tg": {
+    "msgs": []
+   },
+   "addedAt": "2026-11-28T09:01:46Z",
+   "mime": "audio/mpeg",
+   "size": 5248656,
+   "storage": "release",
+   "lufs": -16.4,
+   "gain": 0.0,
+   "via": "audio",
+   "fileKey": "yt:j5Y3u2D8kxg",
+   "story": "library/stories/c09cbfd8f9.jpg"
+  },
   {
    "id": "d7c3e0fbff",
    "title": "La Isla Bonita",
